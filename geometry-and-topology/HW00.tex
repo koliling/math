@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=0cm,bottom=2cm]{geometry} % page settings
+\usepackage{amsmath,amssymb,amsthm}
+
+\setlength{\parindent}{0mm}
+
+%\renewcommand{\baselinestretch}{1.05}
+%\usepackage{verbatim,amsfonts,amscd, graphicx}
+%\usepackage{graphics}
+%\topmargin0.0cm
+%\headheight0.0cm
+%\headsep0.0cm
+%\oddsidemargin0.0cm
+%\textheight23.0cm
+%\textwidth16.5cm
+%\footskip1.0cm
+%\theoremstyle{plain}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{corollary}{Corollary}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem*{surfacecor}{Corollary 1}
+%\newtheorem{conjecture}{Conjecture} 
+%\newtheorem{question}{Question} 
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\title{Basic Logic I: Homework 1}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\section{Prove $(x,y) = (u,v) \Leftrightarrow x = u \, \& \, y = v$.}
+\begin{proof}
+  The left implication follows immediately from the definition of $(,)$ and
+  the axiom of extensionality. \\
+
+  To show the right implication, assume $(x,y) = (u,v)$. This means the set
+  $\{\{x\}, \{x,y\}\}$ has the same elements as the set $\{\{u\}, \{u,v\}\}$.
+  From extensionality, there are only two possible cases - either $\{x\} =
+  \{u\}$ and $\{x,y\} = \{u,v\}$, or $\{x\} = \{u,v\}$ and $\{x,y\} = \{u\}$.
+  In the former, we first get $x = u$ from $\{x\} = \{u\}$, then applying
+  extensionality and $x=u$ on $\{x,y\} = \{u,v\}$, we get $y=v$ as required.
+  \\
+
+  In the latter, $\{x\}$ has one element while $\{u,v\}$ has at most two, so
+  from extensionality, since both sets are equal, we get $x=u=v$. Similarly,
+  from $\{x,y\} = \{u\}$, we get $x=y=u$. In particular, $x=u$ and $y=v$ as
+  required. \\
+\end{proof}
+
+
+\end{document}
