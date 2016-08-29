@@ -1,7 +1,10 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
 %\setlength{\parindent}{0mm}
+
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
 \title{Math 60210: Homework 1}
@@ -185,19 +188,71 @@
       \item Section 1.5 question 2: Write out the group tables for $S_3$,
         $D_8$, and $Q_8$. \label{part_5a}
         \begin{proof}
-          The group tables are as follows:
+          The group table of $S_3$ is as follows:
           \begin{center}
             \begin{tabular}{|c||c|c|c|c|c|c|}
               \hline
-              $S_3$     & (1,2)   & (1,3)   & (2,3)   & (1,2,3) & (1,3,2) & e \\
+              $S_3$     & e       & (1,2)   & (2,3)   & (1,3)   & (1,2,3) & (1,3,2) \\
               \hline\hline
-              (1,2)     & e       & (1,3)   & (2,3)   & (1,2,3) & (1,3,2) & e \\
+              e         & e       & (1,2)   & (2,3)   & (1,3)   & (1,2,3) & (1,3,2) \\
+              \hline
+              (1,2)     & (1,2)   & e       & (1,2,3) & (1,3,2) & (2,3)   & (1,3) \\
+              \hline
+              (2,3)     & (2,3)   & (1,3,2) & e       & (1,2,3) & (1,3)   & (1,2) \\
+              \hline
+              (1,3)     & (1,3)   & (1,2,3) & (1,3,2) & e       & (1,2)   & (2,3) \\
+              \hline
+              (1,2,3)   & (1,2,3) & (1,3)   & (1,2)   & (2,3)   & (1,3,2) & e \\
+              \hline
+              (1,3,2)   & (1,3,2) & (2,3)   & (1,3)   & (1,2)   & e       & (1,2,3) \\
               \hline
             \end{tabular}
           \end{center}
+
+          To obtain the group table of $D_8$, we refer to our answer to
+          section 1.2 question 3. $D_8$ is completely defined by two
+          generators $r$ of order 4 and $s$ of order 2, has eight elements,
+          and satisfies $rs=sr^{-1}=sr^3$.
+          \begin{center}
+            \begin{tabular}{|c||c|c|c|c|c|c|c|c|}
+              \hline
+              $D_8$     & $e$   & $r$   & $r^2$   & $r^3$
+                        & $s$   & $sr$  & $sr^2$  & $sr^3$ \\
+              \hline\hline
+              $e$       & $e$   & $r$   & $r^2$   & $r^3$
+                        & $s$   & $sr$  & $sr^2$  & $sr^3$ \\
+              \hline
+              $r$       & $r$   & $r^2$ & $r^3$   & $e$
+                        & $sr^3$& $s$   & $sr$    & $sr^2$ \\
+              \hline
+              $r^2$     & $r^2$ & $r^3$ & $e$     & $r$
+                        & $sr^2$& $sr^3$& $s$     & $sr$ \\
+              \hline
+              $r^3$     & $r^3$ & $e$   & $r$     & $r^2$
+                        & $sr$  & $sr^2$& $sr^3$  & $s$ \\
+              \hline
+              $s$       & $s$   & $sr$  & $sr^2$  & $sr^3$
+                        & $e$   & $r$   & $r^2$   & $r^3$ \\
+              \hline
+              $sr$      & $sr$  & $sr^2$& $sr^3$  & $s$
+                        & $r^3$ & $e$   & $r$     & $r^2$ \\
+              \hline
+              $sr^2$    & $sr^2$& $sr^3$& $s$     & $sr$
+                        & $r^2$ & $r^3$ & $e$     & $r$ \\
+              \hline
+              $sr^3$    & $sr^3$& $s$   & $sr$    & $sr^2$
+                        & $r$   & $r^2$ & $r^3$   & $e$ \\
+              \hline
+            \end{tabular}
+          \end{center}
+
+          \TODO{Quartenian table}
         \end{proof}
-      \item Compare your anwers to \#\ref{part_5a} with your answers to
+      \item Compare your answers to \#\ref{part_5a} with your answers to
         problems \#\ref{part_3} and \ref{part_4}.
+        \begin{proof}
+          \TODO{Compare.}
+        \end{proof}
     \end{enumerate}
 
   \item Section 1.1
@@ -397,7 +452,7 @@
           a prime $p$ if and only if each $|c_i|$ is $p$, as we are
           required to show. \\
 
-          If $\sigma = (1,2)(3,4,5)$ is an explicit example of an element
+          $\sigma = (1,2)(3,4,5)$ is an explicit example of an element
           in $S_n$ that does not have a prime order. This element has order
           $|(1,2)|\cdot |(3,4,5)| = 2\cdot 3 = 6$, which is not prime.
         \end{proof}
@@ -414,18 +469,18 @@
           the least common multiple of the lengths of the cycles in its
           cycle decomposition. Hence to find all possible $n$, we consider
           integer solutions to $k_1+\ldots+k_5=5$, restricted to $0\leq
-          k_1\leq\ldots\leq k_5\leq 5$. Then $n$ can be the product
-          $\prod_{i:k_i>0} k_i$ of any such solution. \\
+          k_1\leq\ldots\leq k_5\leq 5$. Then $n$ can be the lowest common
+          multiple of the non-zero elements of any such solution. \\
 
           From trying all possibilities for $S_5$, we get
           \begin{align*}
-            n && =         && 1\cdot 1 \cdot 1 \cdot 1 \cdot 1  & = 1 \\
-              && \text{or} && 1\cdot 1 \cdot 1 \cdot 2          & = 2 \\
-              && \text{or} && 1\cdot 1 \cdot 3                  & = 3 \\
-              && \text{or} && 1\cdot 2 \cdot 2                  & = 4 \\
-              && \text{or} && 1\cdot 4                          & = 4 \\
-              && \text{or} && 5                                 & = 5 \\
-              && \text{or} && 2\cdot 3                          & = 6 \\
+            n && =         && lcm(1,1,1,1,1)  & = 1 \\
+              && \text{or} && lcm(1,1,1,2)    & = 2 \\
+              && \text{or} && lcm(1,1,3)      & = 3 \\
+              && \text{or} && lcm(1,2,2)      & = 2 \\
+              && \text{or} && lcm(1,4)        & = 4 \\
+              && \text{or} && lcm(5)          & = 5 \\
+              && \text{or} && lcm(2,3)        & = 6 \\
           \end{align*}
           Summarizing, the possible values of $n$ are $1,2,\ldots,6$.
         \end{proof}
@@ -477,21 +532,21 @@
             such that $XY\neq YX$.
             \begin{proof}
               $XY = \begin{bmatrix}
-                      1 & a & b \\
-                      0 & 1 & c \\
-                      0 & 0 & 1 \\
-                    \end{bmatrix}
-                    \begin{bmatrix}
-                      1 & d & e \\
-                      0 & 1 & f \\
-                      0 & 0 & 1 \\
-                    \end{bmatrix}
-                    =
-                    \begin{bmatrix}
-                      1 & a+d & b+e+af \\
-                      0 & 1   & c+f \\
-                      0 & 0   & 1 \\
-                    \end{bmatrix} \in H(F)$, hence $H(F)$ is closed under
+                  1 & a & b \\
+                  0 & 1 & c \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}
+                \begin{bmatrix}
+                  1 & d & e \\
+                  0 & 1 & f \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                  1 & a+d & b+e+af \\
+                  0 & 1   & c+f \\
+                  0 & 0   & 1 \\
+                \end{bmatrix} \in H(F)$, hence $H(F)$ is closed under
               matrix multiplication. \\
 
               Consider the case where $X =
@@ -522,6 +577,120 @@
           \item Find an explicit formula for the matrix inverse $X^{-1}$
             and deduce that $H(F)$ is closed under inverses.
             \begin{proof}
+              From the explicit computation of $XY$ in the previous part,
+              given $X$, it suffices to find $d,e,f\in F$ such that
+              $a+d=c+f=b+e+af=0$. Solving for $d,e,f$, we get $d=-a$,
+              $f=-c$, and $e=-b-af=ac-b$. Summarizing, $X^{-1} =
+                \begin{bmatrix}
+                  1 & -a  & ac-b \\
+                  0 & 1   & -c \\
+                  0 & 0   & 1 \\
+                \end{bmatrix}$, which is contained in $H(F)$, hence $H(F)$
+              is closed under inverses.
+            \end{proof}
+          \item Prove the associative law for $H(F)$ and deduce that $H(F)$
+            is a group of order $|F|^3$.
+            \begin{proof}
+              Since $H(F)$ is closed under product, it suffices to show
+              that the three elements in the top right corner of the matrix
+              satisfy the associative law. \\
+
+              Given $X,Y,Z\in H(F)$, we wish to show that $(XY)Z = X(YZ)$.
+              Observing the computation of $XY$ in the first part of
+              question 11, the element in row 1 column 2 of the product
+              depends only on the sum of the elements in the original
+              matrices, hence for the element in this particular position,
+              matrix multiplication is associative. A similar argument can
+              be made for the element in row 2 column 1. \\
+
+              It remains to show that associativity holds for the element
+              in row 1 column 3. Let $Z =
+                \begin{bmatrix}
+                  1 & g & h \\
+                  0 & 1 & i \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}$.
+              Then for the element in the top right position, $(XY)Z$ gives
+              $b+e+af+h+(a+d)i$, while $X(YZ)$ gives $b+(e+h+di)+a(f+i)$,
+              which are equal. Hence multiplication is associative. \\
+
+              Since $H(F)$ is closed, associative, contains the unit, and
+              inverses, it is a group. The order of $H(F)$ is $|F|^3$, for
+              each combination of the three variables $a,b,c\in F$. 
+            \end{proof}
+          \item Find the order of each element of the finite group
+            $H(\mathbb{Z}/2\mathbb{Z})$.
+            \begin{proof}
+              From earlier argument, this group has exactly
+              $|\mathbb{Z}/2\mathbb{Z}|^3=8$ elements, defined by
+              combinations of $a,b,c\in\mathbb{Z}/2\mathbb{Z}$. We compute
+              the order of each of these elements. \\
+              
+              We make a few observations to speed up the computations.
+              First, from the computation of $XY$ in the first part of
+              question 11, replacing $Y$ with $X$, we get $X^2 =
+                \begin{bmatrix}
+                  1 & 2a  & 2b+ac \\
+                  0 & 1   & 2c \\
+                  0 & 0   & 1 \\
+                \end{bmatrix} $,
+              which will always equal to identity unless $a=c=1$. Hence all
+              non-identiy matrices with either $a=0$ or $c=0$ have order 2.
+              \\
+
+              It remains to compute the order of the two matrices with
+              $a=c=1$. Observe from the explicit formular of matrix inverse
+              computed earlier that these two matrices are inverses of each
+              other, hence they have the same order. So it suffices to
+              compute the order of the matrix with $a=c=1$ and $b=0$. We
+              check that this matrix has order 4. \\
+
+              The following table summarizes the computed orders:
+              \begin{center}
+                \begin{tabular}{|c|c|c||c|}
+                  \hline
+                  a & b & c & Order \\
+                  \hline\hline
+                  0 & 0 & 0 & 1 \\
+                  \hline
+                  0 & 0 & 1 & 2 \\
+                  \hline
+                  0 & 1 & 0 & 2 \\
+                  \hline
+                  0 & 1 & 1 & 2 \\
+                  \hline
+                  1 & 0 & 0 & 2 \\
+                  \hline
+                  1 & 0 & 1 & 4 \\
+                  \hline
+                  1 & 1 & 0 & 2 \\
+                  \hline
+                  1 & 1 & 1 & 4 \\
+                  \hline
+                \end{tabular}
+              \end{center}
+            \end{proof}
+          \item Prove that every non-identity element of the group
+            $H(\mathbb{R})$ has infinite order.
+            \begin{proof}
+              Let $X = \begin{bmatrix}
+                  1 & a & b \\
+                  0 & 1 & c \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}$ be an element with finite order. We show
+              that $X$ can only be identity. \\
+
+              From the computation of $XY$ in the first part of question
+              11, replacing $Y$ with $X$ and applying induction, we
+              observe that the element in row 1 column 2 of $X^n$ is
+              $n\cdot a$, and the element in row 2 column 1 of $X^n$ is
+              $n\cdot c$. Hence for $X$ to have finite order $n$, we need
+              $n\cdot a=n\cdot c=0$, which is only possible if $a=c=0$
+              since all non-zero elements in $\mathbb{R}$ have infinite
+              order. For $a=c=0$, we can apply induction again to show that
+              the element in row 1 column 2 of $X^n$ is $n\cdot b$. By
+              similar argument, for $X$ to have finite order we also need
+              $b=0$. Hence $X$ can only be the identity. 
             \end{proof}
         \end{enumerate}
     \end{enumerate}
