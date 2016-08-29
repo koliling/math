@@ -433,8 +433,97 @@
 
   \item Section 1.4
     \begin{enumerate}
-      \item Question 7:
-      \item Question 11:
+      \item Question 7: Let $p$ be a prime. Prove that the order of
+        $GL_2(\mathbb{F}_p)$ is $p^4-p^3-p^2+p$.
+        \begin{proof}
+          The total number of $2\times 2$ matrices over $\mathbb{F}_p$ is
+          $p^4$, since $|\mathbb{F}_p|=p$. A $2\times 2$ matrix is not
+          invertible if and only if its first row is a multiple of the
+          second. Excluding the row with both entries zero, the number of
+          unique first rows is $p^2-1$, and for each of these rows, the
+          number of unique second rows that is a multiple of the first is
+          $(p^2-1)\times p = p^3-p$. Also, the number of matrices with
+          first row being zero is $p^2$. These are exactly the matrices
+          that are not invertible. Hence, subtracting from the total number
+          of matrices, the number of invertible matrices is
+          $p^4-p^3-p^2+p$.
+        \end{proof}
+      \item Question 11: Let
+        $H(F) = \left \{
+          \begin{bmatrix}
+            1 & a & b \\
+            0 & 1 & c \\
+            0 & 0 & 1 \\
+          \end{bmatrix}
+        \,\middle|\,a,b,c\in F\right\}$ -- called the \textit{Heisenberg
+        group} over $F$. Let
+        $X =
+          \begin{bmatrix}
+            1 & a & b \\
+            0 & 1 & c \\
+            0 & 0 & 1 \\
+          \end{bmatrix} $
+        and
+        $Y =
+          \begin{bmatrix}
+            1 & d & e \\
+            0 & 1 & f \\
+            0 & 0 & 1 \\
+          \end{bmatrix} $
+        be elements of $H(F)$.
+        \begin{enumerate}
+          \item Compute the matrix product $XY$ and deduce that $H(F)$ is
+            closed under matarix multiplication. Exihibit explicit matrices
+            such that $XY\neq YX$.
+            \begin{proof}
+              $XY = \begin{bmatrix}
+                      1 & a & b \\
+                      0 & 1 & c \\
+                      0 & 0 & 1 \\
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                      1 & d & e \\
+                      0 & 1 & f \\
+                      0 & 0 & 1 \\
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                      1 & a+d & b+e+af \\
+                      0 & 1   & c+f \\
+                      0 & 0   & 1 \\
+                    \end{bmatrix} \in H(F)$, hence $H(F)$ is closed under
+              matrix multiplication. \\
+
+              Consider the case where $X =
+                \begin{bmatrix}
+                  1 & 1 & 0 \\
+                  0 & 1 & 0 \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}$
+              and $Y =
+                \begin{bmatrix}
+                  1 & 0 & 0 \\
+                  0 & 1 & 1 \\
+                  0 & 0 & 1 \\
+                \end{bmatrix}$. \\
+
+              Then $XY =
+                \begin{bmatrix}
+                  1 & 1 & 1 \\
+                  0 & 1 & 1 \\
+                  0 & 0 & 1 \\
+                \end{bmatrix} \neq
+                \begin{bmatrix}
+                  1 & 1 & 0 \\
+                  0 & 1 & 1 \\
+                  0 & 0 & 1 \\
+                \end{bmatrix} = YX$.
+            \end{proof}
+          \item Find an explicit formula for the matrix inverse $X^{-1}$
+            and deduce that $H(F)$ is closed under inverses.
+            \begin{proof}
+            \end{proof}
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 
