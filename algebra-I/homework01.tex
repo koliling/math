@@ -304,23 +304,25 @@
 
           To check if two groups are isomorphic, we map generators of one
           group to generators of the other and verify if maps give the same
-          generating rules for each group. We first try to find an
-          isomorphism between $H$ and $D_8$. Comparing the group tables of
-          $D_8$ with $H$, we notice that both groups have exactly two
-          generators, and generator $A\in H$ and $r\in D_8$ have order 4,
-          and generator $B\in H$ and $s\in D_8$ have order 2. Hence, we map
-          $A$ to $r$ and $B$ to $s$ and check if this map gives us the same
-          generating rules for both groups. We first check that the rules
-          for $H$, given by equations~\ref{eqn:H}, generate the rules for
-          $D_8$, given by equations~\ref{eqn:D8}. This is true since
+          generating rules for each group. \\
+
+          We first try to find an isomorphism between $H$ and $D_8$.
+          Comparing the group tables of $D_8$ with $H$, we notice that both
+          groups have exactly two generators, and generator $A\in H$ and
+          $r\in D_8$ have order 4, and generator $B\in H$ and $s\in D_8$
+          have order 2. Hence, we map $A$ to $r$ and $B$ to $s$ and check
+          if this map gives us the same generating rules for both groups.
+          We first check that the rules for $H$, given by
+          equations~\ref{eqn:H}, generate the rules for $D_8$, given by
+          equations~\ref{eqn:D8}. This is true since
           \[\left \{
             \begin{tabular}{lll}
-              $A^4$ & = $I$         & (says $r^4=e$) \\
-              $B^2$ & = $I$         & (says $s^2=e$) \\
-              $AB$  & = $-BA$       & (from generating rules~\ref{eqn:H}) \\
-                    & = $B(-A)$     & \\
-                    & = $BA^{-1}$   & ($\because -A$ is the inverse of $A$) \\
-                    &               & (says $rs=sr^{-1}$) \\
+              $ord(A)$  & = $4$         & (says $ord(r)=4$) \\
+              $ord(B)$  & = $2$         & (says $ord(s)=2$) \\
+              $AB$      & = $-BA$       & (from generating rules~\ref{eqn:H}) \\
+                        & = $B(-A)$     & ($\because -I commutes$) \\
+                        & = $BA^{-1}$   & ($\because -A$ is the inverse of $A$) \\
+                        &               & (says $rs=sr^{-1}$) \\
             \end{tabular}
           \right .\ \]
 
@@ -333,20 +335,20 @@
           $r^2$ has order 2 and commutes across generators $r$ and $s$.
           \[\left \{
             \begin{tabular}{lll}
+              $r^2$ & = $r^2$       & (says $A^2=-I$) \\
               $s^2$ & = $e$         & (says $B^2=I$) \\
-              $ord(r^2)$ & = $2$    & (says $A^4=I$) \\
+              $ord(r^2)$ & = $2$    & (says $ord(-I)=2$) \\
               $r^2$ & commutes across all elements & (straightforward to verify \\
                     &               & $r^2$ commutes across generators $r$ and $s$) \\
                     &               & (says $-I$ commutes) \\
-              $sr$  & = $r^{-1}s$   & ($rs=sr^{-1}$) \\
-                    & = $r^3s$      & ($r^{-1}=r^3$) \\
-                    & = $(r^2)rs$   & (analogous to $BA=-AB$) \\
-                    &               & (says $BA=-AB$) \\
+              $sr$  & = $r^{-1}s$   & ($\because rs=sr^{-1}$) \\
+                    & = $r^3s$      & ($\because r^{-1}=r^3$) \\
+                    & = $(r^2)rs$   & (says to $BA=-AB$) \\
             \end{tabular}
           \right .\ \]
 
           Hence, group $H$ is isomorphic to $D_8$. Now we use the same
-          approach to show that $G$ is isomorphic to $Q_8$. We map the the
+          approach to show that $G$ is isomorphic to $Q_8$. We map the
           only order 2 elements $-I$ and $-1$ to each other, and map $A$ to
           $i$, and $B$ to $j$. To find a map for $k$, Quaternion
           rules~\ref{eqn:Q8} show that $k=j^{-1}i^{-1}(-1)$, so looking at
@@ -441,7 +443,7 @@
         \begin{proof}
           Given any $s\in\mathbb{Z}$, we can use the Division Algorithm to
           uniquely express $s$ as $s=kn+r$ for some integers $k$ and $r$,
-          where $0\leq r\leq n-1$. Hence
+          where $0\leq r\leq n-1$. Then
           \begin{align*}
             x^s & = x^{kn+r} \\
                 & = x^kn \times x^r \\
@@ -457,13 +459,13 @@
         cancellation laws to show that there is a unique group table for
         $G$. Deduce that $G$ is Abelian.
         \begin{proof}
-          Given any distinct $x,y\in G-\{1\}$, $xy\neq x$ otherwise by
-          cancellation law $y=1$. Similarly, $xy\neq y$, so $xy$ can only
-          equal the only element in $G-\{x,y,1\}$. This property fills all
-          non-diagonal entries of the group table, and also shows that $G$
-          is Abelian. \\
+          Given any $x\neq y\in G-\{1\}$, their product $xy$ cannot equal
+          $x$ otherwise $y=1$ by cancellation law. Similarly, $xy\neq y$,
+          so $xy$ can only equal the only element in $G-\{x,y,1\}$. This
+          property fills all non-diagonal entries of the group table, and
+          also shows that $G$ is Abelian. \\
 
-          It remains to fill the diagonal entries of the group table. By
+          It remains to fill the group table's diagonal entries. By
           question 32, each non-identity element has order 2 or 3. We show
           that the order can only be 2. Assume by contradiction that one of
           these elements has order 3. We can assume without loss of
@@ -504,7 +506,7 @@
           only elements of $D_{2n}$ that are not powers of $r$ are of the
           form $sr^k$ for some $k\in\{0,\ldots,n-1\}$. \\
           
-          We show by induction on $k$ that all such elements $sr^k$ has
+          We show by induction on $k$ that all such elements $sr^k$ have
           order 2. The base case is true since $s$ has order 2. For the
           inductive step,
           \begin{align*}
@@ -517,16 +519,44 @@
                           &= e                    && \text{(induction).} \\
           \end{align*}
         \end{proof}
-      \item Question 7: Show that $\langle a,b\,|\, a^2=b^2=(ab)^n=1\rangle$
+      \item Question 7: Show that $G=\langle a,b\,|\,
+        a^2=b^2=(ab)^n=1\rangle$
         gives a presentation for $D_{2n}$ in terms of the two generators
         $a=s$ and $b=sr$ of order 2 computed in Exercise 3 above.
         \begin{proof}
           In Exercise 3 above, we have already shown that $a=s$ and $b=sr$
-          have order 2. Also, $(ab)^n=(s^2r)^n=(e\cdot r)^n=r^n=1$.
-          It remains to show that $a$ and $b$ generates $D_{2n}$.
-          Since $D_{2n}$ is generated by $s$ and $r$, it suffices to show
-          that $\{a,b\}$ generates both $s$ and $r$. This is true since
-          $s=a$ and $r=s\cdot s\cdot r=ab$.
+          have order 2. Also, $(ab)^n=(s^2r)^n=(e\cdot r)^n=r^n=1$. \\
+
+          To show that the given group $G$ is equivalent to $D_{2n}$, we map
+          the generators $a,b$ to elements in $D_{2n}$, and show that the
+          map preserves the generating rules of $D_{2n}$ from
+          the rules of $G$, and vice-versa. Mapping $a$ to $s$ and $b$ to
+          $sr$ suggests that $r$ can be mapped from the pre-image of
+          $r=s(sr)$, which is $ab$, and that $s$ can be mapped from $a$. \\
+
+          We first use these maps to get the generating rules of $D_{2n}$
+          from the generating rules of $G$:
+          \[\left \{
+            \begin{tabular}{lll}
+              $ord(ab)$ & = $n$             & (says $ord(r)=n$) \\
+              $ord(a)$  & = $2$             & (says $ord(s)=2$) \\
+              $(ab)a$   & = $ab^{-1}a^{-1}$ & ($\because a^2=b^2=1$) \\
+                        & = $a(ab)^{-1}$    & (says $rs=sr^{-1}$) \\
+            \end{tabular}
+          \right .\ \]
+
+          Finally, we use these maps to get the generating rules of $G$
+          from the generating rules of $D_{2n}$:
+          \[\left \{
+            \begin{tabular}{lll}
+              $ord(s)$  & = $2$             & (says $ord(a)=2$) \\
+              $ord(sr)$ & = $2$             & ($\because
+              srsr=s(rs)r=s(sr^{-1})r=s^2=e$) \\
+                        &                   & (says $ord(b)=2$) \\
+              $r^n$     & = $e$             & (says $(ab)^n=1$) \\
+            \end{tabular}
+          \right .\ \]
+
         \end{proof}
     \end{enumerate}
 
