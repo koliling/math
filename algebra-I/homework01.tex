@@ -313,26 +313,28 @@
           have order 2. Hence, we map $A$ to $r$ and $B$ to $s$ and check
           if this map gives us the same generating rules for both groups.
           We first check that the rules for $H$, given by
-          equations~\ref{eqn:H}, generate the rules for $D_8$, given by
-          equations~\ref{eqn:D8}. This is true since
+          equations~(\ref{eqn:H}), generate the rules for $D_8$, given by
+          equations~(\ref{eqn:D8}). This is true since
           \[\left \{
             \begin{tabular}{lll}
               $ord(A)$  & = $4$         & (says $ord(r)=4$) \\
               $ord(B)$  & = $2$         & (says $ord(s)=2$) \\
-              $AB$      & = $-BA$       & (from generating rules~\ref{eqn:H}) \\
+              $AB$      & = $-BA$       & (from generating
+              rules~(\ref{eqn:H})) \\
                         & = $B(-A)$     & ($\because -I commutes$) \\
                         & = $BA^{-1}$   & ($\because -A$ is the inverse of $A$) \\
                         &               & (says $rs=sr^{-1}$) \\
             \end{tabular}
           \right .\ \]
 
-          Finally, we check that equation rules~\ref{eqn:H} generate
-          equation rules~\ref{eqn:D8}. Note that $-I\in H$ will be mapped
-          to the image of $A^2$, which is $r^2$. Equation rules~\ref{eqn:H}
-          generate group $H$ with elements $A,B,-I\in H$, where $-I$
-          commutes across all elements, and has order 2. Hence besides the
-          rules listed in rules~\ref{eqn:H}, we must also verify that
-          $r^2$ has order 2 and commutes across generators $r$ and $s$.
+          Finally, we check that equation rules~(\ref{eqn:H}) generate
+          equation rules~(\ref{eqn:D8}). Note that $-I\in H$ will be mapped
+          to the image of $A^2$, which is $r^2$. Equation
+          rules~(\ref{eqn:H}) generate group $H$ with elements $A,B,-I\in
+          H$, where $-I$ commutes across all elements, and has order 2.
+          Hence besides the rules listed in rules~(\ref{eqn:H}), we must
+          also verify that $r^2$ has order 2 and commutes across generators
+          $r$ and $s$.
           \[\left \{
             \begin{tabular}{lll}
               $r^2$ & = $r^2$       & (says $A^2=-I$) \\
@@ -351,12 +353,12 @@
           approach to show that $G$ is isomorphic to $Q_8$. We map the
           only order 2 elements $-I$ and $-1$ to each other, and map $A$ to
           $i$, and $B$ to $j$. To find a map for $k$, Quaternion
-          rules~\ref{eqn:Q8} show that $k=j^{-1}i^{-1}(-1)$, so looking at
+          rules~(\ref{eqn:Q8}) show that $k=j^{-1}i^{-1}(-1)$, so looking at
           group $G$'s table, $k$ must be mapped from $(-B)(-A)(-1)=-BA=AB$.
           \\
 
           We now check that the map helps us to get equation
-          rules~\ref{eqn:Q8} from rules~\ref{eqn:G}:
+          rules~(\ref{eqn:Q8}) from rules~(\ref{eqn:G}):
           \[\left \{
             \begin{tabular}{lll}
               $-I$      & commutes across all generators
@@ -374,7 +376,7 @@
           \right .\ \]
 
           Finally, we check the map helps us to get equation
-          rules~\ref{eqn:G} from rules~\ref{eqn:Q8}:
+          rules~(\ref{eqn:G}) from rules~(\ref{eqn:Q8}):
           \[\left \{
             \begin{tabular}{lll}
               $-1$      & commutes across all generators
@@ -633,15 +635,15 @@
           the least common multiple of the lengths of the cycles in its
           cycle decomposition. Hence to find all possible $n$, we consider
           all positive integer sums to 5, and let $n$ be the lowest common
-          multiple of such solution. Thus the possible values of $n$ are:
+          multiple of these solutions. Thus the possible values of $n$ are:
           \begin{align*}
             n && =         && lcm(1,1,1,1,1)  & = 1 \\
               && \text{or} && lcm(1,1,1,2)    & = 2 \\
               && \text{or} && lcm(1,1,3)      & = 3 \\
               && \text{or} && lcm(1,2,2)      & = 2 \\
               && \text{or} && lcm(1,4)        & = 4 \\
-              && \text{or} && lcm(5)          & = 5 \\
               && \text{or} && lcm(2,3)        & = 6 \\
+              && \text{or} && lcm(5)          & = 5 \\
           \end{align*}
           Summarizing, the possible values of $n$ are $1,2,\ldots,6$.
         \end{proof}
@@ -800,10 +802,10 @@
               \\
 
               It remains to compute the order of the two matrices with
-              $a=c=1$. Observe from the explicit formular of matrix inverse
-              computed earlier that these two matrices are inverses of each
-              other, hence they have the same order. So it suffices to
-              compute the order of the matrix with $a=c=1$ and $b=0$. We
+              $a=c=1$. Observe from the explicit formula of the inverse
+              matrix computed earlier that these two matrices are inverses
+              of each other, hence they have the same order. So it suffices
+              to compute the order of the matrix with $a=c=1$ and $b=0$. We
               check that this matrix has order 4. \\
 
               The following table summarizes the computed orders:
@@ -848,7 +850,7 @@
               $n\cdot c$. Hence for $X$ to have finite order $n$, we need
               $n\cdot a=n\cdot c=0$, which is only possible if $a=c=0$
               since all non-zero elements in $\mathbb{R}$ have infinite
-              order. For $a=c=0$, we can apply induction again to show that
+              order. When $a=c=0$, we apply induction again to show that
               the element in row 1 column 2 of $X^n$ is $n\cdot b$. By
               similar argument, for $X$ to have finite order we also need
               $b=0$. Hence $X$ can only be the identity. 
