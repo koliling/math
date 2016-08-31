@@ -7,18 +7,79 @@
 \newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
-\title{Descriptive Set Theory Notes}
+\title{Descriptive Set Theory Exercises}
 \author{Li Ling Ko\\ lko@nd.edu}
 \date{\today}
 \maketitle
 
 \begin{enumerate}
   \item Exercise 2.2: Prove that the Cantor space is compact without using
-    Tychonoff's Theorem. You could use Konig's Lemma or Compactness Theorem
+    Tychonoff's Theorem. You could use K\"{o}nig's Lemma or Compactness Theorem
     for propositional logic.
     \begin{proof}
-      First prove using Compactness theorem. Let variables
-      $\{v_i:i\in\omega\}$ enumerate all the nodes in the tree $2^{<\omega}$.
+      We can prove the statement directly without using Tychonoff's
+      Theorem. Let $\mathcal{C}=(\sigma_i)_{i\in I}\subseteq 2^{<\omega}$
+      be an infinite open cover of the Cantor space. Assume by
+      contradiction that no finite subset of $\mathcal{C}$ covers the
+      Cantor space. We construct an infinite path $f\in 2^\omega$
+      recursively such that the path is not covered by $\mathcal{C}$, as
+      follows: Given $f\upharpoonright n$, define $f(n+1)$ by the child
+      node of $f\upharpoonright n$ that is not finitely covered by
+      $\mathcal{C}$.  Such a child must exist since at each level $n$, the
+      sub-tree below $f\upharpoonright n$ is not finitely covered. Then by
+      construction, $f$ cannot be covered by $\mathcal{C}$, a
+      contradiction. \\
+
+      We can also prove the statement using Compactness Theorem. Let
+      $\mathcal{C}=(\sigma_i)_{i\in I}\subseteq 2^{<\omega}$ be an infinite
+      open cover of the Cantor space. We wish to show that a finite subset
+      of $\mathcal{C}$ covers $2^{\omega}$. For each
+      $\sigma_i\in\mathcal{C}$, define a propositional sentence $s_i$ that
+      says ``I am a path in $2^\omega$ that does not extend $\sigma_i$.''
+      Each sentence can be constructed specifically as follows: Given
+      $\sigma_i=(a_0,\ldots,a_{n-1})\in\mathcal{C}$, let $s_i$ be
+      $w_0\vee\ldots\vee w_{n-1}$, where $w_j$ is $v_j$ if $a_j=0$, and
+      $\neg v_j$ otherwise. Here $v_j$ is the variable used to represent
+      the value of the path at level $j$. Now $\mathcal{S}=(s_i)_{i\in
+      I}$ cannot be satisfied because $\mathcal{C}$ covers the Cantor
+      space. Then by Compactness Theorem, a finite subset of sentences
+      $\{s_0,\ldots,s_{k-1}\}$ in $\mathcal{S}$ cannot be satisfied. This
+      means all paths in $2^\omega$ must extend at least one of the finite
+      set $\sigma_0,\ldots,\sigma_{k-1}$, which implies that this finite set
+      covers the Cantor space. \\
+
+      Finally, we can prove the statement using K\"{o}nig's Lemma. Let
+      $\mathcal{C}=(\sigma_i)_{i\in\omega}\subseteq 2^{<\omega}$ define an open
+      cover of the Cantor space, and assume by contradiction that no finite
+      subset of set of covers the space. Let $\mathcal{T}$ be a sub-tree
+      of $2^\omega$ consisting of exactly the nodes whose children are not
+      covered by any finite subset of $\mathcal{C}$. This sub-tree is
+      infinite because each level of $2^\omega$ must contain at least one
+      node in $\mathcal{T}$ otherwise $\mathcal{C}$ would finitely cover
+      the Cantor space. The sub-tree is also connected because for each
+      node in $\mathcal{T}$, its parent node must also be in $\mathcal{T}$.
+      Hence by K\"{o}nig's Lemma, $\mathcal{T}$ must contain an infinite
+      path. From our construction of $\mathcal{T}$, this path cannot be
+      covered by any cover in $\mathcal{C}$, which contradicts
+      $\mathcal{C}$ being a cover of the Cantor space.
+    \end{proof}
+
+  \item Exercise 3.4: Supposing that $X$ is complete with the metric $d'$ ,
+    determine whether it is complete with the metric $d$.
+    \begin{proof}
+      Assume $X$ is complete with metric $d'$. Let $(x_n)_{n\in\omega}$ be
+      a Cauchy sequence with respect to $d$. We first show that this
+      sequence is also Cauchy with respect to $d'$. Given $\epsilon>0$, by
+      Cauchy property with respect to $d$, there exists $n_0$ such that for
+      all $m,n\geq n_0$, $d(x_m,x_n)<\epsilon$. Then
+      $d'(x_m,x_n)\leq d(x_m,x_n)<\epsilon$, hence the sequence is also Cauchy
+      with respect to $d'$. \\
+
+      By completeness of $d'$, $X$ must contain some $d'$ limit $x$. We
+      show that $x$ is also the limit according to $d$. Given $\epsilon>0$,
+      take $0<\epsilon'\leq f(\epsilon)$. By completeness of $d'$, there
+      must be some $n_0$ such that for all $n\geq n_0$,
+      $d'(x_n,x)<\epsilon'$, and then $d(x_n,x)<\epsilon$.
     \end{proof}
 \end{enumerate}
 
