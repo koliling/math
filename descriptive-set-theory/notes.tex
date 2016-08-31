@@ -22,13 +22,12 @@
       be an infinite open cover of the Cantor space. Assume by
       contradiction that no finite subset of $\mathcal{C}$ covers the
       Cantor space. We construct an infinite path $f\in 2^\omega$
-      recursively such that the path is not covered by $\mathcal{C}$, as
-      follows: Given $f\upharpoonright n$, define $f(n+1)$ by the child
-      node of $f\upharpoonright n$ that is not finitely covered by
-      $\mathcal{C}$.  Such a child must exist since at each level $n$, the
-      sub-tree below $f\upharpoonright n$ is not finitely covered. Then by
-      construction, $f$ cannot be covered by $\mathcal{C}$, a
-      contradiction. \\
+      recursively as follows: Given $f\upharpoonright n$, define $f(n+1)$
+      by the child node of $f\upharpoonright n$ that is not finitely
+      covered by $\mathcal{C}$.  Such a child must exist since at each
+      level $n$, the sub-tree below $f\upharpoonright n$ is not finitely
+      covered. Then by construction, $f$ cannot be covered by
+      $\mathcal{C}$, a contradiction. \\
 
       We can also prove the statement using Compactness Theorem. Let
       $\mathcal{C}=(\sigma_i)_{i\in I}\subseteq 2^{<\omega}$ be an infinite
@@ -67,6 +66,8 @@
   \item Exercise 3.4: Supposing that $X$ is complete with the metric $d'$ ,
     determine whether it is complete with the metric $d$.
     \begin{proof}
+      We show that $X$ is also complete with metric $d$. \\
+
       Assume $X$ is complete with metric $d'$. Let $(x_n)_{n\in\omega}$ be
       a Cauchy sequence with respect to $d$. We first show that this
       sequence is also Cauchy with respect to $d'$. Given $\epsilon>0$, by
