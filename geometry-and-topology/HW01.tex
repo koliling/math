@@ -1,55 +1,126 @@
 \documentclass{article}
-\usepackage[left=3cm,right=3cm,top=0cm,bottom=2cm]{geometry} % page settings
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\setlength{\parindent}{2mm}
 
-\setlength{\parindent}{0mm}
-
-%\renewcommand{\baselinestretch}{1.05}
-%\usepackage{verbatim,amsfonts,amscd, graphicx}
-%\usepackage{graphics}
-%\topmargin0.0cm
-%\headheight0.0cm
-%\headsep0.0cm
-%\oddsidemargin0.0cm
-%\textheight23.0cm
-%\textwidth16.5cm
-%\footskip1.0cm
-%\theoremstyle{plain}
-%\newtheorem{theorem}{Theorem}
-%\newtheorem{corollary}{Corollary}
-%\newtheorem{lemma}{Lemma}
-%\newtheorem{proposition}{Proposition}
-%\newtheorem*{surfacecor}{Corollary 1}
-%\newtheorem{conjecture}{Conjecture} 
-%\newtheorem{question}{Question} 
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
-
-\title{Basic Logic I: Homework 1}
+\title{Geometry and Topology: Homework 1}
 \author{Li Ling Ko\\ lko@nd.edu}
 \date{\today}
 \maketitle
 
-\section{Prove $(x,y) = (u,v) \Leftrightarrow x = u \, \& \, y = v$.}
-\begin{proof}
-  The left implication follows immediately from the definition of $(,)$ and
-  the axiom of extensionality. \\
+\begin{enumerate}
+  \item
+    \begin{proof}
+      We first prove the forward implication. Fix $\epsilon>0$ and $p\in X$.
+      By assumption, the set $U=f^{-1}(B_\epsilon(f(p)))\subseteq X$ is open.
+      By choice of $U$, it must contain $p$. Then there must exist
+      some $\delta>0$ such that the $d_Y$ ball $B_\delta(p)$ is contained in
+      $U$. This $\delta$ satisfies the requirement. \\
 
-  To show the right implication, assume $(x,y) = (u,v)$. This means the set
-  $\{\{x\}, \{x,y\}\}$ has the same elements as the set $\{\{u\}, \{u,v\}\}$.
-  From extensionality, there are only two possible cases - either $\{x\} =
-  \{u\}$ and $\{x,y\} = \{u,v\}$, or $\{x\} = \{u,v\}$ and $\{x,y\} = \{u\}$.
-  In the former, we first get $x = u$ from $\{x\} = \{u\}$, then applying
-  extensionality and $x=u$ on $\{x,y\} = \{u,v\}$, we get $y=v$ as required.
-  \\
+      For the converse, assume the second definition. Let $U\subseteq Y$ be
+      open, and $x\in f^{-1}(U)$. We want to find an open set in $f^{-1}(U)$
+      that contains $x$. Since $U$ is open, $f(x)$ must be contained in a
+      ball $B_\epsilon(f(x))\subseteq U$ for some $\epsilon>0$. Let $\delta$
+      be the one given by the assumption. Then $B_\delta(x)$ satisfies the
+      requirements for the open set we need.
+    \end{proof}
+  \item
+    \begin{proof}
+      Since $\pi':X\rightarrow Y'$ is a continuous function such that
+      $\pi'(p)\sim\pi'(q)$ for all $p,q\in X$ satisfying $p\sim q$, we can
+      replace the role of $Z$ by $Y'$ in the first set of properties, and
+      get a continuous function $\vec{f}:Y\rightarrow Y'$ such that
+      $\pi'=\vec{f}\circ\pi$. By symmetrical argument, there is also a
+      continuous function $\vec{f'}:Y'\rightarrow Y$ such that
+      $\pi=\vec{f'}\circ\pi'$. We show that
+      $\vec{f}\circ\vec{f'}=\text{id}$, and
+      $\vec{f'}\circ\vec{f}=\text{id}$. It suffices to prove the first
+      equality since the argument for the second equality will be
+      symmetrical. Let $\pi(x)\in Y$. By uniqueness of $\vec{f}$, $\vec{f}$
+      must send $\pi(x)$ to $\pi'(x)$. Then by uniqueness of $\vec{f'}$,
+      $\vec{f'}$ must send $\pi'(x)$ back to $\pi(x)$. Hence
+      $\vec{f}\circ\vec{f'}=\text{id}$.
+    \end{proof}
+  \item
+    \begin{enumerate}
+      \item
+        \begin{proof}
+          We show that $\mathbb{R}^2/\sim$ is homeomorphic to the real line
+          $\mathbb{R}$, by proving that the map
+          $f:\mathbb{R}^2/\sim\rightarrow\mathbb{R}$ defined by
+          $[(r,0)]\mapsto r$ is a homeomorphism. \\
 
-  In the latter, $\{x\}$ has one element while $\{u,v\}$ has at most two, so
-  from extensionality, since both sets are equal, we get $x=u=v$. Similarly,
-  from $\{x,y\} = \{u\}$, we get $x=y=u$. In particular, $x=u$ and $y=v$ as
-  required. \\
-\end{proof}
+          We first show that this map is well-defined. The equivalence
+          class $[(r,0)]$ comprises all solutions to the quadratic curve
+          $x+y^2=r$. So if $r_1\neq r_2\in\mathbb{R}$, then $(r_1,0)$ and
+          $(r_2,0)$ belong to distinct equivalence classes. Also, every
+          $(a,b)\in\mathbb{R}^2$ belongs to class $[(a+b^2,0)]$. Hence, map
+          $f$ is well-defined. \\
 
+          Map $f$ is clearly bijective, with inverse $f^{-1}$ defined by
+          $f^{-1}(r)=[(r,0)]$. It remains to show that $f$ and $f^{-1}$ are
+          continuous. We first show that $f$ is continuous. Given an open
+          interval $(r_1,r_2)\in\mathbb{R}$, we need to show that its
+          pre-image $\{[(r,0)]:r_1<r<r_2\}$ is open in $\mathbb{R}^2/\sim$.
+          This is the same as showing that $\{(x,y):r_1<x+y^2<r_2\}$ is
+          open in $\mathbb{R}^2$, which is true. \\
 
+          Finally, we show that $f^{-1}$ is continuous, which is equivalent
+          to showing that $f$ sends open sets to open sets. Let
+          $\bar{U}=\{[(r_i,0)]:i\in I\}$ be an open set in
+          $\mathbb{R}^2/\sim$. Then $f(U)=\{r_i:i\in I\}$. Let $r\in f(U)$.
+          We want to show that there is an open interval
+          $B_\epsilon(r)\subset\mathbb{R}$ that is contained in $f(U)$.
+          Since $\bar{U}$ is open in $\mathbb{R}^2/\sim$,
+          $U=\{(x,y):x+y^2\in\{r_i:i\in I\}\}$ must be open in
+          $\mathbb{R}^2$. Also, $(r,0)\in U$, so there must be a ball
+          $B_\epsilon((r,0))\subset\mathbb{R}^2$ containing $(r,0)$ in $U$.
+          The image of this ball under $f$ is an open interval
+          $B_\epsilon(r)\subset\mathbb{R}$ that is contained in $f(U)$ and
+          that contains $r$, which is the interval we are looking for.
+        \end{proof}
+      \item
+        \begin{proof}
+          We show that $\mathbb{R}^2/\sim$ is homeomorphic to the half real
+          line $R=\mathbb{R}^+\cup\{0\}$, by proving that the map
+          $f:\mathbb{R}^2/\sim\rightarrow R$ defined by
+          $[(r,0)]\mapsto |r|$ is a homeomorphism. \\
+
+          We first show that this map is well-defined. The equivalence
+          class $[(r,0)]$ comprises all solutions to the circle
+          $x^2+y^2=r^2$. So if $r_1\neq r_2\in\mathbb{R}$, then $(r_1,0)$
+          and $(r_2,0)$ belong to distinct equivalence classes. Also, every
+          $(a,b)\in\mathbb{R}^2$ belongs to class $[(a^2+b^2,0)]$. Hence,
+          map $f$ is well-defined. \\
+
+          Map $f$ is clearly bijective, with inverse $f^{-1}$ defined by
+          $f^{-1}(r)=[(r,0)]$. It remains to show that $f$ and $f^{-1}$ are
+          continuous. We first show that $f$ is continuous. Given an open
+          interval $(r_1,r_2)\in R$ (or $(0,r_2)\in R$), we need to show
+          that its pre-image $\{[(r,0)]:r_1<r<r_2\}$ (or $\{[(r,0)]:0\leq
+          r<r_2\}$) is open in $R$. This is the same as showing that
+          $\{(x,y):r_1<x^2+y^2<r_2\}$ (or $\{(x,y):x^2+y^2<r_2\}$) is open
+          in $\mathbb{R}^2$, which is true. \\
+
+          Finally, we show that $f^{-1}$ is continuous, which is equivalent
+          to showing that $f$ sends open sets to open sets. Let
+          $\bar{U}=\{[(r_i,0)]:i\in I\}$ be an open set in
+          $\mathbb{R}^2/\sim$. Then $f(U)=\{|r_i|:i\in I\}$. Let $r\in f(U)$.
+          We want to show that there is an open interval
+          $B_\epsilon(r)\subset R$ that is contained in $f(U)$.
+          Since $\bar{U}$ is open in $\mathbb{R}^2/\sim$,
+          $U=\{(x,y):x^2+y^2\in\{r_i^2:i\in I\}\}$ must be open in
+          $\mathbb{R}^2$. Also, $(r,0)\in U$, so there must be a ball
+          $B_\epsilon((r,0))\subset\mathbb{R}^2$ containing $(r,0)$ in $U$.
+          The image of this ball under $f$ is an open interval
+          $B_\epsilon(r)\subset\mathbb{R}$ that is contained in $f(U)$ and
+          that contains $r$, which is the interval we are looking for.
+
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
 \end{document}
