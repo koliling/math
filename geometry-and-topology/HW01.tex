@@ -316,20 +316,7 @@
           where the image of $f$ traces an $n$-gon. Consider the case of an
           $(n+1)$-gon. As mentioned earlier, every $(n+1)$-gon is a union
           of an $n$-gon and a non-overlapping triangle that shares exactly
-          one side.
-
-          \begin{center}
-            \begin{tikzpicture}
-              %\draw[help lines](0,0) grid(5,5);
-              \path[draw,pattern=crosshatch,pattern color=blue]
-              (1,1)--(1.5,3)--(0.5,4.5)--(2,4)--(2,4)--(1.8,3.8)--(1,4)--(2,3)--(4,3)--cycle;
-              \path[draw,pattern=dots,pattern color=red] (2,3)--(3,4)--(4,3)--cycle;
-              \path[draw,] (0,0)--(5,0)--(5,5)--(0,5)--cycle;
-              \node[] at (2.5,-0.5) {Inductive step $n+1$};
-              \path[draw,line width=3pt,dashed,color=green] (2,3)--(4,3);
-              \node[] at (2.2,2.5) {$n$-gon};
-            \end{tikzpicture}
-          \end{center}
+          one side. \\
 
           Given any point $p$, first consider the case where $p$ does not
           lie in the new triangle. If the ray emanating from $p$ does not
