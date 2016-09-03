@@ -1,55 +1,136 @@
 \documentclass{article}
-\usepackage[left=3cm,right=3cm,top=0cm,bottom=2cm]{geometry} % page settings
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+%\setlength{\parindent}{0mm}
 
-\setlength{\parindent}{0mm}
-
-%\renewcommand{\baselinestretch}{1.05}
-%\usepackage{verbatim,amsfonts,amscd, graphicx}
-%\usepackage{graphics}
-%\topmargin0.0cm
-%\headheight0.0cm
-%\headsep0.0cm
-%\oddsidemargin0.0cm
-%\textheight23.0cm
-%\textwidth16.5cm
-%\footskip1.0cm
-%\theoremstyle{plain}
-%\newtheorem{theorem}{Theorem}
-%\newtheorem{corollary}{Corollary}
-%\newtheorem{lemma}{Lemma}
-%\newtheorem{proposition}{Proposition}
-%\newtheorem*{surfacecor}{Corollary 1}
-%\newtheorem{conjecture}{Conjecture} 
-%\newtheorem{question}{Question} 
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
-
-\title{Basic Logic I: Homework 1}
+\title{Basic Logic I: Homework Set 1}
 \author{Li Ling Ko\\ lko@nd.edu}
 \date{\today}
 \maketitle
 
-\section{Prove $(x,y) = (u,v) \Leftrightarrow x = u \, \& \, y = v$.}
-\begin{proof}
-  The left implication follows immediately from the definition of $(,)$ and
-  the axiom of extensionality. \\
+\begin{enumerate}
+  \item Show that there are no sets $X$ and $Y$ such that $X\in Y$ and
+    $Y\in X$. \label{qn:foundation}
 
-  To show the right implication, assume $(x,y) = (u,v)$. This means the set
-  $\{\{x\}, \{x,y\}\}$ has the same elements as the set $\{\{u\}, \{u,v\}\}$.
-  From extensionality, there are only two possible cases - either $\{x\} =
-  \{u\}$ and $\{x,y\} = \{u,v\}$, or $\{x\} = \{u,v\}$ and $\{x,y\} = \{u\}$.
-  In the former, we first get $x = u$ from $\{x\} = \{u\}$, then applying
-  extensionality and $x=u$ on $\{x,y\} = \{u,v\}$, we get $y=v$ as required.
-  \\
+    \begin{proof}
+      We use the axiom of foundation and the axiom of pairing. Assume by
+      contradiction that such sets $X$ and $Y$ exist. By Pairing, there
+      exists a set $Z$ containing exactly $X$ and $Y$. This set would not
+      have a smallest element since each of its elements contains the
+      other. This contradicts the axiom of foundation.
+    \end{proof}
 
-  In the latter, $\{x\}$ has one element while $\{u,v\}$ has at most two, so
-  from extensionality, since both sets are equal, we get $x=u=v$. Similarly,
-  from $\{x,y\} = \{u\}$, we get $x=y=u$. In particular, $x=u$ and $y=v$ as
-  required. \\
-\end{proof}
+  \item If we define the ordered pair $(x,y)$ to be the set $\{x,\{x,y\}\}$,
+    show that $(x,y)=(u,v)$ if and only if $x=u$ and $y=v$.
 
+    \begin{proof}
+      We use the axiom of extensionality repeatedly. We first prove the
+      forward implication. Assume that $\{x,\{x,y\}\}=\{u,\{u,v\}\}$. Then
+      by extensionality, either $x=u$ and $\{x,y\}=\{u,v\}$, or $x=\{u,v\}$
+      and $u=\{x,y\}$. In the former, we get $x=u$, then from applying
+      extensionality on $\{x,y\}=\{u,v\}$, we get $y=v$ as required. The
+      latter case is not possible from the axiom of foundation, as we have
+      proven in question~\ref{qn:foundation} earlier. \\
 
+      The converse is straightforward with two applications of the
+      axiom of extensionality.
+    \end{proof}
+
+  \item For binary relations $B_1,B_2\subseteq S^2$ we define their
+    composition $B_1\circ B_2$ as:
+    \begin{equation*}
+      B_1\circ B_2=\{(x,y)\in S^2: \exists z\, (x,z)\in B_1\;\text{and}\;
+      (z,y)\in B_2\}.
+    \end{equation*}
+    Prove or disprove: The composition of two order relations on a set $S$
+    is an order relation.
+
+    \begin{proof}
+      No, the composition is an order relation because it is symmetric.
+      Consider the counter example $B_1=\{(x,y)\}$ and $B_2=\{(y,x)\}$.
+      Then $B_1\circ B_2=\{(x,x)\}$, which is not an asymmetric relation.
+    \end{proof}
+
+  \item Prove that if $S$ is a set of ordinals then $\cup S$ is an ordinal.
+    \label{qn:cup-ordinals}
+    \begin{proof}
+      This is equivalent to showing that $\cup S$ is transitive and is
+      well-ordered by $\in$. For transitivity, given $\alpha\in\cup S$ and
+      $\beta\in\alpha$, we need to show that $\beta\in\cup S$. Since
+      $\alpha\in\cup S$, $\alpha$ must be contained in some ordinal
+      $\gamma\in S$. By transitivity of $\gamma$, $\beta$ must also be
+      contained in $\gamma$, and hence in $\cup S$, as we are required to
+      show. \\
+
+      Now we prove well-orderedness. By axiom of foundation, since $\cup S$
+      is transitive, it suffices that show that it is linearly ordered by
+      $\in$. This is equivalent to showing that with respect to $\in$,
+      $\cup S$ is transitive, asymmetric, and that for all
+      $\alpha\neq\beta\in\cup S$, either $\alpha\in\beta$ or
+      $\beta\in\alpha$. We have already shown transitivity. Asymmetry is
+      inherited from the asymmetries of each ordinal in $S$. Finally, given
+      $\alpha\neq\beta\in\cup S$, by Theorem 1.14.1 in the notes, $\alpha$
+      and $\beta$ are also ordinals, then by Theorem 1.14.3, either
+      $\alpha\in\beta$ or $\beta\in\alpha$ as required.
+    \end{proof}
+
+  \item Let $X$ be a set of ordinals and $\alpha=\cup X$, i.e. $\alpha=\cup
+    X$. Show that $x\leq\alpha$ for all $x\in X$ and $\alpha$ is the least
+    ordinal satisfying this property.
+
+    \begin{proof}
+      First note that from question~\ref{qn:cup-ordinals}, we have shown
+      that $\alpha=\cup X$ is an ordinal. Let $x\in X$. There are two
+      possible cases. In the first case, there is an ordinal $y\in X$ such
+      that $x<y$. Then by Theorem 1.14.3, $y$ contains $x$, so $\alpha=cup
+      X$ must also contain $x$. Applying Theorem 1.14.3 again, this means
+      $x<\alpha$. In the second case, all ordinals in $X$ are either
+      smaller than or equal $x$. Then by Theorem 1.14.3, all ordinals in
+      $X$ that are different from $x$ must be contained in $x$. Then from
+      transitivity of $x$, $\alpha=\cup X$ must be $x$ itself. \\
+
+      Now we show that $\alpha$ is the least ordinal satisfying this
+      property. Let $\beta$ be an ordinal smaller than $\alpha=\cup X$. By
+      Theorem 1.14.3, $\beta$ must be contained in $\alpha$, which means it
+      is contained in some ordinal $x$ in $X$. By Theorem 1.14.3 again,
+      $\beta$ cannot be larger or equal to $x$.
+    \end{proof}
+
+  \item Prove that for an ordinal $\alpha$, the following conditions are
+    equivalent:
+    \begin{enumerate}
+      \item $\alpha$ is the least infinite ordinal. \label{cond:inf}
+      \item $\alpha$ is the least non-empty limit ordinal.
+        \label{cond:limit}
+      \item $\alpha$ is the least non-empty ordinal satisfying
+        $x\in\alpha\implies S(x)\in\alpha$. \label{cond:closed-succ}
+    \end{enumerate}
+
+    \begin{proof}
+      (\ref{cond:inf})~$\rightarrow$~(\ref{cond:limit}): We first show that all
+      non-empty limit ordinals must be infinite. This is true because
+      finite ordinals are either empty or a successors. Hence if $\beta$
+      is a non-empty limit ordinal smaller than the least infinite ordinal
+      $\alpha$, it must also be an infinite ordinal smaller than $\alpha$,
+      a contradiction. \\
+
+      (\ref{cond:limit})~$\rightarrow$~(\ref{cond:closed-succ}): We first
+      show that all non-empty ordinals satisfying $x\in\alpha\implies
+      S(x)\in\alpha$ must be non-empty limit ordinals.
+    \end{proof}
+
+  \item Consider the set of positive natural numbers
+    $\mathbb{N}^+=\{1,2,\ldots\}$. Define the relation $x\in y$ on
+    $\mathbb{N}^+$ as
+    \begin{equation*}
+      x\in y\; \Leftrightarrow\; x<y\; \text{and}\; x|y.
+    \end{equation*}
+    Which of the following axioms of ZF hold in $(\mathbb{N}^+,\in)$:
+    Extensionality, Foundation, Pairing, Union, Separation, Power set,
+    Empty set, Replacement?
+\end{enumerate}
 \end{document}
