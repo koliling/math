@@ -164,14 +164,12 @@
 
     \begin{proof}
       Observe that given $n\in\mathbb{N}^+$, the elements in $n$ are
-      exactly its positive divisors smaller than itself. Hence, all sets
-      are finite. \\
+      exactly its positive divisors smaller than itself. Also, all sets
+      are finite, 1 is the only empty set, and all other sets contains 1.
+      \\
 
-      Extensionality holds. Clearly if two positive natural numbers are
-      equal, they must have exactly the same set of divisors. For the
-      converse, if two positive natural numbers are not equal, their set of
-      divisors cannot be the same, by the uniqueness of a natural number's
-      prime factor decomposition. \\
+      Extensionality does not hold. 2 and 3 both contain only 1, yet they
+      are not equal. \\
 
       Foundation holds. Given $n\in\mathbb{N}^+$, if $n=1$, then $n$ is the
       empty set and foundation holds trivially. If $n\neq 1$, then $1\in
@@ -187,6 +185,42 @@
       n=\{1,p,q,pq,p^2,q^2\}$. Suppose $\bigcup n=m$ for some positive
       integer $m$. Then $p^2$ and $q^2$ divide $m$, hence $p^2q$ also
       divide $m$, yet $p^2q$ is not contained in $m$, a contradiction. \\
+
+      Separation does not hold. Consider the formula $\theta(n):=\exists
+      m\,(m\in n)$, which says ``$n$ is not empty''. Then
+      $k=\{n\in4:\theta(n)\}=\{2\}$, but every set containing 2 must also
+      contain 1, so no such $k$ exists. \\
+
+      Power set does not hold. The power set of $6$ does not exist.
+      $6=\{1,2,3\}$, so the possible subsets are $\emptyset=1$,
+      $\{1\}=p$ for any prime $p$, $\{1,2\}=4$, $\{1,3\}=9$, $\{1,2,3\}=6$,
+      and $\{2,3\}$ which does not exist in $\mathbb{N}^+$. Hence the power
+      set of 6 $\mathcal{P}(6)$ should be a set containing exactly 1, 4, 6,
+      and 9, and also a non-zero finite number of primes $p_1,\ldots,p_k$.
+      However, since $\mathcal{P}(6)$ contains 4 and 9, it must also contain
+      $4\times3=12$, a contradiction. \\
+
+      Empty set axiom holds. 1 is the empty set. \\
+
+      Replacement does not hold. Let $\varphi(x,y)$ be the formula
+      describing the function that sends 1 to 1 and any other positive
+      number $n$ to $\{1,n\}$, if such a number exists and is unique. More
+      precisely, we can write $\varphi(x,y)$ as:
+      \begin{equation*}
+        (\text{empty}(x)\wedge\text{empty}(y))\; \vee
+        (\neg\text{empty}(x)\wedge \text{square}(x,y)),
+      \end{equation*}
+      where $\text{empty}(x)$ says ``set $x$ is the empty'', abbreviating
+      $\forall n (n\not\in x)$, and $\text{square}(x,y)$ says ``$y=\{1,x\}$'',
+      abbreviated by
+      \begin{equation*}
+        \forall w (w\in y \leftrightarrow (\text{empty}(w)\vee w=x))
+      \end{equation*}
+
+      Consider the set of the image of 4 under $\varphi$. $4=\{1,2\}$, so
+      under the function described by $\varphi$, 1 should be sent to 1 and
+      2 should be sent to $\{1,2\}=4$. Yet, the set of images $\{1,4\}$
+      does not exist since any number that contains 4 must also contain 2.
     \end{proof}
 \end{enumerate}
 \end{document}
