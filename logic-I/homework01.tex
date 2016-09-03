@@ -78,7 +78,7 @@
       $\alpha\in\beta$ or $\beta\in\alpha$ as required.
     \end{proof}
 
-  \item Let $X$ be a set of ordinals and $\alpha=\cup X$, i.e. $\alpha=\cup
+  \item Let $X$ be a set of ordinals and $\alpha=\sup X$, i.e. $\alpha=\cup
     X$. Show that $x\leq\alpha$ for all $x\in X$ and $\alpha$ is the least
     ordinal satisfying this property.
 
@@ -86,7 +86,7 @@
       First note that from question~\ref{qn:cup-ordinals}, we have shown
       that $\alpha=\cup X$ is an ordinal. Let $x\in X$. There are two
       possible cases. In the first case, there is an ordinal $y\in X$ such
-      that $x<y$. Then by Theorem 1.14.3, $y$ contains $x$, so $\alpha=cup
+      that $x<y$. Then by Theorem 1.14.3, $y$ contains $x$, so $\alpha=\cup
       X$ must also contain $x$. Applying Theorem 1.14.3 again, this means
       $x<\alpha$. In the second case, all ordinals in $X$ are either
       smaller than or equal $x$. Then by Theorem 1.14.3, all ordinals in
@@ -113,9 +113,9 @@
     \begin{proof}
       We use the proof of Claim 1.19. By the infinity axiom, there is a
       set $A$ that contains $\emptyset$ and is closed under the successor
-      operation. Let $\mathbb{S}$ be the set of all subsets of $A$ that also
-      contains the $\emptyset$ and is closed under successor, let
-      $A_0=\bigcap\mathbb{S}$, and let $\alpha$ be the set of elements in
+      operation. Let $\mathcal{S}$ be the set of all subsets of $A$ that
+      contains $\emptyset$ and is closed under successor, let
+      $A_0=\bigcap\mathcal{S}$, and let $\alpha$ be the set of elements in
       $A_0$ that are ordinals. The proof of Claim 1.19 shows that $\alpha$
       is an ordinal. We further show that $\alpha$ satisfies the three
       conditions~(\ref{cond:inf}), (\ref{cond:limit}), and
