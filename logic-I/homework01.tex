@@ -50,7 +50,7 @@
     is an order relation.
 
     \begin{proof}
-      No, the composition is an order relation because it is symmetric.
+      No, the composition is not an order relation because it is symmetric.
       Consider the counter example $B_1=\{(x,y)\}$ and $B_2=\{(y,x)\}$.
       Then $B_1\circ B_2=\{(x,x)\}$, which is not an asymmetric relation.
     \end{proof}
@@ -111,13 +111,13 @@
     \end{enumerate}
 
     \begin{proof}
-      We follow the proof of Claim 1.19. By the infinity axiom, there is a
+      We use the proof of Claim 1.19. By the infinity axiom, there is a
       set $A$ that contains $\emptyset$ and is closed under the successor
       operation. Let $\mathbb{S}$ be the set of all subsets of $A$ that also
       contains the $\emptyset$ and is closed under successor, let
       $A_0=\bigcap\mathbb{S}$, and let $\alpha$ be the set of elements in
       $A_0$ that are ordinals. The proof of Claim 1.19 shows that $\alpha$
-      is an ordinal. We further show that it satisfies the three
+      is an ordinal. We further show that $\alpha$ satisfies the three
       conditions~(\ref{cond:inf}), (\ref{cond:limit}), and
       (\ref{cond:closed-succ}). \\
 
@@ -161,5 +161,32 @@
     Which of the following axioms of ZF hold in $(\mathbb{N}^+,\in)$:
     Extensionality, Foundation, Pairing, Union, Separation, Power set,
     Empty set, Replacement?
+
+    \begin{proof}
+      Observe that given $n\in\mathbb{N}^+$, the elements in $n$ are
+      exactly its positive divisors smaller than itself. Hence, all sets
+      are finite. \\
+
+      Extensionality holds. Clearly if two positive natural numbers are
+      equal, they must have exactly the same set of divisors. For the
+      converse, if two positive natural numbers are not equal, their set of
+      divisors cannot be the same, by the uniqueness of a natural number's
+      prime factor decomposition. \\
+
+      Foundation holds. Given $n\in\mathbb{N}^+$, if $n=1$, then $n$ is the
+      empty set and foundation holds trivially. If $n\neq 1$, then $1\in
+      n$, and $1$ is the minimal element of $n$ since 1 is the empty set.
+      \\
+
+      Pairing does not hold. There is no element that contains exactly 2
+      and 3, because all elements either contain 1, or is 1 itself. \\
+
+      Union does not hold. Consider positive integers of the form
+      $n=p^2q^2$, where $p$ and $q$ are distinct primes. Then
+      $n=\{1,p,p^2,q,q^2,pq,p^2q,qp^2\}$, and $\bigcup
+      n=\{1,p,q,pq,p^2,q^2\}$. Suppose $\bigcup n=m$ for some positive
+      integer $m$. Then $p^2$ and $q^2$ divide $m$, hence $p^2q$ also
+      divide $m$, yet $p^2q$ is not contained in $m$, a contradiction. \\
+    \end{proof}
 \end{enumerate}
 \end{document}
