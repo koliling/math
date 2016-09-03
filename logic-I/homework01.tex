@@ -111,16 +111,45 @@
     \end{enumerate}
 
     \begin{proof}
-      (\ref{cond:inf})~$\rightarrow$~(\ref{cond:limit}): We first show that all
-      non-empty limit ordinals must be infinite. This is true because
-      finite ordinals are either empty or a successors. Hence if $\beta$
-      is a non-empty limit ordinal smaller than the least infinite ordinal
-      $\alpha$, it must also be an infinite ordinal smaller than $\alpha$,
-      a contradiction. \\
+      We follow the proof of Claim 1.19. By the infinity axiom, there is a
+      set $A$ that contains $\emptyset$ and is closed under the successor
+      operation. Let $\mathbb{S}$ be the set of all subsets of $A$ that also
+      contains the $\emptyset$ and is closed under successor, let
+      $A_0=\bigcap\mathbb{S}$, and let $\alpha$ be the set of elements in
+      $A_0$ that are ordinals. The proof of Claim 1.19 shows that $\alpha$
+      is an ordinal. We further show that it satisfies the three
+      conditions~(\ref{cond:inf}), (\ref{cond:limit}), and
+      (\ref{cond:closed-succ}). \\
 
-      (\ref{cond:limit})~$\rightarrow$~(\ref{cond:closed-succ}): We first
-      show that all non-empty ordinals satisfying $x\in\alpha\implies
-      S(x)\in\alpha$ must be non-empty limit ordinals.
+      We first show that $\alpha$ is the least non-empty ordinal that is
+      closed under successor. If there is a smaller ordinal $\beta$ that is
+      also non-empty and closed under successor, then it would be a
+      strict subset of $\alpha$, and by construction, would be a subset of
+      $A$ that is non-empty and closed under successor. Then by
+      construction of $\alpha$, $\alpha$ must be equal to or a subset of
+      $\beta$, contradicting the choice of $\beta$. \\
+
+      Next, we show that $\alpha$ is also the least non-empty limit ordinal.
+      $\alpha$ is clearly non-empty since it contains the empty set. Assume
+      by contradiction that $\beta$ is a non-empty limit ordinal that is
+      smaller than $\alpha$. Being a limit ordinal, $\beta$ must be closed
+      under successor: if there is a $\gamma\in\beta$ whose successor
+      $S(\gamma)$ is not in $\beta$, then $\beta$ must either be equal
+      $S(\gamma)$ or be smaller than $S(\gamma)$. The former cannot be true
+      since $\beta$ is a limit ordinal. Yet the latter also cannot be true
+      because ordinals containing $\gamma$ must either equal $S(\gamma)$ or
+      contain $S(\gamma)$. So $\beta$ is non-empty, closed under
+      successor, and smaller than $\alpha$, which contradicts our earlier
+      proof that $\alpha$ is the least non-empty ordinal closed under
+      successor. \\
+
+      Finally, we show that $\alpha$ is also the least infinite ordinal.
+      Assume by contradiction that the least infinite ordinal $\beta$ is
+      contained in $\alpha$. Then since $\alpha$ is the least non-empty
+      limit ordinal as we have shown in the previous paragraph, $\beta$
+      must be a successor ordinal. Then the predecessor of $\beta$ would
+      also be an infinite ordinal, which contradicts our choice of $\beta$
+      as the least infinite ordinal. 
     \end{proof}
 
   \item Consider the set of positive natural numbers
