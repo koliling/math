@@ -271,16 +271,82 @@
 
   \item Section 1.7
     \begin{enumerate}
-      \item Question 4:
+      \item Question 4: Let $G$ be a group acting on a set $A$ and fix some
+        $a\in A$. Show that the following sets are subgroups of $G$:
+        \begin{enumerate}
+          \item the kernel of the action
+          \item $\{g\in G\,|\,ga=a\}$ --- this subgroup is called the
+            \textit{stabilizer} of $a$ in $G$.
+        \end{enumerate}
+
         \begin{proof}
+          In section 1.7 of Dummit and Foote, the authors showed that for
+          each $g\in G$, $\sigma_g$ is a permutation of $A$, and the map
+          from $G$ to $S_A$ defined by $g\mapsto\sigma_g$ is a
+          homomorphism. We will use these findings in our proof. \\
+
+          We first show that the kernel of the action is a subgroup of
+          $G$. Now the kernel of the action is exacty the kernel of the
+          homomorphism from $G$ to $S_A$ that sends $g$ to $\sigma_g$. From
+          section 1.6 question 14, we have already shown that the kernel of
+          a homomorphism is a subgroup of the domain group. Hence the
+          kernel of the action is a subgrou pof $G$. \\
+
+          Now we show that the stabilizer of $a$ in $G$ is a subgroup of
+          $G$. Let $g_1,g_2\in G$ be in the stabilizer. It suffices to show
+          that $g_1g_2^{-1}$ is also in the stabilizer. Now
+          \begin{align*}
+            g_2^{-1}\cdot a & = \sigma_{g_2^{-1}}(a) & \\
+                            & = \sigma_{g_2}^{-1}(a) & (\because\,\text{the
+            map from $G$ to $S_ A$ is a homomorphism}) \\
+                            & = a, & (\because\,\sigma_{g_2}(a)=a)
+          \end{align*}
+          implying that $g_2^{-1}$ is also in the stabilizer. Then
+          \begin{align*}
+            (g_1g_2^{-1})\cdot a  & = g_1\cdot(g_2^{-1}\cdot a)  &
+              (\text{by group action rules}) \\
+                                  & = g_1\cdot(a) & (\because
+                                  g_2^{-1}\,\text{is in the stabilizer}) \\
+                                  & = a           & (\because a\,\text{is
+                                  in the stabilizer}) \\
+          \end{align*}
+          Hence $g_1g_2^{-1}$ is also in the stabilizer, as we are required
+          to show. \\
         \end{proof}
 
-      \item Question 6:
+      \item Question 6: Prove that a group $G$ acts faithfully on a set $A$
+        if and only if the kernel of the action is the set consisting only
+        of the identity.
+
         \begin{proof}
+          Dummit and Foote showed that for each $g\in G$, $\sigma_g$ is a
+          permutation of $A$, and the map $f$ from $G$ to $S_A$ defined by
+          $g\mapsto\sigma_g$ is a homomorphism. Hence a group $G$ acts
+          faithfully if and only if homomorphism $f$ is injective. We have
+          proven earlier that a homomorphism is injective if and only
+          if its kernel contains only the identiy. Hence $G$ acts
+          faithfully if and only if $ker(f)$ contains only $1_G$, which
+          occurs if and only if the action of kernel of the action is the
+          set consisting only the identity.
         \end{proof}
 
-      \item Question 16:
+      \item Question 16: Let $G$ be any group and let $A=G$. Show that the
+        maps defined by $g\cdot a=gag^{-1}$ for all $g,a\in G$ \textit{do}
+        satisfy the axioms of a (left) group action.
+
         \begin{proof}
+          First, $1_G\cdot a=1_Ga(1_G)^{-1}=1_Ga1_G=a$. Second, given
+          $g_1,g_2\in G$, we have
+          \begin{align*}
+            (g_1g_2)\cdot a & = (g_1g_2)a(g_1g_2)^{-1}      & \\
+                            & = (g_1g_2)a(g_2^{-1}g_1^{-1}) & \\
+                            & = g_1(g_2ag_2^{-1})g_1^{-1}   & (\text{by
+                            associativity of $G$}) \\
+                            & = g_1(g_2\cdot a)g_1^{-1}     & \\
+                            & = g_1\cdot(g_2\cdot a)        & \\
+          \end{align*}
+          These are the two conditions sufficient to show that the map is a
+          left group action. 
         \end{proof}
 
       \item Question 17:
