@@ -290,7 +290,7 @@
           homomorphism from $G$ to $S_A$ that sends $g$ to $\sigma_g$. From
           section 1.6 question 14, we have already shown that the kernel of
           a homomorphism is a subgroup of the domain group. Hence the
-          kernel of the action is a subgrou pof $G$. \\
+          kernel of the action is a subgroup of $G$. \\
 
           Now we show that the stabilizer of $a$ in $G$ is a subgroup of
           $G$. Let $g_1,g_2\in G$ be in the stabilizer. It suffices to show
@@ -349,16 +349,99 @@
           left group action. 
         \end{proof}
 
-      \item Question 17:
+      \item Question 17: Let $G$ be a group and let $G$ act on itself by
+        left conjugation, so that each $g\in G$ maps $G$ to $G$ by
+        $x\mapsto gxg^{-1}$. For fixed $g\in G$, prove that conjugation by
+        $g$ is an automorphism. Deduce that $x$ and $gxg^{-1}$ have the sme
+        order for all $x$ in $G$ and that for any subset $A$ of $G$,
+        $|A|=|gAg^{-1}|$.
+
         \begin{proof}
+          For fixed $g$, we first show that conjugation by $g$ is an
+          automorphism. In question 16, we have shown that conjugation is a
+          left group action. In section 1.6 question 13, we have shown that
+          a bijective homomorphism is an isomorphism. Hence it suffices to
+          show that the map by conjugation is a bijective homorphism. The
+          map is surjective because given any $y\in G$, $g\cdot
+          (g^{-1}yg)=g(g^{-1}yg)g^{-1}=y$. The map is a homormhism because
+          $g\cdot 1_G=g1_Gg^{-1}=gg^{-1}=1_G$, and
+          $g\cdot(g_1g_2)=gg_1g_2g^{-1}=(gg_1g^{-1})(gg_2g^{-1})=(g\cdot
+          g_1)(g\cdot g_2)$. Finally, to show injectivity, which we have
+          proven in the earlier exercises to equal to showing that the
+          kernel is the trivial subgroup, we observe that if $g\cdot
+          x=gxg^{-1}=1_G$, then rearranging the formula we get $x=1_G$,
+          which completes our proof that conjugation is an automorphism. \\
+
+          Since isomorphisms preserve order, the image of $x$ under
+          conjugation must have the same order as $x$, or in other words,
+          $x$ and $gxg^{-1}$ have the same order. \\
+
+          Given any subset $A$ of $G$, $|gAg^{-1}|=|g\cdot(A)|=|A|$, where
+          the last equality holds because of the bijectivity of
+          conjugation. 
         \end{proof}
 
-      \item Question 18:
+      \item Question 18: Let $H$ be a group acting on a set $A$. Prove that
+        the relation $\sim$ on $A$ defined by
+        \begin{align*}
+          a\sim b \leftrightarrow a=h\cdot b\;\text{for some}\;h\in H
+        \end{align*}
+        is an equivalence relation.
+
         \begin{proof}
+          Equivalence relations are relations that are symmetric,
+          reflexive, and transitive. We first show symmetry. If $a\sim b$,
+          then $a=h\cdot b$ for some $h\in H$, then
+          \begin{align*}
+            h^{-1}\cdot a & = h^{-1}\cdot(h\cdot b) & \\
+                          & = (h^{-1}h)\cdot b      & (\text{by property of
+                          group action}) \\
+                          & = (1_H)\cdot b          & \\
+                          & = b                     & (\text{by property of
+                          group action}), \\
+          \end{align*}
+          which means $b\sim a$. Next, the relation is reflexive since
+          $a=1_H\cdot a$. Finally, to show transitivity, assume $a\sim b$
+          and $b\sim c$. Then there exists $h_1,h_2\in H$ such that
+          $a=h_1\cdot b$ and $b=h_2\cdot c$. Then
+          \begin{align*}
+            (h_1h_2)\cdot c & = h_1\cdot(h_2\cdot c)  & (\text{by property of
+                            group action}) \\
+                            & = h_1\cdot b            & \\
+                            & = a,                    & \\
+          \end{align*}
+          which implies that $a\sim c$ as required.
         \end{proof}
 
-      \item Question 19:
+      \item Question 19: Let $H$ be a subgroup of the finite group $G$ and
+        let $H$ act on $G$ by left multiplication. Let $x\in G$ and let
+        $\mathcal{O}$ be the orbit of $x$ under the action of $H$. Prove
+        that the map
+        \begin{align*}
+          H\rightarrow\mathcal{O} && \;\text{defined by} && h\mapsto hx \\
+        \end{align*}
+        is a bijection. From this and the preceeding exercise deduce
+        \textit{Lagrange's Theorem}:
+        \begin{center}
+          \textit{if $G$ is a finite group and $H$ is a subgroup of $G$
+          then $|H|$ divides $|G|$.}
+        \end{center}
+
         \begin{proof}
+          The map is surjective by the definition of an orbit. To prove
+          injectivity, let $h_1x=h_2x$. Then by multiplying with $x^{-1}$
+          on the right, we get $h_1=h_2$, proving injectivity. \\
+
+          To show \textit{Lagrange's Theorem}, let $H$ be a subgroup of
+          a finite group $G$, and consider its action on $G$ by left
+          multiplication. By the preceeding exercise, we can partition $G$
+          by the equivalence classes given by the $\sim$ relation. More
+          specifically, we can write $G=Hg_1\sqcup\ldots\sqcup Hg_k$ for some
+          $k\in\mathbb{Z}$ and $g_1,\ldots,g_k\in G$, and where the $Hg_i$
+          are pairwise disjoint. Then from the bijectivity of the map
+          between $H$ and $\mathbb{O}$ which we have just proven, each
+          $Hg_i$ has the same number of elements as $H$, which implies that
+          $|G|$ must be a multiple of $|H|$, as we are required to show.
         \end{proof}
     \end{enumerate}
 
