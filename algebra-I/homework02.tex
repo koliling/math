@@ -14,6 +14,188 @@
 
 \begin{enumerate}
   \item
+    \begin{enumerate}
+      \item Prove that the set of all multiples of some fixed integer $n$
+        is a subgroup of $\mathbb{Z}$ which is isomorphic to $\mathbb{Z}$.
+        \begin{proof}
+          Let $n\mathbb{Z}$ denote the set of all multiples of $n$. We
+          first show that $n\mathbb{Z}$ is a subgroup of $\mathbb{Z}$.
+          Given $ni,nj\in n\mathbb{Z}$, $ni-nj=n(i-j)\in n\mathbb{Z}$,
+          which is sufficient to show that $n\mathbb{Z}$ is a subgroup of
+          $\mathbb{Z}$. \\
+          
+          Now we show that the groups are isomorphic. Consider the map
+          $\varphi:\mathbb{Z}\rightarrow n\mathbb{Z}$ that sends $i$ to
+          $ni$. This map is a homomorphism since
+          $\varphi(i+j)=n(i+j)=ni+nj=\varphi(i)+\varphi(j)$. This map is
+          also surjective since $\varphi^{-1}(ni)=i$. Finally, this map is
+          injective because its kernel contains only identity:
+          $\varphi(i)=0\leftrightarrow ni=0\leftrightarrow i=0$.
+        \end{proof}
+      \item Page 22, question 27: Prove that if $x$ is an element of the
+        group $G$ then $H=\{x^n|n\in\mathbb{Z}\}$ is a subgroup of $G$.
+
+        \begin{proof}
+          Given $x^m,x^n\in H$, $x^m\cdot(x^n)^{-1}=x^m\cdot
+          x^{-n}=x^{m-n}\in H$. This is a sufficient condition for showing
+          that $H$ is a subgroup of $G$.
+        \end{proof}
+    \end{enumerate}
+
+  \item Give an example of an infinite group which as a finite non-trivial
+    subgroup.
+
+    \begin{proof}
+      Consider the group $(\mathbb{Z}_2[x],+)$. This group is infinite
+      since $\{0,x,x^2,x^3,\ldots\}$ are distinct elements in the group.
+      Then $\mathbb{Z}_2=\{0,1\}$ is a non-trivial finite subgroup.
+    \end{proof}
+
+  \item What is the largest possible order of an element in $S_6$? What
+    about in $S_7$? Explain your answers. 
+
+    \begin{proof}
+      Each permutation $\varphi\in S_n$ can be decomposed into a
+      composition of disjoint cycles
+      $\varphi=\sigma_1\circ\ldots\circ\sigma_k$ such that each element
+      $i\in\{1,\ldots,n\}$ appears exactly once. We have proven in homework
+      1 that the order of $\varphi$ is then
+      $\mathrm{lcm}(|\sigma_1|\cdot\ldots\cdot|\sigma_k|)$. Hence, to find
+      an element of the largest possible order, we consider all finite
+      positive integer sums to $n$, and the lowest common multiples of each
+      solution. \\
+
+      For $n=6$, we find that the permutation $\varphi$ with the largest
+      order occurs when $\varphi$ is a 6-cycle, or a composition of a 3-cycle
+      with a disjoint 2-cycle, giving an order of 6. \\
+
+      For $n=7$, we find that the permutation $\varphi$ with the largest
+      order occurs when $\varphi$ is a composition of a 3-cycle
+      with a disjoint 4-cycle, giving an order of 12. \\
+    \end{proof}
+
+  \item Let $Q_8$ act on itself by left multiplication. Use this action to
+    find an embedding of $Q_8$ in $S_8$ using the numbering:
+    $1\mapsto1,i\mapsto2,-1\mapsto3,-i\mapsto4,j\mapsto5,k\mapsto6,-j\mapsto7,-k\mapsto8$.
+    That is, give the left regular representation of $Q_8$ in $S_8$.
+
+    \begin{proof}
+      Following the Cayley table of the $Q_8$ which we have obtained in the
+      previous homework, we get the left regular representation of $Q_8$ in
+      $S_8$ as follows:
+
+      \begin{center}
+        \begin{tabular}{|l||l|}
+          \hline
+          $1$   & $()$ \\ \hline
+          $i$   & $(1,i,-1,-1)\circ(j,k,-j,-k)$ \\ \hline
+          $-1$  & $(1,-1)\circ(i,-i)\circ(j,-j)\circ(k,-k)$ \\ \hline
+          $-i$  & $(1,-i,-1,i)\circ(j,-k,-j,k)$ \\ \hline
+          $j$   & $(1,j,-1,-j)\circ(i,-k,-i,k)$ \\ \hline
+          $k$   & $(1,k,-1,-k)\circ(i,j,-i,-j)$ \\ \hline
+          $-j$  & $(1,-j,-1,j)\circ(i,k,-i,-k)$ \\ \hline
+          $-k$  & $(1,-k,-1,k)\circ(i,-j,-i,j)$ \\ \hline
+        \end{tabular}
+      \end{center}
+
+      Replacing each element in $Q_8$ by its numbering, we get the
+      following table:
+
+      \begin{center}
+        \begin{tabular}{|l||l|}
+          \hline
+          $1$   & $()$ \\ \hline
+          $2$   & $(1,2,3,3)\circ(5,6,7,8)$ \\ \hline
+          $3$   & $(1,3)\circ(2,4)\circ(5,7)\circ(6,8)$ \\ \hline
+          $4$   & $(1,4,3,2)\circ(5,8,7,6)$ \\ \hline
+          $5$   & $(1,5,3,7)\circ(2,8,4,6)$ \\ \hline
+          $6$   & $(1,6,3,8)\circ(2,5,4,7)$ \\ \hline
+          $7$   & $(1,7,3,5)\circ(2,6,4,8)$ \\ \hline
+          $8$   & $(1,8,3,6)\circ(2,7,4,5)$ \\ \hline
+        \end{tabular}
+      \end{center}
+    \end{proof}
+
+  \item Section 1.6
+    \begin{enumerate}
+      \item Question 4:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 5:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 6:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 9:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 13:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 14:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 16:
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 1.7
+    \begin{enumerate}
+      \item Question 4:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 6:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 16:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 17:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 18:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 19:
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 2.1
+    \begin{enumerate}
+      \item Question 4:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 5:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 6:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 7:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 14:
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
