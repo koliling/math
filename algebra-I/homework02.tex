@@ -244,8 +244,28 @@
           contains a non-identity element $g_1g_2^{-1}$. 
         \end{proof}
 
-      \item Question 16:
+      \item Question 16: Let $A$ and $B$ be groups and let $G$ be their
+        direct product, $A\times B$. Prove that the maps
+        $\pi_1:G\rightarrow A$ and $\pi_2:G\rightarrow B$ defined by
+        $\pi_1((a,b))=a$ and $\pi_2((a,b))=b$ are homomorphisms and find
+        their kernels.
+
         \begin{proof}
+          We first show that $\pi_1$ is a homomorphism by chasing
+          definitions. Given $c_1=(a_1,b_1),c_2=(a_2,b_2)\in A\times B$,
+          \begin{align*}
+            \pi_1(c_1c_2) & = \pi_1((a_1,b_1)(a_2,b_2))  & \\
+                          & = \pi_1((a_1a_2,b_1b_2))     & \\
+                          & = a_1a_2  & (\text{by definition of $\pi_1$}) \\
+                          & = \pi_1((a_1,b_1))\pi_1((a_2,b_2)), & (\text{by definition of $\pi_1$}) \\
+          \end{align*}
+          which proves the homomorphism of $\pi_1$. The homomorphism of
+          $\pi_2$ can be proven in a similar manner. \\
+
+          To find $\ker(\pi_1)$, we wish to find $(a,b)\in A\times B$ such
+          that $pi_1((a,b))=a=1_A$. Clearly, we get
+          $\ker(\pi_1)=\{1_A\}\times B$. Similarly for $\pi_2$, we get
+          $\ker(\pi_2)=A\times\{1_B\}$.
         \end{proof}
     \end{enumerate}
 
