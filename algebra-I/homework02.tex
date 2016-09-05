@@ -486,7 +486,32 @@
           is sufficient to show that the torsion group is a subgroup of
           $G$. \\
 
-          \TODO{Give example.}
+          Consider the group $G=GL_2(\mathbb{R})$, and the following
+          elements in $G$:
+          \begin{align*}
+            A =
+            \begin{pmatrix}
+              0 & -1 \\
+              1 & 0 \\
+            \end{pmatrix},\; &&
+            B =
+            \begin{pmatrix}
+              0   & 1 \\
+              -1  & -0 \\
+            \end{pmatrix}. \\
+          \end{align*}
+          Then $A^4=B^3=I$, so $A$ and $B$ are in the torsion set of $G$.
+          However, we can show by induction on $n$ that 
+          \begin{align*}
+            (AB)^n =
+            \begin{pmatrix}
+              0   & n \\
+              0   & 1 \\
+            \end{pmatrix}, \\
+          \end{align*}
+          implying that $AB$ is not in the torsion set, which means the
+          torsion set is not closed under multiplication and thus cannot be
+          a group.
         \end{proof}
 
       \item Question 7: Fix some $n\in\mathbb{Z}$ with $n>1$. Find the
@@ -504,7 +529,6 @@
           The given set of elements is not a group because it is not closed
           under addition. In particular, $(1,1)$ and $(-1,0)$ are in the set
           but their sum $(0,1)$ is not.
-          inverse
         \end{proof}
 
       \item Question 14: Show that $\{x\in D_{2n}\,|\,x^2=1\}$ is not a
