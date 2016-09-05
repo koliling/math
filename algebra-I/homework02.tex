@@ -447,23 +447,69 @@
 
   \item Section 2.1
     \begin{enumerate}
-      \item Question 4:
+      \item Question 4: Give an explicit example of a group $G$ and an
+        infinite subset $H$ of $G$ that is closed under the group operation
+        but is not a subgroup of $G$.
+
         \begin{proof}
+          Consider the case where $G=\mathbb{Z}$ under the addition
+          operation and $H=\mathbb{Z}^+$. Then $H$ is closed under addition
+          but it is not a group because it does not have an identity.
         \end{proof}
 
-      \item Question 5:
+      \item Question 5: Prove that $G$ cannot have a subgroup $H$ with
+        $|H|=n-1$, where $n=|G|>2$.
+
         \begin{proof}
+          From \textit{Lagrange's Theorem} which we have proven in section
+          1.7 question 19, if $G$ is a finite group, then $|H|$ must divide
+          $|G|=n$. Setting $n=k(n-1)$ and rearranging gives $n=1+1/(k-1)$,
+          which has integer solutions for $n$ only if $k=n=2$, as we are
+          required to show.
         \end{proof}
 
-      \item Question 6:
+      \item Question 6: Let $G$ be an abelian group. Prove that $\{g\in
+        G\,|\,|g|<\infty\}$ is a subgroup of $G$ (called the
+        \textit{torsion subgroup} of $G$). Give an explicit example
+        where this set is not a subgroup when $G$ is non-abelian.
+
         \begin{proof}
+          Let $g_1,g_2$ be in the torsion group of an abelian group $G$.
+          Then $g_1^{n_1}=g_2^{n_2}=1_G$ for some integers $n_1,n_2$. Then
+          \begin{align*}
+            (g_1g_2^{-1})^{n_1n_2} & = g_1^{n_1n_2}g_2^{-n_1n_2} & (\because G \text{is abelian}) \\
+                                   & = (g_1^{n_1})^{n_2}(g_2^{-n_2})^{n_1} & \\
+                                   & = 1_G^{n_2}1_G^{n_1} & \\
+                                   & = 1_G,               & \\
+          \end{align*}
+          implying that $g_1g_2^{-1}$ is also in the torsion group, which
+          is sufficient to show that the torsion group is a subgroup of
+          $G$. \\
+
+          \TODO{Give example.}
         \end{proof}
 
-      \item Question 7:
+      \item Question 7: Fix some $n\in\mathbb{Z}$ with $n>1$. Find the
+        torsion subgroup of $\mathbb{Z}\times(\mathbb{Z}/n\mathbb{Z})$.
+        Show that the set of elements of inifinite order together with the
+        identity is not a subgroup of this direct product.
+
         \begin{proof}
+          Given $(a,b)$ in $\mathbb{Z}\times(\mathbb{Z}/n\mathbb{Z})$,
+          adding $(a,b)$ $k$ number of times gives $k\cdot(a,b)=(ka,kb\mod
+          n)$, which equals $(0,0)$ if and only if $a=0$ and $n|kb$.
+          Setting $a=0$, $n$ will divide $kb$ when $k=n$, the torsion
+          subgroup is exactly $\{0\}\times(\mathbb{Z}/n\mathbb{Z})$. \\
+
+          The given set of elements is not a group because it is not closed
+          under addition. In particular, $(1,1)$ and $(-1,0)$ are in the set
+          but their sum $(0,1)$ is not.
+          inverse
         \end{proof}
 
-      \item Question 14:
+      \item Question 14: Show that $\{x\in D_{2n}\,|\,x^2=1\}$ is not a
+        subgroup of $D_{2n}$. (here $n\geq3$).
+
         \begin{proof}
         \end{proof}
     \end{enumerate}
