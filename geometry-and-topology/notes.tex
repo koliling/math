@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+
+\begin{document}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{eg}{Example}[section]
+\newtheorem{rmk}{Remark}[section]
+
+\title{Geometry and Topology Notes}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\section{CW-Complex}
+\begin{mydef}
+  A \textit{CW-complex} is a space with a filtration
+  \begin{equation*}
+    X^{(0)}\subseteq X^{(1)}\subseteq \ldots \subseteq X
+  \end{equation*}
+  such that:
+
+  \begin{enumerate}[label=(\alph*)]
+    \item $\bigcup\limits_n X^{(n)}=X$
+    \item $\mathcal{U}\subseteq X$ open $\leftrightarrow\mathcal{U}\bigcap
+      X^{(n)}$ open for each $n$
+    \item $X^{(n)}$ is constructed inductively:
+      \begin{enumerate}[label=(\roman*)]
+        \item $X^{(0)}$ is a discrete set of points
+        \item For each $n\leq1$, there exists $n$-disks
+          $\{D^n_\alpha\}_{\alpha\in}\}$ and has
+      \end{enumerate}
+  \end{enumerate}
+\end{mydef}
+\end{document}
