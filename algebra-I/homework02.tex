@@ -36,9 +36,10 @@
         group $G$ then $H=\{x^n|n\in\mathbb{Z}\}$ is a subgroup of $G$.
 
         \begin{proof}
-          Given $x^m,x^n\in H$, $x^m\cdot(x^n)^{-1}=x^m\cdot
-          x^{-n}=x^{m-n}\in H$. This is a sufficient condition for showing
-          that $H$ is a subgroup of $G$.
+          $H$ is non-empty since $e=x^0$ is in $H$. Also, given $x^m,x^n\in
+          H$, $x^m\cdot(x^n)^{-1}=x^m\cdot x^{-n}=x^{m-n}\in H$. These are
+          a sufficient conditions for showing that $H$ is a subgroup of
+          $G$.
         \end{proof}
     \end{enumerate}
 
@@ -176,6 +177,7 @@
         $\varphi$ is injective then $G\cong\varphi(G)$. 
 
         \begin{proof}
+          $\varphi(G)$ is not empty since $1_H=\varphi(1_G)\in\varphi(G)$.
           Let $h_1,h_2\in\varphi(G)$. Then there exists $g_1,g_2\in G$ such
           that $h_1=\varphi(g_1)$ and $h_2=\varphi(g_2)$. We wish to show
           that $h_1\circ h_2^{-1}\in \varphi(G)$. Now 
@@ -210,7 +212,8 @@
         the identity subgroup of $G$.
 
         \begin{proof}
-          We first prove that $\ker(\varphi)$ is a subgroup of $G$. Given
+          We first prove that $\ker(\varphi)$ is a subgroup of $G$.
+          $\ker(\varphi)$ is not empty because it contains $1_G$. Given
           $g_1,g_2\in\ker(\varphi)$, it suffices to show that $g_1g_2^{-1}$
           is in $\ker(\varphi)$. Now
           \begin{align*}
@@ -293,8 +296,9 @@
           kernel of the action is a subgroup of $G$. \\
 
           Now we show that the stabilizer of $a$ in $G$ is a subgroup of
-          $G$. Let $g_1,g_2\in G$ be in the stabilizer. It suffices to show
-          that $g_1g_2^{-1}$ is also in the stabilizer. Now
+          $G$. The stabilizer is not empty because it contains $1_G$. Let
+          $g_1,g_2\in G$ be in the stabilizer. It remains to show that
+          $g_1g_2^{-1}$ is also in the stabilizer. Now
           \begin{align*}
             g_2^{-1}\cdot a & = \sigma_{g_2^{-1}}(a) & \\
                             & = \sigma_{g_2}^{-1}(a) & (\because\,\text{the
@@ -352,7 +356,7 @@
       \item Question 17: Let $G$ be a group and let $G$ act on itself by
         left conjugation, so that each $g\in G$ maps $G$ to $G$ by
         $x\mapsto gxg^{-1}$. For fixed $g\in G$, prove that conjugation by
-        $g$ is an automorphism. Deduce that $x$ and $gxg^{-1}$ have the sme
+        $g$ is an automorphism. Deduce that $x$ and $gxg^{-1}$ have the same
         order for all $x$ in $G$ and that for any subset $A$ of $G$,
         $|A|=|gAg^{-1}|$.
 
@@ -439,7 +443,7 @@
           specifically, we can write $G=Hg_1\sqcup\ldots\sqcup Hg_k$ for some
           $k\in\mathbb{Z}$ and $g_1,\ldots,g_k\in G$, and where the $Hg_i$
           are pairwise disjoint. Then from the bijectivity of the map
-          between $H$ and $\mathbb{O}$ which we have just proven, each
+          between $H$ and $\mathcal{O}$ which we have just proven, each
           $Hg_i$ has the same number of elements as $H$, which implies that
           $|G|$ must be a multiple of $|H|$, as we are required to show.
         \end{proof}
@@ -474,6 +478,7 @@
         where this set is not a subgroup when $G$ is non-abelian.
 
         \begin{proof}
+          The torsion group is not empty because it contains $1_G$.
           Let $g_1,g_2$ be in the torsion group of an abelian group $G$.
           Then $g_1^{n_1}=g_2^{n_2}=1_G$ for some integers $n_1,n_2$. Then
           \begin{align*}
@@ -516,7 +521,7 @@
 
       \item Question 7: Fix some $n\in\mathbb{Z}$ with $n>1$. Find the
         torsion subgroup of $\mathbb{Z}\times(\mathbb{Z}/n\mathbb{Z})$.
-        Show that the set of elements of inifinite order together with the
+        Show that the set of elements of infinite order together with the
         identity is not a subgroup of this direct product.
 
         \begin{proof}
