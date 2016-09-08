@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Geometry and Topology: Homework 2}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}
+  \item Let $X$ be a CW complex.
+    \begin{enumerate}
+      \item Prove that if $X$ has finitely may cells, then $X$ is compact.
+        \begin{proof}
+          We prove by induction on $n$, the number of cells of $X$. For the
+          base case where $n=1$, $X$ is a single point, which is trivially
+          compact. For the inductive step, assume the statement is true for
+          $n$ cells, and consider the case when $X$ is composed of $(n+1)$
+          cells. $X$ is obtained from gluing an $n$-disc $D^n$ to $X^{(n)}$
+          at the boundary of the disk $\delta D^n$. $X^{(n)}$ is compact by
+          inductive assumption. The $n$-disc is also compact since it is
+          closed and bounded in $\mathbb{R}^n$. Since $X$ is a compact
+          space attached to another compact space, it must also be compact
+          - any open cover of $X$ must cover each of its component
+          spaces, giving a finite cover from each component space by the
+          compactness of those spaces.
+        \end{proof}
+
+      \item Let $C\subset X$ be a compact subset. Prove that $C$ only
+        intersects finitely many cells of $X$.
+        \begin{proof}
+          Assume by contradiction that a compact subset $C$ intersects
+          infinite number of cells of $X$. Let $\{e^i\}_{i\in\mathbb{N}}$
+          be a countably infinite series of distinct cells that intersect
+          with $C$. From each cell $e^i$, we pick a point $x_i\in X$ from
+          their area of intersection, to obtain a series $P=\{x_0,\ldots\}$
+          of points in $X$. \\
+
+          We first prove by induction that $P$ is closed in $X$. By
+          definition, this is equivalent to proving that $P\cap X^{(n)}$ is
+          closed in $X^{(n)}$ for each $n\in\mathbb{N}$. We prove this
+          claim by induction on $n$: The base case is trivially true since
+          it consists $P\cap X^{(0)}$ consists of only one point $x_0$.
+          Assume the claim is true for $n$. Then $\varphi_{n+1}^{-1}(P)$ is
+          closed in the disk boundary $\delta D^{n+1}$, so after adding one
+          more point $x_{n+1}$ into $D^{n+1}$, $\varphi_{n+1}^{-1}(P)$ will
+          remain closed in $D^{n+1}$, implying that $P\cap X^{n+1}$ is
+          closed in $X^{n+1}$. \\
+
+          By similar argument, any subset of $P$ must also be closed in
+          $X$, which means that $P$ as a subset of $X$ has the discrete
+          topology. Yet, $P$ is infinite, so it cannot be compact, which is
+          a contradiction because $P$ is a closed subset of a compact space
+          $C$, and should be compact.
+        \end{proof}
+
+    \end{enumerate}
+\end{enumerate}
+\end{document}
