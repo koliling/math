@@ -99,11 +99,77 @@
         single point.
 
         \begin{proof}
-          After trial and error, we conclude that the quotient space of
-          $S^2$ is constructed using one 0-cell, $n$ 1-cells glued onto the
-          0-cell through gluing the end points of each 1-cell onto the
-          0-cell, forming a $n$-petaled flower, then finally gluing a
-          single 2-cell glued onto the flower in the following manner:
+          After visualizing, we summarize that the quotient space of
+          $S^2$ is constructed using one 0-cell, $(n-1)$ 1-cells, and one
+          2-cell, in the following manner:
+          \begin{enumerate}
+            \item Start with a 0-cell, which is a single point.
+            \item Glue the $(n-1)$ 1-cells to the 0-cell, sticking the end
+              points of each 1-cell to the 0-cell, forming a flower with
+              $(n-1)$ petals.
+            \item Glue the 2-cell onto the petals of the flower according
+              to the figure below.
+          \end{enumerate}
+
+          \begin{center}
+            \begin{tikzpicture}
+              %\draw[help lines](0,0) grid (12,6);
+              \foreach\Point in {
+                (3,3),
+                (9.5,1), (9.5,5),
+                (8.5,2), (8.5,3), (8.5,4),
+                (10.5,2), (10.5,3), (10.5,4)
+                }{\node at \Point {\textbullet};}
+              \path[draw,dotted,line width=1.5pt] (8.5,1)--(10.5,1);
+              \path[draw,line width=1.5pt] (8.5,5)--(10.5,5);
+              \draw[line width=1.5pt,dotted] (10.5,1) arc (-90:0:0.5);
+              \draw[line width=1.5pt,dotted] (10.5,2) arc (-90:0:0.5);
+              \draw[line width=1.5pt] (10.5,3) arc (-90:0:0.5);
+              \draw[line width=1.5pt] (10.5,4) arc (-90:0:0.5);
+
+              \draw[line width=1.5pt,dotted,<-] (11,1.5) arc (0:90:0.5);
+              \draw[line width=1.5pt,dotted,<-] (11,2.5) arc (0:90:0.5);
+              \draw[line width=1.5pt,<-] (11,3.5) arc (0:90:0.5);
+              \draw[line width=1.5pt,<-] (11,4.5) arc (0:90:0.5);
+
+              \draw[line width=1.5pt,dotted,->] ( 8.5,2) arc (90:180:0.5);
+              \draw[line width=1.5pt,dotted,->] ( 8.5,3) arc (90:180:0.5);
+              \draw[line width=1.5pt,->] ( 8.5,4) arc (90:180:0.5);
+              \draw[line width=1.5pt,->] ( 8.5,5) arc (90:180:0.5);
+
+              \draw[line width=1.5pt,dotted] (8,1.5) arc (180:270:0.5);
+              \draw[line width=1.5pt,dotted] (8,2.5) arc (180:270:0.5);
+              \draw[line width=1.5pt] (8,3.5) arc (180:270:0.5);
+              \draw[line width=1.5pt] (8,4.5) arc (180:270:0.5);
+
+              \node[] at (11.5,1.5) {$a_{n-1}$};
+              \node[] at (11.5,3.5) {$a_2$};
+              \node[] at (11.5,4.5) {$a_1$};
+
+              \node[] at (7.5,1.5) {$a_{n-1}$};
+              \node[] at (7.5,3.5) {$a_2$};
+              \node[] at (7.5,4.5) {$a_1$};
+              \node[] at (9.5,0.5) {2-cell};
+
+              \path[draw,line width=1.5pt,dotted] (2.5,1)--(3,3)--(3.5,1);
+              \path[draw,line width=1.5pt] (2.5,5)--(3,3)--(3.5,5);
+              \path[draw,line width=1.5pt,dotted] (5,3.5)--(3,3)--(5,2.5);
+              \path[draw,line width=1.5pt] (1,3.5)--(3,3)--(1,2.5);
+
+              \draw[line width=1.5pt,->] (2.5,5) arc (180:90:0.5);
+              \draw[line width=1.5pt] (3,5.5) arc (90:0:0.5);
+              \draw[line width=1.5pt,-<,dotted] (2.5,1) arc (-180:-90:0.5);
+              \draw[line width=1.5pt,dotted] (3,0.5) arc (-90:0:0.5);
+              \draw[line width=1.5pt,->,dotted] (5,3.5) arc (90:0:0.5);
+              \draw[line width=1.5pt,dotted] (5.5,3) arc (0:-90:0.5);
+              \draw[line width=1.5pt,->] (1,2.5) arc (-90:-180:0.5);
+              \draw[line width=1.5pt] (0.5,3) arc (180:90:0.5);
+
+              \node[] at (0,3) {$a_{1}$};
+              \node[] at (3,6) {$a_{2}$};
+              \node[] at (3,0) {$a_{n-1}$};
+            \end{tikzpicture}
+          \end{center}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
