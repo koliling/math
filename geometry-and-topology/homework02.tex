@@ -65,18 +65,46 @@
       \item An $n$-dimensional torus.
         \begin{proof}
           An $n$-torus is formed by first creating an $n$-dimensional cube,
-          and glueing opposing faces of the cube together. An
-          $n$-dimensional cube has $2^n$ faces.
+          then gluing opposing faces of the cube together. We observe the
+          pattern of number cells needed as $n$ increases from 0 to 2. The
+          0-torus is a single 0-cell. The 1-torus is a 0-cell, glued with a
+          1-cell. The 2-torus is a 0-cell, glued with two 1-cells, then
+          with a 2-cell on the two one-cells. So the $n$-cell is obtained
+          by starting with a 0-cell, then gluing $n$ 1-cells to the 0-cell,
+          where the end points of each 1-cell is glued to the 0-cell,
+          forming a flower with $n$ petals. To complete the $n$-cell, we
+          build a $(n-1)$-torus over each $\binom{n}{n-1}$ choice of
+          $(n-1)$ petals, reusing any $(n-i)$ cells that have been built
+          earlier. \\
 
-          We prove by induction on $n$ that an $n$ dimensional torus is
-          constructed using $\binom ni$ $i$-cells, for $0\leq i\leq n$. For
-          the base case, the $0$-torus is a single point, so the claim is
-          trivially true.
+          This system of construction can be summarized as follows
+          \begin{enumerate}
+            \item Start with a single 0-cell.
+            \item Glue $n$ 1-cells to the 0-cell, sticking the end points
+              of each 1-cell to the 0-cell, forming a flower with $n$
+              petals.
+            \item Repeat for $i=2$ to $n$: Between every $i$
+              1-cells, glue an $i$-cell to the $i$ $(i-1)$-cells
+              constructed in the earlier stage, such that opposing faces of
+              the $i$-cell are glued to the same $(i-1)$-cell, and each
+              $(i-1)$-cell has exactly two $i$-cell faces glued onto them.
+          \end{enumerate}
+
+          From construction, we summarize that an $n$-torus is built from
+          $\binom{n}{i}$ $i$-cells, for $0\leq i\leq n$. \\
         \end{proof}
 
       \item Letting $\{p_1,\ldots,p_n\}$ be $n$ distinct points on $S^2$,
         the quotient space of $S^2$ that identifies all the $p_i$ to a
         single point.
+
+        \begin{proof}
+          After trial and error, we conclude that the quotient space of
+          $S^2$ is constructed using one 0-cell, $n$ 1-cells glued onto the
+          0-cell through gluing the end points of each 1-cell onto the
+          0-cell, forming a $n$-petaled flower, then finally gluing a
+          single 2-cell glued onto the flower in the following manner:
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
