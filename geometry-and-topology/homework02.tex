@@ -190,10 +190,10 @@
               given any $y\in\mathbb{C}^*$, the inverse $z=\ln(y)$ always
               exists, and $\pi(z_1)=\pi(z_2)\leftrightarrow z_1-z_2\in
               2\pi\mathbb{Z}$. Hence, the map when restricted to any open
-              subset of $\mathbb{R}\times[z-\pi i,z+\pi
-              i)\subset\mathbb{C}^*$, where $z\in\mathbb{C}$, will be a
-              homeomorphism when the codomain is the image of the subset.
-              We use these properties to show that given any
+              subset of the horizontal strip $\mathbb{R}\times[z-\pi
+              i,z+\pi i)\subset\mathbb{C}^*$, where $z\in\mathbb{C}$, will
+              be a homeomorphism when the codomain is the image of the
+              subset.  We use these properties to show that given any
               $y\in\mathbb{C}^*$, there is an open set $\mathcal{O}$
               containing $y$ such that its pre-image is composed of
               disjoint open sets each of which is homeomorphic to
@@ -205,7 +205,7 @@
               be the the image of $\mathcal{U}$ under $\pi$; this image
               will contain $y$ and is open because $\pi$ is an open
               function. Consider the restriction of $\pi$ to the open ball
-              $\mathcal{O}$. Since the diameter of $\mathcal{O}$ is less
+              $\mathcal{U}$. Since the diameter of $\mathcal{U}$ is less
               than 1, the map is injective. Hence, by the holomorphic
               property of $\pi$, $\mathcal{U}$ is homeomorphic to
               $\mathcal{O}$. Now the pre-image of $\mathcal{O}$ is the
@@ -218,8 +218,9 @@
               \end{equation*}
 
               where each $\mathcal{U}+2\pi ki=\{x+2k\pi
-              i:x\in\mathcal{U}\}$ is open and homeomorphic to
-              $\mathcal{O}$, which completes the proof. 
+              i:x\in\mathcal{U}\}$ is open, homeomorphic to
+              $\mathcal{O}$, and pairwise disjoint, which completes the
+              proof.
             \end{proof}
 
           \item For $n\in\mathbb{Z}\setminus\{0\}$, the map
@@ -229,24 +230,55 @@
             \begin{proof}
               Similar to the proof in question~\ref{qn:exp}, observe that
               the map is holomorphic and is therefore open and continuous
-              by the open mapping theorem. Also,
-              given any $y\in\mathbb{C}^*$, the inverse $z=\ln(y)$ always
-              exists, and $\pi(z_1)=\pi(z_2)\leftrightarrow z_1-z_2\in
-              2\pi\mathbb{Z}$. Hence, the map when restricted to any open
-              subset of $\mathbb{R}\times[z-\pi i,z+\pi
-              i)\subset\mathbb{C}^*$, where $z\in\mathbb{C}$, will be a
-              homeomorphism when the codomain is the image of the subset.
-              We use these properties to show that given any
-              $y\in\mathbb{C}^*$, there is an open set $\mathcal{O}$
-              containing $y$ such that its pre-image is composed of
-              disjoint open sets each of which is homeomorphic to
-              $\mathcal{O}$. \\
+              by the open mapping theorem. Also, given any
+              $y\in\mathbb{C}^*$, the inverse $z=y^{1/n}$ always exists,
+              and the pre-image of $y$ are the $n$ points
+              $\pi^{-1}(y)=\{y^{1/n}\exp(2k\pi i/n):0\leq k<n\}$. Hence,
+              the map when restricted to any open subset of sectors
+              $\{z\in\mathbb{C}^*:\theta-\pi i/n<\arg(z)<\theta+\pi i/n\}$,
+              where $\theta\in[0,2\pi]$, will be a homeomorphism when the
+              codomain is the image of the subset. We use these properties
+              to show that given any $y\in\mathbb{C}^*$, there is an open
+              set $\mathcal{O}$ containing $y$ such that its pre-image is
+              composed of disjoint open sets each of which is homeomorphic
+              to $\mathcal{O}$. \\
 
+              Given $y\in\mathbb{C}^*$, choose any $z\in\mathbb{C}$ in
+              its pre-image, and let $\mathcal{U}\in\mathbb{C}$ be an open
+              ball $B_\epsilon(z)$ around $z$ and contained in the sector
+              $\{w\in\mathbb{C}^*:\arg(z)-\pi i/n<\arg(w)<\arg(z)+\pi
+              i/n\}$. Such an open ball exists since the sector is open.
+              Let $\mathcal{O}$ be the the image of $\mathcal{U}$ under
+              $\pi$; this image will contain $y$ and is open because $\pi$
+              is an open function. Consider the restriction of $\pi$ to the
+              open ball $\mathcal{U}$. Since the difference in $\arg$
+              between any two points in $\mathcal{U}$ is less than $2k\pi
+              i/n$, the map is injective. Hence, by the holomorphic
+              property of $\pi$, $\mathcal{U}$ is homeomorphic to
+              $\mathcal{O}$. Now the pre-image of $\mathcal{O}$ is the
+              union of $n$ rotations of $\mathcal{U}$ by $2k\pi i/n$
+              degrees for $0\leq k<n$, or more precisely
+
+              \begin{equation*}
+                \pi^{-1}(\mathcal{O}) = \bigcup\limits_{k=0}^{n-1}
+                \mathcal{U}\exp(2k\pi i/n),
+              \end{equation*}
+
+              where each $\mathcal{U}\exp(2k\pi i/n)=\{x\exp(2k\pi
+              i/n):x\in\mathcal{U}\}$ is open, homeomorphic to
+              $\mathcal{O}$, and pairwise disjoint, which completes
+              the proof.
             \end{proof}
         \end{enumerate}
 
       \item Prove that the map $\pi:\mathbb{C}\rightarrow\mathbb{C}$
         defined by $\pi(z)=z^2$ is not a covering space.
+
+        \begin{proof}
+          We show that at $z=0$, there is no open subset $\mathcal{O}$
+          containing the image $\pi(z)=0$ such that its inverse image is a
+          union of disjoint.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
