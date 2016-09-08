@@ -99,16 +99,20 @@
         single point.
 
         \begin{proof}
-          After visualizing, we summarize that the quotient space of
+          After visualizing, we realize that the quotient space of
           $S^2$ is constructed using one 0-cell, $(n-1)$ 1-cells, and one
           2-cell, in the following manner:
           \begin{enumerate}
             \item Start with a 0-cell, which is a single point.
             \item Glue the $(n-1)$ 1-cells to the 0-cell, sticking the end
               points of each 1-cell to the 0-cell, forming a flower with
-              $(n-1)$ petals.
-            \item Glue the 2-cell onto the petals of the flower according
-              to the figure below.
+              $(n-1)$ petals labelled $a_1$ to $a_{n-1}$, as shown in the
+              left figure below.
+            \item Partition the boundary of the 2-cell into $2(n-1)$ parts,
+              label and direct the parts as shown in the right figure
+              below. Then, glue the 2-cell onto the petals of the flower
+              according to the labels, sending each of the marked points to
+              the 0-cell.
           \end{enumerate}
 
           \begin{center}
@@ -171,6 +175,78 @@
             \end{tikzpicture}
           \end{center}
         \end{proof}
+    \end{enumerate}
+
+  \item Carefully prove that the following are covering spaces.
+    \begin{enumerate}
+      \item
+        \begin{enumerate}
+          \item The map $\pi:\mathbb{C}\rightarrow\mathbb{C}^*$ defined by
+            $\pi(z)=e^z$. \label{qn:exp}
+
+            \begin{proof}
+              First, we observe that the function is holomorphic, and hence
+              is open and continuous by the open mapping theorem. Also,
+              given any $y\in\mathbb{C}^*$, the inverse $z=\ln(y)$ always
+              exists, and $\pi(z_1)=\pi(z_2)\leftrightarrow z_1-z_2\in
+              2\pi\mathbb{Z}$. Hence, the map when restricted to any open
+              subset of $\mathbb{R}\times[z-\pi i,z+\pi
+              i)\subset\mathbb{C}^*$, where $z\in\mathbb{C}$, will be a
+              homeomorphism when the codomain is the image of the subset.
+              We use these properties to show that given any
+              $y\in\mathbb{C}^*$, there is an open set $\mathcal{O}$
+              containing $y$ such that its pre-image is composed of
+              disjoint open sets each of which is homeomorphic to
+              $\mathcal{O}$. \\
+
+              Given $y\in\mathbb{C}^*$, choose any $z\in\mathbb{C}$ in
+              its pre-image, and let $\mathcal{U}\in\mathbb{C}$ be an open
+              ball $B_r(z)$ of radius $0<r<0.5$ around $z$. Let $\mathcal{O}$
+              be the the image of $\mathcal{U}$ under $\pi$; this image
+              will contain $y$ and is open because $\pi$ is an open
+              function. Consider the restriction of $\pi$ to the open ball
+              $\mathcal{O}$. Since the diameter of $\mathcal{O}$ is less
+              than 1, the map is injective. Hence, by the holomorphic
+              property of $\pi$, $\mathcal{U}$ is homeomorphic to
+              $\mathcal{O}$. Now the pre-image of $\mathcal{O}$ is the
+              union of $2\pi ki$ translations of $\mathcal{U}$ for
+              $k\in\mathbb{Z}$, or more precisely
+              
+              \begin{equation*}
+                \pi^{-1}(\mathcal{O}) = \bigcup\limits_{k\in\mathbb{Z}}
+                (\mathcal{U}+2k\pi i),
+              \end{equation*}
+
+              where each $\mathcal{U}+2\pi ki=\{x+2k\pi
+              i:x\in\mathcal{U}\}$ is open and homeomorphic to
+              $\mathcal{O}$, which completes the proof. 
+            \end{proof}
+
+          \item For $n\in\mathbb{Z}\setminus\{0\}$, the map
+            $\pi:\mathbb{C}^*\rightarrow\mathbb{C}^*$ defined by
+            $\pi(z)=z^n$.
+
+            \begin{proof}
+              Similar to the proof in question~\ref{qn:exp}, observe that
+              the map is holomorphic and is therefore open and continuous
+              by the open mapping theorem. Also,
+              given any $y\in\mathbb{C}^*$, the inverse $z=\ln(y)$ always
+              exists, and $\pi(z_1)=\pi(z_2)\leftrightarrow z_1-z_2\in
+              2\pi\mathbb{Z}$. Hence, the map when restricted to any open
+              subset of $\mathbb{R}\times[z-\pi i,z+\pi
+              i)\subset\mathbb{C}^*$, where $z\in\mathbb{C}$, will be a
+              homeomorphism when the codomain is the image of the subset.
+              We use these properties to show that given any
+              $y\in\mathbb{C}^*$, there is an open set $\mathcal{O}$
+              containing $y$ such that its pre-image is composed of
+              disjoint open sets each of which is homeomorphic to
+              $\mathcal{O}$. \\
+
+            \end{proof}
+        \end{enumerate}
+
+      \item Prove that the map $\pi:\mathbb{C}\rightarrow\mathbb{C}$
+        defined by $\pi(z)=z^2$ is not a covering space.
     \end{enumerate}
 \end{enumerate}
 \end{document}
