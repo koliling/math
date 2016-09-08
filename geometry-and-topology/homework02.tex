@@ -111,7 +111,7 @@
             \item Partition the boundary of the 2-cell into $2(n-1)$ parts,
               label and direct the parts as shown in the right figure
               below. Then, glue the 2-cell onto the petals of the flower
-              according to the labels, sending each of the marked points to
+              according to the labels, sending each of the marked dots to
               the 0-cell.
           \end{enumerate}
 
@@ -275,12 +275,13 @@
         defined by $\pi(z)=z^2$ is not a covering space.
 
         \begin{proof}
-          We show that at $z=0$, there is no open subset $\mathcal{O}$
-          containing the image $\pi(z)=0$ such that its inverse image is a
-          union of disjoint open subsets each homeomorphic to
-          $\mathcal{O}$. It suffices to consider open balls containing
-          $\pi(z)=0$ since the open balls form a basis of the topology on
-          $\mathbb{C}$.
+          If $\pi$ is a covering space, then given any $z\in\mathbb{C}$ and
+          open set $\mathcal{O}$ containing $z$, the cardinality of the
+          pre-image of each element in $\mathcal{O}$ should be the same.
+          However at $z=0$ and given any open ball $B_\epsilon(0)$ around
+          $z$, we have $|\pi^{-1}(0)|=|\{0\}|=1$, but
+          $|\pi^{-1}(\epsilon/2)|=|\{-\sqrt{\epsilon/2},\sqrt{\epsilon/2}\}|=2$,
+          so $\pi$ cannot be a covering space.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
