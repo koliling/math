@@ -414,12 +414,24 @@
     covering map.
 
     \begin{proof}
-      Let $y\in Y$. We wish to find a neighborhood $U$ containing $y$ such
-      that the pre-image of $U$ under $f^*$ is a disjoint union of open
-      sets in $f^*(Y)$, where each open set is homeomorphic to $U$ under
-      the restriction of $f^*$. Consider the open set $U=f^{-1}(V)$, where
+      Let $y\in Y$. Consider the open set $O=f^{-1}(V)$, where
       $V$ is the neighborhood of $f(y)\in X$ that witnesses the covering
-      space property of $\pi$.
+      space property of $\pi$. We show that $O$ is a neighborhood of $y$
+      that witnesses the covering map property of $f^*(\pi)$. \\
+
+      By choice of $O$, $O$ is a neighborhood of $y$. Let
+      $\mathcal{U}=\{U_i\}_{i\in I}$ be all the disjoint sets of open
+      subsets of $\tilde{X}$ that are homeomorphic to $V$ under the
+      restriction map of $\pi$. Let
+      $O_i=\{(y,\tilde{x}):\pi(\tilde{x})=f(y),\tilde{x}\in U_i\}\subseteq
+      Y\times\tilde{X}$. Then chasing definitions, each $O_i$ is disjoint,
+      the pre-image of $O$ under $f^*(\pi)$ is the union of the $O_i$'s,
+      and the restriction of $f^*(\pi)$ on each $O_i$ is a bijection. Also,
+      each $O_i$ is open in $Y\times\tilde{X}$ because it is the
+      intersection of the open subset $Y\times U_i$ of $Y\times\tilde{X}$.
+      The restriction of $f^*(\pi)$ on $O_i$ is continuous since it is a
+      projection map, which is continuous. It remains to show that the
+      restriction of $f^*(\pi)$ on $O_i$ is open.
     \end{proof}
 \end{enumerate}
 \end{document}
