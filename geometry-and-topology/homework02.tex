@@ -308,17 +308,40 @@
       restricted to each open set is a bijection. So we have shown that in
       all cases, $\tilde{X}$ is Hausdorff. \\
 
-      Now we show that $\tilde{X}$ is compact. Let $\{\mathcal{O}_i\}_{i\in
-      I}$ be an infinite open cover of $\tilde{X}$.
-      
-      \TODO{Show compactness.}
+      Now we show that $\tilde{X}$ is compact. Let
+      $\tilde{\mathcal{C}}=\{\mathcal{U}_i\}_{i\in I}$ be an infinite open
+      cover of $\tilde{X}$. Using $\tilde{\mathcal{C}}$, we build an open
+      cover $\mathcal{C}$ of $X$ - for each $x\in X$, we form an open
+      subset $\mathcal{O}$ containing $x$ following the steps below:
+      \begin{itemize}
+        \item Let $\mathcal{O}'$ be the open cover containing $x$ given by
+          the definition of the covering space property of $\pi$.
+        \item Then $\pi^{-1}(\mathcal{O}')$ is a disjoint union of a finite
+          number of open sets open sets $U_1,\ldots,U_k$ that are
+          homeomorphic to $\mathcal{O}'$ under the restriction map of
+          $\pi$.
+        \item For each $1\leq i\leq k$, let $U_i''$ be the open set in
+          $\tilde{\mathcal{C}}$ that contains $\pi^{-1}(x)$, and let
+          $O_i=\pi(U_i''\cap\pi^{-1}(\mathcal{O}'))$.
+        \item Finally, let $\mathcal{O}=O_1\cap\ldots\cap O_k$, and put
+          $\mathcal{O}$ into $\mathcal{C}$.
+        \item By construction, $\mathcal{O}$ contains $x$, is open, and
+          $\pi^{-1}(\mathcal{O})$ is a disjoint union of open sets
+          homeomorphic to $\mathcal{O}$ under the restriction of $\pi$ such
+          that each disjoint open set is contained in some $\mathcal{U}_i$.
+      \end{itemize}
+      Now $\mathcal{C}$ is an open cover of $X$, so by compactness of $X$,
+      has a finite subcover $\mathcal{O}_1,\ldots,\mathcal{O}_n$. By
+      construction, $\pi^{-1}(\mathcal{O}_i)$ is contained in a finite
+      number of covers in $\tilde{\mathcal{U}}$. Taking the union
 
       Next we prove the converse of the claim. Assume that $\tilde{X}$ is
       compact Hausdorff. We first show that $X$ is compact. Let
       $\{\mathcal{O}_i\}_{i\in I}$ be an infinite open cover of $X$. By
-      continuity and surjectivity of $\pi$, $\{\pi^{-1}(\mathcal{O}_i)\}_{i\in
-      I}$ will be an open cover of $\tilde{X}$. Then by compactness of
-      $\tilde{X}$, there exists a finite set of covers
+      continuity and surjectivity of $\pi$,
+      $\{\pi^{-1}(\mathcal{O}_i)\}_{i\in I}$ will be an open cover of
+      $\tilde{X}$. Then by compactness of $\tilde{X}$, there exists a
+      finite set of covers
       $\pi^{-1}(\mathcal{O}_1),\ldots,\pi^{-1}(\mathcal{O}_k)$ that covers
       $\tilde{X}$. Then by surjectivity of $\pi$, the finite set
       $\mathcal{O}_1,\ldots,\mathcal{O}_k$ will cover $X$, implying that
@@ -326,8 +349,8 @@
 
       Finally, we show that $X$ is Hausdorff. Let $x_1$, $x_2$ be two
       distinct points in $X$. Let $\mathcal{O}_1$, $\mathcal{O}_2$ be open
-      sets containing $x_1$ and $x_2$ respectively given by the covering
-      space property of $\pi$. For $i=1,2$, let
+      sets containing $x_1$ and $x_2$ respectively given by the definition
+      of the covering space property of $\pi$. For $i=1,2$, let
       $\mathcal{U}_i\subseteq\pi^{-1}(\mathcal{O}_i)$ be one of the open
       sets of $\tilde{X}$ that is homeomorphic to $\mathcal{O}_i$ under the
       restriction map of $\pi$. Let $\tilde{x_i}\in\mathcal{U}_i$ be the
