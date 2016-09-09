@@ -422,7 +422,7 @@
       By choice of $O$, $O$ is a neighborhood of $y$. Let
       $\mathcal{U}=\{U_i\}_{i\in I}$ be all the disjoint sets of open
       subsets of $\tilde{X}$ that are homeomorphic to $V$ under the
-      restriction map of $\pi$. Let
+      restriction map $\pi$. Let
       $O_i=\{(y,\tilde{x}):\pi(\tilde{x})=f(y),\tilde{x}\in U_i\}\subseteq
       Y\times\tilde{X}$. Then chasing definitions, each $O_i$ is disjoint,
       the pre-image of $O$ under $f^*(\pi)$ is the union of the $O_i$'s,
@@ -431,7 +431,12 @@
       intersection of the open subset $Y\times U_i$ of $Y\times\tilde{X}$.
       The restriction of $f^*(\pi)$ on $O_i$ is continuous since it is a
       projection map, which is continuous. It remains to show that the
-      restriction of $f^*(\pi)$ on $O_i$ is open.
+      restriction of $f^*(\pi)$ on $O_i$ is open, so that the restriction
+      of $f^*(\pi)$ on each $O_i$ is a homeomorphism. We show the map is
+      open by definitions: It suffices to show that given open sets $A\in
+      O$ and $B\in U_i$, the image of $(A\times B)\cap O_i$ under
+      $f^*(\pi)$ is open in $Y$. Chasing definitions, this image will be
+      $A\cap f^{-1}(\pi(B))$, which will be open in $Y$.
     \end{proof}
 \end{enumerate}
 \end{document}
