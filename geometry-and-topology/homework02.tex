@@ -470,9 +470,10 @@
           $n\cdot U=(2^nx-2^n\delta,2^nx+2^n\delta)\times\mathbb{R}$. In
           order for $U$ to not intersect $n\cdot U$, it suffices to pick
           $\delta$ such that $|2^nx-2^n\delta|>|x+\delta|$ for all
-          $n\in\mathbb{Z}-\{0\}$. Rearranging the formula, we get
+          $n\in\mathbb{Z}^+$, and $|2^nx+2^n\delta|<|x-\delta|$ for all
+          $n\in\mathbb{Z}^-$ . Rearranging the formula, we get
           \begin{equation*}
-            \delta < \left(1-\frac{2}{2^n+1}\right)|x|,
+            \delta < \left|1-\frac{2}{2^n+1}\right||x|,
           \end{equation*}
           for all $n\in\mathbb{Z}-\{0\}$, which will be satisfied by
           setting $\delta<|x|/4$. Hence, given $(x,y)\in X$, the open
