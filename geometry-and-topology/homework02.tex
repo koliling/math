@@ -483,6 +483,22 @@
 
       \item Prove that the quotient $X/\mathbb{Z}$ is not Hausdorff.
         \begin{proof}
+          Denote the quotient map from $X$ to $X/\mathbb{Z}$ by $\pi$.
+          Consider the points $p_1=[(0,1)]$ and $p_2=[(1,0)]$ in
+          $X/\mathbb{Z}$. Note that these are distinct points because the
+          $x$-coordinate of the elements in $\pi^{-1}(p_1)$ is always 0,
+          while the $x$-coordinate of the elements in $\pi^{-1}(p_2)$ is
+          always non-zero. We show that we cannot separate these two points
+          with disjoint open sets. Given an open set $U_i$ containing
+          $p_i$, its pre-image of the quotient map must be open in $X$. We
+          can assume without loss of generality that pre-images of the open
+          sets contain a ball of radius $\epsilon$ centered on $(0,1)$ and
+          $(1,0)$ respectively. Let $k\in\mathbb{Z}^+$ be such that
+          $2^{-k}<\epsilon$. Then point $[(2^{-k},1)]$ is contained in
+          $U_1$ and point $[(1,2^{-k})]$ is contained in $U_2$.
+          However, these these two points are the same in the quotient
+          space because $k\cdot(2^{-k},1)=(1,2^{-k})$, implying that $U_1$
+          and $U_2$ can never be disjoint.
         \end{proof}
 
       \item Explain how $X/\mathbb{Z}$ is the union of four subspaces
