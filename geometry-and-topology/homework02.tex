@@ -398,5 +398,28 @@
       because $g_{i+1}(U_{i+1})\subseteq B$, which is disjoint from
       $A\supseteq U_{i+1}$, as we wish to show.
     \end{proof}
+
+  \item Let $\pi:\tilde{X}\rightarrow X$ be a covering space and let
+    $f:Y\rightarrow X$ be an arbitrary continuous map. Define
+    \begin{equation*}
+      f^*(Y) = \{(y,\tilde{x})\in Y\times\tilde{X}\,|\,
+      f(y)=\pi(\tilde{x})\subset Y\times\tilde{X}\}
+    \end{equation*}
+    and let
+    \begin{equation*}
+      f^*(\pi):f^*(Y)\rightarrow Y
+    \end{equation*}
+    be the restriction of the projection $Y\times\tilde{X}\rightarrow Y$ to
+    the first factor. Prove that $f^*(\pi):f^*(Y)\rightarrow Y$ is a
+    covering map.
+
+    \begin{proof}
+      Let $y\in Y$. We wish to find a neighborhood $U$ containing $y$ such
+      that the pre-image of $U$ under $f^*$ is a disjoint union of open
+      sets in $f^*(Y)$, where each open set is homeomorphic to $U$ under
+      the restriction of $f^*$. Consider the open set $U=f^{-1}(V)$, where
+      $V$ is the neighborhood of $f(y)\in X$ that witnesses the covering
+      space property of $\pi$.
+    \end{proof}
 \end{enumerate}
 \end{document}
