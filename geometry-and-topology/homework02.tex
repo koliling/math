@@ -336,7 +336,7 @@
       number of covers in $\tilde{\mathcal{U}}$. Taking the union of all
       these covers for $1\leq i\leq n$ will give us a finite cover of
       $\mathcal{C}$, by surjectivity of $\pi$. Hence, $\tilde{X}$ is
-      compact.
+      compact. \\
 
       Next we prove the converse of the claim. Assume that $\tilde{X}$ is
       compact Hausdorff. We first show that $X$ is compact. Let
@@ -370,7 +370,33 @@
     \end{proof}
 
   \item Let $X$ be a Hausdorff space and $G$ be a group acting on $X$.
-    Assume the following two conditions hold. Prove that the action of $G$
-    on $X$ is a covering space action.
+    Assume the following two conditions hold.
+    \begin{itemize}
+      \item The action is \textit{free}, i.e. the stabilizer of every point
+        in $X$ is trivial.
+      \item The action is \textit{properly discontinuous}, i.e. for all
+        $x\in X$, there exists a neighborhood $U$ of $x$ such that the set
+        $\{g\in G\,|\, g(U)\cap U\neq\emptyset\}$ is finite.
+    \end{itemize}
+    Prove that the action of $G$ on $X$ is a covering space action.
+
+    \begin{proof}
+      Given $x\in X$, let $U$ be the open neighbourhood of $x$ given by the
+      second condition, and let $g_1,\ldots,g_k\in G$ be the distinct
+      non-identity elements of $G$ such that $g_i(U)\cap U\neq\emptyset$.
+      Starting at $U_0=U$, we iteratively shrink the neighborhood
+      containing $x$ $k$-times to get $V=U_k$, and such that $g_i(V)\cap
+      V=\emptyset$ for $1\leq i\leq k$. Then this neighborhood $V$ would be
+      the witness of $G$ being a covering space action. \\
+
+      Given $U_i$, to obtain $U_{i+1}\subseteq U_i$, let $A$ and $B$ be
+      disjoint neighborhoods of $x$ and $g_{i+1}\cdot x$ respectively. Note
+      that because the action is free, $g_{i+1}\cdot x\neq x$, and then
+      because $X$ is Hausdorff, neighborhoods $A$ and $B$ exist. Set
+      $U_{i+i}$ to $U_i\cap A\cap g_{i+1}^{-1}(B)$. Then $U_{i+1}$ would
+      be a neighborhood of $x$, and is disjoint from $g_{i+1}(U_{i+1})$
+      because $g_{i+1}(U_{i+1})\subseteq B$, which is disjoint from
+      $A\supseteq U_{i+1}$, as we wish to show.
+    \end{proof}
 \end{enumerate}
 \end{document}
