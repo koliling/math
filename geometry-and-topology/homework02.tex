@@ -291,7 +291,7 @@
 
     \begin{proof}
       We first prove the forward implication. Assume that $X$ is compact
-      Hausdorff. We show that $(\tilde{X})$ is Hausdorff. Let
+      Hausdorff. We show that $\tilde{X}$ is Hausdorff. Let
       $\tilde{x_1},\tilde{x_2}$ be two points in $\tilde{X}$. There are two
       cases to consider. In the first case, $\tilde{x_1}$ and $\tilde{x_2}$
       are mapped to distinct points $x_1$ and $x_2$ respectively. Then from
@@ -310,19 +310,20 @@
       restricted to each open set is a bijection. So we have shown that in
       all cases, $\tilde{X}$ is Hausdorff. \\
 
-      Now we show that $\tilde{X}$ is compact. Let $\{\mathcal{O_i}\}_{i\in
+      Now we show that $\tilde{X}$ is compact. Let $\{\mathcal{O}_i\}_{i\in
       I}$ be an infinite open cover of $\tilde{X}$. \TODO{Show
       compactness.}
 
-      Next we prove the converse of the claim. Assume that $\tilde(X)$ is
+      Next we prove the converse of the claim. Assume that $\tilde{X}$ is
       compact Hausdorff. We first show that $X$ is compact. Let
-      $\{\mathcal{O_i}\}_{i\in I}$ be an infinite open cover of $X$. By
+      $\{\mathcal{O}_i\}_{i\in I}$ be an infinite open cover of $X$. By
       continuity and surjectivity of $\pi$, $\{\pi^{-1}(\mathcal{O}_i)\}_{i\in
       I}$ will be an open cover of $\tilde{X}$. Then by compactness of
       $\tilde{X}$, there exists a finite set of covers
       $\pi^{-1}(\mathcal{O}_1),\ldots,\pi^{-1}(\mathcal{O}_k)$ that covers
-      $\tilde{X}$. Then the finite set $\mathcal{O_1},\ldots,\mathcal{O_k}$
-      will cover $X$, implying that $X$ is compact. \\
+      $\tilde{X}$. Then by surjectivity of $\pi$, the finite set
+      $\mathcal{O}_1,\ldots,\mathcal{O}_k$ will cover $X$, implying that
+      $X$ is compact. \\
 
       Finally, we show that $X$ is Hausdorff. Let $x_1$, $x_2$ be two
       distinct points in $X$. Let $\mathcal{O}_1$, $\mathcal{O}_2$ be open
@@ -332,11 +333,11 @@
       sets of $\tilde{X}$ that is homeomorphic to $\mathcal{O}_i$ under the
       restriction map of $\pi$. Let $\tilde{x_i}\in\mathcal{U}_i$ be the
       pre-image of $x_i$. Then $\tilde{x_1}$ and $\tilde{x_2}$ are
-      distinct, by Hausdorff property of $\tilde{X}$, must be contained in
-      disjoint open sets $\mathcal{U}_1'$ and $\mathcal{U}_2'$
+      distinct, so by Hausdorff property of $\tilde{X}$, they must be
+      contained in disjoint open sets $\mathcal{U}_1'$ and $\mathcal{U}_2'$
       respectively. For $i=1,2$, let
-      $\mathcal{O}_i''=\pi(\mathcal{U}_i\cap\mathcal{U}_i')$. From
-      homeomorphism of $\pi$ when restricted to $\mathcal{U}_i$,
+      $\mathcal{O}_i'=\pi(\mathcal{U}_i\cap\mathcal{U}_i')$. Then since the
+      restriction of $\pi$ to $\mathcal{U}_i$ is a homeomorphism,
       $\mathcal{O}_i'$ is an open set containing $x_i$. Also, from
       disjointness of $\mathcal{U}_0'$ and $\mathcal{U}_1'$,
       $\mathcal{O}_0'$ and $\mathcal{O}_1'$ must also be disjoint, which
