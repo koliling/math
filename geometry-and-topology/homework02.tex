@@ -109,7 +109,7 @@
               $(n-1)$ petals labelled $a_1$ to $a_{n-1}$, as shown in the
               left figure below.
             \item Partition the boundary of the 2-cell into $2(n-1)$ parts,
-              label and direct the parts as shown in the right figure
+              then label and direct the parts as shown in the right figure
               below. Then, glue the 2-cell onto the petals of the flower
               according to the labels, sending each of the marked dots to
               the 0-cell.
@@ -476,8 +476,8 @@
             \delta < \left|1-\frac{2}{2^n+1}\right||x|,
           \end{equation*}
           for all $n\in\mathbb{Z}-\{0\}$, which will be satisfied by
-          setting $\delta<|x|/4$. Hence, given $(x,y)\in X$, the open
-          neighborhood $U=(x-|x|/4,x+|x|/4)\times\mathbb{R}$ containing
+          setting $\delta<|x|/8$. Hence, given $(x,y)\in X$, the open
+          neighborhood $U=(x-|x|/8,x+|x|/8)\times\mathbb{R}$ containing
           $(x,y)$ will witness the covering space action of the group.
         \end{proof}
 
@@ -506,6 +506,18 @@
         components of the $x$-axis and the $y$-axis.
 
         \begin{proof}
+          Consider the four subsets of $X$ given by
+          $(0,\infty)\times\mathbb{R}$, $(-\infty,0)\times\mathbb{R}$,
+          $\mathbb{R}\times(0,\infty)$, and $\mathbb{R}\times(-\infty,0)$.
+          Each of these subsets is closed under group action, and the four
+          subsets form an open cover of $X$. We show that each of these
+          subsets is homeomorphic to $S^1\times\mathbb{R}$. Consider one of
+          the subsets $(0,\infty)\times\mathbb{R}$. The group action
+          identifies each line $x=r$ to the line $x=2r$, which makes this
+          subset homeomorphic to $S^1\times\mathbb{R}$. A similar argument
+          can be made for each of the other three subsets. Hence,
+          $X/\mathbb{Z}$ is the union of four subspaces homeomorphic to
+          $S^1\times\mathbb{R}$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
