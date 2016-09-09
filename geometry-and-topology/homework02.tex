@@ -287,25 +287,60 @@
 
   \item Let $\pi:\tilde{X}\rightarrow X$ be a covering space such that
     $\pi^{-1}(p)$ is finite and nonempty for all $p\in X$. Prove that $X$ is
-    compact Hausdorff if and only if $\tilde(X)$ is compact Hausdorff.
+    compact Hausdorff if and only if $\tilde{X}$ is compact Hausdorff.
 
     \begin{proof}
       We first prove the forward implication. Assume that $X$ is compact
-      Hausdorff. We show that $\tilde(X)$ is Hausdorff. Let
-      $\tilde(x_1),\tilde(x_2)$ be two points in $\tilde(X)$. There are two
-      cases to consider. In the first case, $\tilde(x_1)$ and $\tilde(x_2)$
+      Hausdorff. We show that $(\tilde{X})$ is Hausdorff. Let
+      $\tilde{x_1},\tilde{x_2}$ be two points in $\tilde{X}$. There are two
+      cases to consider. In the first case, $\tilde{x_1}$ and $\tilde{x_2}$
       are mapped to distinct points $x_1$ and $x_2$ respectively. Then from
-      the Hausdorff property of $\tilde(X)$, there are disjoint open sets
-      $\mathcal{O_1}$ and $\mathcal{O_2}$ containing $x_1$ and $x_2$
+      the Hausdorff property of $\tilde{X}$, there are disjoint open sets
+      $\mathcal{O}_1$ and $\mathcal{O}_2$ containing $x_1$ and $x_2$
       respectively. From continuity of $\pi$, the pre-images of
-      $\mathcal{O_1}$ and $\mathcal{O_2}$ are open. The pre-images contain
+      $\mathcal{O}_1$ and $\mathcal{O}_2$ are open. The pre-images contain
       $x_1$ and $x_2$ respectively, and by construction, must be disjoint.
-      Hence $\tilde{X}$ is also Hausdorff. \\
+      Hence $\tilde{X}$ is also Hausdorff. In the second case,
+      $\tilde{x_1}$ and $\tilde{x_2}$ are mapped to the same image $x\in
+      X$. Since $\pi$ is a covering space, there must exist an open set
+      $\mathcal{O}$ containing $x$ such that the pre-image of $\mathcal{O}$
+      is a union of disjoint open sets each homeomorphic to $\mathcal{O}$
+      by the restriction of $\pi$. Then $\tilde{x_1}$ and $\tilde{x_2}$
+      must be contained in distinct open sets of the pre-image, since $\pi$
+      restricted to each open set is a bijection. So we have shown that in
+      all cases, $\tilde{X}$ is Hausdorff. \\
 
-      Now we show that $\tilde(X)$ is compact. Let 
+      Now we show that $\tilde{X}$ is compact. Let $\{\mathcal{O_i}\}_{i\in
+      I}$ be an infinite open cover of $\tilde{X}$. \TODO{Show
+      compactness.}
 
       Next we prove the converse of the claim. Assume that $\tilde(X)$ is
-      compact Hausdorff.
+      compact Hausdorff. We first show that $X$ is compact. Let
+      $\{\mathcal{O_i}\}_{i\in I}$ be an infinite open cover of $X$. By
+      continuity and surjectivity of $\pi$, $\{\pi^{-1}(\mathcal{O}_i)\}_{i\in
+      I}$ will be an open cover of $\tilde{X}$. Then by compactness of
+      $\tilde{X}$, there exists a finite set of covers
+      $\pi^{-1}(\mathcal{O}_1),\ldots,\pi^{-1}(\mathcal{O}_k)$ that covers
+      $\tilde{X}$. Then the finite set $\mathcal{O_1},\ldots,\mathcal{O_k}$
+      will cover $X$, implying that $X$ is compact. \\
+
+      Finally, we show that $X$ is Hausdorff. Let $x_1$, $x_2$ be two
+      distinct points in $X$. Let $\mathcal{O}_1$, $\mathcal{O}_2$ be open
+      sets containing $x_1$ and $x_2$ respectively given by the covering
+      space property of $\pi$. For $i=1,2$, let
+      $\mathcal{U}_i\subseteq\pi^{-1}(\mathcal{O}_i)$ be one of the open
+      sets of $\tilde{X}$ that is homeomorphic to $\mathcal{O}_i$ under the
+      restriction map of $\pi$. Let $\tilde{x_i}\in\mathcal{U}_i$ be the
+      pre-image of $x_i$. Then $\tilde{x_1}$ and $\tilde{x_2}$ are
+      distinct, by Hausdorff property of $\tilde{X}$, must be contained in
+      disjoint open sets $\mathcal{U}_1'$ and $\mathcal{U}_2'$
+      respectively. For $i=1,2$, let
+      $\mathcal{O}_i''=\pi(\mathcal{U}_i\cap\mathcal{U}_i')$. From
+      homeomorphism of $\pi$ when restricted to $\mathcal{U}_i$,
+      $\mathcal{O}_i'$ is an open set containing $x_i$. Also, from
+      disjointness of $\mathcal{U}_0'$ and $\mathcal{U}_1'$,
+      $\mathcal{O}_0'$ and $\mathcal{O}_1'$ must also be disjoint, which
+      completes our proof that $X$ is Hausdorff.
     \end{proof}
 
   \item Let $X$ be a Hausdorff space and $G$ be a group acting on $X$.
