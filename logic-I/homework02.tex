@@ -131,20 +131,14 @@
 
     \begin{proof}
       Consider the structures
-      $\mathcal{M}=\langle\mathbb{N}\cup\{i\},<\rangle$ and
-      $\mathcal{N}=\langle\mathbb{N}\cup\mathbb{N}i,<\rangle$. The identity
-      map $id$ will embed $\mathcal{M}$ into $\mathcal{N}$. To embed the
-      $\mathcal{N}$ to $\mathcal{M}$, consider the embedding function
-      $\theta:\mathbb{N}\cup\mathbb{N}i\rightarrow\mathbb{N}\cup\{i\}$
-      given by:
-
-      \begin{equation*}
-        \theta(x) =
-          \begin{array}{ll}
-            2x,     & \text{if}\; x\in\mathbb{N} \\
-            2x/i-1  & \text{if}\; x=ki\; \text{for some}\; k\in\mathbb{N}^+ \\
-          \end{array}
-      \end{equation*}
+      $\mathcal{M}=\langle[0,1),<\rangle$ and
+      $\mathcal{N}=\langle[0,1],<\rangle$. The identity
+      map $id$ will embed $\mathcal{M}$ into $\mathcal{N}$, and scaling by
+      0.5 will embed $\mathcal{N}$ into $\mathcal{M}$. However, these two
+      structures cannot be isomorphic because structure $\mathcal{N}$ has a
+      maximal element 1 while structure $\mathcal{M}$ does not, so any
+      bijection between the two structures will not preserve order in one
+      direction.
     \end{proof}
 
   \item Find an infinite structure $\mathcal{M}$ in a finite language whose
