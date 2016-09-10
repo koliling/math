@@ -51,7 +51,16 @@
       sequences of integers. Since $\mathcal{S}$ is a subset of
       $\omega^\omega$ which has cardinality $|2^\omega|$ from Corollary
       1.31, the cardinality of $\mathcal{S}$ must be smaller or equal to
-      $|2^\omega|$.
+      $|2^\omega|$. Hence it remains to show that $|\mathcal{S}|>\omega$.
+      To prove that, it suffices to show that $\omega$ cannot enumerate
+      $\mathcal{S}$. We prove this by using Cantor's diagonal argument.
+      Assume that $\{f_i\}_{i\in\omega}$ enumerates $\mathcal{S}$. We
+      inductively construct a new monotonically increasing function $f$
+      that does not belong to any $f_i$'s, as follows: Set $f(0)=f_0(0)+1$.
+      For each $n\in\omega$, set $f(n+1)=\max(f(n),f_n(n))+1$. By
+      construction, $f$ cannot equal to any of the $f_i$'s in $\mathcal{S}$
+      because $f(i)>f_i(i)$. Hence no countable enumeration of
+      $\mathcal{S}$ exists.
     \end{proof}
 \end{enumerate}
 \end{document}
