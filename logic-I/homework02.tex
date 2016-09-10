@@ -133,7 +133,19 @@
     only automorphism is the identity map.
 
     \begin{proof}
-      \TODO{Find.}
+      $\mathscr{M}=\langle\mathbb{N},<\rangle$ is one such structure. Let
+      $\alpha:\mathbb{N}\rightarrow\mathbb{N}$ be automorphism. We show by
+      induction on $n\in\mathbb{N}$ that $\alpha(n)=n$. For the base case,
+      if $\alpha(0)=k>0$, then since automorphisms preserve relations, and
+      $k-1<k$, we have $\alpha^{-1}(k-1)<\alpha^{-1}(k)=0$, which is not
+      possible because nothing in $\mathbb{N}$ is smaller than $0$. Hence
+      $\alpha(0)=0$. For the inductive step, assume $\alpha(k)=k$ for
+      $k\leq n\in\mathbb{N}$. If $\alpha(n+1)=n+1+k$ for some $k>0$, then
+      from $n+1<n+1+k$, we get, from the preservation of relations, that
+      $\alpha^{-1}(n+1)<\alpha^{-1}(n+1+k)=n+1$. Yet $\alpha^{-1}(n+1)$
+      must be greater than $n+1$ from inductive hypothesis, which is a
+      contradiction. Hence $\alpha(n+1)=n+1$ as required, and $\alpha$ can
+      only be the identity map.
     \end{proof}
 
   \item Find a structure $\mathscr{M}$ and a bijective homomorphism
