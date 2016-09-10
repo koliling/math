@@ -106,16 +106,17 @@
         \end{proof}
 
       \item $\mathscr{M}=\langle\mathbb{N}\setminus\{0\},\cdot,1\rangle$ and
-        $\mathscr{N}=\langle\mathbb{N},0\rangle$
+        $\mathscr{N}=\langle\mathbb{N},+,0\rangle$
         \begin{proof}
           No such embedding exists. Assume that an embedding
-          $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Then
-          $\alpha(1)=0$ since embeddings preserve constants. Let
-          $m=\alpha(2)$ and $n=\alpha(3)$. Now since embeddings preserve
-          function maps, we can prove by induction on $k$ that for any
-          $n\in\mathbb{N}\setminus\{0\}$, $\alpha(n^k)=k\cdot \alpha(n)$.
-          Hence $\alpha(2^n)=m\cdot n=n\cdot m=\alpha(3^m)$,
-          which contradicts the injectiveness of $\alpha$.
+          $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Since
+          embeddings preserve function maps, we can prove by induction on
+          $k$ that for any $n\in\mathbb{N}\setminus\{0\}$,
+          $\alpha(n^k)=k\cdot \alpha(n)$.  Let $m=\alpha(2)$ and
+          $n=\alpha(3)$. Note that $m\neq0$ and $n\neq0$ since
+          $\alpha(1)=0$ and $\alpha$ is injective. Then $\alpha(2^n)=n\cdot
+          m=m\cdot n=\alpha(3^m)$, yet $2^n\neq3^m$ since $m,n\neq0$,
+          contradicting the injectiveness of $\alpha$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
