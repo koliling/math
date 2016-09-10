@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{color}
 %\setlength{\parindent}{0mm}
 
@@ -80,13 +80,13 @@
       which equals $\omega$ by Corollary 1.32.
     \end{proof}
 
-  \item For given structures $\mathscr{M}$ and $\mathscr{N}$ decide if
-    $\mathscr{M}$ can be embedded into $\mathscr{N}$. If it can, give an
+  \item For given structures $\mathcal{M}$ and $\mathcal{N}$ decide if
+    $\mathcal{M}$ can be embedded into $\mathcal{N}$. If it can, give an
     embedding; if not, explain why.
 
     \begin{enumerate}
-      \item $\mathscr{M}=\langle\mathbb{N},\leq,+,0\rangle$ and
-        $\mathscr{N}=\langle\mathbb{N},\leq,\cdot,0\rangle$
+      \item $\mathcal{M}=\langle\mathbb{N},\leq,+,0\rangle$ and
+        $\mathcal{N}=\langle\mathbb{N},\leq,\cdot,0\rangle$
         \begin{proof}
           No such embedding exists. Assume that an embedding
           $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Then
@@ -98,8 +98,8 @@
           $\alpha$.
         \end{proof}
 
-      \item $\mathscr{M}=\langle\mathbb{N},\leq,\cdot,0\rangle$ and
-        $\mathscr{N}=\langle\mathbb{N},\leq,+,0\rangle$
+      \item $\mathcal{M}=\langle\mathbb{N},\leq,\cdot,0\rangle$ and
+        $\mathcal{N}=\langle\mathbb{N},\leq,+,0\rangle$
         \begin{proof}
           No such embedding exists. Assume that an embedding
           $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Then
@@ -109,8 +109,8 @@
           which contradicts the injectiveness of $\alpha$.
         \end{proof}
 
-      \item $\mathscr{M}=\langle\mathbb{N}\setminus\{0\},\cdot,1\rangle$ and
-        $\mathscr{N}=\langle\mathbb{N},+,0\rangle$
+      \item $\mathcal{M}=\langle\mathbb{N}\setminus\{0\},\cdot,1\rangle$ and
+        $\mathcal{N}=\langle\mathbb{N},+,0\rangle$
         \begin{proof}
           No such embedding exists. Assume that an embedding
           $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Since
@@ -124,20 +124,20 @@
         \end{proof}
     \end{enumerate}
 
-  \item Give an example of two structures $\mathscr{M}$ and $\mathscr{N}$
-    such that $\mathscr{M}$ is embeddable into $\mathscr{N}$, $\mathscr{N}$
-    is embeddable into $\mathscr{M}$, but $\mathscr{M}$ is not isomorphic
-    to $\mathscr{N}$.
+  \item Give an example of two structures $\mathcal{M}$ and $\mathcal{N}$
+    such that $\mathcal{M}$ is embeddable into $\mathcal{N}$, $\mathcal{N}$
+    is embeddable into $\mathcal{M}$, but $\mathcal{M}$ is not isomorphic
+    to $\mathcal{N}$.
 
     \begin{proof}
       \TODO{Find.}
     \end{proof}
 
-  \item Find an infinite structure $\mathscr{M}$ in a finite language whose
+  \item Find an infinite structure $\mathcal{M}$ in a finite language whose
     only automorphism is the identity map.
 
     \begin{proof}
-      $\mathscr{M}=\langle\mathbb{N},<\rangle$ is one such structure. Let
+      $\mathcal{M}=\langle\mathbb{N},<\rangle$ is one such structure. Let
       $\alpha:\mathbb{N}\rightarrow\mathbb{N}$ be automorphism. We show by
       induction on $n\in\mathbb{N}$ that $\alpha(n)=n$. For the base case,
       if $\alpha(0)=k>0$, then since automorphisms preserve relations, and
@@ -152,12 +152,27 @@
       only be the identity map.
     \end{proof}
 
-  \item Find a structure $\mathscr{M}$ and a bijective homomorphism
-    $\alpha:\mathscr{M}\rightarrow\mathscr{M}$ such that $\alpha$ is not an
+  \item Find a structure $\mathcal{M}$ and a bijective homomorphism
+    $\alpha:\mathcal{M}\rightarrow\mathcal{M}$ such that $\alpha$ is not an
     isomorphism.
 
     \begin{proof}
-      \TODO{Find.}
+      Consider the structure $\mathcal{M}=\langle\mathbb{N}[i],<\rangle$.
+      Also, consider the bijective homomorphism $\theta$ defined by:
+      \begin{equation*}
+        \theta(x) =
+          \begin{array}{ll}
+            2x,   & \text{if}\; x\in\mathbb{N} \\
+            x/2,  & \text{if}\; x=2ki\; \text{for some}\; k\in\mathbb{N}^+ \\
+            x/i   & \text{if}\; x=(2k+1)i\; \text{for some}\; k\in\mathbb{N}
+          \end{array}
+      \end{equation*}
+
+      $\theta$ is a homomorphism because it preserves the linear orders of
+      the natural numbers. Also, it is a bijection. However, it is not an
+      automorphism because its inverse does not preserve order. In
+      particular, $0<1$ in this structure, but their inverse images
+      $\theta^{-1}(0)=0$ and $\theta^{-1}(1)=i$ are not comparable.
     \end{proof}
 \end{enumerate}
 \end{document}
