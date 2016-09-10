@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
 \usepackage{color}
 %\setlength{\parindent}{0mm}
 
@@ -75,5 +75,40 @@
       integers. Hence $\mathcal{S}$ has cardinality $\omega^{<\omega}$,
       which equals $\omega$ by Corollary 1.32.
     \end{proof}
+
+  \item For given structures $\mathscr{M}$ and $\mathscr{N}$ decide if
+    $\mathscr{M}$ can be embedded into $\mathscr{N}$. If it can, give an
+    embedding; if not, explain why.
+
+    \begin{enumerate}
+      \item $\mathscr{M}=\langle\mathbb{N},\leq,+,0\rangle$ and
+        $\mathscr{N}=\langle\mathbb{N},\leq,\cdot,0\rangle$
+        \begin{proof}
+          No such embedding exists. Assume that an embedding
+          $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Then
+          $\alpha(0)=0$ since embeddings preserve constants. Consider the
+          image of $1$ under $\alpha$. Embeddings should preserve
+          functions, so
+          $\alpha(1)=\alpha(0+1)=\alpha(0)\cdot\alpha(1)=0\cdot\alpha(1)=0$.
+          So $\alpha(0)=\alpha(1)=0$, contradicting the injectiveness of
+          $\alpha$.
+        \end{proof}
+
+      \item $\mathscr{M}=\langle\mathbb{N},\leq,\cdot,0\rangle$ and
+        $\mathscr{N}=\langle\mathbb{N},\leq,+,0\rangle$
+        \begin{proof}
+          No such embedding exists. Assume that an embedding
+          $\alpha:\mathbb{N}\hookrightarrow\mathbb{N}$ exists. Then
+          $\alpha(0)=0$ since embeddings preserve constants. Embeddings
+          should also preserve functions, so
+          $\alpha(0)=\alpha(0\cdot1)=\alpha(0)+\alpha(1)=0+\alpha(1)=\alpha(1)$,
+          which contradicts the injectiveness of $\alpha$.
+        \end{proof}
+
+      \item $\mathscr{M}=\langle\mathbb{N}\setminus\{0\},\cdot,1\rangle$ and
+        $\mathscr{N}=\langle\mathbb{N},0\rangle$
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
