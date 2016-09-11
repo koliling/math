@@ -139,8 +139,9 @@
       maximal element 1 while structure $\mathcal{M}$ does not, so any
       bijection $\theta$ from $[0,1]$ to $[0,1)$ will not preserve order.
       More specifically, by bijectiveness of $\theta$ and maximality of 1
-      in $[0,1]$, we get $\theta^{-1}(\theta(1))<1$ in $[0,1]$, yet after
-      mapping with $\theta$, we get $\theta(1)\not<\theta(1)$ in $[0,1)$.
+      in $[0,1]$, we get $\theta^{-1}(1)<1$ in $[0,1]$, so after
+      mapping with $\theta$, we get $1<\theta(1)$, which is not true in
+      $[0,1)$.
     \end{proof}
 
   \item Find an infinite structure $\mathcal{M}$ in a finite language whose
@@ -148,7 +149,7 @@
 
     \begin{proof}
       $\mathcal{M}=\langle\mathbb{N},<\rangle$ is one such structure. Let
-      $\alpha:\mathbb{N}\rightarrow\mathbb{N}$ be automorphism. We show by
+      $\alpha:\mathbb{N}\rightarrow\mathbb{N}$ be an automorphism. We show by
       induction on $n\in\mathbb{N}$ that $\alpha(n)=n$. For the base case,
       if $\alpha(0)=k>0$, then since automorphisms preserve relations, and
       $k-1<k$, we have $\alpha^{-1}(k-1)<\alpha^{-1}(k)=0$, which is not
