@@ -202,8 +202,26 @@
 
   \item Section 2.2
     \begin{enumerate}
-      \item Question 9:
+      \item Question 9: For any subgroup $H$ of $G$ and any nonempty subset
+        $A$ of $G$ define $N_H(A)$ to be the set $\{h\in H\,|\;
+        hAh^{-1}=A\}$. Show that $N_H(A)=N_G(A)\cap H$ and deduce that
+        $N_H(A)$ is a subgroup of $H$.
+
         \begin{proof}
+          The equivalence relation is true by chasing definitions: If $h\in
+          N_H(A)$, then it must be contained in $H$, and also contained in
+          the normalizer of $A$ with respect to $G$; if $h$ is contained in
+          $H$ and is also contained in the normalizer of $A$ with respect
+          to $G$, then $h$ must be in $N_H(A)$. \\
+
+          We first show that the intersection of subgroups $H_1$ and $H_2$
+          is a subgroup of the both subgroups: $H_1\cap H_2$ is non-empty
+          since it contains $e$.  Also, if $a,b\in H_1\cap H_2$, then
+          $ab^{-1}\in H_1,H_2$ since $H_1$ and $H_2$ are subgroups,
+          implying that $ab^{-1}\in H_1\cap H_2$, which concludes our proof
+          that $H_1\cap H_2$ is a subgroup of $H_1$ and $H_2$. So since
+          both $H$ and $N_G(A)$ are subgroups of $G$, their intersection
+          must be a subgroup of $H$, as we are required to show.
         \end{proof}
 
       \item Question 10:
