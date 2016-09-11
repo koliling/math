@@ -167,16 +167,17 @@
 
     \begin{proof}
       Consider the structure
-      $\mathcal{M}=\langle\mathbb{N}\cup\{i\},<\rangle$. Also,
+      $\mathcal{M}=\langle\mathbb{N}\cup\mathbb{N}i,<\rangle$. Also,
       consider the map
       $\theta:\mathbb{N}\cup\{i\}\rightarrow\mathbb{N}\cup\{i\}$ which
-      sends all natural numbers $n$ to $n+1$ and sends the imaginary number
-      $i$ to 0. $\theta$ is a bijection, and also a homomorphism because
-      it preserves the linear orders of the natural numbers. However, it is
-      not an automorphism because its inverse does not preserve order. In
-      particular, $0<1$ in this structure, but the inverse images
-      $\theta^{-1}(0)=i$ and $\theta^{-1}(1)=0$ are not comparable under
-      the $<$ relation.
+      sends natural numbers $n\in\mathbb{N}$ to $2n$, sends odd imaginary
+      numbers $(2n+1)i$ to odd numbers $2n+1$, and sends even imaginary
+      numbers $2ni$ to imaginary numbers $ni$. $\theta$ is a bijection, and
+      also a homomorphism because it preserves the linear orders of the
+      natural numbers. However, it is not an automorphism because its
+      inverse does not preserve order. In particular, $0<1$ in this
+      structure, but the inverse images $\theta^{-1}(0)=0$ and
+      $\theta^{-1}(1)=i$ are not comparable under the $<$ relation.
     \end{proof}
 \end{enumerate}
 \end{document}
