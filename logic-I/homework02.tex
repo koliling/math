@@ -47,8 +47,8 @@
     equals $|2^\omega|$.
 
     \begin{proof}
-      First we note that $\mathcal{S}$ is the set of monotonically
-      increasing infinitely countable sequences of integers. We encode each
+      First we note that $\mathcal{S}$ is the set of infinitely countable
+      sequences of integers that is strictly increasing. We encode each
       element of $\mathcal{S}$ with an element of $2^\omega$ by defining a
       bijection $\theta:\mathcal{S}\rightarrow2^\omega$. Given
       $f\in\mathcal{S}$, we construct $\theta(f)$ inductively on
@@ -59,8 +59,8 @@
       \begin{enumerate}
         \item Let $g_0$ be the sequence of $0$'s of length $f(0)$.
         \item Given $g_n$, let $g_{n+1}$ be $g_n$ concatenated with a
-          sequence of bits of length $f(n+1)-f(n)$, where we choose the bit
-          to be 0 if $n+1$ is even and 1 if $n+1$ is odd.
+          sequence of bits of length $f(n+1)-f(n)$, where we choose all the
+          bits to be 0 if $n+1$ is even and 1 if $n+1$ is odd.
       \end{enumerate}
 
       It is routine to verify that $\theta$ is a bijection, hence
@@ -131,15 +131,15 @@
 
     \begin{proof}
       Consider the structures $\mathcal{M}=\langle[0,1),<\rangle$ and
-      $\mathcal{N}=\langle[0,1],<\rangle$. The identity map $id$ will embed
-      $\mathcal{M}$ into $\mathcal{N}$, and scaling by 0.5 will embed
-      $\mathcal{N}$ into $\mathcal{M}$. However, these two structures
-      cannot be isomorphic because structure $\mathcal{N}$ has a maximal
-      element 1 while structure $\mathcal{M}$ does not, so any bijection
-      $\theta$ from $[0,1]$ to $[0,1)$ will not preserve order. More
-      specifically, let $r\in[0,1)$ be any element larger than $\theta(1)$.
-      Then $\theta^{-1}(r)<1$ in $[0,1]$, yet after mapping with $\theta$,
-      order is no longer preserved since $r>\theta(1)$.
+      $\mathcal{N}=\langle[0,1],<\rangle$. The identity map will embed
+      $\mathcal{M}$ into $\mathcal{N}$, and the map of multiplying by 0.5
+      will embed $\mathcal{N}$ into $\mathcal{M}$. However, these two
+      structures cannot be isomorphic because structure $\mathcal{N}$ has a
+      maximal element 1 while structure $\mathcal{M}$ does not, so any
+      bijection $\theta$ from $[0,1]$ to $[0,1)$ will not preserve order.
+      More specifically, let $r\in[0,1)$ be any element larger than
+      $\theta(1)$. Then $\theta^{-1}(r)<1$ in $[0,1]$, yet after mapping
+      with $\theta$, order is no longer preserved since $r>\theta(1)$.
     \end{proof}
 
   \item Find an infinite structure $\mathcal{M}$ in a finite language whose
@@ -169,14 +169,14 @@
       Consider the structure
       $\mathcal{M}=\langle\mathbb{N}\cup\mathbb{N}i,<\rangle$. Also,
       consider the map
-      $\theta:\mathbb{N}\cup\{i\}\rightarrow\mathbb{N}\cup\{i\}$ which
-      sends natural numbers $n\in\mathbb{N}$ to $2n$, sends odd imaginary
-      numbers $(2n+1)i$ to odd numbers $2n+1$, and sends even imaginary
-      numbers $2ni$ to imaginary numbers $ni$. $\theta$ is a bijection, and
-      also a homomorphism because it preserves the linear orders of the
-      natural numbers. However, it is not an automorphism because its
-      inverse does not preserve order. In particular, $0<1$ in this
-      structure, but the inverse images $\theta^{-1}(0)=0$ and
+      $\theta:\mathbb{N}\cup\mathbb{N}i\rightarrow\mathbb{N}\cup\mathbb{N}i$
+      which sends natural numbers $n\in\mathbb{N}$ to $2n$, sends odd
+      imaginary numbers $(2n+1)i$ to odd numbers $2n+1$, and sends even
+      imaginary numbers $2ni$ to imaginary numbers $ni$. $\theta$ is a
+      bijection, and also a homomorphism because it preserves the linear
+      orders of the natural numbers. However, it is not an automorphism
+      because its inverse does not preserve order. In particular, $0<1$ in
+      this structure, but the inverse images $\theta^{-1}(0)=0$ and
       $\theta^{-1}(1)=i$ are not comparable under the $<$ relation.
     \end{proof}
 \end{enumerate}
