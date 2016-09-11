@@ -224,8 +224,26 @@
           must be a subgroup of $H$, as we are required to show.
         \end{proof}
 
-      \item Question 10:
+      \item Question 10: Let $H$ be a subgroup of order 2 in $G$. Show that
+        $N_G(H)=C_G(H)$. Deduce that if $N_G(H)=G$ then $H\leq Z(G)$.
+
         \begin{proof}
+          By definition of normalizers and centralizers, normalizers
+          should contain the centralizers. We prove the opposite inclusion
+          by chasing definitions. A subgroup $H$ of order 2 must be
+          composed of an element $h$ of order 2 and the identity $e$. Hence
+          $n\in N_G(H)$ is equivalent to
+          $\{n,nh\}=n\{e,h\}=\{e,h\}n=\{n,hn\}$, which is equivalent to
+          $nh=hn$, which is equivalent to $n$ being contained in $N_C(H)$.
+          Hence $N_G(H)$ is also a subset of $N_C(H)$, so both groups are
+          equivalent. \\
+
+          From the above argument, $n\in N_G(H)$ for a subgroup $H=\{e,h\}$
+          of order 2 is equivalent to $nh=hn$. So $N_G(H)=G$ implies that
+          $h$ commutes with all elements of $G$, which means that $h$ is
+          contained in $Z(G)$. Also, $e$ is contained in $Z(G)$, so $H$ is
+          a subset of $Z(G)$. Since $H$ is also a group, it is a subgroup
+          of $Z(G)$.
         \end{proof}
 
       \item Question 14:
