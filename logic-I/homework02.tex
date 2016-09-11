@@ -169,22 +169,15 @@
 
     \begin{proof}
       Consider the structure
-      $\mathcal{M}=\langle\mathbb{N}\cup\mathbb{N}i,<\rangle$.  Also,
-      consider the bijective homomorphism $\theta$ defined by:
-      \begin{equation*}
-        \theta(x) =
-          \begin{array}{ll}
-            2x,   & \text{if}\; x\in\mathbb{N} \\
-            x/2,  & \text{if}\; x=2ki\; \text{for some}\; k\in\mathbb{N}^+ \\
-            x/i   & \text{if}\; x=(2k+1)i\; \text{for some}\; k\in\mathbb{N}
-          \end{array}
-      \end{equation*}
-
-      $\theta$ is a homomorphism because it preserves the linear orders of
-      the natural numbers. Also, it is a bijection. However, it is not an
-      automorphism because its inverse does not preserve order. In
+      $\mathcal{M}=\langle\mathbb{N}\cup\{i\},<\rangle$. Also,
+      consider the map
+      $\theta:\mathbb{N}\cup\{i\}\rightarrow\mathbb{N}\cup\{i\}$ which
+      sends all natural numbers $n$ to $n+1$ and sends the imaginary number
+      $i$ to 0. $\theta$ is a bijection, and also a homomorphism because
+      it preserves the linear orders of the natural numbers. However, it is
+      not an automorphism because its inverse does not preserve order. In
       particular, $0<1$ in this structure, but their inverse images
-      $\theta^{-1}(0)=0$ and $\theta^{-1}(1)=i$ are not comparable under
+      $\theta^{-1}(0)=i$ and $\theta^{-1}(1)=0$ are not comparable under
       the $<$ relation.
     \end{proof}
 \end{enumerate}
