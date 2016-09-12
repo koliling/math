@@ -323,6 +323,7 @@
         \begin{enumerate}
           \item Prove that $\sigma_a$ is an automorphism of $\mathbb{Z}_n$
             if and only $a$ and $n$ are relatively prime.
+            \label{qn:rel-prime}
             \begin{proof}
               It is routine to show that $\sigma_a$ is a homomorphism:
               $\sigma_a(x_1x_2)=(x_1x_2)^a=x_1^ax_2^a=\sigma_a(x_1)\sigma_a(x_2)$,
@@ -348,7 +349,7 @@
             \end{proof}
 
           \item Prove that $\sigma_a=\sigma_b$ if and only if $a\equiv b
-            \pmod{n}$.
+            \pmod{n}$. \label{qn:inj}
             \begin{proof}
               If $a\equiv b\pmod{n}$, then given any $x\in\mathbb{Z}_n$,
               \begin{align*}
@@ -375,7 +376,7 @@
             \end{proof}
 
           \item Prove that every automorphism of $\mathbb{Z}_n$ is equal to
-            $\sigma_n$ for some integer $a$.
+            $\sigma_n$ for some integer $a$. \label{qn:auto}
             \begin{proof}
               Fix any generator $g$ of $\mathbb{Z}_n$. We show that every
               automorphism $\sigma$ of $\mathbb{Z}_n$ is fully defined by
@@ -401,10 +402,41 @@
             \end{proof}
 
           \item Prove that $\sigma_a\circ\sigma_b=\sigma_{ab}$. Deduce that
-            the map $\hat{a}\mapsto\sigma_a$ is an isomorphism of
+            the map $\bar{a}\mapsto\sigma_a$ is an isomorphism of
             $(\mathbb{Z}/n\mathbb{Z})^\times$ onto the automorphism group
             of $\mathbb{Z}_n$.
+
+            \begin{proof}
+              Given any $x\in\mathbb{Z}_n$,
+              \begin{align*}
+                \sigma_a\circ\sigma_b(x)  &= \sigma_a(x^b)  \\
+                                          &= (x^b)^a        \\
+                                          &= x^{ab}         \\
+                                          &= \sigma_{ab}(x),\\
+              \end{align*}
+              hence $\sigma_a\circ\sigma_b=\sigma_{ab}$. \\
+
+              The given map is a homomorphism since
+              $\bar{a}\bar{b}=\overline{ab}$ is mapped to $\sigma_{ab}$ by
+              definition, which is equal to $\sigma_a\circ\sigma_b$ as we
+              have just shown, which is equal to the image of $\bar{a}$
+              composed with the image of $\bar{b}$. The given map is also
+              injective by question~\ref{qn:inj}. Finally, by
+              questions~\ref{qn:rel-prime} and ~\ref{qn:auto}, the map is
+              surjective. Hence the map is an isomorphism.
+            \end{proof}
         \end{enumerate}
+    \end{enumerate}
+
+  \item Section 2.4
+    \begin{enumerate}
+      \item Question 13:
+        \begin{proof}
+        \end{proof}
+
+      \item Question 14:
+        \begin{proof}
+        \end{proof}
     \end{enumerate}
 
   \item Section 2.5
