@@ -313,9 +313,31 @@
           $\{\bar{n}\,|\; 1\leq n\leq 202,\; n\;\text{is odd},\;n\neq101\}$.
         \end{proof}
 
-      \item Question 26:
-        \begin{proof}
-        \end{proof}
+      \item Question 26: Let $\mathbb{Z}_n$ be a cyclic group of order $n$
+        and for each integer $a$ let
+        \begin{align*}
+          \sigma_a:\mathbb{Z}_n\rightarrow\mathbb{Z}_n  && \text{by}  &&
+          \sigma_a(x)=x^a && \text{for all}\; x\in\mathbb{Z}_n.
+        \end{align*}
+
+        \begin{enumerate}
+          \item Prove that $\sigma_a$ is an automorphism of $\mathbb{Z}_n$
+            if and only $a$ and $n$ are relatively prime.
+            \begin{proof}
+              It is routine to show that $\sigma_a$ is a homomorphism:
+              $\sigma_a(x_1x_2)=(x_1x_2)^a=x_1^ax_2^a=\sigma_a(x_1)\sigma_a(x_2)$,
+              where the second equality holds because cyclic groups are
+              abelian. Let $g$ be a generator of $\mathbb{Z}_n$. If
+              $(a,n)=1$, then $g$ will be mapped to a generator from
+              Proposition 6.1 of Section 2.3. Then the image of $\sigma_a$
+              will contain a generator, and since the image under
+              homomorphism is a group, the image must be the whole group
+              $\mathbb{Z}$. A surjective map between two finite sets of the
+              same size must be a bijection, hence $\sigma_a$ is a
+              bijective homomorphism which makes it an isomorphism, and
+              hence an automorphism.
+            \end{proof}
+        \end{enumerate}
     \end{enumerate}
 
   \item Section 2.5
