@@ -373,6 +373,30 @@
               $e$, which is not possible since $g$ is a generator and
               $0<r<n$.
             \end{proof}
+
+          \item Prove that every automorphism of $\mathbb{Z}_n$ is equal to
+            $\sigma_n$ for some integer $a$.
+            \begin{proof}
+              Fix any generator $g$ of $\mathbb{Z}_n$. We show that every
+              automorphism $\sigma$ of $\mathbb{Z}_n$ is fully defined by
+              the image of $g$. Since $g$ generators the whole group,
+              $\sigma(g)=g^a$ for some integer $0<a<n$. We show that given
+              any other element $x\in\mathbb{Z}_n$, $\sigma$ will map $x$
+              to $x^a$. We first show by induction on $r\in\mathbb{N}$ that
+              $\sigma$ maps $g^r$ to $(g^r)^a$. This is true by choice of
+              $g$ and $a$ for $r=1$. For the inductive step, we have
+              \begin{align*}
+                \sigma(g^{r+1}) &= \sigma(g^rg) \\
+                                &= \sigma(g^r)\sigma(g) & (\text{by
+                                homomorphism property}) \\
+                                &= (g^r)^a\sigma(g)     & (\text{by induction
+                                hypothesis}) \\
+                                &= (g^r)^ag^a           & (\text{by
+                                base case}) \\
+                                &= g^{ra+a}             & \\
+                                &= (g^{r+1})a           & \\
+              \end{align*}
+            \end{proof}
         \end{enumerate}
     \end{enumerate}
 
