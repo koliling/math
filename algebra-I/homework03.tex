@@ -346,6 +346,33 @@
               the generators, which means the map is not surjective, and
               hence cannot be an automorphism.
             \end{proof}
+
+          \item Prove that $\sigma_a=\sigma_b$ if and only if $a\equiv b
+            \pmod{n}$.
+            \begin{proof}
+              If $a\equiv b\pmod{n}$, then given any $x\in\mathbb{Z}_n$,
+              \begin{align*}
+                \sigma_a(x) &= x^a          & \\
+                            &= x^{qn+b}     & \text{for some}\, q\in\mathbb{Z} \\
+                            &= (x^n)^qx^b   & \\
+                            &= e^qx^b       & \\
+                            &= x^b          & \\
+                            &= \sigma_b(x). & \\
+              \end{align*}
+              On the other hand, if $a\not\equiv b\pmod{n}$, then
+              $a=qn+b+r$ for some $q,r\in\mathbb{Z}$ and $0<r<n$, so given
+              any generator $g\in\mathbb{Z}_n$, we have
+              \begin{align*}
+                \sigma_a(g) &= g^a          & \\
+                            &= g^{qn+b+r}   & \text{for some}\, q\in\mathbb{Z} \\
+                            &= (g^n)^qg^bg^r& \\
+                            &= e^qg^bg^r    & \\
+                            &= \sigma_b(x)g^r, & \\
+              \end{align*}
+              which will equal $\sigma_b(x)$ if and only if $g^r$ equals
+              $e$, which is not possible since $g$ is a generator and
+              $0<r<n$.
+            \end{proof}
         \end{enumerate}
     \end{enumerate}
 
