@@ -1,5 +1,3 @@
-
-
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
@@ -246,8 +244,59 @@
           of $Z(G)$.
         \end{proof}
 
-      \item Question 14:
+      \item Question 14: Let $H(F)$ be the Heisenberg group over the field
+        $F$ introduced in Exercise 11 of Section 1.4. Determine which
+        matrices lie in the center of $H(F)$ and prove that $Z(H(F))$ is
+        isomorphic to the additive group $F$.
+
         \begin{proof}
+          An element
+          \begin{align*}
+            C = 
+            \begin{array}{*{3}c}
+              1 & a & b \\
+              0 & 1 & c \\
+              0 & 0 & 1 \\
+            \end{array}
+          \end{align*}
+          lies in the centralizer of $H(F)$ if and only if it commutes with
+          all other matrices
+          \begin{align*}
+            A = 
+            \begin{array}{*{3}c}
+              1 & d & e \\
+              0 & 1 & f \\
+              0 & 0 & 1 \\
+            \end{array}
+          \end{align*}
+          in $H(F)$. By multiplying out $CA$ and equating with $AC$, we
+          see that $C$ is in the centralizer if and only if $af=cd$ for all
+          $d,f\in F$. Setting $d=f=1$ gives us $a=c$, and setting $f=1$ and
+          $d=0$ gives us $a=0$, so $C$ is in the centralizer if and only if
+          $a=c=0$. In other words, the centralizer $Z(H(F))$ is the set of
+          matrices $C$ of the form
+          \begin{align*}
+            C = 
+            \begin{array}{*{3}c}
+              1 & 0 & f \\
+              0 & 1 & 0 \\
+              0 & 0 & 1 \\
+            \end{array},
+          \end{align*}
+          for any $f\in F$. \\
+
+          The map $\theta$ from $F$ to $H(F)$ which sends $f\in F$ to
+          \begin{align*}
+            \begin{array}{*{3}c}
+              1 & 0 & f \\
+              0 & 1 & 0 \\
+              0 & 0 & 1 \\
+            \end{array}
+          \end{align*}
+          can be shown to be a homomorphism:
+          $\theta(f_1+f_2)=\theta(f_1)\theta(f_2)$. The map is injective
+          and has image $Z(H(F))$, hence $F$ under the addition operation
+          isomorphic to $Z(H(F))$ as groups.
         \end{proof}
     \end{enumerate}
 
@@ -293,7 +342,4 @@
         \end{proof}
     \end{enumerate}
 \end{enumerate}
-
 \end{document}
-
-
