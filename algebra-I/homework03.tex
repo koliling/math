@@ -631,5 +631,162 @@
           s,r^4\rangle$ is $\langle s,r^2\rangle$.
         \end{proof}
     \end{enumerate}
+
+  \item Section 3.1
+    \begin{enumerate}
+      \item Question 25:
+        \begin{enumerate}
+          \item Prove that a subgroup $N$ of $G$ is normal if and only if
+            $gNg^{-1}\subseteq N$ for all $g\in G$.
+            \begin{proof}
+              The forward implication is true by definiton of a normal
+              subgroup. To prove the reverse implication, it suffices to
+              show that if $gNg^{-1}\subseteq N$ for all $g\in G$, then
+              $gNg^{-1}\supset N$. This is true by setting $g=e$.
+            \end{proof}
+
+          \item Let $G=GL_2(\mathbb{Q})$, let $N$ be the subgroup of upper
+            triangular matrices with integer entries and 1's on the
+            diagonal, and let $g$ be the diagonal matrix with entries 2,1.
+            Show that $gNg^{-1}\subseteq N$ but $g$ does not normalize $N$.
+
+            \begin{proof}
+              Given
+              \begin{align*}
+                n = 
+                \begin{array}{*{2}c}
+                  1 & i \\
+                  0 & 1 \\
+                \end{array}
+                \in N,
+              \end{align*}
+              we get
+              \begin{align*}
+                gng^{-1} & = 
+                \begin{array}{*{2}c}
+                  2 & 0 \\
+                  0 & 1 \\
+                \end{array}
+                \begin{array}{*{2}c}
+                  1 & i \\
+                  0 & 1 \\
+                \end{array}
+                \begin{array}{*{2}c}
+                  0.5 & 0 \\
+                  0 & 1 \\
+                \end{array} \\
+                & =
+                \begin{array}{*{2}c}
+                  1 & 2i \\
+                  0 & 1 \\
+                \end{array}
+                \in N. \\
+              \end{align*}
+              Hence $gNg^{-1}\subseteq N$. However, $g$ does not normalize
+              $N$ because $gNg^{-1}$ does not contain elements of $N$ with
+              top right entries that are odd.
+            \end{proof}
+        \end{enumerate}
+
+      \item Question 34: Let $D_{2n}=\{r,s\,|\; r^n=s^2=1,rs=sr^{-1}\}$ be
+        the usual presentation of the dihedral group of order $2n$ and let
+        $k$ be a positive integer dividing $n$.
+
+        \begin{enumerate}
+          \item Prove that $N=\langle r^k\rangle$ is a normal subgroup of
+            $D_{2n}$.
+            \begin{proof}
+              From question 34, it suffices to show that $gNg^{-1}\subseteq
+              D_{2n}$ for every $g\in D_{2n}$. In our argument for question
+              19 of section 2.5, we proved that it suffices to show
+              that the generator $r^k$ of $N$ remains in $N$ after
+              conjugation with any of the generators $r$ and $s$ of
+              $D_{2n}$. Now
+              \begin{align*}
+                rr^kr^{-1}  &= r^k\in N, \\
+              \end{align*}
+              and
+              \begin{align*}
+                sr^ks^{-1}  &= sr^ks    & (\because s^{-1}=s) \\
+                            &= ssr^{-k} & (\text{from induction on $k$ and
+                            using $rs=sr^{-1}$, can show $rs^k=sr^{-k}$}) \\
+                            &= r^{-k}   & (\because s^2=1) \\
+                            &\in N,     & \\
+              \end{align*}
+              which completes our proof.
+            \end{proof}
+
+          \item Prove that $D_{2n}/\langle r^k\rangle\cong D_{2k}$.
+            \begin{proof}
+              Recall $D_{2m}$ has $2m$ distinct elements
+              $1,r,\ldots,r^{m-1},s,sr,\ldots,sr^{m-1}$. Hence
+              $r^{i_1}s^{j_1}$ equals to $r^{i_2}s^{j_2}$ in $D_{2m}$ if
+              and only if $i_1\equiv i_2 \pmod{2}$ and $j_1\equiv
+              j_2\pmod{m}$. Consider the map $\phi:D_{2n}/\langle
+              r^k\rangle\rightarrow D_{2k}$, defined by $[s^ir^j]\mapsto
+              s^ir^{j\mod k}$. We show that this map is an isomorphism. \\
+
+              First, we show that this map is well-defined. If
+              $s^{i_1}r^{j_1}$ and $s^{i_2}r^{j_2}$ in $D_{2n}$ belong to
+              the same equivalence class, then
+              $s^{i_2}r^{j_2}=s^{i_1}r^{j_1}r^{ak}$ for some
+              $a\in\mathbb{Z}$. Then from our observation above, this
+              implies that $i_1\equiv i_2 \pmod{2}$ and $j_1\equiv
+              j_2+ak\pmod{n}$. Then since $k$ divides $n$, this means
+              $j_1\equiv j_2\pmod{k}$, which implies that $s^{i_1}r^{j_1}$
+              and $s^{i_2}r^{j_2}$ will be mapped to the same element
+              $s^{i_1}r^{j_1\mod{k}}$ in $D_{2k}$. Hence the map $\phi$ is
+              well-defined. \\
+
+              Next, we show that $\phi$ is a homomorphism. It is routine to
+              show that $\phi([ss])=\phi([s])\phi([s])$ and
+              $\phi([rr])=\phi([r])\phi([r])$. Also,
+              \begin{align*}
+                \phi([sr])  &= sr^{1\mod{k}}        \\
+                            &= sr                   \\
+                            &= \phi([s])\phi([r]),  \\
+              \end{align*}
+              and
+              \begin{align*}
+                \phi([rs])  &= \phi(sr^{n-1})   & \\
+                            &= sr^{n-1\mod{k}}  & \\
+                            &= sr^{-1\mod{k}}   & (\because k|n) \\
+                            &= sr^{k-1}         & \\
+                            &= (r^{k-1})^{-1}s  & (\text{from induction on
+                            $k$ and using $rs=sr^{-1}$, can show
+                            $rs^k=sr^{-k}$}) \\
+                            &= rs               & \\
+                            &= \phi([r])\phi([s]).  \\
+              \end{align*}
+              Since $D_{2n}$ is generated by $r$ and $s$, given any
+              $x,y\in D_{2n}$, we can express $x$ and $y$ as a finite
+              sequence of $r$'s and $s$'s. Then from induction on the
+              length of the sequences, and using the above rules, where
+              $\phi([ss])=\phi([s])\phi([s])$,
+              $\phi([rr])=\phi([r])\phi([r])$,
+              $\phi([rs])=\phi([r])\phi([s])$,
+              $\phi([sr])=\phi([s])\phi([r])$, we can
+              show that $\phi([xy])=\phi([x])\phi([y])$. Hence $\phi$ is a
+              homomorphism. \\
+
+              $\phi$ is surjective since every $sr^i\in D_{2k}$ has an
+              inverse $sr^i$ in $D_{2n}$. It remains to show that $\phi$
+              is injective. This is equivalent to showing that the kernel
+              of $\phi$ contains only the identity $[1]$.
+              In $D_{2k}$, two elements $r^{i_1}s^{j_1}$ and
+              $r^{i_2}s^{j_2}$ are equal if and only if $i_1\equiv i_2
+              \pmod{2}$ and $j_1\equiv j_2\pmod{k}$. Hence the inverse
+              image of $\phi$ on $1=s^0r^0\in D_{2k}$ can only be of the
+              form $[r^{4i}]$, where $i\in\mathbb{Z}$. Since
+              $[r^{4i}]=[1]$, the kernel contains only the identity. So
+              $\phi$ is an isomorphism, which completes our proof that the
+              two groups are isomorphic.
+            \end{proof}
+        \end{enumerate}
+
+      \item Question 35:
+
+      \item Question 36:
+    \end{enumerate}
 \end{enumerate}
 \end{document}
