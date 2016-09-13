@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
 \usepackage{color}
 %\setlength{\parindent}{0mm}
 
@@ -559,7 +559,35 @@
           $\langle\bar{8}\rangle$, $\langle\bar{3}\rangle$,
           $\langle\bar{6}\rangle$, $\langle\bar{12}\rangle$, and
           $\langle\bar{24}\rangle=\{\bar{0}\}$.
-          \TODO{Draw lattice.}
+
+          \begin{center}
+            \begin{tikzpicture}
+              %\draw[help lines](0,0) grid (6,6);
+              \draw (3,5) node[] (n1) {$\mathbb{Z}_{24}$};
+              \draw (4,4) node[] (n3) {$(3)$};
+              \draw (4,3) node[] (n6) {$(6)$};
+              \draw (4,2) node[] (n12) {$(12)$};
+              \draw (2,4) node[] (n2) {$(2)$};
+              \draw (2,3) node[] (n4) {$(4)$};
+              \draw (2,2) node[] (n8) {$(8)$};
+              \draw (3,1) node[] (n0) {$(0)$};
+
+              \draw[-latex] (n1.south)--(n2.north);
+              \draw[-latex] (n2.south)--(n4.north);
+              \draw[-latex] (n4.south)--(n8.north);
+              \draw[-latex] (n8.south)--(n0.north);
+
+              \draw[-latex] (n1.south)--(n3.north);
+              \draw[-latex] (n3.south)--(n6.north);
+              \draw[-latex] (n6.south)--(n12.north);
+              \draw[-latex] (n12.south)--(n0.north);
+
+              \draw[-latex] (n2.east)--(n6.west);
+              \draw[-latex] (n4.east)--(n12.west);
+            \end{tikzpicture}
+          \end{center}
+
+
         \end{proof}
 
       \item Question 19: Use the lattice to help find $N_{D_{16}}(\langle
