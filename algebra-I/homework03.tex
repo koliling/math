@@ -784,7 +784,23 @@
             \end{proof}
         \end{enumerate}
 
-      \item Question 35:
+      \item Question 35: Prove that $SL_n(F)\unlhd GL_n(F)$ and describe
+        the isomorphism type of the quotient group.
+        \begin{proof}
+          To prove a subgroup $N$ of $G$ is normal, it suffices to show
+          that $gNg^{-1}\subseteq G$ for every $g\in G$. Given $g\in
+          GL_n(F)$ and $h\in SL_n(F)$,
+          \begin{align*}
+            |ghg^{-1}|  &= |g||h||g^{-1}| \\
+                        &= |g||h|/|g|     \\
+                        &= |h|            \\
+                        &= 1,             \\
+          \end{align*}
+          which implies that $ghg^{-1}\in SL_n(F)$. Hence $SL_n(F)\unlhd
+          GL_n(F)$. \\
+
+          The quotient group is isomorphic to $(F^*,\times)$.
+        \end{proof}
 
       \item Question 36:
     \end{enumerate}
