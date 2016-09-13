@@ -567,7 +567,24 @@
         \begin{proof}
           Since normalizers are subgroups, the normalizer
           $N_{D_{16}}(\langle s,r^4\rangle)$ must be one of the six
-          possible subgroups of $D_{16}$ shown in the lattice.
+          possible subgroups of $D_{16}$ shown in the lattice. To check if
+          a subgroup $H$ of $G$ lies within the normalizer of any subset
+          $S\subset G$, we show that it suffices to check that each
+          generator $g\in H$ of the subgroup commutes with the set $S$:
+          Every element $h$ in $H$ is a finite product of the generators of
+          $H$. In other words, $h=g_1\cdots g_n$ for some generators
+          $g_i\in H$, and $n\in\mathbb{N}$. It suffices to show by
+          induction on $n$ that if $g_1\cdots g_n$ commutes with $S$ if all
+          generators commute with $S$. The base case where $n=1$ is true by
+          assumption. For step $n+1$, we have
+          \begin{align*}
+            g_1\cdots g_{n+1}S  &= (g_1\cdots g_n)g_{n+1}S  & \\
+                                &= (g_1\cdots g_n)Sg_{n+1}  & (\text{Base
+                                case}) \\
+                                &= S(g_1\cdots g_n)g_{n+1}  &
+                                (\text{Inductive step}) \\
+                                &= Sg_1\cdots g_{n+1}       & \\
+          \end{align*}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
