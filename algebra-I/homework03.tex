@@ -816,7 +816,27 @@
           group is isomorphic to $(F^*,\times)$.
         \end{proof}
 
-      \item Question 36:
+      \item Question 36: Prove that if $G/Z(G)$ is cyclic then $G$ is
+        abelian.
+        \begin{proof}
+          Assume $G/Z(G)$ is cyclic. So $G/Z(G)=\langle[x]\rangle$ for some
+          $x\in G$. Then given any $g\in G$, $[g]=[x]^a=[x^a]$ for some
+          $a\in\mathbb{Z}$, which means $g=x^az$ for some $z\in Z(G)$. \\
+
+          So given $g_1,g_2\in G$, we have $g_1=x^{a_1}z_1$ and
+          $g_2=x^{a_2}z_2$ for some $a_1,a_2\in\mathbb{Z}$, $z_1,z_2\in
+          Z(G)$. Then
+          \begin{align*}
+            g_1g_2  &= x^{a_1}z_1x^{a_2}z_2 & \\
+                    &= x^{a_1+a_2}z_2z_1    & (\because z_1\,
+                    \text{commutes}) \\
+                    &= x^{a_2}x^{a_1}z_2z_1 & \\
+                    &= x^{a_2}z_2x^{a_1}z_1 & (\because z_2\,
+                    \text{commutes}) \\
+                    &= g_2g_1,              & \\
+          \end{align*}
+          so $G$ is abelian.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
