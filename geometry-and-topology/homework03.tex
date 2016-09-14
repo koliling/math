@@ -13,6 +13,22 @@
 \maketitle
 
 \begin{enumerate}
-  \item Let $X$ be a CW complex.
+  \item Exercise 2.16: Let $T$ be the infinite 4-valent tree and let
+    $\tilde{X}$ be any connected graph which is oriented and labeled as in
+    Example 2.10. Also, let $X$ be the graph from Figure 2.3, so we have
+    covering maps $f:T\rightarrow X$ and $g:\tilde{X}\rightarrow X$. Let
+    $v$ be any vertex of $T$ and let $w$ be any vertex of $\tilde{X}$.
+    Prove that there exists a covering map $h:T\rightarrow\tilde{X}$ such
+    that $f=g\circ h$.
+
+    \begin{proof}
+      Let $m$ be the middle vertex in $T$, and let
+      $v=g^{-1}(f(m))\in\tilde{X}$. Consider the map $h$ which sends $m$
+      to $v$, and for any other vertex $u$ in $T$, we find the unique path
+      $p$ from $m$ to $u$, which can be represented as a word from
+      $\{a,-a,b,-b\}^{<\omega}$. Then $h$ maps $u$ to the unique vertex
+      $x$ in $\tilde{X}$ that is reached from starting at vertex $v$ and
+      following the same path directions given by $p$.
+    \end{proof}
 \end{enumerate}
 \end{document}
