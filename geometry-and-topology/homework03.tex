@@ -70,20 +70,18 @@
 
       Let $O$ be open in $\tilde{X}$. We wish to show that $\phi^{-1}(O)$
       is open in $\tilde{X}$. For each $\tilde{x}$ in $O$, let $o\subset
-      f(\tilde{x})$ be the open cover of $f(\tilde{x})$ given by the
-      covering space property of $f$. Then $f^{-1}(o)=O_1\cup O_2$, where
-      $O_1'$ and $O_2'$ are disjoint open subsets of $\tilde{X}$ that are
-      homeomorphic to $o'$ under the restriction map of $f$. Assume without
-      loss of generality that $\tilde{x}$ is contained in $O_1'$, and let
-      $O_{\tilde{x},1}=O_1'\cap O$, and $O_{\tilde{x},2}=\phi^{-1}(O_1)$.
-      Then since $O_1'$ is homeomorphic to $O_2'$ and $O_{\tilde{x},1}$ is
-      an open subset of $O_1'$, $O_{\tilde{x},2}$ will be an open subset of
-      $O_2'$ and hence is an open subset of $\tilde{X}$. Chasing
-      definitions, the pre-image of $O$ under $\phi$ is the union of all
-      such $O_{\tilde{X},2}$. More precisely,
-      $\phi^{-1}(O)=\cup_{\tilde{x}\in O}O_{\tilde{x},2}$, which is open in
-      $\tilde{X}$ since each $O_{\tilde{x},2}$ is open in $\tilde{X}$.
-      Hence $\phi$ is continuous, which completes our proof.
+      f(\tilde{x})$ be a trivialized neighborhood of $f(\tilde{x})$, and
+      $O_1'$ and $O_2'$ be the disjoint open sheets lying above $o$. Assume
+      without loss of generality that $\tilde{x}$ is contained in $O_1'$,
+      and let $O_{\tilde{x},1}=O_1'\cap O$, and
+      $O_{\tilde{x},2}=\phi^{-1}(O_1)$. Then since $O_1'$ is homeomorphic
+      to $O_2'$ and $O_{\tilde{x},1}$ is an open subset of $O_1'$,
+      $O_{\tilde{x},2}$ will be an open subset of $O_2'$ and hence is an
+      open subset of $\tilde{X}$. Chasing definitions, the pre-image of $O$
+      under $\phi$ is the union of all such $O_{\tilde{X},2}$. More
+      precisely, $\phi^{-1}(O)=\cup_{\tilde{x}\in O}O_{\tilde{x},2}$, which
+      is open in $\tilde{X}$ since each $O_{\tilde{x},2}$ is open in
+      $\tilde{X}$.  Hence $\phi$ is continuous, which completes our proof.
     \end{proof}
 
   \item Exercise 3.17: Let $f:\tilde{X}\rightarrow X$ be a covering space.
@@ -96,7 +94,7 @@
         Also, let $g^*(f):g(\tilde{X})\rightarrow Y$ be the restriction of
         the projection $Y\times\tilde{X}\rightarrow Y$ onto the first
         factor. Prove that $g^*(f):g^*(\tilde{X})\rightarrow Y$ is a
-        covering space.
+        covering space. \label{qn:covering}
         \begin{proof}
           Done in homework 2.
         \end{proof}
@@ -117,6 +115,12 @@
         restriction of $f$ to $X'$.
 
         \begin{proof}
+          Let $\tilde{X}'=f^{-1}(X')$ and $f'=f|_{\tilde{X}'}$. We have
+          shown in question~\ref{qn:covering} that $g^*(f)$ is a covering
+          space space. We need to find a homeomorphism $\pi$ from
+          $g^*(\tilde{X})$ to $\tilde{X}'$ such that $g^*(f)=\pi\circ f'$.
+          Let $\pi$ be the projection map which sends $(x',\tilde{x}')\in
+          g^*(f)$ to $\tilde{x}'\in\tilde{X}$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
