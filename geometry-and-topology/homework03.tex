@@ -62,7 +62,27 @@
       $\tilde{x}\in\tilde{X}$ to the only other pre-image of $f(\tilde{x})$
       that is not equal to $\tilde{x}$. It suffices to show that $\phi$ is
       a deck transformation of $f$. $\phi$ is bijective from chasing
-      definitions.
+      definitions. By a symmetrical argument, if $\phi$ is continuous,
+      applying the same argument to $\phi^{-1}$ which is also $\phi$, we
+      know $\phi^{-1}$ is also continuous, which would imply that $\phi$ is
+      a covering space isomorphism. So, we only need to show that $\phi$ is
+      continuous. \\
+
+      Let $O$ be open in $\tilde{X}$. We wish to show that $\phi^{-1}(O)$
+      is open in $\tilde{X}$. For each $\tilde{x}$ in $O$, let $o\subset
+      f(\tilde{x})$ be the open cover of $f(\tilde{x})$ given by the
+      covering space property of $f$. Then $f^{-1}(o)=O_1\cup O_2$, where
+      $O_1'$ and $O_2'$ are disjoint open subsets of $\tilde{X}$ that are
+      homeomorphic to $o'$ under the restriction map of $f$. Assume without
+      loss of generality that $\tilde{x}$ is contained in $O_1'$, and let
+      $O_{\tilde{x},1}=O_1'\cap O$, and $O_{\tilde{x},2}=\phi^{-1}(O_1)$.
+      Then since $O_1'$ is homeomorphic to $O_2'$ and $O_{\tilde{x},1}$ is
+      an open subset of $O_1'$, $O_{\tilde{x},2}$ will be an open subset of
+      $O_2'$ and hence is an open subset of $\tilde{X}$. Chasing
+      definitions, the pre-image of $O$ under $\phi$ is the union of all
+      such $O_{\tilde{X},2}$. More precisely,
+      $\phi^{-1}(O)=\cup_{\tilde{x}\in O}O_{\tilde{x},2}$, which is open in
+      $\tilde{X}$. Hence $\phi$ is continuous, which completes our proof.
     \end{proof}
 \end{enumerate}
 \end{document}
