@@ -62,7 +62,7 @@
       $\tilde{x}\in\tilde{X}$ to the only other pre-image of $f(\tilde{x})$
       that is not equal to $\tilde{x}$. It suffices to show that $\phi$ is
       a deck transformation of $f$. $\phi$ is bijective from chasing
-      definitions. By a symmetrical argument, if $\phi$ is continuous,
+      definitions. By a symmetrical argument, if $\phi$ is continuous, then
       applying the same argument to $\phi^{-1}$ which is also $\phi$, we
       know $\phi^{-1}$ is also continuous, which would imply that $\phi$ is
       a covering space isomorphism. So, we only need to show that $\phi$ is
@@ -82,7 +82,29 @@
       definitions, the pre-image of $O$ under $\phi$ is the union of all
       such $O_{\tilde{X},2}$. More precisely,
       $\phi^{-1}(O)=\cup_{\tilde{x}\in O}O_{\tilde{x},2}$, which is open in
-      $\tilde{X}$. Hence $\phi$ is continuous, which completes our proof.
+      $\tilde{X}$ since each $O_{\tilde{x},2}$ is open in $\tilde{X}$.
+      Hence $\phi$ is continuous, which completes our proof.
     \end{proof}
+
+  \item Exercise 3.17: Let $f:\tilde{X}\rightarrow X$ be a covering space.
+    \begin{enumerate}
+      \item If $g:Y\rightarrow X$ is a continuous map, then define
+        \begin{equation*}
+          g^*(\tilde{X}) = \{(y,p)\,|\; g(y)=f(p)\}\subset
+          Y\times\tilde{X}.
+        \end{equation*}
+        Also, let $g^*(f):g(\tilde{X})\rightarrow Y$ be the restriction of
+        the projection $Y\times\tilde{X}\rightarrow Y$ onto the first
+        factor. Prove that $g^*(f):g^*(\tilde{X})\rightarrow Y$ is a
+        covering space.
+        \begin{proof}
+          Done in homework 2.
+        \end{proof}
+
+      \item If $g:X\rightarrow X$ is the identity map, then prove that
+        $g^*(\tilde{X})$ is isomorphic to $\tilde{X}$.
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
