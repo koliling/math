@@ -106,7 +106,8 @@
           sends $(x,p)$ to $p$. We show that $\phi$ is an isomorphism.
           It is routine to show that $\phi$ is bijective from chasing
           definitions. Also, $\phi$ is a projection map equipped with
-          product topology, so it is continuous and open.
+          product topology, so it is continuous and open, which completes
+          the proof.
         \end{proof}
 
       \item If $X'$ is a subspace of $X$ and $g:X'\rightarrow X$ is the
@@ -132,11 +133,51 @@
         of $Y$.
 
         \begin{proof}
-          We have shown in question~\ref{qn:covering} that
-          $g^*(f):g^*(\tilde{X})\rightarrow Y$ is a covering space. Since
-          $\tilde{X}$ is a trivial cover of $X$, we can assume
-          $\tilde{X}=X\times F$ for some discrete $F$ and $f$ is the
-          projection that sends $(x,f)\in X\times F$ to $x$.
+          Since $\tilde{X}$ is a trivial cover of $X$, we can assume
+          $\tilde{X}=X\times D$ for some discrete $D$, and $f$ is the
+          projection that sends $(x,d)\in X\times D$ to $x$. We have shown
+          in question~\ref{qn:covering} that $g^*(f):g^*(\tilde{X\times
+          D})\rightarrow Y$ is a covering space. Chasing definitions,
+          $g^*(X\times D)=\{(y,(f(y),d))\,|\; y\in Y, d\in D\}$, and
+          $g^*(f)$ sends $(y,(f(y),d))$ to $y$. Now $Y\times D$ is a
+          trivial cover of $Y$ with covering space map $f':Y\times D$
+          sending $(y,d)\in Y\times D$ to $y$. Consider the map
+          $\phi:g^*(Y\times D)\rightarrow g^*(X\times D)$ defined by
+          mapping $(y,(f(y),d))$ to $(y,d)$. We show that $\phi$ is a
+          homeomorphism, which would imply that $Y\times D$ and
+          $g^*(\tilde{X})$ are isomorphic covers of $Y$, and hence
+          $g^*(\tilde{X})$ is a trivial cover of $Y$. \\
+
+          $\phi$ is bijective from the way it was defined. Also, it is a
+          projection map under the product topology, which makes it open
+          and continuous. Therefore $\phi$ is a homeomorphism, which
+          completes the proof.
+        \end{proof}
+
+      \item If $g:Y\rightarrow X$ and $h:Z\rightarrow Y$ are continuous
+        maps, prove that the cover $(g\circ h)^*(\tilde{X})$ of $Z$ is
+        isomorphic to $h^*(g^*(\tilde{X}))$ of $Z$.
+
+        \begin{proof}
+          $(g\circ h)^*(\tilde{X})$ is a cover of $Z$ by
+          question~\ref{qn:covering}. $h^*(g^*(\tilde{X}))$ is also a cover
+          of $Z$ by two applications of question~\ref{qn:covering}.  We
+          need to show that there is a homeomorphism from $(g\circ
+          h)^*(\tilde{X})$ to $h^*(g^*(\tilde{X}))$ such that $(g\circ
+          h)^*(f)=h^*(g^*(f))\circ h^*(g^*(\tilde{X}))$. Consider the map
+          $\phi$ which sends $(z,\tilde{x})$ to $(z,(h(z),\tilde{x}))$,
+          where $\tilde{x}\in f^{-1}(g(h(z)))$. This map is well-defined
+          because $g(h(z))=f(f^{-1}(g(h(z))))$. Chasing definitions, it is
+          also bijective. Finally, the map is continuous and open because
+          it is a projection map under the product topology. Hence $(g\circ
+          h)^*(\tilde{X})$ and $h^*(g^*(\tilde{X}))$ are isomorphic covers
+          of $Z$.
+        \end{proof}
+
+      \item Let $g:Y\rightarrow X$ be the constant map that takes every
+        point of $Y$ to a fixed point $p_0\in X$, prove that
+        $g^*(\tilde{X})$ is a trivial cover of $Y$. 
+        \begin{proof}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
