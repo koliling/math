@@ -22,21 +22,37 @@
     that $f=g\circ h$.
 
     \begin{proof}
-      Let $h$ map the middle vertex $t_m$ in $T$ to
-      $x_m=g^{-1}(f(t_m))\in\tilde{X}$. Then for other vertices $t$ in $T$,
-      we find the unique path $p$ from $t_m$ to $t$, which can be
-      represented as a word from $\{a,-a,b,-b\}^{<\omega}$. Then let $h$
-      map $t$ to the unique vertex $x$ in $\tilde{X}$ that is reached from
-      starting at vertex $x_m$ and following the same path directions given
-      by $p$. Also, given any edge from vertex $t_0$ to $t_1$ in $T$, let
-      $h$ map the edge linearly in the direction from $h(t_0)$ to $h(t_1)$.
-      \\
+      Let $h$ map the middle vertex $t_m$ in $T$ to any vertex $x_m$ in
+      $\tilde{X}$. Then for other vertices $t$ in $T$, we find the unique
+      path $p$ from $t_m$ to $t$, which can be represented as a word from
+      $\{a,-a,b,-b\}^{<\omega}$. Then let $h$ map $t$ to the unique vertex
+      $x$ in $\tilde{X}$ that is reached from starting at vertex $x_m$ and
+      following the same path directions given by $p$. Then, given any edge
+      from vertex $t_0$ to $t_1$ in $T$, let $h$ map the edge linearly in
+      the direction from $h(t_0)$ to $h(t_1)$. This map is well-defined
+      since there is only one path between any two vertices on $T$ and
+      every vertex in $\tilde{X}$ has valence 4 with one $a$ (resp. $b$)
+      edge entering and one $a$ (resp. $b$) edge exiting. \\
 
-      We first show that $f=g\circ h$. At the middle node, we have
-      $g(h(t_m))=f(t_m)$ by our choice of $h(t_m)=g^{-1}(f(t_m))$. For the
-      remaining nodes, it is routine to show by induction on the path
-      distance a node $t$ is from the middle node $t_m$ that
-      $g(h(t))=f(t)$. \\
+      Next, we show that $f=g\circ h$. The middle vertex is mapped to the
+      only vertex in $X$, as required. For the remaining nodes, it is
+      routine to show by induction on the path distance between a node $t$
+      to the middle node $t_m$ that $g\circ h$ will map all vertices to the
+      vertex in $X$, all $a$-edges to the $a$-edge in $X$, and $b$-edges to
+      the $b$-edge in $X$, in the proper direction. \\
+
+      Finally, we show that $h$ is a covering map. We note that the map
+      is surjective from the connectivity of $\tilde{X}$ and the fact that
+      every word from $\{a,-a,b,-b\}^{<\omega}$ can be reached on $T$
+      starting from the middle vertex of $T$. Also, $h$ inherits continuity
+      from $f$ and $g$. Furthermore, given any point on $\tilde{x}\in\tilde{X}$
+      that is not a vertex, consider the open edge $e\subset\tilde{X}$ that
+      $x$ lies on. The pre-image of this edge will be a union of open edges
+      in $T$ that are homeomorphic to $e$.  If $\tilde{x}\in\tilde{X}$ is a
+      vertex, let $O$ be the union of $\tilde{x}$ with half of the open
+      $a$-edge that starts at $\tilde{x}$, and half of the open $-a$-edge
+      that ends at $\tilde{x}$. Then $O$ is open in $\tilde{X}$, and its
+      pre-image will be a union of disjoint copies of $O$.
     \end{proof}
 \end{enumerate}
 \end{document}
