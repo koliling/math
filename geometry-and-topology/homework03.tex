@@ -22,13 +22,21 @@
     that $f=g\circ h$.
 
     \begin{proof}
-      Let $m$ be the middle vertex in $T$, and let
-      $v=g^{-1}(f(m))\in\tilde{X}$. Consider the map $h$ which sends $m$
-      to $v$, and for any other vertex $u$ in $T$, we find the unique path
-      $p$ from $m$ to $u$, which can be represented as a word from
-      $\{a,-a,b,-b\}^{<\omega}$. Then $h$ maps $u$ to the unique vertex
-      $x$ in $\tilde{X}$ that is reached from starting at vertex $v$ and
-      following the same path directions given by $p$.
+      Let $h$ map the middle vertex $t_m$ in $T$ to
+      $x_m=g^{-1}(f(t_m))\in\tilde{X}$. Then for other vertices $t$ in $T$,
+      we find the unique path $p$ from $t_m$ to $t$, which can be
+      represented as a word from $\{a,-a,b,-b\}^{<\omega}$. Then let $h$
+      map $t$ to the unique vertex $x$ in $\tilde{X}$ that is reached from
+      starting at vertex $x_m$ and following the same path directions given
+      by $p$. Also, given any edge from vertex $t_0$ to $t_1$ in $T$, let
+      $h$ map the edge linearly in the direction from $h(t_0)$ to $h(t_1)$.
+      \\
+
+      We first show that $f=g\circ h$. At the middle node, we have
+      $g(h(t_m))=f(t_m)$ by our choice of $h(t_m)=g^{-1}(f(t_m))$. For the
+      remaining nodes, it is routine to show by induction on the path
+      distance a node $t$ is from the middle node $t_m$ that
+      $g(h(t))=f(t)$. \\
     \end{proof}
 \end{enumerate}
 \end{document}
