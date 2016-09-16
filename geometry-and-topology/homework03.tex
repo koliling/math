@@ -113,7 +113,7 @@
       \item If $X'$ is a subspace of $X$ and $g:X'\rightarrow X$ is the
         inclusion of $X'$ into $X$, prove that
         $g^*(f):g^*(\tilde{X})\rightarrow X'$ is isomorphic to the
-        restriction of $f$ to $X'$.
+        restriction of $f$ to $X'$. \label{qn:subspace}
 
         \begin{proof}
           Let $\tilde{X}'=f^{-1}(X')$ and $f'=f|_{\tilde{X}'}$. We have
@@ -130,20 +130,20 @@
 
       \item If $\tilde{X}$ is a trivial cover of $X$ and $g:Y\rightarrow X$
         is a continuous map, prove that $g^*(\tilde{X})$ is a trivial cover
-        of $Y$.
+        of $Y$. \label{qn:trivial}
 
         \begin{proof}
           Since $\tilde{X}$ is a trivial cover of $X$, we can assume
           $\tilde{X}=X\times D$ for some discrete $D$, and $f$ is the
           projection that sends $(x,d)\in X\times D$ to $x$. We have shown
-          in question~\ref{qn:covering} that $g^*(f):g^*(\tilde{X\times
-          D})\rightarrow Y$ is a covering space. Chasing definitions,
-          $g^*(X\times D)=\{(y,(f(y),d))\,|\; y\in Y, d\in D\}$, and
-          $g^*(f)$ sends $(y,(f(y),d))$ to $y$. Now $Y\times D$ is a
+          in question~\ref{qn:covering} that $g^*(f):g^*(\tilde{X}\times
+          D)\rightarrow Y$ is a covering space. Chasing definitions,
+          $g^*(X\times D)=\{(y,(g(y),d))\,|\; y\in Y, d\in D\}$, and
+          $g^*(f)$ sends $(y,(g(y),d))$ to $y$. Now $Y\times D$ is a
           trivial cover of $Y$ with covering space map $f':Y\times D$
           sending $(y,d)\in Y\times D$ to $y$. Consider the map
           $\phi:g^*(Y\times D)\rightarrow g^*(X\times D)$ defined by
-          mapping $(y,(f(y),d))$ to $(y,d)$. We show that $\phi$ is a
+          mapping $(y,(g(y),d))$ to $(y,d)$. We show that $\phi$ is a
           homeomorphism, which would imply that $Y\times D$ and
           $g^*(\tilde{X})$ are isomorphic covers of $Y$, and hence
           $g^*(\tilde{X})$ is a trivial cover of $Y$. \\
@@ -156,7 +156,7 @@
 
       \item If $g:Y\rightarrow X$ and $h:Z\rightarrow Y$ are continuous
         maps, prove that the cover $(g\circ h)^*(\tilde{X})$ of $Z$ is
-        isomorphic to $h^*(g^*(\tilde{X}))$ of $Z$.
+        isomorphic to $h^*(g^*(\tilde{X}))$ of $Z$. \label{qn:compose}
 
         \begin{proof}
           $(g\circ h)^*(\tilde{X})$ is a cover of $Z$ by
@@ -177,8 +177,122 @@
       \item Let $g:Y\rightarrow X$ be the constant map that takes every
         point of $Y$ to a fixed point $p_0\in X$, prove that
         $g^*(\tilde{X})$ is a trivial cover of $Y$. 
+
         \begin{proof}
+          Consider $X'=\{p_0\}$ as a subspace of $X$.  From
+          questions~\ref{qn:covering} and \ref{qn:subspace},
+          $g^*(f'):g^*(\tilde{X}')\rightarrow X'$ is a covering space.
+          Because any covering space looks locally like a trivial cover,
+          the covering space $f':\tilde{X}'\rightarrow X'$ of $X'$ is a
+          trivial cover. Then from question~\ref{qn:trivial}, since the map
+          $h:Y\rightarrow X'$ that sends $y$ to $p_0$ is continuous,
+          $h^*(\tilde{X'})$ will also be a trivial cover of $Y$. Finally,
+          from question~\ref{qn:compose}, $h^*(\tilde{X'})$ is isomorphic
+          to $g^*(\tilde{X})$, which makes it also a trivial cover of $Y$.
         \end{proof}
     \end{enumerate}
+
+  \item Exercise 4.11: Let $Y$ and $X$ be spaces. Prove that the relation
+    of being homotopic is an equivalence relation between continuous maps
+    from $Y$ to $X$.
+    \begin{proof}
+      Reflexive: Given a continuous map $g:Y\rightarrow X$, consider the
+      map $G:Y\times[0,1]\rightarrow X$ that sends $G(y,t)$ to $g(y)$ for
+      all $t\in[0,1]$. This is a continuous map since the pre-image of
+      any open subset $O$ of $X$ is $g^{-1}(O)\times[0,1]$, which is open
+      in $Y\times[0,1]$. Also, $G(y,0)=g(y)=G(y,1)$. Hence $g$ is homotopic
+      to $g$. \\
+
+      Symmetric: Assume $g_0,g_1:Y\rightarrow X$ are homotopic via the
+      continuous map $G:Y\times[0,1]\rightarrow X$ such that
+      $g_0(y)=G(y,0)$ and $g_1(y)=G(y,1)$. Consider the map
+      $H:Y\times[0,1]\rightarrow X$ that sends $(y,t)$ to $G(y,1-t)$. Then
+      $H(y,0)=g_1(y)$ and $H(y,1)=g_0(y)$. Also, $H$ is the composition of
+      two continuous functions $G\circ F$, where $F:Y\times[0,1]\rightarrow
+      Y\times[0,1]$ sends $(y,t)$ to $(y,1-t)$. Hence, $H$ is a continuous
+      map that sends $g_1$ to $g_0$, implying that homotopy is symmetric.
+      \\
+
+      Transitive: Assume $g_0$ is homotopic to $g_1$ via continuous map
+      $G_0$, and $g_1$ is homotopic to $g_2$ via continuous map $G_1$.
+      Consider the map $H:Y\times[0,1]\rightarrow X$ that maps $(y,t)$ to
+      $G_0(y,2t)$ if $0\leq t\leq 0.5$ and maps $(y,t)$ to $G_1(y,2t-1)$ if
+      $0.5<t\leq1$. $H$ is a concatenation of continuous functions $G_1$ to
+      $G_0$, which agree at the common domain, and hence $H$ is also
+      continuous. Therefore homotopy is also transitive.
+    \end{proof}
+
+  \item Exercise 4.12: Let $X$ be a space and let $X_1,X_2\subset X$ be
+    subspaces such that $X=X_1\cup X_2$. Assume that both $X_1$ and $X_2$
+    only have trivial covers and that $X_1\cap X_2$ is path-connected.
+    Prove that $X$ only has trivial covers.
+
+    \begin{proof}
+      Let $\pi:\tilde{X}\rightarrow X$ be a covering space of $X$. We show
+      that $\pi$ can only be trivial. In the earlier exercise we have shown
+      that restriction of $\pi$ to any subset $X_i$ of $X$ is also a
+      covering space of $X_i$. From assumption, these two restriction
+      covers are trivial, so $\pi^{-1}(X_1)=\sqcup_{\alpha}X_{1,\alpha}$
+      and $\pi^{-1}(X_2)=\sqcup_{\alpha}X_{2,\beta}$, which are disjoint
+      unions of copies of $X_1$ and $X_2$ respectively. We form a bijection
+      between the $X_{1,\alpha}$'s and $X_{2,\beta}$'s. \\
+
+      Given $X_{1,\alpha}$, pick any $\tilde{x}\in X_{1,\alpha}$ that lies
+      in the fiber of $X_1\cap X_2$.  This $\tilde{x}$ must also lie in
+      some $X_{2,\beta}$ because $X_1\cap X_2\subseteq X_2$ implies the
+      fibers of $X_1\cap X_2$ lies in the fibres of $X_2$. We map the
+      $X_{1,\alpha}$ to the $X_{2,\beta}$ and show that this map is
+      well-defined, or in other words, does not depend on the choice of
+      $\tilde{x}$. Assume by contradiction that there is some $\tilde{x}'$
+      in $X_{1,\alpha}\cap\pi^{-1}(X_1\cap X_2)$ that is contained in some
+      $X_{2,\beta'}\neq X_{2,\beta}$. Consider the path $p\subset X_1\cap
+      X_2$ from $\pi(\tilde{x})$ to $\pi(\tilde{x'})$. This path exists
+      since $X_1\cap X_2$ is path connected. By the unique lifting of
+      paths, if $p$ is lifted to a path that starts at $\tilde{x}\in
+      X_{1,\alpha}$, the end of the lifted path must be unique, and cannot
+      be in both $X_{2,\beta}$ and $X_{2,\beta'}$ at the same time. Hence
+      the each $X_{1,\alpha}$ can be mapped to exactly one $X_{2,\beta}$.
+      \\
+
+      Next, we prove that if we tried to match each fiber of $X_2$ with a
+      fiber of $X_1$ instead using the same method, we would pair the same
+      fibers together. Assume not. Then there must be some $X_{1,\alpha}$
+      and $X_{2,\beta}$ that share a common point $\tilde{x}$ in the fiber
+      of $X_1\cap X_2$, yet there is some $\tilde{y_1}\in X_{1,\alpha}$ and
+      $\tilde{y_2}\in X_{2,\beta}$ such that
+      $\pi(\tilde{y_1})=\pi(\tilde{y_2})=y\in X_1\cap X_2$. Forming a path
+      from $\pi(\tilde{x})$ to $y$ and lifting the path, we get from
+      uniqueness of the lifted path that the end point of the path cannot
+      be both $\tilde{y_1}$ and $\tilde{y_2}$. Hence there is a bijection
+      between the fibers of $X_1$ and the fibers of $X_2$. \\
+
+      We show that each matched $X_{1,\alpha}$ and $X_{2,\beta}$ forms a
+      copy of $X$ under a restriction of $\pi$, which would imply
+      that $\pi$ is a trivial cover. Let $Y=X_{1,\alpha}\cup X_{2,\beta}$.
+      By definition, $\pi$ maps $Y$ to $X$ surjectively. The map is also
+      injective: restricted to areas that are not in the fiber of $X_1\cap
+      X_2$, $\pi$ must map $Y$ injectively because of the homeomorphism
+      between $X_1$ with $X_{1,\alpha}$ and between $X_2$ and
+      $X_{2,\beta}$. If $\tilde{x}\neq\tilde{x'}\in Y$ is in the fibre of
+      $X_1\cap X_2$ and they are mapped to the same point $x\in X_1\cap
+      X_2$ by $\pi$, then choosing any $\tilde{y}\in
+      X_{1,\alpha}\cup\pi^{-1}(X_1\cap X_2)$ that mapped $X_{1,\alpha}$ to
+      $X_{2,\beta}$, we construct a path from $\pi(y)$ to $x$ and lift that
+      path up by $\pi$. Then by uniqueness of lifted paths, since the
+      endpoint of the lifted path must be unique, they cannot be both
+      $\tilde{x}$ and $\tilde{x'}$ at the same time. Hence $\pi$ maps $Y$
+      injectively to $X$. So, $X$ is a copy of $Y$ under the restriction of
+      $\pi$, which completes the proof. \\
+    \end{proof}
+
+  \item Exercise 4.13: Prove that for $n\geq2$ the $n$-sphere $S^n$ has
+    only trivial covers.
+    \begin{proof}
+      We apply the claim from exercise 4.12. An $n$-sphere is a union of
+      two hemispheres whose intersection is an $(n-1)$-sphere. Each
+      hemisphere is contractible and hence has trivial covering space.
+      Also, their intersection, the $(n-1)$-sphere, is path-connected.
+      Hence from exercise 4.12, the $n$-sphere has only trivial covers.
+    \end{proof}
 \end{enumerate}
 \end{document}
