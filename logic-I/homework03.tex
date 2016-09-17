@@ -26,7 +26,33 @@
         i<j\leq m+1} v_i=v_j.
       \end{equation*}
       By elementary equivalence, $\phi(m)$ also be true in $\mathcal{N}$,
-      so $\mathcal{N}$ must also be finite.
+      and so $\mathcal{N}$ must also be finite.
+    \end{proof}
+
+  \item Show that there is a sentence $\varphi$ in the language of groups
+    $\mathcal{L}_g$ such that $\mathcal{M}\vDash\varphi$ if and only if
+    $\mathcal{M}\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$.
+    \begin{proof}
+      There are only two groups of order 4 up to isomorphism: the cyclic
+      group $\mathbb{Z}/4\mathbb{Z}$, and the Klein four group
+      $\mathcal{M}\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$.
+      Each element of the Klein four group has order less than or equal to
+      2, while some elements of the $\mathbb{Z}/4\mathbb{Z}$ has order
+      equal to 4. Hence to distinguish between the two groups we can use
+      the sentence $\varphi_0$ which says ``The square of each element
+      equals the identity.'' Also, we need another two sentences
+      $\varphi_1$ and $\varphi_2$ which say ``I have at least four
+      elements.'' and ``I do not have more than four elements.'' Then
+      $\varphi=\varphi_0\wedge\varphi_1\wedge\varphi_2$ is a sentence that
+      will be satisfied by exactly all Klein four groups.
+      \begin{align*}
+        \varphi   &= \varphi_0\wedge\varphi_1\wedge\varphi_2 \\
+        \varphi_0 &= \forall v v\cdot v=e \\
+        \varphi_1 &= \exists v_1,\ldots,v_4 \bigvee_{1\leq i<j\leq 4} \neg
+                      v_i=v_j \\
+        \varphi_2 &= \forall(v_1,\ldots,v_5) \mathop{\bigvee}_{1\leq
+                      i<j\leq 5} v_i=v_j. \\
+      \end{align*}
     \end{proof}
 \end{enumerate}
 \end{document}
