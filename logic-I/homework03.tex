@@ -13,6 +13,20 @@
 \maketitle
 
 \begin{enumerate}
-  \item 
+  \item Show that if $\mathcal{M}$ is a finite $\mathcal{L}$-structure and
+    $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$ then
+    $\mathcal{N}$ is also finite.
+    \begin{proof}
+      Let $m\in\mathbb{N}$ be the number of elements in $M$. Then the
+      sentence $\phi(m)$ which says ``I do not have more than $m$
+      elements'' is true in $\mathcal{M}$. $\phi(m)$ can be written as a
+      first order sentence as
+      \begin{equation*}
+        \phi(m) := \forall(v_1,\ldots,v_{m+1}) \mathop{\bigvee}_{1\leq
+        i<j\leq m+1} v_i=v_j.
+      \end{equation*}
+      By elementary equivalence, $\phi(m)$ also be true in $\mathcal{N}$,
+      so $\mathcal{N}$ must also be finite.
+    \end{proof}
 \end{enumerate}
 \end{document}
