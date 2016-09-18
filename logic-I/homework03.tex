@@ -30,7 +30,7 @@
     \end{proof}
 
   \item Show that there is a sentence $\varphi$ in the language of groups
-    $\mathcal{L}_g$ such that $\mathcal{M}\vDash\varphi$ if and only if
+    $\mathcal{L}_g$ such that $\mathcal{M}\models\varphi$ if and only if
     $\mathcal{M}\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$.
     \begin{proof}
       There are only two groups of order 4 up to isomorphism: the cyclic
@@ -44,16 +44,16 @@
       $\varphi_{\geq4}$ and $\varphi_{\leq4}$ which respectively say ``I
       have at least four elements.'' and ``I do not have more than four
       elements.'' Then
-      $\varphi_{\text{K4}}=\varphi_{v^2=e}\wedge\varphi_{\geq4}\wedge\varphi_{\leq4}$
+      $\varphi_{\text{K4}}:=\varphi_{v^2=e}\wedge\varphi_{\geq4}\wedge\varphi_{\leq4}$
       is a sentence that will be satisfied by exactly all Klein four
       groups.
       \begin{align*}
-        \varphi_{\text{K4}}   &=
+        \varphi_{\text{K4}}   &:=
           \varphi_{v^2=e}\wedge\varphi_{\geq4}\wedge\varphi_{\leq4} \\
-        \varphi_{v^2=e} &= \forall v\; v\cdot v=e \\
-        \varphi_{\geq4} &= \exists v_1,\ldots,v_4 \bigwedge_{1\leq i<j\leq 4}
+        \varphi_{v^2=e} &:= \forall v\; v\cdot v=e \\
+        \varphi_{\geq4} &:= \exists v_1,\ldots,v_4 \bigwedge_{1\leq i<j\leq 4}
           \neg v_i=v_j \\
-        \varphi_{\leq4} &= \forall v_1,\ldots,v_5 \mathop{\bigvee}_{1\leq
+        \varphi_{\leq4} &:= \forall v_1,\ldots,v_5 \mathop{\bigvee}_{1\leq
           i<j\leq 5} v_i=v_j. \\
       \end{align*}
     \end{proof}
@@ -154,7 +154,7 @@
           \end{equation*}
           Then $\varphi_n(x)$ defines the set
           \begin{equation*}
-            S_n := \{\{i,n\}\,|\, i\in\mathbb{N},\,i\neq n\}\subset M.
+            S_n = \{\{i,n\}\,|\, i\in\mathbb{N},\,i\neq n\}\subset M.
           \end{equation*}
           We show that $S_n$ is a minimal definable subset by using the
           invariance of definable sets under automorphisms. Let
@@ -211,10 +211,10 @@
       $i\in I$. We wish to show that $\mathcal{M}_i\preceq\mathcal{M}$. We
       apply the Tarski-Vaught test. Let $\varphi(x_1,\ldots,x_n,y)$ be a
       formula and $a_1,\ldots,a_n\in M_i$ such that
-      $\mathcal{M}\vDash\varphi(a_1,\ldots,a_n,b)$ for some $b\in M$. Then
+      $\mathcal{M}\models\varphi(a_1,\ldots,a_n,b)$ for some $b\in M$. Then
       $b\in M_j$ for some index $j>i$ where $j\in I$. Then since
       $\mathcal{M}_i\preceq\mathcal{M}_j$, there exists some $c\in M_i$
-      such that $\mathcal{M}_i\vDash\varphi(a_1,\ldots,a_n,c)$. Hence
+      such that $\mathcal{M}_i\models\varphi(a_1,\ldots,a_n,c)$. Hence
       $\mathcal{M}_i\preceq\mathcal{M}$ by the Tarski-Vaught test.
     \end{proof}
 
@@ -224,7 +224,53 @@
     elementary substructure of $\mathcal{N}$.
 
     \begin{proof}
-
+      We apply the Tarski-Vaught test. Let $\varphi(x_1,\ldots,x_n,y)$ be a
+      formula and $a_1,\ldots,a_n\in M$ such that
+      $\mathcal{N}\models\varphi(a_1,\ldots,a_n,b)$ for some $b\in N$. Now
+      each $a_i$ is contained in $M_{i_j}$ for some $i_j\in I$. Let $k\in
+      I$ be the maximal of all these $i_j$'s. Then $a_1,\ldots,a_n\in M_k$,
+      and since $\mathcal{M}_k\preceq\mathcal{N}$, there exists some $c\in
+      M_k$, such that $\mathcal{M}_k\models\varphi(a_1,\ldots,a_n,c)$. Then
+      from Tarski's Chain Lemma which we have proven in the previous
+      question, $\mathcal{M}_k\preceq\mathcal{M}$, and so
+      $\mathcal{M}\models\varphi(a_1,\ldots,a_n,c)$ for some $c\in M$. Hence
+      $\mathcal{M}\preceq\mathcal{N}$ by the Tarski-Vaught test.
     \end{proof}
+
+  \item Let $\mathcal{L}$ be a language and for each $i\in I$ let $T_i$ be
+    an $\mathcal{L}$ theory.
+    \begin{enumerate}
+      \item Show that $Mod(\cup_{i\in I}T_i)=\cap_{i\in I}Mod(T_i)$.
+        \begin{proof}
+          The equality can be proven by chasing definitions. \\
+
+          $\subseteq$: Let $\mathcal{M}\in Mod(\cup_{i\in I}T_i)$. Then
+          given any $T_i$, $\mathcal{M}$ satisfies each sentence in $T_i$,
+          so $\mathcal{M}\in Mod(T_i)$. Hence $\mathcal{M}\in \cap_{i\in
+          I}Mod(T_i)$. \\
+
+          $\supseteq$: Let $\mathcal{M}\not\in Mod(\cup_{i\in I}T_i)$.
+          Then there exists a sentence in $\cup_{i\in I}T_i$ that is
+          not satisfied by $\mathcal{M}$. This sentence must be contained
+          in some $T_i$, so $\mathcal{M}$ is not a model of $T_i$. Hence
+          $\mathcal{M}$ also cannot be a model of $\cap_{i\in I}Mod(T_i)$.
+        \end{proof}
+
+      \item Show that $Mod(\cap_{i\in I}T_i)=\cup_{i\in I}Mod(T_i)$ holds
+        when $I$ is finite and each $T_i$ is of the form $Th(K_i)$ for some
+        class $K_i$.
+
+        \begin{proof}
+          $\supseteq$: This is the easier direction which can be proven
+          from chasing definitions. Let $\mathcal{M}\in \cup_{i\in
+          I}Mod(T_i)$. Then $\mathcal{M}$ is a model of some $T_j$, and is
+          therefore also a model of $\cap_{i\in I}T_i$. Hence,
+          $\mathcal{M}\in Mod(\cap_{i\in I}T_i)$. \\
+
+          $\subseteq$: Assume $I$ is finite and each $T_i$ is of the form
+          $Th(K_i)$ for some class $K_i$. Let $\mathcal{M}\in
+          Mod(\cap_{i\in I}T_i)$. \\
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
