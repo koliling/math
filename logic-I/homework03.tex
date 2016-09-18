@@ -117,87 +117,87 @@
                 v_3=v_4). \\
           \end{align*}
         \end{proof}
+    \end{enumerate}
 
-      \item Let $\mathcal{M}$ be the graph whose universe is the set of all
-        two element sets $\{m,n\}$ of natural numbers with the relation
-        $R^{\mathcal{M}}$ defined as $a\,R^{\mathcal{M}}\,b$ iff $a\cap
-        b\neq\emptyset$ and $a\neq b$.
+  \item Let $\mathcal{M}$ be the graph whose universe is the set of all
+    two element sets $\{m,n\}$ of natural numbers with the relation
+    $R^{\mathcal{M}}$ defined as $a\,R^{\mathcal{M}}\,b$ iff $a\cap
+    b\neq\emptyset$ and $a\neq b$.
 
-        \begin{enumerate}
-          \item Show that $\mathcal{M}$ is not minimal.
-            \begin{proof}
-              The formula $\varphi(x):=x\,R^{\mathcal{M}}\,\{0,1\}$
-              defines the infinite set of elements
-              \begin{equation*}
-                \{\{0,2\},\{0,3\},\ldots,\{1,2\},\{1,3\},\ldots\},
-              \end{equation*}
-              which does not contain any of the elements
-              \begin{equation*}
-                \{\{3,4\},\{3,5\},\ldots\}.
-              \end{equation*}
-              Hence $\mathcal{M}$ is not minimal.
-            \end{proof}
-
-          \item Show that $\mathcal{M}$ has infinitely many minimal
-            definable subsets.
-            \begin{proof}
-              Fix any $n\in\mathbb{N}\setminus\{0,1\}$. Consider the
-              sentence
-              \begin{equation*}
-                \varphi_n(x) := x=\{0,n\}\;\vee\; x=\{1,n\}\;\vee\;
-                (x\,R^{\mathcal{M}}\, \{0,n\}\,\wedge\,
-                \neg\,x\,R^{\mathcal{M}}\,\{0,1\}).
-              \end{equation*}
-              Then $\varphi_n(x)$ defines the set
-              \begin{equation*}
-                S_n := \{\{i,n\}\,|\, i\in\mathbb{N},\,i\neq n\}\subset M.
-              \end{equation*}
-              We show that $S_n$ is a minimal definable subset by using the
-              invariance of definable sets under automorphisms. Let
-              $\phi(x,\overline{a})$ be a first order formula that defines
-              an infinite subset $A_0$ of $S_n$, where $\overline{a}\subset
-              M$ is a finite subset of $M$. Assume by contradiction that
-              the set $A_1=S_n-A_0$ is also definable. We construct an
-              automorphism $\alpha$ of $\mathcal{M}$ that preserves
-              elements in $\overline{a}$, but that sends elements in $A_0$ to
-              $A_1$, contradicting invariance of definable sets
-              under automorphisms. Observe that any permutation of
-              $\mathbb{N}$ would induce an automorphism of $\mathcal{M}$.
-              Now since $\overline{a}$ contains a finite number of
-              elements, there must be a natural number $m_0>n$ that does
-              not appear in any of the sets in $\overline{a}$ and such that
-              $\{m_0,n\}$ is contained in $A_0$. Similarly, since $A_1$ is
-              infinite, there must be a natural number $m_1>m_0$ such that
-              $\{m_1,n\}$ is contained in $A_1$. Let $\alpha$ be induced by
-              the permutation of $\mathcal{N}$ which swaps $m_0$ with
-              $m_1$. Then $\alpha$ would send $\{m_0,n\}\in A_0$ to
-              $\{m_1,n\}\not\in A_0$, a contradiction. \\
-
-              For each $n\in\mathbb{N}\setminus\{0,1\}$, $S_n$ is unique,
-              hence we have infinitely many minimal definable and infinite
-              subsets $S_n$.
-            \end{proof}
-        \end{enumerate}
-
-      \item Let $\mathcal{M}$ be the structure
-        $\langle\mathcal{R},<\rangle$ and $\mathcal{N}$ the substructure of
-        $\mathcal{M}$ whose universe is the open interval $(0,1)$. Show
-        that $\mathcal{N}$ is an elementary substructure of $\mathcal{M}$.
-
+    \begin{enumerate}
+      \item Show that $\mathcal{M}$ is not minimal.
         \begin{proof}
-          Since isomorphic structures are elementarily equivalent, it
-          suffices to prove that $\mathcal{M}$ is isomorphic to
-          $\mathcal{N}=\langle(0,1),<\rangle$. Consider the map
-          $\varphi:(0,1)\rightarrow\mathcal{R}$ which first
-          shifts and scales $(0,1)$ to $(-\pi/2,\pi/2)$, then applies the
-          $\tan$ function to send $(-\pi/2,\pi/2)$ to $(-\infty,\infty)$.
-          More precisely, define $\varphi(x)=\tan((x-0.5)\pi/2)$. THen
-          $\varphi$ is bijective and preserves order, and is therefore an
-          isomorphism between $\mathcal{M}$ and $\mathcal{N}$. Hence
-          $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$, and
-          since $N\subset M$, $\mathcal{N}$ is an elementary substructure
-          of $\mathcal{M}$.
+          The formula $\varphi(x):=x\,R^{\mathcal{M}}\,\{0,1\}$
+          defines the infinite set of elements
+          \begin{equation*}
+            \{\{0,2\},\{0,3\},\ldots,\{1,2\},\{1,3\},\ldots\},
+          \end{equation*}
+          which does not contain any of the elements
+          \begin{equation*}
+            \{\{3,4\},\{3,5\},\ldots\}.
+          \end{equation*}
+          Hence $\mathcal{M}$ is not minimal.
+        \end{proof}
+
+      \item Show that $\mathcal{M}$ has infinitely many minimal
+        definable subsets.
+        \begin{proof}
+          Fix any $n\in\mathbb{N}\setminus\{0,1\}$. Consider the
+          sentence
+          \begin{equation*}
+            \varphi_n(x) := x=\{0,n\}\;\vee\; x=\{1,n\}\;\vee\;
+            (x\,R^{\mathcal{M}}\, \{0,n\}\,\wedge\,
+            \neg\,x\,R^{\mathcal{M}}\,\{0,1\}).
+          \end{equation*}
+          Then $\varphi_n(x)$ defines the set
+          \begin{equation*}
+            S_n := \{\{i,n\}\,|\, i\in\mathbb{N},\,i\neq n\}\subset M.
+          \end{equation*}
+          We show that $S_n$ is a minimal definable subset by using the
+          invariance of definable sets under automorphisms. Let
+          $\phi(x,\overline{a})$ be a first order formula that defines
+          an infinite subset $A_0$ of $S_n$, where $\overline{a}\subset
+          M$ is a finite subset of $M$. Assume by contradiction that
+          the set $A_1=S_n-A_0$ is also definable. We construct an
+          automorphism $\alpha$ of $\mathcal{M}$ that preserves
+          elements in $\overline{a}$, but that sends elements in $A_0$ to
+          $A_1$, contradicting invariance of definable sets
+          under automorphisms. Observe that any permutation of
+          $\mathbb{N}$ would induce an automorphism of $\mathcal{M}$.
+          Now since $\overline{a}$ contains a finite number of
+          elements, there must be a natural number $m_0>n$ that does
+          not appear in any of the sets in $\overline{a}$ and such that
+          $\{m_0,n\}$ is contained in $A_0$. Similarly, since $A_1$ is
+          infinite, there must be a natural number $m_1>m_0$ such that
+          $\{m_1,n\}$ is contained in $A_1$. Let $\alpha$ be induced by
+          the permutation of $\mathcal{N}$ which swaps $m_0$ with
+          $m_1$. Then $\alpha$ would send $\{m_0,n\}\in A_0$ to
+          $\{m_1,n\}\not\in A_0$, a contradiction. \\
+
+          For each $n\in\mathbb{N}\setminus\{0,1\}$, $S_n$ is unique,
+          hence we have infinitely many minimal definable and infinite
+          subsets $S_n$.
         \end{proof}
     \end{enumerate}
+
+  \item Let $\mathcal{M}$ be the structure
+    $\langle\mathcal{R},<\rangle$ and $\mathcal{N}$ the substructure of
+    $\mathcal{M}$ whose universe is the open interval $(0,1)$. Show
+    that $\mathcal{N}$ is an elementary substructure of $\mathcal{M}$.
+
+    \begin{proof}
+      Since isomorphic structures are elementarily equivalent, it
+      suffices to prove that $\mathcal{M}$ is isomorphic to
+      $\mathcal{N}=\langle(0,1),<\rangle$. Consider the map
+      $\varphi:(0,1)\rightarrow\mathcal{R}$ which first
+      shifts and scales $(0,1)$ to $(-\pi/2,\pi/2)$, then applies the
+      $\tan$ function to send $(-\pi/2,\pi/2)$ to $(-\infty,\infty)$.
+      More precisely, define $\varphi(x)=\tan((x-0.5)\pi/2)$. THen
+      $\varphi$ is bijective and preserves order, and is therefore an
+      isomorphism between $\mathcal{M}$ and $\mathcal{N}$. Hence
+      $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$, and
+      since $N\subset M$, $\mathcal{N}$ is an elementary substructure
+      of $\mathcal{M}$.
+    \end{proof}
 \end{enumerate}
 \end{document}
