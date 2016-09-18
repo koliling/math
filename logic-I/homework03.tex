@@ -39,19 +39,22 @@
       Each element of the Klein four group has order less than or equal to
       2, while some elements of the $\mathbb{Z}/4\mathbb{Z}$ has order
       equal to 4. Hence to distinguish between the two groups we can use
-      the sentence $\varphi_0$ which says ``The square of each element
-      equals the identity.'' Also, we need another two sentences
-      $\varphi_1$ and $\varphi_2$ which say ``I have at least four
-      elements.'' and ``I do not have more than four elements.'' Then
-      $\varphi=\varphi_0\wedge\varphi_1\wedge\varphi_2$ is a sentence that
-      will be satisfied by exactly all Klein four groups.
+      the sentence $\varphi_{v^2=e}$ which says ``The square of each
+      element equals the identity.'' Also, we need another two sentences
+      $\varphi_{\geq4}$ and $\varphi_{\leq4}$ which respectively say ``I
+      have at least four elements.'' and ``I do not have more than four
+      elements.'' Then
+      $\varphi_{\text{K4}}=\varphi_{v^2=e}\wedge\varphi_{\geq4}\wedge\varphi_{\leq4}$
+      is a sentence that will be satisfied by exactly all Klein four
+      groups.
       \begin{align*}
-        \varphi   &= \varphi_0\wedge\varphi_1\wedge\varphi_2 \\
-        \varphi_0 &= \forall v v\cdot v=e \\
-        \varphi_1 &= \exists v_1,\ldots,v_4 \bigvee_{1\leq i<j\leq 4} \neg
-                      v_i=v_j \\
-        \varphi_2 &= \forall(v_1,\ldots,v_5) \mathop{\bigvee}_{1\leq
-                      i<j\leq 5} v_i=v_j. \\
+        \varphi_{\text{K4}}   &=
+          \varphi_{v^2=e}\wedge\varphi_{\geq4}\wedge\varphi_{\leq4} \\
+        \varphi_{v^2=e} &= \forall v\; v\cdot v=e \\
+        \varphi_{\geq4} &= \exists v_1,\ldots,v_4 \bigwedge_{1\leq i<j\leq 4}
+          \neg v_i=v_j \\
+        \varphi_{\leq4} &= \forall v_1,\ldots,v_5 \mathop{\bigvee}_{1\leq
+          i<j\leq 5} v_i=v_j. \\
       \end{align*}
     \end{proof}
 
@@ -219,5 +222,9 @@
     $\mathcal{M}_i$, $i\in I$ a directed set of elementary substructures of
     $\mathcal{N}$. Show that $\mathcal{M}=\cup_{i\in I}\mathcal{M}_i$ is an
     elementary substructure of $\mathcal{N}$.
+
+    \begin{proof}
+
+    \end{proof}
 \end{enumerate}
 \end{document}
