@@ -54,5 +54,69 @@
                       i<j\leq 5} v_i=v_j. \\
       \end{align*}
     \end{proof}
+
+  \item Let $\mathcal{L}$ be the language containing only one binary
+    relational symbol $\leq$, and $\mathcal{M}$ be the
+    $\mathcal{L}$-structure whose universe is the set of positive
+    integers, with $\leq^{\mathcal{M}}$ defined as $n\leq^{\mathcal{M}}m$
+    iff $n$ divides $m$.
+
+    \begin{enumerate}
+      \item Show that the set $\{1\}$ and the set of all primes are both
+        definable over the empty set.
+        \begin{proof}
+          The set $\{1\}$ can be defined by the formula
+          \begin{equation*}
+            \varphi_1(x) := \forall v\; (x\leq^{\mathcal{M}} v).
+          \end{equation*}
+          The set of all primes can be defined by the formula
+          \begin{equation*}
+            \varphi_p(x) := \forall v\; (v\leq^{\mathcal{M}}x \rightarrow
+            (\varphi_1(v) \vee v=x))\; \wedge\; \neg\varphi_1(x).
+          \end{equation*}
+        \end{proof}
+
+      \item Show that the set of square-free numbers is definable in
+        $\mathcal{M}$.
+        \begin{proof}
+          The set of square-free numbers can be defined by the formula
+          \begin{equation*}
+            \varphi_{\text{sq-free}}(x) := \forall v\;
+            (v\leq^{\mathcal{M}}x\; \rightarrow\;
+            \neg\varphi_{p^2}(v)),
+          \end{equation*}
+          where formula $\varphi_{p^2}(x)$ says $x$ is a square of a prime.
+          Since the squares of primes are exactly the numbers that have
+          exactly three distinct divisors, we can define $\varphi_{p^2}(x)$
+          as
+          \begin{equation*}
+            \varphi_{p^2}(x) := \varphi_{\geq 3\,\text{divisors}}(x) \wedge
+            \varphi_{\leq 3\,\text{divisors}}(x),
+          \end{equation*}
+          where
+          \begin{align*}
+            \varphi_{\geq 3\,\text{divisors}}(x) :=\;
+              & \exists v_1,v_2,v_3\; ( \\
+              & v_1\leq^{\mathcal{M}}x\,\wedge\,
+                v_2\leq^{\mathcal{M}}x\,\wedge\,
+                v_3\leq^{\mathcal{M}}x\,\wedge\, \\
+              & \neg v_1=v_2\, \wedge\,
+                \neg v_1=v_3\, \wedge\,
+                \neg v_2=v_3), \\
+            \varphi_{\leq 3\,\text{divisors}}(x) :=\;
+              & \forall v_1,v_2,v_3,v_4\; ( \\
+              & v_1\leq^{\mathcal{M}}x\,\wedge\,
+                v_2\leq^{\mathcal{M}}x\,\wedge\,
+                v_3\leq^{\mathcal{M}}x\,\wedge\,
+                v_4\leq^{\mathcal{M}}x\;\rightarrow\; \\
+              & v_1=v_2\, \vee\,
+                v_1=v_3\, \vee\,
+                v_1=v_4\, \vee\,
+                v_2=v_3\, \vee\,
+                v_2=v_4\, \vee\,
+                v_3=v_4). \\
+          \end{align*}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
