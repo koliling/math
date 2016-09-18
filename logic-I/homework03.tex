@@ -117,6 +117,67 @@
                 v_3=v_4). \\
           \end{align*}
         \end{proof}
+
+      \item Let $\mathcal{M}$ be the graph whose universe is the set of all
+        two element sets $\{m,n\}$ of natural numbers with the relation
+        $R^{\mathcal{M}}$ defined as $a\,R^{\mathcal{M}}\,b$ iff $a\cap
+        b\neq\emptyset$ and $a\neq b$.
+
+        \begin{enumerate}
+          \item Show that $\mathcal{M}$ is not minimal.
+            \begin{proof}
+              The formula $\varphi(x):=x\,R^{\mathcal{M}}\,\{0,1\}$
+              defines the infinite set of elements
+              \begin{equation*}
+                \{\{0,2\},\{0,3\},\ldots,\{1,2\},\{1,3\},\ldots\},
+              \end{equation*}
+              which does not contain any of the elements
+              \begin{equation*}
+                \{\{3,4\},\{3,5\},\ldots\}.
+              \end{equation*}
+              Hence $\mathcal{M}$ is not minimal.
+            \end{proof}
+
+          \item Show that $\mathcal{M}$ has infinitely many minimal
+            definable subsets.
+            \begin{proof}
+              Fix any $n\in\mathbb{N}\setminus\{0,1\}$. Consider the
+              sentence
+              \begin{equation*}
+                \varphi_n(x) := x=\{0,n\}\;\vee\; x=\{1,n\}\;\vee\;
+                (x\,R^{\mathcal{M}}\, \{0,n\}\,\wedge\,
+                \neg\,x\,R^{\mathcal{M}}\,\{0,1\}).
+              \end{equation*}
+              Then $\varphi_n(x)$ defines the set
+              \begin{equation*}
+                S_n := \{\{i,n\}\,|\, i\in\mathbb{N},\,i\neq n\}\subset M.
+              \end{equation*}
+              We show that $S_n$ is a minimal definable subset by using the
+              invariance of definable sets under automorphisms. Let
+              $\phi(x,\overline{a})$ be a first order formula that defines
+              an infinite subset $A_0$ of $S_n$, where $\overline{a}\subset
+              M$ is a finite subset of $M$. Assume by contradiction that
+              the set $A_1=S_n-A_0$ is also definable. We construct an
+              automorphism $\alpha$ of $\mathcal{M}$ that preserves
+              elements in $\overline{a}$, but that sends elements in $A_0$ to
+              $A_1$, contradicting invariance of definable sets
+              under automorphisms. Observe that any permutation of
+              $\mathbb{N}$ would induce an automorphism of $\mathcal{M}$.
+              Now since $\overline{a}$ contains a finite number of
+              elements, there must be a natural number $m_0>n$ that does
+              not appear in any of the sets in $\overline{a}$ and such that
+              $\{m_0,n\}$ is contained in $A_0$. Similarly, since $A_1$ is
+              infinite, there must be a natural number $m_1>m_0$ such that
+              $\{m_1,n\}$ is contained in $A_1$. Let $\alpha$ be induced by
+              the permutation of $\mathcal{N}$ which swaps $m_0$ with
+              $m_1$. Then $\alpha$ would send $\{m_0,n\}\in A_0$ to
+              $\{m_1,n\}\not\in A_0$, a contradiction. \\
+
+              For each $n\in\mathbb{N}\setminus\{0,1\}$, $S_n$ is unique,
+              hence we have infinitely many minimal definable and infinite
+              subsets $S_n$.
+            \end{proof}
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 \end{document}
