@@ -203,6 +203,16 @@
   \item (Tarski's Chain Lemma) Prove that the union of an elemenatary
     directed family is an elementary extension of all its members.
     \begin{proof}
+      Let $\mathcal{M}_i$, $i\in I$ be an elementary directed family, and
+      let $\mathcal{M}=\cup_{i\in I}\mathcal{M}_i$ be its union. Fix any
+      $i\in I$. We wish to show that $\mathcal{M}_i\preceq\mathcal{M}$. We
+      apply the Tarski-Vaught test. Let $\varphi(x_1,\ldots,x_n,y)$ be a
+      formula and $a_1,\ldots,a_n\in M_i$ such that
+      $\mathcal{M}\vDash\varphi(a_1,\ldots,a_n,b)$ for some $b\in M$. Then
+      $b\in M_j$ for some index $j>i$ where $j\in I$. Then since
+      $\mathcal{M}_i\preceq\mathcal{M}_j$, there exists some $c\in M_i$
+      such that $\mathcal{M}_i\vDash\varphi(a_1,\ldots,a_n,c)$. Hence
+      $\mathcal{M}_i\preceq\mathcal{M}$ by the Tarski-Vaught test.
     \end{proof}
 \end{enumerate}
 \end{document}
