@@ -267,9 +267,20 @@
           therefore also a model of $\cap_{i\in I}T_i$. Hence,
           $\mathcal{M}\in Mod(\cap_{i\in I}T_i)$. \\
 
-          $\subseteq$: Assume $I$ is finite and each $T_i$ is of the form
-          $Th(K_i)$ for some class $K_i$. Let $\mathcal{M}\in
-          Mod(\cap_{i\in I}T_i)$. \\
+          $\subseteq$: Assume $I=\{1,\ldots,n\}$ and each $T_i$ is of the
+          form $Th(K_i)$ for some class $K_i$. Also assume that
+          $\mathcal{M}\not\in\cup_{i\leq n}Mod(T_i)$. We wish to show that
+          $\mathcal{M}\not\in Mod(\cap_{i\leq n}T_i)$. For each $1\leq
+          i\leq n$, since $\mathcal{M}\not\in Mod(Th(K_i))$, there exists some
+          sentence $\varphi_i$ satisfied by all models in $K_i$ but is not
+          satisfied by $\mathcal{M}$. Let
+          $\varphi=\varphi_1\vee\ldots\vee\varphi_n$ be the disjunctions
+          of these sentences. Then $\mathcal{M}$ does not satisfy
+          $\varphi$, but for each $1\leq i\leq n$, all models in $K_i$
+          satisfy $\varphi$ since these models satisfy $\varphi_i$, and
+          hence $\varphi\in\cap_{i\leq n}T_i$. This implies
+          $\mathcal{M}\not\in Mod(\cap_{i\leq n}T_i)$ as we are required to
+          show.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
