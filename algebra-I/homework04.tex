@@ -129,5 +129,20 @@
     $3^{3^{100}}\equiv3^{1}\equiv3\pmod{100}$. So the last two digits is
     03.
 
+  \item Section 3.3 Question 3: Let $H$ be a normal subgroup of $G$ of
+    prime index $p$ and $K$ be a subgroup of $G$. Since $H$ is normal, $HK$
+    is a subgroup of $G$, and so by Lagrange's theorem, $|HK|$ should
+    divide $|G|$. Now $|G|=|H|p$, and
+    $|HK|=|H||K|/|H\cap K|$ by Proposition 13 of Section 3.2. So we have
+    $|H||K|/|H\cap K|$ should divide $|H|p$, and after dividing by $|H|$ on
+    both sides, gives us $|K|/|H\cap K|$ should divide $p$. Since $p$ is
+    prime, $|K|/|H\cap K|$ can only be $p$ or 1. Note that since
+    intersections of groups are subgroups of the groups, we have $H\cap K$
+    is a subgroup of $K$, so by Lagrange's theorem, $|H\cap K|$ should
+    divide $K$. If it is the case that $|K|/|H\cap K|=p$, then $|K:K\cap
+    H|=p$, and also $|HK|=|H||K|/|H\cap K|=|H|p=|G|$, implying that $G=HK$.
+    In the second case where $|K|/|H\cap K|=1$, then since $H\cap K\leq K$,
+    this implies $H\cap K=K$, which means $K\subseteq H$. Then since $K$
+    and $H$ are subgroups, this means $K\leq H$ as we are required to show.
 \end{enumerate}
 \end{document}
