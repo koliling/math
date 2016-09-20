@@ -144,5 +144,29 @@
     In the second case where $|K|/|H\cap K|=1$, then since $H\cap K\leq K$,
     this implies $H\cap K=K$, which means $K\subseteq H$. Then since $K$
     and $H$ are subgroups, this means $K\leq H$ as we are required to show.
+
+  \item Section 3.3 Question 4: Consider the map $\phi:A\times
+    B\rightarrow(A/C)\times(B/D)$ defined by $(a,b)\mapsto(aC,bD)$. We show
+    that $\phi$ is a surjective homomorphism with $\ker(\phi)=C\times D$,
+    which would imply that $(C\times D)\trianglelefteq(A\times B)$ and
+    $(A\times B)/(C\times D)\cong(A/C)\times(B/D)$, as we are required to
+    show. \\
+
+    We first show $\phi$ is a homomorphism. Given $(a_1,b_1),(a_2,b_2)\in
+    A\times B$, we have
+    \begin{align*}
+      \phi((a_1,b_1)(a_2,b_2))  &= \phi((a_1a_2,b_1b_2))  \\
+                                &= (a_1a_2C,b_1b_2D)      \\
+                                &= (a_1Ca_2C,b_1Db_2D)    \\
+                                &= (a_1C,b_1D)(a_2C,b_2D) \\
+                                &= \phi((a_1,b_1))\phi((a_2,b_2)),  \\
+    \end{align*}
+    and so $\phi$ is a homomorphism. $\phi$ is also surjective since every
+    $(aC,bD)\in(A/C)\times(B/D)$ has pre-image $(a,b)$. It remains to show
+    that $\ker(\phi)=C\times D$. If $\phi((a,b))=(aC,bD)=(1_AC,1_BD)$, then
+    $aC=1_AC$ and $bD=1_BD$, which implies $a\in C$ and $b\in D$, hence
+    $\ker(\phi)\supseteq C\times D$. Also, if $a\in C$ and $b\in D$, then
+    $\phi((a,b))=(aC,bD)=(1_AC,1_BD)$, so $\ker(\phi)\subseteq C\times D$.
+    Hence $\ker(\phi)=C\times D$, which completes our proof.
 \end{enumerate}
 \end{document}
