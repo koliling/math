@@ -234,15 +234,22 @@
     groups are abelian. \\
 
     (i)$\rightarrow$(iii): Let $G$ be solvable. Then there is a chain of
-    subgroups $1=G_0\trianglelefteq\ldots\trianglelefteq G_s=G$ such that
+    subgroups $1=G_0\triangleleft\ldots\triangleleft G_s=G$ such that
     $G_{i+1}/G_i$ is abelian for $i=0,\ldots,s-1$. For a given $i$,
     $G_{i+1}/G_i$ is finite since $G$ is finite, so by the Jordan-Holder
-    theorem, it has a composition series. Now the composition series
-    $1=H_0\trianglelefteq\ldots\trianglelefteq H_r=H$ of a finite abelian group
-    $H$ must have prime composition factors: Otherwise suppose
-    $|H_{j+1}/H_j|$ is composite, then by Proposition 21 of Section 3.4,
-    since it is finite abelian $H_{j+1}/H_j$
-    contains an element $\bar{h}$ of order $p$, where $p$ divides
-    $|H_{j+1}/H_j|$. Then $\langle\bar{h}\rangle\lneq H_{j+1}/H_j$.
+    theorem, $G_{i+1}/G_i$ has a composition series. Now the composition
+    series $1=H_0\triangleleft\ldots\triangleleft H_r=H$ of a finite
+    abelian group $H$ must have prime composition factors: Otherwise
+    suppose $|H_{j+1}/H_j|$ is composite, then by Proposition 21 of Section
+    3.4, since $H_{j+1}/H_j$ is finite abelian, it contains an element
+    $\bar{h}$ of order $p$, where $p$ divides $|H_{j+1}/H_j|$. Then
+    $\langle\bar{h}\rangle\lneq H_{j+1}/H_j$, and is a normal subgroup of
+    $H_{j+1}/H_j$ because all abelian subgroups are normal, which
+    contradicts the simpleness of $H_{j+1}/H_j$. \\
+
+    For each $i=0,\ldots,s-1$, let $1=N_0\triangleleft\ldots\triangleleft
+    N_{r_i}=G_{i+1}/G_i$ be a composition series of $G_{i+1}/G_i$. We just
+    showed that the composition factors of this series have prime order.
+    Then
 \end{enumerate}
 \end{document}
