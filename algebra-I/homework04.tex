@@ -116,7 +116,18 @@
     have order that divides $|(\mathbb{Z}/n\mathbb{Z})^\times|=\varphi(n)$.
     Therefore, $a^{\varphi(n)}\equiv 1\pmod{n}$.
 
-  \item Section 3.2 Question 23: Consider the multiplicative group
-    $a\in(\mathbb{Z}/100\mathbb{Z})^\times$.
+  \item Section 3.2 Question 23: To get the last two digits we consider
+    $3^{3^{100}}\pmod{100}$, and apply results from the previous question
+    with $n=100$. By Euler's product formula,
+    $\varphi(100)=100(1-1/2)(1-1/5)=40$. From the previous question, we
+    have $3^{40}\equiv1\pmod{100}$, so
+    $3^{3^{100}}\equiv3^{3^{100}\pmod{40}}\pmod{100}$. Hence we first
+    compute $3^{100}\pmod{40}$, and we do so by applying the results from
+    the previous question again. By Euler's product formula,
+    $\varphi(40)=40(1-1/2)(1-1/5)=16$. So
+    $3^{100}\equiv3^{100\pmod{16}}\equiv3^4\equiv81\equiv1\pmod{40}$. Hence
+    $3^{3^{100}}\equiv3^{1}\equiv3\pmod{100}$. So the last two digits is
+    03.
+
 \end{enumerate}
 \end{document}
