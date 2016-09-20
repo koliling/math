@@ -250,6 +250,22 @@
     For each $i=0,\ldots,s-1$, let $1=N_0\triangleleft\ldots\triangleleft
     N_{r_i}=G_{i+1}/G_i$ be a composition series of $G_{i+1}/G_i$. We just
     showed that the composition factors of this series have prime order.
-    Then
+    Now by the Lattice Isomorphism Theorem, for each $j=0,\ldots,r_i$,
+    there are subgroups $H_{i,j}\leq G_{i+1}$ and containing $G_i$ such that
+    $H_{i,j}/G_i=N_j$. Then by the Third Isomorphism Theorem,
+    \begin{equation*}
+      H_{i,j+1}/H_{i,j} \cong (H_{i,j+1}/G_i)/(H_{i,j}/G_i) = N_{j+1}/N_j,
+    \end{equation*}
+    implying that $H_{i,j+1}/H_{i,j}$ has prime order. Then $G$ has the
+    following composition series where all composition factors are of prime
+    order:
+    \begin{align*}
+      1         &=H_{0,0}\triangleleft\ldots\triangleleft
+                  H_{0,r_0-1}\triangleleft  \\
+      H_{0,r_0} &=H_{1,0}\triangleleft\ldots\triangleleft
+                  H_{1,r_1-1}\triangleleft\ldots  \\
+      H_{s-1,r_{s-1}} &=H_{s-1,0}\triangleleft\ldots\triangleleft
+                  H_{s-1,r_{s-1}}=G \\
+    \end{align*}
 \end{enumerate}
 \end{document}
