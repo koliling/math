@@ -189,67 +189,76 @@
     that $\mathcal{N}$ is an elementary substructure of $\mathcal{M}$.
 
     \begin{proof}
-      We use Tarski-Vaught test by applying induction on complexity of
-      formulas $\varphi$ that for any
-      $\overline{a}=(a_1,\ldots,a_n)\subset(0,1)$, if
-      $\mathcal{M}\models\varphi(\overline{a},\overline{b})$ for some
-      $\overline{b}=(b_1,\ldots,b_m)\subset\mathbb{R}$, then
-      $\mathcal{N}\models\varphi(\overline{a},\overline{c})$ for some
-      $\overline{c}=(c_1,\ldots,c_m)\subset(0,1)$. \\
+      We use Corollary 2.22 of the notes. Given any finite subset
+      $A=\{a_1,\ldots,a_n\}\subset(0,1)$ and $r\in\mathbb{R}$, by the
+      Corollary, it suffices to find an automorphism
+      $\alpha:\mathbb{R}\rightarrow\mathbb{R}$ of $\mathcal{M}$ that fixes
+      $A$ and sends $r$ to within $(0,1)$. If $r\in(0,1)$, the identity map
+      would satisfy the criteria for the automorphism. So assume
+      $r\notin(0,1)$. We can assume without loss of generality that
+      $a_i<a_{i+1}$. \\
 
-      Atomic: The atomic formulas we need to consider are of the forms
-      $a<b$, $b<a$, or $b_1<b_2$ where $a\in(0,1)$ and
-      $b,b_1,b_2\in\mathbb{R}$. For the first case, choose $c=(a+1)/2$. For
-      the second case, choose $c=a/2$. For the last case, choose $c_1=0.1$
-      and $c_2=0.2$. \\
+      There are two possible cases. In the first case,
+      $r\geq1$. For $x\leq a_n$, let $\alpha(x)=x$. Then for $a_n<x\leq r$,
+      let $\alpha(x)$ linearly map the interval $(a_n,r]$ to the
+      interval $(a_n,(a_n+1)/2]$. Finally, for $x>r$, let
+      $\alpha(x)=x-r+(a_n+1)/2$. This map is bijective and preserves order,
+      and hence is an automorphism of $\alpha$. Also, it preserves $A$ and
+      sends $r$ to $(a_n+1)/2$ which falls within $(0,1)$. \\
 
-      $\neg$: Let $\varphi(\overline{a},\overline{b})$ be a formula where
-      the property holds via $\overline{c}\subset(0,1)$. Then
-      $\neg\varphi(\overline{a},\overline{b})$ holds in $\mathcal{M}$ iff
-      $\varphi(\overline{a},\overline{b})$ does not hold in $\mathcal{M}$
-      iff $\varphi(\overline{a},\overline{c})$ does not hold in
-      $\mathcal{N}$ by induction hypothesis iff
-      $\neg\varphi(\overline{a},\overline{c})$ holds in $\mathcal{N}$. \\
+      In the second case, $r\leq0$. For $x\geq a_0$, let $\alpha(x)=x$.
+      Then for $r\leq x<a_0$, let $\alpha(x)$ linearly map the interval
+      $[r,a_0)$ to the interval $[a_0/2,a_0)$. Finally, for $x<r$, let
+      $\alpha(x)=x-r+a_0/2$. This map is bijective and preserves order,
+      and hence is an automorphism of $\alpha$. Also, it preserves $A$ and
+      sends $r$ to $a_0/2$ which falls within $(0,1)$. \\
 
-      $\wedge$: Let $\varphi_1(\overline{a_1},\overline{b_1})$ be a formula
-      where the property holds via $\overline{c_1}\subset(0,1)$, and let
-      $\varphi_2(\overline{a_2},\overline{b_2})$ be a formula where the
-      property holds via $\overline{c_2}\subset(0,1)$. Then
-      $\varphi_1(\overline{a_1},\overline{b_1})\wedge\varphi_2(\overline{a_2},\overline{b_2})$
-      holds in $\mathcal{M}$ iff $\varphi_1(\overline{a_1},\overline{b_1})$
-      and $\varphi_2(\overline{a_2},\overline{b_2})$ hold in $\mathcal{M}$
-      iff $\varphi_1(\overline{a_1},\overline{c_1})$ and
-      $\varphi_2(\overline{a_2},\overline{c_2})$ hold in $\mathcal{N}$ via
-      induction hypothesis iff
-      $\varphi_1(\overline{a_1},\overline{c_1})\wedge\varphi_2(\overline{a_2},\overline{c_2})$
-      holds in $\mathcal{N}$. \\
+      %We use Tarski-Vaught test by applying induction on complexity of
+      %formulas $\varphi$ that for any
+      %$\overline{a}=(a_1,\ldots,a_n)\subset(0,1)$, if
+      %$\mathcal{M}\models\varphi(\overline{a},\overline{b})$ for some
+      %$\overline{b}=(b_1,\ldots,b_m)\subset\mathbb{R}$, then
+      %$\mathcal{N}\models\varphi(\overline{a},\overline{c})$ for some
+      %$\overline{c}=(c_1,\ldots,c_m)\subset(0,1)$. \\
 
-      $\exists$: Let $\varphi(\overline{a},b_0,\overline{b_1})$ be a
-      formula where the property holds via $c_0\in(0,1)$ and
-      $\overline{c_1}\subset(0,1)$ for any $b_0\in\mathbb{R}$ and
-      $\overline{b_1}\subset\mathbb{R}$. Then $\exists
-      x\,\varphi(\overline{a},x,\overline{b_1})$ holds in $\mathcal{M}$ iff
-      there exists some $b_0\in\mathbb{R}$ such that
-      $\varphi(\overline{a},b_0,\overline{b_1})$ holds in $\mathcal{M}$ iff
-      $\varphi(\overline{a},c_0,\overline{c_1})$ holds in $\mathcal{M}$ iff
-      $\exists x\,\varphi(\overline{a},x,\overline{c_1})$ holds in
-      $\mathcal{N}$. \\
+      %Atomic: The atomic formulas we need to consider are of the forms
+      %$a<b$, $b<a$, or $b_1<b_2$ where $a\in(0,1)$ and
+      %$b,b_1,b_2\in\mathbb{R}$. For the first case, choose $c=(a+1)/2$. For
+      %the second case, choose $c=a/2$. For the last case, choose $c_1=0.1$
+      %and $c_2=0.2$. \\
+
+      %$\neg$: Let $\varphi(\overline{a},\overline{b})$ be a formula where
+      %the property holds via $\overline{c}\subset(0,1)$. Then
+      %$\neg\varphi(\overline{a},\overline{b})$ holds in $\mathcal{M}$ iff
+      %$\varphi(\overline{a},\overline{b})$ does not hold in $\mathcal{M}$
+      %iff $\varphi(\overline{a},\overline{c})$ does not hold in
+      %$\mathcal{N}$ by induction hypothesis iff
+      %$\neg\varphi(\overline{a},\overline{c})$ holds in $\mathcal{N}$. \\
+
+      %$\wedge$: Let $\varphi_1(\overline{a_1},\overline{b_1})$ be a formula
+      %where the property holds via $\overline{c_1}\subset(0,1)$, and let
+      %$\varphi_2(\overline{a_2},\overline{b_2})$ be a formula where the
+      %property holds via $\overline{c_2}\subset(0,1)$. Then
+      %$\varphi_1(\overline{a_1},\overline{b_1})\wedge\varphi_2(\overline{a_2},\overline{b_2})$
+      %holds in $\mathcal{M}$ iff $\varphi_1(\overline{a_1},\overline{b_1})$
+      %and $\varphi_2(\overline{a_2},\overline{b_2})$ hold in $\mathcal{M}$
+      %iff $\varphi_1(\overline{a_1},\overline{c_1})$ and
+      %$\varphi_2(\overline{a_2},\overline{c_2})$ hold in $\mathcal{N}$ via
+      %induction hypothesis iff
+      %$\varphi_1(\overline{a_1},\overline{c_1})\wedge\varphi_2(\overline{a_2},\overline{c_2})$
+      %holds in $\mathcal{N}$. \\
+
+      %$\exists$: Let $\varphi(\overline{a},b_0,\overline{b_1})$ be a
+      %formula where the property holds via $c_0\in(0,1)$ and
+      %$\overline{c_1}\subset(0,1)$ for any $b_0\in\mathbb{R}$ and
+      %$\overline{b_1}\subset\mathbb{R}$. Then $\exists
+      %x\,\varphi(\overline{a},x,\overline{b_1})$ holds in $\mathcal{M}$ iff
+      %there exists some $b_0\in\mathbb{R}$ such that
+      %$\varphi(\overline{a},b_0,\overline{b_1})$ holds in $\mathcal{M}$ iff
+      %$\varphi(\overline{a},c_0,\overline{c_1})$ holds in $\mathcal{M}$ iff
+      %$\exists x\,\varphi(\overline{a},x,\overline{c_1})$ holds in
+      %$\mathcal{N}$. \\
     \end{proof}
-
-    %\begin{proof}
-    %  Since isomorphic structures are elementarily equivalent, it
-    %  suffices to prove that $\mathcal{M}$ is isomorphic to
-    %  $\mathcal{N}=\langle(0,1),<\rangle$. Consider the map
-    %  $\varphi:(0,1)\rightarrow\mathbb{R}$ which first
-    %  shifts and scales $(0,1)$ to $(-\pi/2,\pi/2)$, then applies the
-    %  $\tan$ function to send $(-\pi/2,\pi/2)$ to $(-\infty,\infty)$.
-    %  More precisely, define $\varphi(x)=\tan((x-0.5)\pi/2)$. Then
-    %  $\varphi$ is bijective and preserves order, and is therefore an
-    %  isomorphism between $\mathcal{M}$ and $\mathcal{N}$. Hence
-    %  $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$, and
-    %  since $(0,1)\subset\mathbb{R}$, $\mathcal{N}$ is an elementary
-    %  substructure of $\mathcal{M}$.
-    %\end{proof}
 
   \item (Tarski's Chain Lemma) Prove that the union of an elemenatary
     directed family is an elementary extension of all its members.
