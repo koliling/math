@@ -268,7 +268,16 @@
                   H_{s-1,r_{s-1}}=G \\
     \end{align*}
 
-  \item Section 3.4 Question 11: \TODO{Fill out.} 
+  \item Section 3.4 Question 11: Let $G$ be a solvable group with
+    non-trivial normal subgroup $N$. Let
+    $1=N_0\triangleleft\ldots\triangleleft N_s=G$ be a chain of subgroups
+    that witness the solvability of $G$. Consider the intersection of this
+    chain with $N$, i.e. consider the series $1=N_0\cap
+    N\subseteq\ldots\subseteq N_s\cap N=N$. We show that this series
+    witnesses the solvability of $N$. Given $i=0,\ldots,s-1$, consider
+    $N\cap N_{i+1}$ as a subgroup of $N_{i+1}$, which has a normal
+    subgroup $N_i$. From the Third Isomorphism Theorem, $H\cap
+    N_i=(H\cap N_{i+1})\cap N_i\trianglelefteq H\cap N_i$,
 
   \item Section 3.4 Question 12: (i)$\rightarrow$(ii): Assume (i) is true,
     and let $G$ be a simple group of odd order. We want to show that $G$
@@ -278,8 +287,8 @@
     chain $1\trianglelefteq G$. This implies that $G/1\cong G$ is abelian.
     Hence $G$ is a simple abelian group. If $|G|$ is composite with prime
     divisor $p$, then by Proposition 21 of Section 3.4, there is an element
-    $g\in G$ of order $p$. Then $\langle g\angle$ will be a strict subgroup
-    of $G$, and by abelianess of $G$, $\langle g\angle$ will be a
+    $g\in G$ of order $p$. Then $\langle g\rangle$ will be a strict subgroup
+    of $G$, and by abelianess of $G$, $\langle g\rangle$ will be a
     non-trivial normal subgroup of $G$, which contradicts the simpleness of
     $G$. Hence $|G|$ must be prime, which completes the proof. \\
 
@@ -288,12 +297,12 @@
     composition series $1=N_0\triangleleft\ldots\triangleleft N_s=G$. Now
     for each $i=0,\ldots,s$, $N_i$ is subgroup of $G$, and must have odd
     order since $G$ has odd order and the order of subgroups must divide
-    the order of the group. Therefore, $N_{i+1}/N_{i}$ must also be odd.
-    Since these quotient groups are from the composition series, they must
-    also be simple, so by assumption, they must have prime order. Then,
-    since groups of prime order are cyclic and hence abelian, each
-    $N_{i+1}/N_{i}$ is abelian, and so the composition series is also a
-    chain of subgroups that witness the solvability of $G$, which completes
-    the proof.
+    the order of the group. Therefore, $|N_{i+1}/N_{i}|=|N_{i+1}|/|N_i|$
+    must also be odd. Since the quotient groups $N_{i+1}/N_{i}$ are from
+    the composition series, they must also be simple, so by assumption,
+    they must have prime order. Then, since groups of prime order are
+    cyclic and hence abelian, each $N_{i+1}/N_{i}$ is abelian, and so the
+    composition series is also a chain of subgroups that witness the
+    solvability of $G$, which completes the proof.
 \end{enumerate}
 \end{document}
