@@ -223,9 +223,42 @@
     Section 3.2, $|PN|=|P||N|/|P\cap N|=p^a\cdot p^bn/p^b=p^an$, and so
     $|PN/N|=|PN|/|N|=p^an/(p^bn)=p^{a-b}$, as we need to show.
 
-  \item Section 3.4 Question 2: \TODO{Exhibit all 3 composition series for
-    $Q_8$ and all 7 composition series for $D_8$. List the composition
-    factors in each case.}
+  \item Section 3.4 Question 2: The 3 composition series for $Q_8$ are:
+    \begin{align*}
+      1 \triangleleft \langle-1\rangle \triangleleft \langle i\rangle
+      \triangleleft Q_8 \\
+      1 \triangleleft \langle-1\rangle \triangleleft \langle j\rangle
+      \triangleleft Q_8 \\
+      1 \triangleleft \langle-1\rangle \triangleleft \langle k\rangle
+      \triangleleft Q_8 \\
+    \end{align*}
+    The composition factors are all $\mathbb{Z}_2$. \\
+
+    By using the lattice of $D_8$, the 7 composition series of $D_8$ are:
+    \begin{align*}
+      1 \triangleleft \langle s\rangle
+        \triangleleft \langle s,r^2\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle r^2s\rangle
+        \triangleleft \langle s,r^2\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle r^2\rangle
+        \triangleleft \langle r\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle r^2\rangle
+        \triangleleft \langle sr^2\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle rs\rangle
+        \triangleleft \langle rs,r^2\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle r^3s\rangle
+        \triangleleft \langle rs,r^2\rangle
+        \triangleleft D_8 \\
+      1 \triangleleft \langle r^2\rangle
+        \triangleleft \langle rs,r^2\rangle
+        \triangleleft D_8 \\
+    \end{align*}
+    The composition factors are all $\mathbb{Z}_2$.
 
   \item Section 3.4 Question 8i-iii: (iii)$\rightarrow$(ii): This follows
     directly from the fact that groups of prime order are cyclic. \\
@@ -268,27 +301,28 @@
                   H_{s-1,r_{s-1}}=G \\
     \end{align*}
 
-  \item Section 3.4 Question 11: Let $G$ be a solvable group with
-    non-trivial normal subgroup $N$. Let
-    $1=N_0\triangleleft\ldots\triangleleft N_s=G$ be a chain of subgroups
-    that witness the solvability of $G$. Consider the intersection of this
-    chain with $N$, i.e. consider the series $1=N_0\cap
-    N\subseteq\ldots\subseteq N_s\cap N=N$. We show that this series
-    witnesses the solvability of $N$. Given $i=0,\ldots,s-1$, consider
-    $N\cap N_{i+1}$ as a subgroup of $N_{i+1}$, which has a normal
-    subgroup $N_i$. From the Second Isomorphism Theorem, $H\cap
-    N_i=(H\cap N_{i+1})\cap N_i\trianglelefteq H\cap N_{i+1}$. Also from
-    the Second Isomorphism Theorem, $(H\cap N_{i+1})/(H\cap N_i)\cong
-    HN_i/N_i$. Now from the Fourth Isomorphism Theorem, $HN_i/N_i$ is
-    a subgroup of $N_{i+1}/N_i$, which is abelian. Hence $HN_i/N_i$ is also
-    abelian, which implies that $(H\cap N_{i+1})/(H\cap N_i)$ is abelian.
-    Hence $1=N_0\cap N\subseteq\ldots\subseteq N_s\cap N=N$ witnesses the
-    solvability of $N$. \\
+  \item Section 3.4 Question 11: Do not know how to do.
+    %Let $G$ be a solvable group with
+    %non-trivial normal subgroup $N$. Let
+    %$1=N_0\triangleleft\ldots\triangleleft N_s=G$ be a chain of subgroups
+    %that witness the solvability of $G$. Consider the intersection of this
+    %chain with $N$, i.e. consider the series $1=N_0\cap
+    %N\subseteq\ldots\subseteq N_s\cap N=N$. We show that this series
+    %witnesses the solvability of $N$. Given $i=0,\ldots,s-1$, consider
+    %$N\cap N_{i+1}$ as a subgroup of $N_{i+1}$, which has a normal
+    %subgroup $N_i$. From the Second Isomorphism Theorem, $H\cap
+    %N_i=(H\cap N_{i+1})\cap N_i\trianglelefteq H\cap N_{i+1}$. Also from
+    %the Second Isomorphism Theorem, $(H\cap N_{i+1})/(H\cap N_i)\cong
+    %HN_i/N_i$. Now from the Fourth Isomorphism Theorem, $HN_i/N_i$ is
+    %a subgroup of $N_{i+1}/N_i$, which is abelian. Hence $HN_i/N_i$ is also
+    %abelian, which implies that $(H\cap N_{i+1})/(H\cap N_i)$ is abelian.
+    %Hence $1=N_0\cap N\subseteq\ldots\subseteq N_s\cap N=N$ witnesses the
+    %solvability of $N$. \\
 
-    Let $k\in\{1,\ldots,s\}$ be the smallest integer such that $N_k\cap
-    N=N$. Such a $k$ must exist since $N_s=N$. Let $A=N_{k-1}$. Then
-    $A=N_{k-1}\triangleleft N_k=N$, and by choice of $k$, $A$ is a
-    non-trivial subgroup of $N$. Also,
+    %Let $k\in\{1,\ldots,s\}$ be the smallest integer such that $N_k\cap
+    %N=N$. Such a $k$ must exist since $N_s=N$. Let $A=N_{k-1}$. Then
+    %$A=N_{k-1}\triangleleft N_k=N$, and by choice of $k$, $A$ is a
+    %non-trivial subgroup of $N$. Also,
 
   \item Section 3.4 Question 12: (i)$\rightarrow$(ii): Assume (i) is true,
     and let $G$ be a simple group of odd order. We want to show that $G$
