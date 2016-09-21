@@ -200,14 +200,22 @@
       former, choose $c=(a+1)/2$, and for the latter, choose $c=a/2$. \\
 
       $\neg$: Let $\varphi(\bar{a},b)$ be a formula where the property
-      holds via $c\in(0,1)$. $\neg\varphi(\bar{a},b)$ holds in
+      holds via $c\in(0,1)$. Then $\neg\varphi(\bar{a},b)$ holds in
       $\mathcal{M}$ iff $\varphi(\bar{a},b)$ does not hold in $\mathcal{M}$
       iff $\varphi(\bar{a},c)$ does not hold in $\mathcal{N}$ by induction
       hypothesis iff $\neg\varphi(\bar{a},c)$ holds in $\mathcal{N}$. \\
 
       $\wedge$: Let $\varphi_1(\bar{a_1},b_1)$ be a formula where the
       property holds via $c_1\in(0,1)$, and let $\varphi_2(\bar{a_2},b_2)$
-      be a formula where the property holds via $c_2\in(0,1)$.
+      be a formula where the property holds via $c_2\in(0,1)$. Then
+      $\varphi_1(\bar{a_1},b_1)\wedge\varphi_2(\bar{a_2},b_2)$ holds in
+      $\mathcal{M}$ iff $\varphi_1(\bar{a_1},b_1)$ and
+      $\varphi_2(\bar{a_2},b_2)$ hold in $\mathcal{M}$ iff
+      $\varphi_1(\bar{a_1},c_1)$ and $\varphi_2(\bar{a_2},c_2)$ hold in
+      $\mathcal{N}$ via induction hypothesis iff
+      $\varphi_1(\bar{a_1},c_1)\wedge\varphi_2(\bar{a_2},c_2)$ holds in
+      $\mathcal{N}$.
+      $\mathcal{M}$
     \end{proof}
 
     %\begin{proof}
