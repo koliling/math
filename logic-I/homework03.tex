@@ -189,19 +189,41 @@
     that $\mathcal{N}$ is an elementary substructure of $\mathcal{M}$.
 
     \begin{proof}
-      Since isomorphic structures are elementarily equivalent, it
-      suffices to prove that $\mathcal{M}$ is isomorphic to
-      $\mathcal{N}=\langle(0,1),<\rangle$. Consider the map
-      $\varphi:(0,1)\rightarrow\mathbb{R}$ which first
-      shifts and scales $(0,1)$ to $(-\pi/2,\pi/2)$, then applies the
-      $\tan$ function to send $(-\pi/2,\pi/2)$ to $(-\infty,\infty)$.
-      More precisely, define $\varphi(x)=\tan((x-0.5)\pi/2)$. Then
-      $\varphi$ is bijective and preserves order, and is therefore an
-      isomorphism between $\mathcal{M}$ and $\mathcal{N}$. Hence
-      $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$, and
-      since $(0,1)\subset\mathbb{R}$, $\mathcal{N}$ is an elementary
-      substructure of $\mathcal{M}$.
+      We use Tarski-Vaught test by applying induction on complexity of
+      formulas $\varphi$ that for any
+      $\bar{a}=(a_1,\ldots,a_n)\subset(0,1)$, if
+      $\mathcal{M}\models\varphi(\bar{a},b)$ for some $b\in\mathbb{R}$,
+      then $\mathcal{N}\models\varphi(\bar{a},c)$ for some $c\in(0,1)$. \\
+
+      Atomic: The atomic formulas we need to consider are of the
+      form $a<b$ or $b<a$, where $a\in(0,1)$ and $b\in\mathbb{R}$. For the
+      former, choose $c=(a+1)/2$, and for the latter, choose $c=a/2$. \\
+
+      $\neg$: Let $\varphi(\bar{a},b)$ be a formula where the property
+      holds via $c\in(0,1)$. $\neg\varphi(\bar{a},b)$ holds in
+      $\mathcal{M}$ iff $\varphi(\bar{a},b)$ does not hold in $\mathcal{M}$
+      iff $\varphi(\bar{a},c)$ does not hold in $\mathcal{N}$ by induction
+      hypothesis iff $\neg\varphi(\bar{a},c)$ holds in $\mathcal{N}$. \\
+
+      $\wedge$: Let $\varphi_1(\bar{a_1},b_1)$ be a formula where the
+      property holds via $c_1\in(0,1)$, and let $\varphi_2(\bar{a_2},b_2)$
+      be a formula where the property holds via $c_2\in(0,1)$.
     \end{proof}
+
+    %\begin{proof}
+    %  Since isomorphic structures are elementarily equivalent, it
+    %  suffices to prove that $\mathcal{M}$ is isomorphic to
+    %  $\mathcal{N}=\langle(0,1),<\rangle$. Consider the map
+    %  $\varphi:(0,1)\rightarrow\mathbb{R}$ which first
+    %  shifts and scales $(0,1)$ to $(-\pi/2,\pi/2)$, then applies the
+    %  $\tan$ function to send $(-\pi/2,\pi/2)$ to $(-\infty,\infty)$.
+    %  More precisely, define $\varphi(x)=\tan((x-0.5)\pi/2)$. Then
+    %  $\varphi$ is bijective and preserves order, and is therefore an
+    %  isomorphism between $\mathcal{M}$ and $\mathcal{N}$. Hence
+    %  $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$, and
+    %  since $(0,1)\subset\mathbb{R}$, $\mathcal{N}$ is an elementary
+    %  substructure of $\mathcal{M}$.
+    %\end{proof}
 
   \item (Tarski's Chain Lemma) Prove that the union of an elemenatary
     directed family is an elementary extension of all its members.
