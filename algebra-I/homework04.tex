@@ -268,7 +268,7 @@
                   H_{s-1,r_{s-1}}=G \\
     \end{align*}
 
-  \item Section 3.4 Question 11:
+  \item Section 3.4 Question 11: \TODO{Fill out.} 
 
   \item Section 3.4 Question 12: (i)$\rightarrow$(ii): Assume (i) is true,
     and let $G$ be a simple group of odd order. We want to show that $G$
@@ -283,6 +283,17 @@
     non-trivial normal subgroup of $G$, which contradicts the simpleness of
     $G$. Hence $|G|$ must be prime, which completes the proof. \\
 
-    (ii)$\rightarrow$(i):
+    (ii)$\rightarrow$(i): Assume (ii) is true, and let $G$ be a group of
+    odd order. By the Jordan-Holder theorem, since $G$ is finite, it has a
+    composition series $1=N_0\triangleleft\ldots\triangleleft N_s=G$. Now
+    for each $i=0,\ldots,s$, $N_i$ is subgroup of $G$, and must have odd
+    order since $G$ has odd order and the order of subgroups must divide
+    the order of the group. Therefore, $N_{i+1}/N_{i}$ must also be odd.
+    Since these quotient groups are from the composition series, they must
+    also be simple, so by assumption, they must have prime order. Then,
+    since groups of prime order are cyclic and hence abelian, each
+    $N_{i+1}/N_{i}$ is abelian, and so the composition series is also a
+    chain of subgroups that witness the solvability of $G$, which completes
+    the proof.
 \end{enumerate}
 \end{document}
