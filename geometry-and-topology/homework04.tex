@@ -21,7 +21,9 @@
     $X^0_{\alpha}$ is a union of $0$-cells. These 0-cells are contained in
     disjoint sheets lying above a trivialized neighborhood of
     $X^0_{\alpha}$, and hence can be assigned the discrete topology in
-    $\widetilde{X}$. For the inductive step $n+1$, consider the embedding
+    $\widetilde{X}$. \\
+
+    For the inductive step $n+1$, consider the embedding
     $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
     $(n+1)$-cell to $X^{n+1}$. This embedding glues the boundary
     $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$ to
@@ -46,9 +48,33 @@
         $Y_2^{(1)}\rightarrow X^{(1)}$ are isomorphic. We prove by
         induction on $n$ that the restrictions $Y_1^{(n)}\rightarrow
         X^{(n)}$ and $Y_2^{(n)}\rightarrow X^{(n)}$ are isomorphic. The
-        base case $n=1$ is true by assumption. Consider the inductive step
-        $n+1$. Since the $(n+1)$-cells of $Y_1$ are homeomorphic 
-        Use uniqueness of lift.
+        base case $n=1$ is true by assumption. \\
+
+        For the inductive step $n+1$, consider the embedding
+        $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
+        $(n+1)$-cell to $X^{(n+1)}$. This embedding glues the boundary
+        $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$
+        to the interior of an $(n+1)$-cell in $X^{(n+1)}$. Pick a point
+        $x\in S^n\subset D^{n+1}$. For each $Y_i$, $i\in\{1,2\}$, the fiber
+        of $\varphi_\alpha(x)$ is a union of points
+        $\{\widetilde{y}_{i,\beta}\}_{\beta\in J_i}$ in
+        $\widetilde{Y_i}^{(n)}$, contained in disjoint sheets lying above
+        the trivialized neighborhood of $\varphi_\alpha(x)$. By induction
+        hypothesis, since $\widetilde{Y_1}^{(n)}$ and
+        $\widetilde{Y_2}^{(n)}$ are isomorphic covers of $X^{(n)}$, the
+        homeomorphism between $\widetilde{Y_1}^{(n)}$ and
+        $\widetilde{Y_2}^{(n)}$ will induce a bijection between
+        $\{\widetilde{y}_{1,\beta}\}_{\beta\in J_1}$ and
+        $\{\widetilde{y}_{2,\beta}\}_{\beta\in J_2}$, so we can assume
+        without loss of generality that $J_1=J_2=J$ and the homeomorphism
+        maps $\widetilde{y}_{1,\beta}$ to $\widetilde{y}_{2,\beta}$. Then
+        for each $\widetilde{y}_{i,\beta}$, consider the lift of
+        $\varphi_\alpha$ to $\widetilde{Y_i}^{n+1}$ that sends $x$ to
+        $\widetilde{y}_{i,\beta}$. By the lifting criterion, because
+        $D^{n+1}$ is contractable, such a lift
+        $\widetilde{\varphi_\alpha}$ exists. This lift will glue
+        $D_{n+1}$ at the boundary to $\widetilde{X}^n$, forming
+        $\widetilde{X}^{n+1}$, which completes the inductive step.
       \end{proof}
     \end{enumerate}
 \end{enumerate}
