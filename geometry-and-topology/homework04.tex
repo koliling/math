@@ -139,6 +139,38 @@
 
     \item
     \begin{proof}
+      Let $[\gamma]\in\pi_1(X,p)$. We wish to show that $[\gamma]=1$. Now
+      $\gamma$ is a continuous map $\gamma:[0,1]\rightarrow X$ such that
+      $\gamma(0)=\gamma(1)=p$. The loop defined by $\gamma$ is covered by
+      $\{U_\alpha\}$. For each $\alpha$, consider the pre-image of $\gamma$
+      on $\{U_\alpha\}$. This pre-image $I_\alpha=\gamma^{-1}(U_\alpha\cap
+      \gamma([1,0]))$ will be an open subset of $[0,1]$. The union of all
+      these $I_\alpha$'s will be an open cover of $[0,1]$. Then since
+      $[0,1]$ is a compact metric space and $\{I_\alpha\}$ is an open
+      cover, the Lebesgue number of the covering exists. We can assume that
+      this number is $2/n$ for some $n\in\mathbb{N}^+$. Partition the
+      interval $[0,1]$ into $n$ intervals $I_1,\ldots,I_n$ of equal length,
+      where $I_i=[(i-1)/n,i/n]$. Then by the definition of the Lebesgue
+      number, each $I_i$ is contained in some $I_{\alpha_i}$, and therefore
+      $\{U_{\alpha_i}\}_{i\leq n}$ covers path $\gamma([0,1])$. \\
+
+      For a given $i\in\{1,\ldots,n\}$, we iteratively form a simple loop
+      $\gamma_i\in\pi_1(X,p)$ that lies in $U_{\alpha_i}$, and such that
+      $\gamma=\gamma_1\cdots\gamma_n$. For $i=1$, let
+      $\gamma_1=\gamma\upharpoonright_{I_1}\sigma_1$, where $\sigma_1$ is a
+      path from $\gamma(1/n)$ to $p$ contained in $U_{\alpha_1}$.
+      $\sigma_1$ exists because $U_{\alpha_1}$ is path-connected, and
+      $\gamma_1$ is simple since $U_{\alpha_1}$ is simply-connected. Then
+      for $1<i<n$, let
+      $\gamma_i=\theta_i\gamma\upharpoonright_{I_i}\sigma_i$, where
+      $\theta_i$ is a path in $U_{\alpha_i}$ from $p$ to
+      $\gamma((i-1)/n)$, and $\sigma_i$ is a path in $U_{\alpha_i}$ from
+      $\gamma(i/n)$ to $p$. Repeating the argument, $\gamma_i$ exists
+      and is a simple loop starting and ending at $p$. Finally, for
+      $i=n$, let $\gamma_n=\gamma\upharpoonright_{I_n}\sigma_n$. \\
+
+      Since each $\gamma_i$ is a simple loop at $p$, the concatenation of
+      them will also be simple loop at $p$, as required.
     \end{proof}
 
     \item
@@ -146,12 +178,12 @@
       We apply results from the previous question. Fix any point $p\in
       S^n$. Without loss of generality we can assume $p$ is the north pole.
       Let $\mathcal{U}=\{U_i\}_{i\in\mathbb{N}}$ be an open cover of $S_n$,
-      where for $i>0$, $U_i$ is the open ``cap'' of $p$ of height $1-1/i$,
-      and $U_0$ is the open strip that covers the north and south poles, as
-      illustrated in the diagram below. Then $\mathcal{U}$ covers $S_n$,
-      each $U_i$ contains $p$, each $U_i$ is simply-connected, and each
-      $U_i\cap U_j$ is path-connected. So from the previous question, $S^n$
-      is simply connected.
+      where for $i>0$, $U_i$ is the open ``cap'' of $p$ that hangs at a
+      height of $1/i$ from the south pole, and $U_0$ is the open strip that
+      covers the north and south poles, as illustrated in the diagram
+      below. Then $\mathcal{U}$ covers $S_n$, each $U_i$ contains $p$, each
+      $U_i$ is simply-connected, and each $U_i\cap U_j$ is path-connected.
+      So from the previous question, $S^n$ is simply connected.
     \end{proof}
 \end{enumerate}
 \end{document}
