@@ -80,13 +80,17 @@
 
       \item \begin{proof}
         The left to right implication is trivial by chasing definitions.
-        For the converse, assume $Y_1^{(1)}\rightarrow X^{(1)}$ and
-        $Y_2^{(1)}\rightarrow X^{(1)}$ are isomorphic. We prove by
-        induction on $n$ that the restriction $Y^{(n)}\rightarrow
-        X^{(n)}$ is a regular covering space. The
-        base case $n=1$ is true by assumption. \\
+        For the converse, assume $Y^{(1)}\rightarrow X^{(1)}$ is a regular
+        covering space. We prove by induction on $n$ that the restriction
+        $Y^{(n)}\rightarrow X^{(n)}$ is a regular covering space. The base
+        case $n=1$ is true by assumption. \\
 
-        For the inductive step $n+1$, consider the embedding
+        For the inductive step $n+1$, let $x\in X^{(n+1)}\setminus
+        X^{(n)}$. We wish to show that given any two elements in the fibers
+        of $x$, there is a covering map in $\text{Deck}(Y^{(n)})$ that
+        sends one element to the other. Now for each element in the
+
+        consider the embedding
         $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
         $(n+1)$-cell to $X^{(n+1)}$. This embedding glues the boundary
         $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$
