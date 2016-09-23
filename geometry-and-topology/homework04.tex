@@ -1,18 +1,41 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz,mathtools}
 \usetikzlibrary{patterns}
 \usepackage{color}
 \setlength{\parindent}{2mm}
 \newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
-\title{Geometry and Topology: Homework 3}
+\title{Geometry and Topology: Homework 4}
 \author{Li Ling Ko\\ lko@nd.edu}
 \date{\today}
 \maketitle
 
 \begin{enumerate}
-  \item Exercise 2.16: Let $T$ be the infinite 4-valent tree and let
+  \item \begin{proof} We show by induction on $n$ that the fibers of
+    $\cup_{k=1}^n\widetilde{X}^{i}$ can be endowed with the structure of a
+    CW complex such that $f$ takes the interiors of the $k$-cells in the
+    fibers homeomorphically to the interiors of $k$-cells in
+    $\cup_{k=1}^n\widetilde{X}^{i}$. For $k=0$, the fiber of each
+    $X^0_{\alpha}$ is a union of $0$-cells. These 0-cells are contained in
+    disjoint sheets lying above a trivialized neighborhood of
+    $X^0_{\alpha}$, and hence can be assigned the discrete topology in
+    $\widetilde{X}$. For the inductive step $n+1$, consider the embedding
+    $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
+    $(n+1)$-cell to $X^{n+1}$. This embedding glues the boundary
+    $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$ to
+    the interior of an $(n+1)$-cell in $X^{n+1}$. Pick a point $x_0\in
+    S^n\subset D^{n+1}$. The fiber of $\varphi_\alpha(x_0)$ is a union of
+    points $\{\widetilde{x}_{0,\beta}\}_{\beta\in I}$ in $\widetilde{X}^n$,
+    contained in disjoint sheets lying above the trivialized neighborhood
+    of $\varphi_\alpha(x_0)$. Then for each $\widetilde{x}_{0,\beta}$,
+    consider the lift of $\varphi_\alpha$ to $\widetilde{X}^{n+1}$ that
+    sends $x_0$ to $\widetilde{x}_{0,\beta}$. By the lifting criterion,
+    because $D^{n+1}$ is contractable, such a lift
+    $\widetilde{\varphi_\alpha}$ exists. This lift will glue $D_{n+1}$ at
+    the boundary to $\widetilde{X}^n$, forming $\widetilde{X}^{n+1}$, which
+    completes the inductive step.
+  \end{proof}
 \end{enumerate}
 \end{document}
