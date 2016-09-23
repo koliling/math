@@ -77,6 +77,42 @@
         the lift to $Y_1$ and the lift to $Y_2$ will be homeomorphic, which
         completes the inductive step.
       \end{proof}
+
+      \item \begin{proof}
+        The left to right implication is trivial by chasing definitions.
+        For the converse, assume $Y_1^{(1)}\rightarrow X^{(1)}$ and
+        $Y_2^{(1)}\rightarrow X^{(1)}$ are isomorphic. We prove by
+        induction on $n$ that the restriction $Y^{(n)}\rightarrow
+        X^{(n)}$ is a regular covering space. The
+        base case $n=1$ is true by assumption. \\
+
+        For the inductive step $n+1$, consider the embedding
+        $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
+        $(n+1)$-cell to $X^{(n+1)}$. This embedding glues the boundary
+        $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$
+        to the interior of an $(n+1)$-cell in $X^{(n+1)}$. Pick a point
+        $x\in S^n\subset D^{n+1}$. For each $Y_i$, $i\in\{1,2\}$, the fiber
+        of $\varphi_\alpha(x)$ is a union of points
+        $\{\widetilde{y}_{i,\beta}\}_{\beta\in J_i}$ in
+        $\widetilde{Y_i}^{(n)}$, contained in disjoint sheets lying above
+        the trivialized neighborhood of $\varphi_\alpha(x)$. By induction
+        hypothesis, since $\widetilde{Y_1}^{(n)}$ and
+        $\widetilde{Y_2}^{(n)}$ are isomorphic covers of $X^{(n)}$, the
+        homeomorphism between $\widetilde{Y_1}^{(n)}$ and
+        $\widetilde{Y_2}^{(n)}$ will induce a bijection between
+        $\{\widetilde{y}_{1,\beta}\}_{\beta\in J_1}$ and
+        $\{\widetilde{y}_{2,\beta}\}_{\beta\in J_2}$, so we can assume
+        without loss of generality that $J_1=J_2=J$ and the homeomorphism
+        maps $\widetilde{y}_{1,\beta}$ to $\widetilde{y}_{2,\beta}$. Then
+        for each $\widetilde{y}_{i,\beta}$, consider the lift of
+        $\varphi_\alpha$ to $\widetilde{Y_i}^{n+1}$ that sends $x$ to
+        $\widetilde{y}_{i,\beta}$. By the lifting criterion, because
+        $D^{n+1}$ is contractable, such a lift
+        $\widetilde{\varphi_\alpha}$ exists. The image of each lift is a
+        $(n+1)$-cell that is projected down to a $(n+1)$-cell in $X$.
+        Also, the lift to $Y_1$ and the lift to $Y_2$ will be
+        homeomorphic, which completes the inductive step.
+      \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
