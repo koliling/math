@@ -88,11 +88,10 @@
         case $n=1$ is true by assumption. \\
 
         For the inductive step $n+1$, let $x\in X^{(n+1)}\setminus
-        X^{(n)}$. We wish to show that given any two elements in the fibers
-        of $x$, there is a covering map in $\text{Deck}(Y^{(n)})$ that
-        sends one element to the other. Now for each element in the
-
-        consider the embedding
+        X^{(n)}$. We wish to show that given any two elements
+        $\tilde{x}_0$, $\tilde{x}_1$ in the fibers of $x$, there is a
+        covering map in $\text{Deck}(Y^{(n)})$ that sends $\tilde{x}_0$ to
+        $\tilde{x}_1$. Consider the embedding
         $\varphi_\alpha:D^{n+1}\xhookrightarrow{}X$ which embeds an
         $(n+1)$-cell to $X^{(n+1)}$. This embedding glues the boundary
         $S^n\subset D^{n+1}$ onto $X^n$ and takes the interior of $D^{n+1}$
@@ -118,6 +117,15 @@
         $(n+1)$-cell that is projected down to a $(n+1)$-cell in $X$.
         Also, the lift to $Y_1$ and the lift to $Y_2$ will be
         homeomorphic, which completes the inductive step.
+      \end{proof}
+
+      \item
+      \begin{proof}
+        We use results from the previous two parts of the question. The
+        restriction map from $\text{Deck}(Y)$ to $\text{Deck}(Y^{(1)})$ is
+        a homomorphism from chasing definitions. The map is injective from
+        part (a) of this question. Finally, it is surjective from part (b)
+        of this question.
       \end{proof}
     \end{enumerate}
 
