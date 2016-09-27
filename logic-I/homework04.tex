@@ -13,6 +13,94 @@
 \maketitle
 
 \begin{enumerate}
-  \item Consider the sentence that
+  \item Let $\mathcal{L}=\{+,<,0\}$ be the original language, and let
+    $\mathcal{L}_1=\{+,<,0,1,c\}$ be an extension of $\mathcal{L}$ by
+    adding two new constants $1$ and $c$. Also, let
+    $T=Th((\mathbb{Q},+,<,0,1))$ be the theory of $\mathbb{Q}$ in the
+    language $\{+,<,0,1\}$. For each $n\in\mathbb{N}^+$, let $\varphi_n$ be
+    the sentence 
+    \begin{equation*}
+      \varphi_n := 1 > \underbrace{c+\ldots+c}_{n\,\text{times}}.
+    \end{equation*}
+    Then $T\cup\{\varphi_n:n\in\mathbb{N}^+\}$ is finitely satisfiable by
+    $\mathbb{Q}$: Given \TODO{Finish typing this proof.}
+
+  \item In language $\mathcal{L}=\{<\}$, let
+    $T=Th(\langle\mathbb{Z},<\rangle)$ be the complete theory of
+    $\mathbb{Z}$. Consider the expanded language $\mathcal{L}(\mathbb{Q})$
+    and the sentences $S=\{c_a<c_b|\; a,b\in\mathbb{Q}, a<b\}\cup\{c_a\neq
+    c_b|\; a,b\in\mathbb{Q}, a<b\}$. We show that $T\cup S$ is finitely
+    satisfiable in the new language $\mathcal{L}(\mathbb{Q})$: \TODO{Expand
+    this routine proof.} Hence by compactness theorem, $T\cup S$ is
+    satisfiable, and has a model $\mathcal{M}$. \\
+
+    Next we show that in the original language $\mathcal{L}=\{<\}$,
+    $\mathbb{Q}$ can be embedded into $\mathcal{M}$. Consider the map
+    $i:\mathbb{Q}\rightarrow M,q\mapsto c_q$. This map is injective since
+    in $\mathcal{L}(\mathbb{Q})$, $\mathcal{M}\models \{c_a\neq c_b|\;
+    a,b\in\mathbb{Q}, a<b\}$. Also, this map is an embedding because
+    $a<b\leftrightarrow c_a<c_b$. Hence $\mathbb{Q}$ can be embedded into
+    $\mathcal{M}$ in the language $\mathcal{L}=\{<\}$. \\
+
+    Next we show that in the original language $\mathcal{L}=\{<\}$,
+    $\mathbb{Z}$ can be embedded into $\mathcal{M}$, using a proof similar
+    to the previous paragraph: Consider the map $j:\mathbb{Z}\rightarrow
+    M,a\mapsto c_a$. This map is injective since in
+    $\mathcal{L}(\mathbb{Q})$, $\mathcal{M}\models \{c_a\neq c_b|\;
+    a,b\in\mathbb{Z}, a<b\}$. Also, this map is an embedding because
+    $a<b\leftrightarrow c_a<c_b$. Hence $\mathbb{Z}$ can be embedded into
+    $\mathcal{M}$ in the language $\mathcal{L}=\{<\}$. \\
+
+    So $\mathbb{Z}$ is a substructure of $\mathcal{M}$ in the language
+    $\mathcal{L}=\{<\}$. It remains to show that in $\mathcal{L}=\{<\}$,
+    $\mathbb{Z}$ is an elementary substructure of $\mathcal{M}$. We prove
+    this by induction on formulas. We claim that given any formula
+    $\varphi(x_1,\ldots,x_n)$ in the language $\mathcal{L}=\{<\}$ and any
+    $\bar{a}\in\mathbb{Z}^n$,
+    $\langle\mathbb{Z},<\rangle\models\varphi(\bar{a})$ if and only if
+    $\mathcal{M}\models\varphi(j(\bar{a}))$. The most important step is the
+    atomic formulas; induction by $\neg$, $\wedge$, and $\exists$ follows
+    from chasing definitions: \\
+
+    Atomic formulas: Since this language has no constants, atomic formulas
+    can only be of the form $u<v$ or $u=v$ where $u$ and $v$ are variables.
+    Then
+    \begin{align*}
+      \mathbb{Z}\models a<b &\leftrightarrow\mathcal{M}\models c_a<c_b. \\
+    \end{align*}
+
+    $\neg$: Let $\varphi(\bar{x})$ be a formula where the claim holds.
+    Then
+    \begin{align*}
+      \mathbb{Z}\models\neg\varphi(\bar{a})
+        &\leftrightarrow\mathbb{Z}\not\models\varphi(\bar{a}) & \\
+        &\leftrightarrow\mathcal{M}\not\models\varphi(j(\bar{a}))  & (\text{by
+          induction hypothesis}) \\
+        &\leftrightarrow\mathcal{M}\models\neg\varphi(j(\bar{a})). & \\
+    \end{align*}
+
+    $\wedge$: Let $\varphi_1(\bar{x})$, $\varphi_2(\bar{y})$ be formulas
+    where the claim holds. Then
+    \begin{align*}
+      \mathbb{Z}\models\varphi_1(\bar{a})\wedge\varphi_2(\bar{b})
+        &\leftrightarrow\mathbb{Z}\models\varphi_1(\bar{a})\;\text{and}\;
+        \mathbb{Z}\models\varphi_2(\bar{b})& \\
+        &\leftrightarrow\mathcal{M}\models\varphi_1(j(\bar{a}))\;\text{and}\;
+        \mathbb{Z}\models\varphi_2(j(\bar{b}))& (\text{by induction
+        hypothesis}) \\
+        &\leftrightarrow\mathcal{M}\models\varphi_1(j(\bar{a}))\wedge\varphi_2(j(\bar{b})). & \\
+    \end{align*}
+
+    $\exists$: Let $\varphi(\bar{x},y)$ be a formula where the claim holds.
+    Then
+    \begin{align*}
+      \mathbb{Z}\models\exists y\, \varphi(\bar{a},y)
+        &\leftrightarrow\mathbb{Z}\models\varphi(\bar{a},b)\; \text{for
+        some}\; b\in\mathbb{Z} & \\
+        &\leftrightarrow\mathcal{M}\models\varphi(j(\bar{a}),j(b))\;
+        \text{for some}\; b\in\mathbb{Z}& (\text{by induction hypothesis})
+        \\
+        &\leftrightarrow\mathcal{M}\models\exists y\; \varphi(j(\bar{a}),y). & \\
+    \end{align*}
 \end{enumerate}
 \end{document}
