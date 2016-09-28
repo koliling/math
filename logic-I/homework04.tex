@@ -247,11 +247,11 @@
     $U\subset[0,1]$ be and open neighborhood of $z$. Since ultrafilters are
     closed under upward inclusion, we can assume without loss of generality
     that $U=B_\epsilon(z)=(z-\epsilon,z+\epsilon)$, the open ball of radius
-    $\epsilon$ around $z$, for some small $\epsilon>0$. Now
+    $\epsilon$ around $z$, for some $\epsilon>0$. Now
     $U_x=\mu^{-1}(B_{\epsilon/2}(x))$ and $U_y=\mu^{-1}(B_{\epsilon/2}(y))$
     are both contained in $\mathcal{U}$. Also, for each $k\in U_x$,
     $f_X(k)$ lies within $B_{\epsilon/2}(x)$, and similarly, for each $k\in
-    U_y$, $f_Y(k)$ lies within $B_{\epsilon/2}(y)$, Consider $U_z=U_x\cup
+    U_y$, $f_Y(k)$ lies within $B_{\epsilon/2}(y)$. Consider $U_z=U_x\cup
     U_y$. Then $U_z$ is contained in $\mathcal{U}$ since filters are closed
     under finite intersections. Hence, for each $k\in U_z$, $f_{X\sqcup
     Y}(k)=f_X(k)+f_Y(k)$ must lie within $B_\epsilon(z)$. Therefore
@@ -263,10 +263,10 @@
 
     We use the above claim to prove that $\mu$ is a finitely additive
     probability measure on $\mathbb{Z}$. By chasing definitions it is
-    routine to verify that $\mu(\emptyset)=0$ and $\mu(\mathbb{Z})=1$. Now
-    since for disjoint $A,B\subset\mathbb{Z}$, $\mu(A\sqcup
+    routine to verify that $\mu(\emptyset)=0$ and $\mu(\mathbb{Z})=1$.
+    Since for disjoint $A,B\subset\mathbb{Z}$, $\mu(A\sqcup
     B)=\mu(A)+\mu(B)$, we also have for $Y\subset X\subset\mathbb{Z}$,
-    $\mu(X-Y)=\mu(X)-\mu(Y)$.  Hence, for arbitrary $X,Y\subset\mathbb{Z}$,
+    $\mu(X-Y)=\mu(X)-\mu(Y)$. Hence, for arbitrary $X,Y\subset\mathbb{Z}$,
     since
     \begin{equation*}
       X\cup Y = (X-X\cup Y)\sqcup(X\cup Y)\sqcup(Y-X\cup Y),
@@ -282,7 +282,10 @@
 
     Next we show that $\mu$ is translation invariant. We need to show that
     for any $n\in\mathbb{Z}$ and any $X\subset\mathbb{Z}$, we have
-    $\mu(Z+n)=\mu(Z)$. By induction on $n$, it suffices to show for the
-    case $n=1$.
+    $\mu(X+n)=\mu(X)$. By induction on $n$, it suffices to show for the
+    case $n=1$. Let $U\in[0,1]$ be an open neighborhood of
+    $\mu(X+1)$. Since ultrafilters are
+    closed under upward inclusion, we can assume without loss of generality
+    that $U=B_\epsilon(\mu(X+1))$ for some $\epsilon>0$.
 \end{enumerate}
 \end{document}
