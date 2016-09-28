@@ -194,5 +194,19 @@
     form an open cover of $V$, by compactness $V=\cup_{k=1}^n[Y_{i_k}]$ for
     some finite $n\in\mathbb{N}$. Then from the above claim,
     $V=[\cup_{k=1}^nY_{i_k}]$, which is the form we require.
+
+  \item Consider the map $F:\beta X\rightarrow C$,
+    $\mathcal{U}\mapsto\lim_{\mathcal{U}}f$. This map is well-defined by
+    Fact 4.9. \\
+
+    We first show that $F$ extends $f$. Given $x\in X$, we need to show
+    that $F(\mathcal{F}_x)=\lim_{\mathcal{F}_x}f=f(x)$. By Fact 4.9, it
+    suffices to show that for every open set $U\in C$ containing $f(x)$,
+    $f^{-1}(U)$ is contained in $\mathcal{F}_x$. This is true since $x\in
+    f^{-1}(U)$. \\
+
+    Next we show that there can only be one possible extension of $f$, if
+    any. This follows from the density of $\{\mathcal{F}_x:x\in X\}$ in
+    $\beta X$.
 \end{enumerate}
 \end{document}
