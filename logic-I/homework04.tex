@@ -116,5 +116,27 @@
         \\
         &\leftrightarrow\mathcal{M}\models\exists y\; \varphi(j(\bar{a}),y). & \\
     \end{align*}
+
+  \item Assume that ultrafilter $\mathcal{F}$ does not contain the Frechet
+    filter. Then there must exist some cofinite set
+    $A=I\setminus\{a_1,\ldots,a_n\}$ that is not in $\mathcal{F}$. Now
+    ultrafilters must contain any given subset or its complement (Theorem
+    4.3), so $\mathcal{F}$ must contain $B=\{a_1,\ldots,a_n\}$. We show by
+    induction on $n$ that $\mathcal{F}$ must contain some $\{a_i\}$:
+    $\mathcal{F}$ must contain either $\{a_1,\ldots,a_{n-1}\}$ or $\{a_n\}$
+    otherwise $\mathcal{F}$ contains $I\setminus\{a_1,\ldots,a_{n-1}\}$ and
+    $I\setminus\{a_n\}$, and from closure under intersection, when these
+    two sets intersect with $B$, we get $\mathcal{F}$ contains both
+    $\{a_1,\ldots,a_{n-1}\}$ and $\{a_n\}$, which means $\mathcal{F}$
+    contains $\emptyset$, a contradiction. Hence $\mathcal{F}$ contains
+    some $\{a_i\}$ and therefore is a superset of $\mathcal{F}_{a_i}$.
+    Since $\mathcal{F}_{a_i}$ is an ultrafilter and ultrafilters are
+    maximal, $\mathcal{F}$ must be the principal ultrafilter
+    $\mathcal{F}_{a_i}$. \\
+
+    Conversely, if $\mathcal{F}=\mathcal{F}_a$ is principal, then it
+    contains the finite set $\{a\}$ and from Theorem 4.3 cannot contain the
+    cofinite set $I\setminus\{a\}$, therefore $\mathcal{F}$ cannot contain
+    the Frechet filter.
 \end{enumerate}
 \end{document}
