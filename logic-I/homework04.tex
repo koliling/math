@@ -255,7 +255,7 @@
     U_y$. Then $U_z$ is contained in $\mathcal{U}$ since filters are closed
     under finite intersections. Hence, for each $k\in U_z$, $f_{X\sqcup
     Y}(k)=f_X(k)+f_Y(k)$ must lie within $B_\epsilon(z)$. Therefore
-    $\mu^{-1}(B_\epsilon(z)$ is a superset of $U_z\in\mathcal{U}$, and must
+    $\mu^{-1}(B_\epsilon(z))$ is a superset of $U_z\in\mathcal{U}$, and must
     also be contained in $\mathcal{U}$ by closure of ultrafilters under
     upward inclusion. Since $U$ was arbitrary, we have shown that
     $\mu(Z)=\lim_\mathcal{U}f_{X\sqcup Y}=\mu(X)+\mu(Y)$, as required. This
@@ -283,9 +283,17 @@
     Next we show that $\mu$ is translation invariant. We need to show that
     for any $n\in\mathbb{Z}$ and any $X\subset\mathbb{Z}$, we have
     $\mu(X+n)=\mu(X)$. By induction on $n$, it suffices to show for the
-    case $n=1$. Let $U\in[0,1]$ be an open neighborhood of
-    $\mu(X+1)$. Since ultrafilters are
-    closed under upward inclusion, we can assume without loss of generality
-    that $U=B_\epsilon(\mu(X+1))$ for some $\epsilon>0$.
+    case $n=1$. Let $U\in[0,1]$ be an open neighborhood of $\mu(X+1)$.
+    Since ultrafilters are closed under upward inclusion, we can assume
+    without loss of generality that $O=B_{1/m}(\mu(X+1))$ for some
+    $m\in\mathbb{N}^+$. Consider $O'=B_{1/2m}(\mu(X))$. Now
+    $U'=\mu^{-1}(O')$ is contained in $\mathcal{U}$, and for each $k\in
+    U'$, $f_X(k)$ lies within $O'$. Observe that for $k>2m$,
+    $|f_X(k)-f_{X+1}(k)|<1/2m$. Hence for $k\in U'-\{1,\ldots,2m\}$,
+    $f_{X+1}(k)$ will lie within $O$. Let
+    $U=U'-\{1,\ldots,2m\}\subset\mathcal{N}$. Then $U\in\mathcal{U}$
+    because $U'\in\mathcal{U}$ and
+    $\mathcal{N}-\{1,\ldots,2m\}\in\mathcal{U}$ since $\mathcal{U}$
+    contains the Frechet filter from question 3.
 \end{enumerate}
 \end{document}
