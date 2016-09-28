@@ -176,5 +176,23 @@
     $\mathcal{F}$ to an ultrafilter $\mathcal{U}$. Then since
     $Y_i\in\mathcal{U}$ for every $i\in I$, $\mathcal{U}$ is contained in
     $\cap_{i\in I}[Y_i]$, which completes the proof.
+
+  \item We first claim that given a finite set of subsets
+    $Y_1,\ldots,Y_n\subseteq X$, we have
+    $\cup_{k=1}^n[Y_k]=[\cup_{k=1}^nY_k]$: By induction on $n$, it suffices
+    to prove the case for $n=2$.  $[Y_1]\cup[Y_2]\subseteq[Y_1\cup Y_2]$
+    from the upward closure property of ultrafilters. For the reverse
+    inclusion, let $\mathcal{U}$ be an ultrafilter that contains $Y_1\cup
+    Y_2$. Assume by contradiction that $\mathcal{U}$ but does not contain
+    $Y_1$ or $Y_2$. Then $\mathcal{U}$ contains $X\setminus Y_1$, and
+    $X\setminus Y_2$, and intersecting these two sets with $Y_1\cup Y_2$,
+    we get $\emptyset\in\mathcal{U}$, a contradiction. \\
+  
+    Let $V\subseteq\beta X$ be open and closed. Then $V=\cup_{i\in
+    I}[Y_i]$ for some subsets $Y_i\subseteq X$. Now $V$ is closed subset of
+    a compact space, so it must also be compact. Then since the $[Y_i]$'s
+    form an open cover of $V$, by compactness $V=\cup_{k=1}^n[Y_{i_k}]$ for
+    some finite $n\in\mathbb{N}$. Then from the above claim,
+    $V=[\cup_{k=1}^nY_{i_k}]$, which is the form we require.
 \end{enumerate}
 \end{document}
