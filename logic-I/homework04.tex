@@ -20,20 +20,33 @@
     language $\{+,<,0,1\}$. For each $n\in\mathbb{N}^+$, let $\varphi_n$ be
     the sentence 
     \begin{equation*}
-      \varphi_n := 1 > \underbrace{c+\ldots+c}_{n\,\text{times}}.
+      \varphi_n := \neg\,(1 < \underbrace{c+\ldots+c}_{n\,\text{times}}).
     \end{equation*}
-    Then $T\cup\{\varphi_n:n\in\mathbb{N}^+\}$ is finitely satisfiable by
-    $\mathbb{Q}$: Given \TODO{Finish typing this proof.}
+    Then $T'=T\cup\{\varphi_n:n\in\mathbb{N}^+\}\cup\{\neg c=0\}$ is
+    finitely satisfiable by $\mathbb{Q}$: Given any finite subset $S\subset
+    T'$, let $N\in\mathbb{N}^+$ be the largest natural number such that
+    $\varphi_N$ appears in $S$. Then $\mathbb{Q}$ would satisfy $S$ with
+    $c$ assigned to $1/(N+1)$. Hence by compactness theorem,
+    $T'$ is satisfiable and has a model $\mathcal{M}$. Now in the original
+    language $\mathcal{L}$, $\mathcal{M}$ is elementarily equivalent to
+    $\mathbb{Q}$ because $\mathcal{M}\models T$, and $T$ is a complete
+    theory in language $\mathcal{L}$. Also, $\mathcal{M}$ is not
+    archimedian because in $\mathcal{M}$, no finite sum of $c$ is greater
+    than 1.
 
   \item In language $\mathcal{L}=\{<\}$, let
     $T=Th(\langle\mathbb{Z},<\rangle)$ be the complete theory of
     $\mathbb{Z}$. Consider the expanded language $\mathcal{L}(\mathbb{Q})$
     and the sentences $S=\{c_a<c_b|\; a,b\in\mathbb{Q}, a<b\}\cup\{c_a\neq
     c_b|\; a,b\in\mathbb{Q}, a<b\}$. We show that $T\cup S$ is finitely
-    satisfiable in the new language $\mathcal{L}(\mathbb{Q})$: \TODO{Expand
-    this routine proof.} Hence by compactness theorem, $T\cup S$ is
-    satisfiable, and has a model $\mathcal{M}$. We show that $\mathcal{M}$
-    satisfies the required criteria. \\
+    satisfiable in the new language $\mathcal{L}(\mathbb{Q})$: Given any
+    finite subset $S'\subset T\cup S$, $\mathbb{Z}$ will satisfy $S'$ as
+    long as we assign the constants in an order-preserving manner. Assuming
+    that $c_{a_1}<\ldots<c_{a_n}$ are the constants that appear in $S'$, we
+    can assign $c_{a_i}$ to $i\in\mathbb{Z}$. This assignment will ensure
+    that $\mathbb{Z}$ satisfies $S'$. Hence by compactness
+    theorem, $T\cup S$ is satisfiable, and has a model $\mathcal{M}$. We
+    show that $\mathcal{M}$ satisfies the required criteria. \\
 
     First we show that in the original language $\mathcal{L}=\{<\}$,
     $\mathbb{Q}$ can be embedded into $\mathcal{M}$. Consider the map
