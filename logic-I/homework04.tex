@@ -256,16 +256,18 @@
     under finite intersections. Hence, for each $k\in U_z$, $f_{X\sqcup
     Y}(k)=f_X(k)+f_Y(k)$ must lie within $B_\epsilon(z)$. Therefore
     $\mu^{-1}(B_\epsilon(z)$ is a superset of $U_z\in\mathcal{U}$, and must
-    also be contained in $\mathcal{U}$. Since $U$ was arbitrary, we have
-    shown that $\mu(Z)=\lim_\mathcal{U}f_{X\sqcup Y}=\mu(X)+\mu(Y)$, as
-    required. This map is well-defined by Fact 4.9. \\
+    also be contained in $\mathcal{U}$ by closure of ultrafilters under
+    upward inclusion. Since $U$ was arbitrary, we have shown that
+    $\mu(Z)=\lim_\mathcal{U}f_{X\sqcup Y}=\mu(X)+\mu(Y)$, as required. This
+    map is well-defined by Fact 4.9. \\
 
     We use the above claim to prove that $\mu$ is a finitely additive
-    probability measure on $\mathbb{Z}$. It is routine to show that
-    $\mu(\emptyset)=0$ and $\mu(\mathbb{Z})=1$. Now since for disjoint
-    $A,B\subset\mathbb{Z}$, $\mu(A\sqcup B)=\mu(A)+\mu(B)$, we also have
-    for $Y\subset X\subset\mathbb{Z}$, $\mu(X-Y)=\mu(X)-\mu(Y)$.
-    Hence, for arbitrary $X,Y\subset\mathbb{Z}$, since
+    probability measure on $\mathbb{Z}$. By chasing definitions it is
+    routine to verify that $\mu(\emptyset)=0$ and $\mu(\mathbb{Z})=1$. Now
+    since for disjoint $A,B\subset\mathbb{Z}$, $\mu(A\sqcup
+    B)=\mu(A)+\mu(B)$, we also have for $Y\subset X\subset\mathbb{Z}$,
+    $\mu(X-Y)=\mu(X)-\mu(Y)$.  Hence, for arbitrary $X,Y\subset\mathbb{Z}$,
+    since
     \begin{equation*}
       X\cup Y = (X-X\cup Y)\sqcup(X\cup Y)\sqcup(Y-X\cup Y),
     \end{equation*}
@@ -277,5 +279,10 @@
     \end{align*}
     which completes the proof that $\mu$ is a finitely additive probability
     measure. \\
+
+    Next we show that $\mu$ is translation invariant. We need to show that
+    for any $n\in\mathbb{Z}$ and any $X\subset\mathbb{Z}$, we have
+    $\mu(Z+n)=\mu(Z)$. By induction on $n$, it suffices to show for the
+    case $n=1$.
 \end{enumerate}
 \end{document}
