@@ -149,7 +149,7 @@
     $[U]$ and $[X\setminus U]$ respectively. \\
 
     Now we show that $\beta X$ is compact. First, we show that
-    $\mathcal{S}=\{[Y]:Y\subseteq X\}$ is a basic closed basis of $\beta
+    $\mathcal{S}=\{[Y]:Y\subseteq X\}$ is a basis for the closed sets of $\beta
     X$, i.e. any closed set of $\beta X$ is an intersection of sets in
     $\mathcal{S}$: The sets in $\mathcal{S}$ are both closed and open by
     Theorem 4.11.3. Since $\mathcal{S}$ form a basis of the topology, any
@@ -161,7 +161,20 @@
     \\
 
     To show that a space is compact is equivalent to proving that any set
-    $\mathcal{S}=\{V_i\}_{i\in I}$ of closed sets whose intersection is
-    empty must have a finite subset whose intersection is empty.
+    $\mathcal{C}=\{V_i\}_{i\in I}$ of closed sets whose intersection is
+    empty must have a finite subset whose intersection is empty. Assume
+    that any finite subset of $\mathcal{C}$ is non-empty. We wish to show
+    that the intersection of $\mathcal{C}$ is also non-empty. Since
+    $\mathcal{S}$ is a basis of the closed sets in $\beta X$, we can assume
+    that each $V_i=[Y_i]$ for some $Y_i\subset X$. We construct a filter
+    $\mathcal{F}$ using the finite intersection property of $\mathcal{C}$,
+    i.e.
+    \begin{equation*}
+      \mathcal{F} := \{\bigcap_{k=1}^n Y_{i_k}:\; i_k\in I\} \cup \{X\}.
+    \end{equation*}
+    It is routine to verify that $\mathcal{F}$ is a filter. We extend
+    $\mathcal{F}$ to an ultrafilter $\mathcal{U}$. Then since
+    $Y_i\in\mathcal{U}$ for every $i\in I$, $\mathcal{U}$ is contained in
+    $\cap_{i\in I}[Y_i]$, which completes the proof.
 \end{enumerate}
 \end{document}
