@@ -226,6 +226,18 @@
     $\mathcal{O}\subset\beta X$ of $\mathcal{U}$ such that
     $F(\mathcal{O})\subset V$. By compact Hausdorff property of $C$, $V$
     must contain some open set $U$ such that $\bar{U}\subset V$ and
-    $f(\mathcal{U})\in U$.
+    $f(\mathcal{U})\in U$. Now since $F(\mathcal{U})=\lim_{\mathcal{U}}f$,
+    $f^{-1}(U)\subset X$ must be contained in $\mathcal{U}$. Consider
+    $\mathcal{O}=[f^{-1}(U)]$. Since $f^{-1}(U)\in\mathcal{U}$,
+    $\mathcal{O}$ is an open neighborhood of $\mathcal{U}$. We show that
+    $F(\mathcal{O})\subset\bar{U}\subset V$. Assume by contradiction that
+    there is some $\mathcal{A}\in\mathcal{O}$ such that $F(\mathcal{A})$
+    lies outside $\bar{U}$. Since $\mathcal{A}\in\mathcal{O}=[f^{-1}(U)]$,
+    $\mathcal{A}$ must contain $f^{-1}(U)$. On the other hand,
+    $F(\mathcal{A})=\lim_{\mathcal{A}}f$ lies in the open set
+    $C\setminus\bar{U}$, which means that $\mathcal{A}$ also contains
+    $f^{-1}(C\setminus\bar{U})$. Since $U$ and $C\setminus\bar{U}$ are
+    disjoint, their pre-images under $f$ must also be disjoint, implying
+    that $\mathcal{A}$ contains the empty set, a contradiction.
 \end{enumerate}
 \end{document}
