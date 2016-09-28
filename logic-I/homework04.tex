@@ -149,13 +149,19 @@
     $[U]$ and $[X\setminus U]$ respectively. \\
 
     Now we show that $\beta X$ is compact. First, we show that
-    $\mathcal{C}=\{[Y]:Y\subseteq X\}$ is a basic closed basis of $\beta
+    $\mathcal{S}=\{[Y]:Y\subseteq X\}$ is a basic closed basis of $\beta
     X$, i.e. any closed set of $\beta X$ is an intersection of sets in
-    $\mathcal{C}$.
+    $\mathcal{S}$: The sets in $\mathcal{S}$ are both closed and open by
+    Theorem 4.11.3. Since $\mathcal{S}$ form a basis of the topology, any
+    closed set of $\beta X$ must be the complement of a union of sets in
+    $\mathcal{S}$, which is the same as the intersection of the complements
+    of sets in $\mathcal{S}$. Then since $\beta X-[Y]=[X-Y]$ by Theorem
+    4.3, the complement of a set in $\mathcal{S}$ also lies in
+    $\mathcal{S}$, hence $\mathcal{S}$ forms a closed basis of $\beta X$.
+    \\
 
-    This is equivalent to proving
-    that any set $\mathcal{S}=\{V_i\}_{i\in I}$ of closed sets whose
-    intersection is empty must have a finite subset whose intersection
-    is empty.
+    To show that a space is compact is equivalent to proving that any set
+    $\mathcal{S}=\{V_i\}_{i\in I}$ of closed sets whose intersection is
+    empty must have a finite subset whose intersection is empty.
 \end{enumerate}
 \end{document}
