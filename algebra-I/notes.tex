@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage{color}
+%\setlength{\parindent}{0mm}
+
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newtheorem{mydef}{Definition}[section]
+
+\begin{document}
+\title{Graduate Algebra I Notes}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\section{Basic}
+\begin{mydef}
+  Given a group $G$ and an element $a\in G$, a \emph{stabilizer} of $a$ in
+  $G$ is the subgroup
+  \begin{equation*}
+    \{g\in G|\; ga=a\}.
+  \end{equation*}
+\end{mydef}
+
+\begin{mydef}
+  For a given group $G$ and its action on a set $X$, we say $G$ acts
+  \emph{faithfully} on $X$ if the only group element whose action is
+  identity is the group identity $1_G$.
+\end{mydef}
+
+\end{document}
