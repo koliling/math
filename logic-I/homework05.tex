@@ -42,6 +42,41 @@
       isomorphic to $G$, the group $\mathbb{Z}_2\times\mathbb{Z}_2$.
     \end{proof}
 
+  \item Let $\mathcal{N}=\langle\mathbb{N},+,\cdot,0,1\rangle$ and let
+    $\mathcal{N}^*=\mathcal{N}^\omega/\mathcal{U}$, where $\mathcal{U}$ is
+    a non-principal ultrafilter on $\omega$. Using Claim 4.19 we may view
+    $\mathcal{N}$ as an elementary substructure of $\mathcal{N}^*$. Show
+    that there is an element $\alpha\in\mathbb{N}^*$ that is divisible by
+    every prime $p\in\mathbb{N}$.
+
+    \begin{proof}
+      Let $\alpha=\overline{\sigma}\in\mathbb{N}^*$, where
+      $\sigma\in\mathbb{N}^\omega$ is defined by $\sigma(i)=i!$ for
+      $i\in\omega$ (taking 0!=1).
+
+      We show that $\alpha$ is divisible by every prime in $\mathbb{N}$.
+      Given a prime $p\in\mathbb{N}$, first notice that $p$ as an element
+      in $\mathcal{N}^*$ can be represented by
+      $\alpha_p=\overline{\sigma_p}\in\mathcal{N}^*$, where
+      $\sigma_p\in\mathbb{N}^\omega$ is defined as:
+      \begin{equation*}
+        \sigma_p(i) :=
+        \begin{cases}
+          1 & \text{if}\; i<p \\
+          p & \text{if}\; i\geq p
+        \end{cases}.
+      \end{equation*}
+      Then $\overline{\sigma_p}$ is equivalent to $\alpha_p$ in
+      $\mathcal{N}^*$ because $\mathcal{U}$ contains the Frechet filter
+      (since $\mathcal{U}$ is not principal, and we have proven in earlier
+      homework that non-principal filters must contain the Frechet filter),
+      and $\sigma_p(i)$ is only not $p$ for a finite number of $i$'s in
+      $\omega$. Also, $\alpha=\overline{\sigma}$ divides
+      $\alpha_p=\overline{\sigma_p}$ because $\sigma(i)$ divides
+      $\sigma_p(i)$ for each $i\in\omega$. Hence $\alpha$ is a multiple of
+      $\alpha_p$ for each prime $p$ in $\mathbb{N}$.
+    \end{proof}
+
   \item Show that the class of infinite fields is not finitely
     axiomatizable.
     \begin{proof}
