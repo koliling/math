@@ -89,7 +89,7 @@
     elements of $\mathcal{K}$.
 
     \begin{proof}
-      \Rightarrow: This is the easier direction. Assume that $\mathcal{M}$
+      $\Rightarrow$: This is the easier direction. Assume that $\mathcal{M}$
       is elementarily equivalent to an ultraproduct of elements of
       $\mathcal{K}$. Let $\varphi$ be any sentence in
       $\text{Th}(\mathcal{K})$. We wish to show that $\mathcal{M}$
@@ -99,7 +99,15 @@
       elementarily equivalent to the ultraproduct, $\mathcal{M}$ will also
       satisfy $\varphi$. \\
 
-      \Leftarrow:
+      $\Leftarrow$: Let $\mathcal{M}\models\text{Th}(\mathcal{K})$. We
+      first show that given any finite theory $T_0$, if $\mathcal{M}\models
+      T_0$ then $\mathcal{N}\models T_0$ for some
+      $\mathcal{N}\in\mathcal{K}$: Let $\varphi_0$ be the conjunction of
+      the sentences in $T_0$. If no model in $\mathcal{K}$ satisfies
+      $\varphi_0$, then all models in $\mathcal{K}$ will satisfy
+      $\neg\varphi_0$, and so $\neg\varphi_0\in\text{Th}(\mathcal{K})$,
+      which implies that $\mathcal{M}\models\neg\varphi_0$, a
+      contradiction. \\
     \end{proof}
 
   \item Show that the class of infinite fields is not finitely
