@@ -149,7 +149,25 @@
       $S$ can contain both $\varphi$ and $\neg\varphi$ from because
       theories in $S$ are consistent. Hence the space is Hausdorff. \\
 
-      Next we show compactness.
+      Next we show compactness. Let $\Phi=\{\mathcal{O}_\alpha\}_{\alpha\in
+      A}$ be an open cover of $S$. We can assume that each open set
+      $\mathcal{O}_\alpha$ is of the form $\mathcal{O}_{\varphi}$ for some
+      sentence $\varphi_\alpha$ since the $\mathcal{O}_\varphi$ form a
+      basis for the topology. Assume by contradiction that there no finite
+      subset of $\Phi$ will cover $S$. This means that for every finite
+      subset
+      $\{\mathcal{O}_{\alpha_1},\ldots,\mathcal{O}_{\alpha_n}\}\subset\Phi$,
+      there is consistent and complete $\mathcal{L}$-theory $T$ that does
+      not contain any of $\mathcal{O}_{\alpha_i}$, or equivalently,
+      $\neg\mathcal{O}_{\alpha_1}\wedge\ldots\wedge\neg\mathcal{O}_{\alpha_n}$
+      is satisfiable. Hence,
+      $\neg\Phi:=\{\neg\mathcal{O}_\alpha\}_{\alpha\in A}$ is finitely
+      satisfiable, so by compactness theory, has a model $\mathcal{M}$.
+      Now $\text{Th}(\mathcal{M})$ is contained in $S$, and this theory
+      contains every sentence in $\neg\Phi$. Hence $\text{Th}(\mathcal{M})$
+      does not contain any sentence in therefore no sentence in $\Phi$ and
+      so cannot be covered by $\Phi$, contradicting $\Phi$ being an open
+      cover of $S$.
     \end{proof}
 
   \item Show that the class of infinite fields is not finitely
