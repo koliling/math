@@ -1,0 +1,20 @@
+Section 4.3 Question 13:
+Find all finite groups which have exactly two conjugacy classes.
+
+\begin{proof}
+  Let $G$ be a finite group with exactly two conjugacy classes. Then the
+  center $Z(G)$ of $G$ cannot have more than two elements, because each
+  element $z$ of $Z(G)$ gives a conjugacy class $\{z\}$. If the center has
+  two elements $Z(G)=\{1,z\}$, then by che class equation, $G$ must be
+  $Z(G)$ itself, which means $G$ is isomophic to $\mathbb{Z}_2$. Finally,
+  if $Z(G)$ has only one element, then by the class equation,
+  \begin{align*}
+    G = \{1\} \cup \kappa,
+  \end{align*}
+  where $\kappa=\{g_1,\ldots,g_n\}$ is the only non-trivial conjugancy
+  class of $G$. Now from Propositon 6 of Section 4.3,
+  $n=|\kappa|=|G:C_G(\kappa)|$, hence $n=|\kappa|$ must divide $|G|=n+1$.
+  This is only possible if $n=1$. Then $G=\{1,g_1\}$, which will be
+  isomorphic to $\mathbb{Z}_2$. Hence the only finite group with exactly
+  two conjugacy classes is $\mathbb{Z}_2$ up to isomorphism.
+\end{proof}

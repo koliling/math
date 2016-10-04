@@ -1,0 +1,68 @@
+Extra Credit - Section 3.4 Question 11: Prove that if $H$ is a
+nontrivial normal subgroup of the solvable group $G$ then there is a
+nontrivial subgroup $A$ of $H$ with $A\triangleleft G$ and $A$ abelian.
+
+\begin{proof}
+  Let $G$ be a solvable group and $H$ be a nontrivial normal subgroup of
+  $G$. Let $A$ be the minimal normal subgroup of $G$ that is contained in
+  $H$. We can get $A$ as the intersection of all normal subgroups of $G$
+  contained in $H$ - this will be a normal subgroup because an intersection
+  of an arbitrary collection of normal subgroups is normal, and this will
+  be minimal by definition. $A$ is contained in $H$ and is normal, so it
+  remains to show that $A$ is abelian. \\
+
+  First, because $G$ is solvable, it must have a subnormal series
+  \begin{align*}
+    1=N_0 \triangleleft N_1\triangleleft\ldots\triangleleft
+    N_{s-1}\triangleleft N_s=G,
+  \end{align*}
+  such that $N_{i+1}/N_i$ is abelian. Consider the intersection of $A$ with
+  this series. This intersection will also be a subnormal
+  series of $A$ that witnesses the solvability of $A$: $(A\cap
+  N_i)\triangleleft(A\cap N_{i+1})$ follows from the second and third
+  isomorphism theorems, and $(A\cap N_{i+1})/(A\cap N_i)$ is abelian because
+  $N_{i+1}/N_i$ is. \\
+
+  Let $N$ be the maximal $A\cap N_i$ in the subnormal series of $A$ that is
+  contained strictly within $A$. If $N$ does not exist then $A$ must be
+  abelian and we would be done. Otherwise we have $N\triangleleft A$ and
+  $A/N$ is abelian. Consider the conjugates $gNg^{-1}$ of $N$ for each
+  $g\in G$. Given any $x,y\in A$, we show that
+  $x^{-1}y^{-1}xy$ is contained in $gNg^{-1}$ for all $g\in G$. From
+  Exercise 40 of Section 3.1, it suffices to show that each conjugate
+  subgroup $gNg^{-1}$ is a normal in $A$ and that $A/(gNg^{-1})$ is
+  abelian. Note that each $gNg^{-1}$ is contained in $A$ since $A$ is a
+  normal subgroup of $G$ and $N$ is contained in $A$.  For any $g\in G$,
+  $gNg^{-1}$ is normal in $A$ because given any $a\in A$,
+  \begin{align*}
+    a(gNg^{-1})a^{-1} &= (ag)N(ag)^{-1} & \\
+                      &= (ga_0)N(ga_0)^{-1} & (ag=ga_0\; \text{for some}\,
+                      a_0\in A\; \text{because}\; Ag=gA) \\
+                      &= g(a_0Na_0^{-1})g^{-1} & \\
+                      &= gNg^{-1} & (\because N\triangleleft A). \\
+  \end{align*}
+  Also, $A/(gNg^{-1})$ is abelian because given any $a_1,a_2\in A$,
+  \begin{align*}
+    a_1(gNg^{-1})a_2(gNg^{-1})
+                      &= a_1gNg^{-1}(a_2g)Ng^{-1} & \\
+                      &= a_1gNg^{-1}(gb_2)Ng^{-1} & (a_2g=gb_2\; \text{for
+                      some}\, b_2\in A\; \text{because}\; Ag=gA) \\
+                      &= a_1gNb_2Ng^{-1} & \\
+                      &= gb_1Nb_2Ng^{-1} & (a_1g=gb_1\; \text{for
+                      some}\, b_1\in A\; \text{because}\; Ag=gA) \\
+                      &= gb_2Nb_1Ng^{-1} & (b_1Nb_2N=b_2Nb_1N\;
+                      \text{because}\; A/N\; \text{is abelian}) \\
+                      &= (gb_2)Ng^{-1}(gb_1)Ng^{-1} & \\
+                      &= (a_2g)Ng^{-1}(a_1g)Ng^{-1} & \\
+                      &= a_2(gNg^{-1})a_1(gNg^{-1}). & \\
+  \end{align*}
+
+  Let $M=\cap_{g\in G}gNg^{-1}$ be the intersection of the conjugates of
+  $N$. From Theorem 3.3 of Section 4.2, $M$ is a normal subgroup of $G$.
+  Also from definition of $M$, $M$ is contained in $N$ and hence is
+  strictly contained in $A$. So from minimality of $A$ in $G$, $M$ must be
+  the trivial group $\{1\}$. Then from argument in the previous paragraph,
+  given $x,y\in A$, we have $x^{-1}y^{-1}xy\in M$, which means
+  $x^{-1}y^{-1}xy=1$, which means $xy=yx$, implying that $A$ is abelian, as
+  we are required to show.  \\
+\end{proof}

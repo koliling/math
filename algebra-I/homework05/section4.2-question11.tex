@@ -1,0 +1,28 @@
+Section 4.2 Question 11:
+Let $G$ be a finite group and let $\pi:G\rightarrow S_G$ be the left
+regular representation. Prove that if $x$ is an element of $G$ of order $n$
+and $|G|=mn$, then $\pi(x)$ is a product of $m$ $n$-cycles. Deduce that
+$\pi(x)$ is an odd permutation if and only if $|x|$ is even and $|G|/|x|$
+is odd.
+
+\begin{proof}
+  List the right cosets of $\langle x\rangle$ in $G$ as $\langle
+  x\rangle,\langle x\rangle g_2,\ldots,\langle x\rangle g_{m-1}$. For
+  each of these cosets
+  \begin{equation*}
+    \langle x\rangle g_{k} = \{g_k,xg_k,\ldots,x^{n-1}g_k\},
+  \end{equation*}
+  which left group action by $x$ the coset becomes
+  \begin{equation*}
+    \{xg_k,x^2g_k,\ldots,g_k\} = \langle x\rangle g_{k}.
+  \end{equation*}
+  Hence left group acton by $x$ cycles the elements within each coset as an
+  $n$-cycle $(12\ldots n)$, and since the cosets are pairwise disjoint,
+  $\pi(x)$ is a product of $m$ disjoint $n$-cycle, where one cycle is for one
+  right coset $\langle x\rangle g_{k}$. \\
+
+  From Proposition 35 of Section 3.5, a permutation is odd if and only if
+  the number of cycles of even length in its cycle decomposition is odd.
+  Hence $\pi(x)$ is an odd permutation if and only if $n=|x|$ is even and
+  $m=|G|/|x|$ is odd.
+\end{proof}

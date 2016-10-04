@@ -1,0 +1,30 @@
+Section 4.3 Question 3c:
+Find all the conjugacy classes and their sizes in $\mathbb{Z}_3\times A_4$.
+
+\begin{proof}
+  We notice that given groups $A$ and $B$, and an element $(x,y)\in A\times
+  B$, the conjugancy class $\kappa((x,y))$ of $(x,y)$ is
+  \begin{align*}
+    \kappa((x,y)) &= \{(a,b)(x,y)(a^{-1},b^{-1}):\; a\in A,\, b\in B\} \\
+                  &= \{(axa^{-1},byb^{-1}):\; a\in A,\, b\in B\} \\
+                  &= \kappa(x)\times \kappa(y). \\
+  \end{align*}
+  Hence the distinct conjugancy classes of $A\times B$ are all
+  $\kappa_{A_i}\times\kappa_{B_j}$, where $\kappa_{A_i}$ are the distinct
+  conjugancy classes of $A$ and $\kappa_{B_j}$ are the distinct conjugancy
+  classes of $B$. \\
+
+  Since $\mathbb{Z}_3$ is abelian, its conjugancy classes are elements
+  itself given by $\lambda_1=\{\bar{0}\}$, $\lambda_2=\{\bar{1}\}$, and
+  $\lambda_3=\{\bar{2}\}$. As for $A_4$, we have computed its conjugacy
+  classes in Question 2 of Section 4.3, and we list them below:
+  \begin{align*}
+    \kappa_1 &:= \{(1)\} \\
+    \kappa_2 &:= \{(12)(34),(13)(24),(14)(23)\} \\
+    \kappa_3 &:= \{(234),(123),(142),(134)\} \\
+    \kappa_4 &:= \{(243),(132),(143),(124)\}. \\
+  \end{align*}
+  Hence $\mathbb{Z}_3\times A_4$ has exactly $3\times 4=12$ conjugancy
+  classes given by $\{\bar{i}\}\times\kappa_j$, for $i\in\{0,1,2\}$ and
+  $j\in\{1,2,3,4\}$.
+\end{proof}

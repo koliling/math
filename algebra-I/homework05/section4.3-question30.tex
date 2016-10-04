@@ -1,0 +1,24 @@
+Section 4.3 Question 30:
+If $G$ is a group of odd order, prove for any nonidentity element $x\in G$
+that $x$ and $x^{-1}$ are not conjugate in $G$.
+
+\begin{proof}
+  Let $G$ be a group of odd order with a nonidentity element $x\in G$ whose
+  inverse is conjugate with itself. Let $\kappa(x)$ be the conjugancy class
+  of $x$. We first show that $\kappa(x)$ is closed under inverses. Given
+  $y\in\kappa(x)$, we have $y=gxg^{-1}$ for some $g\in G$. Then
+  $y^{-1}=gx^{-1}g^{-1}$, which will also be in $\kappa(x)$ because
+  $x^{-1}$ is in $\kappa(x)$. Hence $\kappa(x)$ is closed under inverses.
+  \\
+  
+  Now given any nonidentity element $g\in G$, the order of $g$ cannot be
+  two otherwise $\{1,g\}$ will be a subgroup of $G$, which would contradict
+  the order of the group since order of subgroups must divide the order of
+  the whole group. \\
+  
+  Hence each element $y$ in $\kappa(x)$ can be paired with its inverse
+  $y^{-1}$ also in $\kappa(x)$ and distinct from $y$, and since $\kappa(x)$
+  is finite, $\kappa(x)$ must have an even number of elements. But from
+  Proposition 6 of Section 4.3, the order of $\kappa(x)$ should divide the
+  order of $G$, which would contradict that $G$ has odd order.
+\end{proof}

@@ -1,0 +1,16 @@
+Section 4.2 Question 12:
+Let $G$ and $\pi$ be as in the preceding exercise. Prove that if $\pi(G)$
+contains an odd permutation then $G$ has a subgroup of index 2.
+
+\begin{proof}
+  For $\sigma\in S_n$, let $\epsilon(\sigma)$ denote the sign of the
+  permutation $\sigma$. By Proposition 23 of Chapter 3,
+  $\epsilon:S_n\rightarrow\{\pm1\}$ is a homomorphism. Consider the
+  composition $\epsilon\circ\pi:G\rightarrow\{\pm1\}$. This map is a
+  homomorphism since it is a composition of homomorphisms. Also, it is
+  surjective since $\pi(G)$ contains an odd permutation. Let
+  $N=\ker(\epsilon\circ\pi)$. By first isomorphism theorem and from
+  surjectivity of $\epsilon\circ\pi$, we have $G/N\cong\{\pm1\}$. Then
+  $[G:N]=|\epsilon\circ\pi(G)|=|\{\pm1\}|=2$, hence $N$ is a normal
+  subgroup of $G$ of index 2.
+\end{proof}

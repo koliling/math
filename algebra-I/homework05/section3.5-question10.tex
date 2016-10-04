@@ -1,0 +1,21 @@
+Section 3.5 Question 10:
+Find a composition series for $A_4$. Deduce that $A_4$ is solvable.
+\begin{proof}
+  Consider the chain of inclusions
+  \begin{equation*}
+    1 \leq \langle(12)(34)\rangle \leq \langle(13)(24),(12)(34)\rangle \leq
+    A_4.
+  \end{equation*}
+  We will show that this series is a solvable series. Now since
+  $[\langle(13)(24),(12)(34)\rangle:\langle(12)(34)\rangle]=2$, the smaller
+  subgroup must be a normal subgroup of the larger one (because its
+  non-trivial left coset must equal the non-trivial right coset). \\
+
+  Next, we show that $\langle(13)(24),(12)(34)\rangle$ is a normal subgroup
+  of $A_4$. Notice that this subgroup is the group of all permutations in
+  $S_4$ of partition type 2-2, hence by Proposition 11 of Section 4.3, this
+  group must be normal in $S_4$, and hence normal in $A_4$. \\
+
+  Hence the chain of inclusion is a subnormal series with prime composition
+  factors, so by Exercise 8(i)-(iii) of Section 3.4, $A_4$ is solvable.
+\end{proof}

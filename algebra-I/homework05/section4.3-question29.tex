@@ -1,0 +1,28 @@
+Section 4.3 Question 29:
+Let $p$ be a prime and let $G$ be a group of order $p^\alpha$. Prove that
+$G$ has a subgroup of order $p^\beta$ with $0\leq\beta\leq\alpha$.
+
+\begin{proof}
+  We prove by induction on $\alpha$. The case for $\alpha=1$ is trivially
+  true. Consider inductive step $\alpha+1$. Let $G$ be a group of order
+  $p^{\alpha+1}$. By Theorem 8 of Section 4.3, $G$ has a nontrivial center
+  $Z(G)$. If $|Z(G)|=|G|$, then $G$ is abelian. Then it must have an
+  element $h$ of order $p$: Otherwise pick any nonidentity element $g$; this
+  element must have order $p^\gamma$ for $\gamma>1$; then $g^{\gamma-1}$
+  will have order $p$. So the subgroup $N=\langle h\rangle$ will be a
+  non-trivial normal subgroup of $G$. On the other hand, if
+  $|Z(G)|\neq|G|$, let $N$ be $Z(G)$. In both abelian and non-abelian cases
+  we will have a non-trivial subgroup $N$ of $G$. \\
+
+  Now $|N|=p^\gamma$ for some $\gamma\leq\alpha$. So by induction
+  hypothesis, $N$ will contain subgroups of order $p^\beta$ with
+  $0\leq\beta\leq\gamma$. These subgroups will also be subgroups of $G$. It
+  remains to find subgroups of order $p^\beta$ with
+  $\gamma<\beta\leq\alpha+1$. Now $N\triangleleft G$, so $G/N$ is a
+  subgroup of order $p^{\alpha+1-\gamma}$. Then by induction hypothesis,
+  $G/N$ will contain subgroups $H_\beta$ of order $p^\beta$ with
+  $0\leq\beta\leq\alpha+1-\gamma$. By the third isomorphism theorem, each
+  $H_\beta$ is isomorphic to $G_\beta/N$ for some subgroup
+  $G_\beta\subset G$. Then $|G_\beta|=p^{\beta+\gamma}$, which will give us
+  the rest of the required subgroups.
+\end{proof}

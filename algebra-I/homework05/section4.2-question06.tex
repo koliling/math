@@ -1,0 +1,37 @@
+Section 4.2 Question 6:
+Let $r$ and $s$ be the usual generators for the dihedral group of order 8
+and let $N=\langle r^2\rangle$. List the left cosets of $N$ in $D_8$ as
+$1N$, $rN$, $sN$, and $srN$. Label these cosets with the integers 1,2,3,4
+respectively. Exhibit the image of each element of $D_8$ under the
+representation $\pi_N$ of $D_8$ into $S_4$ obtained from the action of
+$D_8$ by left multiplication on the set of 4 left cosets of $N$ in $D_8$.
+Deduce that this representation is not faithful and prove that $\pi_N(D_8)$
+is isomorphic to the Klein 4-group.
+
+\begin{proof}
+  $N=\langle r^2\rangle=\{1,r^2\}$. Under the given representation, $\pi_N$
+  can be summarized in the following table:
+  \begin{center}
+    \begin{tabular}{|l|l|}
+      \hline
+      $g\in D_8$ & $\pi_N(g)\in S_4$ \\
+      \hline\hline
+      $1$     & $(1)$ \\
+      $r$     & $(12)(34)$ \\
+      $r^2$   & $(1)$ \\
+      $r^3$   & $(12)(34)$ \\
+      $s$     & $(13)(24)$ \\
+      $sr$    & $(14)(23)$ \\
+      $sr^2$  & $(13)(24)$ \\
+      $sr^3$  & $(14)(23)$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+  This representation is not faithful since $\ker(\pi_N)\neq\{1\}$.
+  From the table, we have
+  \begin{equation*}
+    \pi_N(D_8)=\{(1),(12)(34),(13)(24),(14)(23)\}.
+  \end{equation*}
+  Each non-identity element has order 2, and the group has order 4, which
+  makes it isomorphic to the Klein-4 group.
+\end{proof}
