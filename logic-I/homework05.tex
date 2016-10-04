@@ -17,7 +17,16 @@
     \begin{proof}
       Let $T$ and $T^c$ be the set of sentences that axiomatize
       $\mathcal{K}$ and $\mathcal{K}^c$ respectively. Assume by
-      contradiction that $\mathcal{K}$ is not finitely axiomatizable. Then
+      contradiction that $\mathcal{K}$ is not finitely axiomatizable.
+      Consider $S=T\cup T^c$. We show that $T$ is finitely satisfiable:
+      Given any finite subset $A=A_0\cup A_1\subset S$, where $A_0\in T$ and
+      $A_1\in T^c$, there exists models $\mathcal{M}\in\mathcal{K}^c$ that
+      satisfy $A_0$ because $A_0$ does not axiomatize $\mathcal{K}$. Such
+      models will also satisfy $A_1$ since they satisfy $T^c$, hence these
+      models will satisfy $A$.
+
+      Thus by compactness theorem $T$ is satisfiable and should have a
+      model, which contradicts $\mathcal{K}\cap\mathcal{K}^c=\emptyset$.
     \end{proof}
 \end{enumerate}
 \end{document}
