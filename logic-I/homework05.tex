@@ -108,6 +108,27 @@
       $\neg\varphi_0$, and so $\neg\varphi_0\in\text{Th}(\mathcal{K})$,
       which implies that $\mathcal{M}\models\neg\varphi_0$, a
       contradiction. \\
+
+      Now similar to the proof of the compactness theorem via ultrafilters,
+      we build an ultraproduct $\mathcal{N}$ of structures from
+      $\mathcal{K}$ such that $\mathcal{N}\models\text{Th}(\mathcal{M})$:
+      Let $I$ be the set of all finite subsets of $\text{Th}(\mathcal{M})$.
+      For $i\in I$, let $i^*$ be the set of all elements in $I$ that
+      contain $i$. Then $B=\{i^*:i\in I\}$ is a filter base on $I$, hence
+      there is an ultrafilter $\mathcal{U}$ on $I$ containing all elements
+      of $B$. For each $i\in I$, let $\mathcal{N}_i$ be the model in
+      $\mathcal{K}$ that satisfies the finite set of sentences in
+      $\text{Th}(\mathcal{M})$.  $\mathcal{N}_i$ exists from the argument
+      in the preceding paragraph.  \\
+
+      Consider $\mathcal{N}:=\prod_i\mathcal{N}_i/\mathcal{U}$. We show
+      that $\mathcal{N}\models\text{Th}(\mathcal{M})$. Given any sentence
+      $\varphi\in\text{Th}(\mathcal{M})$, let $i$ be the index in $I$ that
+      is associated with the set $\{\varphi\}$. Then for all indices $j\in
+      i^*$, model $\mathcal{N}_j$ will satisfy $\varphi$. Hence the indices
+      in $I$ whose model satisfies $\varphi$ is a supserset of $i^*$, which
+      is contained in $\mathcal{U}$. So by Los's theorem, $\mathcal{N}$ also
+      satisfies $\varphi$, as required.
     \end{proof}
 
   \item Show that the class of infinite fields is not finitely
