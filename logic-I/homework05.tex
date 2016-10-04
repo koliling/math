@@ -31,41 +31,77 @@
 
   \item Show that the class of infinite fields is not finitely
     axiomatizable.
+    \begin{proof}
+      Assume by contradiction that the class of infinite fields is finitely
+      axiomatizable in the language $\mathcal{L}$. By taking conjunction of
+      sentences, we can assume without loss of generality that the class is
+      axiomatized by a single sentence $\varphi_{\text{inf}}$. Extend the
+      language if necessary to include $\{+,-,\cdot,^{-1},0,1\}$, and let
+      $\varphi_F$ be the sentence which axiomatizes fields, which can be
+      defined by the conjunction of the following sentences:
+      \begin{align*}
+        \forall a,b,c && (a+b)+c=a+(b+c)\; \wedge (a\cdot b)\cdot
+          c=a\cdot(b\cdot c)  && (\text{associativity}) \\
+        \forall a,b   && a+b=b+a\; \wedge a\cdot b=b\cdot a  &&
+          (\text{commutativity}) \\
+        \forall a,b,c && a\cdot(b+c)=a\cdot b+a\cdot c\; \wedge (a+b)\cdot
+          c=a\cdot c+b\cdot c  && (\text{distributivity}) \\
+        \forall a     && a+0=a=0+a\; \wedge a\cdot1=a=1\cdot a  &&
+          (\text{identity}) \\
+        \forall a     && a+(-a)=0=(-a)+a\; \wedge a\cdot
+          a^{-1}=1=a^{-1}\cdot a  && (\text{inverse}) \\
+      \end{align*}
+
+      Then $\neg\varphi_{\text{inf}}\wedge\varphi_F$ will axiomatize the
+      finite fields. For each $n\in\mathbb{N}^+$, consider the sentence
+      $\varphi_n$ which says ``I have at least $n$ distinct elements'',
+      defined by
+      \begin{align*}
+        \varphi_n := \exists x_1,\ldots,x_n\; \bigwedge_{1\leq i<j\leq n}
+        \neg x_i=x_j.
+      \end{align*}
+      Then because arbitrarily large finite fields exist (take
+      $\mathbb{F}_p$ for large enough primes $p$),
+      $\{\neg\varphi_{\text{inf}}\wedge\varphi_F\}\cup_{n\in\mathbb{N}^+}\varphi_n$
+      is finitely satisfiable, and by compactness should be satisfiable by
+      a field. However such a field is both finite and infinite, a
+      contradiction.
+    \end{proof}
 
   \item Let $\mathcal{M}$, $\mathcal{N}$ be first order
-  $\mathcal{L}$-structures with $\mathcal{M}\equiv\mathcal{N}$. Show that
-  there is an $\mathcal{L}$-structure $\mathcal{K}$ such that both
-  $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
-  $\mathcal{K}$. 
+    $\mathcal{L}$-structures with $\mathcal{M}\equiv\mathcal{N}$. Show that
+    there is an $\mathcal{L}$-structure $\mathcal{K}$ such that both
+    $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
+    $\mathcal{K}$. 
 
-  \begin{proof}
-    In the extended language $\mathcal{L}(M\sqcup N)$, where the constants
-    for $\mathcal{M}$ are disjoint from the constants for $\mathcal{N}$,
-    consider the theory $T=T_\mathcal{M}\cup T_\mathcal{N}$. We show that
-    $T$ is finitely satisfiable by $\mathcal{M}$ after reassigning some
-    constants of $\mathcal{N}$: Given a finite set of sentences
-    $S=S_M\cup S_N\subset T$ where $S_M\subset T_\mathcal{M}$ and
-    $S_N\subset T_\mathcal{N}$, we have $\mathcal{M}$ satisfies $S_M$
-    because $S_M\subset T_\mathcal{M}$. Write the conjunction of all the
-    sentences in $S_N$ as
-    \begin{equation*}
-      \varphi(c_{n_1},\ldots,c_{n_k})\in T_\mathcal{N},
-    \end{equation*}
-    where the $c_{n_i}$ are all the constants of $\mathcal{N}$ that appear in
-    the conjunction. Then $\mathcal{N}$ satisfies
-    \begin{equation*}
-      \phi := \exists x_1,\ldots,x_k\; \varphi(x_1,\ldots,x_k),
-    \end{equation*}
+    \begin{proof}
+      In the extended language $\mathcal{L}(M\sqcup N)$, where the constants
+      for $\mathcal{M}$ are disjoint from the constants for $\mathcal{N}$,
+      consider the theory $T=T_\mathcal{M}\cup T_\mathcal{N}$. We show that
+      $T$ is finitely satisfiable by $\mathcal{M}$ after reassigning some
+      constants of $\mathcal{N}$: Given a finite set of sentences
+      $S=S_M\cup S_N\subset T$ where $S_M\subset T_\mathcal{M}$ and
+      $S_N\subset T_\mathcal{N}$, we have $\mathcal{M}$ satisfies $S_M$
+      because $S_M\subset T_\mathcal{M}$. Write the conjunction of all the
+      sentences in $S_N$ as
+      \begin{equation*}
+        \varphi(c_{n_1},\ldots,c_{n_k})\in T_\mathcal{N},
+      \end{equation*}
+      where the $c_{n_i}$ are all the constants of $\mathcal{N}$ that appear in
+      the conjunction. Then $\mathcal{N}$ satisfies
+      \begin{equation*}
+        \phi := \exists x_1,\ldots,x_k\; \varphi(x_1,\ldots,x_k),
+      \end{equation*}
 
-    with $c_{n_1},\ldots,c_{n_k}$ as witnesses. So from elementarily
-    equivalence of $\mathcal{M}$ and $\mathcal{N}$, $\phi$ is also
-    satisfied by $\mathcal{M}$. Assigning each $c_{n_i}$ to their respective
-    element in $M$ that satisfies $\phi$ will give us a model of $S$. \\
+      with $c_{n_1},\ldots,c_{n_k}$ as witnesses. So from elementarily
+      equivalence of $\mathcal{M}$ and $\mathcal{N}$, $\phi$ is also
+      satisfied by $\mathcal{M}$. Assigning each $c_{n_i}$ to their respective
+      element in $M$ that satisfies $\phi$ will give us a model of $S$. \\
 
-    Therefore from compactness theorem, $T$ has a model $\mathcal{K}$. Then
-    from part (iii) of Claim 3.2, since $\mathcal{K}$ satisfies
-    $T_\mathcal{M}$ and $T_\mathcal{N}$, both $\mathcal{M}$ and
-    $\mathcal{N}$ can be elementarily embedded into $\mathcal{K}$.
-  \end{proof}
+      Therefore from compactness theorem, $T$ has a model $\mathcal{K}$. Then
+      from part (iii) of Claim 3.2, since $\mathcal{K}$ satisfies
+      $T_\mathcal{M}$ and $T_\mathcal{N}$, both $\mathcal{M}$ and
+      $\mathcal{N}$ can be elementarily embedded into $\mathcal{K}$.
+    \end{proof}
 \end{enumerate}
 \end{document}
