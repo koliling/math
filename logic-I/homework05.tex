@@ -28,5 +28,34 @@
       Thus by compactness theorem $T$ is satisfiable and should have a
       model, which contradicts $\mathcal{K}\cap\mathcal{K}^c=\emptyset$.
     \end{proof}
+
+  \item Show that the class of infinite fields is not finitely
+    axiomatizable.
+
+  \item Let $\mathcal{M}$, $\mathcal{N}$ be first order
+  $\mathcal{L}$-structures with $\mathcal{M}\equiv\mathcal{N}$. Show that
+  there is an $\mathcal{L}$-structure $\mathcal{K}$ such that both
+  $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
+  $\mathcal{K}$. 
+
+  \begin{proof}
+    In the extended language $\mathcal{L}(M\sqcup N)$, where the constants
+    for $\mathcal{M}$ are disjoint from the constants for $\mathcal{N}$,
+    consider the theory $T=T_\mathcal{M}\cup T_\mathcal{N}$. We show that
+    $T$ is finitely satisfiable by $\mathcal{M}$: Given a finite set of
+    sentences $S=S_M\cup S_N\subset T$ where $S_M\in T_\mathcal{M}$ and
+    $S_N\in T_\mathcal{N}$, clearly $\mathcal{M}$ satisfies $S_M$. For each
+    sentence $\varphi(c_{n_1},\ldots,c_{n_k})\in S_N$, where the $c_{n_i}$
+    are the constants of $\mathcal{N}$ that appear in $\varphi$, we get
+    $\mathcal{N}$ satisfies
+    \begin{equation*}
+      \phi := \exists x_1,\ldots,x_k\; \varphi(x_1,\ldots,x_k),
+    \end{equation*}
+    with $c_{n_1},\ldots,c_{n_k}$ as witnesses. So from elementarily
+    equivalence of $\mathcal{M}$ and $\mathcal{N}$, $\phi$ is also
+    satisfied by $\mathcal{M}$.
+
+    Therefore from compactness theorem, $T$ has a model $\mathcal{K}$.
+  \end{proof}
 \end{enumerate}
 \end{document}
