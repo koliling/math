@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz,mathtools}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\newtheorem{prob}{Problem}
+
+\begin{document}
+\title{Geometry and Topology: Homework 6}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item
+
+  \item Let $X$ be a connected graph with vertex set $V(X)$ and edge set
+    $E(X)$. Assume that both $V(X)$ and $E(X)$ are finite sets.
+    \begin{enumerate}
+      \item If $X$ is a tree, prove that $|V(X)|-|E(X)|=1$.
+        \begin{proof}
+          A tree is defined as an undirected graph where every two vertices
+          is connected by exactly one path. First we prove that in a
+          connected and finite tree with more than one node, there exist a
+          vertex with exactly one edge connected to it: Since the graph is
+          connected with more than one node, all vertices must have at
+          least one edge connected to it, otherwise the graph would be
+          disconnected. Assume by contradiction that all vertices have at
+          least two edges connected to it. Then by starting at any vertex,
+          we trace a path in the tree by following one of the two edges
+          that has not been traversed yet. Because the graph is finite, we
+          will eventually traverse the same vertex twice, resulting in a
+          cycle. This contradicts the fact that any two vertices are
+          connected by exactly one path. \\
+
+          Now we prove by induction on $|V(X)|$ that the assertion is true.
+          Base cases $|V(X)|\leq 1$ is trivially true. Given a finite
+          connected tree with $|V(X)|=n+1$, from the previous paragraph,
+          we can find a vertex with exactly one edge. Removing that vertex
+          gives a connected tree with $n$ vertices, so by induction
+          hypothesis, that tree will have $n-1$ edges. Adding the
+          vertex back again will give us a tree with $n+1$ vertices and
+          $n$ edges, so the assertion still holds.
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
