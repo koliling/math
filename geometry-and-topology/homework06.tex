@@ -22,9 +22,56 @@
     \begin{proof}
       We find $\pi_1(\sum_g,p)$ by van Kampen's theorem. $\sum_g$ is
       constructed from gluing the edges of a 2-cell in the manner described
-      in Figure 1. Consider the open cover of $\sum_g=U_1\cap U_2$, where
+      in Figure 1a. Consider the open cover of $\sum_g=U_1\cap U_2$, where
       $U_1$ is the interior of the 2-cell, and $U_2$ is the 2-cell with an
-      interior point removed, as illustrated in Figure 2. Then the
+      interior point removed, as illustrated in Figure 1b. Let the base
+      point $p$ be any point in the intersection $U_1\cap U_2$. \\
+
+      Now $U_1\cap U_2$ is an open donut, which is a strong deformation
+      retract to $S^1$, and so $\pi_1(U_1\cap
+      U_2,p)=\pi_1(S^1,p)=\mathbb{Z}$. As for $U_1$, it is a 2-cell, and
+      so it has trivial fundamental group since it is contractible.
+      Finally, for $U_2$, from Figure 1c, it is a strong deformation
+      retract to the wedge of $2g$ copies of $S^1$. Hence $\pi_1(U_2,p)$ is
+      the free group
+      \begin{equation*}
+        \pi_1(U_2,p) = F_{2g} = \langle a_1,b_1,\ldots,a_g,b_g|\;\rangle.
+      \end{equation*}
+
+      Referring to the commutative diagram in Figure 1d, the image
+      $i_2(\pi_1(U_2))$ can be described by the word
+      $a_1b_1a_1^{-1}b_1^{-1}\ldots a_gb_ga_g^{-1}b_g^{-1}$ in $F_{2g}$. On
+      the other hand, since $\pi_1(U_1)$ is trivial, the image of $i_1$ is
+      trivial. Then by van Kempen's theorem, the fundamental group of
+      $\sum_g$ is
+      \begin{equation*}
+        \pi_1(\sum_g,p) = \langle a_1,b_1,\ldots,a_g,b_g|\;
+        a_1b_1a_1^{-1}b_1^{-1}\ldots a_gb_ga_g^{-1}b_g^{-1}=1\rangle.
+      \end{equation*}
+
+      To show that this fundamental group is non-abelian, it suffices to
+      find a surjective homomorphism from $\pi_1(\sum_g,p)$ to the dihedral
+      group $D_8$, because $D_8$ is non-abelian and surjective
+      homomorphisms should preserve commutativity. Consider the map
+      $\phi:\pi_1(\sum_g,p)\rightarrow D_8$ defined by:
+      \begin{equation*}
+        \phi(g) :=
+        \begin{cases}
+          r & \text{if}\; g=a_1\; \text{or}\; a_2, \\
+          s & \text{otherwise}. \\
+        \end{cases}
+      \end{equation*}
+
+      $\phi$ can be extended to a homomorphism since it defines a map for
+      all generators. This homomorphism will be subjective because all
+      generators $r$ and $s$ of the range $D_8$ has a pre-image.
+      Furthermore, this homomorphism is well-defined because it preserves
+      the relations on $\pi_1(\sum_g,p)$; we can verify that
+      \begin{equation*}
+        \phi(a_1b_1a_1^{-1}b_1^{-1}\ldots a_gb_ga_g^{-1}b_g^{-1}) =
+        1_{D_8}.
+      \end{equation*}
+      Hence $\pi_1(\sum_g,p)$ is not abelian.
     \end{proof}
 
   \item Let $X$ be a connected graph with vertex set $V(X)$ and edge set
@@ -59,9 +106,11 @@
       \item For $p\in V(X)$, prove that $\pi_1(X,p)$ is a free group of
         rank $r$ with $|V(X)|-|E(X)|=1-r$.
         \begin{proof}
-          From Proposition 1A.1 of Hatcher, $X$ contains a maximal tree
-          $T$ which would include every vertex in the graph. Choose any
-          vertex $v$ in $T$ to be the base point, and consider the open
+          From Proposition 1A.1 of Hatcher, $X$ contains a maximal spanning
+          tree $T$ which would include every vertex in the graph. We can
+          add a small initial interval of edges that are not in $T$ into
+          the spanning tree if necessary to ensure that $T$ is open. Choose
+          any vertex $v$ in $T$ to be the base point, and consider the open
           cover $\mathcal{U}$ of $X$ given by
           \begin{equation*}
             \mathcal{U} := \{T\cup\{e\}:\; e\in E(X)-E(T)\}.
@@ -75,12 +124,15 @@
           Now the fundamental group of $T$ is the trivial group 1 because
           every pair of vertices in a connected tree is connected by only
           one path. Also, each $T\cup\{e\}$ in $\mathcal{U}$ has
-          fundamental group $F_1=\mathbb{Z}$ because there is only one loop
-          in $T\cup\{e\}$. Then applying van Kampen's theorem, the
-          fundamental group of $X$ is the free product of rank
-          $r=|E(X)-E(T)|$. From the previous part of this question,
-          $|E(T)|=|V(T)|-1$, and since $|V(T)|=|V(X)|$, we get the relation
-          $|V(X)|-|E(X)|=1-r$ as required.
+          fundamental group $F_1=\mathbb{Z}$: consider the loop that
+          contains edge $e=(u,v)$ and the edges and vertices in only path
+          between $u$ and $v$ in the spanning tree $T$; then $T\cup\{e\}$
+          can be retracted to this loop, which is homomorphic to $S^1$, and
+          thus has fundamental group $F_1=\mathbb{Z}$. Then applying van
+          Kampen's theorem, the fundamental group of $X$ is the free
+          product of rank $r=|E(X)-E(T)|$. From the previous part of this
+          question, $|E(T)|=|V(T)|-1$, and since $|V(T)|=|V(X)|$, we get
+          the relation $|V(X)|-|E(X)|=1-r$ as required.
         \end{proof}
 
       \item Let $F_n$ be a free group of rank $n$ and let $G\subset F_n$ be
