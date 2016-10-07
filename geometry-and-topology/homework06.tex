@@ -16,7 +16,11 @@
 \maketitle
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
-  \item
+  \item Let $\sum_g$ be an oriented genus $g$ surface with a basepoint
+    $p\in\sum_g$. Assume that $g\geq2$. Prove that $\pi_1(\sum_g,p)$ is not
+    abelian.
+    \begin{proof}
+    \end{proof}
 
   \item Let $X$ be a connected graph with vertex set $V(X)$ and edge set
     $E(X)$. Assume that both $V(X)$ and $E(X)$ are finite sets.
@@ -45,6 +49,55 @@
           hypothesis, that tree will have $n-1$ edges. Adding the
           vertex back again will give us a tree with $n+1$ vertices and
           $n$ edges, so the assertion still holds.
+        \end{proof}
+
+      \item For $p\in V(X)$, prove that $\pi_1(X,p)$ is a free group of
+        rank $r$ with $|V(X)|-|E(X)|=1-r$.
+        \begin{proof}
+          From Proposition 1A.1 of Hatcher, $X$ contains a maximal tree
+          $T$ which would include every vertex in the graph. Choose any
+          vertex $v$ in $T$ to be the base point, and consider the open
+          cover $\mathcal{U}$ of $X$ given by
+          \begin{equation*}
+            \mathcal{U} := \{T\cup\{e\}:\; e\in E(X)-E(T)\}.
+          \end{equation*}
+          Each open set in the cover contains the base point and the
+          intersection of every pair of sets in the cover is the tree $T$
+          and is therefore path-connected. Hence the conditions for the van
+          Kampen theorem are satisfied and we can apply the van Kampen
+          theorem to get the fundamental group of $X$. \\
+
+          Now the fundamental group of $T$ is the trivial group 1 because
+          every pair of vertices in a connected tree is connected by only
+          one path. Also, each $T\cup\{e\}$ in $\mathcal{U}$ has
+          fundamental group $F_1=\mathbb{Z}$ because there is only one loop
+          in $T\cup\{e\}$. Then applying van Kampen's theorem, the
+          fundamental group of $X$ is the free product of rank
+          $r=|E(X)-E(T)|$. From the previous part of this question,
+          $|E(T)|=|V(T)|-1$, and since $|V(T)|=|V(X)|$, we get the relation
+          $|V(X)|-|E(X)|=1-r$ as required.
+        \end{proof}
+
+      \item Let $F_n$ be a free group of rank $n$ and let $G\subset F_n$ be
+        a subgroup. As we showed in class, $G$ is a free group; let $m$ be
+        its rank. Assume that $r=[F_n:G]$ is finite. Find a formula for $m$
+        in terms of $n$ and $r$.
+
+        \begin{proof}
+          A free group of rank $n$ is a cover of wedge of $n$ loops, i.e.
+          $F_n=\pi_1(X,p)$, where
+          \begin{equation*}
+            X = \underbrace{S^1\vee\ldots\vee S^1}_{n\;\text{times}}.
+          \end{equation*}
+          Now since $G$ is a subgroup of $F_n$, by the one-to-one
+          correspondence between subgroups of fundamental groups and
+          connected covers, there is a connected cover $\tilde{X_G}$ of $X$
+          such that $\pi_1(\tilde{X_G})=G$. Now from Hatcher, we know that
+          a connected cover of a graph is also a graph, and the also the
+          degree of the cover will equal to the index $r=[F_n:G]$ of the
+          subgroup $G$ of $F_n$. Hence the connected cover will be a graph
+          with $r$ vertices and $nr$ edges. Now from the previous part of
+          this question, such a graph will have a rank of $m=1-r+nr$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
