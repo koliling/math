@@ -249,7 +249,16 @@
         \pi_1(U_1\cap U_2,p) &= \langle c_1,\ldots,c_n|\; \rangle. \\
       \end{align*}
 
-      Applying van Kampen's theorem to quotient out the edges that 
+      Applying van Kampen's theorem to quotient out the edges $U_1\cap U_2$
+      glued together, we get
+      \begin{align*}
+        \pi_1(U_1\cup U_2,p)  &= \langle
+          a_1,\ldots,a_n,b_1,\ldots,b_n,c_1,\ldots,c_n|\; \\
+          & a_1\cdots a_{n-1}=a_n, \\
+          & b_1\cdots b_{n-1}=b_n, \\
+          & a_1=b_1=c_1,\ldots a_n=b_n=c_n\rangle \\
+          &= \langle a_1,\ldots,a_n|\; a_1\cdots a_{n-1}=a_n\rangle. \\
+      \end{align*}
     \end{proof}
 \end{enumerate}
 \end{document}
