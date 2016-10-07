@@ -233,7 +233,23 @@
 
     \begin{proof}
       In the first homework assignment, we showed that $X$ can be
-      constructed by gluing two disks $D^2$ according to Figure 6a.
+      constructed by gluing two disks $D^2$ according to Figure 6a. By
+      extending the disks slightly, these two disks can form an open cover
+      $X=U_1\cup U_2$ of $X$. Taking a common point in the two open sets as
+      base point, the fundamental groups of $U_1$ and $U_2$ are given as:
+      \begin{align*}
+        \pi_1(U_1,p) &= \langle a_1,\ldots,a_n|\; a_1\cdots
+          a_{n-1}=a_n\rangle, \\
+        \pi_1(U_2,p) &= \langle b_1,\ldots,b_n|\; b_1\cdots
+          b_{n-1}=b_n\rangle. \\
+      \end{align*}
+      Their intersection $U_1\cap U_2$ will look shown in Figure 6b, and
+      will have fundamental group 
+      \begin{align*}
+        \pi_1(U_1\cap U_2,p) &= \langle c_1,\ldots,c_n|\; \rangle. \\
+      \end{align*}
+
+      Applying van Kampen's theorem to quotient out the edges that 
     \end{proof}
 \end{enumerate}
 \end{document}
