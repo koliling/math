@@ -180,5 +180,28 @@
           $\pi_1(\mathbb{R}^n\setminus X,p)=1$.
         \end{proof}
     \end{enumerate}
+
+  \item Let $T^2=S^1\times S^1$ and let $X$ be the quotient of $T^2\sqcup
+    T^2$ that identifies the circles $S^1\times1$ in both tori
+    homeomorphically. Calculate the fundamental group of $X$.
+    \begin{proof}
+      By stacking the donuts on top of each other like shown in Figure 4,
+      we can see that $X=(S^1\vee S^1)\times S^1$. Then since taking
+      fundamental group preserves products, we get
+      \begin{align*}
+        \pi_1(X,p) &= \pi_1((S^1\vee S^1)\times S^1,p) \\
+                   &= \pi_1((S^1\vee S^1),p)\times \pi_1(S^1,p) \\
+                   &= (\pi_1(S^1,p)\ast\pi_1(S^1,p))\times \pi_1(S^1,p) \\
+                   &= (\mathbb{Z}\ast\mathbb{Z})\times\mathbb{Z}.
+      \end{align*}
+    \end{proof}
+
+  \item Let $W=S^1\vee S^1$ and let $p\in W$ be a wedge point. Identify
+    $\pi_1(W,p)$ with the free group on $a$ and $b$, where $a$ goes around
+    one $S^1$ and $b$ goes around the other one. Construct three connected
+    4-fold covers of W that are distinct up to covering space equivalence,
+    including at least 2 irregular cover. For each of these three covers,
+    describe the covering map, say whether or not the cover is regular and
+    give a free basis for the corresponding subgroup of $\pi_1(W,p)$.
 \end{enumerate}
 \end{document}
