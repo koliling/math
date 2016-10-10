@@ -182,7 +182,35 @@
           Assume by contradiction that the claim is false. Then there must
           be a model $\mathcal{N}$ of $T$ such that there are elements
           $a_1<\ldots<a_n$ in $N$ but
-          $\mathcal{N}\not\models\varphi(a_1,\ldots,a_n)$.
+          $\mathcal{N}\not\models\varphi(a_1,\ldots,a_n)$. Now since models
+          of $T$ are also models of $T'$ in the reduced language
+          $\mathcal{L}'$, by Remark 4.39, there is an isomporhism $\varphi$
+          in the language of $\mathcal{L}'$ between $M$ and $N$ that sends
+          $c_i$ to $a_i$ for $1\leq i\leq n$. Then by isomorphism property,
+          $\mathcal{N}\not\models\varphi(a_1,\ldots,a_n)$ will imply
+          $\mathcal{M}\not\models\varphi(c_1,\ldots,c_n)$, a contradiction.
+          \\
+
+          Now we prove that $T$ is complete. Assume by contradiction that
+          it is not. Then there is a sentence $\varphi(c_1,\ldots,c_n)$ in
+          language $\mathcal{L}$ and models $\mathcal{M}$ and $\mathcal{N}$
+          of $T$ such that $\mathcal{M}\models\varphi(c_1,\ldots,c_n)$ but
+          $\mathcal{N}\models\neg\varphi(c_1,\ldots,c_n)$. Note that the
+          sentence $\varphi(c_1,\ldots,c_n)$ cannot be a sentence in the
+          reduced language $\mathcal{L}'$ because $\mathcal{M}$ and
+          $\mathcal{N}$ are also models of $T'$ and $T'$ is a complete
+          theory. Now from the claim in the above paragraph,
+          $\mathcal{M}\models\varphi(c_1,\ldots,c_n)$ implies
+          $\mathcal{M}\models\phi$, where $\phi$ is defined as
+          \begin{align*}
+            \phi:= \forall x_1,\ldots,x_n\;\;
+              x_1<\ldots<x_n\rightarrow\varphi(x_1,\ldots,x_n).
+          \end{align*}
+          Then $\phi$ is a sentence in the reduced language $\mathcal{L}'$,
+          so by completeness of $T'$ and from the fact that $\mathcal{N}$
+          is also a model of $T'$ in the reduced language, $\phi$ must also
+          be true in $\mathcal{N}$. This would contradict
+          $\mathcal{N}\models\neg\varphi(c_1,\ldots,c_n)$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
