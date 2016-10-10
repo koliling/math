@@ -32,16 +32,17 @@
       [c]=f([c_1],\ldots,[c_n])$ implies $c=f(c_1,\ldots,c_n)\in T$.
       Conversely, if $c=f(c_1,\ldots,c_n)\in T$ and
       $c_i\sim a_i$ for $1\leq i\leq n$ and $a\sim c$, then
-      $a=f(a_1,\ldots,a_n)\in T$ by Completeness and consistency of $T$,
-      which then implies $\mathcal{M}\models [c]=f([c_1],\ldots,[c_n])$ by
-      definition of $\mathcal{M}$. \\
+      $a=f(a_1,\ldots,a_n)\in T$ by Completeness and finite satisfiability
+      of $T$, which then implies $\mathcal{M}\models
+      [c]=f([c_1],\ldots,[c_n])$ by definition of $\mathcal{M}$. \\
 
       Relations: By definition of $\mathcal{M}$, we have $M\models
       R([c_1],\ldots,[c_n])$ implies $R(c_1,\ldots,c_n)\in T$. Conversely,
       if $R(c_1,\ldots,c_n)\in T$ and $c_i\sim a_i$
       for $1\leq i\leq n$, then $R(a_1,\ldots,a_n)\in T$ by Completeness
-      and consistency of $T$, which then implies $\mathcal{M}\models
-      R([c_1],\ldots,[c_n])$ by definition of $\mathcal{M}$.
+      and finite satisfiability of $T$, which then implies
+      $\mathcal{M}\models R([c_1],\ldots,[c_n])$ by definition of
+      $\mathcal{M}$.
 
       $\neg$: We have $\mathcal{M}\models\neg\varphi([c_1],\ldots,[c_n])$
       \begin{align*}
@@ -132,16 +133,15 @@
         \begin{proof}
           No. Consider model $\mathcal{M}_1:=\langle\mathbb{R},E_1\rangle$,
           where $E_1(a,b)\leftrightarrow\lfloor a\rfloor=\lfloor b\rfloor$.
-          This model has a countable number of classes each with
-          uncountable number of elements. Consider also model
+          This model has a countable number of uncountable classes.
+          Consider also model
           $\mathcal{M}_2:=\langle\mathbb{R},E_2\rangle$, where
           $E_2(a,b)\leftrightarrow|a-b|\in\mathbb{Z}$. This model has an
-          uncountable number of classes each with countable number of
-          elements. Assume by contradiction that there is an isomorphism
-          $\varphi:M_1\rightarrow M_2$ between these models. Restricted the
-          domain to $[0,1)$, $\varphi$ should send these uncountable number
-          of elements injectively to a countable class in $\mathcal{M}_2$,
-          a contradiction.
+          uncountable number countable classes.  Assume by contradiction
+          that there is an isomorphism $\varphi:M_1\rightarrow M_2$ between
+          these models. Restricted the domain to $[0,1)$, $\varphi$ should
+          send these uncountable number of elements injectively to a
+          countable class in $\mathcal{M}_2$, a contradiction.
         \end{proof}
 
       \item Is $T$ complete?
@@ -294,7 +294,35 @@
     and only if $n=m$.
 
     \begin{proof}
-      The converse of the claim is true from definition. Assume $n<m$.
+      The converse of the claim is true from definition. Let
+      $n>m\in\mathbb{N}^+$. We wish to find a sentence that is satisfied by
+      $\mathbb{Z}^m$ but not by $\mathbb{Z}^n$. Given $k\in\mathbb{N}^+$,
+      define an equivalence relation on $\mathbb{Z}^k$ by
+      \begin{equation*}
+        (a_1,\ldots,a_k)\sim(b_1,\ldots,b_k) \leftrightarrow a_i\equiv
+        b_i\pmod{2}\; \text{for all}\; i\in\{1,\ldots,k\}.
+      \end{equation*}
+
+      It is routine to show that $\sim$ is an equivalence relation.
+      Consider the size of $\mathbb{Z}^k/\sim$. We have
+      $|\mathbb{Z}^k/\sim|=2^k$. Hence in $\mathbb{Z}^k$, we can find
+      exactly $2^k$ elements from distinct classes, and no more than $2^k$
+      such elements. Then given $n>m\in\mathbb{N}^+$, the sentence
+      $\varphi_n$ which says ``I have $2^k$ elements from distinct
+      classes'' will be satisfied by $\mathbb{Z}^n$ but not my
+      $\mathbb{Z}^m$. We can formalize $\varphi_n$ in first order language
+      as
+      \begin{equation*}
+        \varphi_n := \exists x_1,\ldots,x_{2^n}\; \bigwedge_{1\leq
+        i<j\leq2^n} \varphi_{\text{diff class}}(x_i,x_j),
+      \end{equation*}
+      where $\varphi_{\text{diff class}}(x,y)$ says ``$x$ and $y$ are from
+      different equivalence classes, formalized in first order language as
+      \begin{equation*}
+        \varphi_{\text{diff class}}(x,y) := \exists z\; y=x+z+z.
+      \end{equation*}
+      Then $\varphi_n$ is a sentence that witnesses
+      $\langle\mathbb{Z}^n,+,0\rangle\not\equiv\langle\mathbb{Z}^m,+,0\rangle$.
     \end{proof}
 \end{enumerate}
 \end{document}
