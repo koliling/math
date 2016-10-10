@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz,mathtools}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic I: Homework 6}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Let $T$ be a Henkin theory in a language $\mathcal{L}$. Let $C$ be
+    the set of all constant symbols of $\mathcal{L}$. We defined an
+    equivalence relation $\sim$ on $C$ by $c_1\sim c_2$ if and only if
+    $c_1=c_2\in T$. Let $M=C/\sim$ be the set of all $\sim$-classes, and
+    for $c\in C$ we denote by $[c]$ its $\sim$-class. We defined
+    $\mathcal{L}$-structure $\mathcal{M}$ with the universe $M$ in an
+    obvious way. Show that for an atomic formula
+    $\varphi(x_1,\ldots,x_n)$ and $c_1,\ldots,c_n\in C$ we have
+    $\mathcal{M}\models\varphi([c_1],\ldots,[c_n])$ if and only if
+    $\varphi(c_1,\ldots,c_n)\in T$.
+
+    \begin{proof}
+      We prove by induction on formulas. \\
+
+      Terms: By definition of $\mathcal{M}$, we have $M\models
+      [c]=f([c_1],\ldots,[c_n])$ implies $c=f(c_1,\ldots,c_n)\in T$.
+      Conversely, if $c=f(c_1,\ldots,c_n)\in T$ and
+      $c_i\sim a_i$ for $1\leq i\leq n$ and $a\sim c$, then
+      $a=f(a_1,\ldots,a_n)\in T$ by Completeness and consistency of $T$,
+      which then implies $\mathcal{M}\models [c]=f([c_1],\ldots,[c_n])$ by
+      definition of $\mathcal{M}$. \\
+
+      Relations: By definition of $\mathcal{M}$, we have $M\models
+      R([c_1],\ldots,[c_n])$ implies $R(c_1,\ldots,c_n)\in T$. Conversely,
+      if $R(c_1,\ldots,c_n)\in T$ and $c_i\sim a_i$
+      for $1\leq i\leq n$, then $R(a_1,\ldots,a_n)\in T$ by Completeness
+      and consistency of $T$, which then implies $\mathcal{M}\models
+      R([c_1],\ldots,[c_n])$ by definition of $\mathcal{M}$.
+
+      $\neg$: We have $\mathcal{M}\models\neg\varphi([c_1],\ldots,[c_n])$
+      \begin{align*}
+          &\leftrightarrow
+            \mathcal{M}\not\models\varphi([c_1],\ldots,[c_n]) &\\
+          &\leftrightarrow R(c_1,\ldots,c_n)\not\in T & (\text{by inductive
+            hypothesis}) \\
+          &\leftrightarrow \neg R(c_1,\ldots,c_n)\in T & (\text{by
+            Completeness of}\; T). \\
+      \end{align*}
+
+      $\wedge$: We have $\mathcal{M}\models\varphi([c_1],\ldots,[c_n])
+      \wedge \phi([d_1],\ldots,[d_m])$
+      \begin{align*}
+          &\leftrightarrow \mathcal{M}\models\varphi([c_1],\ldots,[c_n])\;
+          \text{and}\; \mathcal{M}\models\phi([d_1],\ldots,[d_m]) & \\
+          &\leftrightarrow R(c_1,\ldots,c_n)\in T\; \text{and}\;
+            R(d_1,\ldots,d_m)\in T & (\text{by inductive hypothesis}) \\
+          &\leftrightarrow R(c_1,\ldots,c_n)\wedge R(d_1,\ldots,d_m)\in T &
+            (\text{by Completeness of}\; T). \\
+      \end{align*}
+    \end{proof}
+
+  \item Let $\mathcal{L}=\{E\}$ , where $E$ is a binary relational symbol.
+    Let $T$ be an $\mathcal{L}$-theory of an equivalence relation without
+    finite classes and with infinitely many classes.
+
+    \begin{enumerate}
+      \item Write down the axioms for $T$.
+        \begin{proof}
+          First, we have the axioms of equivalence classes, given by the
+          following three sentences:
+          \begin{align*}
+            \varphi_{\text{reflexive}}  &:= \forall x E(x,x) \\
+            \varphi_{\text{symmetric}}  &:= \forall x,y E(x,y)\rightarrow
+              E(y,x) \\
+            \varphi_{\text{transitive}} &:= \forall x,y,z E(x,y)\wedge
+              E(y,z)\rightarrow E(x,z). \\
+          \end{align*}
+
+          Then, we have a countable series of sentences
+          $\{\varphi_{\text{class}\;\geq n}:n\in\mathbb{N}^+\}$, which says
+          there are no finite classes:
+          \begin{equation*}
+            \varphi_{\text{class}\;\geq n} := \forall x\exists y_1,\ldots,y_n
+            \bigwedge_{1\leq i<j\leq n} y_i\neq y_j \wedge
+            \bigwedge_{1\leq i\leq n} E(x,y_i).
+          \end{equation*}
+
+          Finally, we have a countable series of sentences
+          $\{\varphi_{\geq n\;\text{class}}:n\in\mathbb{N}^+\}$, which says
+          there are infinitely many classes:
+          \begin{equation*}
+            \varphi_{\geq n\;\text{class}} := \exists x_1,\ldots,x_n
+            \bigwedge_{1\leq i<j\leq n} x_i\neq x_j \wedge
+            \bigwedge_{1\leq i<j\leq n} \neg E(x_i,x_j).
+          \end{equation*}
+        \end{proof}
+
+      \item Is $T$ $\omega$-categorical?
+        \begin{proof}
+          Yes. Let $\mathcal{M}_1$ and $\mathcal{M}_2$ be two countable
+          models of $T$. We construct an isomorphism $\varphi$ from $M_1$
+          to $M_2$. \\
+
+          Since there are infinitely many classes, these
+          models must have countably infinite elements, and also countably
+          infinite classes. Hence there is a bijection $f$ between the
+          classes of $\mathcal{M}_1$ and the classes of $\mathcal{M}_2$.
+          For each class $[c]$ of $\mathcal{M}_1$, the class size is
+          must be countably infinite since there are at least infinite
+          elements in the class and there cannot be more than $\omega$
+          elements in the class. Similarly, $f([c])$, which is a class of
+          $\mathcal{M}_2$, must also have countably infinite elements.
+          Hence there must be a bijection $g_{[c]}:[c]\rightarrow f([c])$
+          between elements in $[c]$ and elements in $f([c])$. \\
+
+          Consider the function $\varphi:M_1\rightarrow M_2$ induced by the
+          functions $f$ and $g_{[c]}$ for each equivalence class $[c]$ of
+          $\mathcal{M}_1$. Chasing definitions, we get
+          $\mathcal{M}_1\models E(a,b) \leftrightarrow \mathcal{M}_2\models
+          E(\varphi(a),\varphi(b))$, which completes the proof that
+          $\varphi$ is an isomorphism between $\mathcal{M}_1$ and
+          $\mathcal{M}_2$.
+        \end{proof}
+
+      \item Is $T$ $\aleph_1$-categorical?
+        \begin{proof}
+          No. Consider model $\mathcal{M}_1:=\langle\mathbb{R},E_1\rangle$,
+          where $E_1(a,b)\leftrightarrow\lfloor a\rfloor=\lfloor b\rfloor$.
+          This model has a countable number of classes each with
+          uncountable number of elements. Consider also model
+          $\mathcal{M}_2:=\langle\mathbb{R},E_2\rangle$, where
+          $E_2(a,b)\leftrightarrow|a-b|\in\mathbb{Z}$. This model has an
+          uncountable number of classes each with countable number of
+          elements. Assume by contradiction that there is an isomorphism
+          $\varphi:M_1\rightarrow M_2$ between these models. Restricted the
+          domain to $[0,1)$, $\varphi$ should send these uncountable number
+          of elements injectively to a countable class in $\mathcal{M}_2$,
+          a contradiction.
+        \end{proof}
+
+      \item Is $T$ complete?
+        \begin{proof}
+          Yes. $T$ has no finite models and is $\omega$-categorical, hence
+          by Vaught's test it is complete.
+        \end{proof}
+    \end{enumerate}
+
+  \item Let $\mathcal{L}$ be the language consisting of one binary
+    relational symbol $<$ and countably many constant symbols $c_n$ for
+    $n\in\mathbb{N}$. Let $T$ be the $\mathcal{L}$-theory whose axioms are:
+    \begin{itemize}
+      \item Axioms of linear dense orders without endpoints;
+      \item For each $i<j\in\mathbb{N}$ the axiom $c_i<c_j$.
+    \end{itemize}
+
+    \begin{enumerate}
+      \item Show that $T$ is complete.
+        \begin{proof}
+          Let $\mathcal{L}':=\{<\}$ denote the reduced language without the
+          constant symbols, and let $T'$ denote the axioms of linear dense
+          order in the reduced language. Note that from Corollary 4.38,
+          theory $T'$ is complete in the reduced language. Also, notice
+          that any model of $T$ is also a model of $T'$ in the reduced
+          language. We apply these observations in our proof. \\
+
+          Let $\mathcal{M}$ be a model of $T$. Let $\varphi(\bar{c})$ be a
+          sentence in $\mathcal{L}$, where $\bar{c}$ are the only
+          constants appearing in the sentence. Without loss of generality
+          we can assume $\bar{c}=c_1,\ldots,c_n$ for some $n\in\mathbb{N}$.
+          We first prove that if
+          $\mathcal{M}\models\varphi(c_1,\ldots,c_n)$, then
+          \begin{equation*}
+            T\models\forall x_1,\ldots,x_n\;\; x_1<\ldots<
+            x_n\rightarrow\varphi(x_1,\ldots,x_n).
+          \end{equation*}
+          Assume by contradiction that the claim is false. Then there must
+          be a model $\mathcal{N}$ of $T$ such that there are elements
+          $a_1<\ldots<a_n$ in $N$ but
+          $\mathcal{N}\not\models\varphi(a_1,\ldots,a_n)$.
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
