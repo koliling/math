@@ -215,20 +215,53 @@
 
       \item Show that up-to isomorphism $T$ has exactly 3 countable models.
         \begin{proof}
-          Using the notation used in previous part of this question, all
-          models of $T$ are also models of $T'$ in the reduced language
-          $\mathcal{L}'$. Then since $T'$ is $\omega$-categorical with
-          respect to $\mathcal{L}'$ with countable model
-          $\langle\mathbb{Q},<\rangle$, it suffices to work with
-          $\langle\mathbb{Q},<\rangle$ when characterizing all countable
-          models of the expanded language $\mathcal{L}$. \\
-
           Consider these three countable models
           $\mathcal{M}_i=\langle\mathbb{Q},<,c_0,\ldots\rangle$ of $T$,
           defined by the following assignment of constants:
           \begin{align*}
-            \mathcal{M}_1 - c_i:= i/(i+1)
+            \mathcal{M}_1:\;  &c_n = n & \\
+            \mathcal{M}_2:\;  &c_n = n/(n+1) & \\
+            \mathcal{M}_3:\;  &c_n = \text{any rational between}\;
+              n\sqrt{2}/(n+1)\; \text{and}\; (n+1)\sqrt{2}/(n+2), & \\
           \end{align*}
+          for $n\in\mathbb{N}$. \\
+
+          We show that these are exactly the three distinct (up to
+          isomorphism) countable models of $T$. By definition, these are
+          models of $T$. Observe that the constants in $\mathcal{M}_1$
+          diverge, the constants in $\mathcal{M}_2$ converge to
+          $1\in\mathbb{Q}$, and the constants in $\mathcal{M}_3$ converge
+          to $\sqrt{2}\not\in\mathbb{Q}$. \\
+
+          $\mathcal{M}_1$ cannot be isomorphic to $\mathcal{M}_2$ or
+          $\mathcal{M}_3$ because $\mathcal{M}_1$ is the only model for
+          which no element in $\mathbb{Q}$ is larger than all the constants
+          in the model. More specifically, assume by contradiction that
+          there is an isomorphism $\varphi$ between $\mathcal{M}_i$ to
+          $\mathcal{M}_1$, for $i=2$ or $3$. Then because isomorphisms
+          preserve relations and $10>c_n$ for all constants $c_n$ in models
+          $\mathcal{M}_i$, we must also have $\varphi(10)>c_n$ for all
+          constants $c_n$ in model $\mathcal{M}_1$, which is false. \\
+
+          Also, $\mathcal{M}_2$ is not isomorphic to $\mathcal{M}_3$
+          because the constants in $\mathcal{M}_2$ converge to an element
+          in $\mathbb{Q}$ but the constants in $\mathcal{M}_3$ do not.
+          More specifically, assume by contradiction that there is an
+          isomorphism $\varphi$ between $\mathcal{M}_2$ to $\mathcal{M}_3$.
+          Then because isomorphisms preserve relations, $\varphi(1)$ must
+          be larger than $\sqrt{2}$ in $\mathcal{M}_3$. Fix any rational
+          $q$ between $\sqrt{2}$ and $\varphi(1)$. Now no rational in
+          $M_2=\mathbb{Q}$ can be mapped to $q$ because rationals below $1$
+          are mapped to rationals below $\sqrt{2}$. Hence $\varphi$ is not
+          surjective, a contradiction. \\
+
+          Finally, we prove that any model of $T$ is isomorphic to one of
+          $\mathcal{M}_1$, $\mathcal{M}_2$, or $\mathcal{M}_3$. Given any
+          model $\mathcal{M}$ of $T$, $\mathcal{M}$ will also be a model of
+          the reduced language $\mathcal{L}'$ and satisfy $T'$. Hence by
+          $\omega$-categoricity of $T'$ with respect to language
+          $\mathcal{L}'$, $\mathcal{M}$ will be isomorphic to
+          $\langle\mathbb{Q},<\rangle$, in the reduced language. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
