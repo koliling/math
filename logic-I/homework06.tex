@@ -309,7 +309,7 @@
       exactly $2^k$ elements from distinct classes, and no more than $2^k$
       such elements. Then given $n>m\in\mathbb{N}^+$, the sentence
       $\varphi_n$ which says ``I have $2^k$ elements from distinct
-      classes'' will be satisfied by $\mathbb{Z}^n$ but not my
+      classes'' will be satisfied by $\mathbb{Z}^n$ but not by
       $\mathbb{Z}^m$. We can formalize $\varphi_n$ in first order language
       as
       \begin{equation*}
@@ -323,6 +323,63 @@
       \end{equation*}
       Then $\varphi_n$ is a sentence that witnesses
       $\langle\mathbb{Z}^n,+,0\rangle\not\equiv\langle\mathbb{Z}^m,+,0\rangle$.
+    \end{proof}
+
+  \item Two structures $\mathcal{M}$ and $\mathcal{N}$ are partially
+    isomorphic if there is a non-empty set $\mathcal{F}$ of isomorphisms
+    between substructures of $\mathcal{M}$ and $\mathcal{N}$ with the back
+    and forth property:
+    \begin{enumerate}
+      \item For every $f\in\mathcal{F}$ and $a\in M$ there is an extension
+        $g$ of $f$ with $a\in\text{dom}(g)$.
+      \item For every $f\in\mathcal{F}$ and $b\in N$ there is an extension
+        $g$ of $f$ with $b\in\text{range}(g)$.
+    \end{enumerate}
+    Show that partially isomorphic structures are elementarily equivalent.
+
+    \begin{proof}
+      First, we observe that given any finite $a_1,\ldots,a_n\in M$, there
+      is an isomorphism $f\in\mathcal{F}$ between a substructure of
+      $\mathcal{M}$ and a substructure of $\mathcal{N}$ such that
+      $a_1,\ldots,a_n\in\text{dom}(f)$, because we can apply the forth
+      direction in the back-and-forth property $n$ number of times.
+      Similarly, given $b_1,\ldots,b_n\in M$, there is an isomorphism
+      $f\in\mathcal{F}$ between a substructure of $\mathcal{M}$ and a
+      substructure of $\mathcal{N}$ such that
+      $b_1,\ldots,b_n\in\text{range}(f)$, when we apply the back direction in
+      the back-and-forth property $n$ number of times. We will use these
+      properties repeatedly in our proof. \\
+
+      We prove elementary equivalence by induction on formulas. First, we
+      show that for atomic formulas $\varphi(x_1,\ldots,x_n)$, then
+      $\mathcal{M}\models\varphi(a_1,\ldots,a_n)$ for some
+      $a_1,\ldots,a_n\in M$ if and only if
+      $\mathcal{N}\models\varphi(b_1,\ldots,b_n)$ for some
+      $b_1,\ldots,b_n\in N$. We also prove this claim by induction on
+      formulas. \\
+
+      \underline{Terms}: Let $\pi(x_1,\ldots,x_n)$ be a function in the
+      language. If $\mathcal{M}\models\pi(a_1,\ldots,a_n)=a$ for some
+      $a,a_1,\ldots,a_n\in M$, let $f\in\mathcal{F}$ such that
+      $\text{dom}(f)$ contains $a,a_1,\ldots,a_n$. Then
+      \begin{align*}
+                    && \mathcal{M}     &\models\pi(a_1,\ldots,a_n)=a  & \\
+        \Rightarrow && \text{dom}(f)   &\models\pi(a_1,\ldots,a_n)=a
+                    & (\because\text{substructures preserve functions}) \\
+        \Rightarrow && \text{range}(f)
+                    & \models\pi(f(a_1),\ldots,f(a_n))=f(a)
+                    & (\because\text{isomorphisms preserve functions}) \\
+        \Rightarrow && \mathcal{N}
+                    & \models\pi(f(a_1),\ldots,f(a_n))=f(a)
+                    & (\because\text{substructures preserve functions}). \\
+      \end{align*}
+      Similary, if $\mathcal{N}\models\pi(b_1,\ldots,b_n)=b$ for some
+      $b,b_1,\ldots,b_n\in N$, let $f\in\mathcal{F}$ such that
+      $\text{range}(f)$ contains $b,b_1,\ldots,b_n\in N$, and similar to
+      the above argument we will get
+      \begin{align*}
+        \mathcal{M}\models\pi(f^{-1}(b_1),\ldots,f^{-1}(b_n))=f^{-1}(b).
+      \end{align*}
     \end{proof}
 \end{enumerate}
 \end{document}
