@@ -505,6 +505,67 @@
       \end{align*}
       where we choose $f\in\mathcal{F}$ to be the partial isomorphism whose
       range contains $\overline{b_1}$ and $\overline{b_2}$.
+
+      Finally, we show that for any formula $\varphi(\overline{x})$, we
+      have $\mathcal{M}\models\varphi(\overline{a})$ for some
+      $\overline{a}\subset M$ if and only if
+      $\mathcal{N}\models\varphi(\overline{b})$ for some
+      $\overline{b}\subset N$. Similarly,
+      $\mathcal{M}\not\models\varphi(\overline{a})$ for some
+      $\overline{a}\subset M$ if and only if
+      $\mathcal{N}\not\models\varphi(\overline{b})$ for some
+      $\overline{b}\subset N$. We prove by induction on formulas. \\
+
+      \underline{Atomic}: We have already proved this claim for atomic
+      formulas. \\
+
+      \underline{Exists}: We have
+      \begin{align*}
+                    && \mathcal{M}
+                    & \models\exists\overline{x}\;
+                      \varphi(\overline{x},\overline{a})
+                    & \text{for some}\; \overline{a}\subset M \\
+        \Leftrightarrow && \mathcal{M}
+                    & \models\varphi(\overline{a_0},\overline{a})
+                    & \text{for some}\; \overline{a_0}\subset M \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\varphi(\overline{b_0},\overline{b})
+                    & \text{for some}\; \overline{b},\overline{b_0}\subset
+                      N,\; \text{by induction hypothesis} \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\exists\overline{x}\;
+                      \varphi(\overline{x},\overline{b}).
+      \end{align*}
+
+      \underline{Negation}: We have
+      \begin{align*}
+                    && \mathcal{M}
+                    & \models\neg\varphi(\overline{a})
+                    & \text{for some}\; \overline{a}\subset M \\
+        \Leftrightarrow && \mathcal{M}
+                    & \not\models\varphi(\overline{a}) & \\
+        \Leftrightarrow && \mathcal{N}
+                    & \not\models\varphi(\overline{b})
+                    & \text{for some}\; \overline{b}\subset N,\; \text{by
+                      induction hypothesis} \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\neg\varphi(\overline{b}). & \\
+      \end{align*}
+
+      \underline{Conjunction}: We have
+      \begin{align*}
+                    && \mathcal{M}
+                    & \models\neg\varphi(\overline{a})
+                    & \text{for some}\; \overline{a}\subset M \\
+        \Leftrightarrow && \mathcal{M}
+                    & \not\models\varphi(\overline{a}) & \\
+        \Leftrightarrow && \mathcal{N}
+                    & \not\models\varphi(\overline{b})
+                    & \text{for some}\; \overline{b}\subset N,\; \text{by
+                      induction hypothesis} \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\neg\varphi(\overline{b}). & \\
+      \end{align*}
     \end{proof}
 \end{enumerate}
 \end{document}
