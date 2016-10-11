@@ -555,17 +555,23 @@
       \underline{Conjunction}: We have
       \begin{align*}
                     && \mathcal{M}
-                    & \models\neg\varphi(\overline{a})
-                    & \text{for some}\; \overline{a}\subset M \\
+                    & \models\varphi_1(\overline{a_1})\wedge\varphi_2(\overline{a_2})
+                    & \text{for some}\; \overline{a_1},\overline{a_2}\subset M \\
         \Leftrightarrow && \mathcal{M}
-                    & \not\models\varphi(\overline{a}) & \\
+                    & \models\varphi_1(\overline{a_1})\; \text{and}\;
+                      \models\varphi_2(\overline{a_2}) & \\
         \Leftrightarrow && \mathcal{N}
-                    & \not\models\varphi(\overline{b})
-                    & \text{for some}\; \overline{b}\subset N,\; \text{by
+                    & \models\varphi_1(\overline{b_1})\; \text{and}\;
+                      \models\varphi_2(\overline{b_2})
+                    & \text{for some}\;
+                      \overline{b_1},\overline{b_2}\subset N,\; \text{by
                       induction hypothesis} \\
         \Leftrightarrow && \mathcal{N}
-                    & \models\neg\varphi(\overline{b}). & \\
+                    &
+                    \models\varphi_1(\overline{b_1})\wedge\varphi_2(\overline{b_2}).
+                    & \\
       \end{align*}
+      This completes the proof.
     \end{proof}
 \end{enumerate}
 \end{document}
