@@ -351,12 +351,16 @@
       properties repeatedly in our proof. \\
 
       We prove elementary equivalence by induction on formulas. First, we
-      show that for atomic formulas $\varphi(x_1,\ldots,x_n)$, then
+      show that for atomic formulas $\varphi(x_1,\ldots,x_n)$, we have
       $\mathcal{M}\models\varphi(a_1,\ldots,a_n)$ for some
       $a_1,\ldots,a_n\in M$ if and only if
       $\mathcal{N}\models\varphi(b_1,\ldots,b_n)$ for some
-      $b_1,\ldots,b_n\in N$. We also prove this claim by induction on
-      formulas. \\
+      $b_1,\ldots,b_n\in N$. Similarly,
+      $\mathcal{M}\not\models\varphi(a_1,\ldots,a_n)$ for some
+      $a_1,\ldots,a_n\in M$ if and only if
+      $\mathcal{N}\not\models\varphi(b_1,\ldots,b_n)$ for some
+      $b_1,\ldots,b_n\in N$. We prove this claim by induction on formulas.
+      \\
 
       \underline{Terms}: Let $\pi(x_1,\ldots,x_n)$ be a function in the
       language. If $\mathcal{M}\models\pi(a_1,\ldots,a_n)=a$ for some
@@ -380,6 +384,127 @@
       \begin{align*}
         \mathcal{M}\models\pi(f^{-1}(b_1),\ldots,f^{-1}(b_n))=f^{-1}(b).
       \end{align*}
+      Also, if $\mathcal{M}\not\models\pi(a_1,\ldots,a_n)=a$, then
+      \begin{align*}
+                    && \mathcal{M}     &\not\models\pi(a_1,\ldots,a_n)=a & \\
+        \Rightarrow && \mathcal{M}     &\models\pi(a_1,\ldots,a_n)\neq a & \\
+        \Rightarrow && \text{dom}(f)   &\models\pi(a_1,\ldots,a_n)\neq a
+                    & (\because\text{substructures preserve functions}) \\
+        \Rightarrow && \text{range}(f)
+                    & \models\pi(f(a_1),\ldots,f(a_n))\neq f(a)
+                    & (\because\text{isomorphisms preserve functions}) \\
+        \Rightarrow && \mathcal{N}
+                    & \models\pi(f(a_1),\ldots,f(a_n))\neq f(a)
+                    & (\because\text{substructures preserve functions}) \\
+        \Rightarrow && \mathcal{N}
+                    & \not\models\pi(f(a_1),\ldots,f(a_n))=f(a). & \\
+      \end{align*}
+      Similary, if $\mathcal{N}\not\models\pi(b_1,\ldots,b_n)=b$ for some
+      $b,b_1,\ldots,b_n\in N$, let $f\in\mathcal{F}$ such that
+      $\text{range}(f)$ contains $b,b_1,\ldots,b_n\in N$, and similar to
+      the above argument we will get
+      \begin{align*}
+        \mathcal{M}\not\models\pi(f^{-1}(b_1),\ldots,f^{-1}(b_n))=f^{-1}(b).
+      \end{align*}
+
+      \underline{Relations}: If $\mathcal{M}\models R(a_1,\ldots,a_n)$ for
+      some $a_1,\ldots,a_n\in M$, let $f\in\mathcal{F}$ such that
+      $\text{dom}(f)$ contains $a_1,\ldots,a_n$. Then
+      \begin{align*}
+                    && \mathcal{M}     &\models R(a_1,\ldots,a_n)  & \\
+        \Rightarrow && \text{dom}(f)   &\models R(a_1,\ldots,a_n)
+                    & (\because\text{substructures preserve relations}) \\
+        \Rightarrow && \text{range}(f)
+                    & \models R(f(a_1),\ldots,f(a_n))
+                    & (\because\text{isomorphisms preserve relations}) \\
+        \Rightarrow && \mathcal{N}
+                    & \models R(f(a_1),\ldots,f(a_n))
+                    & (\because\text{substructures preserve relations}). \\
+      \end{align*}
+      Similary, if $\mathcal{N}\models R(b_1,\ldots,b_n)$ for some
+      $b_1,\ldots,b_n\in N$, let $f\in\mathcal{F}$ such that
+      $\text{range}(f)$ contains $b_1,\ldots,b_n\in N$, and similar to
+      the above argument we will get
+      \begin{align*}
+        \mathcal{M}\models R(f^{-1}(b_1),\ldots,f^{-1}(b_n)).
+      \end{align*}
+      Also, if $\mathcal{M}\not\models R(a_1,\ldots,a_n)$ for
+      some $a_1,\ldots,a_n\in M$, let $f\in\mathcal{F}$ such that
+      $\text{dom}(f)$ contains $a_1,\ldots,a_n$. Then
+      \begin{align*}
+                    && \mathcal{M}     &\not\models R(a_1,\ldots,a_n)  & \\
+        \Rightarrow && \mathcal{M}     &\models\neg R(a_1,\ldots,a_n)  & \\
+        \Rightarrow && \text{dom}(f)   &\models\neg R(a_1,\ldots,a_n)
+                    & (\because\text{substructures preserve relations}) \\
+        \Rightarrow && \text{range}(f)
+                    & \models\neg R(f(a_1),\ldots,f(a_n))
+                    & (\because\text{isomorphisms preserve relations}) \\
+        \Rightarrow && \mathcal{N}
+                    & \models\neg R(f(a_1),\ldots,f(a_n))
+                    & (\because\text{substructures preserve relations}) \\
+        \Rightarrow && \mathcal{N}
+                    & \not\models R(f(a_1),\ldots,f(a_n)). & \\
+      \end{align*}
+      Similary, if $\mathcal{N}\not\models R(b_1,\ldots,b_n)$ for some
+      $b_1,\ldots,b_n\in N$, let $f\in\mathcal{F}$ such that
+      $\text{range}(f)$ contains $b_1,\ldots,b_n\in N$, and similar to
+      the above argument we will get
+      \begin{align*}
+        \mathcal{M}\not\models R(f^{-1}(b_1),\ldots,f^{-1}(b_n)).
+      \end{align*}
+
+      \underline{Negation}: We have
+      \begin{align*}
+                    && \mathcal{M}
+                    & \models\neg\varphi(a_1,\ldots,a_n)
+                    & \text{for some atomic}\; \varphi\; \text{and}\;
+                      a_1,\ldots,a_n\in M \\
+        \Leftrightarrow && \mathcal{M}
+                    & \not\models\varphi(a_1,\ldots,a_n) & \\
+        \Leftrightarrow && \mathcal{N}
+                    & \not\models\varphi(f(a_1),\ldots,f(a_n))
+                    & (\text{induction hypothesis}) \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\neg\varphi(f(a_1),\ldots,f(a_n)). & \\
+      \end{align*}
+      Similary, $\mathcal{N}\models\neg\varphi(b_1,\ldots,b_n)$ for some
+      $b_1,\ldots,b_n\in N$ if and only if
+      \begin{align*}
+        \mathcal{M}\models\neg\varphi(f^{-1}(b_1),\ldots,f^{-1}(b_n)),
+      \end{align*}
+      where we choose $f\in\mathcal{F}$ to be the partial isomorphism whose
+      range contains $b_1,\ldots,b_n\in N$.
+
+      \underline{Conjunction}: We have
+      \begin{align*}
+                    && \mathcal{M}
+                    & \models\varphi_1(\overline{a_1})\wedge\varphi_2(\overline{a_2})
+                    & \text{for some atomic}\; \varphi_1,\varphi_2\;
+                      \text{and}\;
+                      \overline{a_1},\overline{a_2}\subset M \\
+        \Leftrightarrow && \mathcal{M}
+                    & \models\varphi_1(\overline{a_1})\;
+                      \text{and}\;
+                      \mathcal{M}\models\varphi_2(\overline{a_2}) & \\
+        \Leftrightarrow && \mathcal{N}
+                    & \models\varphi_1(f(\overline{a_1}))\;
+                      \text{and}\;
+                      \mathcal{N}\models\varphi_2(f(\overline{a_2}))
+                    & (\text{induction hypothesis}) \\
+        \Leftrightarrow && \mathcal{N}
+                    &
+                    \models\varphi_1(f(\overline{a_1}))\wedge\varphi_2(f(\overline{a_2})).
+                    & \\
+      \end{align*}
+      Similary,
+      $\mathcal{N}\models\varphi_1(\overline{b_1})\wedge\varphi_2(\overline{b_2})$
+      for some
+      $\overline{b_1},\overline{b_2}\subset N$ if and only if
+      \begin{align*}
+        \mathcal{M}\models\varphi_1(f^{-1}(\overline{b_1}))\wedge\varphi_2(f^{-1}(\overline{b_2})),
+      \end{align*}
+      where we choose $f\in\mathcal{F}$ to be the partial isomorphism whose
+      range contains $\overline{b_1}$ and $\overline{b_2}$.
     \end{proof}
 \end{enumerate}
 \end{document}
