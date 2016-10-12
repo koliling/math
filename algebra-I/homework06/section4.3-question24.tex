@@ -1,0 +1,15 @@
+Section 4.3 Question 24: Assume $H$ is a proper subgroup of the finite
+group $G$. Prove $G\neq\cup_{g\in G}gHg^{-1}$.
+
+\begin{proof}
+  Given proper subgroup $H$ of finite group $G$, let $M$ be the maximal
+  proper subgroup of $G$ that contains $H$. $M$ exists because $G$ is
+  finite and hence can only have a finite number of subgroups. Then we have
+  \begin{align*}
+    |\cup_{g\in G}gHg^{-1}|  &\leq|\cup_{g\in G}gMg^{-1}| & \\
+                             &\leq(|M|-1)|G:M|  & (\text{Question 23,
+                              Section 4.3}) \\
+                             &<|G|, & \\
+  \end{align*}
+  which implies that $\cup_{g\in G}gHg^{-1}$ cannot equal $G$.
+\end{proof}

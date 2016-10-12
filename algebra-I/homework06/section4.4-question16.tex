@@ -1,0 +1,34 @@
+Section 4.4 Question 16 modified: Prove $\mathbb{Z}_{24}^\times$ is not
+cyclic, but is abelian. Determine what this group is up to isomorphism.
+
+\begin{proof}
+  Note that $|\mathbb{Z}_{24}^\times|=\varphi(24)=8$. We can check that
+  $\overline{5}$ has order 2, hence $\mathbb{Z}_{24}^\times$ cannot be
+  cyclic. However, it is abelian because multiplication of integers is
+  commutative. \\
+
+  We check that all non-identity elements of $\mathbb{Z}_{24}^\times$ have
+  order 2. We show that $\mathbb{Z}_{24}^\times$ is isomorphic to
+  $\mathbb{Z}_2^3$. Now $\mathbb{Z}_2^3$ is defined by the following
+  generating rules:
+  \begin{align*}
+    \mathbb{Z}_2^3\cong \{a,b,c\;|\;
+                        &a^2=b^2=c^2=1, \\
+                        &ab=ba\neq c, \\
+                        &ac=ca\neq b, \\
+                        &bc=cb\neq a\}. \\
+  \end{align*}
+  Define a homomorphism
+  $\varphi:\mathbb{Z}_2^3\rightarrow\mathbb{Z}_{24}^\times$ that sends
+  $(1,0,0)$ to $\overline{5}$, $(0,1,0)$ to $\overline{7}$, and $(0,0,1)$
+  to $\overline{13}$. This map preserves the generating group of
+  $\mathbb{Z}_2^3$, hence $\mathbb{Z}_2^3$ is isomorphic to a subgroup of
+  $\mathbb{Z}_{24}^\times$. Thus it remains to show that the map is
+  surjective. We check that
+  \begin{equation*}
+    \mathbb{Z}_{24}^\times =
+    \langle\overline{5},\overline{7},\overline{13}\rangle,
+  \end{equation*}
+  so the map is surjective. Hence $\varphi$ is an isomorphism, and so we have
+  $\mathbb{Z}_{24}^\times\cong\mathbb{Z}_2^3$.
+\end{proof}

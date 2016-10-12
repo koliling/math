@@ -1,0 +1,15 @@
+Section 4.4 Question 6: Prove that characterstic subgroups are nromal. Give
+an example of a nromal subgroup that is not characteristic.
+
+\begin{proof}
+  Let $H$ be a characteristic subgroup of $G$. Then given arbitrary $g\in
+  G$, action by conjugation by $g$ on $G$ is an automorphism of $G$, so by
+  characteristic property of $H$, we have $gHg^{-1}=H$. Since $g$ was
+  arbitrary, $H$ is a normal subgroup of $G$. \\
+
+  Consider the Klein-4 group $G=\mathbb{Z}_2\times\mathbb{Z}_2$. Consider
+  the subgroup $H=\{(0,0),(1,0)\}$. This is a normal subgroup of $G$
+  because $G$ is abelian so all subgroups are normal. However, the
+  automorphism which swaps $(1,0)$ and $(0,1)$ and preserves other elements
+  will send $H$ to $\{(0,0),(0,1)\}$. Hence $H$ is not characteristic.
+\end{proof}

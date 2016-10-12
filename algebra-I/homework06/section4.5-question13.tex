@@ -1,0 +1,21 @@
+Section 4.5 Question 13: Prove that a group of order 56 has a normal Sylow
+$p$-subgroup for some prime $p$ dividing its order.
+
+\begin{proof}
+  $56=2^3\cdot7$, so a group $G$ of order 56 can have only Sylow
+  2-subgroups or Sylow 7-subgroups. From Theorem 18 of Section 4.5,
+  $n_2$ must divide 7 and equal 1 modulo 2, so $n_2$ is either 1 or 7.
+  Similarly, $n_7$ divides 8 and equals 1 modulo 8, so $n_7$ is either 1 or
+  8. If either $n_2$ or $n_7$ is 1, then by Corollary 20 of Section 4.5, we
+  would have a normal Sylow subgroup. Hence assume $n_2=7$ and $n_7=8$. \\
+
+  Since all non-identity elements of a subgroup of order 7 is a generator of
+  the subgroup, the conjugates of a Sylow 7-subgroup can only have trivial
+  intersection with each other. Thus $G$ has at least $n_7\cdot(7-1)=48$
+  elements of order 7. Fix any Sylow 2-subgroup $P_2$; this subgroup has 7
+  elements of order dividing 2. Also, since it $P_2$ has a distinct
+  conjugate $gP_2g^{-1}$, there must be at least one non-trivial element
+  in $gP_2g^{-1}$ that is not contained in $P_2$, giving another element of
+  order dividing 2. So in total, we have at least $48+7+1=56$ non-identity
+  elements, a contradiction.
+\end{proof}

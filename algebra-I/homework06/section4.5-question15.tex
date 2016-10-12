@@ -1,0 +1,22 @@
+Section 4.5 Question 15: Prove that a group of order 351 has a normal Sylow
+$p$-subgroup for some prime $p$ dividing its order.
+
+\begin{proof}
+  $351=3^3\cdot13$, so a group $G$ of order 351 can have only Sylow
+  3-subgroups or Sylow 13-subgroups. From Theorem 18 of Section 4.5, $n_3$
+  must divide 13 and equal 1 modulo 3, so $n_3$ is either 1 or 13.
+  Similarly, $n_{13}$ divides 27 and equals 1 modulo 13, so $n_{13}$ is
+  either 1 or 27. If either $n_3$ or $n_{13}$ is 1, then by Corollary 20 of
+  Section 4.5, we would have a normal Sylow subgroup. Hence assume $n_3=13$
+  and $n_{13}=27$. \\
+
+  Since all non-identity elements of a subgroup of order 13 is a generator of
+  the subgroup, the conjugates of a Sylow 13-subgroup can only have trivial
+  intersection with each other. Thus $G$ has at least
+  $n_{13}\cdot(13-1)=324$ elements of order 13. Fix any Sylow 3-subgroup
+  $P_3$; this subgroup has 26 elements of order 3. Also, since it
+  $P_3$ has a distinct conjugate $gP_2g^{-1}$, there must be at least one
+  non-trivial element in $gP_2g^{-1}$ that is not contained in $P_2$,
+  giving another element of order 3. So in total, we have at least
+  $324+26+1=351$ non-identity elements, a contradiction.
+\end{proof}

@@ -1,0 +1,21 @@
+Section 4.3 Question 23: Recall that a proper subgroup $M$ of $G$ is called
+maximal if whenever $M\leq H\leq G$, either $H=M$ or $H=G$. Prove that if
+$M$ is a maximal subgroup of $G$ then either $N_G(M)=M$ or $N_G(M)=G$.
+Deduce that if $M$ is a maximal subgroup of $G$ that is not normal in $G$
+then teh number of non-identity elements of $G$ that are contained in
+conjugates of $M$ is at most $(|M|-1)|G:M|$.
+
+\begin{proof}
+  Let $M$ be a maximal subgroup of $G$. Now $N_G(M)$ must contain $M$
+  and must also be contained in $G$, $M\leq N_G(M)\leq G$, which implies
+  either $N_G(M)=M$ or $N_G(M)=G$ by maximality of $M$. \\
+
+  If $M$ is not normal, then $N_G(M)\neq G$, so $N_G(M)=M$ from above.
+  Then from Proposition 6 of Section 4.3, $M$ will have $|G:M|$
+  conjugates. To maximize the total number of non-identity elements of
+  $G$ that are contained in conjugates of $M$, we can assume that any
+  pair of conjugates intersect only at identity. Then every conjugate
+  will introduce exactly $|M|-1$ non-identity elements. Hence there can
+  be at most $(|M|-1)|G:M|$ non-identity elements of $G$ contained in
+  conjugates of $M$.
+\end{proof}

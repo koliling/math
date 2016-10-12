@@ -1,0 +1,36 @@
+Section 4.5 Question 40: Prove that the number of Sylow $p$-subgroups of
+$\text{GL}(\mathbb{F}_2)$ is $p+1$.
+
+\begin{proof}
+  From Homework 1 Section 1.4 Question 7, we have shown that
+  \begin{equation*}
+    |\text{GL}_2(\mathbb{F}_p)|=(p-1)^2(p+1)p.
+  \end{equation*}
+  From the Sylow theorems, $n_p$ must divide $(p-1)^2(p+1)$. Hence $n_p$
+  must be one of the following:
+  \begin{align*}
+    1 \\
+    p-1 \\
+    p+1 \\
+    (p-1)^2 \\
+    (p-1)(p+1) \\
+    (p-1)^2(p+1) \\
+  \end{align*}
+  Note that for $p\geq2$, the largest value of the above is $(p-1)^2(p+1)$.
+  Also from the Sylow theorems, $n_p$ must equal 1 modulo p, and hence must
+  be of the form $p^k+1$ for some $k\in\mathbb{N}$. Since for all primes
+  $p$, we have $p^3+1>(p-1)^2(p+1)$, so we do not need to consider the
+  cases where $k\geq 3$. Hence $n_p$ must be of the form $1$, $p+1$, or
+  $p^2+1$. \\
+
+  We show that $n_p$ cannot be of the form $p^2+1$. For $p\geq2$, $p^2+1$
+  is greater than 1, $p-1$, $p+1$, $(p-1)^2$, and $(p-1)(p+1)$. Also for
+  $p\geq3$, $p^2+1<(p-1)^2(p+1)$. Hence $n_p$ cannot be of the form
+  $p^2+1$, and can only be $1$ or $p+1$. \\
+
+  Hence to show that $n_p=p+1$, it suffices to prove that there is more
+  than one Sylow $p$-subgroup. From Section 4.5 Question 39, we have shown
+  that the subgroup of strictly upper triangular matrices is a Sylow
+  $p$-subgroup. The subgroup of strictly lower triangular triangular
+  matrices will be another Sylow $p$-subgroup.
+\end{proof}

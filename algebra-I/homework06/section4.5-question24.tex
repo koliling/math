@@ -1,0 +1,20 @@
+Section 4.5 Question 24: Prove that if $G$ is a group of order 231 then
+$Z(G)$ contains a Sylow 11-subgroup of $G$ and a Sylow 7-subgroup is normal
+in $G$.
+
+\begin{proof}
+  Let $G$ be a group of order $231=3\cdot7\cdot11$. From the Sylow
+  theorems, $n_{11}$ divides $3\cdot7$ and equals 1 modulo 11, hence
+  $n_{11}$ can only be 1. Then Corollary 20 says the only Sylow 11-subgroup
+  $P_{11}$ is normal in $G$. Now from Proposition 13 of Section 4.4,
+  $G/C_G(P_{11})$ is isomorphic to a subgroup of $\text{Aut}(P_{11})$. From
+  Proposition 17.1 of Section 4.4, $\text{Aut}(P_{11})$ has order 10. So
+  from Lagrange's theorem, $|G/C_G(P_{11})|$ must divide 10, yet it must
+  also divide $|G|=231$. Hence $|G/C_G(P_{11})|=1$, which implies
+  $C_G(P_{11})=G$. Thus every element of $G$ commutes with every element of
+  $P_{11}$, so $P_{11}\leq Z(G)$. \\
+
+  From the Sylow theorems, $n_{7}$ divides $3\cdot11$ and equals 1 modulo
+  7, hence $n_{7}$ can only be 1. Then Corollary 20 says the only Sylow
+  11-subgroup $P_{7}$ is normal in $G$. 
+\end{proof}

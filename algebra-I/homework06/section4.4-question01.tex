@@ -1,0 +1,21 @@
+Section 4.4 Question 1: If $\sigma\in\text{Aut}(G)$ and $\varphi_g$ is
+injugation by $g$ prove $\sigma\varphi_g\sigma^{-1}=\varphi_{\sigma(g)}$.
+Deduce that $\text{Inn}(G)\triangleleft\text{Aut}(G)$.
+
+\begin{proof}
+  Given arbitrary $a\in G$, we have
+  \begin{align*}
+    (\sigma\circ\varphi_g\circ\sigma^{-1})(a) &=
+      (\sigma\circ\varphi_g)(\sigma^{-1}(a)) \\
+      &= \sigma(g\sigma^{-1}(a)g^{-1}) \\
+      &= \sigma(g)\; \sigma(\sigma^{-1}(a))\; \sigma(g^{-1}) \\
+      &= \sigma(g)\; a\; \sigma(g^{-1}) \\
+      &= \sigma(g)\; a\; \sigma(g)^{-1} \\
+      &= \varphi_{\sigma(g)}(a). \\
+  \end{align*}
+  Hence $\sigma\varphi_g\sigma^{-1}=\varphi_{\sigma(g)}$. \\
+
+  From above, we have $\sigma\,\text{Inn}(G)\,\sigma^{-1}\subset\text{Inn}(G)$,
+  which implies from normality test that $\text{Inn}(G)$ is a nrormal
+  subgroup of $\text{Aut}(G)$.
+\end{proof}

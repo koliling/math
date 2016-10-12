@@ -1,0 +1,43 @@
+Section 4.5 Question 26: Let $G$ be a group of order 105. Prove that if a
+Sylow 3-subgroup of $G$ is normal then $G$ is abelian.
+
+\begin{proof}
+  Let $G$ be a group of order $105=3\cdot5\cdot7$ with a normal Sylow
+  3-subgroup $P_3$. From Proposition 13 of Section 4.4, $G/C_G(P_3)$ is
+  isomorphic to a subgroup of $\text{Aut}(P_3)$. Now $\text{Aut}(P_3)$ has
+  order 2 from Proposition 17.1 of Section 4.4. Hence from Lagrange's
+  theorem, $G/C_G(P_3)$ must have order that divides 2. Also, $|G/C_G(P_3)|$
+  must divide $|G|=3\cdot5\cdot7$, and so $|G/C_G(P_3)|$ can only be 1, which
+  implies that $C_G(P_3)=G$. Thus every element of $G$ commutes with every
+  element of $P_3$, so $P_3\leq Z(G)$. \\
+
+  Next, we show that $n_5=1$. From the Sylow theorems, $n_5$ should divide
+  21, and also should equal 1 modulo 5. Hence $n_5=1$, and so the only
+  Sylow 5-subgroup $P_5$ must be normal from Corollary 20 of Section 4.5.
+  \\
+
+  We show that $P_5$ is also contained in $Z(G)$, using an argument similar
+  to the one given in the first paragraph: From Proposition 13 of Section
+  4.4, $G/C_G(P_5)$ is isomorphic to a subgroup of $\text{Aut}(P_5)$. Now
+  $\text{Aut}(P_5)$ has order 4 from Proposition 17.1 of Section 4.4. Hence
+  from Lagrange's theorem, $G/C_G(P_5)$ must have order that divides 4.
+  Also, $|G/C_G(P_5)|$ must divide $|G|=3\cdot5\cdot7$, and so
+  $|G/C_G(P_5)|$ can only be 1, which implies that $C_G(P_5)=G$. Thus every
+  element of $G$ commutes with every element of $P_5$, so $P_5\leq Z(G)$.
+  \\
+
+  Since both $P_3$ and $P_5$ are contained in $Z(G)$, by Lagrange's
+  theorem, $|Z(G)|$ is either 15 or 105. If $|Z(G)|=105$, then $G=Z(G)$,
+  which implies $G$ is abelian. Hence assume $|Z(G)|=15$.
+  Then $Z(G)=H\triangleleft G$, and $G/Z(G)\cong\mathbb{Z}_{7}$. So
+  $G/Z(G)=\langle gZ(G)\rangle$ for some $g\in G$, which means every
+  element in $G$ can be expressed as $g^kz$ for some $k\in\mathbb{Z}_{7}$
+  and some $z\in Z(G)$. So given elements $g^{k_1}z_1$ and $g^{k_2}z_2$ in
+  $G$, we have
+  \begin{align*}
+    (g^{k_1}z_1)(g^{k_2}z_2)  &= g^{k_1+k_2}z_2z_1  & (\because z_1,z_2\in
+      Z(G)) \\
+                              &= (g^{k_2}z_2)(g^{k_1}z_1),  & \\
+  \end{align*}
+  which implies that $G$ is also abelian.
+\end{proof}

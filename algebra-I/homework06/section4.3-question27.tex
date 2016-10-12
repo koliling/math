@@ -1,0 +1,12 @@
+Section 4.3 Question 27: Let $g_1,g_2,\ldots,g_r$ be representatives of the
+conjugacy classes of the finite group $G$ and assume these elements
+pairwise commute. Prove that $G$ is abelian.
+
+\begin{proof}
+  Let $H=\langle g_1,\ldots,g_r\rangle$. Then $H$ is an abelian subgroup of
+  $G$ since its generators commute pairwise. Also, $G$ must be the union of
+  the conjugates of $H$, because any element in $G$ is a conjugate of one
+  of $g_i$. Formally, $G=\cup_{g\in G}gHg^{-1}$, but this is not possible
+  if $H$ is a proper subgroup of $G$, from Question 24 Section 4.3. Hence
+  $H$ must be the whole of $G$, which implies that $G$ is abelian.
+\end{proof}

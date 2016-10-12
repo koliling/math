@@ -1,0 +1,30 @@
+Section 4.4 Question 13: Let $G$ be a group of order 203. Prove that if $H$
+is a normal subgrou of order 7 in $G$ then $H\leq Z(G)$. Deduce that $G$ is
+abelian in this case. 
+
+\begin{proof}
+  The argument for $H\leq Z(G)$ is the same as for Question 12 Section 4.4:
+  From Proposition 13 of Section 4.4, $G/C_G(H)$ is isomorphic to a
+  subgroup of $\text{Aut}(H)$. Now $\text{Aut}(H)$ has order 6 from
+  Proposition 17.1 of Section 4.4.  Hence from Lagrange's theorem,
+  $G/C_G(H)$ must have order that divides 6. Also, $|G/C_G(H)|$ must divide
+  $|G|=203=7\cdot29$, and so $|G/C_G(H)|$ can only be 1, which implies that
+  $C_G(H)=G$. Thus every element of $G$ commutes with every element of $H$,
+  so $H\leq Z(G)$. \\
+
+  Since $|G|=203=7\cdot29$, by Lagrange's theorem, $|Z(G)|$ can only be 1, 7,
+  29, or 203. Since $H\leq Z(G)$ and $|H|=7$, by Lagrange's theorem again,
+  $|Z(G)|$ can only be 7 or 203. If $|Z(G)|=203$, then $Z(G)=G$, which
+  would imply that G is abelian. So assume $|Z(G)|=7$. Then
+  $Z(G)=H\triangleleft G$, and $G/Z(G)\cong\mathbb{Z}_{29}$. So
+  $G/Z(G)=\langle gZ(G)\rangle$ for some $g\in G$, which means every
+  element in $G$ can be expressed as $g^kz$ for some $k\in\mathbb{Z}_{29}$
+  and some $z\in Z(G)$. So given elements $g^{k_1}z_1$ and $g^{k_2}z_2$ in
+  $G$, we have
+  \begin{align*}
+    (g^{k_1}z_1)(g^{k_2}z_2)  &= g^{k_1+k_2}z_2z_1  & (\because z_1,z_2\in
+      Z(G)) \\
+                              &= (g^{k_2}z_2)(g^{k_1}z_1),  & \\
+  \end{align*}
+  which implies that $G$ is abelian.
+\end{proof}

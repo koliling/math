@@ -1,0 +1,12 @@
+Section 4.4 Question 12: Let $G$ be a gorup of order 3825. Prove that if
+$H$ is a normal subgroup of order 17 in $G$ then $H\leq Z(G)$.
+
+\begin{proof}
+  From Proposition 13 of Section 4.4, $G/C_G(H)$ is isomorphic to a
+  subgroup of $\text{Aut}(H)$.  Now $\text{Aut}(H)$ has order 16 from
+  Proposition 17.1 of Section 4.4.  Hence from Lagrange's theorem,
+  $G/C_G(H)$ must have order that divides 16. Also, $|G/C_G(H)|$ must
+  divide $|G|=3825=3^2\cdot5^2\cdot17$, and so $|G/C_G(H)|$ can only be 1,
+  which implies that $C_G(H)=G$. Thus every element of $G$ commutes with
+  every element of $H$, so $H\leq Z(G)$.
+\end{proof}

@@ -1,0 +1,59 @@
+Section 4.4 Question 8: Let $G$ be a group with subgroups $H$ and $K$ with
+$H\leq K$.
+
+\begin{enumerate}
+  \item Prove that if $H$ is characteristic in $K$ and $K$ is normal in $G$
+    then $H$ is normal in $G$.
+    \begin{proof}
+      Given arbitrary $g\in G$, action by conjugation on $K$ is an
+      automorphism on $K$ because $K$ is normal in $G$. Formally, we have
+      $\sigma_g:K\rightarrow K, k\mapsto gkg^{-1}$ is an automorphism of
+      $K$ because $gKg^{-1}=K$ by normality of $K$ with respect to $G$.
+      Then since $H$ is characteristic in $K$, automorphism $\sigma_g$
+      must map $H$ to itself, i.e. $\sigma_g(H)=gHg^{-1}=H$. Since $g$ was
+      arbitrary, $H$ must be a normal subgroup of $G$.
+    \end{proof}
+
+  \item Prove that if $H$ is characteristic in $K$ and $K$ is normal
+    characteristic in $G$ then $H$ is characteristic in $G$. Use this to
+    prove that the Klein 4-group $V_4$ is characteristic in $S_4$.
+
+    \begin{proof}
+      Let $\sigma$ be an arbitrary automorphism of $G$. Then $\sigma(K)=K$
+      since $K$ is characteristic in $G$. So $\sigma\restriction K$ is an
+      automorphism of $K$. Then $\sigma\restriction K$ will preserve $H$
+      because $H$ is characteristic in $K$. Thus $\sigma(H)=H$, and since
+      $\sigma$ was an arbitrary automorphism of $G$, we have $H$ is
+      characteristic in $G$. \\
+
+      We have $V_4\subset A_4\subset S_4$, where
+      $V_4=\{1,(12)(34),(13)(24),(23)(14)\}$. Since $A_4$ is the only
+      subgroup of $S_4$ of index 2 and conjugation preserves order of
+      subgroups, $A_4$ must be characteristic in $S_4$. Then from the above
+      paragraph, to show that $V_4$ is characteristic in $S_4$, it suffices
+      to show that $V_4$ is characteristic in $A_4$. \\
+
+      Let $\sigma$ be an arbitrary automorphsim of $A_4$. Now isomorphisms
+      preserve the order of elements, and non-identity elements of $V_4$
+      have order 2, so under $\sigma$, non-identity elements of of $V_4$
+      must be sent to a elements of $A_4$ of order 2. But $V_4$ is the
+      subgroup of $A_4$ containing exactly all elements of order no greater
+      than 2, hence $\sigma(V_4)$ must be contained in $V_4$. Then since
+      automorphisms preserve order of subgroups and $A_4$ is finite, we
+      must have $\sigma(V_4)=V_4$. Thus $V_4$ is characteristic in $A_4$.
+    \end{proof}
+
+  \item Give an example to show that if $H$ is normal in $K$ and $K$ is
+    characteristic in $G$ then $H$ need not be normal in $G$.
+
+    \begin{proof}
+      Consider the series
+      \begin{align*}
+        H=\langle(12)(34)\rangle<V_4<A_4.
+      \end{align*}
+      From the previous part of this question, $V_4$ is characteristic in
+      $A_4$. Also, $|V_4:H|=2$, which implies $H$ is normal in $V_4$.
+      However, conjugating $H$ with $g=(123)\in A_4$ shows that
+      $gHg^{-1}\neq H$, hence $H$ is not normal in $A_4$.
+    \end{proof}
+\end{enumerate}

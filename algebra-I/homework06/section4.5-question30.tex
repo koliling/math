@@ -1,0 +1,17 @@
+Section 4.5 Question 30: How many elements of order 7 must there be in a
+simple group of order 168?
+
+\begin{proof}
+  Let $G$ be a simple group of order $168=2^3\cdot3\cdot7$. By the Sylow
+  theorems, $n_7$ must divide $2^3\cdot3$ and equal 1 modulo 7, which
+  implies $n_7$ can only be 1 or 8. Now $n_7$ cannot be 1 or else by
+  Corollary 20 of Section 4.5, a Sylow 7-subgroup will be normal in $G$,
+  contradicting $G$ being simple. Hence $n_7=8$. \\
+
+  In a subgroup of order 7, all non-identity elements are generators of
+  the subgroup. Hence distinct subgroups of order 7 can only intersect
+  trivially. Therefore from the 8 distinct Sylow 7-subgroups, we will have
+  $8\times(7-1)=48$ distinct elements of order 7. These must be the only
+  elements of order 7 because any other element of order 7 will generate a
+  Sylow 7-subgroup. Hence there are exactly 48 elements of order 7.
+\end{proof}
