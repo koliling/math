@@ -34,6 +34,18 @@
         $\pi_1(S^2\setminus\{x_1,\ldots,x_k\},p)$.
 
         \begin{proof}
+          When $k=1$, space $S^2\setminus\{x_1\}$ is a sphere with a
+          punctured hole, which is homeomorphic to $\mathbb{R}^2$, which as
+          trivial fundamental group $1=F_0$. When we remove an additional
+          $k-1$ points from $\mathbb{R}^2$, we get a space homeomorphic to
+          $X_{k-1}:=\mathbb{R}^2\setminus\{x_2,\ldots,x_k\}$, which is a
+          strong deformation retract to the wedge of $k$ circles at a fixed
+          point $p$. Such a wedge has fundamental group $F_{k-1}$.
+          Summarizing,
+          \begin{align*}
+            \pi_1(S^2\setminus\{x_1,\ldots,x_k\},p) &=F_k \\
+              &=\langle a_1,\ldots,a_k\; |\; \rangle. \\
+          \end{align*}
         \end{proof}
 
       \item Let $L_1,\ldots,L_k$ be distinct non-intersecting lines in
@@ -57,17 +69,18 @@
       $p=(x_0,0.5)$ in $\sum X$ for any $x_0\in X$. Let
       $U_0=X\times[0,0.6)/\sim$ be the left side of $\sum X$ containing
       $X\times\{0\}$, and $U_1=X\times(0.4,1]/\sim$ be the right side of
-      $\sum X$ containing $X\times\{1\}$. Then both $U_0$ and $U_1$ are
-      path-connected by the path-connectedness of $X$, they form an open
-      cover of $\sum X$, they both contain the base point, and their
-      intersection $U_0\cap U_1$ is also path connected because of
-      path-connectedness of $X$. So all conditions for van-Kampen's theorem
-      are satisfied, and we can apply the theorem to compute the
-      fundamental group of $\sum X=U_0\cup U_1$. \\
+      $\sum X$ containing $X\times\{1\}$, as illustrated in Figure 3a. Then
+      both $U_0$ and $U_1$ are path-connected by the path-connectedness of
+      $X$, they form an open cover of $\sum X$, they both contain the base
+      point, and their intersection $U_0\cap U_1$ is also path connected
+      because of path-connectedness of $X$. So all conditions for
+      van-Kampen's theorem are satisfied, and we can apply the theorem to
+      compute the fundamental group of $\sum X=U_0\cup U_1$. \\
 
       Now each $U_i$ is contractible to the point $X\times\{i\}/\sim$ in
       $\sum X$, hence each $U_i$ has trivial fundamental group
-      $1=\langle|\rangle$. Applying van-Kampen's theorem,
+      $1=\langle|\rangle$. Applying van-Kampen's theorem illustrated in
+      Figure 3b,
       \begin{align*}
         \pi_1(\sum X,p) &= \langle|\rangle / \pi_1(U_0\cap U_1,p) \\
                         &= \langle|\rangle \\
