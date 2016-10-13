@@ -34,13 +34,15 @@
         $\pi_1(S^2\setminus\{x_1,\ldots,x_k\},p)$.
 
         \begin{proof}
-          When $k=1$, space $S^2\setminus\{x_1\}$ is a sphere with a
-          punctured hole, which is homeomorphic to $\mathbb{R}^2$, which as
-          trivial fundamental group $1=F_0$. When we remove an additional
-          $(k-1)$ points from $\mathbb{R}^2$, we get a space homeomorphic
-          to $\mathbb{R}^2\setminus\{x_2,\ldots,x_k\}$, which is a strong
-          deformation retract to the wedge of $k$ circles at a fixed point
-          $p$. Such a wedge has fundamental group $F_{k-1}$. Summarizing,
+          Note that the base point $p$ does not matter since the space is
+          connected. When $k=1$, space $S^2\setminus\{x_1\}$ is a sphere
+          with a punctured hole, which is homeomorphic to $\mathbb{R}^2$,
+          which has trivial fundamental group $1=F_0$. When we remove
+          additional $(k-1)$ points from $\mathbb{R}^2$, we get a space
+          homeomorphic to $\mathbb{R}^2\setminus\{x_2,\ldots,x_k\}$, which
+          is a strong deformation retract to the wedge of $k$ circles at a
+          fixed point $p$. Such a wedge has fundamental group $F_{k-1}$.
+          Summarizing,
           \begin{align*}
             \pi_1(S^2\setminus\{x_1,\ldots,x_k\},p) &=F_k \\
               &=\langle a_1,\ldots,a_k\; |\; \rangle. \\
@@ -53,6 +55,20 @@
         $\pi_1(\mathbb{R}^3\setminus(L_1\cup\ldots\cup L_k),q)$.
 
         \begin{proof}
+          Note that the base point $q$ does not matter since the space is
+          connected. The space $X=\mathbb{R}^3\setminus\{L_1\cup\ldots\cup
+          L_k\}$ for non-intersecting $L_i$'s is a deformation retract to
+          space $X'=\mathbb{R}^3\setminus\{L_1'\cup\ldots\cup L_k'\}$,
+          where the $L_i'$ are parallel lines. $X'$ is a deformation
+          retract to the cylinder containing $k$ hollow and parallel tubes.
+          Making the height of this cylinder and the radius of the tubes
+          arbitrarily small, the cylinder is a deformation retract of $S^2$
+          minus $k$ points, which we have shown in the previous part of
+          this question to have a fundamental group of $F_k$. Hence
+          \begin{align*}
+            \pi_1(\mathbb{R}^3\setminus\{L_1\cup\ldots\cup L_k\},q) &=F_k \\
+              &=\langle a_1,\ldots,a_k\; |\; \rangle. \\
+          \end{align*}
         \end{proof}
     \end{enumerate}
 
