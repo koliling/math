@@ -53,6 +53,31 @@
     path-connectedness is necessary. 
 
     \begin{proof}
+      We apply van-Kampen's theorem. Fix base point associated with
+      $p=(x_0,0.5)$ in $\sum X$ for any $x_0\in X$. Let
+      $U_0=X\times[0,0.6)/\sim$ be the left side of $\sum X$ containing
+      $X\times\{0\}$, and $U_1=X\times(0.4,1]/\sim$ be the right side of
+      $\sum X$ containing $X\times\{1\}$. Then both $U_0$ and $U_1$ are
+      path-connected by the path-connectedness of $X$, they form an open
+      cover of $\sum X$, they both contain the base point, and their
+      intersection $U_0\cap U_1$ is also path connected because of
+      path-connectedness of $X$. So all conditions for van-Kampen's theorem
+      are satisfied, and we can apply the theorem to compute the
+      fundamental group of $\sum X=U_0\cup U_1$. \\
+
+      Now each $U_i$ is contractible to the point $X\times\{i\}/\sim$ in
+      $\sum X$, hence each $U_i$ has trivial fundamental group
+      $1=\langle|\rangle$. Applying van-Kampen's theorem,
+      \begin{align*}
+        \pi_1(\sum X,p) &= \langle|\rangle / \pi_1(U_0\cap U_1,p) \\
+                        &= \langle|\rangle \\
+                        &= 1. \\
+      \end{align*}
+      Hence $\sum X$ has trivial fundamental group. \\
+
+      Consider the example where $X$ comprises of two distinct points. Then
+      $\sum X$ will be homeomorphic to $S^1$, which has fundamental group
+      $\mathbb{Z}\neq 1$.
     \end{proof}
 
   \item Let $X$ be a path-connected Hausdorff space and let
