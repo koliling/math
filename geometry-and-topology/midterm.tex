@@ -86,11 +86,16 @@
       $X\times\{0\}$, and $U_1=X\times(0.4,1]/\sim$ be the right side of
       $\sum X$ containing $X\times\{1\}$, as illustrated in Figure 3a. Then
       both $U_0$ and $U_1$ are path-connected by the path-connectedness of
-      $X$, they form an open cover of $\sum X$, they both contain the base
-      point, and their intersection $U_0\cap U_1$ is also path connected
-      because of path-connectedness of $X$. So all conditions for
-      van-Kampen's theorem are satisfied, and we can apply the theorem to
-      compute the fundamental group of $\sum X=U_0\cup U_1$. \\
+      $X$: given points $(a_0,r_0)$ and $(a_1,r_1)$ in $U_i$, there is a
+      path which joins $(a_0,r_0)$ to $(a_1,r_0)$ due to connectedness of
+      $X$; concatenate this path with the straight line which joins
+      $(a_1,r_0)$ to $(a_1,r_1)$ to get a path that connects the two
+      points. Also, $U_0$ and $U_1$ form an open cover of $\sum X$, they
+      both contain the base point, and their intersection $U_0\cap U_1$ is
+      also path connected because of path-connectedness of $X$. So all
+      conditions for van-Kampen's theorem are satisfied, and we can apply
+      the theorem to compute the fundamental group of $\sum X=U_0\cup U_1$.
+      \\
 
       Now each $U_i$ is contractible to the point $X\times\{i\}/\sim$ in
       $\sum X$, hence each $U_i$ has trivial fundamental group
