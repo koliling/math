@@ -33,7 +33,16 @@
         \mathcal{O} := \bigcup_{x\in X}
           \{\widetilde{U}_{\alpha,x}:\alpha\in A\}.
       \end{equation*}
-      From compactness of $\widetilde{X}$,
+      From compactness of $\widetilde{X}$, $\mathcal{O}$ contains a finite
+      sub-cover $\mathcal{U}\subset\mathcal{O}$. Write $\mathcal{U}$ as
+      \begin{equation*}
+        \mathcal{U} := \bigcup_{i=1}^n \widetilde{U}_{\alpha_i,x_i}.
+      \end{equation*}
+      Consider the sheets of $x_1$. Each sheet $\widetilde{U}_{\alpha,x_1}$
+      of $x_1$ must be contained in some sheet in $\mathcal{U}$, which
+      implies that the degree of $x_1$ is at most $n$. Since the degree of
+      a cover is independent on the choice of $x\in X$, $f$ must have
+      degree no more than $n$, a contradiction.
     \end{proof}
 
   \item
