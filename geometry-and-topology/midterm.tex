@@ -151,12 +151,38 @@
       horizontal interval from left to right is sent to $a$, and each
       vertical interval from bottom to top is sent to $b$. Then $f$ is
       clearly a regular cover with deck group $\mathbb{Z}^2$. Also, $X$ and
-      $\widetilde{X}$ are path-connected. Hence, a theorem in the lecture
-      notes says that $f$ will induce an exact sequence
+      $\widetilde{X}$ are path-connected. Hence, covering space theory says
+      that $f$ will induce an exact sequence
       \begin{align*}
-        1\rightarrow \pi_1(\widetilde{X},(0,0))\rightarrow
-          \pi_1(X,p)\rightarrow \mathbb{Z}^2\rightarrow 1.
+        1\rightarrow \pi_1(\widetilde{X},\widetilde{p})\xrightarrow{f_*}
+          \pi_1(X,p)\xrightarrow{\varphi} \mathbb{Z}^2\rightarrow 1,
       \end{align*}
+      where $\widetilde{p}$ is any point in the grid $\widetilde{X}$, say
+      $\widetilde{p}=(0,0)$. \\
+
+      To determine $\varphi$, first note that $\pi_1(X,p)=F_2=\langle
+      a,b\;|\rangle$, so $\varphi$ is fully determined by the images of $a$
+      and $b$ in $\pi_1(X,p)$. Also, since $a$ in $X$ lifts to a path from
+      $\widetilde{p}$ to the horizontal interval of one unit, and $b$ in
+      $X$ lifts to a path from $\widetilde{p}$ to the vertical interval of
+      one unit, we have
+      \begin{align*}
+        \varphi(a)  &=(1,0), \\
+        \varphi(b)  &=(0,1).
+      \end{align*}
+      Hence $\ker\varphi$ comprises of exactly all the words in
+      $F_2=\langle a,b\;|\rangle$ where the $a$'s occur as frequently as
+      the $a^{-1}$'s and the $b$'s occur as frequently as the $b^{-1}$'s.
+      This subgroup is the commutator subgroup $[F_2,F_2]$. \\
+
+      So from the properties of exact sequence, we have
+      \begin{align*}
+        \pi_1(\widetilde{X},\widetilde{p})=\ker\varphi = [F_2,F_2]. \\
+      \end{align*}
+
+      Thus, we can obtain the free basis of $[F_2,F_2]$ from all loops in
+      $\widetilde{X}$ that start and end at $\widetilde{p}$, and that do
+      not pass through $\widetilde{p}$ except at the end points.
     \end{proof}
 \end{enumerate}
 \end{document}
