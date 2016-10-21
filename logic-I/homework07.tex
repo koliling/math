@@ -46,9 +46,23 @@
       express it in disjunctive normal form, i.e. a disjunction of
       formulas, each of which is a conjunction of atomic formulas. Hence we
       can assume that $\varphi(\overline{x},y)$ is a conjunction of atomic
-      formulas $\phi(\overline{x},y)$. Now in the given language, an atomic
-      formula $\phi(\overline{x},y)$ can only be one of the following
-      forms: 
+      formulas $\phi(\overline{x},y)$. Now the given language has no
+      relations, so an atomic formula $\phi(\overline{x},y)$ can only be
+      of the form $t_1(\overline{x},y)\;\square\;t_2(\overline{x},y)$, where
+      $t_1(\overline{x},y)$ and $t_2(\overline{x},y)$ are terms and
+      $\square$ is either $=$ or $\neq$. Now in the given language, each
+      term $t(\overline{x},y)$ is equivalent to the form
+      \begin{align*}
+        f_1x_1+\ldots+f_nx_n+fy,
+      \end{align*}
+      where $f_1,f\in F$. Note that we can remove all parts of the term
+      involving $0$ since $g0=0$ for all $g\in F$ and $0+t=t+0=t$ for all
+      terms $t$. Then the atomic formula
+      $t_1(\overline{x},y)\;\square\;t_2(\overline{x},y)$ will be
+      equivalent to the form
+      \begin{align*}
+        y\;\square\;f_1x_1+\ldots+f_nx_n.
+      \end{align*}
     \end{proof}
 
   \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,1\rangle$ be the
@@ -155,7 +169,7 @@
           We claim that $|\overline{\mathcal{S}}|=2^{\omega}$. Clearly
           $|\overline{\mathcal{S}}|\leq2^{\omega}$ since
           $|\mathbb{N}^{\mathbb{N}}|=2^{\omega}$. Assume by contradiction
-          that $|\mathbb{N}^{\mathbb{N}}|$ is countable, and let
+          that $\overline{\mathcal{S}}$ is countable, and let
           $\{f_n:n\in\mathbb{N}\}$ enumerate $\overline{\mathcal{S}}$. We
           apply Cantor's diagonalization to construct a function $f$ not in
           $\overline{\mathcal{S}}$ that is almost disjoint with all the
