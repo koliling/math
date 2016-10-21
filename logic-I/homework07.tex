@@ -21,6 +21,24 @@
     language $\mathcal{L}_F$. Show that $T$ has quantifier elimination.
 
     \begin{proof}
+      We apply Corollary 5.16 in the notes.  Let $\varphi(\overline{x},y)$
+      be a quantifier-free formula, and $\mathcal{M}$ and $\mathcal{N}$ be
+      models of $T$. Since the theory of infinite vector spaces is
+      axiomatizable in first order language in the given language,
+      $\mathcal{M}$ and $\mathcal{N}$ must each be an infinite vector space
+      over $F$. Let $\mathcal{A}$ be an $\mathcal{L}_F$-substructure of
+      $\mathcal{M}$, and $F:\mathcal{A}\rightarrow\mathcal{N}$ an
+      $\mathcal{L}_F$-embedding. Let $\overline{a}=(a_1,\ldots,a_n)\subset
+      A$ and $c\in M$ be such that
+      $\mathcal{M}\models\varphi(\overline{a},c)$. We need to find $d\in N$
+      such that $\mathcal{N}\models\varphi(F(\overline{a}),d)$. \\
+
+      Since $F$ is an injective homomorphism to a vector space,
+      $\mathcal{A}$ must be isomorphic as a vector space to the subspace
+      $F(M)$ of $N$.
+      Let $\mathcal{B}_A$ be a basis of $A$. Then
+      $F(\mathcal{B}_A)$ is a basis of $F(M)$. If $c$ is spanned by
+      $\mathcal{B}_A$, then $F(c)$ will be spanned by
     \end{proof}
 
   \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,1\rangle$ be the
