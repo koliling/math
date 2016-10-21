@@ -89,9 +89,22 @@
       satisfy the axioms of linear ordering. Then from assumption,
       $\sup{R_1}$ and $\inf{R_2}$ are contained in $\mathbb{R}$, and from
       the axioms of linear ordering these values must be equal. Hence we
-      have $r=\sup{R_1}=\inf{R_2}\in\mathbb{R}$. Then since $R_1\cup
-      R_2=\mathbb{R}$, $r$ must belong to either $R_1$ or $R_2$. Assume
-      without loss of generality that $r\in R_1$.
+      have $a=\sup{R_1}=\inf{R_2}\in\mathbb{R}$. Then since $R_1\cup
+      R_2=\mathbb{R}$, $a$ must belong to either $R_1$ or $R_2$. Assume
+      without loss of generality that $a\in R_1$. \\
+
+      Consider the element $y-a\in\mathbb{S}$ and its multiplicative
+      inverse $(y-a)^{-1}\in\mathbb{S}$. Since $a\in R_1$, we have $y-a>0$.
+      Then the multiplicative inverse $(y-a)^{-1}$ must also be greater
+      than 0, because $\mathcal{R}$ and thus $\mathcal{S}$ satisfies the
+      sentence which says that the multiplicative inverse of a positive
+      element is also positive. Then from assumption, $0\leq(y-a)^{-1}\leq
+      N$ for some $N\in\mathbb{N}^+$. At the same time, since $a\not\in
+      R_2$, we have $0<y-a<1/N$. Multiplying these two inequalities give us
+      $1=(y-a)^{-1}\cdot(y-a)<N\cdot 1/N=1$, a contradiction. Note that we
+      can multiply these inequalities because $\mathcal{R}$ and thus
+      $\mathcal{S}$ satisfies the sentence that says if $0\leq a_1\leq a_2$
+      and $0<b_1<b_2$ then $a_1\cdot b_1\leq a_2\cdot b_2$.
     \end{proof}
 \end{enumerate}
 \end{document}
