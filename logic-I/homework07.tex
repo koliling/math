@@ -33,12 +33,22 @@
       $\mathcal{M}\models\varphi(\overline{a},c)$. We need to find $d\in N$
       such that $\mathcal{N}\models\varphi(F(\overline{a}),d)$. \\
 
-      Since $F$ is an injective homomorphism to a vector space,
-      $\mathcal{A}$ must be isomorphic as a vector space to the subspace
-      $F(M)$ of $N$.
-      Let $\mathcal{B}_A$ be a basis of $A$. Then
-      $F(\mathcal{B}_A)$ is a basis of $F(M)$. If $c$ is spanned by
-      $\mathcal{B}_A$, then $F(c)$ will be spanned by
+      Note that $A$ is a subspace with base field $F$ of the vector space
+      $M$ because $\mathcal{A}$ is a substructure of $\mathcal{M}$ and thus
+      contains $0$, is closed under $+$, is closed under scalar product
+      $\lambda_a$ for each $a\in F$, and therefore inherits the axioms of
+      the vector spaces from $\mathcal{M}$.
+      Also, since $F$ is an injective homomorphism to a vector space,
+      $F(A)$ is isomorphic as a vector space to $A$, and is a subspace of
+      $N$. \\
+
+      Now since $\varphi(\overline{x},y)$ is quantifier-free, we can
+      express it in disjunctive normal form, i.e. a disjunction of
+      formulas, each of which is a conjunction of atomic formulas. Hence we
+      can assume that $\varphi(\overline{x},y)$ is a conjunction of atomic
+      formulas $\phi(\overline{x},y)$. Now in the given language, an atomic
+      formula $\phi(\overline{x},y)$ can only be one of the following
+      forms: 
     \end{proof}
 
   \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,1\rangle$ be the
