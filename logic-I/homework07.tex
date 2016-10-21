@@ -159,11 +159,10 @@
           $n+1$ of $\mathbb{N}$, because the models must satisfy the first
           order formula that says that there are no elements between $n$
           and $n+1$. Hence, any elementary extension $\mathcal{M}$ can only
-          append a linear chain of elements to the back of $\mathbb{N}$. So
-          we can assume that $M=\mathbb{N}^\frown S$ for some linearly
-          ordered $S$, where $^\frown$ denotes concatenate, and each
-          element $s$ of $S$ is considered larger than any element in
-          $\mathbb{N}$. \\
+          concatenate a linear chain of elements behind $\mathbb{N}$. So we
+          can assume that $M=\mathbb{N}^\frown S$ for some linearly ordered
+          $S$, where $^\frown$ denotes concatenate, and each element $s$ of
+          $S$ is considered larger than any element in $\mathbb{N}$. \\
 
           We wish to show that $S$ is not countable. Assume by
           contradiction that $S$ is countable. From the previous part of
@@ -171,23 +170,23 @@
           functions $\mathcal{G}=\{f_{\alpha}\}_{\alpha\in2^\omega}$. We
           consider how these functions should be defined in $\mathcal{M}$.
           First, note that each function $f\in\mathcal{F}$ in $\mathcal{M}$
-          should be an extension of itself when defined for $\mathcal{N}$,
-          because models $\mathcal{N}$ and thus $\mathcal{M}$ satisfy the
-          formula $f(n)=m$ for each $n\in\mathbb{N}$, where
-          $m=f(n)\in\mathbb{N}$. \\
-          
+          should preserve how it was defined in $\mathcal{N}$ at each
+          $n\in\mathbb{N}$, because models $\mathcal{N}$ and thus
+          $\mathcal{M}$ satisfy the formula $f(n)=m$ for each
+          $n\in\mathbb{N}$, where $m=f(n)\in\mathbb{N}$.  \\
+
           Now we consider how each $f_\alpha\in\mathcal{G}$ should be
-          extended. For each pair of functions $f_\alpha$ and
-          $f_\beta$ in $\mathcal{G}$, we have $f_\alpha(n)\neq f_\beta(n)$
-          for all $n>N_{\alpha,\beta}$ for some
+          extended in $\mathcal{M}$. For each pair of functions $f_\alpha$
+          and $f_\beta$ in $\mathcal{G}$, we have $f_\alpha(n)\neq
+          f_\beta(n)$ for all $n>N_{\alpha,\beta}$ for some
           $N_{\alpha,\beta}\in\mathbb{N}$.  Hence $\mathcal{N}$ and thus
           $\mathcal{M}$ satisfies the first order formula
           \begin{equation*}
-            \varphi_{\alpha,\beta} := \forall n\;
+            \varphi_{\alpha,\beta}(N_{\alpha,\beta}) := \forall n\;
             (n>N_{\alpha,\beta}\rightarrow \neg f_\alpha(n)=f_\beta(n)),
           \end{equation*}
           which says that $f_\alpha$ and $f_\beta$ disagree at all points
-          after $N_{\alpha,\beta}$. \\
+          after $N_{\alpha,\beta}\in\mathbb{N}$. \\
 
           Thus any extension of $f_\alpha$ and $f_\beta$ must disagree at
           every point $s$ in $S$. In particular, fixing a point $s_0\in
