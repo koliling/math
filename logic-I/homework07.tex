@@ -44,12 +44,14 @@
 
       Now since $\varphi(\overline{x},y)$ is quantifier-free, we can
       express it in disjunctive normal form, i.e. a disjunction of
-      formulas, each of which is a conjunction of atomic formulas. Hence we
-      can assume that $\varphi(\overline{x},y)$ is a conjunction of atomic
-      formulas $\phi(\overline{x},y)$. Now the given language has no
-      relations, so an atomic formula $\phi(\overline{x},y)$ can only be
-      of the form $t_1(\overline{x},y)\;\square\;t_2(\overline{x},y)$, where
-      $t_1(\overline{x},y)$ and $t_2(\overline{x},y)$ are terms and
+      formulas, each of which is a conjunction of atomic formulas. So if
+      $\mathcal{M}\models\varphi(\overline{a},b)$, this implies
+      $\mathcal{M}$ satisfies one of the conjunction of atomic formulas.
+      Hence we can assume that $\varphi(\overline{x},y)$ is a conjunction
+      of atomic formulas $\phi(\overline{x},y)$. Now the given language has
+      no relations, so an atomic formula $\phi(\overline{x},y)$ can only be
+      of the form $t_1(\overline{x},y)\;\square\;t_2(\overline{x},y)$,
+      where $t_1(\overline{x},y)$ and $t_2(\overline{x},y)$ are terms and
       $\square$ is either $=$ or $\neq$. Now in the given language, each
       term $t(\overline{x},y)$ is equivalent to the form
       \begin{align*}
@@ -61,8 +63,15 @@
       $t_1(\overline{x},y)\;\square\;t_2(\overline{x},y)$ will be
       equivalent to the form
       \begin{align*}
-        y\;\square\;f_1x_1+\ldots+f_nx_n.
+        y\;\square\;f_1x_1+\ldots+f_nx_n,
       \end{align*}
+      where $\square$ is either $=$ or $\neq$. If $\square$ is $=$ for one
+      of the atomic formulas, then set $d=c=f_1a_1+\ldots+f_na_n$ will
+      work. On the other hand, if $\square$ is $\neq$ for all the atomic
+      formulas, then since $N$ is infinite, there must be an element $d\in
+      N$ that is different from all $F(f_1a_1+\ldots+f_na_n)$ for each
+      atomic formula $\phi(\overline{a},y)$. This $d$ will satisfy
+      $\mathcal{N}\models\varphi(F(\overline{a},d)$, as required.
     \end{proof}
 
   \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,1\rangle$ be the
