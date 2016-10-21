@@ -23,7 +23,7 @@
     \begin{proof}
     \end{proof}
 
-  \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,0\rangle$ be the
+  \item Let $\mathcal{R}=\langle\mathbb{R},+,-,\cdot,<,0,1\rangle$ be the
     ordered field of real numbers. Consider the type
     \begin{equation*}
       p(x) =
@@ -33,15 +33,65 @@
     $p$.
 
     \begin{proof}
-      Let $\mathcal{S}=\langle\mathbb{S},+,-,\cdot,<,0,0\rangle$ be a
+      First, we note that if an elementary extension does not realize $p$,
+      then the extension also cannot contain an element that is smaller
+      than all elements in $\mathbb{R}$: If such an element $s$ exists,
+      then $-s$ will be greater than all elements in $\mathbb{R}$, because
+      $\mathcal{R}$ satisfies the sentence
+      \begin{equation*}
+        \forall x\; (x>0\leftrightarrow -x<0).
+      \end{equation*}
+
+      Let $\mathcal{S}=\langle\mathbb{S},+,-,\cdot,<,0,1\rangle$ be a
       proper elementary extension of $\mathcal{R}$. We need to show that
       $\mathbb{S}$ contains an element that is greater than all elements in
-      $\mathbb{R}$. Now $\mathcal{S}$ must satisfy the theory of
-      $\mathcal{R}$, which includes the axioms of fields. Hence
-      $\mathbb{S}$ is a field extension of $\mathbb{R}$. \\
+      $\mathbb{R}$. \\
 
-      There are two possible cases. In the first case, the degree of
-      the field extension $d=[\mathbb{S}:\mathbb{R}]$ is finite. Then
+      %Now $\mathcal{S}$ must satisfy the theory of
+      %$\mathcal{R}$, which includes the axioms of fields. Hence
+      %$\mathbb{S}$ is a field extension of $\mathbb{R}$. \\
+
+      %There are two possible cases. In the first case, the degree of
+      %the field extension $d=[\mathbb{S}:\mathbb{R}]$ is finite. We first show
+      %that $\mathbb{S}$ must contain the field of complex numbers
+      %$\mathbb{C}$: Pick any element $s\in\mathbb{S}\setminus\mathbb{R}$.
+      %Then $s$ is a solution to an irreducible polynomial in
+      %$\mathbb{R}[x]$, which implies that $s\in\mathbb{C}$, by the
+      %algebraic closure of $\mathbb{C}$. Then we have
+      %$\mathbb{R}\subset\mathbb{R}[s]\subseteq\mathbb{C}$. But
+      %$[\mathbb{C}:\mathbb{R}]=2$ because $\mathbb{C}=\mathbb{R}[i]$, we
+      %have $\mathbb{R}[s]=\mathbb{C}$, which implies that
+      %$\mathbb{C}\subseteq\mathbb{S}$. \\
+
+      %Consider the ordering of $\mathbb{S}$ restricted to $\mathbb{C}$.
+      %Assume by contradiction that $\mathbb{S}$ does not realize $p$. If
+      %$i\geq0$, then multiplying the equation by $i$, we get $-1=i\cdot
+      %i<0$, which contradicts the sentence
+      %\begin{equation*}
+      %  \forall x,y\; (x>0\wedge y>0\rightarrow x\cdot y>0),
+      %\end{equation*}
+      %which is satisfied by $\mathcal{R}$ and hence by $\mathcal{S}$.
+      %On the other hand, if $i<0$, then $-i>0$, so similarly multiplying
+      %the equation by $-i$, we get $-1=-i\cdot(-i)<0$, still a
+      %contradiction. \\
+
+      %Hence the degree of the field extension $d=[\mathbb{S}:\mathbb{R}]$
+      %must be infinite. In this case, $\mathbb{S}$ must contain the field
+      %of fractions $\mathbb{R}(y)$. \\
+
+      Fix any $y\in\mathbb{S}\setminus\mathbb{R}$. Assume by contradiction
+      that $\mathbb{S}$ does not realize $p$, and consider the ordering of
+      $\mathbb{S}$ restricted to $\mathbb{R}\cup\{y\}$. Partition
+      $\mathbb{R}$ into two disjoint sets $R_1=\{r<y:r\in\mathbb{R}\}$ and
+      $R_2=\{r>y:r\in\mathbb{R}\}$. Note that the two sets are disjoint,
+      their union is $\mathbb{R}$, and elements in $R_1$ are smaller than
+      all elements in $R_2$, because $\mathbb{R}$ and thus $\mathbb{S}$
+      satisfy the axioms of linear ordering. Then from assumption,
+      $\sup{R_1}$ and $\inf{R_2}$ are contained in $\mathbb{R}$, and from
+      the axioms of linear ordering these values must be equal. Hence we
+      have $r=\sup{R_1}=\inf{R_2}\in\mathbb{R}$. Then since $R_1\cup
+      R_2=\mathbb{R}$, $r$ must belong to either $R_1$ or $R_2$. Assume
+      without loss of generality that $r\in R_1$.
     \end{proof}
 \end{enumerate}
 \end{document}
