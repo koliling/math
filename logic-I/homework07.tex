@@ -113,6 +113,33 @@
         almost disjoint if $f(n)\neq g(n)$ for almost all of
         $n\in\mathbb{N}$. Show that there are $2^\omega$-many almost
         disjoint functions from $\mathbb{N}$ to $\mathbb{N}$.
+
+        \begin{proof}
+          We say that two functions are almost disjoint iff they agree at
+          only a finite number of points. First, note that there is at
+          least one countable set of almost disjoint functions; by letting
+          the $n$th function be the constant function $n$. Let
+          $\mathcal{S}\subset\mathbb{N}^{\mathbb{N}}$ be a countable set of
+          almost disjoint functions. By Zorn's lemma, we can extend
+          $\mathcal{S}$ to a maximal set of almost disjoint functions
+          $\overline{\mathcal{S}}$. \\
+
+          We claim that $|\overline{\mathcal{S}}|=2^{\omega}$. Clearly
+          $|\overline{\mathcal{S}}|\leq2^{\omega}$ since
+          $|\mathbb{N}^{\mathbb{N}}|=2^{\omega}$. Assume by contradiction
+          that $|\mathbb{N}^{\mathbb{N}}|$ is countable, and let
+          $\{f_n:n\in\mathbb{N}\}$ enumerate $\overline{\mathcal{S}}$. We
+          apply Cantor's diagonalization to construct a function $f$ not in
+          $\overline{\mathcal{S}}$ that is almost disjoint with all the
+          functions in $\overline{\mathcal{S}}$, contradicting the
+          maximality of $\overline{\mathcal{S}}$: For each
+          $n\in\mathbb{N}$, let
+          \begin{equation*}
+            f(n) := \max(f_0(n),\ldots,f_n(n))+1.
+          \end{equation*}
+          Then $f$ will agree with each $f_n$ at a maximum of only the
+          first $n$ points.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
