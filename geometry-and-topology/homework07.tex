@@ -27,16 +27,33 @@
       hemisphere $U_{x_n>0}$, the bottom hemisphere $U_{x_n<0}$, or one of
       the side hemispheres $U_{x_0<0}$. \\
 
-      When $U_2$ is the top hemisphere $U_{x_n>0}$, $U_1\cap U_2$ is the
-      top hemisphere minus the north pole $(0,0,\ldots,1)$. Then
+      When $U_2$ is the top hemisphere $U_{x_n>0}$, we have
       \begin{align*}
-        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})/t_1, &
+        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})t_1, &
         \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\geq1, \\
-        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})/t_2, &
-        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
+        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})t_2, &
+        \text{where}\; 0<\|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
       \end{align*}
-      and $t_1=0.5\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
-      $t_2=1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2}$. So both $\tau_{2,1}$ and
+      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
+      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2})$. So both $\tau_{2,1}$ and
+      $\tau_{1,2}$ are rational functions with non-zero denominators at
+      their respective domains, so they are both smooth. \\
+
+      When $U_2$ is the top hemisphere $U_{x_n>0}$, the functions
+      $\tau_{2,1}$ and $\tau_{1,2}$ are the same as above
+      except that the domain of $\tau_{1,2}$ includes the origin. At these
+      domains, the functions remain smooth. \\
+
+      Finally, consider the case when $U_2$ is the side hemisphere
+      $U_{x_0<0}$. Then
+      \begin{align*}
+        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (1-t_1,x_2t_1,\ldots,x_{n-1}t_1), &
+        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\geq1, \\
+        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (1-t_2,x_2t_2,\ldots,x_{n-1}t_2), &
+        \text{where}\; 0<\|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
+      \end{align*}
+      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
+      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2})$. So both $\tau_{2,1}$ and
       $\tau_{1,2}$ are rational functions with non-zero denominators at
       their respective domains, so they are both smooth. \\
     \end{proof}
