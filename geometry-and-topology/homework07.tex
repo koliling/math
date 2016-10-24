@@ -24,36 +24,36 @@
       to any $U_2$ in the second atlas is smooth, and the inverse function
       $\tau_{1,2}$ is also smooth. Without loss of generality, assume $U_1$
       is $S^n\setminus\{(0,0,\ldots,1)\}$, and $U_2$ is either the top
-      hemisphere $U_{x_n>0}$, the bottom hemisphere $U_{x_n<0}$, or one of
-      the side hemispheres $U_{x_0<0}$. \\
+      hemisphere $U_{x_{n+1}>0}$, the bottom hemisphere $U_{x_{n+1}<0}$, or
+      one of the side hemispheres $U_{x_1<0}$. \\
 
-      When $U_2$ is the top hemisphere $U_{x_n>0}$, we have
+      When $U_2$ is the top hemisphere $U_{x_{n+1}>0}$, we have
       \begin{align*}
-        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})t_1, &
-        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\geq1, \\
-        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})t_2, &
-        \text{where}\; 0<\|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
+        \tau_{2,1}(x_1,\ldots,x_{n}) &= (x_1,\ldots,x_{n})t_1, &
+        \text{where}\; \|(x_1,\ldots,x_{n+1})\|^2\geq1, \\
+        \tau_{1,2}(x_1,\ldots,x_{n}) &= (x_1,\ldots,x_{n})t_2, &
+        \text{where}\; 0<\|(x_1,\ldots,x_{n+1})\|^2\leq1, \\
       \end{align*}
-      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
-      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2})$. So both $\tau_{2,1}$ and
+      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n}^2+1}$ and
+      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n}^2})$. So both $\tau_{2,1}$ and
       $\tau_{1,2}$ are rational functions with non-zero denominators at
       their respective domains, so they are both smooth. \\
 
-      When $U_2$ is the top hemisphere $U_{x_n>0}$, the functions
+      When $U_2$ is the top hemisphere $U_{x_{n+1}>0}$, the functions
       $\tau_{2,1}$ and $\tau_{1,2}$ are the same as above
       except that the domain of $\tau_{1,2}$ includes the origin. At these
       domains, the functions remain smooth. \\
 
       Finally, consider the case when $U_2$ is the side hemisphere
-      $U_{x_0<0}$. Then
+      $U_{x_1<0}$. Then
       \begin{align*}
-        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (1-t_1,x_2t_1,\ldots,x_{n-1}t_1), &
-        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\geq1, \\
-        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (1-t_2,x_2t_2,\ldots,x_{n-1}t_2), &
-        \text{where}\; 0<\|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
+        \tau_{2,1}(x_1,\ldots,x_{n}) &= (1-t_1,x_2t_1,\ldots,x_{n}t_1), &
+        \text{where}\; \|(x_1,\ldots,x_{n+1})\|^2\geq1, \\
+        \tau_{1,2}(x_1,\ldots,x_{n}) &= (1-t_2,x_2t_2,\ldots,x_{n}t_2), &
+        \text{where}\; 0<\|(x_1,\ldots,x_{n+1})\|^2\leq1, \\
       \end{align*}
-      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
-      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2})$. So both $\tau_{2,1}$ and
+      and $t_1=2/\sqrt{x_1^2+\ldots+x_{n}^2+1}$ and
+      $t_2=1/(1-\sqrt{1-x_1^2-\ldots-x_{n}^2})$. So both $\tau_{2,1}$ and
       $\tau_{1,2}$ are rational functions with non-zero denominators at
       their respective domains, so they are both smooth. \\
     \end{proof}
@@ -65,6 +65,18 @@
     Prove that $f$ is smooth directly.
 
     \begin{proof}
+      In the lectures it was mentioned that the choice of the atlas doesn't
+      matter. We use the atlas defined on page 2 of the notes. Given
+      $p=(x_1,\ldots,x_n)$ in $S^n$, depending on the chart $\phi_i$ in the
+      atlas we use, we have $\phi_i(p)=(x_1,\ldots,\hat{x_i},\ldots,x_n)$.
+      So if $i\not\in\{1,n+1\}$, we have
+      \begin{equation*}
+        f(\phi_i^{-1}(p)) = \frac{x_{n+1}^2}{7+e^{x_1}},
+      \end{equation*}
+      which is smooth because it is a composition of smooth functions and
+      that the denominator is always non-zero. \\
+
+      If $i=n+1$, 
     \end{proof}
 \end{enumerate}
 \end{document}
