@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz,mathtools}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+\title{Geometry and Topology: Homework 7}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Prove that the two atlases for $S^n$ on pages 2 and 3 of the notes
+    are equivalent.
+
+    \begin{proof}
+      To prove that the atlases are equivalent, we need to show that the
+      transition functions $\tau_{2,1}$ from any $U_1$ in the first atlas
+      to any $U_2$ in the second atlas is smooth, and the inverse function
+      $\tau_{1,2}$ is also smooth. Without loss of generality, assume $U_1$
+      is $S^n\setminus\{(0,0,\ldots,1)\}$, and $U_2$ is either the top
+      hemisphere $U_{x_n>0}$, the bottom hemisphere $U_{x_n<0}$, or one of
+      the side hemispheres $U_{x_0<0}$. \\
+
+      When $U_2$ is the top hemisphere $U_{x_n>0}$, $U_1\cap U_2$ is the
+      top hemisphere minus the north pole $(0,0,\ldots,1)$. Then
+      \begin{align*}
+        \tau_{2,1}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})/t_1, &
+        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\geq1, \\
+        \tau_{1,2}(x_1,\ldots,x_{n-1}) &= (x_1,\ldots,x_{n-1})/t_2, &
+        \text{where}\; \|(x_1,\ldots,x_{n-1})\|^2\leq1, \\
+      \end{align*}
+      and $t_1=0.5\sqrt{x_1^2+\ldots+x_{n-1}^2+1}$ and
+      $t_2=1-\sqrt{1-x_1^2-\ldots-x_{n-1}^2}$. So both $\tau_{2,1}$ and
+      $\tau_{1,2}$ are rational functions with non-zero denominators at
+      their respective domains, so they are both smooth. \\
+    \end{proof}
+\end{enumerate}
+\end{document}
