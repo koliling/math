@@ -71,7 +71,7 @@
       atlas we use, we have $\phi_i(p)=(x_1,\ldots,\hat{x_i},\ldots,x_n)$.
       So if $i\not\in\{1,n+1\}$, we have
       \begin{equation*}
-        f(\phi_i^{-1}(p)) = \frac{x_{n+1}^2}{7+e^{x_1}},
+        f(\phi_i^{-1}(p)) = \frac{x_{n}^2}{7+e^{x_1}},
       \end{equation*}
       which is smooth because it is a composition of smooth functions and
       that the denominator is always non-zero. \\
@@ -80,6 +80,17 @@
       \begin{equation*}
         f(\phi_{n+1}^{-1}(p)) = \frac{1-x_1^2-\ldots-x_n^2}{7+e^{x_1}},
       \end{equation*}
+      which is still smooth because it is a composition of smooth functions
+      and that the denominator is always non-zero. \\
+
+      Finally, if $i=1$, we have
+      \begin{equation*}
+        f(\phi_i^{-1}(p)) =
+        \frac{x_{n}^2}{7+e^{\sqrt{1-x_1^2-\ldots-x_n^2}}},\;
+        \text{where}\;\; \|(x_1,\ldots,x_n)\|^2\leq1,
+      \end{equation*}
+      which is still smooth because it is a composition of smooth functions
+      and that the denominator is always non-zero in the given domain. \\
     \end{proof}
 \end{enumerate}
 \end{document}
