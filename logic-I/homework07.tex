@@ -166,30 +166,60 @@
         disjoint functions from $\mathbb{N}$ to $\mathbb{N}$.
 
         \begin{proof}
-          We say that two functions are almost disjoint iff they agree at
-          only a finite number of points. First, note that there is at
-          least one countable set of almost disjoint functions; by letting
-          the $n$th function be the constant function $n$. Let
-          $\mathcal{S}\subset\mathbb{N}^{\mathbb{N}}$ be a countable set of
-          almost disjoint functions. By Zorn's lemma, we can extend
-          $\mathcal{S}$ to a maximal set of almost disjoint functions
-          $\overline{\mathcal{S}}$. \\
+          We say that two functions are almost disjoint if and only if they
+          agree at only a finite number of points. We construct an
+          injective function from the reals $\mathbb{R}$ to
+          $\mathbb{N}^\mathbb{N}$. Now each real $r\in\mathbb{R}$ is the
+          limit of a countable series of rational numbers. Let
+          $S_r=\{q_n:n\in\mathbb{N}\}$ be a series for a given real
+          $r\in\mathbb{R}$. Since there are countably many rationals, we
+          can code each rational as a natural number, and hence consider
+          $S_r$ as a countable series of the natural numbers, i.e.
+          consider $S_r$ as an element of $\mathbb{N}^\mathbb{N}$. Then for
+          distinct reals $r_1\neq r_2\in\mathbb{R}$, $S_{r_1}$ and
+          $S_{r_2}$ can only agree on a finite domain, otherwise the series
+          of rationals given by $S_{r_1}$ and $S_{r_2}$ will converge to
+          the same real number.
 
-          We claim that $|\overline{\mathcal{S}}|=2^{\omega}$. Clearly
-          $|\overline{\mathcal{S}}|\leq2^{\omega}$ since
-          $|\mathbb{N}^{\mathbb{N}}|=2^{\omega}$. Assume by contradiction
-          that $\overline{\mathcal{S}}$ is countable, and let
-          $\{f_n:n\in\mathbb{N}\}$ enumerate $\overline{\mathcal{S}}$. We
-          apply Cantor's diagonalization to construct a function $f$ not in
-          $\overline{\mathcal{S}}$ that is almost disjoint with all the
-          functions in $\overline{\mathcal{S}}$, contradicting the
-          maximality of $\overline{\mathcal{S}}$: For each
-          $n\in\mathbb{N}$, let
-          \begin{equation*}
-            f(n) := \max(f_0(n),\ldots,f_n(n))+1.
-          \end{equation*}
-          Then $f$ will agree with each $f_n$ at a maximum of only the
-          first $n$ points.
+          %Consider the set of
+          %equivalence classes $\mathcal{S}$ of $[0,1]$, where we define two
+          %reals to be equivalent if and only if their difference is
+          %rational. Then $\mathcal{S}$ has the same cardinality as the
+          %$[0,1]$ which is $2^\omega$, because
+          %$2^\omega=|[0,1]|=|\mathcal{S}|\times|\mathbb{Q}|=|\mathcal{S}|\times\omega$
+          %implies $|\mathcal{S}|=2^\omega$. \\
+
+          %Hence it suffices to construct an injective function from
+          %$\mathcal{S}$ to the set of functions from $\mathbb{N}$ to
+          %$\mathbb{N}$. For each equivalence class in $\mathcal{S}$, let
+          %$r$ be a representative of the class, and let $f$ be the function
+          %defined by the decimal expansion of $r$. Then functions from
+          %different equivalence classes must be almost disjoint otherwise
+          %their associated representatives
+
+          %First, note that there is at
+          %least one countable set of almost disjoint functions; by letting
+          %the $n$th function be the constant function $n$. Let
+          %$\mathcal{S}\subset\mathbb{N}^{\mathbb{N}}$ be a countable set of
+          %almost disjoint functions. By Zorn's lemma, we can extend
+          %$\mathcal{S}$ to a maximal set of almost disjoint functions
+          %$\overline{\mathcal{S}}$. \\
+
+          %We claim that $|\overline{\mathcal{S}}|=2^{\omega}$. Clearly
+          %$|\overline{\mathcal{S}}|\leq2^{\omega}$ since
+          %$|\mathbb{N}^{\mathbb{N}}|=2^{\omega}$. Assume by contradiction
+          %that $\overline{\mathcal{S}}$ is countable, and let
+          %$\{f_n:n\in\mathbb{N}\}$ enumerate $\overline{\mathcal{S}}$. We
+          %apply Cantor's diagonalization to construct a function $f$ not in
+          %$\overline{\mathcal{S}}$ that is almost disjoint with all the
+          %functions in $\overline{\mathcal{S}}$, contradicting the
+          %maximality of $\overline{\mathcal{S}}$: For each
+          %$n\in\mathbb{N}$, let
+          %\begin{equation*}
+          %  f(n) := \max(f_0(n),\ldots,f_n(n))+1.
+          %\end{equation*}
+          %Then $f$ will agree with each $f_n$ at a maximum of only the
+          %first $n$ points.
         \end{proof}
 
       \item Let $\mathcal{F}$ be the set of all functions from $\mathbb{N}$
