@@ -1,0 +1,679 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage[inline]{enumitem}
+\usepackage{color}
+%\setlength{\parindent}{0mm}
+
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Graduate Algebra I: Homework 7}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Does $SL_n(\mathbb{F})$ have a complement in $GL_n(\mathbb{F})$? If
+    so provide it and give the semi-direct product structure of
+    $GL_n(\mathbb{F})$ in terms of $SL_n(\mathbb{F})$ and this complement. If
+    not, prove that it does not.
+
+    \begin{proof}
+      Yes. Consider the subgroup $K\subset GL_n(\mathbb{F})$ defined by all
+      diagonal matrices such that all diagonal entries that are not at the
+      top left corner are 1. It is routine to show that $K$ is a subgroup
+      of $GL_n(\mathbb{F})$, and $SL_n(\mathbb{F})\cap K=1$. It remains to
+      show that $GL_n(\mathbb{F})=SL_n(\mathbb{F})\rtimes K$. Given $A\in
+      GL_n(\mathbb{F})$, let $A'$ be the matrix where we divide the first
+      column of $A$ by $|A|$, and let $B$ be the matrix in $K$ whose entry
+      in the top left corner is $|A|$. Then $A=A'B$, where $A'\in
+      SL_n(\mathbb{F})$ and $B\in K$. Hence
+      $GL_n(\mathbb{F})=SL_n(\mathbb{F})\rtimes K$.
+    \end{proof}
+
+  \item Can $Q_8$ be expressed as a semi-direct product? That is, are there
+    subgroups $H$, $K$ of $Q_8$ such that $Q_8\cong H\rtimes K$?
+
+    \begin{proof}
+      No. For the $Q_8\cong H\rtimes K$ we need to find two non-trivial
+      subgroups of $Q_8$ that intersect trivially. The assertion follows
+      because every non-trivial subgroup of $Q_8$ must contain both 1 and
+      -1, since $i^2=(-i)^2=j^2=(-j)^2=k^2=(-k)^2=-1$.
+    \end{proof}
+
+  \item Section 5.4 Question 8: Assume that $x,y\in G$ and both $x$ and $y$
+    commute with $[x,y]$. Prove that for all $n\in\mathbb{Z}^+$,
+    $(xy)^n=x^ny^n[y,x]^{\frac{n(n-1)}{2}}$.
+
+
+    \begin{proof}
+      We prove by induction on $n$. The base case $n=1$ is trivial.
+      Consider the inductive step $n+1$. We have
+      \begin{align*}
+        (xy)^{n+1}  = xy(xy)^n &
+                    = xyx^ny^n[y,x]^{\frac{n(n-1)}{2}}, \\
+      \end{align*}
+      by the inductive hypothesis. For the inductive step to work, we want
+      the last formula to equal
+      \begin{align*}
+        xyx^ny^n[y,x]^{\frac{n(n-1)}{2}} =
+        x^{n+1}y^{n+1}[y,x]^{\frac{n(n+1)}{2}}. \\
+      \end{align*}
+      We work backwards to get the desired equality:
+      \begin{align*}
+                          & xyx^ny^n[y,x]^{\frac{n(n-1)}{2}} &=&
+          x^{n+1}y^{n+1}[y,x]^{\frac{n(n+1)}{2}} & \\
+        \Leftrightarrow\; & xyx^ny^n &=& x^{n+1}y^{n+1}[y,x]^n & \\
+        \Leftrightarrow\; & xyx^ny^n[x,y]^n &=& x^{n+1}y^{n+1} & (\because
+          [y,x]=[x,y]^{-1}) \\
+        \Leftrightarrow\; & yx^ny^n[x,y]^n &=& x^{n}y^{n+1} & \\
+        \Leftrightarrow\; & yx^n[x,y]^ny^n &=& x^{n}y^{n+1} & (\because
+          y\; \text{commutes with}\; [x,y]) \\
+        \Leftrightarrow\; & yx^n[x,y]^n &=& x^{n}y & \\
+        \Leftrightarrow\; & y(x[x,y])^n &=& x^{n}y & (\because x\;
+          \text{commutes with}\; [x,y]) \\
+        \Leftrightarrow\; & (x[x,y])^n &=& y^{-1}x^{n}y & \\
+        \Leftrightarrow\; & (x[x,y])^n &=& (y^{-1}xy)^{n} & \\
+        \Leftarrow\;      & x[x,y] &=& y^{-1}xy & \\
+      \end{align*}
+      The last equality holds because $x[x,y]=xx^{-1}y^{-1}xy=y^{-1}xy$,
+      which completes the inductive step.
+    \end{proof}
+
+  \item Section 5.4 Question 9: Prove that if $p$ is an odd prime and $P$
+    is a group of order $p^3$ then the $p^{\text{th}}$ power map $x\mapsto
+    x^p$ is a homomorphism of $P$ into $Z(P)$. If $P$ is not cyclic, show
+    that the kernel of the $p^{\text{th}}$ power map has order $p^2$ or
+    $p^3$. Is the squaring map a homomorphism in non-abelian groups of
+    order 8? Where is the oddness of $p$ needed in the above proof?
+
+    \begin{proof}
+      From Theorem 8 of Section 4.3 and Lagrange's theorem, $Z(P)$ is
+      non-trivial, so it has either order $p^3$, $p^2$, or $p$. If
+      $|Z(P)|=p^3$ then the first statement holds trivially. If $|Z(P)|=p^2$,
+      then $P/Z(P)$ is cyclic and then $P$ is abelian from a previous
+      exercise. So $Z(P)=P$, then the first statement holds trivially.
+      Finally if $|Z(P)|=p$, the quotient group $P/Z(P)$ will have order
+      $p^2$, so from earlier exercise $P/Z(P)$ will be isomorphic to
+      $\mathbb{Z}_{p^2}$ or $\mathbb{Z}_{p}\times\mathbb{Z}_{p}$, which are
+      both abelian groups. Then from Proposition 7.4 of Section 5.4, $Z(P)$
+      must contain $P'$. Then by Lagrange's theorem, $Z(P)$ must be $P'$.
+      Then given $x,y\in P$,
+      \begin{align*}
+        (xy)^p &= x^py^p[y,x]^{\frac{p(p-1)}{2}}  & (\text{Exercise 8 of
+               Section 5.4, proven above}) \\
+               &= x^py^p([y,x]^p)^{\frac{(p-1)}{2}}  & (\because 2|(p-1)) \\
+               &= x^py^p(1)^{\frac{(p-1)}{2}}     & (\because [y,x]\in P'\;
+               \text{and}\; |P'|=p) \\
+               &= x^py^p,                         & \\
+      \end{align*}
+      so the map sending $x$ to $x^p$ is a homomorphism. Finally, we need
+      to show that $x^p\in Z(P)$ for every $x\in P$. Equivalently,
+      we need $x^py=yx^p$ for every $x,y\in P$. We work backwards to get
+      the required equation:
+      \begin{align*}
+                            & x^py                &=& yx^p   & \\
+        \Leftrightarrow\;   & y^{-1}x^py          &=& x^p    & \\
+        \Leftrightarrow\;   & (y^{-1}xy)^p        &=& x^p    & \\
+        \Leftrightarrow\;   & (y^{-1}xy)^p(x^{-1})^p &=& 1    & \\
+        \Leftrightarrow\;   & (y^{-1}xyx^{-1})^p  &=& 1    & (\because
+          (ab)^p=a^pb^p\; \text{as shown earlier}) \\
+        \Leftrightarrow\;   & [y,x^{-1}]^p        &=& 1    & (\because
+          y^{-1}xyx^{-1}=[y,x^{-1}]), \\
+      \end{align*}
+      and the last statement holds because $[y,x^{-1}]\in P'$ and $P'$ has
+      order $p$. Thus $x^p\in Z(P)$ for every $x\in P$, which completes the
+      proof for the first statement. \\
+
+      Now we prove the second assertion. If $|Z(P)|=p^3$, the group is
+      cyclic. If $|Z(P)|=p^2$, then we have shown before that because
+      $P/Z(P)$ is cyclic, $P$ will be abelian, which contradicts $Z(P)\neq
+      P$. Hence assume $|Z(P)|=p$. Then from the earlier assertion, since
+      the $p^{\text{th}}$ power map sends elements to $Z(P)$, the map is
+      either surjective or trivial. If the map is trivial, then the kernel
+      has order $p^3$. If the map is surjective, then from first
+      isomorphism theorem, the kernel has order order $|P|/|Z(P)|=p^2$, as
+      required. \\
+
+      Squaring $D_8$ is not a homomorphism because $(sr)^2=srsr=1\neq r^2=
+      s^2r^2$. \\
+
+      Oddness of $p$ is used when showing that $(xy)^p=x^py^p$. In the
+      prove above, there was a step that required 2 to divide $p-1$, which
+      will not hold if $p=2$.
+    \end{proof}
+
+  \item Section 5.4 Question 10: Prove that a finite abelian group is the
+    direct product of its Sylow subgroups.
+    \begin{proof}
+      For any abelian group $G$, each Sylow $p$-subgroup is normal in $G$,
+      hence by Corollary 20 of Chapter 4.5 the subgroup is the only Sylow
+      $p$-subgroup of $G$. Let $P_1,\ldots,P_n$ be the Sylow subgroups of
+      $G$. First, we prove that $G=P_1\ldots P_n$. By $n$ applications of
+      the fact that $|HK|=|H||K|/|H\cap K|$ for subgroups $H$ and $K$ and
+      also the fact that $|(P_1\ldots P_i)\cap P_{i+1}|=1$ from Lagrange's
+      theorem, we get $|G|=|P_1\ldots P_n|$. Hence from finiteness of
+      $|G|$, we have $G=P_1\ldots P_n$. \\
+
+      Next, we show by induction on $n$ that $G\cong P_1\times\ldots\times
+      P_n$. The case $n=1$ is trivial. Consider the case of $n+1$. Since
+      both $P_1\ldots P_n$ and $P_{n+1}$ are normal subgroups of $G$, by
+      Theorem 9 of Section 5.4, $(P_1\ldots P_{n+1})\cong(P_1\ldots
+      P_n)\times P_{n+1}$. In the preceding paragraph, we have $G\cong
+      (P_1\ldots P_{n+1})$, and from
+      induction hypothesis, $P_1\ldots P_n\cong P_1\times\ldots\times P_n$,
+      so we get $G\cong P_1\times\ldots\times P_{n+1}$.
+    \end{proof}
+
+  \item Section 5.4 Question 11: Prove that if $G=HK$ where $H$ and $K$ are
+    characteristic subgroups of $G$ with $H\cap K=1$ then
+    $\text{Aut}(G)\cong\text{Aut}(H)\times\text{Aut}(K)$. Deduce that if
+    $G$ is abelian group of finite order then $\text{Aut}(G)$ is isomorphic
+    to the direct product of the automorphism groups of its Sylow
+    subgroups.
+
+    \begin{proof}
+      Note that since characteristic subgroups are normal, from Theorem 9
+      of Section 5.4, we have $G=HK\cong H\times K$. \\
+
+      Consider the map
+      $\phi:\text{Aut}(G)\rightarrow\text{Aut}(H)\times\text{Aut}(K)$ which
+      sends $\varphi\in\text{Aut}(G)$ to $(\varphi|_H,\varphi|_K)$. This
+      map is well-defined because $H$ and $K$ are characteristic subgroups
+      of $G$. $\phi$ is a homomorphism because if $\varphi$ and $\theta$
+      are automorphisms of $G$, then $(\varphi\circ\theta)|_H$ and
+      $(\varphi\circ\theta)|_K$ are automorphisms of $H$ and $K$
+      respectively, with
+      $(\varphi\circ\theta)|_H=\varphi|_H\circ\theta|_H$, and similarly for
+      $K$. \\
+
+      The map $\phi$ is surjective because $G\cong H\times K$: Given
+      $\varphi_H\in\text{Aut}(H)$ and $\varphi_K\in\text{Aut}(K)$, the map
+      $\varphi_G$ that sends $(h,k)\in H\times K$ to
+      $(\varphi_H(h),\varphi_K(k))$ is an automorphism of $G$ because
+      \begin{align*}
+        \varphi_G(h_1h_2,k_1k_2)  &= (\varphi_H(h_1,h_2),\varphi_K(k_1,k_2)) \\
+          &= (\varphi_H(h_1)\varphi_H(h_2),\varphi_K(k_1)\varphi_K(k_2)) \\
+          &= (\varphi_H(h_1),\varphi_K(k_1))(\varphi_H(h_2),\varphi_K(k_2)) \\
+          &= \varphi_G(h_1,k_1)\varphi_G(h_2,k_2). \\
+      \end{align*}
+      Also, $\varphi_G$ gets sent to $(\varphi_H,\varphi_K)$ under $\phi$.
+      \\
+
+      The map $\phi$ is also injective: If $\varphi\in\text{Aut}(G)$
+      preserves all $h\in H$ and $k\in K$, then given any $(h,k)\in G$, we
+      have
+      \begin{align*}
+        \varphi((h,k))  &= \varphi((h,1)(1,k)) \\
+                        &= \varphi((h,1))\varphi((1,k)) \\
+                        &= (h,1)(1,k) \\
+                        &= (h,k), \\
+      \end{align*}
+      which implies that $\varphi$ is the trivial automorphism. \\
+
+      From the solution to the previous question 5.4.10, we showed that
+      $G=P_1\ldots P_n$, where $P_1,\ldots,P_n$ are the Sylow subgroups of
+      $G$. We prove the claim by induction on $n$. The case $n=1$ is
+      trivially true. For $n+1$, we have 
+      \begin{align*}
+        \text{Aut}(G) &\cong \text{Aut}(P_1\ldots
+          P_n)\times\text{Aut}(P_{n+1}) & (\text{by earlier assertion}) \\
+                      &\cong
+                      \text{Aut}(P_1)\times\ldots\times\text{Aut}(P_n)
+          \times\text{Aut}(P_{n+1}). & (\text{by induction hypothesis}) \\
+      \end{align*}
+    \end{proof}
+
+  \item Section 5.5 Question 6: Assume that $K$ is a cyclic group, $H$ is
+    an arbitrary group and $\varphi_1$ and $\varphi_2$ are homomorphisms
+    from $K$ into $\text{Aut}(H)$ such that  $\varphi_1(K)$ and
+    $\varphi_2(K)$ are conjugage subgroups of $\text{Aut}(H)$. If $K$ is
+    infinite assume $\varphi_1$ and $\varphi_2$ are injective. Prove by
+    constructing an explicit isomorphism that $H\rtimes_{\varphi_1}K\cong
+    H\rtimes_{\varphi_2}K$ (in particular, if the subgroups $\varphi_1(K)$
+    and $\varphi_2(K)$ are equal in $\text{Aut}(H)$, then the resulting
+    semidirect products are isomorphic).
+
+    \begin{proof}
+      Since $K$ is cyclic, it contains a generator $g\in K$. Then
+      $\varphi_i(K)$ is generated by $\varphi_i(g)$ for $i=1,2$.  Also,
+      since $\varphi_1(K)$ and $\varphi_2(K)$ are conjugates, there exists
+      an automorphism $\sigma\in\text{Aut}(H)$ such that
+      $\varphi_2(K)=\sigma\varphi_1(K)\sigma^{-1}$. Now since action by
+      conjugation is an isomorphism and isomorphisms maps generators to
+      generators, $\sigma^{-1}\varphi_2(g)\sigma$ should be a generator of
+      $\varphi_1(K)$, and hence there must exist some $a\in\mathbb{Z}$ such
+      that
+      \begin{align*}
+        \varphi_1(g)  &= (\sigma^{-1}\varphi_2(g)\sigma)^a \\
+                      &= \sigma^{-1}\varphi_2(g)^a\sigma.
+      \end{align*}
+      Rearranging, we get $\sigma\varphi_1(g)\sigma^{-1}=\varphi_2(g)^a$.
+      Then given any $k\in K$, since $g$ generates $K$, we have $k=g^r$ for
+      some $r\in\mathbb{N}$. Then
+      $\varphi_i(k)=\varphi_i(g^r)=\varphi_i(g)^r$, so
+      \begin{align*}
+        \varphi_1(k)  &= \varphi_1(g)^r & \\
+                      &= (\sigma^{-1}\varphi_2(g)^a\sigma)^r & (\text{from
+                        above}) \\
+                      &= \sigma^{-1}\varphi_2(g)^{ar}\sigma & \\
+                      &= \sigma^{-1}(\varphi_2(g)^r)^{a}\sigma & \\
+                      &= \sigma^{-1}\varphi_2(k)^{a}\sigma. & \\
+      \end{align*}
+
+      Consider the map $\Psi:H\rtimes_{\varphi_1}K\rightarrow
+      H\rtimes_{\varphi_2}K$ defined by $\Psi((h,k))=(\sigma(h),k^a)$. We
+      show that $\Psi$ is a homomorphism. Given $(h_1,k_1),(h_2,k_2)\in
+      H\rtimes_{\varphi_1}K$, we have
+      \begin{align*}
+        \Psi((h_1,k_1)\cdot_{\varphi_1}(h_2,k_2)) &=
+          \Psi((h_1(\varphi_1(k_1)(h_2)),\;
+          k_1k_2)) & \\
+          &= (\sigma(h_1(\varphi_1(k_1)(h_2))),\; (k_1k_2)^a)) & \\
+          &= (\sigma(h_1(\varphi_1(k_1)(h_2))),\; k_1^ak_2^a)) & (\because K\;
+          \text{is cyclic and hence abelian}) \\
+          &= (\sigma(h_1)\sigma(\varphi_1(k_1)(h_2)),\; k_1^ak_2^a)) & \\
+          &= (\sigma(h_1)\sigma(\sigma^{-1}\varphi_2(k_1)^a\sigma(h_2)),\;
+          k_1^ak_2^a)) & (\text{from above}) \\
+          &= (\sigma(h_1)((\varphi_2(k_1)^a\sigma)(h_2)),\; k_1^ak_2^a)) & \\
+          &= (\sigma(h_1)((\varphi_2(k_1^a)\sigma)(h_2)),\; k_1^ak_2^a)) & \\
+          &= (\sigma(h_1)((\varphi_2(k_1^a)(\sigma(h_2))),\; k_1^ak_2^a)) & \\
+          &= ((\sigma(h_1),k_1^a)) \cdot_{\varphi_2} ((\sigma(h_2),k_2^a)) & \\
+          &= \Psi((h_1,k_1)) \cdot_{\varphi_2} \Psi((h_2,k_2)), & \\
+      \end{align*}
+      so $\Psi$ is a homomorphism. \\
+
+      To show that $\Psi$ is bijective, we use a similar argument to
+      construct a homomorphism \[\Theta:H\rtimes_{\varphi_2}K\rightarrow
+      H\rtimes_{\varphi_1}K\] such that
+      $\Psi\circ\Theta=\Theta\circ\Psi=\text{id}$: Like before, there
+      exists $b\in\mathbb{N}$ such that
+      \begin{align*}
+        \varphi_2(g)  &= (\sigma\varphi_1(g)\sigma^{-1})^b. \\
+      \end{align*}
+      Then given any $k\in K$, we will have
+      \begin{align*}
+        \varphi_2(k)  &= \sigma\varphi_1(k)^b\sigma^{-1}. \\
+      \end{align*}
+      Then given any $k\in K$, we have
+      \begin{align*}
+        \varphi_1(k^{ab}) &= (\varphi_1(k)^b)^a & \\
+                          &= (\sigma^{-1}\varphi_2(k)\sigma)^a & \\
+                          &= \sigma^{-1}\varphi_2(k)^a\sigma & \\
+                          &= \varphi_1(k), & \\
+      \end{align*}
+      so from injectivity of $\varphi_1$, we get $k^{ab}=k$ for all $k\in
+      K$. Hence defining $\Theta$ to send $(h,k)$ to $(\sigma^{-1}(h),k^b)$
+      will satisfy $\Psi\circ\Theta=\Theta\circ\Psi=\text{id}$, as
+      required.
+    \end{proof}
+
+  \item Section 5.5 Question 8: Construct a non-abelian group of order 75.
+    Classify all groups of order 75.
+
+    \begin{proof}
+      We first classify all groups of order 75. Note that $75=3\cdot5^2$.
+      Let $G$ be a group of order 75. If $G$ is abelian, then by the
+      elementary divisor decomposition of finite abelian groups, $G$ must
+      be isomorphic to $P_5\times\mathbb{Z}_3$, where $P_5$ is a group of
+      order $25$. By classification of groups of order $p^2$ for primes
+      $p$, we know that $P_5$ is isomorphic to either $Z_5\times Z_5$ or
+      $Z_{25}$. Hence if $G$ is abelian it is isomorphic to either
+      $\mathbb{Z}_5\times\mathbb{Z}_5\times\mathbb{Z}_3$ or
+      $\mathbb{Z}_{25}\times\mathbb{Z}_3$. \\
+
+      Now consider the case when $G$ is non-abelian. By Sylow theorems, $G$
+      must contain exactly one Sylow 5-subgroup $P_5$, which must therefore
+      be normal in $G$. Let $P_3$ be any one of $G$'s Sylow 3-subgroups. By
+      Lagrange's theorems, $P_5\cap P_3=1$, and hence $G=P_5P_3$ and then
+      from Theorem 12 of Section 5.5, and $G\cong
+      P_5\rtimes_{\varphi}\mathbb{Z}_3$ for some homomorphism
+      $\varphi:\mathbb{Z}_3\rightarrow\text{Aut}(P_5)$. By the
+      classification of groups of order the square of primes, $P_5$ is
+      isomorphic to either $\mathbb{Z}_5\times\mathbb{Z}_5$ or
+      $\mathbb{Z}_{25}$. If $P_5\cong\mathbb{Z}_{25}$, then
+      $|\text{Aut}(\mathbb{Z}_{25})|=|\mathbb{Z}_{25}^\times|=20$ which is
+      not a multiple of 3, hence $\varphi$ can only be trivial and group
+      $G$ will be abelian. Hence assume that
+      $P_5=\mathbb{Z}_5\times\mathbb{Z}_5$. Now
+      $\text{Aut}(\mathbb{Z}_5\times\mathbb{Z}_5)=\text{GL}_2(\mathbb{Z}_5)$,
+      which has order $5^4-5^3-5^2+5=32\cdot5\cdot3$, and so all subgroups
+      of $\text{Aut}(\mathbb{Z}_5\times\mathbb{Z}_5)$ of order 3 must be
+      Sylow 3-subgroups, which are conjugate with each other. Therefore
+      from Section 5.5 Question 6, all non-trivial $\varphi$ will induce
+      isomorphic groups
+      $(\mathbb{Z}_5\times\mathbb{Z}_5)\rtimes_{\varphi}\mathbb{Z}_3$.
+      Also from Sylow's theorems, a non-trivial $\varphi$ exists. Therefore
+      there cannot be more than one non-abelian group of order 75 up to
+      isomorphism. \\
+
+      Now we construct a non-abelian group of order 75. From the preceding
+      paragraph, we need to find a non-trivial subgroup of 
+      $\text{Aut}(\mathbb{Z}_5\times\mathbb{Z}_5)$ of order 3. Since
+      $\text{Aut}(\mathbb{Z}_5\times\mathbb{Z}_5)\cong\text{GL}_2(\mathbb{Z}_5)$,
+      it suffices to find a matrix in $\text{GL}_2(\mathbb{Z}_5)$ of order
+      3. We check that $M_\varphi=\begin{bmatrix}4&4\\1&0\\\end{bmatrix}$ works.
+      This matrix will send $(1,0)\in\mathbb{Z}_5\times\mathbb{Z}_5$ to
+      $(4,1)$ and $(0,1)\in\mathbb{Z}_5\times\mathbb{Z}_5$ to $(4,0)$. Then
+      $(\mathbb{Z}_5\times\mathbb{Z}_5)\rtimes_{\varphi}\mathbb{Z}_3$ will
+      be non-abelian, as witnessed by $((1,1),0)$ and $((1,0),1)$. \\
+
+      Summarizing, there is exactly one non-abelian group of order 75 and
+      two abelian groups of order 75, up to isomorphism. 
+    \end{proof}
+
+  \item Section 5.5 Question 15: Let $p$ be an odd prime. Prove that every
+    element of order 2 in $\text{GL}_2(\mathbb{F}_p)$ is conjugate to a
+    diagonal matrix with $\pm1$'s on the diagonal. Classify the groups of
+    order $2p^2$.
+
+    \begin{proof}
+      We first classify the groups of order $2p^2$ where $p$ is an odd
+      prime. Let $G$ be a group of order $2p^2$. If $G$ is abelian, then
+      by the elementary divisor decomposition of finite abelian groups, $G$
+      must be isomorphic to $P\times\mathbb{Z}_2$, where $P$ is a group
+      of order $p^2$. By classification of groups of order $p^2$ for primes
+      $p$, we know that $P$ is isomorphic to either $Z_p\times Z_p$ or
+      $Z_{p^2}$. Hence if $G$ is abelian it is isomorphic to either
+      $\mathbb{Z}_p\times\mathbb{Z}_p\times\mathbb{Z}_2$ or
+      $\mathbb{Z}_{p^2}\times\mathbb{Z}_2$. \\
+
+      Now consider the case when $G$ is non-abelian. By Sylow theorems, $G$
+      must contain exactly one Sylow $p$-subgroup $P$, which must therefore
+      be normal in $G$. Let $\mathbb{Z}_2$ be any one of $G$'s Sylow
+      2-subgroups. By Lagrange's theorems, $P\cap \mathbb{Z}_2=1$, and
+      hence $G=P\mathbb{Z}_2$ and then from Theorem 12 of Section 5.5, and
+      $G\cong P\rtimes_{\varphi}\mathbb{Z}_2$ for some homomorphism
+      $\varphi:\mathbb{Z}_2\rightarrow\text{Aut}(P)$. By the classification
+      of groups of order the square of primes, $P$ is isomorphic to either
+      $\mathbb{Z}_p\times\mathbb{Z}_p$ or $\mathbb{Z}_{p^2}$. If
+      $P\cong\mathbb{Z}_{p^2}$, then
+      $|\text{Aut}(\mathbb{Z}_{p^2})|=|\mathbb{Z}_{p^2}^\times|=p(p-1)$,
+      which is a multiple of 2, hence $\text{Aut}(\mathbb{Z}_{p^2})$ must
+      contain elements of order 2. Now any automorphism $\varphi_1$ of cyclic
+      group $\mathbb{Z}_{p^2}$ is completely defined by its image on the
+      generator $\overline{1}\in\mathbb{Z}_{p^2}$. We want to find
+      $\varphi$ such that $\varphi(\varphi(\overline{1}))=\overline{1}$.
+      Now
+      $\varphi(\varphi(\overline{1}))=\overline{1}=\varphi(\overline{1})^2$,
+      and setting the above to $\overline{1}$, we get
+      $p^2|(\varphi(\overline{1})^2-1)$, so solving for
+      $\varphi(\overline{1})\in\mathbb{Z}_{p^2}$ we get
+      $\varphi(\overline{1})=p^2-1$ as the only non-trivial solution.
+      Hence there is only one non-trivial non-abelian group isomorphic to
+      $\mathbb{Z}_{p^2}\rtimes\mathbb{Z}_2$. \\
+
+      Next consider the case when $P=\mathbb{Z}_p\times\mathbb{Z}_p$. Now
+      $\text{Aut}(\mathbb{Z}_p\times\mathbb{Z}_p)=\text{GL}_2(\mathbb{Z}_p)$,
+      and every non-trivial element of order 2 in
+      $\text{GL}_2(\mathbb{Z}_p)$ is conjugate to a diagonal matrix with
+      $\pm1$'s on the diagonal, hence from Section 5.5 Question 6, there
+      can be at most 4 groups of the form
+      $(\mathbb{Z}_p\times\mathbb{Z}_p)\rtimes_{\varphi}\mathbb{Z}_2$,
+      induced by the four distinct diagonal matrices with $\pm1$'s on the
+      diagonal. We can ignore the case where $\varphi$ is obtained from the
+      identity matrix $I$ because that will give an abelian group. Hence
+      there are at most three distinct non-abelian groups of the form
+      $(\mathbb{Z}_p\times\mathbb{Z}_p)\rtimes_{\varphi}\mathbb{Z}_2$.
+    \end{proof}
+
+  \item Section 5.5 Question 16: Show that there are exactly 4 distinct
+    homomorphisms from $\mathbb{Z}_2$ into $\text{Aut}(\mathbb{Z}_8)$.
+    Prove that the resulting semidirect products are the groups are the
+    groups: $\mathbb{Z}_8\times\mathbb{Z}_2$, $D_{16}$, the quasidihedral
+    group $QD_{16}$ and the modular group $M$.
+
+    \begin{proof}
+      $\text{Aut}(\mathbb{Z}_8)$ is isomorphic to
+      $\mathbb{Z}_8^\times\cong\mathbb{Z}_2\times\mathbb{Z}_2$, by
+      Proposition 16 of Section 4.4. Each homomorphism of $\mathbb{Z}_2$ to
+      $\mathbb{Z}_2\times\mathbb{Z}_2$ is determined uniquely by the image of
+      $\overline{1}$, which will be well-defined if and only if the image
+      has order dividing 2. Since all four elements of
+      $\mathbb{Z}_2\times\mathbb{Z}_2$ has order dividing 2, there are
+      exactly distinct homomorphisms from $\mathbb{Z}_2$ into
+      $\text{Aut}(\mathbb{Z}_8)$. Let $\varphi_i$ for $i\in\{1,2,3,4\}$
+      denote the homomorphisms that send $\overline{1}$ to
+      $(0,0),(0,1),(1,0),(1,1)\in\mathbb{Z}_2\times\mathbb{Z}_2$
+      respectively. \\
+
+      The trivial homomorphism $\varphi_1$ gives the trivial homomorphism
+      $\mathbb{Z}_8\rtimes_{\varphi_1}\mathbb{Z}_2\cong\mathbb{Z}_8\times\mathbb{Z}_2$.
+    \end{proof}
+
+  \item Section 7.1 Question 7: The center of a ring $R$ is $\{z\in R|
+    zr=rz\; \text{for all}\; r\in R\}$. Prove that the center of a ring is
+    a subring that contains the identity. Prove that the center of a
+    division ring is a field.
+
+    \begin{proof}
+      We chase definitions. The center contains the identity since $1r=r1$
+      for all $r\in R$ by definition of a ring. The center is also a
+      subgroup of $R$ because it is non-empty and also given $z_1,z_2$ in
+      the center and any $r\in R$, we have
+      \begin{align*}
+        (z_1-z_2)r  &= z_1r-z_2r  & (\text{distributive law}) \\
+                    &= rz_1-rz_2  & (z_1,z_2\; \text{are in the center}) \\
+                    &= r(z_1-z_2),  & (\text{distributive law}) \\
+      \end{align*}
+      which implies that $z_1-z_2$ is also in the center. Finally, the
+      center is closed under multiplication because given $z_1,z_2$ in the
+      center and any $r\in R$, we have $z_1z_2r=rz_1z_2$ because $r$
+      commutes with both $z_1$ and $z_2$. Hence the center is a subring of
+      $R$. \\
+
+      If $R$ is a division ring, then from above, its center contains the
+      identity. Also, given $z$ in the center, and given any $r\in R$, we
+      have
+      \begin{align*}
+        z^{-1}r &= (r^{-1}z)^{-1} & \\
+                &= (zr^{-1})^{-1} & (\because z\; \text{commutes with}\;
+                r^{-1}) \\
+                &= rz^{-1}, & \\
+      \end{align*}
+      which implies that $z^{-1}$ is also contained in the center. Hence
+      each element $z$ in the center has a multiplicative inverse $z^{-1}$,
+      which completes the proof that the center is a field.
+    \end{proof}
+
+  \item Section 7.1 Question 12: Prove that any subring of a field which
+    contains the identity is an integral domain.
+
+    \begin{proof}
+      Let $R$ be a subring of a field $F$ such that $R$ contains the
+      identity of $F$. Then this identity will also be an identity of $R$.
+      Also, any zero divisor of $R$ will be a zero divisor of $F$. Since
+      $F$ contains no zero divisors, neither can $R$. Hence $R$ is an
+      integral domain.
+    \end{proof}
+
+  \item Section 7.1 Question 13: An element $x$ in $R$ is called nilpotent
+    if $x^m=0$ for some $m\in\mathbb{Z}^+$.
+    \begin{enumerate}
+      \item Show that if $n=a^kb$ for some integers $a$ and $b$ then
+        $\overline{ab}$ is a nilpotent element of $\mathbb{Z}_n$.
+        \begin{proof}
+          We have
+          \begin{align*}
+            \overline{ab}^k &= \overline{(ab)^k} \\
+                            &= \overline{a^kb^k} \\
+                            &= \overline{a^kbb^{k-1}} \\
+                            &= \overline{nb^{k-1}} \\
+                            &= \overline{n}\overline{b^{k-1}} \\
+                            &= 0\overline{b^{k-1}} \\
+                            &= 0. \\
+          \end{align*}
+        \end{proof}
+        Hence $\overline{ab}$ is nilpotent.
+
+      \item If $a\in\mathbb{Z}$ is an integer, show that element
+        $\overline{a}\in\mathbb{Z}_n$ is nilpotent if and only if every
+        prime divisor of $n$ is also a divisor of $a$. In particular,
+        determine the nilpotent elements of $\mathbb{Z}_{72}$ explicitely.
+
+        \begin{proof}
+          Let $n=p_1^{r_1}\ldots p_k^{r_k}$ be the prime factor
+          decompostion of $n$, let $r=\max(r_1,\ldots,r_k)$, and let
+          $a=p_1\ldots p_k b$ for some integer $b\in\mathbb{Z}^+$. Then
+          \begin{align*}
+            \overline{a}^r  &= \overline{p_1\ldots p_k b}^r \\
+                            &= \overline{p_1^r\ldots p_k^r b^r} \\
+                            &= \overline{p_1^{r_1}\ldots
+                            p_k^{r_k}(p_1^{r-r_1}\ldots p_k^{r-r_k}b^r)}
+                            \\
+                            &= \overline{n(p_1^{r-r_1}\ldots
+                            p_k^{r-r_k}b^r)} \\
+                            &= 0, \\
+          \end{align*}
+          so $\overline{a}$ is nilpotent. For the converse, let
+          $\overline{a}$ be a nilpotent element of $\mathbb{Z}_n$, then
+          there exists some $k\in\mathbb{Z}^+$ such that $p_i|a^k$ for all
+          $i\in\{1,\ldots,k\}$. This implies that $p_i|a$ for all
+          $i\in\{1,\ldots,k\}$, or in other words, every prime divisor of
+          $n$ must divide $a$. \\
+
+          The distinct prime factors of 72 are only 2 and 3. Hence from the
+          previous assertion, the nilpotent elements of $\mathbb{Z}_{72}$
+          are exactly the multiples of $2\cdot3=6$, which are
+          \[\{\overline{a}:a\in\{0,6,12,18,24,30,36,42,48,54,60,66\}\}\].
+        \end{proof}
+
+      \item Let $R$ be the ring of functiosn from a non-empty set $X$ to a
+        field $F$. Prove that $R$ contains no non-zero nilpotent elements.
+
+        \begin{proof}
+          Let $f:X\rightarrow F\in R=F^X$ be a nilpotent element. Then
+          $f^m=0$ for some $m\in\mathbb{Z}^+$. This implies that
+          $f(x)^m=0\in F$ for all $x\in X$. Since $F$ contains no
+          zero-divisors, we have $f(x)=0$ for all $x\in X$, which means $f$
+          can only be zero. Hence the only nilpotent element of $R$ is 0.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.1 Question 14: Let $x$ be a nilpotent element of the
+    commutative ring $R$.
+    \begin{enumerate}
+      \item Prove that $x$ is either zero or a zero divisor.
+        \begin{proof}
+          Let $m$ be the smallest positive integer such that $x^m=0$. If
+          $m=1$ then $x$ is zero, hence assume $m>1$. Then $x$ is non-zero
+          and $x^{m-1}$ is also non-zero by choice of $m$, yet
+          $xx^{m-1}=x^m=0$, which implies $x$ is a zero divisor.
+        \end{proof}
+
+      \item Prove that $rx$ is nilpotent for all $r\in R$.
+        \begin{proof}
+          Let $m\in\mathbb{Z}^+$ such that $r^m=0$. Then $(rx)^m=r^mx^m$ by
+          the commutativity of $R$, and since $r^m=0$, $(rx)^m$ must also
+          equal 0, implying that $rx$ is also nilpotent.
+        \end{proof}
+
+      \item Prove that $1+x$ is a unit in $R$.
+        \begin{proof}
+          Let $m\in\mathbb{Z}^+$ such that $r^m=0$. Consider $y\in R$
+          defined by \[y=\sum_{k=0}^{m-1} (-x)^k.\] Then
+          \begin{align*}
+            (1+x)y  &= (1+x)\sum_{k=0}^{m-1} (-x)^k & \\
+                    &= \sum_{k=0}^{m-1} (-x)^k + \sum_{k=1}^m (-x)^k & \\
+                    &= 1+(-x)^m & \\
+                    &= 1+(-1)^mx^m & (\text{by commutativity}) \\
+                    &= 1. & (\because x^m=0) \\
+          \end{align*}
+          Similarly, we also get $y(1-x)=0$, hence $(1+x)$ has
+          multplicative inverse $y$, which means $(1+x)$ is a unit in $R$.
+        \end{proof}
+
+      \item Deduce that the sum of a nilpotent element and a unit is a
+        unit.
+        \begin{proof}
+          Let $u$ be any unit in $R$ and $v$ be its multiplicative inverse.
+          By part (b) of this question, $vx$ is nilpotent, then by part (c)
+          of this question, $1+vx$ is nilpotent, and thus by part (b) of
+          this question, $u(1+vx)=u+x$ must also be nilpotent.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.1 Question 20: Let $R$ be the collection of sequences
+    $(a_1,a_2,a_3,\ldots)$ of integers $a_1,a_2,a_3,\ldots$ where all but
+    finitely many of the $a_i$ are 0. Prove that $R$ is a ring under
+    componentwise addition and multiplication which does not have an
+    identity.
+
+    \begin{proof}
+      The zero function is contained in $R$, and acts as the zero of $R$.
+      Also, $R$ is closed under addition and multiplication because given
+      $f_1,f_2\in R$, their sum $f_1+f_2$ or product $f_1\times f_2$ will
+      still be a sequence with only finitely many non-zero $a_i$'s. $R$ is
+      also closed under inverse because given $f\in R$, its inverse which
+      is the function with replace all the non-zero $a_i$'s in $f$ by
+      $-a_i$ will also be contained in $R$.  Finally, $R$ is abelian as a
+      group because addition of integers is abelian. \\
+
+      Multiplication is associative because multiplication by integers is
+      associative. The distribution laws also hold from the distributive
+      laws of the integers. \\
+
+      It remains to show that $R$ does not have an identity. Assume
+      $f=(a_1,\ldots)\in R$ acts as the identity. Let $f_i\in R$ denote the
+      function in $R$ that is 1 at the $i$th integer and zero everywhere
+      else. Then $ff_i$ will be the function that is $a_i$ at the $i$th
+      integer and zero everywhere else. Hence for $ff_i=f_i$, we need
+      $a_i=1$. Thus $a_i=1$ for all $i\in\mathbb{Z}^+$, which implies that
+      $f$ is not a function in $R$. Hence no such identity exists in $R$.
+    \end{proof}
+
+  \item Section 7.1 Question 29: Let $A$ be any commutative ring with
+    identity $1\neq0$. Let $R$ be the set of all group homomorphisms of the
+    additive group $A$ to itself with addition defined as pointwise
+    addition of functions and multiplication defined as function
+    composition. Prove that these operations make $R$ into a ring with
+    identity. Prove that the units of $R$ are the group automorphisms of
+    $A$.
+
+    \begin{proof}
+      We first show that the defined addition forms an abelian group. $R$
+      is closed under addition because given $f,g\in R$, $f+g$ will also be
+      in $R$ because given any $a_1,a_2\in A$, we have 
+      \begin{align*}
+        (f+g)(a_1+a_2)  &:= f(a_1+a_2)+g(a_1+a_2) \\
+                        &:= f(a_1)+f(a_2)+g(a_1)+g(a_2) \\
+                        &:= (f+g)(a_1+a_2)+(f+g)(a_1+a_2), \\
+      \end{align*}
+      which implies that $f+g$ is also a group homomorphism of $A$ and
+      should therefore be contained in $R$. The homomorphism that sends
+      each element in $A$ to 0 is clearly a zero in $R$. Also, $R$ is
+      closed under inverse because given $f\in R$, let $-f$ be the function
+      that sends each $a\in A$ to $-f(a)$; $-f$ can be easily verified to
+      be a group homomorphism because $f$ is one. Finally, $R$ inherits the
+      abelian property from the abelian property of $A$ as an additive
+      group. \\
+
+      $R$ is also closed under multiplication because the composition of
+      homomorphisms of a group remains a homomorphism. Associativity of
+      multiplication follows from the associativity of the composition of
+      functions. To show the distributive laws, let $a_1,a_2\in A$ and
+      $f,g,h\in R$. Then
+      \begin{align*}
+        ((f+g)h)(a) &= (f+g)h(a) \\
+                    &= f(h(a)) + g(h(a)) \\
+                    &= fh(a) + gh(a) \\
+                    &= (fh+gh)(a). \\
+      \end{align*}
+      Similarly, we can show that $(h(f+g))(a)=(hf+hg)(a)$. Hence the
+      distributive laws hold. \\
+
+      Finally, $R$ contains the identity map, which will function as the
+      identity in $R$. \\
+
+      Let $f$ be a group automorphism of $A$, and let $f^{-1}$ be the
+      function that sends $a\in A$ to $-f(a)$. Then $f^{-1}$ is also a
+      group automorphism of $A$, and $f\circ f^{-1}=f^{-1}\circ
+      f=\text{id}$, hence $f^{-1}$ is the multiplicative inverse of $f$ in
+      the ring $R$. Conversely, if $f\in R$ has a multiplicative inverse
+      $g$, then $f\circ g=g\circ f=\text{id}$ as an additive group
+      homomorphism of $A$, which implies that $f$ is a group automorphism
+      of $A$.
+    \end{proof}
+\end{enumerate}
+\end{document}
