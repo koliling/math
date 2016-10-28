@@ -287,8 +287,8 @@
       To show that $\Psi$ is bijective, we use a similar argument to
       construct a homomorphism \[\Theta:H\rtimes_{\varphi_2}K\rightarrow
       H\rtimes_{\varphi_1}K\] such that
-      $\Psi\circ\Theta=\Theta\circ\Psi=\text{id}$: Like before, there
-      exists $b\in\mathbb{N}$ such that
+      $\Psi\circ\Theta=\Theta\circ\Psi=\text{id}$: If $K$ is infinite, like
+      before, there exists $b\in\mathbb{N}$ such that
       \begin{align*}
         \varphi_2(g)  &= (\sigma\varphi_1(g)\sigma^{-1})^b. \\
       \end{align*}
@@ -304,7 +304,19 @@
                           &= \varphi_1(k), & \\
       \end{align*}
       so from injectivity of $\varphi_1$, we get $k^{ab}=k$ for all $k\in
-      K$. Hence defining $\Theta$ to send $(h,k)$ to $(\sigma^{-1}(h),k^b)$
+      K$. \\
+
+      If $K$ is finite, we pick $b$ differently as follows: Let $|K|=n$
+      and $|\varphi_1(K)|=|\varphi_2(K)|=m$. By Lagrange's theorem, $m|n$.
+      Since $\varphi_1(g)=(\sigma^{-1}\varphi_2(g)\sigma)^a$ is a generator
+      of $\varphi_1(K)$, $\sigma^{-1}\varphi_2(g)\sigma$ must also generate
+      $\varphi_1(K)$, and so $(a,m)=1$. Now $(a,m)=1$ and $m|n$ implies
+      that there exists some $\overline{a}\in\mathbb{N}$ such that
+      $(\overline{a},n)=1$ and $\overline{a}\equiv a\mod{n}$. Let
+      $b\in\mathbb{N}$ be such that $\overline{a}b\equiv1\mod{n}$. Then for
+      every $k\in K$, we will have $k^{ab}=1$. \\
+
+      Hence defining $\Theta$ to send $(h,k)$ to $(\sigma^{-1}(h),k^b)$
       will satisfy $\Psi\circ\Theta=\Theta\circ\Psi=\text{id}$, as
       required.
     \end{proof}
