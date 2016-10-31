@@ -21,40 +21,91 @@
     map from $S^{\mathcal{M}}_n(A)$ to $S^{\mathcal{M}}_n(B)$.
 
     \begin{proof}
-      Let $r:S^{\mathcal{M}}_n(A)\rightarrow S^{\mathcal{M}}_n(B)$ denote
-      the restriction map function, let $\phi(\bar{x})$ be a formula over
-      $B$, and let $\mathcal{O}_{\phi,B}=\{q\in
-      S^{\mathcal{M}}_n(B):\phi\in q\}$. We need to show that
-      $r^{-1}(\mathcal{O}_{\phi,B})$ is open in the topology over
-      $S^{\mathcal{M}}_n(A)$. This is true since
-      $r^{-1}(\mathcal{O}_{\phi,B})=\mathcal{O}_{\phi,A}$; every
-      $p\in S^{\mathcal{M}}_n(A)$ is the inverse map of some $q\in
-      S^{\mathcal{M}}_n(B)$ because its restriction $p\restriction B$ is in
-      $S^{\mathcal{M}}_n(B)$.
+      First note that the given restriction map is a well-defined because
+      any subset of a consistent set of formulas remains consistent, and also
+      after restriction the set of sentences remain Complete. Let
+      $r:S^{\mathcal{M}}_n(A)\rightarrow S^{\mathcal{M}}_n(B)$ denote the
+      restriction map function, let $\phi(\bar{x})$ be a formula over $B$,
+      and let $\mathcal{O}_{\phi,B}=\{q\in S^{\mathcal{M}}_n(B):\phi\in
+      q\}$. We need to show that $r^{-1}(\mathcal{O}_{\phi,B})$ is open in
+      the topology over $S^{\mathcal{M}}_n(A)$. This is true since
+      $r^{-1}(\mathcal{O}_{\phi,B})=\mathcal{O}_{\phi,A}$: $\subseteq$
+      follows because every $p\in r^{-1}(\mathcal{O}_{\phi,B})$ will
+      contain $\phi$; $\supseteq$ follows because every restriction of a
+      type in $S^{\mathcal{M}}_n(A)$ that contains $\phi$ is a type in
+      $S^{\mathcal{M}}_n(B)$ that contains $\phi$.
     \end{proof}
 
   \item Let $\mathcal{M}$ be a structure and $B\subseteq M$. For
     $p(x_1,\ldots,x_{m+n})\in S^{\mathcal{M}}_{m+n}(B)$ let $p\restriction
     m=\{\varphi(x_1,\ldots,x_m)\in p(x_1,\ldots,x_{m+n})\}$.
+
     \begin{enumerate}
       \item Show that $p\restriction m\in S^{\mathcal{M}}_m(B)$ for $p\in
         S^{\mathcal{M}}_{m+n}(B)$.
         \begin{proof}
-          This is true from chasing definitions: If $p\restriction m$ is
-          not a Complete type over $B$ in free variables $x_1,\ldots,x_m$,
-          then there must exist a formula $\varphi(x_1,\ldots,x_m)$ over
-          $B$ such that neither itself nor its negation is in
-          $p\restriction m$; then since formulas with free variables
-          $x_1,\ldots,x_m$ are also considered formulas with free variables
-          $x_1,\ldots,x_{m+n}$, then neither $\varphi(x_1,\ldots,x_m)$ nor
-          its negation is in $p$, which contradicts the Completeness of
-          $p$.
+          This is true from chasing definitions: After restriction the set
+          of sentences remain consistent, and hence is still a
+          type. If $p\restriction m$ is not Complete over $B$ in
+          free variables $x_1,\ldots,x_m$, then there must exist a formula
+          $\varphi(x_1,\ldots,x_m)$ over $B$ such that neither itself nor
+          its negation is in $p\restriction m$; then since formulas with
+          free variables $x_1,\ldots,x_m$ are also considered formulas with
+          free variables $x_1,\ldots,x_{m+n}$, then neither
+          $\varphi(x_1,\ldots,x_m)$ nor its negation is in $p$, which
+          contradicts the Completeness of $p$.
         \end{proof}
 
       \item Show that the restriction map $p\mapsto p\restriction m$ is
         open, continuous, and surjective as a map from
         $S^{\mathcal{M}}_{m+n}(B)$ to $S^{\mathcal{M}}_{m}(B)$.
+
         \begin{proof}
+          The restriction map is well-defined from the previous part of
+          this question. Let $r:S^{\mathcal{M}}_{m+n}(B)\rightarrow
+          S^{\mathcal{M}}_{m}(B)$ denote the restriction map. Given a
+          formula $\phi$, use $\mathcal{O}_{\phi,n}$ to denote $\{p\in
+          S^{\mathcal{M}}_n(B):\phi\in p\}$. \\
+
+          To show that the map is continuous, let $\phi(x_1,\ldots,x_{m})$
+          be a formula over $B$. We need to show that
+          $r^{-1}(\mathcal{O}_{\phi,m})$ is open in
+          $S^{\mathcal{M}}_{m+n}(B)$. Now
+          $r^{-1}(\mathcal{O}_{\phi,m})=\mathcal{O}_{\phi,m+n}$:
+          $\subseteq$ follows because every $p\in
+          r^{-1}(\mathcal{O}_{\phi,m})$ will contain $\phi$; $\supseteq$
+          follows because every restriction of a type in
+          $S^{\mathcal{M}}_{m+n}(B)$ that contains $\phi$ is a type in
+          $S^{\mathcal{M}}_m(A)$ that contains $\phi$. Since
+          $\mathcal{O}_{\phi_B,m+n}$ is open in $S^{\mathcal{M}}_{m+n}(B)$,
+          the map is continuous. \\
+
+          To show that the map is surjective, let $q$ a type in
+          $S^{\mathcal{M}}_{m}(B)$. We need to show that there exists a
+          type $p$ in $S^{\mathcal{M}}_{m+n}(B)$ whose restriction is $q$.
+          Since $q$ is a type, by Proposition 6.9, there is an elementary
+          extension $\mathcal{N}\succeq\mathcal{M}$ and
+          $\overline{a'}=(a_1,\ldots,a_m)\subseteq N$ such that
+          $q=\text{tp}^\mathcal{N}(\overline{a'}/B)$. Fix an additional
+          $a_{m+1},\ldots,a_{m+n}\subseteq N$, let
+          $\overline{a}=(a_1,\ldots,a_{m+n})\subseteq N$, and let
+          $p=\text{tp}^\mathcal{N}(\overline{a}/B)$. Then from Proposition
+          6.9 again, $p\in S^{\mathcal{M}}_{m+n}(B)$. Moreover, the
+          restriction of $p$ is $q$. \\
+
+          To show that the map is open, let $\phi'(x_1,\ldots,x_{m+n})$ be
+          a formula over $B$. We need to show that
+          $\mathcal{O}_{\phi',m+n}\restriction m$ is open in
+          $S^{\mathcal{M}}_{m}(B)$. Let $\phi(x_1,\ldots,x_m)$ be the
+          formula over $B$ in $m$ variables, defined as
+          \[\phi(x_1,\ldots,x_m) := \exists x_{m+1},\ldots,x_{m+n}\;
+          \phi'(x_1,\ldots,x_{m+n}).\] We show that
+          $\mathcal{O}_{\phi',m+n}\restriction m=\mathcal{O}_{\phi,m}$,
+          which is open in $S^{\mathcal{M}}_{m}(B)$. $\subseteq$ follows
+          because every $p$ in $\mathcal{O}_{\phi',m+n}$ contains $\phi'$
+          and thus also contains $\phi$ from consistency of $p$. To show
+          $\supseteq$, let $q\in\mathcal{O}_{\phi,m}$. We need to find some
+          $p\mathcal{O}_{\phi',m+n}$ such that $q=p\restriction m$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
