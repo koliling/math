@@ -24,12 +24,38 @@
       Let $r:S^{\mathcal{M}}_n(A)\rightarrow S^{\mathcal{M}}_n(B)$ denote
       the restriction map function, let $\phi(\bar{x})$ be a formula over
       $B$, and let $\mathcal{O}_{\phi,B}=\{q\in
-      S^{\mathcal{M}}_n(B):\varphi\in q\}$. We need to show that
+      S^{\mathcal{M}}_n(B):\phi\in q\}$. We need to show that
       $r^{-1}(\mathcal{O}_{\phi,B})$ is open in the topology over
-      $S^{\mathcal{M}}_n(A)$. This is true because
-      $r^{-1}(\mathcal{O}_{\phi,B})=\mathcal{O}_{\phi,A}$; since every
+      $S^{\mathcal{M}}_n(A)$. This is true since
+      $r^{-1}(\mathcal{O}_{\phi,B})=\mathcal{O}_{\phi,A}$; every
       $p\in S^{\mathcal{M}}_n(A)$ is the inverse map of some $q\in
-      S^{\mathcal{M}}_n(B)$.
+      S^{\mathcal{M}}_n(B)$ because its restriction $p\restriction B$ is in
+      $S^{\mathcal{M}}_n(B)$.
     \end{proof}
+
+  \item Let $\mathcal{M}$ be a structure and $B\subseteq M$. For
+    $p(x_1,\ldots,x_{m+n})\in S^{\mathcal{M}}_{m+n}(B)$ let $p\restriction
+    m=\{\varphi(x_1,\ldots,x_m)\in p(x_1,\ldots,x_{m+n})\}$.
+    \begin{enumerate}
+      \item Show that $p\restriction m\in S^{\mathcal{M}}_m(B)$ for $p\in
+        S^{\mathcal{M}}_{m+n}(B)$.
+        \begin{proof}
+          This is true from chasing definitions: If $p\restriction m$ is
+          not a Complete type over $B$ in free variables $x_1,\ldots,x_m$,
+          then there must exist a formula $\varphi(x_1,\ldots,x_m)$ over
+          $B$ such that neither itself nor its negation is in
+          $p\restriction m$; then since formulas with free variables
+          $x_1,\ldots,x_m$ are also considered formulas with free variables
+          $x_1,\ldots,x_{m+n}$, then neither $\varphi(x_1,\ldots,x_m)$ nor
+          its negation is in $p$, which contradicts the Completeness of
+          $p$.
+        \end{proof}
+
+      \item Show that the restriction map $p\mapsto p\restriction m$ is
+        open, continuous, and surjective as a map from
+        $S^{\mathcal{M}}_{m+n}(B)$ to $S^{\mathcal{M}}_{m}(B)$.
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
