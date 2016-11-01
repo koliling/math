@@ -83,19 +83,19 @@
           To show that the map is surjective, let $q$ a type in
           $S^{\mathcal{M}}_{m}(B)$. We need to show that there exists a
           type $p$ in $S^{\mathcal{M}}_{m+n}(B)$ whose restriction is $q$.
-          Since $q$ is a type, by Proposition 6.9, there is an elementary
+          Since $q$ is a type, by Corollary 6.9, there is an elementary
           extension $\mathcal{N}\succeq\mathcal{M}$ and
           $\overline{a'}=(a_1,\ldots,a_m)\subseteq N$ such that
           $q=\text{tp}^\mathcal{N}(\overline{a'}/B)$. Fix an additional
           $a_{m+1},\ldots,a_{m+n}\subseteq N$, let
           $\overline{a}=(a_1,\ldots,a_{m+n})\subseteq N$, and let
-          $p=\text{tp}^\mathcal{N}(\overline{a}/B)$. Then from Proposition
+          $p=\text{tp}^\mathcal{N}(\overline{a}/B)$. Then from Corollary
           6.9 again, $p\in S^{\mathcal{M}}_{m+n}(B)$. Moreover, the
           restriction of $p$ is $q$. \\
 
-          To show that the map is open, let $\phi'(x_1,\ldots,x_{m+n})$ be
-          a formula over $B$. We need to show that
-          $\mathcal{O}_{\phi',m+n}\restriction m$ is open in
+          Finally, to show that the map is open, let
+          $\phi'(x_1,\ldots,x_{m+n})$ be a formula over $B$. We need to
+          show that $\mathcal{O}_{\phi',m+n}\restriction m$ is open in
           $S^{\mathcal{M}}_{m}(B)$. Let $\phi(x_1,\ldots,x_m)$ be the
           formula over $B$ in $m$ variables, defined as
           \[\phi(x_1,\ldots,x_m) := \exists x_{m+1},\ldots,x_{m+n}\;
@@ -105,7 +105,16 @@
           because every $p$ in $\mathcal{O}_{\phi',m+n}$ contains $\phi'$
           and thus also contains $\phi$ from consistency of $p$. To show
           $\supseteq$, let $q\in\mathcal{O}_{\phi,m}$. We need to find some
-          $p\mathcal{O}_{\phi',m+n}$ such that $q=p\restriction m$.
+          $p\in\mathcal{O}_{\phi',m+n}$ such that $q=p\restriction m$. By
+          Corollary 6.9, there is an elementary extension
+          $\mathcal{N}\succeq\mathcal{M}$ and
+          $\overline{a'}=(a_1,\ldots,a_m)\subseteq N$ such that
+          $q=\text{tp}^\mathcal{N}(\overline{a'}/B)$. Fix an additional
+          $a_{m+1},\ldots,a_{m+n}\subseteq N$, let
+          $\overline{a}=(a_1,\ldots,a_{m+n})\subseteq N$, and let
+          $p=\text{tp}^\mathcal{N}(\overline{a}/B)$. Then from Corollary
+          6.9 again, $p\in S^{\mathcal{M}}_{m+n}(B)$. Moreover, the
+          restriction of $p$ is $q$. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
