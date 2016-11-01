@@ -200,12 +200,12 @@
 
         \begin{proof}
           We first prove the first assertion. Assume by contradiction that
-          $\exists x\; \varphi(x,y)$ does not isolate
+          $\exists x\varphi(x,y)$ does not isolate
           $\text{tp}^{\mathcal{M}}(b/\emptyset)$. Then there must exist a
           formula $\theta(y)\in\text{tp}^{\mathcal{M}}(b/\emptyset)$ such
-          that $\mathcal{M}\models\exists x\;
-          \varphi(x,y)\wedge\neg\theta(y)$. This means there exists $b'\in
-          M$ such that $\mathcal{M}\models\exists x\; \varphi(x,b')$ and
+          that $\mathcal{M}\not\models\exists x
+          \varphi(x,y)\rightarrow\theta(y)$. This means there exists $b'\in
+          M$ such that $\mathcal{M}\models\exists x\varphi(x,b')$ and
           $\mathcal{M}\models\neg\theta(b')$. The first formula implies
           that there exists $a'\in M$ such that
           $\mathcal{M}\models\varphi(a',b')$. So we have
@@ -220,12 +220,8 @@
           The second assertion can be proven in a similar manner. Assume by
           contradiction that $\varphi(x,b)$ does not isolate
           $\text{tp}^{\mathcal{M}}(a/b)$. Then there must exist a formula
-          $\theta'(x)\in\text{tp}^{\mathcal{M}}(a/b)$ such that
-          $\mathcal{M}\models\varphi(x,b)\wedge\neg\theta'(x)$. Now
-          $\theta'(x)\in \text{tp}^{\mathcal{M}}(a/b)$ implies that
-          $\theta'(x)$ is equivalent to some formula $\theta(x,b)$ where
-          $\theta(x,y)\in\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. So we
-          have $\mathcal{M}\models\varphi(x,b)\wedge\neg\theta(x,b)$.  This
+          $\theta(x,b)\in\text{tp}^{\mathcal{M}}(a/b)$ such that
+          $\mathcal{M}\not\models\varphi(x,b)\rightarrow\theta(x,b)$. This
           means there exists $a'\in M$ such that
           $\mathcal{M}\models\varphi(a',b)\wedge\neg\theta(a',b)$, which
           means $\mathcal{M}\not\models\varphi(x,y)\rightarrow\theta(x,y)$.
@@ -260,7 +256,15 @@
           \varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})$
           isolates
           $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$.
-          Suppose not.
+          Suppose not by contradiction. Then there exists a formula
+          $\theta(\overline{x},\overline{y})\in
+          \text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$
+          such that $\mathcal{M}\models
+          \varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})
+          \wedge \neg\theta(\overline{x},\overline{y})$. Consider the
+          formula $\exists y\; [\varphi_2(\overline{x},\overline{y})\wedge
+          \theta(\overline{x},\overline{y})]\in
+          \text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
