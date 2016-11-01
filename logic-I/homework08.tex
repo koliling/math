@@ -234,6 +234,34 @@
           statement contradicts $\varphi(x,y)$ isolating
           $\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. \\
         \end{proof}
+
+      \item Prove Claim 7.1: The type
+        $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$ is
+        isolated if and only if both types
+        $\text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$ and
+        $\text{tp}^{\mathcal{M}}(\overline{b}/\overline{a})$ are isolated.
+
+        \begin{proof}
+          If $\varphi(\overline{x},\overline{y})$ isolates type
+          $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$,
+          then from the previous part of this question, $\exists y\;
+          \varphi(\overline{x},\overline{y})$ isolates the type
+          $\text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$. Also from the
+          previous part of this question,
+          $\varphi(\overline{x},\overline{b})$ isolates
+          $\text{tp}^{\mathcal{M}}(\overline{a}/\overline{b})$. \\
+
+          For the converse, assume $\varphi_1(\overline{x})$ isolates
+          $\text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$ and
+          $\varphi_2(\overline{a},\overline{y})$ isolates
+          $\text{tp}^{\mathcal{M}}(\overline{b}/\overline{a})$. We claim
+          that
+          $\varphi(\overline{x},\overline{y}):=
+          \varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})$
+          isolates
+          $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$.
+          Suppose not.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
