@@ -216,6 +216,23 @@
           \text{tp}^{\mathcal{M}}(a,b/\emptyset)$, the statement
           contradicts $\varphi(x,y)$ isolating
           $\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. \\
+
+          The second assertion can be proven in a similar manner. Assume by
+          contradiction that $\varphi(x,b)$ does not isolate
+          $\text{tp}^{\mathcal{M}}(a/b)$. Then there must exist a formula
+          $\theta'(x)\in\text{tp}^{\mathcal{M}}(a/b)$ such that
+          $\mathcal{M}\models\varphi(x,b)\wedge\neg\theta'(x)$. Now
+          $\theta'(x)\in \text{tp}^{\mathcal{M}}(a/b)$ implies that
+          $\theta'(x)$ is equivalent to some formula $\theta(x,b)$ where
+          $\theta(x,y)\in\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. So we
+          have $\mathcal{M}\models\varphi(x,b)\wedge\neg\theta(x,b)$.  This
+          means there exists $a'\in M$ such that
+          $\mathcal{M}\models\varphi(a',b)\wedge\neg\theta(a',b)$, which
+          means $\mathcal{M}\not\models\varphi(x,y)\rightarrow\theta(x,y)$.
+          However, since
+          $\theta(x,y)\in\text{tp}^{\mathcal{M}}(a,b/\emptyset)$, the
+          statement contradicts $\varphi(x,y)$ isolating
+          $\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
