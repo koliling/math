@@ -164,6 +164,30 @@
     $\mathcal{M}$ over $A$ we have $p\sim q$ if and only if $[p]=[q]$.
 
     \begin{proof}
+      First, note that $[p]$ is non-empty: By Proposition 6.3, there is an
+      elementary extension $\mathcal{N}$ of $\mathcal{M}$ that realizes
+      $p$; we can complete $p$ by including all formulas over $A$ in
+      $n$-variables that are true in the $\mathcal{N}$; the completion will
+      be in $[p]$. Similarly $[q]$ is non-empty by consistency of $q$. \\
+
+      $\Rightarrow$: Assume $p\sim q$. By symmetry it suffices to show
+      $[p]\subseteq[q]$. Let $r\in[p]$. Then $r$ is a Complete $n$-type
+      that contains all formulas in $p$. Then given any $\phi\in q$, since
+      $p\vdash\phi$, $r$ must also contain $\phi$ by consistency and
+      Completeness of $r$. Hence $r$ contains all formulas in $q$, which
+      implies $r\in[q]$. \\
+
+      $\Leftarrow$: Assume $[p]=[q]$. By symmetry it suffices to show that
+      $p\vdash q$. Let $\phi$ be a formula in $q$. We need to show that
+      $p\vdash\phi$. Assume by contradiction that $p\not\vdash\phi$. Then
+      $p\cup\{\neg\phi\}$ is consistent. Let $\mathcal{N}$ be an elementary
+      extension of $\mathcal{M}$ that realizes $p\not\vdash\phi$; such
+      $\mathcal{N}$ exists from Proposition 6.3. Let $p'\supseteq
+      p\cup\{\neg\phi\}$ be the completion of $p\cup\{\neg\phi\}$ by
+      including all formulas over $A$ in $n$-variables that are true in
+      $\mathcal{N}$. Then $p'\in[q]$ since $p'\in[p]$ and $[p]=[q]$, yet
+      $p'$ contains both $\phi$ and $\neg\phi$, contradicting the
+      consistency of $p'$.
     \end{proof}
 \end{enumerate}
 \end{document}
