@@ -121,5 +121,40 @@
           restriction of $p$ is $q$. \\
         \end{proof}
     \end{enumerate}
+
+  \item Show that a subset $X\subseteq S^{\mathcal{M}}_n(A)$ is closed and
+    open if and only if $X=\mathcal{O}_\varphi$  for some formula $\varphi$
+    over $A$.
+
+    \begin{proof}
+      Let $X=\mathcal{O}_\varphi$. Then $X$ is open by definition of the
+      basis of the topological space. Also, $S^{\mathcal{M}}_n(A)\setminus
+      X=\mathcal{O}_{\neg\varphi}$, because every $p\in
+      S^{\mathcal{M}}_n(A)$ must contain exactly one of $\varphi$ or
+      $\neg\varphi$ by Completeness and consistency. Hence $X$ is also
+      closed. \\
+
+      Let $X\subseteq S^{\mathcal{M}}_n(A)$ be both open and closed. Since
+      $X$ is open, $X=\cup_{i\in I}\mathcal{O}_{\varphi_i}$ for some set of
+      formulas $\{\varphi_i\}_{i\in I}$. Similarly, since
+      $S^{\mathcal{M}}_n(A)\setminus X$ is open, it is equals to
+      $\cup_{j\in J}\mathcal{O}_{\phi_j}$ for some set of formulas
+      $\{\phi_j\}_{j\in J}$. Then $\cup_{i\in
+      I}\mathcal{O}_{\varphi_i}\cup\cup_{j\in J}\mathcal{O}_{\phi_j}$ is an
+      open cover of $S^{\mathcal{M}}_n(A)$, so by compactness of
+      $S^{\mathcal{M}}_n(A)$ as stated in Claim 6.12,
+      $S^{\mathcal{M}}_n(A)$ is covered by some finite
+      $\mathcal{O}_{\varphi_1},\ldots,\mathcal{O}_{\varphi_m}$ and
+      $\mathcal{O}_{\phi_1},\ldots,\mathcal{O}_{\phi_n}$. Then
+      $X=\cup_{i=1}^{m}\mathcal{O}_{\varphi_i}$, so it suffices to show
+      that $\cup_{i=1}^{m}\mathcal{O}_{\varphi_i}=\mathcal{O}_{\varphi}$,
+      where $\varphi$ is the disjunction of $\varphi_1,\ldots,\varphi_m$.
+      $\subseteq$ holds because any type $p\in S^{\mathcal{M}}_n(A)$ that
+      contains $\varphi_i$ must also contain $\varphi$ from Completeness
+      and consistency of $p$. Similarly, $\supseteq$ holds because any type
+      $p\in S^{\mathcal{M}}_n(A)$ that contains $\varphi$ must also
+      contain $\varphi_i$ for some $i\in\{1,\ldots,m\}$ from Completeness
+      and consistency of $p$. 
+    \end{proof}
 \end{enumerate}
 \end{document}
