@@ -166,8 +166,8 @@
     \begin{proof}
       First, note that $[p]$ is non-empty: By Proposition 6.3, there is an
       elementary extension $\mathcal{N}$ of $\mathcal{M}$ that realizes
-      $p$; we can complete $p$ by including all formulas over $A$ in
-      $n$-variables that are true in the $\mathcal{N}$; the completion will
+      $p$; we can Complete $p$ by including all formulas over $A$ in
+      $n$-variables that are true in the $\mathcal{N}$; the Completion will
       be in $[p]$. Similarly $[q]$ is non-empty by consistency of $q$. \\
 
       $\Rightarrow$: Assume $p\sim q$. By symmetry it suffices to show
@@ -183,7 +183,7 @@
       $p\cup\{\neg\phi\}$ is consistent. Let $\mathcal{N}$ be an elementary
       extension of $\mathcal{M}$ that realizes $p\not\vdash\phi$; such
       $\mathcal{N}$ exists from Proposition 6.3. Let $p'\supseteq
-      p\cup\{\neg\phi\}$ be the completion of $p\cup\{\neg\phi\}$ by
+      p\cup\{\neg\phi\}$ be the Completion of $p\cup\{\neg\phi\}$ by
       including all formulas over $A$ in $n$-variables that are true in
       $\mathcal{N}$. Then $p'\in[q]$ since $p'\in[p]$ and $[p]=[q]$, yet
       $p'$ contains both $\phi$ and $\neg\phi$, contradicting the
@@ -193,12 +193,29 @@
   \item Let $\mathcal{M}$ be a first order structure and $a,b\in M$.
     \begin{enumerate}
       \item Assume $\varphi(x,y)$ isolates the type
-        $\text{tp}^{\mathcal{M}}(ab/\emptyset)$. Show that $\exists
+        $\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. Show that $\exists
         x\; \varphi(x,y)$ isolates the type
         $\text{tp}^{\mathcal{M}}(b/\emptyset)$ and $\varphi(x,b)$ isolates
         $\text{tp}^{\mathcal{M}}(a/b)$.
 
         \begin{proof}
+          We first prove the first assertion. Assume by contradiction that
+          $\exists x\; \varphi(x,y)$ does not isolate
+          $\text{tp}^{\mathcal{M}}(b/\emptyset)$. Then there must exist a
+          formula $\theta(y)\in\text{tp}^{\mathcal{M}}(b/\emptyset)$ such
+          that $\mathcal{M}\models\exists x\;
+          \varphi(x,y)\wedge\neg\theta(y)$. This means there exists $b'\in
+          M$ such that $\mathcal{M}\models\exists x\; \varphi(x,b')$ and
+          $\mathcal{M}\models\neg\theta(b')$. The first formula implies
+          that there exists $a'\in M$ such that
+          $\mathcal{M}\models\varphi(a',b')$. So we have
+          $\mathcal{M}\models\varphi(a',b')\wedge\neg\theta(b')$, which
+          means $\mathcal{M}\not\models\varphi(x,y)\rightarrow\theta(y)$.
+          However, since
+          $\theta(y)\in\text{tp}^{\mathcal{M}}(b/\emptyset)\subseteq
+          \text{tp}^{\mathcal{M}}(a,b/\emptyset)$, the statement
+          contradicts $\varphi(x,y)$ isolating
+          $\text{tp}^{\mathcal{M}}(a,b/\emptyset)$. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
