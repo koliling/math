@@ -307,7 +307,8 @@
       no finite models: Otherwise they would satisfy a sentence in the
       original language that says there are exactly $n$ elements for some
       $n\in\mathbb{N}$; then there will be no models of cardinality
-      $\omega$ and the solution would be trivial. \\
+      $\omega$ and so both theories will be trivially $\omega$-categorical.
+      \\
 
       Assume $\text{Th}_A(\mathcal{M})$ is $\omega$-categorical. Then by
       Theorem 7.7, every $S_n(\text{Th}_A(\mathcal{M}))$ is finite. Now
@@ -317,8 +318,26 @@
       is finite from finiteness of $S_n(\text{Th}_A(\mathcal{M}))$, so from
       Theorem 7.7 again, $T$ is $\omega$-categorical. \\
 
-      For the converse, assume $T$ is $\omega$-categorical. From Theorem
-      7.7, every $S_n(T)$ is principal. Let 
+      For the converse, assume $T$ is $\omega$-categorical. Write
+      $A=\{a_1,\ldots,a_k\}$. Let $p$ be a
+      type in $S_n(\text{Th}_A(\mathcal{M}))$. From Theorem 7.7, it
+      suffices to show that $p$ is isolated. Let
+      \[p':=\{\varphi(x_1,\ldots,x_n,x_{n+1},\ldots,x_{n+k}):
+      \varphi(x_1,\ldots,x_n,a_1,\ldots,a_k)\in p\}.\] Then using Zorn's
+      lemma, we can Complete $p'$ to some Complete type $q\in S_{n+k}(T)$.
+      Now $q$ is principal from Theorem 7.7 since $T$ is
+      $\omega$-categorical, so $q$ is isolated by some formula
+      $\theta(x_1,\ldots,x_{n+k})$. We show that
+      $\theta(x_1,\ldots,x_n,a_1,\ldots,a_k)$ isolates $p$: Given
+      $\phi(x_1,\ldots,x_n,a_1,\ldots,a_k)\in p$, by construction of $q$,
+      $\phi(x_1,\ldots,x_{n+k})$ must be contained in $q$. Then
+      \[\mathcal{M}\models
+      \theta(x_1,\ldots,x_{n+k})\rightarrow\phi(x_1,\ldots,x_{n+k})\] since
+      $\theta(x_1,\ldots,x_{n+k})$ isolates $q$. In particular, we have
+      \[\mathcal{M}\models
+      \theta(x_1,\ldots,x_n,a_{n+1},\ldots,a_{n+k})\rightarrow
+      \phi(x_1,\ldots,x_n,a_{n+1},\ldots,a_{n+k}).\] Thus
+      $\theta(x_1,\ldots,x_n,a_{n+1},\ldots,a_{n+k})$ isolates $p$.
     \end{proof}
 
   \item Let $T$ be the theory of algebraically closed fields of
