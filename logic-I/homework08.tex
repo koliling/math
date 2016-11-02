@@ -252,20 +252,79 @@
           $\varphi_2(\overline{a},\overline{y})$ isolates
           $\text{tp}^{\mathcal{M}}(\overline{b}/\overline{a})$. We claim
           that
-          $\varphi(\overline{x},\overline{y}):=
-          \varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})$
+          $\varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})$
           isolates
           $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$.
-          Suppose not by contradiction. Then there exists a formula
-          $\theta(\overline{x},\overline{y})\in
-          \text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$
-          such that $\mathcal{M}\models
-          \varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})
-          \wedge \neg\theta(\overline{x},\overline{y})$. Consider the
-          formula $\exists y\; [\varphi_2(\overline{x},\overline{y})\wedge
-          \theta(\overline{x},\overline{y})]\in
-          \text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$.
+          Let
+          $\theta(\overline{x},\overline{y})$ be a formula in
+          $\text{tp}^{\mathcal{M}}(\overline{a},\overline{b}/\emptyset)$.
+          Then $\theta(\overline{a},\overline{y})$ is a formula in
+          $\text{tp}^{\mathcal{M}}(\overline{b}/\overline{a})$, so we have
+          \[\mathcal{M}\models
+          \varphi_2(\overline{a},\overline{y})\rightarrow
+          \theta(\overline{a},\overline{y}),\]
+          which means
+          \[\mathcal{M}\models
+          \forall \overline{y}\;
+          (\varphi_2(\overline{a},\overline{y})\rightarrow
+          \theta(\overline{a},\overline{y})).\]
+          Then $\forall \overline{y}\;
+          (\varphi_2(\overline{x},\overline{y})\rightarrow
+          \theta(\overline{x},\overline{y}))$ is contained in
+          $\text{tp}^{\mathcal{M}}(\overline{a}/\emptyset)$, which implies
+          \[\mathcal{M}\models
+          \varphi_1(\overline{x})\rightarrow \forall \overline{y}\;
+          (\varphi_2(\overline{x},\overline{y})\rightarrow
+          \theta(\overline{x},\overline{y})).\]
+          The formula at the right is equivalent to
+          \[\forall\overline{y}\; (\varphi_1(\overline{x})\rightarrow
+          \varphi_2(\overline{x},\overline{y})\rightarrow
+          \theta(\overline{x},\overline{y})),\]
+          which is equivalent to
+          \[\forall\overline{y}\; (\varphi_1(\overline{x})\wedge
+          \varphi_2(\overline{x},\overline{y})\rightarrow
+          \theta(\overline{x},\overline{y})),\]
+          therefore we have 
+          \[\mathcal{M}\models \varphi_1(\overline{x})\wedge
+          \varphi_2(\overline{x},\overline{y})\rightarrow
+          \theta(\overline{x},\overline{y}).\]
+          Hence 
+          $\varphi_1(\overline{x})\wedge\varphi_2(\overline{x},\overline{y})$
+          isolates
+          $\text{tp}^\mathcal{M}(\overline{a},\overline{b},\emptyset)$.
         \end{proof}
     \end{enumerate}
+
+  \item Let $T$ be a countable complete theory, $\mathcal{M}$ a countable
+    model of $T$, and $A$ a finite subset of $M$. Let $\mathcal{M}_A$ be
+    the obvious expansion of $\mathcal{M}$ to the language $\mathcal{L}(A)$
+    and $\text{Th}_A(\mathcal{M})$ the complete theory of $\mathcal{M}_A$.
+    Show that $T$ is $\omega$-categorical if and only if the theory
+    $\text{Th}_A(\mathcal{M})$ is $\omega$-categorical.
+
+    \begin{proof}
+      Note that we can assume that $T$ and $\text{Th}_A(\mathcal{A})$ has
+      no finite models: Otherwise they would satisfy a sentence in the
+      original language that says there are exactly $n$ elements for some
+      $n\in\mathbb{N}$; then there will be no models of cardinality
+      $\omega$ and the solution would be trivial. \\
+
+      Assume $\text{Th}_A(\mathcal{M})$ is $\omega$-categorical. Then by
+      Theorem 7.7, every $S_n(\text{Th}_A(\mathcal{M}))$ is finite. Now
+      by definition, every type in $S_n(T)$ is the restriction of a type in
+      $S_n(\text{Th}_A(\mathcal{M}))$, where the restriction is defined by
+      removing all formulas that contain the new constants. Hence $S_n(T)$
+      is finite from finiteness of $S_n(\text{Th}_A(\mathcal{M}))$, so from
+      Theorem 7.7 again, $T$ is $\omega$-categorical. \\
+
+      For the converse, assume $T$ is $\omega$-categorical. From Theorem
+      7.7, every $S_n(T)$ is principal. Let 
+    \end{proof}
+
+  \item Let $T$ be the theory of algebraically closed fields of
+    characteristic 0. Show that isolated types are dense in $S_1(T)$.
+    \begin{proof}
+      Don't know how to prove...
+    \end{proof}
 \end{enumerate}
 \end{document}
