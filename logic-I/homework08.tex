@@ -343,7 +343,22 @@
   \item Let $T$ be the theory of algebraically closed fields of
     characteristic 0. Show that isolated types are dense in $S_1(T)$.
     \begin{proof}
-      Don't know how to prove...
+      Note that we can work in any model $\mathcal{M}$ of $\text{ACF}_0$
+      from Corollary 6.17. In particular, we can choose our model to be
+      $\mathbb{C}$. Note also from previous exercise $\text{ACF}_0$ has
+      quantifier elimination property. Finally, note that in the language
+      of $\text{ACF}_0$, the quantifier-free formulas in one variable $x$
+      are of the form $t_1(x)=t_2(x)$, which after rearranging, will give a
+      formula of the form $p(x)=0$ where
+      $p(x)\in\mathbb{Z}[x]$. Hence all
+      quantifier-free formulas are describing roots of polynomials with
+      integer coefficients. \\
+
+      We want to show that every open set contains an isolated Complete
+      type. It suffices to consider open sets of the form
+      $\mathcal{O}_\varphi$ since such open sets form the basis of the
+      toplogy. Then since $\text{ACF}_0$ has QE, we can assume $\varphi(x)$
+      is atomic.
     \end{proof}
 \end{enumerate}
 \end{document}
