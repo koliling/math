@@ -344,21 +344,46 @@
     characteristic 0. Show that isolated types are dense in $S_1(T)$.
     \begin{proof}
       Note that we can work in any model $\mathcal{M}$ of $\text{ACF}_0$
-      from Corollary 6.17. In particular, we can choose our model to be
-      $\mathbb{C}$. Note also from previous exercise $\text{ACF}_0$ has
-      quantifier elimination property. Finally, note that in the language
-      of $\text{ACF}_0$, the quantifier-free formulas in one variable $x$
-      are of the form $t_1(x)=t_2(x)$, which after rearranging, will give a
-      formula of the form $p(x)=0$ where
-      $p(x)\in\mathbb{Z}[x]$. Hence all
-      quantifier-free formulas are describing roots of polynomials with
-      integer coefficients. \\
+      from Corollary 6.17. In particular, we can assume $M=\mathbb{C}$.
+      Note also from previous exercise $\text{ACF}_0$ has quantifier
+      elimination property. Further, note that in the language of
+      $\text{ACF}_0$, the atomic formulas in one variable $x$ are of the
+      form $t_1(x)=t_2(x)$, which after rearranging, will give a formula of
+      the form $p(x)=0$ where $p(x)\in\mathbb{Z}[x]$. Hence atomic formulas
+      in one variable describe roots of polynomials with integer
+      coefficients. \\
 
       We want to show that every open set contains an isolated Complete
       type. It suffices to consider open sets of the form
       $\mathcal{O}_\varphi$ since such open sets form the basis of the
       toplogy. Then since $\text{ACF}_0$ has QE, we can assume $\varphi(x)$
-      is atomic.
+      is quantifier free. Decomposing $\varphi(x)$ to its DNF form, and
+      since \[\mathcal{O}_{\phi_1\vee\ldots\vee\phi_n} =
+      \mathcal{O}_{\phi_1}\cup\ldots\cup\mathcal{O}_{\phi_n}\] when we
+      chase definitions, we can further assume that $\varphi(x)$ is a
+      conjunction of formulas of the form $p(x)\square\; 0$ where
+      $p(x)\in\mathbb{Z}[x]$ and $\square$ is either $=$ or $\neq$. Note
+      that by the consistency of $\mathcal{O}_\varphi$, we can assume that
+      the conjunction of these atomic formulas has a solution in
+      $\mathbb{C}$. \\
+
+      There are two cases. In the first case, in the conjunction of the
+      atomic formulas, one of the formulas is of the form $p(x)=0$. Then
+      let $a$ be a root of $p(x)$ that is satisfied by the other atomic
+      formulas in the conjunction, and let $q(x)$ be the minimal polynomial
+      of $a$ over $\mathbb{Z}$. Consider
+      $p=\text{tp}^\mathbb{C}(a/\emptyset)$. Then $q(x)$ isolates $p$, and
+      $p\in\mathcal{O}_\varphi$, as required. \\
+
+      In the second case, in the conjunction of the atomic formulas, all
+      formulas are of the form $p(x)\neq0$, i.e. $\varphi(x)$ is of the
+      form \[\varphi(x)=p_1(x)\neq0\wedge\ldots\wedge p_k(x)\neq0.\] Then
+      pick any $n\in\mathbb{N}$ such that $n$ is not a root of any
+      $p_i(x)$. Such $n$ exists since $\mathbb{N}$ is infinite and each
+      $p_i(x)$ can only have a finite number of roots.  Consider
+      $p=\text{tp}^\mathbb{C}(n/\emptyset)$. Then
+      $p\in\mathcal{O}_\varphi$. Also, the formula $x=1+\ldots+1$, where we
+      add 1 $n$-times, isolates $p$, as required. \\
     \end{proof}
 \end{enumerate}
 \end{document}
