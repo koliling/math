@@ -16,15 +16,34 @@
 \begin{enumerate}[label={\bf Q\arabic*:}]
   \item Let $A=\{a_1,\ldots,a_m\}$ be a finite subset of a structure
     $\mathcal{M}$. For $p(x_1,\ldots,x_n)\in S_n(A)$ let
-    $\overline{p}(x_1,\ldots,x_n)$ be the following set of formulas over
+    $\tilde{p}(x_1,\ldots,x_n)$ be the following set of formulas over
     $\emptyset$
-    \[\overline{p}=\{\varphi(x_1,\ldots,x_{n+m}):
+    \[\tilde{p}=\{\varphi(x_1,\ldots,x_{n+m}):
     \varphi(x_1,\ldots,x_n,a_1,\ldots,a_m)\in p\}.\]
-    Show that $\overline{p}$ is a Complete type over $\emptyset$ and the
-    map $p\mapsto\overline{p}$ is an injective map from $S_n(A)$ to
+    Show that $\tilde{p}$ is a Complete type over $\emptyset$ and the
+    map $p\mapsto\tilde{p}$ is an injective map from $S_n(A)$ to
     $S_{n+m}(T)$.
 
     \begin{proof}
+      To show that $\tilde{p}$ is Complete, let
+      $\varphi(x_1,\ldots,x_{n+m})$ be any formula in $(n+m)$ variables. We
+      need to show that either $\varphi$ or $\neg\varphi$ is in
+      $\tilde{p}$. Now since $p$ is Complete, either
+      $\varphi(x_1,\ldots,x_n,a_1,\ldots,a_m)$ or
+      $\neg\varphi(x_1,\ldots,x_n,a_1,\ldots,a_m)$ is in $p$, so by
+      definition of $\tilde{p}$, either $\varphi$ or $\neg\varphi$ will be
+      in $\tilde{p}$. \\
+
+      To show that the map is injective, assume that $\tilde{p}=\tilde{q}$.
+      Then given any formula $\varphi(x_1,\ldots,x_{n+m})$ in $(n+m)$
+      variables, we have
+      \begin{align*}
+                        & \varphi(x_1,\ldots,x_n,a_1,\ldots,a_m) &\in p & \\
+        \Leftrightarrow & \varphi(x_1,\ldots,x_{n+m}) &\in \tilde{p} & \\
+        \Leftrightarrow & \varphi(x_1,\ldots,x_{n+m}) &\in \tilde{q} & \\
+        \Leftrightarrow & \varphi(x_1,\ldots,x_n,a_1,\ldots,a_m) &\in q & \\
+      \end{align*}
+      Hence $p=q$, and the map is injective.
     \end{proof}
 \end{enumerate}
 \end{document}
