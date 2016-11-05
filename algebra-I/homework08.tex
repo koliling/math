@@ -13,8 +13,569 @@
 \date{\today}
 \maketitle
 
+Let $R$ be a commutative ring with 1.
+
 \begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Let $\mathbb{Z}_2=\mathbb{Z}/2\mathbb{Z}$.
+    \begin{enumerate}
+      \item Show that $\mathbb{Z}_2S_2$ and
+        $\mathbb{Z}_2\times\mathbb{Z}_2$ are isomorphic as abelian groups.
+
+        \begin{proof}
+          Write $S_2=\{1,s\}$, where $s^2=1$, and write
+          \[\mathbb{Z}_2S_2=\{0+0s,0+1s,1+0s,1+1s\},\] where $0+0s$ is the
+          additive identity.  Both $\mathbb{Z}_2S_2$ and
+          $\mathbb{Z}_2\times\mathbb{Z}_2$ have four elements. There are
+          only two groups with four elements - $\mathbb{Z}_4$ or
+          $\mathbb{Z}_2\times\mathbb{Z}_2$. It suffices to show that
+          $\mathbb{Z}_2S_2$ is not isomorphic to $\mathbb{Z}_4$. To prove
+          that, it suffices to show that all elements of $\mathbb{Z}_2S_2$
+          has order 2 or less: $2(0+0s)=(0+0s)$;
+          $2(0+1s)=(0+(1+1)s)=(0+0s)$; $2(1+0s)=((1+1)+0s)=(0+0s)$;
+          $2(1+1s)=((1+1)+(1+1)s)=(0+0s)$.
+        \end{proof}
+
+      \item Are $\mathbb{Z}_2S_2$ and $\mathbb{Z}_2\times\mathbb{Z}_2$
+        isomorphic as rings? Prove that that they are or show why they are
+        not.
+
+        \begin{proof}
+          Given any $(a,b)\in\mathbb{Z}_2\times\mathbb{Z}_2$, note that
+          $(a,b)^2=(a,b)$. However the square of $(0+1s)$ in
+          $\mathbb{Z}_2S_2$ is:
+          \begin{align*}
+            (0+1s)^2  &= 0^2+0\cdot1s+0\cdot1s+(1s)^2 \\
+              &= 0+0s+0s+0 \\
+              &= 0+0s, \\
+          \end{align*}
+          which is not equal itself. Hence the two sets are not isomorphic
+          as rings.
+        \end{proof}
+    \end{enumerate}
+
   \item Section 7.2 Question 1: Let $p(x)=2x^3-3x^2+4x-5$ and let
-    $q(x)=7x^3+33x-4$. In each of parts (a), (b) and (c) compute 
+    $q(x)=7x^3+33x-4$. In each of parts (a), (b) and (c) compute
+    $p(x)+q(x)$ and $p(x)q(x)$ under the assumption that the coefficients
+    of the two given polynomials are taken from the specified ring (where
+    the integer coefficients are taken mod $n$ in parts (b) and (c)):
+
+    \begin{enumerate}
+      \item $R=\mathbb{Z}$:
+        \begin{proof}
+          We have
+          \begin{align*}
+            p(x)+q(x) &= (2x^3-3x^2+4x-5)+(7x^3+33x-4) \\
+                      &= 9x^3-3x^2+37x-9, \\
+            p(x)q(x)  &= (2x^3-3x^2+4x-5)(7x^3+33x-4) \\
+              &= 14x^6-21x^5+66x^4+(-8-99-35)x^3+132x^2+(-16-165)x+20 \\
+              &= 14x^6-21x^5+66x^4-142x^3+132x^2-181x+20. \\
+          \end{align*}
+        \end{proof}
+
+      \item $R=\mathbb{Z}_2$:
+        \begin{proof}
+          We have
+          \begin{align*}
+            p(x)+q(x) &= (2x^3-3x^2+4x-5)+(7x^3+33x-4)\pmod{2} \\
+                      &= 9x^3-3x^2+37x-9\pmod{2} \\
+                      &= x^3+x^2+x+1, \\
+            p(x)q(x)  &= (2x^3-3x^2+4x-5)(7x^3+33x-4)\pmod{2} \\
+              &= 14x^6-21x^5+66x^4-142x^3+132x^2-181x+20\pmod{2} \\
+              &= x^5+x. \\
+          \end{align*}
+        \end{proof}
+
+      \item $R=\mathbb{Z}_3$:
+        \begin{proof}
+          We have
+          \begin{align*}
+            p(x)+q(x) &= (2x^3-3x^2+4x-5)+(7x^3+33x-4)\pmod{3} \\
+                      &= 9x^3-3x^2+37x-9\pmod{3} \\
+                      &= x, \\
+            p(x)q(x)  &= (2x^3-3x^2+4x-5)(7x^3+33x-4)\pmod{3} \\
+              &= 14x^6-21x^5+66x^4-142x^3+132x^2-181x+20\pmod{3} \\
+              &= 2x^6+2x^3+2x+2. \\
+          \end{align*}
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.2 Question 3:
+    \begin{enumerate}
+      \item Prove that $R[[x]]$ is a commutative ring with 1.
+        \begin{proof}
+          $(R[[x]],+)$ is an abelian group: 0 gives the additive identity,
+          and $R[[x]]$ is closed under addition, addition is associative
+          from additive associativity of $R$, addition is commutative from
+          the additive commutativity of $R$, and given
+          $\sum_{n=0}^{\infty}a_nx^n$ the additive inverse given by
+          $\sum_{n=0}^{\infty}-a_nx^n$ is contained in $R[[x]]$. \\
+
+          Multiplication is associative from the associativity of
+          multiplication of $R$. Distributive laws hold:
+          \begin{align*}
+            (\sum_{n=0}^{\infty}a_nx^n+\sum_{n=0}^{\infty}b_nx^n)
+            \sum_{n=0}^{\infty}c_nx^n &=
+            \sum_{n=0}^{\infty}(a_n+b_n)x^n\sum_{n=0}^{\infty}c_nx^n \\
+              &= \sum_{n=0}^{\infty}\sum_{k=0}^n(a_k+b_k)c_{n-k}x^n \\
+              &=
+              \sum_{n=0}^{\infty}\sum_{k=0}^n(a_kc_{n-k}x^n)+(b_kc_{n-k}x^n) \\
+              &= \sum_{n=0}^{\infty}a_nx^n\sum_{n=0}^{\infty}c_nx^n
+              +\sum_{n=0}^{\infty}b_nx^n\sum_{n=0}^{\infty}c_nx^n. \\
+          \end{align*}
+          Similarly, we also get
+          \[\sum_{n=0}^{\infty}c_nx^n
+          (\sum_{n=0}^{\infty}a_nx^n+\sum_{n=0}^{\infty}b_nx^n)
+          = \sum_{n=0}^{\infty}c_nx^n\sum_{n=0}^{\infty}a_nx^n+
+          \sum_{n=0}^{\infty}c_nx^n\sum_{n=0}^{\infty}b_nx^n\].
+        \end{proof}
+
+      \item Show that $1-x$ is a unit in $R[[x]]$ with inverse
+        $1+x+x^2+\ldots$.
+        \begin{proof}
+          We have
+          \begin{align*}
+            (1-x)(1+x+x^2+\ldots) &= (1+x+x^2+\ldots)-(x+x^2+\ldots) \\
+                                  &= 1 \\
+                                  &= (1+x+x^2+\ldots)(1-x). \\
+          \end{align*}
+        \end{proof}
+
+      \item Prove that $\sum_{n=0}^\infty a_nx^n$ is a unit in $R[[x]]$ if
+        and only if $a_0$ is a unit in $R$.
+        \begin{proof}
+          If $a=\sum_{n=0}^\infty a_nx^n$ is a unit, then it has an inverse
+          $b=\sum_{n=0}^\infty b_nx^n$. The constant of $ab$ is $a_0b_0$
+          which equals 1, which implies that $a_0$ is a unit in $R$. \\
+
+          For the converse, let $a_0$ be a unit, and let
+          $a=\sum_{n=0}^\infty a_nx^n$. We need to find some
+          $b=\sum_{n=0}^\infty b_nx^n$ such that $ab=1$. It suffices to
+          find solutions for all $b_n$ in $R$. We need
+          $ab=\sum_{n=0}^\infty\sum_{i=0}^n(a_ib_{n-i})x^n=1$. Comparing
+          coefficients for $x^0$, we get $b_0=a_0^{-1}$, which exists since
+          $a_0$ is unit. We prove by induction on $n$ that $b_n$ has
+          solutions in $R$. For the case $n+1$, we need
+          $\sum_{i=0}^{n+1}a_ib_{n+1-i}=0$. Solving for $b_{n+1}$, we get
+          \begin{align*}
+            b_{n+1} &= -a_0^{-1}(a_1b_n+a_2b_{n-1}+\ldots+a_{n+1}b_0), \\
+          \end{align*}
+          which is in $R$ since $a_0$ is a unit.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.2 Question 4: Prove that if $R$ is an integral domaon
+    then the ring of formal power series $R[[x]]$ is also an integral
+    domain.
+
+    \begin{proof}
+      From Section 7.2 Question 3c, every element in $R[[x]]$ is a unit,
+      hence $R[[x]]$ is an integral domain.
+    \end{proof}
+
+  \item Section 7.2 Question 12: Let $G=\{g_1,\ldots,g_n\}$ be a finite
+    group. Prove that the element $N=g_1+\ldots+g_n$ is in the center of
+    the group ring $RG$.
+
+    \begin{proof}
+      We need to show that $N$ commutes with every element
+      $r=a_1g_1+\ldots+a_ng_n$ of $RG$. First note that for every $g_i\in
+      G$, we have
+      \begin{align*}
+        g_iN  &= g_i(g_1+\ldots+g_n) & \\
+          &= g_ig_1+\ldots+g_ig_n & \\
+          &= g_1+\ldots+g_n & (\because G=\{g_ig_1,\ldots,g_ig_n\}) \\
+          &= g_1g_i+\ldots+g_ng_i & (\because G=\{g_1g_i,\ldots,g_ng_i\})\\
+          &= (g_1+\ldots+g_n)g_i & \\
+          &= Ng_i, \\
+      \end{align*}
+      so $N$ commutes with every $g_i\in RG$. Then from the distributive
+      laws, we have
+      \begin{align*}
+        rN  &= (a_1g_1+\ldots+a_ng_n)N & \\
+            &= \sum_{i=1}^n a_ig_iN & \\
+            &= \sum_{i=1}^n a_iNg_i & (\because N\; \text{commutes with}\;
+            g_i) \\
+            &= \sum_{i=1}^n a_iNg_i & (\because N\; \text{commutes with}\;
+            g_i) \\
+            &= \sum_{i=1}^n Na_ig_i & (\because \text{everything commutes
+            with}\; a_i\; \text{since}\; R\; \text{is commutative}) \\
+            &= N\sum_{i=1}^n a_ig_i & (\text{distributive law}) \\
+            &= Nr.
+      \end{align*}
+    \end{proof}
+
+  \item Section 7.3 Question 5: Describe all ring homomorphisms from the
+    ring $\mathbb{Z}\times\mathbb{Z}$ to $\mathbb{Z}$. In each case
+    describe the kernel and the image.
+
+    \begin{proof}
+      Let $\varphi:\mathbb{Z}\times\mathbb{Z}\rightarrow\mathbb{Z}$ be a
+      ring homomorphism. Ring homomorphisms are group homomorphisms, which
+      must send the additive identity to the additive identity. Hence all
+      homomorphisms must map (0,0) to 0. Also, $\mathbb{Z}\times\mathbb{Z}$
+      as an additive group is generated by elements $(1,0)$ and $(0,1)$,
+      hence the ring homomorphisms is completely defined by the maps of
+      $(1,0)$ and $(0,1)$: $\varphi((a,b))=a\varphi((1,0))+b\varphi((0,1))$.
+      Now $\varphi((1,0))^2=\varphi((1,0)(1,0))=\varphi((1,0))$, hence
+      $\varphi((1,0))$ can only be 0 or 1. Similarly, $\varphi((0,1))$ can
+      only be 0 or 1, so we have four cases to consider:
+      \begin{enumerate}
+        \item $\varphi((1,0))=\varphi((0,1))=0$. \\
+          Then $\varphi((a,b))=a\cdot0+b\cdot0=0$, so $\varphi$ is the
+          trivial homomorphism. This is a ring homomorphism:
+          \[\varphi((a,b)+(a',b'))=\varphi((a+a',b+b'))=0=0+0=
+          \varphi((a,b))+\varphi((a',b')).\] Also,
+          \[\varphi((a,b)(a',b'))=\varphi((aa',bb'))=0=0\cdot0=
+          \varphi((a,b))\varphi((a',b')).\]
+        \item $\varphi((1,0))=0$ and $\varphi((0,1))=1$. \\
+          Then $\varphi((a,b))=a\cdot0+b\cdot1=b$, so $\varphi$ the
+          projection of the second coordinate. This is a ring homomorphism:
+          \[\varphi((a,b)+(a',b'))=\varphi((a+a',b+b'))=b+b'=
+          \varphi((a,b))+\varphi((a',b')).\] Also,
+          \[\varphi((a,b)(a',b'))=\varphi((aa',bb'))=bb'=
+          \varphi((a,b))\varphi((a',b')).\]
+        \item $\varphi((1,0))=1$ and $\varphi((0,1))=0$. Similar to the
+          above case, $\varphi$ will be the projection of the first
+          coordinate, and is a ring homomorphism.
+        \item $\varphi((1,0))=\varphi((0,1))=1$. \\
+          Then $\varphi((a,b))=a\cdot1+b\cdot1=a+b$. This is not a
+          homomorphism because
+          $1=\varphi((1,0))=\varphi((1,0)(1,1))=\varphi((1,0))\varphi(1,1))=1\cdot2=2$
+          is a contradiction.
+      \end{enumerate}
+      Summarizing, there are only three possible homomorphisms: the trivial
+      one, and the two projections. 
+    \end{proof}
+
+  \item Section 7.3 Question 7: Let
+    $R=\{\begin{pmatrix}a&b\\0&d\end{pmatrix}|a,b,d\in\mathbb{Z}\}$ be the
+    subring of $M_2(\mathbb{Z})$ of upper triangular matrices. Prove that
+    the map \[\varphi:R\rightarrow\mathbb{Z}\times\mathbb{Z}\;
+    \text{defined by}\;
+    \varphi:\begin{pmatrix}a&b\\0&d\end{pmatrix}\mapsto(a,d)\] is a
+    surjective homomorphism and describe its kernel.
+
+    \begin{proof}
+      We first prove $\varphi$ is a homomorphism:
+      \begin{align*}
+        \varphi(\begin{pmatrix}a_1&b_1\\0&d_1\end{pmatrix}+
+        \begin{pmatrix}a_2&b_2\\0&d_2\end{pmatrix}) &=
+        \varphi(\begin{pmatrix}a_1+a_2&b_1+b_2\\0&d_1+d_2\end{pmatrix})
+        \\
+          &= (a_1+a_2,d_1+d_2) \\
+          &= (a_1,d_1)+(a_2,d_2) \\
+          &= \varphi(\begin{pmatrix}a_1&b_1\\0&d_1\end{pmatrix})+ \varphi(
+            \begin{pmatrix}a_2&b_2\\0&d_2\end{pmatrix}), \\
+      \end{align*}
+      and
+      \begin{align*}
+        \varphi(\begin{pmatrix}a_1&b_1\\0&d_1\end{pmatrix}
+        \begin{pmatrix}a_2&b_2\\0&d_2\end{pmatrix}) &=
+        \varphi(\begin{pmatrix}a_1a_2&a_1b_2+b_1d_2\\0&d_1d_2\end{pmatrix})
+        \\
+          &= (a_1a_2,d_1d_2) \\
+          &= (a_1,d_1)(a_2,d_2) \\
+          &= \varphi(\begin{pmatrix}a_1&b_1\\0&d_1\end{pmatrix}) \varphi(
+            \begin{pmatrix}a_2&b_2\\0&d_2\end{pmatrix}). \\
+      \end{align*}
+
+      The map is clearly surjective: Given
+      $(a,d)\in\mathbb{Z}\times\mathbb{Z}$, the matrix
+      $\begin{pmatrix}a&0\\0&d\end{pmatrix}$ is an inverse image of
+      $(a,d)$. \\
+
+      The kernel of $\varphi$ are the upper triangular matrices with
+      $a=d=0$, i.e.
+      \[\ker(\varphi)=\{\begin{pmatrix}0&b\\0&0\end{pmatrix}:
+      b\in\mathbb{Z}\}.\]
+    \end{proof}
+
+  \item Section 7.3 Question 10: Decide which of the following are ideals
+    of the ring $\mathbb{Z}[x]$:
+    We note that since $\mathbb{Z}[x]$ is a commutative ring, to check if a
+    set is an ideal, it suffices to check if the set is non-empty, closed
+    under subtraction and left multiplication by elements in
+    $\mathbb{Z}[x]$.
+
+    \begin{enumerate}
+      \item the set of all polynomials whose constant term is a multiple of
+        3
+        \begin{proof}
+          Yes. This set is non-empty, closed under subtraction and left
+          multplication by elements in $\mathbb{Z}[x]$.
+        \end{proof}
+      \item the set of all polynomials whose coefficient of $x^2$ is a
+        multiple of 3
+        \begin{proof}
+          No. This set is not closed under left multplication
+          by elements in $\mathbb{Z}[x]$. For example, $x(x+3x^2)$ is not
+          in the set even though $x+3x^2$ is.
+        \end{proof}
+      \item the set of all polynomials whose constant term, coefficient of
+        $x$, and coefficient of $x^2$ are zero
+        \begin{proof}
+          Yes. This is the set of all multiples of $x^3$, which is
+          non-empty, closed under subtraction and left multiplication by
+          elements in in $\mathbb{Z}[x]$.
+        \end{proof}
+      \item $\mathbb{Z}[x^2]$
+        \begin{proof}
+          No. This set is not closed under left multiplication by elements
+          in $\mathbb{Z}[x]$. For example, $x\cdot x^2=x^3$ is not
+          contained in the set even though $x^2$ is.
+        \end{proof}
+      \item The set of polynomials whose coefficients sum to zero
+        \begin{proof}
+          Yes. Let $S$ denote the set. The set is non-empty since it
+          contains $x-1$. Given $p(x)\in\mathbb{Z}[x]$,
+          let $|p(x)|$ denote the sum of its coefficients. Then note that
+          $|p(x)\pm q(x)|=|p(x)|\pm|q(x)|$, hence $S$ is closed under
+          subtraction. Also, note that for any $ax^n\in\mathbb{Z}[x]$ where
+          $a\in\mathbb{Z}$ and $n\in\mathbb{N}$, we have
+          $|ax^np(x)|=a|p(x)|$. Hence given
+          $r(x)=\sum_{i=1}^na_ix^i\in\mathbb{Z}[x]$ and $p(x)\in S$, we
+          have
+          \begin{align*}
+            |r(x)p(x)|  &= |(\sum_{i=1}^na_ix^i)p(x)| \\
+                        &= \sum_{i=1}^n|a_ix^ip(x)| \\
+                        &= \sum_{i=1}^na_i|p(x)| \\
+                        &= \sum_{i=1}^na_i\cdot0 \\
+                        &= 0, \\
+          \end{align*}
+          so $S$ is closed under left multplication by elements
+          in $\mathbb{Z}[x]$.
+        \end{proof}
+      \item The set of polynomials $p(x)$ such that $p'(0)=0$, where
+        $p'(x)$ is the usual first derivative of $p(x)$ with respect to
+        $x$.
+        \begin{proof}
+          No. Note that $p'(0)=0$ if and only if the coefficient of $x$ is
+          0. Hence this set is not closed under left multiplication by
+          elements in $\mathbb{Z}[x]$, since $x\cdot(x^2+1)=x^3+x$ is not
+          contained in the set even though $x^2+1$ is.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.3 Question 17: Let $R$ and $S$ be nonzero rings with
+    identity and denote their respective identitites by $1_R$ and $1_S$.
+    Let $\varphi:R\rightarrow S$ be a nonzero homomorphism of rings.
+    \begin{enumerate}
+      \item Prove that if $\varphi(1_R)\neq1_S$ then $\varphi(1_R)$ is a
+        zero divisor in $S$. Deduce that if $S$ is an integral domain then
+        every ring homomorphism from $R$ to $S$ sends the identity of $R$
+        to the identity of $S$.
+
+        \begin{proof}
+          First, note that $\varphi(1_R)\neq0_S$ otherwise for every $r\in
+          R$, $\varphi(r)=\varphi(r)\varphi(1_R)=0_S$ which implies
+          $\varphi$ is the zero homomorphism. Now we have
+          $\varphi(1_R)=\varphi(1_R1_R)=\varphi(1_R)^2$, so rearranging we
+          get $\varphi(1_R)(\varphi(1_R)-1_S)=0_S$. Now
+          $\varphi(1_R)-1_S\neq0_S$, hence $\varphi(1_R)$ is a zero divisor
+          in $S$. Hence if $S$ is an integral domain, $\varphi(1_R)$ must
+          be $1_S$.
+        \end{proof}
+
+      \item Prove that if $\varphi(1_R)=1_S$ then $\varphi(u)$ is a unit in
+        $S$ and $\varphi(u^{-1})=\varphi(u)^{-1}$ for each unit $u$ of $R$.
+
+        \begin{proof}
+          First, note that $\varphi(u)\neq0_S$ otherwise for every $r\in
+          R$, \[\varphi(r)=\varphi(ru^{-1}u)=
+          \varphi(r)\varphi(u)\varphi(u^{-1})=0_S,\] which implies
+          $\varphi$ is the zero homomorphism. Now we have
+          \begin{align*}
+            \varphi(u)\varphi(u^{-1}) &= \varphi(uu^{-1}) \\
+              &= \varphi(1_R) \\
+              &= 1_S \\
+              &= \varphi(1_R) \\
+              &= \varphi(u^{-1}u) \\
+              &= \varphi(u^{-1})\varphi(u), \\
+          \end{align*}
+          which implies that $\varphi(u)$ has a multiplicative inverse
+          $\varphi(u^{-1})$ in $S$, as we are required to show.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.3 Question 20: Let $I$ be an ideal of $R$ and let $S$ be
+    a subring of $R$. Prove that $I\cap S$ is an ideal of $S$. Show by
+    example that not every ideal of a subring $S$ of a ring $R$ need to be
+    of the form $I\cap S$ for some ideal $I$ of $R$.
+
+    \begin{proof}
+      To prove that a set is an ideal of a ring $S$, it suffices to prove
+      that the set is non-empty, closed under subtraction, and also closed
+      under left and right multiplication by elements in $S$. $I\cap S$ is
+      non-empty because it contains 0. Given $a_1,a_2\in I\cap S$,
+      $a_1-a_2$ is contained in both $I$ and $S$ since $I$ and $S$ are
+      groups. Also, given $s\in S$ and $a\in I\cap S$, $sa$ is contained in
+      $I$ because $s\in R$ and $a\in I$ and $I$ is an ideal of $R$. Also,
+      $sa$ is contained in $S$ since both $s$ and $a$ are contained in $S$,
+      which is closed under multiplication.  By a similar argument, $as$ is
+      contained in $I\cap S$. Hence $I\cap S$ is an ideal of $S$. \\
+
+      Consider the example where $R=\mathbb{R}$, $S=\mathbb{Z}$, and the
+      ideal $J$ of $S$ is $2\mathbb{Z}$. Now since $R$ is a field, it can
+      only have trivial ideals, because any non-trivial ideal will contain
+      a non-zero element which must be unit, and so the ideal will contain
+      1 since it must contain the product of the unit and its inverse, and
+      thus the ideal would contain the entire field. But neither
+      $\mathbb{R}\cap\mathbb{Z}$ nor $\{0\}\cap\mathbb{Z}$ equals
+      $2\mathbb{Z}$.
+    \end{proof}
+
+  \item Section 7.3 Question 29: Let $R$ be a commutative ring. Recall that
+    an element $x\in R$ is nilpotent if $x^n=0$ for some
+    $n\in\mathbb{Z}^+$. Prove that the set of nilpotent elements form an
+    ideal -- called the nilradical of $R$ denoted by $\mathcal{R}(R)$.
+
+    \begin{proof}
+      To prove that a set is an ideal of a commutative ring $R$, it
+      suffices to show that it is non-empty, it is closed under additive
+      inverses, it is closed under addition, and also closed under
+      left mutiplication by elements in $R$. $\mathcal{R}(R)$ is non-empty
+      since it contains 0. $\mathcal{R}(R)$ is closed under additive
+      inverse since $(-r)^n=(-1)^nr^n$, which will equal to 0 if $r^n=0$.
+      Let $a_1,a_2\in\mathcal{R}(R)$. Then $a_1^{n_1}=a_2^{n_2}=0$ for some
+      $n_1,n_2\in\mathbb{N}$. Let $n=2(n_1+n_2)$, then $a_1^{n}=a_2^{n}=0$,
+      so that
+      \begin{align*}
+        (a_1+a_2)^n &= \sum_{i=0}^n\binom{n}{i}a_1^ia_2^{n-i}. \\
+      \end{align*}
+      Note that in the expansion above, the power of $a_1$ or of $a_2$ is
+      always greater or equal to $n_1+n_2$, hence the $(a_1+a_2)^n=0$,
+      which implies that $\mathcal{R}(R)$ is closed under addition.
+      Finally, given $a\in\mathcal{R}(R)$ and $r\in R$, we have $a^n=0$ for
+      some $n\in\mathbb{N}$, so $(ar)^n=a^nr^n=0$, implying that
+      $ar\in\mathcal{R}(R)$.
+    \end{proof}
+
+  \item Section 7.3 Question 31: Prove that the elements
+    $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ and
+    $B=\begin{pmatrix}0&0\\1&0\end{pmatrix}$ are nilpotent elements of
+    $M_2(\mathbb{Z})$ whose sum is not nilpotent (note that these two
+    matrices do not commute). Deduce that the set of nilpotent elements in
+    the noncommutative ring $M_2(\mathbb{Z})$ is not an ideal.
+
+    \begin{proof}
+      We can check that $A^2=B^2=0$, so elements $A$ and $B$ are nilpotent.
+      Also, we check that $(A+B)^2=I$, hence $(A+B)^n=(A+B)\neq0$ when $n$
+      is odd and $(A+B)^n=I\neq0$ when $n$ is even, and hence $A+B$ is not
+      nilpotent. Hence the set of nilpotent elements is not closed under
+      addition, and thus the set cannot be an ideal.
+    \end{proof}
+
+  \item Section 7.3 Question 33: Assume $R$ is commutative. Let
+    $p(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ be an element of the polynomial
+    ring $R[x]$.
+
+    \begin{enumerate}
+      \item Prove that $p(x)$ is a unit in $R[x]$ if and only if $a_0$ is a
+        unit and $a_1,\ldots,a_n$ are nilpotent in $R$.
+        \begin{proof}
+          $\Leftarrow$: Note that if $a\in R$ is nilpotent with $a^r=0$,
+          then $ax^m\in R[x]$ will also be because $(ax^m)^r=a^rx^{mr}=0$.
+          From Question 14d of Section 7.1, we have shown that in a
+          commutative ring, the sum of a unit and a nilpotent element is a
+          unit. Hence by induction on $n$, we have that
+          $p(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ is unit if $a_0$ is a
+          unit and $a_1,\ldots,a_n$ are nilpotent in $R$. \\
+
+          $\Rightarrow$: Let $p(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ be
+          unit in $R[x]$. Then it has a multiplicative inverse
+          $q(x)=b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$. The coefficient of $x^0$
+          in $p(x)q(x)$ is $a_0b_0$ which must be 1, implying that $a_0$ is
+          a unit. We prove by induction on $n$, which is the power of
+          $p(x)$, that $a_1,\ldots,a_n$ are nilpotent in $R$. The assertion
+          holds trivially for $n=0$. Consider the $(n+1)$th step. So
+          $p(x)=a_{n+1}x^{n+1}+a_{n}x^{n}+\ldots+a_0$ is unit Note that it
+          suffices to show that $a_{n+1}$ is nilpotent, because then
+          $p(x)-a_{n+1}x^{n+1}$ will be a unit from Question 14d of Section
+          7.1, and then from induction hypothesis we will get that
+          $a_n,\ldots,a_1$ are nilpotent. Let
+          $q(x)=b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$ be the multiplicative
+          inverse of $p(x)$. We claim by induction on $i$ that
+          $a_{n+1}^{i+1}b_{m-i}=0$ for all $0\leq i\leq m$. The base case
+          $i=0$ is true since $a_{n+1}b_{m}$ is the coefficient of
+          $x^{m+n+1}$ which is 0. For the inductive step, the coefficient
+          $c_{m+n+1-i}$ of $x^{m+n+1-i}$ is
+          \begin{align*}
+            c_{m+n+1-i} &= a_{n+1}b_{m-i}+\ldots+a_{n+1-i}b_{m} = 0. \\
+          \end{align*}
+          Multiplying by $a_{n+1}^i$ and applying induction hypothesis
+          gives us the desired conclusion. Then setting $i=m$, we get
+          $a_{n+1}^{m+1}$ is nilpotent since $b_0$ is unit, which concludes
+          the proof.
+        \end{proof}
+
+      \item Prove that $p(x)$ is nilpotent in $R[x]$ if and only if
+        $a_0,\ldots,a_n$ are nilpotent elements of $R$.
+        \begin{proof}
+          $\Leftarrow$: This follows directly from induction on $n$, using
+          Question 29 of Section 7.3, where we showed that the sum or
+          difference of two nilpotent elements is nilpotent. \\
+
+          $\Rightarrow$: Assume $p(x)$ is nilpotent in $R[x]$. Then since
+          the sum of a unit and a nilpotent element is unit (Question 14d
+          of Section 7.1), $1+p(x)$ is unit. So from previous part of this
+          question, we get $a_1,\ldots,a_n$ are nilpotent in $R$. It
+          remains to show that $a_0$ is nilpotent. Since $p(x)^r=0$ for
+          some $r\in\mathbb{N}$, the coefficient of $x^0$ of $p(x)^r=0$ is
+          $a_0^r=0$, which implies that $a_0$ is nilpotent.
+        \end{proof}
+    \end{enumerate}
+
+  \item Section 7.3 Question 34: Let $I$ and $J$ be ideals of $R$.
+    \begin{enumerate}
+      \item Prove that $I+J$ is the smallest ideal of $R$ containing both
+        $I$ and $J$.
+        \begin{proof}
+          To show that a set $S$ is an ideal, it suffices to show that it
+          is non-empty, is closed under subtraction, and left and right
+          multiplication by elements in $R$. Chasing definitions of ideal,
+          $I+J$ is an ideal of $R$: It is non-empty since it contains
+          $0+0=0$; it is closed under subtraction since
+          $(i_1+j_1)-(i_2+j_2)=(i_1-i_2)+(j_1-j_2)\in I+J$ if $i_1,i_2\in
+          I$ and $j_1,j_2\in J$; given $r\in R$ and $i\in I$ and $j\in J$,
+          we have $r(i+j)=ri+rj\in I+J$, and $(i+j)r=ir+jr\in I+J$.  Also,
+          $I+J$ contains both $I$ and $J$. Furthermore, any other ideak $K$
+          of $R$ that contains $I$ and $J$ must be closed under addition of
+          elements in $I$ and $J$, hence $K$ must contain $I+J$. Thus $I+J$
+          is the smallest ideal of $R$ containing $I$ and $J$.
+        \end{proof}
+
+      \item Prove that $IJ$ is an ideal contained in $I\cap J$.
+        \begin{proof}
+          We chase definitions to show that $IJ$ is an ideal of $R$: $IJ$
+          contains $0\cdot0=0$ and is therefore non-empty. It is closed
+          under subtraction because
+          $(a_1b_1+\ldots+a_nb_n)-(a_1'b_1'+\ldots+a_mb_m')\in IJ$. It is
+          also closed under left multiplication with $r\in R$ because
+          $r(a_1b_1+\ldots+a_nb_n)=(ra_1)b_1+\ldots+(ra_n)b_n\in IJ$ since
+          $I$ is closed under left multiplication with $r\in R$. Similarly,
+          $IJ$ is closed under right multiplication with $r\in R$ because
+          $J$ is closed under right multiplication with $r$. Hence $IJ$ is
+          an ideal of $R$. Also, $IJ$ is contained in $I$ because
+          $a_1b_1+\ldots+a_nb_n\in I$ since $I$ is closed under right
+          multiplication with elements in $R$. Similarly, $IJ$ is contained
+          in $J$, hence $IJ$ is contained in $I\cap J$.
+        \end{proof}
+
+      \item Give an example where $IJ\neq I\cap J$.
+        \begin{proof}
+          Consider the case where $R=\mathbb{Z}$, $I=J=2\mathbb{Z}$. Then
+          $I\cap J=2\mathbb{Z}$ but $IJ=4\mathbb{Z}$.
+        \end{proof}
+
+      \item Prove that if $R$ is commutative and if $I+J=R$ then $IJ=I\cap
+        J$.
+        \begin{proof}
+          From part (b) of this question, it suffices to show that
+          $I\cap J\subseteq IJ$. Let $x\in I\cap J$. Since $I+J=R$ and
+          $1\in R$, we have $1=i+j$ for some $i\in I$ and $j\in J$. Then
+          $x=x\cdot i=x(i+j)=xi+xj$, which is contained in $IJ$ from
+          definiton of $IJ$.
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
