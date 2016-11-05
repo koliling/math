@@ -59,6 +59,29 @@
         $\text{range}(f)$.
 
         \begin{proof}
+          Let $\overline{a}$ denote $(a_1,\ldots,a_m)$. Given any finite
+          set of formulas
+          $\varphi_1(x,f(\overline{a})),\ldots,\varphi_n(x,f(\overline{a}))$
+          in $f(p)$, we need to show that $\mathcal{N}$ realizes their
+          conjunction \[\varphi(x,f(\overline{a})):=
+          \varphi_1(x,f(\overline{a}))\wedge
+          \ldots\wedge\varphi_n(x,f(\overline{a})),\] or equivalently,
+          \[\mathcal{N}\models\exists x\; \varphi(x,f(\overline{a})).\]
+          Now for each $i\in\{1,\ldots,n\}$, $\varphi_i(x,\overline{a})$ is
+          a formula in $p$ by definition of $f(p)$, therefore by
+          Completeness and consistency of $p$, $\varphi(x,\overline{a})$ is
+          also in $p$. In other words, $\mathcal{M}$ realizes
+          $\varphi(x,\overline{a})$, or equivalently,
+          \[\mathcal{M}\models\exists x\; \varphi(x,\overline{a}).\]
+          Therefore
+          $\exists x\; \varphi(x,\overline{x})\in
+          \text{tp}^\mathcal{M}(\overline{a}/\emptyset)$, which implies
+          $\exists x\; \varphi(x,\overline{x})\in
+          \text{tp}^\mathcal{N}(f(\overline{a})/\emptyset)$ since
+          $\text{tp}^\mathcal{M}(\overline{a}/\emptyset)=
+          \text{tp}^\mathcal{N}(f(\overline{a})/\emptyset)$. Hence
+          $\mathcal{N}\models\exists x\; \varphi(x,f(\overline{a}))$ as
+          required.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
