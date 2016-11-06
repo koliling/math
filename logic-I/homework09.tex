@@ -110,5 +110,68 @@
           as we are required to show.
         \end{proof}
     \end{enumerate}
+
+  \item Let $T$ be the theory of vector spaces over $\mathbb{Q}$,
+    $\mathcal{M}$ a model of $T$ and $A\subseteq M$. Show that
+    $|S^{\mathcal{M}}_1(A)|\leq|A|+\omega$.
+
+    \begin{proof}
+    \end{proof}
+
+  \item Let $T$ be the theory of infinite vector spaces over $\mathbb{Q}$.
+    Show that $|S_1(T)|<\omega$ but $S_2(T)$ is infinite.
+
+    \begin{proof}
+      First, note that considering $\mathbb{Q}$ as an infinite vector space
+      $V_\mathbb{Q}$ over $\mathbb{Q}$ (defining $+$ and $\cdot$ the same
+      way these operations are defined in $\mathbb{Q}$ as a ring),
+      $V_\mathbb{Q}$ can be embedded in every model of $T$: Given any other
+      infinite vector space $V$ over $\mathbb{Q}$, we can embed
+      $V_\mathbb{Q}$ into $V$ by sending $0$ to $0$, $1$ to a fixed element
+      $e$ of a basis of $V$, and the remaining $q\in V_\mathbb{Q}$ to
+      $q\cdot e\in V$. It is routine to check that this map will preserve
+      the axioms of vector spaces, which are associativity and
+      commutativity of addition, identity element of addition, inverse
+      element of addition, compatibility of scalar multiplication with
+      field multiplication, identity element of scalar multiplication, and
+      the distributive laws. Also, this map will be injective because
+      $q\cdot e=0$ if and only if $q=0$ because $e$ is an element of a
+      basis of $V$. \\
+
+      Next, observe that $T$ is model complete from Theorem 5.3, because
+      $T$ admits quantifier elimination by Question 1 of Homework 7. Then
+      since $T$ has a model that can be embedded into any model of $T$, $T$
+      must be complete: Given any sentence $\varphi$ in the language and
+      any model $\mathcal{M}$ of $T$, $\varphi$ is satisfied by
+      $\mathcal{M}$ if and only if $\varphi$ is satisfied by
+      $V_\mathbb{Q}$ embedded in $\mathcal{M}$, because the embedding is
+      elementary from model completeness of $T$. Hence $T$ is complete, and
+      furthermore $T\models\text{Th}(V_\mathcal{Q})$. \\
+
+      Therefore, $V_\mathcal{Q}$ is a prime model of $T$, and $S_n(T)$ is
+      well-defined from completeness of $T$. Thus, from Corollary 6.17, the
+      number of types in $S_n(T)$ will be the number of types in
+      $S_n^{V_{\mathbb{Q}}}(T)$, so we can work within the model
+      $V_\mathbb{Q}$. \\
+
+      We show that $S_1^{V_{\mathbb{Q}}}(T)$ only has 2 types -
+      $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$ and
+      $\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. These two types are
+      clearly distinct since $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$
+      contains the formula $x=0$ while type
+      $\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$ does not. It remains to
+      show that given any non-zero element $q\in V_\mathbb{Q}$, we will
+      have $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
+      \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. To prove this claim,
+      consider the map $\alpha:V_{\mathbb{Q}}\rightarrow V_{\mathbb{Q}}$,
+      that sends $a$ to $aq$. This map will send $1$ to $q$, and can be
+      verified to be automorphism of $\mathbb{Q}$-vector spaces. Since
+      isomorphic structures are elementary equivalent, we have
+      $V_\mathbb{Q}\models\varphi(1)\Leftrightarrow
+      V_\mathbb{Q}\models\varphi(\alpha(1))$. Thus
+      $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
+      \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$, which concludes the proof
+      that $S_1(T)$ has exactly 2 types. \\
+    \end{proof}
 \end{enumerate}
 \end{document}
