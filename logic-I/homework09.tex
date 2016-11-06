@@ -128,15 +128,15 @@
       $V_\mathbb{Q}$ can be embedded in every model of $T$: Given any other
       infinite vector space $V$ over $\mathbb{Q}$, we can embed
       $V_\mathbb{Q}$ into $V$ by sending $0$ to $0$, $1$ to a fixed element
-      $e$ of a basis of $V$, and the remaining $q\in V_\mathbb{Q}$ to
-      $q\cdot e\in V$. It is routine to check that this map will preserve
-      the axioms of vector spaces, which are associativity and
-      commutativity of addition, identity element of addition, inverse
-      element of addition, compatibility of scalar multiplication with
-      field multiplication, identity element of scalar multiplication, and
-      the distributive laws. Also, this map will be injective because
-      $q\cdot e=0$ if and only if $q=0$ because $e$ is an element of a
-      basis of $V$. \\
+      $e$ of a basis of $V$ (such $e$ exists since $V$ is infinite), and
+      the remaining $q\in V_\mathbb{Q}$ to $q\cdot e\in V$. It is routine
+      to check that this map will preserve the axioms of vector spaces,
+      which are associativity and commutativity of addition, identity
+      element of addition, inverse element of addition, compatibility of
+      scalar multiplication with field multiplication, identity element of
+      scalar multiplication, and the distributive laws. Also, this map will
+      be injective because $q\cdot e=0$ if and only if $q=0$ because $e$ is
+      an element of a basis of $V$. \\
 
       Next, observe that $T$ is model complete from Theorem 5.3, because
       $T$ admits quantifier elimination by Question 1 of Homework 7. Then
@@ -148,7 +148,7 @@
       elementary from model completeness of $T$. Hence $T$ is complete, and
       furthermore $T\models\text{Th}(V_\mathcal{Q})$. \\
 
-      Therefore, $V_\mathcal{Q}$ is a prime model of $T$, and $S_n(T)$ is
+      Therefore, $V_\mathbb{Q}$ is a prime model of $T$, and $S_n(T)$ is
       well-defined from completeness of $T$. Thus, from Corollary 6.17, the
       number of types in $S_n(T)$ will be the number of types in
       $S_n^{V_{\mathbb{Q}}}(T)$, so we can work within the model
@@ -172,6 +172,14 @@
       $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
       \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$, which concludes the proof
       that $S_1(T)$ has exactly 2 types. \\
+
+      Finally, we show that $S_2(T)$ is infinite. Like before, it suffices
+      to work within the model $V_\mathbb{Q}$. Consider the set of types
+      \[S=\{\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset): n\in\mathbb{N}^+\}.\]
+      Each type in $S$ is distinct because
+      $\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset)$ contains the formula
+      \[x_2=\underbrace{x_1+\ldots+x_1}_{n-\text{times}},\] which is not
+      contained in any other type in $S$. Thus $S_2(T)$ is infinite.
     \end{proof}
 \end{enumerate}
 \end{document}
