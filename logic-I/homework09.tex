@@ -83,6 +83,32 @@
           $\mathcal{N}\models\exists x\; \varphi(x,f(\overline{a}))$ as
           required.
         \end{proof}
+
+      \item Let $a$ realizes $p$ in $\mathcal{M}$ and $b$ realize $f(p)$ in
+        $\mathcal{N}$. Show that $f\cup\{(a,b)\}$ is a partial elementary
+        map.
+        \begin{proof}
+          We want to show that
+          $\text{tp}^\mathcal{M}(a\overline{a}/\emptyset)
+          =\text{tp}^\mathcal{N}(bf(\overline{a})/\emptyset)$, or
+          equivalently, given any formula $\varphi(x,\overline{x})$ in
+          $(m+1)$ variables, we have
+          \[\mathcal{M}\models\varphi(a,\overline{a}))\Leftrightarrow
+          \mathcal{N}\models\varphi(b,f(\overline{a})).\]
+          Let $\varphi(x,\overline{x})$ be a formula in $(m+1)$ variables.
+          Then
+          \begin{align*}
+            \mathcal{M}\models\varphi(a,\overline{a}))  & \Leftrightarrow
+            \varphi(x,\overline{a})\in p(x) & (\text{by Completeness of}\;
+              p(x)) \\
+              & \Leftrightarrow \varphi(x,f(\overline{a}))\in f(p(x)) &
+              (\text{by definition of}\; f(p)\; \text{and Completeness
+              of}\; f(p)) \\
+              & \Leftrightarrow \mathcal{N}\models\varphi(b,f(\overline{a}))) &
+              (\text{by Completeness of}\; f(p)), \\
+          \end{align*}
+          as we are required to show.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
