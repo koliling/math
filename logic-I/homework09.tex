@@ -116,6 +116,35 @@
     $|S^{\mathcal{M}}_1(A)|\leq|A|+\omega$.
 
     \begin{proof}
+      First note that if $\mathcal{M}$ is finite, then there can only be a
+      maximum of $|M|$ types in $S^{\mathcal{M}}_1(A)$ (one type for each
+      element in $M$), so the assertion will be trivially true. Hence we
+      can assume that $\mathcal{M}$ is infinite. \\
+
+      Assume by contradiction that $|S^{\mathcal{M}}_1(A)|>|A|+\omega$.
+      Then $|S^{\mathcal{M}}_1(\emptyset)|>|A|+\omega\geq\omega$, since
+      $S^{\mathcal{M}}_1(\emptyset)\subseteq S^{\mathcal{M}}_1(A)$. Then by
+      Theorem 7.16, we have $S^{\mathcal{M}}_1(\emptyset)=2^\omega$. Thus
+      from Theorem 7.13, we will have
+      $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$. \\
+
+      Now from the argument up to the second paragraph of Question 4 below,
+      if we add to $T$ the set of sentences to make $T$ the theory of
+      infinite vector spaces over $\mathbb{Q}$ (by adding to $T$
+      sentences which say ``I have at least $n$ distinct elements'' for
+      each $n\in\mathbb{N}$), then $T$ will be a complete theory. Thus
+      since $\mathcal{M}$ is infinite, we get
+      $T'\vdash\text{Th}(\mathcal{M})$, where $T'$ is the theory of
+      infinite vector spaces over $\mathbb{Q}$. Then
+      $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$ will imply
+      $I(T',\omega)=2^\omega$, which means that there are $2^\omega$
+      countable vector spaces over $\mathbb{Q}$, up to vector space
+      isomorphism. However this statement is not true, because there are
+      only $\omega$ distinct countable vector spaces over $\mathbb{Q}$: 
+      vector spaces of equal and finite dimensions are isomorphic to each
+      other, and vector spaces with countable basis are also isomorphic to
+      each other, giving a total of $\omega$ distinct countable vector
+      spaces over $\mathbb{Q}$.
     \end{proof}
 
   \item Let $T$ be the theory of infinite vector spaces over $\mathbb{Q}$.
