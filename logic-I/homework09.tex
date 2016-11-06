@@ -177,12 +177,11 @@
       furthermore $T\models\text{Th}(V_\mathcal{Q})$. \\
 
       Therefore, $V_\mathbb{Q}$ is a prime model of $T$, and $S_n(T)$ is
-      well-defined from completeness of $T$. Thus, from Corollary 6.17, the
-      number of types in $S_n(T)$ will be the number of types in
-      $S_n^{V_{\mathbb{Q}}}(T)$, so we can work within the model
-      $V_\mathbb{Q}$. \\
+      well-defined from completeness of $T$. Thus, from Corollary 6.17,
+      $S_n(T)= S_n^{V_{\mathbb{Q}}}(\emptyset)$, so we can work within the
+      model $V_\mathbb{Q}$. \\
 
-      We show that $S_1^{V_{\mathbb{Q}}}(T)$ only has 2 types -
+      We show that $S_1^{V_{\mathbb{Q}}}(\emptyset)$ only has 2 types -
       $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$ and
       $\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. These two types are
       clearly distinct since $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$
@@ -199,15 +198,23 @@
       V_\mathbb{Q}\models\varphi(\alpha(1))$. Thus
       $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
       \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$, which concludes the proof
-      that $S_1(T)$ has exactly 2 types. \\
+      that $S_1(T)=S_1^{V_{\mathbb{Q}}}(\emptyset)$ has exactly 2 types. \\
 
-      Finally, we show that $S_2(T)$ is infinite. Like before, it suffices
-      to work within the model $V_\mathbb{Q}$. Consider the set of types
-      \[S=\{\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset): n\in\mathbb{N}^+\}.\]
-      Each type in $S$ is distinct because
-      $\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset)$ contains the formula
-      \[x_2=\underbrace{x_1+\ldots+x_1}_{n-\text{times}},\] which is not
-      contained in any other type in $S$. Thus $S_2(T)$ is infinite.
+      Finally, we show that $S_2(T)$ is infinite. Like before, this is
+      equivalent to showing that $S_2^{V_{\mathbb{Q}}}(\emptyset)$ is
+      infinite. Consider the set of types
+      \[S=\{\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset): n\in\mathbb{N}^+\}
+      \subseteq S_2^{V_{\mathbb{Q}}}(\emptyset).\] Each type in $S$ is
+      distinct because $\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset)$ contains
+      the formula \[\varphi_n(x_1,x_2):=
+      x_2=\underbrace{x_1+\ldots+x_1}_{n-\text{times}},\] which is not
+      contained in any other type in $S$: If $\varphi_m(x_1,x_2)$ and
+      $\varphi_n(x_1,x_2)$ are in the same type for distinct
+      $m<n\in\mathbb{N}^+$, then rearranging the formula, we get
+      $(n-m)\cdot x_1=0$, which can only be true in $V_\mathbb{Q}$ if
+      $x_1=0$. Thus, each type in $S\subseteq S_2^{V_\mathbb{Q}}(\emptyset)$
+      is distinct, and so $S_2(T)=S_2^{V_\mathbb{Q}}(\emptyset)$ is
+      infinite.
     \end{proof}
 \end{enumerate}
 \end{document}
