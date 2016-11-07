@@ -126,39 +126,38 @@
 
       In the second case, $p$ contains $\neg\varphi_v(x)$ for all
       $v\in\text{span}(A)$. We show that there can only be one such type
-      $p$ in $S^\mathcal{M}_1(A)$.
+      $S^\mathcal{M}_1(A)$. It suffices to show that
+      $S(x)=\{\neg\varphi_v(x): v\in\text{span}(A)\}$ is a complete type
+      over $A$. Given any formula $\phi(x,a_1,\ldots,a_k)$ over $A$, we
+      want to show that $S(x)\vdash\phi(x,a_1,\ldots,a_k)$ or
+      $S(x)\vdash\neg\phi(x,a_1,\ldots,a_k)$. From quantifier elimination
+      of $T$, we can assume $\phi(x,\overline{y})$ is a quantifier-free
+      formula. Then decomposing $\phi(x,\overline{y})$ into disjunctive
+      normal form $\phi(x,\overline{y})=
+      \phi_1(x,\overline{y})\vee\ldots\vee\phi_n(x,\overline{y})$, where
+      each $\phi_i(x,\overline{y})$ is a conjunction of atomic formulas in
+      $A$, we note that $S(x)\vdash\phi(x,\overline{y})$ if
+      $S(x)\vdash\phi_i(x,\overline{y})$ for some $i\in\{1,\ldots,n\}$,
+      otherwise $S(x)\vdash\neg\phi(x,\overline{y})$.  Hence we can assume
+      that $\phi(x,\overline{y})$ is a conjunction of atomic formulas in
+      $A$, i.e. $\phi(x,\overline{y})=
+      \theta_1(x,\overline{y})\wedge\ldots\wedge\theta_s(x,\overline{y})$,
+      where each $\theta_j(x,\overline{y})$ is an atomic formula over $A$.
+      Then similar to the previous argument,
+      $S(x)\vdash\phi(x,\overline{y})$ if
+      $S(x)\vdash\phi_i(x,\overline{y})$ for all $i\in\{1,\ldots,n\}$,
+      otherwise $S(x)\vdash\neg\phi(x,\overline{y})$. Hence we can assume
+      that $\phi(x,\overline{y})$ is an atomic formula.  Now in the given
+      language, an atomic formula over $A$ must be equivalent to one of the
+      forms $x\;\square\;q_1a_1+\ldots+q_ma_m$, where $\square$ is either
+      $=$ or $\neq$, and $a_k\in A$. Thus if $\phi(x,\overline{y})$ is of
+      the form $x\neq q_1a_1+\ldots+q_ma_m$, then
+      $S(x)\vdash\phi(x,\overline{y})$, otherwise
+      $S(x)\vdash\neg\phi(x,\overline{y})$, which concludes the claim that
+      $S(x)$ is complete. \\
 
       Hence, the number of types in $S^\mathcal{M}_1(A)$ is
-      $|\text{span}(A)|+1=|(|A|+\omega)^{<\omega}|+1=|A|+\omega$.
-
-      %First note that if $\mathcal{M}$ is finite, then since there can only
-      %be a maximum of $|M|$ types in $S^{\mathcal{M}}_1(A)$ (one type for
-      %each element in $M$), the assertion will be trivially true. Hence
-      %we can assume that $\mathcal{M}$ is infinite. \\
-
-      %Assume by contradiction that $|S^{\mathcal{M}}_1(A)|>|A|+\omega$.
-      %Then $|S^{\mathcal{M}}_1(\emptyset)|>|A|+\omega\geq\omega$, since
-      %$S^{\mathcal{M}}_1(\emptyset)\subseteq S^{\mathcal{M}}_1(A)$. Then by
-      %Theorem 7.16, we have $S^{\mathcal{M}}_1(\emptyset)=2^\omega$. Thus
-      %from Theorem 7.13, we will have
-      %$I(\text{Th}(\mathcal{M}),\omega)=2^\omega$. \\
-
-      %Now from the argument up to the second paragraph of Question 4 below,
-      %if we add to $T$ the set of sentences to make $T$ the theory of
-      %infinite vector spaces over $\mathbb{Q}$ (by adding sentences which
-      %say ``I have at least $n$ distinct elements'' for each
-      %$n\in\mathbb{N}$), then $T$ will be a complete theory. Thus since
-      %$\mathcal{M}$ is infinite, we get $T'\vdash\text{Th}(\mathcal{M})$,
-      %where $T'$ is the theory of infinite vector spaces over $\mathbb{Q}$.
-      %Then $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$ will imply
-      %$I(T',\omega)=2^\omega$, which means that there are $2^\omega$
-      %countable vector spaces over $\mathbb{Q}$, up to vector space
-      %isomorphism. However this statement is not true, because there are
-      %only $\omega$ distinct countable vector spaces over $\mathbb{Q}$:
-      %vector spaces of equal and finite dimensions are isomorphic to each
-      %other, and vector spaces with basis of size $\omega$ are also
-      %isomorphic to each other, giving a total of $\omega$ distinct
-      %countable vector spaces over $\mathbb{Q}$.
+      $|\text{span}(A)|+1\leq|(|A|+\omega)^{<\omega}|+1=|A|+\omega$.
     \end{proof}
 
   \item Let $T$ be the theory of infinite vector spaces over $\mathbb{Q}$.
