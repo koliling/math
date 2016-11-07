@@ -116,34 +116,49 @@
     $|S^{\mathcal{M}}_1(A)|\leq|A|+\omega$.
 
     \begin{proof}
-      First note that if $\mathcal{M}$ is finite, then there can only be a
-      maximum of $|M|$ types in $S^{\mathcal{M}}_1(A)$ (one type for each
-      element in $M$), so the assertion will be trivially true. Hence we
-      can assume that $\mathcal{M}$ is infinite. \\
+      Recall from Question 1 of Homework 7 that $T$ admits quantifier
+      elimination. For a given $v=q_1a_1+\ldots+q_ra_r\in\text{span}(A)$,
+      let $\varphi_v(x)$ denote the formula $x=q_1a_1+\ldots+q_ra_r\in
+      S^\mathcal{M}_1(A)$. Let $p\in S^\mathcal{M}_1(A)$. There are two
+      cases. In the first case, $p$ contains $\varphi_v(x)$ for some
+      $v\in\text{span}(A)$. Then we will have
+      $p=\text{tp}^\mathcal{M}(v/A)$. \\
 
-      Assume by contradiction that $|S^{\mathcal{M}}_1(A)|>|A|+\omega$.
-      Then $|S^{\mathcal{M}}_1(\emptyset)|>|A|+\omega\geq\omega$, since
-      $S^{\mathcal{M}}_1(\emptyset)\subseteq S^{\mathcal{M}}_1(A)$. Then by
-      Theorem 7.16, we have $S^{\mathcal{M}}_1(\emptyset)=2^\omega$. Thus
-      from Theorem 7.13, we will have
-      $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$. \\
+      In the second case, $p$ contains $\neg\varphi_v(x)$ for all
+      $v\in\text{span}(A)$. We show that there can only be one such type
+      $p$ in $S^\mathcal{M}_1(A)$.
 
-      Now from the argument up to the second paragraph of Question 4 below,
-      if we add to $T$ the set of sentences to make $T$ the theory of
-      infinite vector spaces over $\mathbb{Q}$ (by adding sentences which
-      say ``I have at least $n$ distinct elements'' for each
-      $n\in\mathbb{N}$), then $T$ will be a complete theory. Thus since
-      $\mathcal{M}$ is infinite, we get $T'\vdash\text{Th}(\mathcal{M})$,
-      where $T'$ is the theory of infinite vector spaces over $\mathbb{Q}$.
-      Then $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$ will imply
-      $I(T',\omega)=2^\omega$, which means that there are $2^\omega$
-      countable vector spaces over $\mathbb{Q}$, up to vector space
-      isomorphism. However this statement is not true, because there are
-      only $\omega$ distinct countable vector spaces over $\mathbb{Q}$:
-      vector spaces of equal and finite dimensions are isomorphic to each
-      other, and vector spaces with basis of size $\omega$ are also
-      isomorphic to each other, giving a total of $\omega$ distinct
-      countable vector spaces over $\mathbb{Q}$.
+      Hence, the number of types in $S^\mathcal{M}_1(A)$ is
+      $|\text{span}(A)|+1=|(|A|+\omega)^{<\omega}|+1=|A|+\omega$.
+
+      %First note that if $\mathcal{M}$ is finite, then since there can only
+      %be a maximum of $|M|$ types in $S^{\mathcal{M}}_1(A)$ (one type for
+      %each element in $M$), the assertion will be trivially true. Hence
+      %we can assume that $\mathcal{M}$ is infinite. \\
+
+      %Assume by contradiction that $|S^{\mathcal{M}}_1(A)|>|A|+\omega$.
+      %Then $|S^{\mathcal{M}}_1(\emptyset)|>|A|+\omega\geq\omega$, since
+      %$S^{\mathcal{M}}_1(\emptyset)\subseteq S^{\mathcal{M}}_1(A)$. Then by
+      %Theorem 7.16, we have $S^{\mathcal{M}}_1(\emptyset)=2^\omega$. Thus
+      %from Theorem 7.13, we will have
+      %$I(\text{Th}(\mathcal{M}),\omega)=2^\omega$. \\
+
+      %Now from the argument up to the second paragraph of Question 4 below,
+      %if we add to $T$ the set of sentences to make $T$ the theory of
+      %infinite vector spaces over $\mathbb{Q}$ (by adding sentences which
+      %say ``I have at least $n$ distinct elements'' for each
+      %$n\in\mathbb{N}$), then $T$ will be a complete theory. Thus since
+      %$\mathcal{M}$ is infinite, we get $T'\vdash\text{Th}(\mathcal{M})$,
+      %where $T'$ is the theory of infinite vector spaces over $\mathbb{Q}$.
+      %Then $I(\text{Th}(\mathcal{M}),\omega)=2^\omega$ will imply
+      %$I(T',\omega)=2^\omega$, which means that there are $2^\omega$
+      %countable vector spaces over $\mathbb{Q}$, up to vector space
+      %isomorphism. However this statement is not true, because there are
+      %only $\omega$ distinct countable vector spaces over $\mathbb{Q}$:
+      %vector spaces of equal and finite dimensions are isomorphic to each
+      %other, and vector spaces with basis of size $\omega$ are also
+      %isomorphic to each other, giving a total of $\omega$ distinct
+      %countable vector spaces over $\mathbb{Q}$.
     \end{proof}
 
   \item Let $T$ be the theory of infinite vector spaces over $\mathbb{Q}$.
@@ -193,7 +208,7 @@
       consider the map $\alpha:V_{\mathbb{Q}}\rightarrow V_{\mathbb{Q}}$,
       that sends $a$ to $aq$. This map will send $1$ to $q$, and can be
       verified to be automorphism of $\mathbb{Q}$-vector spaces. Since
-      isomorphic structures are elementary equivalent, we have
+      isomorphic structures are elementarily equivalent, we have
       $V_\mathbb{Q}\models\varphi(1)\Leftrightarrow
       V_\mathbb{Q}\models\varphi(\alpha(1))$. Thus
       $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
