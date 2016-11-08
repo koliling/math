@@ -195,40 +195,58 @@
       $S_n(T)= S_n^{V_{\mathbb{Q}}}(\emptyset)$, so we can work within the
       model $V_\mathbb{Q}$. \\
 
-      We show that $S_1^{V_{\mathbb{Q}}}(\emptyset)$ only has 2 types -
-      $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$ and
-      $\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. These two types are
-      clearly distinct since $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$
-      contains the formula $x=0$ while type
-      $\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$ does not. It remains to
-      show that given any non-zero element $q\in V_\mathbb{Q}$, we will
-      have $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
-      \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. To prove this claim,
-      consider the map $\alpha:V_{\mathbb{Q}}\rightarrow V_{\mathbb{Q}}$,
-      that sends $a$ to $aq$. This map will send $1$ to $q$, and can be
-      verified to be automorphism of $\mathbb{Q}$-vector spaces. Since
-      isomorphic structures are elementarily equivalent, we have
-      $V_\mathbb{Q}\models\varphi(1)\Leftrightarrow
-      V_\mathbb{Q}\models\varphi(\alpha(1))$. Thus
-      $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
-      \text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$, which concludes the proof
-      that $S_1(T)=S_1^{V_{\mathbb{Q}}}(\emptyset)$ has exactly 2 types. \\
+      We first show that $S_1(T)$ has exactly 2 types - the first type
+      which contains the formula ``$x=0$'', and the second type which
+      contains the formula ``$\neg x=0$''. This is equivalent to showing
+      that $\{x=0\}$ and $\{\neg x=0\}$ are complete. Now
+      given any formula $\varphi(x)$, by quantifier elimination,
+      $\varphi(x)$ is equivalent to a quantifier-free formula. Decomposing
+      the quantifier-free formula into disjunctive normal form,
+      $\varphi(x)$ will be equivalent to a disjunction of conjunction of
+      atomic formulas in variable $x$. However, in the given language, the
+      only atomic formulas are equivalent to ``$x=0$'' or its negation
+      ``$\neg x=0$''. Hence, we will always have exactly one of
+      $\{x=0\}\vdash\varphi(x)$ or $\{x=0\}\vdash\neg\varphi(x)$.
+      Similarly, for any formula $\varphi(x)$, we will always have exactly
+      one of $\{\neg x=0\}\vdash\varphi(x)$ or $\{\neg
+      x=0\}\vdash\neg\varphi(x)$.  Thus, both $\{x=0\}$ and $\{\neg x=0\}$
+      are complete, and $S_1(T)$ has exactly two types. \\
 
-      Finally, we show that $S_2(T)$ is infinite. Like before, this is
-      equivalent to showing that $S_2^{V_{\mathbb{Q}}}(\emptyset)$ is
-      infinite. Consider the set of types
-      \[S=\{\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset): n\in\mathbb{N}^+\}
-      \subseteq S_2^{V_{\mathbb{Q}}}(\emptyset).\] Each type in $S$ is
-      distinct because $\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset)$ contains
-      the formula \[\varphi_n(x_1,x_2):=
+      %We first show that $S_1^{V_{\mathbb{Q}}}(\emptyset)$ only has 2 types -
+      %$\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$ and
+      %$\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. These two types are
+      %clearly distinct since $\text{tp}^{V_{\mathbb{Q}}}(0/\emptyset)$
+      %contains the formula $x=0$ while type
+      %$\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$ does not. It remains to
+      %show that given any non-zero element $q\in V_\mathbb{Q}$, we will
+      %have $\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
+      %\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$. To prove this claim,
+      %consider the map $\alpha:V_{\mathbb{Q}}\rightarrow V_{\mathbb{Q}}$,
+      %that sends $a$ to $aq$. This map will send $1$ to $q$, and can be
+      %verified to be automorphism of $\mathbb{Q}$-vector spaces. Since
+      %isomorphic structures are elementarily equivalent, we have
+      %$V_\mathbb{Q}\models\varphi(1)\Leftrightarrow
+      %V_\mathbb{Q}\models\varphi(\alpha(1))$. Thus
+      %$\text{tp}^{V_{\mathbb{Q}}}(q/\emptyset)=
+      %\text{tp}^{V_{\mathbb{Q}}}(1/\emptyset)$, which concludes the proof
+      %that $S_1(T)=S_1^{V_{\mathbb{Q}}}(\emptyset)$ has exactly 2 types. \\
+
+      Now, we show that $S_2(T)$ is infinite. Since $S_n(T)=
+      S_n^{V_{\mathbb{Q}}}(\emptyset)$ from earlier argument, it suffices
+      to show that $S_2^{V_{\mathbb{Q}}}(\emptyset)$ is infinite. Consider
+      the set of types \[S=\{\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset):
+      n\in\mathbb{N}^+\} \subseteq S_2^{V_{\mathbb{Q}}}(\emptyset).\] Each
+      type in $S$ is distinct because
+      $\text{tp}^{V_\mathbb{Q}}(1,n/\emptyset)$ contains the formula
+      \[\varphi_n(x_1,x_2):=
       x_2=\underbrace{x_1+\ldots+x_1}_{n-\text{times}},\] which is not
       contained in any other type in $S$: If $\varphi_m(x_1,x_2)$ and
       $\varphi_n(x_1,x_2)$ are in the same type for distinct
       $m<n\in\mathbb{N}^+$, then rearranging the formula, we get
       $(n-m)\cdot x_1=0$, which can only be true in $V_\mathbb{Q}$ if
-      $x_1=0$. Thus, each type in $S\subseteq S_2^{V_\mathbb{Q}}(\emptyset)$
-      is distinct, and so $S_2(T)=S_2^{V_\mathbb{Q}}(\emptyset)$ is
-      infinite.
+      $x_1=0$. Thus, each type in $S\subseteq
+      S_2^{V_\mathbb{Q}}(\emptyset)$ is distinct, and so
+      $S_2(T)=S_2^{V_\mathbb{Q}}(\emptyset)$ is infinite.
     \end{proof}
 \end{enumerate}
 \end{document}
