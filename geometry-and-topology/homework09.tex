@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz,mathtools}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+\title{Geometry and Topology: Homework 9}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item
+  \item
+    \begin{enumerate}
+      \item Let $\overline{v}=[v]\in T_pM$, and consider the map
+        \begin{align*}
+          \delta_{\bar{v}}:C^\infty(M^n)\rightarrow\mathbb{R},\;\; f\mapsto
+          D_p[f\circ\phi^{-1}](v), \\
+        \end{align*}
+        where $(U,\phi)$ is a chart containing $p$ and $v\in
+        T_{\phi(p)}\phi(U)$. We show that $\delta_{\bar{v}}$ is a
+        derivation of $C^\infty(M^n)$ at $p$. \\
+
+        We first show that $\delta_{\bar{v}}$ is $\mathbb{R}$-linear: We
+        can assume wlog that $\phi(p)=0$. Let $f,g\in C^\infty(M^n)$, and
+        $r\in\mathbb{R}$. Also, let $\sigma_r$ denote the map
+        $\sigma_r:\mathbb{R}\rightarrow\mathbb{R}$ that sends
+        $x\in\mathbb{R}$ to $rx\in\mathbb{R}$. Then
+        \begin{align*}
+          \delta_{\bar{v}}(rf+g)  &=\delta_{\bar{v}}(\sigma_r\circ f+g) \\
+            &=D_p[(\sigma_r\circ f+g)\circ\phi^{-1}](v) \\
+            &=D_p[(\sigma_r\circ f\circ\phi^{-1} +g\circ\phi^{-1}](v) \\
+            &=rD_p[f\circ\phi^{-1}](v) +D[g\circ\phi^{-1}](v) \\
+            &=r\delta_{\bar{v}}(f) +\delta_{\bar{v}}(g), \\
+        \end{align*}
+        and so $\delta_{\bar{v}}$ is $\mathbb{R}$-linear.
+    \end{enumerate}
+\end{enumerate}
+\end{document}
