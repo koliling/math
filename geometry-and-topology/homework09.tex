@@ -39,7 +39,16 @@
             &=rD_p[f\circ\phi^{-1}](v) +D[g\circ\phi^{-1}](v) \\
             &=r\delta_{\bar{v}}(f) +\delta_{\bar{v}}(g), \\
         \end{align*}
-        and so $\delta_{\bar{v}}$ is $\mathbb{R}$-linear.
+        and so $\delta_{\bar{v}}$ is $\mathbb{R}$-linear. Next, we check
+        that $\delta_{\bar{v}}$ satisfies the product rule. We have
+        \begin{align*}
+          \delta_{\bar{v}}(f\cdot g) &=D_p[(f\cdot g)\circ\phi^{-1}](v) \\
+            &=D_p[(f\circ\phi^{-1})\cdot(g\circ\phi^{-1})](v) \\
+            &=(g\circ\phi^{-1})(\underline{0})D_p(f\circ\phi^{-1})(v)+
+              (f\circ\phi^{-1})(\underline{0})D_p(g\circ\phi^{-1})(v) \\
+            &=g(p)\delta_{\bar{v}}(f) +f(p)\delta_{\bar{v}}(g). \\
+        \end{align*}
+        Therefore, $\delta_{\bar{v}}\in\text{Der}_pM^n$.
     \end{enumerate}
 \end{enumerate}
 \end{document}
