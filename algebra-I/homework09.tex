@@ -1,0 +1,523 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage[inline]{enumitem}
+\usepackage{color}
+\setlength{\parindent}{0mm} % So that we do not indent on new paragraphs
+
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Graduate Algebra I: Homework 9}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+Let $R$ be a commutative ring with identity $1\neq0$. \\
+
+\textbf{Question 1:} Consider the ring of fractions
+  $Q=D^{-1}(\mathbb{Z}_4)$ for $D=\{1,3\}$. One can naively write $Q$ as
+  the set of elements $\{0,1,2,3,1/3,2/3\}$.
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item Are the elements listed above distinct? That is, what is the
+      order of this ring of fractions?
+      \begin{proof}
+        Two elements $q_1/d_1$ and $q_2/d_2$ in $Q$ are equivalent if and
+        only if $q_1d_2\equiv q_2d_1\pmod{4}$. Hence the ``integers'' given
+        in $Q$ above are pairwise distinct. However, $1/3=3\in Q$
+        because $3\cdot3\equiv1\pmod{4}$. Similarly,
+        $2/3=2\in Q$ because $2\cdot3\equiv2\pmod{4}$. Hence $Q$ has
+        exactly four elements $\{0,1,2,3\}$.
+      \end{proof}
+
+    \item Give the addition and multiplication tables for this ring, and
+      explicitly state the additive inverse for each element of $Q$.
+      \begin{proof}
+        The addition table is given below:
+        \begin{center}
+          \begin{tabular}{c|cccc}
+            + & 0 & 1 & 2 & 3 \\
+            \hline
+            0 & 0 & 1 & 2 & 3 \\
+            1 & 1 & 2 & 3 & 0 \\
+            2 & 2 & 3 & 0 & 1 \\
+            3 & 3 & 0 & 1 & 2 \\
+          \end{tabular}
+        \end{center}
+        From the table, the additive inverses of $0,1,2,3$ are respectively
+        $0,3,2,1$. The multiplication table is given below:
+        \begin{center}
+          \begin{tabular}{c|cccc}
+            $\times$ & 0 & 1 & 2 & 3 \\
+            \hline
+            0 & 0 & 0 & 0 & 0 \\
+            1 & 0 & 1 & 2 & 3 \\
+            2 & 0 & 2 & 0 & 2 \\
+            3 & 0 & 3 & 2 & 1 \\
+          \end{tabular}
+        \end{center}
+      \end{proof}
+
+    \item As an abelian group, what group is $Q$ isomorphic to?
+      \begin{proof}
+        $Q$ is isomorphic to $\mathbb{Z}_4$ as an abelian group.
+      \end{proof}
+
+    \item What are the units in $Q$? What are the zero divisors?
+      \begin{proof}
+        From the multiplication table, the units are $1$ and $3$, and the
+        only zero divisor is 2. 
+      \end{proof}
+
+    \item What more familar ring is $Q$ isomorphic to?
+      \begin{proof}
+        $Q$ is isomorphic to the ring $\mathbb{Z}_4$.
+      \end{proof}
+  \end{enumerate}
+
+\textbf{Question 2:} Let $Q=D^{-1}(\mathbb{Z}_6)$ for $D=\{1,5\}$ be the
+  ring of fractions of $\mathbb{Z}_6$ with respect to $D$. What more
+  familar ring is $Q$ isomorphic to?
+
+  \begin{proof}
+    Similar to Question 1, we can write $Q$ as a set
+    $\{0,1,2,3,4,5,1/5,2/5,3/5,4/5\}$. Repeating the argument used in
+    Question 1a, the integers in this set are distinct, $1/5=5$, $2/5=4$,
+    $3/5=3$, and $4/5=2$. Hence there are exactly 6 elements
+    $\{0,1,2,3,4,5\}$ in $Q$, and so $Q$ is isomorphic as a ring to
+    $\mathbb{Z}_6$.
+  \end{proof}
+
+\textbf{Question 3:} Let $D=\{2^n|n\in\mathbb{Z},n>0\}$ be a subset of
+  $\mathbb{Z}$. What subring of $\mathbb{R}$ is the ring of fractions
+  $D^{-1}\mathbb{Z}$ isomorphic to?
+
+  \begin{proof}
+    $D^{-1}\mathbb{Z}$ will be isomorphic to the subring
+    \[\left\{\frac{a}{2^n}:
+    a\in\mathbb{Z},n\in\mathbb{N}\right\} \subset\mathbb{R}.\]
+  \end{proof}
+
+\textbf{Question 4:} Let $D=\{6^n|n\in\mathbb{Z},n>0\}$ be a subset of
+  $3\mathbb{Z}$. What subring of $\mathbb{R}$ is the ring of fractions
+  $D^{-1}(3\mathbb{Z})$ isomorphic to?
+
+  \begin{proof}
+    Note that $1/2=3/6$ and $1/3=(3\cdot4)/6^2$, so the ring of fractions
+    contains both $1/2$ and $1/3$, as a subring of $\mathbb{R}$. Hence from
+    closure under addition, subtraction, and multiplication,
+    $D^{-1}(3\mathbb{Z})$ is isomorphic to the subring
+    \[\left\{\frac{a}{2^n3^m}:
+    a\in\mathbb{Z},n,m\in\mathbb{N}\right\} \subset\mathbb{R}.\]
+  \end{proof}
+
+\textbf{Section 7.4 Question 5:} Prove that if $M$ is an ideal such that
+  $R/M$ is a field then $M$ is a maximal ideal.
+  \begin{proof}
+    Let $I$ be an ideal of $R$ that contains $M$. We wish to show that
+    $I=R$, or equivalently, that $I$ contains 1. Now by the Third
+    isomorphism, $I/M$ is an ideal of $R/M$. Then by Proposition 9 of
+    Section 7.4, since $R/M$ is a field, it has only trivial ideals, and so
+    either $I/M=M/M$ or $I/M=R/M$. If $I/M=M/M$, then $I=M$. On the other
+    hand, if $I/M=R/M$, then $I=R$. Hence there are no non-trivial ideals
+    strictly between $M$ and $R$.
+  \end{proof}
+
+\textbf{Section 7.4 Question 6:} Prove that $R$ is a division
+  ring if and only if its only left ideals are $(0)$ and $R$. (The analogous
+  result holds when ``left'' is replaced by ``right''.)
+  \begin{proof}
+    Assume $R$ is a division ring, and let $I$ be a non-trivial left ideal of
+    $R$. Then $I$ contains a non-zero element $r$, which by division ring
+    property, will have a multiplicative inverse $r^{-1}$. Then by property
+    of left ideas, $1=r^{-1}r\in I$, and thus $a\cdot1\in I$ for every $a\in
+    R$, and so $I=R$. \\
+
+    For the converse, assume the only left ideas of a ring $R$ is $(0)$ and
+    $R$. Let $r\in R$ be a non-zero element. Then $(r)=\{a\cdot r:a\in R\}$
+    will be the smallest left ideal of $R$, and it must equal $R$ by
+    assumption. Thus $r$ has a left multiplicative inverse $a\in R$ such that
+    $ar=1$. Similarly, because $(a)=R$, $a$ has a left multiplicative inverse
+    $b\in R$ such that $ba=1$. Then $ra=(ba)ra=b(ar)a=ba=1$, so we have
+    $ra=ar=1$, which means that $a$ is the multiplicative inverse of $r$.
+    Since $r$ was an arbitrary non-zero element, $R$ must be a division ring.
+  \end{proof}
+
+\textbf{Section 7.4 Question 7:} Let $R$ be a commutative ring with 1.
+  Prove that the principle ideal generated by $x$ in the polynomial ring
+  $R[x]$ is a prime ideal if and only if $R$ is an integral domain. Prove
+  that $(x)$ is a maximal ideal if and only if $R$ is a field.
+
+  \begin{proof}
+    Consider the map $\varphi:R[x]\rightarrow R$, $f(x)\mapsto f(0)$. We
+    show that $\varphi$ is a surjective ring homomorphism:
+    $\varphi(f(x)+g(x)) =f(0)+g(0) = \varphi(f(x))+\varphi(g(x))$, and
+    $\varphi(f(x)g(x)) =f(0)g(0) = \varphi(f(x))\varphi(g(x))$, and
+    also given $r\in R$, $r$ has inverse image $r\in R[x]$. \\
+
+    Then by the first isomorphism theorem, $R[x]/\ker(\varphi)\cong R$. Now
+    $\ker(\varphi)=(x)$, so by Proposition 13 of Section 7.4, $(x)$ is a
+    prime ideal if and only if $R$ is an integral domain. Similarly,
+    Proposition 12 of Section 7.4, $(x)$ is a maximal ideal if and only if
+    $R$ is a field.
+  \end{proof}
+
+\textbf{Section 7.4 Question 10:} Assume $R$ is commutative. Prove that if
+  $P$ is a prime ideal of $R$ and $P$ contains no zero divisors then $R$ is
+  an integral domain.
+
+  \begin{proof}
+    Let $ab=0$, and assume by contradiction that $a$ and $b$ are non-zero.
+    Then $a$ and $b$ are zero divisors, so they cannot be contained in $P$.
+    So $a+P$ and $b+P$ are non-zero elements in the quotient ring $R/P$,
+    yet $(a+P)(b+P)=ab+P=0+P$, which contradicts the fact that $R/P$ is an
+    integral domain, as given by Proposition 13 of Section 7.4.
+  \end{proof}
+
+\textbf{Section 7.4 Question 15:} Let $x^2+x+1$ be an element of the
+  polynomial ring $E=\mathbb{F}_2[x]$ and use the bar notation to denote
+  passage to the quotient ring $\mathbb{F}_2[x]/(x^2+x+1)$.
+
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item Prove that $\overline{E}$ has 4 elements: $\overline{0}$,
+      $\overline{1}$, $\overline{x}$ and $\overline{x+1}$.
+      \begin{proof}
+        Since the power of $x^2+x+1$ is 2, by performing long division to
+        divide over $x^2+x+1$, any polynomial $f(x)\in E$
+        belongs to the same equivalence class as a polynomial of power 1.
+        Hence there can be at most 4 elements in $\overline{E}$, each of
+        the form $\overline{ax+b}$, where $a,b\in\mathbb{F}_2$. Then since
+        $x^2+x+1$ has no non-trivial multiples of power smaller than 2, and
+        polynomials belong to the same equivalence class if and only if
+        their difference is a multiple of $x^2+x+1$, the four given elements
+        are distinct. Hence $\overline{E}$ has exactly the four given
+        elements.
+      \end{proof}
+
+    \item Write out the $4\times4$ addition table for $\overline{E}$ and
+      deduce that the additive group $\overline{E}$ is isomorphic to the
+      Klein 4-group.
+      \begin{proof}
+        The addition table is as follows:
+        \begin{center}
+          \begin{tabular}{c|cccc}
+            $+$ & $\overline{0}$ & $\overline{1}$ & $\overline{x}$ &
+              $\overline{x+1}$ \\
+            \hline
+            $\overline{0}$ & $\overline{0}$ & $\overline{1}$ & $\overline{x}$ &
+              $\overline{x+1}$ \\
+            $\overline{1}$ & $\overline{1}$ & $\overline{0}$ &
+              $\overline{x+1}$ & $\overline{x}$ \\
+            $\overline{x}$ & $\overline{x}$ & $\overline{x+1}$ &
+              $\overline{0}$ & $\overline{1}$ \\
+            $\overline{x+1}$ & $\overline{x+1}$ & $\overline{x}$ &
+              $\overline{1}$ & $\overline{0}$ \\
+          \end{tabular}
+        \end{center}
+        There are only two groups of order 4 - the cyclic group
+        $\mathbb{Z}_4$ and the Klein 4-group. Only $\mathbb{Z}_4$ contains
+        an element of order 4. From the addition table, since all diagonal
+        entries are 0, each element in $\overline{E}$ has order dividing 2,
+        hence $\overline{E}$ cannot be isomorphic to $\mathbb{Z}_4$ and can
+        only be the Klein 4-group.
+      \end{proof}
+
+    \item Write out the $4\times4$ multiplication table for $\overline{E}$
+      and prove that $\overline{E}^\times$ is isomorphic to the cyclic
+      group of order 3. Deduce that $\overline{E}$ is a field.
+      \begin{proof}
+        The multiplication table is as follows:
+        \begin{center}
+          \begin{tabular}{c|ccc}
+            $\times$ & $\overline{1}$ & $\overline{x}$ &
+              $\overline{x+1}$ \\
+            \hline
+            $\overline{1}$ & $\overline{1}$ & $\overline{x}$ &
+              $\overline{x+1}$ \\
+            $\overline{x}$ & $\overline{x}$ & $\overline{x+1}$ &
+              $\overline{1}$ \\
+            $\overline{x+1}$ & $\overline{x+1}$ & $\overline{1}$ &
+              $\overline{x}$ \\
+          \end{tabular}
+        \end{center}
+        From the table, we see that each nonzero element has an inverse,
+        hence $\overline{E}^\times$ is a group under multiplication. Also,
+        since it has order 3, and the only group of order 3 is
+        $\mathbb{Z}_3$, $\overline{E}^\times$ must be isomorphic to
+        $\mathbb{Z}_3$. Therefore $\overline{E}$ is a field.
+      \end{proof}
+  \end{enumerate}
+
+\textbf{Section 7.4 Question 16:} Let $x^4-16$ be an element of the
+  polynomial ring $E=\mathbb{Z}[x]$ and use the bar notation to denote
+  passage to the quotient ring $\mathbb{Z}[x]/(x^4-16)$.
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item Find a polynomial of degree $\leq3$ that is congruent to
+      $f(x)=7x^{13}-11x^9+5x^5-2x^3+3$ modulo $(x^4-16)$.
+      \begin{proof}
+        By performing long division, we get
+        \[f(x)=(x^4-16)(7x^9+101x^5+1621x)-2x^3+25936x+3.\]
+        Hence $f(x)$ is equal to $-2x^3+25936x+3$ modulo $(x^4-16)$.
+      \end{proof}
+
+    \item Prove that $\overline{x-2}$ and $\overline{x+2}$ are zero
+      divisors in $\overline{E}$.
+      \begin{proof}
+        We note that $x^4-16=(x-2)(x+2)(x^2+4)$. Hence
+        \[\overline{x-2}\cdot\overline{(x+2)(x^2+4)}=
+        \overline{x-2}\cdot\overline{x^3+2x^2+4x+8}=
+        \overline{x^4-16}=\overline{0}.\]
+        Similarly,
+        \[\overline{x+2}\cdot\overline{(x-2)(x^2+4)}=
+        \overline{x+2}\cdot\overline{x^3-2x^2+4x-8}=
+        \overline{x^4-16}=\overline{0}.\]
+        Since both $\overline{x^3+2x^2+4x+8}$ and
+        $\overline{x^3-2x^2+4x-8}$ are non-zero elements in $\overline{E}$
+        (because the representative polynomials do not divide $(x^4-16)$),
+        $\overline{x-2}$ and $\overline{x+2}$ are zero divisors.
+      \end{proof}
+  \end{enumerate}
+
+\textbf{Section 7.4 Question 18:} Prove that if $R$ is an integral domain
+  and $R[[x]]$ is the ring of formal power series in the indeterminate $x$
+  then the principal ideal generated by $x$ is a prime ideal. Prove that
+  the principal ideal generated by $x$ is a maximal ideal if and only if
+  $R$ is a field.
+
+  \begin{proof}
+    Consider the map $\varphi:R[[x]]\rightarrow R$, $\sum_ir_ix^i\mapsto
+    r_0$. We show that $\varphi$ is a surjective ring homomorphism:
+    $\varphi(\sum_ir_ix^i+\sum_is_ix^i) =r_0+s_0 =
+    \varphi(\sum_ir_ix^i)+\varphi(\sum_is_ix^i)$, and
+    $\varphi((\sum_ir_ix^i)(\sum_is_ix^i)) =r_0s_0 =
+    \varphi(\sum_ir_ix^i)\varphi(\sum_is_ix^i)$, and also
+    given $r\in R$, $r$ has inverse image $r\in R[[x]]$. \\
+
+    Then by the first isomorphism theorem, $R[[x]]/\ker(\varphi)\cong R$.
+    Now $\ker(\varphi)=(x)$, so by Proposition 13 of Section 7.4, $(x)$ is
+    a prime ideal if and only if $R$ is an integral domain. Similarly,
+    Proposition 12 of Section 7.4, $(x)$ is a maximal ideal if and only if
+    $R$ is a field.
+  \end{proof}
+
+\textbf{Section 7.4 Question 20:} Prove that a nonzero finite commutative
+  ring that has no zero divisors is a field (if the ring has identity, this
+  is Corollary 3, so do not assume the ring has a 1).
+  \begin{proof}
+    We first prove that given any nonzero $u,v\in R$, there exists a
+    nonzero $r\in R$ such that $ur=ru=v$: Consider the map
+    $\varphi:R\rightarrow R, x\mapsto ux$. Since $R$ has no zero divisors,
+    by cancellation law, $\varphi$ will be injective. Then since $R$ is
+    finite, $\varphi$ must be bijective, thus there must exist some $r\in
+    R$ such that $ur=ru=v$. \\
+
+    In particular, given a nonzero $u\in R$, there must exist an element
+    $1_u\in R$ such that $u1_u=1_uu=u$. We show that $1_u$ is the identity
+    in $R$: Given any nonzero $v\in R$, we want to show that $v1_u=1_uv=v$.
+    Now from the claim in the previous paragraph, there exists some nonzero
+    $r\in R$ such that $ur=ru=v$. So multiplying $u1_u=1_uu=u$ throughout
+    by $r$, we will get $v1_u=1_uv=v$ as required. \\
+
+    Hence $R$ has identity, so by Corollary 3 of Section 7.4, $R$ is a
+    field.
+  \end{proof}
+
+\textbf{Section 7.5 Question 2:} Let $R$ be an integral domain and let $D$
+  be a nonempty subset of $R$ that is closed under multiplication. Prove
+  that the ring of fractions $D^{-1}R$ is isomorphic to a subring of the
+  quotient field of $R$ (hence is also an integral domain).
+
+  \begin{proof}
+    Consider the embedding $\varphi:D^{-1}R\hookrightarrow(R-\{0\})^{-1}R$,
+    $\frac{r}{s}\mapsto\frac{r}{s}$. We show that $\varphi$ embeds the ring
+    of fractions into the quotient field of $R$: The map is well-defined
+    because $\frac{r_1}{s_1}=\frac{r_2}{s_2}$ in $D^{-1}R$ is true if and
+    only if $r_1s_2=r_2s_1$ in $R$ which is true if and only if
+    $\frac{r_1}{s_1}=\frac{r_2}{s_2}$ is true in the field of fractions.
+    $\varphi$ also clearly preserves addition and multiplication. Finally,
+    $\varphi$ is injective because
+    $\varphi(\frac{r_1}{s_1})=\varphi(\frac{r_2}{s_2})$ implies
+    $r_1s_2=r_2s_1$ in $R$, which implies $\frac{r_1}{s_1}=\frac{r_2}{s_2}$
+    in $D^{-1}R$. \\
+
+    Hence by the first isomorphism theorem, $D^{-1}R$ is isomorphic to the
+    subring $\varphi(D^{-1}R)$ of the quotient field of $R$. In particular,
+    $D^{-1}R$ will not have zero-divisors, and is therefore an integral
+    domain.
+  \end{proof}
+
+\textbf{Section 7.5 Question 3:} Let $F$ be a field. Prove that $F$
+  contains a unique smallest subfield $F_0$ and that $F_0$ is isomorphic to
+  either $\mathbb{Q}$ or $\mathbb{Z}_p$ for some prime $p$. ($F_0$ is
+  called the prime subfield of $F$).
+
+  \begin{proof}
+    First, we show that the multiplicative identity $1_E$ of any subfield
+    $E$ of a field $F$ must equal the multiplicative identity $1_F$ of $F$:
+    In $E$, we have $1_E1_E=1_E$. Rearranging this equation in field $F$ we
+    get $1_E(1_E-1_F)=0_F$, which means $1_E=1_F$ since $1_E$ is not a
+    zero-divisor in $F$. \\
+
+    Therefore, any subfield $F_0$ of $F$ must contain $1_F$. We first
+    consider the case where $\text{char}(F)=0$. Consider the map
+    $\varphi:\mathbb{Q}\rightarrow F$, $\pm\frac{m}{n}\mapsto\pm\frac{m\cdot
+    1_F}{n\cdot 1_F}$, where $m,n\in\mathbb{N}$, $n\neq0$, and $(m,n)=1$,
+    and where $n\cdot x$ denotes adding $x\in F$ $n$-times.
+    We show that $\varphi$ is a ring homomorphism: Given
+    $\frac{m_1}{n_1},\frac{m_2}{n_2}\in\mathbb{Q}$, we have for addition,
+    \begin{align*}
+      \varphi\left(\frac{m_1}{n_1}+\frac{m_2}{n_2}\right) &=
+        \varphi\left(\frac{m_1n_2+m_2n_1}{n_1n_2}\right) & \\
+        &= \frac{(m_1n_2+m_2n_1)\cdot1_F}{n_1n_2\cdot1_F} & \\
+        &= \frac{(m_1\cdot1_F)(n_2\cdot1_F)+(m_2\cdot1_F)(n_1\cdot1_F)}
+        {(n_1\cdot1_F)(n_2\cdot1_F)}
+        &
+        (\text{By induction on}\; a,b\in\mathbb{Z},
+        ab\cdot1_F=(a\cdot1_F)(b\cdot1_F)) \\
+        &= \frac{(m_1\cdot1_F)(n_2\cdot1_F)}{(n_1\cdot1_F)(n_2\cdot1_F)}+
+        \frac{(m_2\cdot1_F)(n_1\cdot1_F)}{(n_1\cdot1_F)(n_2\cdot1_F)} &
+        \\
+        &= \frac{m_1\cdot1_F}{n_1\cdot1_F}+ \frac{m_2\cdot1_F}{n_2\cdot1_F} &
+        \\
+        &= \varphi\left(\frac{m_1}{n_1}\right)+
+        \varphi\left(\frac{m_2}{n_2}\right). & \\
+    \end{align*}
+    Also, for multiplication, we have
+    \begin{align*}
+      \varphi\left(\frac{m_1}{n_1}\frac{m_2}{n_2}\right) &=
+        \varphi\left(\frac{m_1m_2}{n_1n_2}\right) & \\
+        &= \frac{m_1m_2\cdot1_F}{n_1n_2\cdot1_F} & \\
+        &= \frac{(m_1\cdot1_F)(m_2\cdot1_F)}{(n_1\cdot1_F)(n_2\cdot1_F)} &
+        (\text{can prove by induction on}\; a,b\; \text{that}\;
+        ab\cdot1_F=(a\cdot1_F)(b\cdot1_F)) \\
+        &= \frac{m_1\cdot1_F}{n_1\cdot1_F} \frac{m_2\cdot1_F}{n_2\cdot1_F} &
+        \\
+        &= \varphi\left(\frac{m_1}{n_1}\right)
+        \varphi\left(\frac{m_2}{n_2}\right). & \\
+    \end{align*}
+
+    Let $F_0=\varphi(\mathbb{Q})$. Since $\varphi$ is a ring homomorphism,
+    from Corollary 10 of Section 7.4, the map is injective, hence
+    $F_0$ is a subfield of $F$ which is isomorphic to $\mathbb{Q}$.
+    Furthermore, from the definition of $\varphi$, we get
+    \[F_0=\left\{\pm\frac{m\cdot 1_F}{n\cdot 1_F}:
+    m\in\mathbb{Z},n\in\mathbb{N}^+,(m,n)=1\right\} \subseteq F,\] which
+    equals to the smallest subfield in $F$ that contains $1_F$ in $F$:
+    $F_0$ clearly contains $1_F$ when $m=n=1$; and any subfield of $F$ that
+    contains $1_F$ must contain all elements in $F_0$ by closure under
+    addition, subtraction, multiplication, and inverses. Then from argument
+    in the first paragraph, since subfields of $F$ must contain $1_F$,
+    $F_0$ is the unique smallest subfield of $F$. \\
+
+    For the case where $\text{char}(F)=p$ for some prime $p$, consider the
+    map $\varphi:\mathbb{Z}_p:F$, $\overline{n}\mapsto n\cdot1_F$. This map
+    is well-defined because $\text{char}(F)=p$. Then
+    $\varphi$ is a ring homomorphism: Given
+    $\overline{n},\overline{m}\in\mathbb{Z}_p$, we have
+    $\varphi(\overline{n}+\overline{m})= \varphi(\overline{m+n})
+    =(m+n)\cdot1_F =(m\cdot1_F)+(n\cdot1_F)
+    =\varphi(\overline{n})+\varphi(\overline{m})$, and
+    $\varphi(\bar{n}\bar{m})= \varphi(\overline{mn})
+    =(mn)\cdot1_F =(m\cdot1_F)(n\cdot1_F)
+    =\varphi(\overline{n})\varphi(\overline{m})$. So repeating the argument
+    for the case where $\text{char}(F)=0$, $F_0=\varphi(\mathbb{Z}_p)$ is a
+    subfield of $F$ which is isomorphic to $\mathbb{Z}_p$. Furthermore,
+    from the definition of $\varphi$, we get
+    \[F_0=\{n\cdot1_F:0\leq n\leq p\},\] which is the smallest subfield in
+    $F$ that contains $1_F$, and is therefore the unique smallest subfield
+    of $F$.
+  \end{proof}
+
+\textbf{Section 7.5 Question 4:} Prove that any subfield of $\mathbb{R}$
+  must contain $\mathbb{Q}$.
+  \begin{proof}
+    From Exercise 3 of Section 7.5, since $\mathbb{Q}$ is a subfield of
+    $\mathbb{R}$, $\mathbb{Q}$ must be the unique smallest subfield of
+    $\mathbb{R}$. Hence any subfield $F$ of $\mathbb{R}$ must contain
+    $\mathbb{Q}$.
+  \end{proof}
+
+\textbf{Section 7.5 Question 5:} If $F$ is a field, prove that the field of
+  fractions of $F[[x]]$ is the ring $F((x))$ of formal Laurent series. Show
+  that the field of fractions of the power series ring $\mathbb{Z}[[x]]$ is
+  properly contained in the field of Laurent series $\mathbb{Q}((x))$.
+
+  \begin{proof}
+    Recall from Exercise 4 of Section 7.2 that $F[[x]]$ is an integral
+    domain since $F$ is, hence the field of fractions of $F[[x]]$ is
+    well-defined. Let $A(x)$ denote the field of fractions of $F[[x]]$. \\
+
+    Consider the map $\varphi:F((x))\rightarrow A(x)$ that
+    sends $x^{-N}\sum_{i=0}^\infty a_ix^i\in F((x))$ to
+    $\left[\frac{\sum_{i=0}^\infty a_ix^i}{x^N}\right]\in A(x)$. We show
+    that $\varphi$ is a ring isomorphism. Note that the map is
+    well-defined given because if $x^{-N}\sum_{i=0}^\infty
+    a_ix^i =x^{-M}\sum_{i=0}^\infty b_ix^i$ in $F[[x]]$, then
+    $\left[\frac{\sum_{i=0}^\infty a_ix^i}{x^N}\right]
+    =\left[\frac{\sum_{i=0}^\infty b_ix^i}{x^M}\right]$ in $A(x)$.
+
+    We first show that $\varphi$ is a ring homomorphism.
+    \begin{align*}
+      \varphi\left(\sum_{n\geq N}a_nx^n+\sum_{n\geq M}b_nx^n\right)
+        &=\varphi\left(\sum_{n\geq K}(a_n+b_n)x^n\right) &
+        (\text{where}\; K=\min(N,M,0)) \\
+        &=\left[\frac{\sum_{n=0}^\infty(a_{n+K}+b_{n+K})x^n}{x^{-K}}\right]
+          \\
+        &=\left[\frac{\sum_{n=0}^\infty a_{n+K}x^n}{x^{-K}}\right]+
+          \left[\frac{\sum_{n=0}^\infty b_{n+K}x^n}{x^{-K}}\right] \\
+        &=\left[\frac{\sum_{n=0}^\infty a_{n+N}x^n}{x^{-N}}\right]+
+          \left[\frac{\sum_{n=0}^\infty b_{n+M}x^n}{x^{-M}}\right] \\
+        &=\varphi\left(\sum_{n\geq N}a_nx^n\right)+
+          \varphi\left(\sum_{n\geq N}a_nx^n\right). \\
+    \end{align*}
+    Also, for multiplication, we have
+    \begin{align*}
+      \varphi\left(x^{-N}f(x)x^{-M}g(x)\right)
+        &=\varphi\left(x^{-(N+M)}f(x)g(x)\right) &
+        (\text{where}\; N,M\in\mathbb{N}\; \text{and}\; f(x),g(x)\in
+        K[[x]])) \\
+        &=\left[\frac{f(x)g(x)}{x^{-(N+M)}}\right] \\
+        &=\left[\frac{f(x)}{x^{-N}}\right] \left[\frac{g(x)}{x^{-M}}\right]
+          \\
+        &=\varphi\left(x^{-N}f(x)\right) \varphi\left(x^{-M}g(x)\right). \\
+    \end{align*}
+
+    Next, we show that $\varphi$ is injective, or equivalently,
+    $\ker(\varphi)=\{0\}$. Now $\left[\frac{\sum_{i=0}^\infty
+    a_ix^i}{x^N}\right]=\left[\frac{0}{1}\right]$ if and only if $a_i=0$
+    for all $i\in\mathbb{N}$, which occurs if and only if
+    $x^{-N}\sum_{i=0}^\infty a_ix^i\in F((x))$ is 0. Thus $\ker(\varphi)$
+    is trivial, and $\varphi$ is injective. \\
+
+    Finally, we show that $\varphi$ is surjective. Given
+    $\left[\frac{f(x)}{g(x)}\right]\in A(x)$, where $f(x),g(x)\in F[[x]]$,
+    write $g(x)=x^N g_0(x)$ such that $g_0(x)=\sum_{i=0}^\infty a_ix^i$
+    with $a_0\neq0$. Then $g_0(x)$ has an inverse $g_0^{-1}(x)\in F[[x]]$
+    by Exercise 3c of Section 7.2, so \[\left[\frac{f(x)}{g(x)}\right]
+    =\left[\frac{f(x)}{x^Ng_0(x)}\right]
+    =\left[\frac{f(x)g_0^{-1}(x)}{x^N}\right],\] where $f(x)g_0^{-1}(x)\in
+    F[[x]]$. Thus $\left[\frac{f(x)}{g(x)}\right]$ has a pre-image
+    $x^{-N}f(x)g_0^{-1}(x)\in F((x))$. \\
+
+    Note that since $\mathbb{Z}[[x]]$ is a subring of $\mathbb{Q}[[x]]$,
+    the field of fractions of smaller ring will be a subfield of the field
+    of fractions of the larger ring. \\
+
+    Consider $e(x)=\left[\sum_{i=0}x^i/i!\right]\in\mathbb{Q}((x))$. We
+    show that $e(x)$ is not contained in the field of fractions of
+    $\mathbb{Z}[[x]]$. Assume by contradiction that it is. Then
+    \[e(x) =\left[\sum_{i=0}x^i/i!\right] =\left[\frac{f(x)}{g(x)}\right]\]
+    for some $f(x),g(x)\neq0\in\mathbb{Z}[[x]]$. Write
+    $e_0(x)=\sum_{i=0}x^i/i!\in\mathbb{Q}[[x]]$,
+    $f(x)=\sum_{i=0}a_ix^i\in\mathbb{Z}[[x]]$, and
+    $g(x)=\sum_{i=0}b_ix^i\in\mathbb{Z}[[x]]-\{0\}$. Then since
+    $f(x)=e_0(x)g(x)\in\mathbb{Z}[[x]]$, multiplying out and comparing
+    coefficients, we get \[a_n=\sum_{i+j=n}\frac{b_i}{j!}\] for all
+    $n\in\mathbb{N}^+$. Multiplying both sides by $(n-1)!$ and rearranging,
+    we get
+    \[\frac{b_0}{n}=(n-1)!a_n-\sum_{i+j=n,i\neq0}\frac{b_i(n-1)!}{j!}.\]
+    Since the right hand side of the above equation is an integer, we get
+    $b_0$ is divisible by $n$ for all $n\in\mathbb{N}^+$, contradicting
+    that $b_0\in\mathbb{Z}$.
+  \end{proof}
+\end{document}
