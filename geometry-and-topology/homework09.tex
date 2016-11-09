@@ -15,53 +15,236 @@
 \maketitle
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
-  \item
-  \item
+  \item $f(z)$ is a nonconstant polynomial and $g:S^2\to S^2$ is defined as
+    follows: Let $\infty=(0,0,1)\in S^2$ and
+    $\phi:S^2\setminus\{\infty\}\to\mathbb{C}$ be stereographic projection.
+    Then $g$ is defined via the formula
+    \[g(p)=\begin{cases} \infty &\mbox{if }p=\infty\\ \phi^{-1}(f(\phi(p)))
+      &\mbox{if }p\not=\infty\end{cases}\]
+    Prove the following two facts:
+
     \begin{enumerate}
-      \item Let $\overline{v}=[v]\in T_pM$, and consider the map
-        \begin{align*}
-          \delta_{\bar{v}}:C^\infty(M^n)\rightarrow\mathbb{R},\;\; f\mapsto
-          D_p[f\circ\phi^{-1}](v), \\
-        \end{align*}
-        where $(U,\phi)$ is a chart containing $p$ and $v\in
-        T_{\phi(p)}\phi(U)$. We show that $\delta_{\bar{v}}$ is a
-        derivation of $C^\infty(M^n)$ at $p$. \\
+      \item Prove that $g$ is a smooth function.
+      \item Prove that the only critical points of $g$ are the images under
+        $\phi$ of the zeroes of $f'(z)$ together with possibly the point at
+        $\infty$.
+    \end{enumerate}
 
-        We first show that $\delta_{\bar{v}}$ is $\mathbb{R}$-linear: We
-        can assume wlog that $\phi(p)=0$. Let $f,g\in C^\infty(M^n)$, and
-        $r\in\mathbb{R}$. Also, let $\sigma_r$ denote the map
-        $\sigma_r:\mathbb{R}\rightarrow\mathbb{R}$ that sends
-        $x\in\mathbb{R}$ to $rx\in\mathbb{R}$. Then
-        \begin{align*}
-          \delta_{\bar{v}}(rf+g)  &=\delta_{\bar{v}}(\sigma_r\circ f+g) \\
-            &=D_p[(\sigma_r\circ f+g)\circ\phi^{-1}](v) \\
-            &=D_p[(\sigma_r\circ f\circ\phi^{-1} +g\circ\phi^{-1}](v) \\
-            &=rD_p[f\circ\phi^{-1}](v) +D[g\circ\phi^{-1}](v) \\
-            &=r\delta_{\bar{v}}(f) +\delta_{\bar{v}}(g), \\
-        \end{align*}
-        and so $\delta_{\bar{v}}$ is $\mathbb{R}$-linear. Next, we check
-        that $\delta_{\bar{v}}$ satisfies the product rule. We have
-        \begin{align*}
-          \delta_{\bar{v}}(f\cdot g) &=D_p[(f\cdot g)\circ\phi^{-1}](v) \\
-            &=D_p[(f\circ\phi^{-1})\cdot(g\circ\phi^{-1})](v) \\
-            &=(g\circ\phi^{-1})(\underline{0})D_p(f\circ\phi^{-1})(v)+
-              (f\circ\phi^{-1})(\underline{0})D_p(g\circ\phi^{-1})(v) \\
-            &=g(p)\delta_{\bar{v}}(f) +f(p)\delta_{\bar{v}}(g). \\
-        \end{align*}
-        Therefore, $\delta_{\bar{v}}\in\text{Der}_pM^n$.
+  \item Let $M^n$ be a smooth manifold and let $p\in M^n$ be a point. Let
+    $C^\infty(M^n)$ be the ring of smooth functions $f:M^n\to\mathbb{R}$. A
+    derivation of $\mathbb{C}^\infty(M^n)$ at $p$ is an $\mathbb{R}$-linear
+    map $\sigma:C^\infty(M^n)\to\mathbb{R}$ such that
+    \[\sigma(fg)=g(p)\cdot \sigma(f)+f(p)\cdot\sigma(g)\] let
+    $\text{Der}_pM^n$ be the vector space of derivations of $C^\infty(M^n)$
+    at $p$.
 
-      \item Given $r\in\mathbb{R}$, let $f_r:M^n\rightarrow\mathbb{R}$
-        denote the constant function that sends $q\in M^n$ to $r$. Now
-        \begin{align*}
-          \delta(f_1) &=\delta(f_1f_1) \\
-            &=f_1(p)\delta(f_1) +\delta(f_1)f_1(p) \\
-            &=\delta(f_1) +\delta(f_1) \\
-            &=2\delta(f_1), \\
-        \end{align*}
-        so rearranging gives $\delta(f_1)=0$. Hence by the
-        $\mathbb{R}$-linear property of $\delta$, we have
-        \[\delta(f_r) =\delta(rf_1) =r\delta(f_1)=0,\] which implies that
-        $\delta$ vanishes on constant functions.
+    \begin{enumerate}
+      \item If $\vec{v}\in T_pM^n$, then prove that the derivative at $p$
+        in the direction of $\vec{v}$ is a derivation at $p$.
+        \begin{proof}
+          Let $\vec{v}=[v]\in T_pM^n$, and consider the map
+          \begin{align*}
+            \delta_{\vec{v}}:C^\infty(M^n)\rightarrow\mathbb{R},\;\; f\mapsto
+            D_p[f\circ\phi^{-1}](v), \\
+          \end{align*}
+          where $(U,\phi)$ is a chart containing $p$ and $v\in
+          T_{\phi(p)}\phi(U)$. We show that $\delta_{\vec{v}}$ is a
+          derivation of $C^\infty(M^n)$ at $p$. \\
+
+          We first show that $\delta_{\vec{v}}$ is $\mathbb{R}$-linear: We
+          can assume wlog that $\phi(p)=\overline{0}$. Let $f,g\in
+          C^\infty(M^n)$, and $r\in\mathbb{R}$. Also, let $\sigma_r$ denote
+          the map $\sigma_r:\mathbb{R}\rightarrow\mathbb{R}$ that sends
+          $x\in\mathbb{R}$ to $rx\in\mathbb{R}$. Then
+          \begin{align*}
+            \delta_{\vec{v}}(rf+g)  &=\delta_{\vec{v}}(\sigma_r\circ f+g) \\
+              &=D_p[(\sigma_r\circ f+g)\circ\phi^{-1}](v) \\
+              &=D_p[(\sigma_r\circ f\circ\phi^{-1} +g\circ\phi^{-1}](v) \\
+              &=rD_p[f\circ\phi^{-1}](v) +D_p[g\circ\phi^{-1}](v) \\
+              &=r\delta_{\vec{v}}(f) +\delta_{\vec{v}}(g), \\
+          \end{align*}
+          and so $\delta_{\vec{v}}$ is $\mathbb{R}$-linear. Next, we check
+          that $\delta_{\vec{v}}$ satisfies the product rule. We have
+          \begin{align*}
+            \delta_{\vec{v}}(f\cdot g) &=D_p[(f\cdot g)\circ\phi^{-1}](v) \\
+              &=D_p[(f\circ\phi^{-1})\cdot(g\circ\phi^{-1})](v) \\
+              &=(g\circ\phi^{-1})(\overline{0})D_p(f\circ\phi^{-1})(v)+
+                (f\circ\phi^{-1})(\overline{0})D_p(g\circ\phi^{-1})(v) \\
+              &=g(p)\delta_{\vec{v}}(f) +f(p)\delta_{\vec{v}}(g). \\
+          \end{align*}
+          Therefore, $\delta_{\vec{v}}\in\text{Der}_pM^n$.
+        \end{proof}
+
+      \item If $f\in C^\infty(M^n)$ is a constant function and $\sigma\in
+        \text{Der}_pM^n$ , then prove that $\sigma(f)=0$.
+        \begin{proof}
+          Given $r\in\mathbb{R}$, let $f_r:M^n\rightarrow\mathbb{R}$
+          denote the constant function that sends $q\in M^n$ to $r$. Now
+          \begin{align*}
+            \delta(f_1) &=\delta(f_1f_1) \\
+              &=f_1(p)\delta(f_1) +\delta(f_1)f_1(p) \\
+              &=\delta(f_1) +\delta(f_1) \\
+              &=2\delta(f_1), \\
+          \end{align*}
+          so rearranging gives $\delta(f_1)=0$. Hence by the
+          $\mathbb{R}$-linear property of $\delta$, we have
+          \[\delta(f_r) =\delta(rf_1) =r\delta(f_1)=0,\] which implies that
+          $\delta$ vanishes on constant functions.
+        \end{proof}
+
+      \item If $f,g\in C^\infty(M^n)$ are such that there exists a
+        neighborhood $U$ of $p$ with $f|_U=g|_U$ and
+        $\sigma\in\text{Der}_pM^n$, then prove that $\sigma(f)=\sigma(g)$.
+        \begin{proof}
+          Denote $C=M^n\setminus U$, and $V=M^n\setminus\{p\}$. Then $V$
+          is an open set containing $C$, because $\{p\}$ is closed from the
+          Hausdorff property of $M^n$. Then from the existence of a strong
+          bump function (Lemma 1.4), there is a smooth function
+          $h:M^n\rightarrow\mathbb{R}$ such that $h(x)=1$ for all $x\in C$
+          and $\text{supp}(h)\subseteq V$. So we have $h(p)=0$, $(f-g)(x)=0$
+          for all $x\in U$, and $h(x)=1$ for all $x\in V$, which implies that
+          $(f-g)(x)h(x)=(f-g)(x)$ for all $x\in M^n$, or equivalently,
+          $(f-g)h=f-g$. Thus,
+          \begin{align*}
+            \delta(f-g) &=\delta((f-g)h) \\
+              &=\delta(f-g)h(p)+\delta(h)(f(p)-h(p)) \\
+              &=\delta(f-g)\cdot0+\delta(h)\cdot0 & (\because
+                h(p)=f(p)-g(p)=0) \\
+              &=0. \\
+          \end{align*}
+          Then rearranging we get $\delta(f)=\delta(g)$, as required.
+        \end{proof}
+
+      \item Define a map $\Psi:T_pM^n\to\text{Der}_pM^n$ by letting
+        $\Psi(\vec{v})$ be the directional derivative at $p$ in the direction
+        of $\vec{v}$. Prove that $\Psi$ is injective.
+        \begin{proof}
+          We define $\Psi:T_pM^n\rightarrow\text{Der}_pM^n$ by
+          $\Psi(\vec{v})=\delta_{\vec{v}}$, and let $\vec{u},\vec{v}\in
+          T_pM^n$ be such that $\delta_{\vec{u}}=\delta_{\vec{v}}$. Let
+          $(U,\phi)$ be a chart around $p$. We can assume that
+          $\phi(p)=\bar{0}$. Also, let $u,v\in T_{\bar{0}}\phi(U)$. Then let
+          $B(\bar{0},r)\subseteq\phi(U)$ be an open ball of radius $r$ in
+          $\phi(U)$ around $\bar{0}$, where $r>0$. Let
+          $U'=\phi^{-1}(B(\bar{0},r/4))$, and let
+          $C=\phi^{-1}(\overline{B(\bar{0},r/2)})$. Note that $U'$ is open
+          and $C$ is closed from the continuity of $\phi$. Then for
+          $i\in\{1,\ldots,n\}$, define $\phi_i:C\rightarrow\mathbb{R}$ by
+          $\phi_i(x)=\pi_i(\phi(x))$, where
+          $\pi_i:\mathbb{R}^n\rightarrow\mathbb{R}$ is the projection map. \\
+
+          Then by extension of smooth functions (Lemma 1.5), there exists a
+          smooth function $f_i:M^n\rightarrow\mathbb{R}$ extending $\phi_i$
+          and whose support lies in $U$. Then $f_i\in C^\infty(M^n)$, and
+          since $\delta_{\vec{u}}(f_i)=\delta_{\vec{v}}(f_i)$ by assumption,
+          we get
+          \begin{equation} \label{eqn:D}
+            D_p(f_i\circ\phi^{-1})(u)= D_p(f_i\circ\phi^{-1})(v).
+          \end{equation}
+
+          Now since $f_i\restriction U'=\phi_i\restriction U'$, we have
+          \[f_i\circ\phi^{-1}\restriction B(\bar{0},r/4)=
+          \phi_i\circ\phi^{-1}\restriction B(\bar{0},r/4),\]
+          and therefore
+          \begin{align*}
+            \left.\frac{\partial(f_i\circ\phi^{-1})}{\partial
+              x_j}\right\rvert_{\bar{0}} &=
+              \left.\frac{\partial(\phi_i\circ\phi^{-1})}{\partial
+              x_j}\right\rvert_{\bar{0}} \\
+            &=\left.\frac{\partial(0,\ldots,0,x_i,0,\ldots,0)}{\partial
+              x_j}\right\rvert_{\bar{0}} \\
+            &=\begin{cases}
+              1,\; \text{if}\; i=j \\
+              0,\; \text{if}\; i\neq j \\
+            \end{cases} \\
+          \end{align*}
+          Thus, $D_p(f_i\circ\phi^{-1})$ has the matrix representation
+          $[0,\ldots,0,1,0,\ldots,0]$, where the $1$ is at the $i$th
+          position. And so for each $i\in\{1,\ldots,n\}$,
+          \begin{align*}
+            u_i &=[0,\ldots,0,1,0,\ldots,0](u) &(\text{where 1 is at the
+              $i$th position}) \\
+              &=D_p(f_i\circ\phi^{-1})(u) \\
+              &=D_p(f_i\circ\phi^{-1})(v) &(\text{equation~\ref{eqn:D}}) \\
+              &=[0,\ldots,0,1,0,\ldots,0](v) &(\text{where 1 is at the
+              $i$th position}) \\
+              &=v_i.
+          \end{align*}
+          Thus $\vec{u}=\vec{v}$, which means $\Psi$ is injective.
+        \end{proof}
+
+      \item Prove that the map $\Psi$ in the previous step is surjective.
+        \begin{proof}
+          Let $\delta$ be an arbitrary derivative in $\text{Der}_pM^n$.
+          Let $(U,\phi)$ be a chart around $p\in M^n$. We can assume wlog
+          that $\phi(p)=0$. Then since
+          $f\circ\phi^{-1}:\phi(U)\rightarrow\mathbb{R}$ is smooth, by
+          Taylor's theorem, there exists some $r\in\mathbb{R}$ and smooth
+          functions $f_1,\ldots,f_n:\mathbb{R}^n\rightarrow\mathbb{R}$ such
+          that
+          \begin{align*}
+            (f\circ\phi^{-1})(\bar{x}) &=
+              r+\sum_{i=1}^nx_if_i(\bar{x}) \\
+            &=r+\sum_{i=1}^n\pi_i(\bar{x})f_i(\bar{x}), \\
+          \end{align*}
+          where $\pi_i:\mathbb{R}^n\rightarrow\mathbb{R}$ is the $i$th
+          projection map. \\
+
+          Now since $\phi(U)\subseteq\mathbb{R}^n$ is open, let
+          $B(\bar{0},d)\subseteq\phi(U)$ be an open ball of radius $d$
+          around $\bar{0}$, and let
+          $U'=\phi^{-1}(\overline{B(\bar{0},d/2)})\subseteq U$. Then by
+          Lemma 1.5, we extend functions $\pi_i\circ\phi$ and
+          $f_i\circ\phi$ to smooth functions
+          $\Pi_i:M^n\rightarrow\mathbb{R}$ and
+          $F_i:M^n\rightarrow\mathbb{R}$ such that $\Pi_i\restriction
+          U'=\pi\circ\phi$ and $F_i\restriction U'=g_i\circ\phi$, and
+          $\text{supp}(\Pi)\subseteq U$ and $\text{supp}(F_i)\subseteq U$.
+          \\
+
+          Then we have
+          \begin{align*}
+            \delta(f) &=\delta(f\restriction U) \\
+              &=\delta(((f\circ\phi^{-1})\circ\phi)\restriction U) \\
+              &=\delta(r+\sum_{i=1}^n(\pi_i\circ\phi)(f_i\circ\phi)) &
+                (\because f\circ\phi^{-1} =r+\sum_{i=1}^n\pi_if_i) \\
+              &=\delta(r+\sum_{i=1}^n\Pi_iF_i) & \\
+              &=\delta(r)+\sum_{i=1}^n\delta(\Pi_iF_i) \\
+              &=\sum_{i=1}^n\left[\delta(\Pi_i)F_i(p)
+                +\Pi_i(p)\delta(F_i)\right] \\
+              &=\sum_{i=1}^n\delta(\Pi_i)F_i(p) & (\because
+                \Pi_i(p)=(\pi_i\circ\phi)(p)=\pi_i(\bar{0})=\bar{0}) \\
+              &=\sum_{i=1}^n\delta(\Pi_i)(f_i\circ\phi)(p) \\
+              &=\sum_{i=1}^n\delta(\Pi_i)f_i(\bar{0}) \\
+              &=\sum_{i=1}^n\delta(\Pi_i)
+                \left.\frac{\partial}{\partial
+                x_i}\left[\sum_{j=1}^nx_jf_j(\bar{x})\right]\right
+                \rvert_{\bar{0}} \\
+              &=\sum_{i=1}^n\delta(\Pi_i)
+                \left[\left.\frac{\partial(f\circ\phi^{-1})}{\partial
+                x_i}\right\rvert_{\bar{0}}\right] \\
+              &=D_p(f\circ\phi^{-1})(v) &(\text{for some}\;
+                v=(\delta(\pi_1),\ldots,\delta(\pi_n))\in T_pM^n) \\
+              &=\delta_{\vec{v}}(f). \\
+          \end{align*}
+          Thus, $\delta=\Psi(\vec{v})$, and since
+          $\delta\in\text{Der}_pM^n$ was arbitrary, $\Psi$ is surjective.
+        \end{proof}
+    \end{enumerate}
+
+  \item Let $G$ be a lie group, that is, a smooth manifold that is also a
+    group such that the product map $G\times G\to G$ and the inversion map
+    $G\to G$ are all smooth. Let $e\in G$ be the identity. A vector field
+    $V$ on $G$ is left invariant if it satisfies the following property for
+    all $g\in G$: Let $\tau_g:G\to G$ be defined via the formula
+    $\tau_g(h)=gh$. Then we require that $(D_h\tau_g)(V(h))=V(gh)$ for all
+    $h\in G$.
+
+    \begin{enumerate}
+      \item Let $V_1$ and $V_2$ be left invariant vector fields on $G$ such
+        that $V_1(e)=V_2(e)$. Prove that $V_1=V_2$.
+      \item For $\vec{v}\in T_eG$, prove that there exists a left invariant
+        vector field $V$ on $G$ such that $V(e)=\vec{v}$.
     \end{enumerate}
 \end{enumerate}
 \end{document}
