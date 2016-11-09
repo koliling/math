@@ -25,9 +25,74 @@
 
     \begin{enumerate}
       \item Prove that $g$ is a smooth function.
+        \begin{proof}
+          Given non-constant polynomial
+          $f:\mathbb{C}\rightarrow\mathbb{C}$, write
+          \[f(z)=\sum_{k=0}^Na_kz^k,\] where $a_k\in\mathbb{C}$,
+          $a_n\neq0$, and $N\geq1$. \\
+
+          $g$ is smooth on $S^2\setminus\{\infty\}$ because for every
+          $\bar{x}\in S^2\setminus\{\infty\}$, $\phi$ is a chart around
+          $\bar{x}$. It remains to show that $g$ is smooth at $\infty$.
+          Let $\varphi:S^2\setminus\{-\infty\}\rightarrow\mathbb{C}$ be
+          the stereographic projection from the south pole.
+          Now $g$ is smooth at $\infty$ if and only if $\varphi\circ
+          g\circ\varphi^{-1}:\mathbb{C}\rightarrow\mathbb{C}$ is smooth at
+          0. Given $z\in\mathbb{C}$, we have
+
+          \begin{align*}
+            (\varphi\circ g\circ\varphi^{-1})(z) &=
+              \begin{cases}
+                0, &\text{if}\; z=0 \\
+                (\varphi\circ\phi^{-1}\circ
+                  f\circ\phi\circ\varphi^{-1})(z), &\text{otherwise} \\
+              \end{cases} \\
+              &=\begin{cases}
+                0, &\text{if}\; z=0 \\
+                \left(\overline{f(\frac{1}{z})}\right)^{-1},
+                  &\text{otherwise} \\
+                \end{cases} &(\because \varphi\circ\phi^{-1}(z)
+                =\phi\circ\varphi^{-1}(z) =1/\bar{z}) \\
+              &=\begin{cases}
+                0, &\text{if}\; z=0 \\
+                \frac{1}{\sum_{k=0}^N\overline{a_k}
+                  \left(\frac{1}{z}\right)^k}, &\text{otherwise} \\
+                \end{cases} \\
+              &=\begin{cases}
+                0, &\text{if}\; z=0 \\
+                \frac{z^N}{\sum_{k=0}^N\overline{a_k} z^{N-k}},
+                  &\text{otherwise} \\
+                \end{cases} \\
+          \end{align*}
+
+          Now since $a_N\neq0$, we can glue the cases for $z=0$ and
+          $z\neq0$ to get 
+          \[(\varphi\circ g\circ\varphi^{-1})(z)
+            =\frac{z^N}{\sum_{k=0}^N\overline{a_k} z^{N-k}},\]
+          which is holomorphic and hence smooth at $z=0$. Thus $g$ is a
+          smooth function.
+        \end{proof}
+
       \item Prove that the only critical points of $g$ are the images under
         $\phi$ of the zeroes of $f'(z)$ together with possibly the point at
         $\infty$.
+
+        \begin{proof}
+          Let $p\in S^2\setminus\{\infty\}$. Then
+          \[\begin{array}{ll}
+            &p\; \text{is a critical point of}\; g \\
+            \Leftrightarrow &\exists q\in\phi^{-1}(p)\; \text{such that}\;
+              D_qg\; \text{is not surjective} \\
+            \Leftrightarrow &D_qg:T_qS^2\rightarrow T_qS^2\; \text{is not
+              an isomorphism} \\
+            \Leftrightarrow &D_qg\; \text{has no inverse} \\
+            \Leftrightarrow &\text{Det}(D_{\phi(a)}\phi\circ
+              g\circ\phi^{-1})=0 \\
+            \Leftrightarrow &\text{Det}(D_{\phi(a)}f)=0 \\
+            \Leftrightarrow &\text{Det}(D_pf)=0 \\
+            \Leftrightarrow &f^{-1}(p)=0. \\
+          \end{array}\]
+        \end{proof}
     \end{enumerate}
 
   \item Let $M^n$ be a smooth manifold and let $p\in M^n$ be a point. Let
