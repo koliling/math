@@ -243,8 +243,36 @@
     \begin{enumerate}
       \item Let $V_1$ and $V_2$ be left invariant vector fields on $G$ such
         that $V_1(e)=V_2(e)$. Prove that $V_1=V_2$.
+
+        \begin{proof}
+          Let $g\in G$. Then we have
+          \begin{align*}
+            V_1(g) &=V_1(ge) \\
+              &=(D_e\tau_g)(V_1(e)) \\
+              &=(D_e\tau_g)(V_2(e)) \\
+              &=V_2(ge) \\
+              &=V_2(g). \\
+          \end{align*}
+          Thus $V_1=V_2$.
+        \end{proof}
+
       \item For $\vec{v}\in T_eG$, prove that there exists a left invariant
         vector field $V$ on $G$ such that $V(e)=\vec{v}$.
+
+        \begin{proof}
+          Given $\vec{v}\in T_eG$, consider the map $V:G\rightarrow TG$
+          defined by $V(g)=(D_e\tau_g)(\vec{v})$. We show that $V$ is a
+          left invariant vector field. First, note that
+          $D_e\tau_e=\text{id}$ because $\tau_e=\text{id}$, hence
+          $V(e)=(D_e\tau_e)(\vec{v})=\vec{v}$. Also, given $g,h\in G$,
+          \begin{align*}
+            (D_h\tau_g)(V(h)) &= (D_h\tau_g\cdot D_e\tau_h)(\vec{v}) \\
+              &=D_e(\tau_g\circ\tau_h)(\vec{v}) \\
+              &=(D_e\tau_{gh})(\vec{v}) \\
+              &=V(gh), \\
+          \end{align*}
+          and so $V$ is left-invariant.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
