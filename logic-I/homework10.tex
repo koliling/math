@@ -53,5 +53,34 @@
       Also, since $|\mathcal{M}_\alpha|\leq|M|+|\mathcal{L}|+\omega$, we
       have $|\mathcal{N}|\leq|M|+|I|+|\mathcal{L}|+\omega$ as required.
     \end{proof}
+
+  \item Prove Proposition 8.8: Let $\alpha$ be an ordinal and
+    $(\mathcal{M}_\beta,\beta<\alpha)$ be a chain of models such that
+    $\mathcal{M}_\beta\preceq\mathcal{M}_{\beta+1}$ for all $\beta<\alpha$
+    and $\mathcal{M}_\gamma=\cup_{\beta<\gamma}\mathcal{M}_\beta$ for all
+    limit $\gamma<\alpha$. Then $(\mathcal{M}_\beta,\beta<\alpha)$ is an
+    elementary chain.
+
+    \begin{proof}
+      Assume the claim is not true. Then by well-ordering of ordinals there
+      exists some minimal ordinal $\beta\leq\alpha$ such that
+      $(\mathcal{M}_\gamma,\gamma<\beta)$ is not an elementary chain. So
+      there exists some $\gamma_1<\gamma_2<\beta$ such that
+      $\mathcal{M}_{\gamma_1}\not\preceq\mathcal{M}_{\gamma_2}$. If $\beta$
+      is a limit ordinal, then $(\mathcal{M}_\gamma,\gamma<\gamma_2+1)$
+      would not be an elementary chain, contradicting minimality of
+      $\beta$. Thus $\beta$ is a successor ordinal. Then we must have
+      $\gamma_2=\beta-1$ because $\gamma_2<\beta-1$ would imply that
+      $(\mathcal{M}_\gamma,\gamma<\beta-1)$ is not an elementary chain,
+      contradicting minimality of $\beta$. If $\beta-1$ is a limit ordinal,
+      then $(\mathcal{M}_\gamma,\gamma<\gamma_2+1)$ would not be an
+      elementary chain, contradicting minimality of $\beta$. Thus $\beta-1$
+      must be a successor ordinal. Then we have $\mathcal{M}_{\gamma_1}
+      \preceq\mathcal{M}_{\beta-2} \preceq\mathcal{M}_{\beta-1}$, where the
+      first equality follows from minimality of $\beta$ and the second
+      equality follows from definition. Then transitivity of $\preceq$
+      gives $\mathcal{M}_{\gamma_1}\preceq\mathcal{M}_{\beta-1}$, a
+      contradiction.
+    \end{proof}
 \end{enumerate}
 \end{document}
