@@ -20,6 +20,38 @@
     $|N|\leq|M|+|I|+\mathcal{L}+\omega$.
 
     \begin{proof}
+      First, we show that given an $\mathcal{L}$-structure $\mathcal{K}$
+      and a type $q(x)$ over $K$, there is an elementary extension
+      $\mathcal{K}(q)\succeq\mathcal{K}$ of realizing $q(x)$, and such that
+      the cardinality of $\mathcal{K}(q)$ is less than or equal
+      $|K|+|\mathcal{L}|+\omega$: Let $\mathcal{K}'$ be an elementary
+      extension of $\mathcal{K}$ that contains an element $a\in K'$ which
+      realizes $q(x)$. Such $\mathcal{K}'$ exists from Proposition 6.3.
+      Then by Downward Lowenheim-Skolem, $\mathcal{K}'$ will contain an
+      elementary substructure $\mathcal{K}(a)$ that contains $K\cup\{a\}$
+      and with cardinality less than or equal $|K|+|\mathcal{L}|+\omega$.
+      Note that $a\in\mathcal{K}(q)$ will realize $q(x)$ because
+      \[\mathcal{K}(q)\models\varphi(a,\bar{m}) \Leftrightarrow
+      \mathcal{K}'\models\varphi(a,\bar{m})\] for every
+      $\varphi(x,\bar{m})\in q(x)$ by elementary extension property. \\
+
+      Given a family of types over $M$, by axiom of choice we
+      can assume $I=\kappa$ for some cardinal $\kappa$. Then we construct
+      an elementary chain $(\mathcal{M}_\alpha:\alpha<\kappa)$ of models,
+      where
+      \begin{align*}
+        \mathcal{M}_0 &=\mathcal{M}, \\
+        \mathcal{M}_{\alpha+1} &=\mathcal{M}_{\alpha}(p_\alpha), \\
+        \mathcal{M}_{\alpha} &=\bigcup_{\beta<\alpha}\mathcal{M}_{\beta},
+          &\text{if}\; \beta\; \text{is a limit ordinal}. \\
+      \end{align*}
+      By Proposition 8.8 this is an elementary chain. Then from an earlier
+      homework assignment, we know that
+      $\mathcal{N}=\cup_{\alpha<\kappa}\mathcal{M}_\beta$ is an elementary
+      extension of $\mathcal{M}_\beta$ for all $\beta<\kappa$. Then by
+      earlier argument, $\mathbb{N}$ will realize every $p_\alpha(x)$.
+      Also, since $|\mathcal{M}_\alpha|\leq|M|+|\mathcal{L}|+\omega$, we
+      have $|\mathcal{N}|\leq|M|+|I|+|\mathcal{L}|+\omega$ as required.
     \end{proof}
 \end{enumerate}
 \end{document}
