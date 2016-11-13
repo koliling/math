@@ -88,15 +88,18 @@
     $M$.
 
     \begin{proof}
-      We first show that the operator is a closure operator. We have
-      $M\subseteq\text{acl}_\mathcal{M}(M)$ because given $m\in M$, $m$ is
-      algebraic over $M$ since $\text{tp}^{\mathcal{M}}(m/M)$ contains the
-      algebraic formula $x=m$. Also, if $A\subseteq B\subseteq M$, then
-      $\text{acl}_\mathcal{M}(A) \subseteq\text{acl}_\mathcal{M}(B)$,
-      because if $\text{tp}^{\mathcal{M}}(a/A)$ where $a\in M$ contains an
+      $A\subseteq\text{acl}_\mathcal{M}(A)$ for any $A\subseteq M$:
+      Given $a\in A$, $\text{acl}_\mathcal{M}(A)$ contains $a$ because
+      $\text{tp}^{\mathcal{M}}(a/A)$ contains the algebraic formula $x=a$.
+      \\
+
+      $A\subseteq B\subseteq M\Rightarrow \text{acl}_\mathcal{M}(A)
+      \subseteq\text{acl}_\mathcal{M}(B)$:
+      If $\text{tp}^{\mathcal{M}}(a/A)$ where $a\in M$ contains an
       algebraic formula, then the same formula will also make
       $\text{tp}^{\mathcal{M}}(a/B) \supseteq\text{tp}^{\mathcal{M}}(a/A)$
-      algebraic. Finally, given $A\subseteq M$, we have
+      algebraic. \\
+
       $\text{acl}_\mathcal{M}(\text{acl}_\mathcal{M}(A))
       =\text{acl}_\mathcal{M}(A)$: Suffices to prove $\subseteq$ since
       $\supseteq$ follows directly from the previous claim. Let
