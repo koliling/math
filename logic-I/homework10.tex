@@ -154,12 +154,31 @@
     co-finite). Prove that $T$ is strongly minimal.
 
     \begin{proof}
+      First, note that from minimality of $\mathcal{M}$, the formula
+      ``$x=x$'' is a minimal formula in $\mathcal{M}$: Otherwise there is a
+      formula $\varphi(x,\bar{m})$ where $\bar{m}\subseteq M$ such that the
+      formulas ``$x=x\wedge\varphi(x,\bar{m})$'' and
+      ``$x=x\wedge\neg\varphi(x,\bar{m})$'' both have infinite solutions
+      for $x$, which contradicts $\{a\in M:\varphi(a,\bar{m})\}$ being
+      finite or co-finite. \\
+
+      We wish to show that the formula ``$x=x$''  is minimal in every
+      elementary extension $\mathcal{N}\succeq\mathcal{M}$. Since ``$x=x$''
+      is minimal in $\mathcal{M}$, it suffices to show that minimal
+      formulas in $\mathcal{M}$ remain minimal in elementary extensions.
     \end{proof}
 
   \item Let $\mathcal{M}=\langle\mathbb{N},<\rangle$. Describe
     $\text{acl}(\emptyset)$.
 
     \begin{proof}
+      $\text{acl}(\emptyset)=\mathbb{N}$. Given $n\in\mathbb{N}$, the
+      formula $\varphi_n(x)$ which says ``there are exactly $n$ elements
+      smaller than me'' is a formula in
+      $\text{tp}^\mathcal{M}(n/\emptyset)$, and this formula is algebraic
+      because it has only one solution in $\mathbb{N}$. Hence from Claim
+      9.6 $n$ is algebraic, and must be contained in
+      $\text{acl}(\emptyset)$.
     \end{proof}
 
   \item Prove that a strongly minimal theory $T$ in a countable language is
