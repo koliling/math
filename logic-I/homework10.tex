@@ -164,9 +164,33 @@
 
       Given any elementary extension $\mathcal{N}\succeq\mathcal{M}$, we
       wish to show that $\mathcal{N}$ is minimal. Let $\varphi(x,\bar{n})$
-      be a formula over $N$, i.e. $\bar{n}\subset N$. We want to show that
-      $\varphi(x,\bar{n})$ has either finite or co-finite solutions for $x$
-      in $N$.
+      be a formula over $N$, i.e. $\bar{n}=n_1,\ldots,n_k\in N$. We want to
+      show that $\varphi(x,\bar{n})$ has either finite or co-finite
+      solutions for $x$ in $N$. By Downward Lowenhein-Skolem, $\mathcal{N}$
+      embeds a countable elementary substructure $\mathcal{N}'$ that
+      contains all of $n_1,\ldots,n_k$. Then since $\mathcal{M}$ is
+      $\omega$-saturated, we can embed $\mathcal{N}'$ into $\mathcal{M}$
+      elementarily, by Theorem 7.20. Denote the embedding of $\mathcal{N}'$
+      into $\mathcal{M}$ by $i:\mathcal{N}'\xhookrightarrow{}\mathcal{M}$.
+      Then we have
+      \begin{align*}
+          &\mathcal{M}\models \exists^{\leq k}x\; \varphi(x,i(\bar{n}))\;
+          \vee\; \exists^{\leq k}x\; \neg\varphi(x,i(\bar{n})) &
+          (\text{for some}\; k\in\mathbb{N}\because\mathcal{M}\; \text{is
+          minimal}) \\
+        \Leftrightarrow\; &\mathcal{N}'\models \exists^{\leq k}x\;
+          \varphi(x,\bar{n})\; \vee\; \exists^{\leq k}x\;
+          \neg\varphi(x,\bar{n}) &
+          (\because\mathcal{N}'\preceq\mathcal{M}) \\
+        \Leftrightarrow\; &\mathcal{N}\models \exists^{\leq k}x\;
+          \varphi(x,\bar{n})\; \vee\; \exists^{\leq k}x\;
+          \neg\varphi(x,\bar{n}). &
+          (\because\mathcal{N}'\preceq\mathcal{N}) \\
+      \end{align*}
+      Thus $\varphi(x,\bar{n})$ is either finite or co-finite in
+      $\mathcal{N}$. Since $\varphi$ was an arbitrary formula, and
+      $\mathcal{N}$ was an arbrigrary elementary extension of
+      $\mathcal{M}$, $T$ must be strongly minimal.
     \end{proof}
 
   \item Let $\mathcal{M}=\langle\mathbb{N},<\rangle$. Describe
