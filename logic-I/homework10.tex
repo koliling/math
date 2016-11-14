@@ -154,18 +154,19 @@
     co-finite). Prove that $T$ is strongly minimal.
 
     \begin{proof}
-      First, note that from minimality of $\mathcal{M}$, the formula
-      ``$x=x$'' is a minimal formula in $\mathcal{M}$: Otherwise there is a
-      formula $\varphi(x,\bar{m})$ where $\bar{m}\subseteq M$ such that the
-      formulas ``$x=x\wedge\varphi(x,\bar{m})$'' and
-      ``$x=x\wedge\neg\varphi(x,\bar{m})$'' both have infinite solutions
-      for $x$, which contradicts $\{a\in M:\varphi(a,\bar{m})\}$ being
-      finite or co-finite. \\
+      %First, note that from minimality of $\mathcal{M}$, the formula
+      %``$x=x$'' is a minimal formula in $\mathcal{M}$: Otherwise there is a
+      %formula $\varphi(x,\bar{m})$ where $\bar{m}\subseteq M$ such that the
+      %formulas ``$x=x\wedge\varphi(x,\bar{m})$'' and
+      %``$x=x\wedge\neg\varphi(x,\bar{m})$'' both have infinite solutions
+      %for $x$, which contradicts $\{a\in M:\varphi(a,\bar{m})\}$ being
+      %finite or co-finite. \\
 
-      We wish to show that the formula ``$x=x$''  is minimal in every
-      elementary extension $\mathcal{N}\succeq\mathcal{M}$. Since ``$x=x$''
-      is minimal in $\mathcal{M}$, it suffices to show that minimal
-      formulas in $\mathcal{M}$ remain minimal in elementary extensions.
+      Given any elementary extension $\mathcal{N}\succeq\mathcal{M}$, we
+      wish to show that $\mathcal{N}$ is minimal. Let $\varphi(x,\bar{n})$
+      be a formula over $N$, i.e. $\bar{n}\subset N$. We want to show that
+      $\varphi(x,\bar{n})$ has either finite or co-finite solutions for $x$
+      in $N$.
     \end{proof}
 
   \item Let $\mathcal{M}=\langle\mathbb{N},<\rangle$. Describe
@@ -173,7 +174,7 @@
 
     \begin{proof}
       $\text{acl}(\emptyset)=\mathbb{N}$. Given $n\in\mathbb{N}$, the
-      formula $\varphi_n(x)$ which says ``there are exactly $n$ elements
+      formula which says ``there are exactly $n$ elements
       smaller than me'' is a formula in
       $\text{tp}^\mathcal{M}(n/\emptyset)$, and this formula is algebraic
       because it has only one solution in $\mathbb{N}$. Hence from Claim
