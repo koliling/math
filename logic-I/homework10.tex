@@ -132,7 +132,20 @@
       any $\bar{z}=\overline{z_1},\ldots,\overline{z_k}$, there cannot be
       more than $n\cdot\max(n_1,\ldots,n_k)$ values of $x$ satisfying
       $\phi(x,\bar{z})$. Hence $\phi(x,\overline{c})$ is algebraic, and so
-      $a\in\text{acl}_\mathcal{M}(A)$.
+      $a\in\text{acl}_\mathcal{M}(A)$. \\
+
+      $\text{acl}_\mathcal{M}(A) =\bigcup_{A_0\subseteq_{\text{fin}} A}
+      \text{acl}_\mathcal{M}(A_0)$: If $m\in\text{acl}_\mathcal{M}(A)$,
+      then $\text{tp}^\mathcal{M}(m/A)$ contains an algebraic formula
+      $\varphi(x,a_1,\ldots,a_k)$, where $a_1,\ldots,a_k\in A$. Write
+      $A_0=\{a_1,\ldots,a_k\}$. Now $\varphi(x,a_1,\ldots,a_k)
+      \in\text{tp}^\mathcal{M}(m/A_0)$, hence
+      $m\in\text{acl}_\mathcal{M}(A_0)$. For the converse, if
+      $m\in\text{acl}_\mathcal{M}(A_0)$ for some $A_0\subseteq_{\text{fin}}
+      A$, then $\text{tp}^\mathcal{M}(m/A_0)$ contains an algebraic formula
+      which will also be contained in $\text{tp}^\mathcal{M}(m/A_0)$ since
+      $\text{tp}^\mathcal{M}(m/A_0)\subseteq \text{tp}^\mathcal{M}(m/A)$,
+      hence $m\in\text{acl}_\mathcal{M}(A)$. 
     \end{proof}
 \end{enumerate}
 \end{document}
