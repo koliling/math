@@ -154,25 +154,16 @@
     co-finite). Prove that $T$ is strongly minimal.
 
     \begin{proof}
-      %First, note that from minimality of $\mathcal{M}$, the formula
-      %``$x=x$'' is a minimal formula in $\mathcal{M}$: Otherwise there is a
-      %formula $\varphi(x,\bar{m})$ where $\bar{m}\subseteq M$ such that the
-      %formulas ``$x=x\wedge\varphi(x,\bar{m})$'' and
-      %``$x=x\wedge\neg\varphi(x,\bar{m})$'' both have infinite solutions
-      %for $x$, which contradicts $\{a\in M:\varphi(a,\bar{m})\}$ being
-      %finite or co-finite. \\
-
-      Given any elementary extension $\mathcal{N}\succeq\mathcal{M}$, we
-      wish to show that $\mathcal{N}$ is minimal. Let $\varphi(x,\bar{n})$
-      be a formula over $N$, i.e. $\bar{n}=n_1,\ldots,n_k\in N$. We want to
-      show that $\varphi(x,\bar{n})$ has either finite or co-finite
-      solutions for $x$ in $N$. By Downward Lowenhein-Skolem, $\mathcal{N}$
-      embeds a countable elementary substructure $\mathcal{N}'$ that
-      contains all of $n_1,\ldots,n_k$. Then since $\mathcal{M}$ is
-      $\omega$-saturated, we can embed $\mathcal{N}'$ into $\mathcal{M}$
-      elementarily, by Theorem 7.20. Denote the embedding of $\mathcal{N}'$
-      into $\mathcal{M}$ by $i:\mathcal{N}'\xhookrightarrow{}\mathcal{M}$.
-      Then we have
+      First, we show that any model $\mathcal{N}$ of $T$ is minimal.
+      Let $\varphi(x,\bar{n})$ be a formula over
+      $N$, i.e. $\bar{n}=n_1,\ldots,n_k\in N$. We want to show that
+      $\varphi(x,\bar{n})$ has either finite or co-finite solutions for $x$
+      in $N$. By Downward Lowenhein-Skolem, $\mathcal{N}$ embeds a
+      countable elementary substructure $\mathcal{N}'$ that contains all of
+      $n_1,\ldots,n_k$. Then since $\mathcal{M}$ is $\omega$-saturated, we
+      can embed $\mathcal{N}'$ into $\mathcal{M}$ elementarily, by Theorem
+      7.20. Denote the embedding of $\mathcal{N}'$ into $\mathcal{M}$ by
+      $i:\mathcal{N}'\xhookrightarrow{}\mathcal{M}$. Then we have
       \begin{align*}
           &\mathcal{M}\models \exists^{\leq k}x\; \varphi(x,i(\bar{n}))\;
           \vee\; \exists^{\leq k}x\; \neg\varphi(x,i(\bar{n})) &
@@ -188,9 +179,20 @@
           (\because\mathcal{N}'\preceq\mathcal{N}) \\
       \end{align*}
       Thus $\varphi(x,\bar{n})$ is either finite or co-finite in
-      $\mathcal{N}$. Since $\varphi$ was an arbitrary formula, and
-      $\mathcal{N}$ was an arbrigrary elementary extension of
-      $\mathcal{M}$, $T$ must be strongly minimal.
+      $\mathcal{N}$. Since $\varphi$ was an arbitrary formula,
+      $\mathcal{N}$ must be minimal. \\
+
+      Next, we show that a formula $\varphi(x,\bar{n})$ that is algebraic
+      in $\mathcal{N}$ will remain algebraic in any elementary extension
+      $\mathcal{N}'$ of $\mathcal{N}$. Since $\varphi(x,\bar{n})$ is
+      algebraic in $\mathcal{N}$, we have $\mathcal{N}\models\exists^{\leq
+      k}x\; \varphi(x,\bar{n})$ for some $k\in\mathbb{N}$. Then since
+      $\mathcal{N}'\succeq\mathcal{N}$, we also have
+      $\mathcal{N}'\models\exists^{\leq k}x\; \varphi(x,\bar{n})$, and
+      therefore $\varphi(x,\bar{n})$ remains algebraic in $\mathcal{N}'$.
+      \\
+
+      Thus, $T$ is strongly minimal.
     \end{proof}
 
   \item Let $\mathcal{M}=\langle\mathbb{N},<\rangle$. Describe
@@ -207,7 +209,7 @@
     \end{proof}
 
   \item Prove that a strongly minimal theory $T$ in a countable language is
-    $\omega$-categorical if and only if $\text{acl}(A)$ is fininte for
+    $\omega$-categorical if and only if $\text{acl}(A)$ is finite for
     every finite $A\subseteq M$ in any $\mathcal{M}\models T$. 
 
     \begin{proof}
