@@ -213,6 +213,50 @@
     every finite $A\subseteq M$ in any $\mathcal{M}\models T$. 
 
     \begin{proof}
+      We first prove the forward implication. Let $\mathcal{M}\models T$
+      and $A=\{a_1,\ldots,a_n\}\subset M$. Let $\bar{a}$ denote
+      $a_1,\ldots,a_n$. Given $m\in M$, we have
+      $\text{tp}^\mathcal{M}(m/A)=p(x,\bar{a})$ for some type
+      $p(x,\bar{y})\in S_{n+1}(T)$. Also, $m\in\text{acl}(A)$ if and only
+      if $|p(M,\bar{a})|=|\{r\in M: p(r,\bar{a})\}|$ is finite. So we have
+      \[|\text{acl}(A)|\leq|S_{n+1}(T)|\cdot
+      \max\{|p(M,\bar{a})|:p(x,\bar{y})\in S_{n+1}(T),\;
+      |p(M,\bar{a})|<\omega\},\] which is finite since $S_{n+1}(T)$ is a
+      finite set from the Ryll-Nardjewski theorem. \\
+
+      For the forward implication, assume that $T$ is not
+      $\omega$-categorical. Then from Ryll-Nardjewski's theorem, for some
+      $n\in\omega$, $S_n(T)$ would contain a non-isolated type
+      $p(\bar{x})$. Then from omitting types theorem, there is a model
+      $\mathcal{M}$ of $T$ that omits $p(\bar{x})$. We shall show that in
+      this model, $\text{acl}(\emptyset)$ is not finite. Write
+      $p(\bar{x})=\{\varphi_i(\bar{x}):i\in\omega\}$, and for each
+      $i\in\omega$, denote
+      $\phi_i(\bar{x}):=\wedge_{j=0}^i\varphi_j(\bar{x})$. Then
+      \[\phi_0(M^n)\supseteq \phi_1(M^n)\supseteq\ldots
+      \phi_2(M^n)\supseteq\ldots.\] Also, 
+      because $\mathcal{M}$ omits $p(\bar{x})$,
+      \[\bigcap_{i\in\omega} \phi_i(M^n) =\emptyset.\]
+
+      Yet, by completeness of $T$, $|\phi_i(M^n)|>0$ for each $i\in\omega$.
+      Thus we must have $|\phi_i(M^n)|\geq\omega$ for each $i\in\omega$ (if
+      $|\phi_k(M^n)|$ is finite for some $k\in\omega$ then
+      $\cap_{i\in\omega} \phi_i(M^n) =\emptyset$ will imply that
+      $|\phi_{k'}(M^n)|=0$ for some $k'\geq k$, contradicting
+      $|\phi_i(M^n)|>0$ for each $i\in\omega$). Therefore from strong
+      minimality of $T$, we must have $|\neg\phi_i(M^n)|<\omega$ for all
+      $i\in\omega$. Furthermore, because $\phi_i(M^n)$ converges to the
+      emptyset, and $|\phi_0(M^n)|\geq\omega$, we must have
+      $\neg\phi_i(M^n)$ converges to the whole of $M^n$, which is infinite.
+      Thus we can find countable indices $i_0<i_1<\ldots$ such that
+      $\neg\phi_{i_j}(M^n)$ is strictly contained in
+      $\neg\phi_{i_{j+1}}(M^n)$. For each index $i_j$, choose some
+      $\overline{m_j}\in \neg\phi_{i_{j+1}}(M^n)\setminus
+      \neg\phi_{i_{j}}(M^n)$. Then the $\overline{m_j}$'s are distinct
+      elements of $M^n$ that are algebraic over the emptyset, because for
+      each $j\in\omega$, $\text{tp}^\mathcal{M}(\overline{m_j}/\emptyset)$
+      contains the formula $\neg\phi_{i_j}(\bar{x})$, which has
+      $|\neg\phi_{i_j}(M^n)|<\omega$ realizations.
     \end{proof}
 \end{enumerate}
 \end{document}
