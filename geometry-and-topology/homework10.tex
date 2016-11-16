@@ -134,7 +134,7 @@
       \item Define $M^2_2=\{(x,y)|x>0\}$. Construct an explicit function
         $f:M^2_2\rightarrow\mathbb{R}$ such that $\omega=df$.
         \begin{proof}
-          Consider $f((x,y))=\arctan{y/x}$. Then
+          Consider $f((x,y))=\arctan{\frac{y}{x}}$. Then
           \begin{align*}
             df &=\frac{\partial f}{\partial x}dx + \frac{\partial
               f}{\partial y}dy \\
@@ -142,6 +142,59 @@
                 +\left(\frac{x}{x^2+y^2}\right)dy \\
               &=\omega. \\
           \end{align*}
+        \end{proof}
+    \end{enumerate}
+
+  \item Let $M^n$ be a smooth connected manifold and let
+    $\omega\in\Omega^1(M^n)$. Assume that for all closed paths
+    $\gamma:[a,b]\rightarrow M^n$, we have $\int_\gamma\omega=0$. The goal
+    of this problem is to prove the converse of Problem 2, i.e. that there
+    exists some smooth function $f:M^n\rightarrow\mathbb{R}$ such that
+    $\omega=df$.
+
+    \begin{enumerate}
+      \item Let $\gamma_1:[0,1]\rightarrow M^n$ and
+        $\gamma_2:[0,1]\rightarrow M^n$ be two smooth paths such that
+        $\gamma_1(0)=\gamma_2(0)$ and $\gamma_1(1)=\gamma_2(1)$. Prove that
+        $\int_{\gamma_1}\omega=\int_{\gamma_2}\omega$.
+
+        \begin{proof}
+          Let $h:[0,1]\rightarrow[0,1]$ be a smooth function such that
+          $h\restriction[0,t_0]=0$ and $h\restriction[t_1,1]=1$ for some
+          $0<t_0<t_1<1$, and such that $h$ is a non-decreasing function
+          from 0 to 1. Such a function exists from Lemma 1.5. \\
+
+          Consider $\gamma:[0,2]\rightarrow M^n$ defined as:
+          \begin{equation*}
+            \gamma(t) =
+            \begin{cases}
+              \gamma_1(h(t)), &0\leq t\leq1 \\
+              \gamma_2(h(2-t)), &1<t\leq2 \\
+            \end{cases}.
+          \end{equation*}
+
+          Then $\gamma$ is a smooth path, even at $t=1$, because from
+          our choice of $h$, there will be an open interval containing
+          $t=1$ where $\gamma$ is constant. Furthurmore, $\gamma$ is a
+          closed path, so from Question 2b we have $\int_\gamma\omega=0$.
+          Now
+          \begin{align*}
+            0 &=\int_\gamma\omega \\
+              &=\int_{\gamma_1\circ h}\omega - \int_{\gamma_2\circ h}\omega
+                \\
+              &=\int_{\gamma_1}\omega - \int_{\gamma_2}\omega &(\text{from
+                Question 1}), \\
+          \end{align*}
+          and so $\int_{\gamma_1}\omega=\int_{\gamma_2}\omega$ as required.
+        \end{proof}
+
+      \item Fix some basepoint $x_0\in M^n$. Define a function
+        $f:M^n\rightarrow\mathbb{R}$ by letting $f(p)=\int_\gamma\omega$,
+        wehre $\gamma:[0,1]\rightarrow M^n$ is a path such that
+        $\gamma(0)=x_0$ and $\gamma(1)=p$ (this is well-defined by part a).
+        Prove that $df=\omega$.
+
+        \begin{proof}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
