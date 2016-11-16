@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\usepackage{color}
+\setlength{\parindent}{2mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+\title{Geometry and Topology: Homework 10}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Let $M^n$ be a smooth manifold, let $\gamma:[a,b]\rightarrow M^n$
+    be a smooth path, and let $\omega\in\Omega^1(M^n)$. Finally, let
+    $h:[a,b]\rightarrow[a,b]$ be a smooth map such that $h(a)=a$ and
+    $h(b)=b$. Define $\gamma_2=\gamma\circ h$. Prove that
+    $\int_{\gamma}\omega=\int_{\gamma_2}\omega$.
+
+    \begin{proof}
+      Chasing definitions, we have
+      \[\int_\gamma\omega =\int_a^b\gamma^*(\omega)dt,\]
+      where $\gamma^*(\omega):[a,b]\rightarrow\mathbb{R}$ is a smooth
+      function defined by
+      \[\gamma^*(\omega)(t) =(\omega(\gamma(t)))\circ(D_t\gamma).\]
+
+      Similarly, we have
+      \[\int_{\gamma_2}\omega =\int_a^b\gamma_2^*(\omega)dt,\]
+      where $\gamma_2^*(\omega):[a,b]\rightarrow\mathbb{R}$ is a smooth
+      function defined by
+      \begin{align*}
+        \gamma_2^*(\omega)(t) &=(\omega((\gamma\circ h)(t)))
+          \circ(D_t(\gamma\circ h)) &(\because\gamma_2=\gamma\circ h) \\
+          &=(\omega(\gamma(h(t)))) \circ(D_t(\gamma\circ h)) \\
+          &=(\omega(\gamma(h(t)))) \circ(D_{h(t)}\gamma\circ(D_th)).
+            &(\text{by chain rule}) \\
+      \end{align*}
+
+      Now observe that
+      \begin{align*}
+        \gamma_2^*(\omega)(t)dt &=(\omega(\gamma(h(t))))
+          \circ(D_{h(t)}\gamma\circ(D_th)) dt \\
+          &=\gamma^*(\omega)(h(t))\; dh(t), \\
+      \end{align*}
+      and therefore
+      \begin{align*}
+        \int_{\gamma_2}\omega &=\int_a^b\gamma_2^*(\omega)dt \\
+          &=\int^{t=b}_{t=a}\gamma^*(\omega)(h(t))\; dh(t) \\
+          &=\int^{t=b}_{t=a}\gamma^*(\omega)(t)\; dt \\
+          &=\int_{\gamma}\omega. \\
+      \end{align*}
+    \end{proof}
+\end{enumerate}
+\end{document}
