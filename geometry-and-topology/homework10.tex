@@ -90,5 +90,59 @@
           $\gamma(a)=\gamma(b)$.
         \end{proof}
     \end{enumerate}
+
+  \item Define a 1-form on $M^2=\mathbb{R}^2\setminus\{0\}$ via the formula
+    \[\omega =\left(\frac{-y}{x^2+y^2}\right)dx
+    +\left(\frac{x}{x^2+y^2}\right)dy.\]
+
+    \begin{enumerate}
+      \item Let $\gamma:[0,1]\rightarrow M^2$ be a circle of radius $r>0$
+        around $(0,0)$. Calculate $\int_\gamma\omega$.
+        \begin{proof}
+          Note that $\gamma(t)=(r\cos(t),r\sin(t))$. Chasing definitions,
+          we have
+          \begin{align*}
+            \int_\gamma\omega &=\int_a^b\gamma^*(\omega)dt \\
+              &=\int_0^1(\omega(\gamma(t))) \circ(D_t\gamma)\; dt \\
+              &=\int_0^1(\omega(r\cos(t),r\sin(t))) \circ(D_t\gamma)\; dt \\
+              &=\int_0^1 \left(\left(\frac{-r\sin(t)}{r^2}\right)dx,
+                \left(\frac{r\cos(t)}{r^2}\right)dy\right) \circ(D_t\gamma)\;
+                dt \\
+              &=\int_0^1 \left(\left(\frac{-\sin(t)}{r}\right)dx,
+                \left(\frac{\cos(t)}{r}\right)dy\right) \circ(D_t\gamma)\;
+                dt \\
+              &=\int_0^1 \left(\left(\frac{-\sin(t)}{r}\right)dx,
+                \left(\frac{\cos(t)}{r}\right)dy\right)
+                \binom{-r\sin(t)\frac{\partial}{\partial x}}
+                {r\cos(t)\frac{\partial}{\partial y}}\; dt \\
+              &=\int_0^1 \sin^2(t)dx\frac{\partial}{\partial x} +
+                \cos^2(t)dy\frac{\partial}{\partial y}\;\; dt \\
+              &=\int_0^1 \sin^2(t)+\cos^2(t)\; dt \\
+              &=\int_0^1 1 dt \\
+              &=1. \\
+          \end{align*}
+        \end{proof}
+
+      \item Prove that there does not exist some smooth function
+        $f:M^2\rightarrow\mathbb{R}$ such that $\omega=df$.
+        \begin{proof}
+          If such a function exists, then from Question 2b above, we would
+          have $\int_\gamma\omega=0$, which would contradict Question 3a
+          above.
+        \end{proof}
+
+      \item Define $M^2_2=\{(x,y)|x>0\}$. Construct an explicit function
+        $f:M^2_2\rightarrow\mathbb{R}$ such that $\omega=df$.
+        \begin{proof}
+          Consider $f((x,y))=\arctan{y/x}$. Then
+          \begin{align*}
+            df &=\frac{\partial f}{\partial x}dx + \frac{\partial
+              f}{\partial y}dy \\
+              &=\left(\frac{-y}{x^2+y^2}\right)dx
+                +\left(\frac{x}{x^2+y^2}\right)dy \\
+              &=\omega. \\
+          \end{align*}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
