@@ -102,7 +102,7 @@
           Note that $\gamma(t)=(r\cos(t),r\sin(t))$. Chasing definitions,
           we have
           \begin{align*}
-            \int_\gamma\omega &=\int_a^b\gamma^*(\omega)dt \\
+            \int_\gamma\omega &=\int_0^1\gamma^*(\omega)dt \\
               &=\int_0^1(\omega(\gamma(t))) \circ(D_t\gamma)\; dt \\
               &=\int_0^1(\omega(r\cos(t),r\sin(t))) \circ(D_t\gamma)\; dt \\
               &=\int_0^1 \left(\left(\frac{-r\sin(t)}{r^2}\right)dx,
@@ -194,6 +194,12 @@
         Prove that $df=\omega$.
 
         \begin{proof}
+          Chasing definitions, we have
+          \begin{align*}
+            f(p) &= \int_\gamma\omega \\
+              &=\int_a^b\gamma^*(\omega)dt \\
+              &=\int_0^1(\omega(\gamma(t))) \circ(D_t\gamma)\; dt \\
+          \end{align*}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
