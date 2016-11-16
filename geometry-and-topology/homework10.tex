@@ -161,8 +161,7 @@
         \begin{proof}
           Let $h:[0,1]\rightarrow[0,1]$ be a smooth function such that
           $h\restriction[0,t_0]=0$ and $h\restriction[t_1,1]=1$ for some
-          $0<t_0<t_1<1$, and such that $h$ is a non-decreasing function
-          from 0 to 1. Such a function exists from Lemma 1.5. \\
+          $0<t_0<t_1<1$. Such a function exists from Lemma 1.4. \\
 
           Consider $\gamma:[0,2]\rightarrow M^n$ defined as:
           \begin{equation*}
@@ -173,9 +172,10 @@
             \end{cases}.
           \end{equation*}
 
-          Then $\gamma$ is a smooth path, even at $t=1$, because from
-          our choice of $h$, there will be an open interval containing
-          $t=1$ where $\gamma$ is constant. Furthurmore, $\gamma$ is a
+          Then $\gamma$ is a smooth path, even at $t=1$, because
+          $h\restriction[0,t_0]=0$ and $h\restriction[t_1,1]=1$,
+          there will be an open interval containing
+          $t=1$ where $\gamma$ is constant. Furthermore, $\gamma$ is a
           closed path, so from assumption $\int_\gamma\omega=0$. Now
           \begin{align*}
             0 &=\int_\gamma\omega \\
@@ -194,7 +194,14 @@
         Prove that $df=\omega$.
 
         \begin{proof}
-          Chasing definitions, we have
+          Let $p\in M^n$, and $(U,\phi)$ be any chart around $p$. We can
+          assume without loss of generality that $\phi(x_0)=\bar{0}$. Write
+          $\phi(p)=(q_1,\ldots,q_n)$, and $\omega =\sum_{i=1}^n a_idx^i$ in
+          local coordinates with respect to $(U,\phi)$. Given
+          $h\in\mathbb{R}^+$, define
+          $\gamma_h:[0,h)\rightarrow\mathbb{R}^n$ by \[\gamma_h(t)
+          =(q_1+t,q_2,\ldots,q_n).\]
+          
           \begin{align*}
             f(p) &= \int_\gamma\omega \\
               &=\int_a^b\gamma^*(\omega)dt \\
