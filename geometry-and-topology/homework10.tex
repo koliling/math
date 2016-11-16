@@ -195,18 +195,43 @@
 
         \begin{proof}
           Let $p\in M^n$, and $(U,\phi)$ be any chart around $p$. We can
-          assume without loss of generality that $\phi(x_0)=\bar{0}$. Write
-          $\phi(p)=(q_1,\ldots,q_n)$, and $\omega =\sum_{i=1}^n a_idx^i$ in
-          local coordinates with respect to $(U,\phi)$. Given
-          $h\in\mathbb{R}^+$, define
-          $\gamma_h:[0,h)\rightarrow\mathbb{R}^n$ by \[\gamma_h(t)
-          =(q_1+t,q_2,\ldots,q_n).\]
-          
+          assume without loss of generality that $\phi(x_0)=\bar{0}$.
+          Write $\omega =\sum_{i=1}^n a_idx^i$ in local coordinates with
+          respect to $(U,\phi)$. For a given $j\in\{1,\ldots,n\}$, choose
+          $\epsilon>0$ small enough such that $\phi(p)+\epsilon
+          e_j\in\phi(U)$, and define
+          $\gamma_\epsilon:[0,\epsilon)\rightarrow\mathbb{R}^n$ by
+          \[\gamma(t) =\phi(p)+t e_j.\] Then we have
+
           \begin{align*}
-            f(p) &= \int_\gamma\omega \\
-              &=\int_a^b\gamma^*(\omega)dt \\
-              &=\int_0^1(\omega(\gamma(t))) \circ(D_t\gamma)\; dt \\
+            (f\circ\phi^{-1})(\phi(p)+\epsilon e_j)
+              -(f\circ\phi^{-1})(\phi(p))
+              &=\int_{\gamma_\epsilon}\omega \\
+              &=\int_0^{\epsilon} \sum_{i=1}^n
+                a_i\phi^{-1}(\gamma_\epsilon(t))\; dx^i\;
+                D_t\gamma_\epsilon \\
+              &=\int_0^{\epsilon} \sum_{i=1}^n
+                a_i\phi^{-1}(\gamma_\epsilon(t))\; dx^i\; e_j\; dt \\
+              &=\int_0^{\epsilon} a_j\phi^{-1}(\gamma_\epsilon(t))\; dt. \\
           \end{align*}
+
+          Therefore, from the fundamental theorem of calculus, we have
+          \begin{align*}
+            \frac{\partial(f\circ\phi^{-1})}{\partial x_j}\phi(p)
+              &=\lim_{h\rightarrow0} \frac{1}{h} \int^h_0
+              a_j\phi^{-1}(\gamma_\epsilon(t)))\; dt &(\text{by FTOC}) \\
+              &=a_j\phi^{-1}(\gamma_\epsilon(0)) \\
+              &=a_j(p). \\
+          \end{align*}
+
+          Thus
+          \begin{align*}
+            \sum_{i=1}^n \frac{\partial(f\circ\phi^{-1})}{\partial
+              x_j}\phi(p)\; dx^i &=\sum_{i=1}^n a_i(p)\; dx^i, \\
+          \end{align*}
+          so $df_{q}=\omega_q$ for all $q\in U$. Then since $p$ was
+          arbitrary point in $M^n$ and $\phi$ an arbitrary chart around
+          $p$, we have $df=\omega$ on all of $M^n$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
