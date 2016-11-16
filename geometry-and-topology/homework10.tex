@@ -54,5 +54,33 @@
           &=\int_{\gamma}\omega. \\
       \end{align*}
     \end{proof}
+
+  \item Let $M^n$ be a smooth manifold and let $\omega\in\Omega^1(M^n)$ be
+    such that $\omega=df$ for some smooth function
+    $f:M^n\rightarrow\mathbb{R}$.
+
+    \begin{enumerate}
+      \item If $\gamma:[a,b]\rightarrow M^n$ is a smooth path, prove that
+        $\int_\gamma\omega=f(\gamma(a))-f(\gamma(b))$.
+        \begin{proof}
+          Chasing definitions, we have
+          \begin{align*}
+            \int_\gamma\omega &=\int_a^b\gamma^*(\omega)dt \\
+              &=\int_a^b(\omega(\gamma(t))) \circ(D_t\gamma)\; dt \\
+              &=\int_a^b(df(\gamma(t))) \circ(D_t\gamma)\; dt \\
+              &=\int_a^b df_{\gamma(t)}\; (D_t\gamma)\; dt &(\text{by
+                definition of}\; dt) \\
+              &=\int_a^b D_{\gamma(t)}\; f(D_t\gamma)\; dt &(\text{by
+                definition}) \\
+              &=\int_a^b D_{\gamma(t)}\; f\circ D_t\gamma\; dt &(\text{by
+                definition}) \\
+              &=\int_a^b D_{t}(f\circ\gamma)(\frac{\partial t}{\partial
+                t})\; dt &(\text{by chain rule}) \\
+              &=\int_a^b (f\circ\gamma)'(t)\; dt &(\text{by definition}) \\
+              &=f(\gamma(b))-f(\gamma(a)). &(\text{by fundamental theorem of
+                calculus}) \\
+          \end{align*}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 \end{document}
