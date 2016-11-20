@@ -124,4 +124,28 @@ Let $R$ be a ring with identity $1\neq0$. \\
     \end{align*}
     Thus $x=-126$ and $y=253$.
   \end{proof}
+
+\textbf{Section 8.1 Question 2c:} Show that $a=1891$ is relatively prime to
+  $n=3797$ and determine the inverse of $a\mod{n}$.
+  \begin{proof}
+    To check for relative primeness, we apply Euclidean's algorithm to
+    verify that $d=\text{lcm}(a,n)=1$:
+    \[\begin{array}{rcrcrcr}
+      3797 &= &2   &\cdot &1891 &+ &15 \\
+      1891 &= &126 &\cdot &15   &+ &1 \\
+      15   &= &15  &\cdot &1    &+ &0 \\
+    \end{array}\]
+    Thus $d=\text{lcm}(3797,1891)=1$, which implies that $a$ and $n$ are
+    relatively prime. To determine the inverse of $a\mod{n}$, we first
+    ``reverse'' the Euclidean algorithm to solve for $x$ and $y$ in the
+    equation $d=ax+ny$:
+    \begin{align*}
+      1 &=1891-126\cdot15 \\
+        &=1891-126\cdot(3797-2\cdot1891) \\
+        &=-126\cdot3797+(1+126\cdot2)\cdot1891 \\
+        &=-126\cdot3797+253\cdot1891 \\
+    \end{align*}
+    Rearranging, we get $253\cdot1891=126\cdot3797+1$, and therefore the
+    inverse of $1891\mod{3797}$ is $253$.
+  \end{proof}
 \end{document}
