@@ -46,8 +46,28 @@ Let $R$ be a ring with identity $1\neq0$. \\
         \cap\ldots \cap\langle n_k\rangle =\langle n\rangle$. By
         subjectivity, $a=\varphi^{-1}((a_1,\ldots,a_k))$ exists, and will
         satisfy the given congruences. Then from the first isomorphism
-        theorem, the solution $a$ of the congruences is  is unique module
+        theorem, the solution $a$ of the congruences is unique modulo
         $n$.
+      \end{proof}
+
+    \item Let $n_i'=n/n_i$ be the quotient of $n$ by $n_i$, which is
+      relatively prime to $n_i$ by assumption. Let $t_i$ be the inverse of
+      $n_i'\mod{n_i}$. Prove that the solution $x$ in (a) is given by
+      \[x=a_1t_1n_1'+\ldots+a_kt_kn_k'\mod{n}.\]
+      Note that the elements $t_i$ can be quickly found by the Euclidean
+      Algorithm as described in Section 2 of the Preliminaries chapter
+      (writing $an_i+bn_i'=(n_i,n_i')=1$ gives $t_i=b$) and that these then
+      quickly give the solutions to the system of congruences above for any
+      choice of $a_1,\ldots,a_k$.
+
+      \begin{proof}
+        We show that the given $x$ is a solution to the set of congruences.
+        Given any $i\in\{1,\ldots,k\}$, we want to show that $x\equiv
+        a_i\mod{n_i}$. Now for each $j\in\{1,\ldots,k\}$ with $j\neq i$, we
+        have $n_j|n_i'$, and so $a_jt_jn_j'\equiv0\mod{n_i}$. Therefore
+        $x\equiv a_it_in_i'\mod{n_i}$. Then since
+        $t_in_i'\equiv1\mod{n_i}$, we have $x\equiv a_it_in_i'\equiv
+        a_i\mod{n_i}$, as required.
       \end{proof}
   \end{enumerate}
 \end{document}
