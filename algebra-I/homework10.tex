@@ -103,4 +103,25 @@ Let $R$ be a ring with identity $1\neq0$. \\
         \end{array}\]
       \end{proof}
   \end{enumerate}
+
+\textbf{Section 8.1 Question 1c:} Determine the greatest common divisor $d$
+  of $a=11391$ and $b=5673$ and write $d$ as a linear combination $ax+by$
+  of $a$ and $b$.
+  \begin{proof}
+    We apply Euclidean's algorithm to find $x$, $y$, and $d$:
+    \[\begin{array}{rcrcrcr}
+      11391 &= &2   &\cdot &5673 &+ &45 \\
+      5673  &= &126 &\cdot &45   &+ &3 \\
+      45    &= &15  &\cdot &3    &+ &0 \\
+    \end{array}\]
+    Thus $d=\text{lcm}(11391,5673)=3$. To determine $x$ and $y$, we
+    ``reverse'' the Euclidean algorithm as follows:
+    \begin{align*}
+      3 &=5673-126\cdot45 \\
+        &=5673-126\cdot(11391-2\cdot5673) \\
+        &=-126\cdot11391+(1+126\cdot2)\cdot5673 \\
+        &=-126\cdot11391+253\cdot5673 \\
+    \end{align*}
+    Thus $x=-126$ and $y=253$.
+  \end{proof}
 \end{document}
