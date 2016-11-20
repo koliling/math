@@ -69,5 +69,38 @@ Let $R$ be a ring with identity $1\neq0$. \\
         $t_in_i'\equiv1\mod{n_i}$, we have $x\equiv a_it_in_i'\equiv
         a_i\mod{n_i}$, as required.
       \end{proof}
+
+    \item Solve the simultaneous system of congruences
+      \[x\equiv1\mod{8},\;\; x\equiv2\mod{25},\;\; x\equiv3\mod{81}\]
+      and the simultaneous system
+      \[y\equiv5\mod{8},\;\; y\equiv12\mod{25},\;\; y\equiv47\mod{81}.\]
+
+      \begin{proof}
+        Note that $n_1=8$, $n_2=25$, and $n_3=81$ are pairwise relatively
+        prime, hence we can use the formula given in part (b) above and
+        also the Euclidean algorithm to get the $t_i$'s and solve the
+        system of congruences. We have
+        \[\begin{array}{lrrl}
+          n_1'= &25\cdot81\equiv &1  &\mod{8}, \\
+          n_2'= &8\cdot81\equiv  &23 &\mod{25}, \\
+          n_3'= &8\cdot25\equiv  &38 &\mod{81}. \\
+        \end{array}\]
+        Then from the Euclidean algorithm, we get
+        \[\begin{array}{lrll}
+          t_1\equiv &1  &\mod{8},  &(\because n_1'\equiv1\mod{8}) \\
+          t_2\equiv &12 &\mod{25}, &(\because n_2'\equiv-2\mod{25}\;
+            \text{and}\; 1\cdot25-12\cdot(2)=1) \\
+          t_3\equiv &32 &\mod{81}. &(\because -15\cdot81+32\cdot(81)=1). \\
+        \end{array}\]
+        Thus we have
+        \[\begin{array}{llcrcrcrr}
+          x\equiv &1\cdot1\cdot25\cdot81 &+ &2\cdot23\cdot8\cdot81
+            &+ &3\cdot38\cdot8\cdot25 &\equiv &4377 &\mod{8\cdot25\cdot81},
+            \\
+          y\equiv &5\cdot1\cdot25\cdot81 &+ &12\cdot23\cdot8\cdot81
+            &+ &47\cdot38\cdot8\cdot25 &\equiv &15437
+            &\mod{8\cdot25\cdot81}. \\
+        \end{array}\]
+      \end{proof}
   \end{enumerate}
 \end{document}
