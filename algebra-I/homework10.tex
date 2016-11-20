@@ -3,7 +3,7 @@
 \usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
 \usepackage[inline]{enumitem}
 \usepackage{color}
-\setlength{\parindent}{0mm} % So that we do not indent on new paragraphs
+\setlength{\parindent}{0mm} %So that we do not indent on new paragraphs
 \newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
@@ -12,7 +12,7 @@
 \date{\today}
 \maketitle
 
-Let $R$ be a ring with identity $1\neq0$.
+Let $R$ be a ring with identity $1\neq0$. \\
 
 \textbf{Section 7.6 Question 4:} Prove that if $R$ and $S$ are nonzero
   rings then $R\times S$ is never a field.
@@ -24,10 +24,30 @@ Let $R$ be a ring with identity $1\neq0$.
 
 \textbf{Section 7.6 Question 5:} Let $n_1,\ldots,n_k$ be integers which are
   relative prime in pairs: $(n_i,n_j)=1$ for all $i\neq j$.
-  \begin{enumerate}
-    \itme Show that the Chinese Remainder Theorem implies that for any
-    $a_1,\ldots,a_k\in\mathbb{Z}$ there is a solution $x\in\mathbb{Z}$ to
-    the simultaneous congruences
-    \[x\cong a_1\pmod{n_1\}\]
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item Show that the Chinese Remainder Theorem implies that for any
+      $a_1,\ldots,a_k\in\mathbb{Z}$ there is a solution $x\in\mathbb{Z}$ to
+      the simultaneous congruences
+      \[\begin{array}{cccc}
+        x\equiv a_1\mod{n_1}, &
+        x\equiv a_2\mod{n_2}, &
+        \ldots, &
+        x\equiv a_k\mod{n_k} \\
+      \end{array}\]
+      and that the solution $x$ is unique $\mod{n}=n_1n_2,\ldots,n_k$.
+
+      \begin{proof}
+        Consider the ring homomorphism $\varphi:\mathbb{Z}\rightarrow
+        \mathbb{Z}_{n_1}^\times \times\ldots \mathbb{Z}_{n_k}^\times$,
+        $m\mapsto (\bar{m})$. Since each $n_i\neq n_j\in\mathbb{Z}$ are
+        relatively prime, the ideals $\langle n_i\rangle$, $\langle
+        n_j\rangle$ are co-maximal. Thus from the Chinese Remainder
+        Theorem, $\varphi$ is surjective with kernel $\langle n_1\rangle
+        \cap\ldots \cap\langle n_k\rangle =\langle n\rangle$. By
+        subjectivity, $a=\varphi^{-1}((a_1,\ldots,a_k))$ exists, and will
+        satisfy the given congruences. Then from the first isomorphism
+        theorem, the solution $a$ of the congruences is  is unique module
+        $n$.
+      \end{proof}
   \end{enumerate}
 \end{document}
