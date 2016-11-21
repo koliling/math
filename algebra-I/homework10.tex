@@ -114,7 +114,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
       5673  &= &126 &\cdot &45   &+ &3 \\
       45    &= &15  &\cdot &3    &+ &0 \\
     \end{array}\]
-    Thus $d=\text{lcm}(11391,5673)=3$. To determine $x$ and $y$, we
+    Thus $d=\text{gcd}(11391,5673)=3$. To determine $x$ and $y$, we
     ``reverse'' the Euclidean algorithm as follows:
     \begin{align*}
       3 &=5673-126\cdot45 \\
@@ -129,13 +129,13 @@ Let $R$ be a ring with identity $1\neq0$. \\
   $n=3797$ and determine the inverse of $a\mod{n}$.
   \begin{proof}
     To check for relative primeness, we apply Euclidean's algorithm to
-    verify that $d=\text{lcm}(a,n)=1$:
+    verify that $d=\text{gcd}(a,n)=1$:
     \[\begin{array}{rcrcrcr}
       3797 &= &2   &\cdot &1891 &+ &15 \\
       1891 &= &126 &\cdot &15   &+ &1 \\
       15   &= &15  &\cdot &1    &+ &0 \\
     \end{array}\]
-    Thus $d=\text{lcm}(3797,1891)=1$, which implies that $a$ and $n$ are
+    Thus $d=\text{gcd}(3797,1891)=1$, which implies that $a$ and $n$ are
     relatively prime. To determine the inverse of $a\mod{n}$, we first
     ``reverse'' the Euclidean algorithm to solve for $x$ and $y$ in the
     equation $d=ax+ny$:
@@ -152,7 +152,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
 \textbf{Section 8.1 Question 5b:} Determine all integer solutions of
   $17x+29y=31$.
   \begin{proof}
-    Let $d=\text{lcm}(17,29)$. Note that if $x_0,y_0$ and $x,y$ are
+    Let $d=\text{gcd}(17,29)$. Note that if $x_0,y_0$ and $x,y$ are
     both integer solutions of the equation, then $17(x_0-x)=29(y-y_0)$,
     which gives $x=x_0-29a/d$ for some $a\in\mathbb{Z}$, and
     $y=y_0+17a/d$. Conversely, if $x_0,y_0$ are integer solutions and
@@ -162,7 +162,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
     $(x_0-29a/d,y_0+17a/d)$ for some $a\in\mathbb{Z}$. \\
 
     Now since $d=(17,29)=1$, so there are integers $x_0$ and $y_0$
-    such that $17x_0'+29y_0'=\text{lcm}(17,29)=1$. Multiplying throughout by
+    such that $17x_0'+29y_0'=\text{gcd}(17,29)=1$. Multiplying throughout by
     31 would give $17(31x_0')+29(31y_0')=31$. Thus integer solutions
     $x_0=31x_0'$, $y_0=31y_0'$ exist. We apply Euclidean's algorithm to
     find $x_0',y_0'$ such that $17x_0'+29y_0'=1$:
@@ -173,6 +173,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
        5 &= &2 &\cdot &2  &+ &1 \\
        2 &= &2 &\cdot &1  &+ &0 \\
     \end{array}\]
+
     We ``reverse'' the Euclidean algorithm to solve for $x_0'$ and $y_0'$:
     \begin{align*}
       1 &=5-2\cdot2 \\
@@ -187,5 +188,38 @@ Let $R$ be a ring with identity $1\neq0$. \\
     $y_0=31\cdot y_0'=-31\cdot7=-217$. So from the above argument, the
     integer solutions are exactly
     \[\{(372-29a,-217+17a):a\in\mathbb{Z}\}.\]
+  \end{proof}
+
+\textbf{Section 8.1 Question 7:} Find a generator for the ideal
+  $(85,1+13i)$ in $\mathbb{Z}[i]$, i.e., a greatest common divisor for 85
+  and $1+13i$ by the Euclidean Algorithm. Do the same for the ideal
+  $(47-13i,53+56i)$.
+
+  \begin{proof}
+    Note that the textbook has shown that the Gaussian integers
+    $\mathbb{Z}[i]$ is an Euclidean Domain with respect to the norm
+    $N(a+bi)=a^2+b^2$. Thus $\mathbb{Z}[i]$ is a PID, and so the notion of
+    greatest common divisor is well-defined. \\
+
+    Now $N(\text{gcd}(85,1+13i)) =N(\text{gcd}(N(85),N(1+13i)))
+    =\text{gcd}(85,170)=85$. Thus we are looking for $a,b\in\mathbb{Z}$
+    such that $a^2+b^2=85$. Since $\sqrt{85}<10$, there are at most 5
+    integer solutions we need to test to satisfy $a^2+b^2=85$. We check
+    that the possible solutions are $a=\pm2,b=\pm9$ and $a=\pm6,b=\pm7$. We
+    check that of these possibilities, only $\pm6\mp7i$ divides $1+13i$ in
+    $\mathbb{Z}[i]$. Thus a GCD of 85 and $1+13i$ is $6-7i$. \\
+
+    For the second part of the question, we apply the Euclidean algorithm
+    with the given norm to find $\text{gcd}(47-13i,53+56i)$. At each step
+    of the algorithm, to solve for $q,r\in\mathbb{Z}[i]$ in the equation
+    $b=qa+r$ given $a,b\mathbb{Z}[i]$, we apply the norm to get
+    $N(b)=N(q)N(a)+N(r)$ and find $q,r\in\mathbb{Z}[i]$ such that the norm
+    of $q$ is $N(q)$ such that $N(r)<N(a)$:
+    \[\begin{array}{rcrcrcr}
+      53+56i &= &(1+i)   &\cdot &(47-13i) &+ &(-7+22i) \\
+      47+13i &= &(-1-2i) &\cdot &(-7-22i) &+ &(-4-5i) \\
+      -7-22i &= &(-2-3i) &\cdot &(-4-5i)  &+ &0 \\
+    \end{array}\]
+    Thus a GCD of $53+56i$ and $47+13i$ is $4+5i$. \\
   \end{proof}
 \end{document}
