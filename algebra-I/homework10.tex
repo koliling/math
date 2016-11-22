@@ -377,4 +377,25 @@ Let $R$ be a ring with identity $1\neq0$. \\
         \end{align*}
       \end{proof}
   \end{enumerate}
+
+\textbf{Section 8.3 Question 2:} Let $a$ and $b$ be non-zero elements of
+  the Unique Factorization Domain $R$. Prove that $a$ and $b$ have a least
+  common multiple and describe it in terms of the prime factorizations of
+  $a$ and $b$ in the same fashion that Proposition 13 describes their
+  greatest common divisor.
+
+  \begin{proof}
+    Let the prime factorization of $a$ and $b$ be given by
+    \begin{align*}
+      a &= up_1^{e_1}\cdots p_n^{e_n}, \\
+      b &= vp_1^{f_1}\cdots p_n^{f_n},
+    \end{align*}
+    where $u$ and $v$ are units, the $p_i$'s are unique primes, and the
+    exponents $e_i$ and $f_i$ are greater or equal 0. We claim that
+    \begin{align*}
+      c &= p_1^{\max(e_1,f_1)}\cdots p_n^{\max(e_n,f_n)}
+    \end{align*}
+    is a least common multiple of $a$ and $b$. $c$ clearly divides $a$ and
+    $b$.
+  \end{proof}
 \end{document}
