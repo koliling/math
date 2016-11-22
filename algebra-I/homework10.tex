@@ -324,5 +324,57 @@ Let $R$ be a ring with identity $1\neq0$. \\
         and $2(-2+\sqrt{-5})$ generate $2$. This is true since
         \[2=-2(1+\sqrt{-5})-2(-2+\sqrt{-5}).\]
       \end{proof}
+
+    \item Prove similarly that $I_2I_3=\langle1-\sqrt{-5}\rangle$ and
+      $I_2I_3'=\langle1+\sqrt{-5}\rangle$ are principal. Conclude that the
+      principal ideal $\langle6\rangle$ is the product of 4 ideals:
+      $\langle6\rangle=I_2^2I_3I_3'$.
+
+      \begin{proof}
+        Chasing definitions, we have
+        \begin{align*}
+          I_2I_3 &=\langle 2\cdot3, 2(2+\sqrt{-5}), 3(1+\sqrt{-5}),
+            (1+\sqrt{-5})(2+\sqrt{-5}) \rangle
+            \\
+            &=\langle6, 4+2\sqrt{-5}, 3+3\sqrt{-5}, 3-3\sqrt{-5} \rangle, \\
+          I_2I_3' &=\langle 2\cdot3, 2(2-\sqrt{-5}), 3(1+\sqrt{-5}),
+            (1+\sqrt{-5})(2-\sqrt{-5}) \rangle
+            \\
+            &=\langle6, 4-2\sqrt{-5}, 3+3\sqrt{-5}, 7+\sqrt{-5} \rangle. \\
+        \end{align*}
+
+        To verify $I_2I_3\subseteq\langle1-\sqrt{-5}\rangle$, we check that
+        each of the four generators of $I_2I_3$ calculated above are
+        multiples of $1-\sqrt{-5}$ in $R$: The forth generator is clearly a
+        multiple. As for the remaining three generators, we check that each
+        generator is multiplied with $1/(1-\sqrt{-5})=(1+\sqrt{-5})/6$, the
+        result is in $R$. This is clearly true for generator 6. Similarly,
+        $2(2+\sqrt{-5})(1+\sqrt{-5})/6=(-3+3\sqrt{-5})/3\in R$, and
+        $3(1+\sqrt{-5})(1+\sqrt{-5})/6=(-4+2\sqrt{-5})/2\in R$. \\
+
+        To verify that $I_2I_3\supseteq\langle1-\sqrt{-5}\rangle$, we note
+        that $1-\sqrt{-5}=(4+2\sqrt{-5})+(3-3\sqrt{-5})-6$. \\
+
+        To verify $I_2I_3'\subseteq\langle1-\sqrt{-5}\rangle$, we check that
+        each of the four generators of $I_2I_3'$ calculated above are
+        multiples of $1+\sqrt{-5}$ in $R$: The third generator is clearly a
+        multiple. As for the remaining three generators, we check that each
+        generator is multiplied with $1/(1+\sqrt{-5})=(1-\sqrt{-5})/6$, the
+        result is in $R$. This is clearly true for generator 6. Similarly,
+        $2(2-\sqrt{-5})(1-\sqrt{-5})/6=(-3-3\sqrt{-5})/3\in R$, and
+        $3(1+\sqrt{-5})(1-\sqrt{-5})/6=(1+5)/2\in R$. \\
+
+        To verify that $I_2I_3'\supseteq\langle1+\sqrt{-5}\rangle$, we note
+        that $1+\sqrt{-5}=(4-2\sqrt{-5})+(3+3\sqrt{-5})-6$. \\
+
+        Thus $I_2I_3=\langle1-\sqrt{-5}\rangle$ and
+        $I_2I_3'=\langle1+\sqrt{-5}\rangle$. Then
+        \begin{align*}
+          I_2^2I_3I_3' &=(I_2I_3)(I_2I_3') \\
+            &=\langle1-\sqrt{-5}\rangle \langle1+\sqrt{-5}\rangle \\
+            &=\langle(1-\sqrt{-5})(1+\sqrt{-5})\rangle \\
+            &=\langle6\rangle. \\
+        \end{align*}
+      \end{proof}
   \end{enumerate}
 \end{document}
