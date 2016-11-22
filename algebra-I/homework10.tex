@@ -253,7 +253,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
     \end{align*}
   \end{proof}
 
-\textbf{Section 8.1 Question 3:} Prove that a quotient of a PID by a prime
+\textbf{Section 8.2 Question 3:} Prove that a quotient of a PID by a prime
   ideal is again a PID.
   \begin{proof}
     Let $R$ be a PID and $P$ be a prime ideal of $R$.
@@ -265,13 +265,49 @@ Let $R$ be a ring with identity $1\neq0$. \\
     $R/P$, we have $R/P$ is a PID.
   \end{proof}
 
-\textbf{Section 8.1 Question 5:} Let $R$ be the quadratic integer ring
+\textbf{Section 8.2 Question 5:} Let $R$ be the quadratic integer ring
   $\mathbb{Z}[\sqrt{-5}]$. Define the ideals $I_2=(2,1+\sqrt{-5})$,
   $I_3=(3,2+\sqrt{-5})$, $I_3'=(3,2-\sqrt{-5})$,
   \begin{enumerate}[label={\bf(\alph*)}]
     \item Prove that $I_2$, $I_3$, and $I_3'$ are non-principal ideals in
       $R$.
       \begin{proof}
+        To show that a finitely generated ideal is non-principal is
+        equivalent to showing that the generators do not generate one of
+        their greatest common divisors. To check for divisors of elements
+        in $R$, we define function $N:R\rightarrow\mathbb{N}$,
+        $a+b\sqrt{-5}\mapsto a^2+5b^2$. The book as shown that given
+        $x,y\in R$, we have $N(xy)=N(x)N(y)$. Thus an element $d\in R$
+        divides $x\in R$ implies that $N(d)|N(x)$. We use this rule to try
+        to find common divisors of the generators of the given ideals. \\
+
+        For $I_2$, let $a+b\sqrt{-5}$ be a common divisor of $2$ and
+        $1+\sqrt{-5}$. Then $N(a+b\sqrt{-5})=a^2+5b^2$ divides that
+        $N(2)=4$ and $N(1+\sqrt{-5})=6$, which means $a^2+5b^2$ equals 1 or
+        2. Now since $a^2+5b^2\leq5$, we must have $b=0$. Then the only
+        integer solution $a^2+5b^2$ would be $a=\pm1$ and $b=0$. It remains
+        to show that there are no solutions in $R$ for
+        $2x+(1+\sqrt{-5})y=1$. Multiplying by $(1-\sqrt{-5})$ gives
+        $2(1-\sqrt{-5}+3y)=1-\sqrt{-5}$, which has no solutions in $R$
+        because $2\not|\; (1-\sqrt{-5})$ in $R$. \\
+
+        For $I_3$, let $a+b\sqrt{-5}$ be a common divisor of $3$ and
+        $2+\sqrt{-5}$. Then $N(a+b\sqrt{-5})=a^2+5b^2$ divides that
+        $N(3)=9$ and $N(2+\sqrt{-5})=9$, which means $a^2+5b^2$ equals 1,
+        3, or 9. On one hand, if $a^2+5b^2\leq5$, we must have $b=0$, so
+        the only integer solution would be $a=\pm1$ and $b=0$. We show
+        that there are no solutions in $R$ for $3x+(2+\sqrt{-5})y=1$:
+        Multiplying by $(2-\sqrt{-5})$ gives
+        $3(2-\sqrt{-5}+3y)=2-\sqrt{-5}$, which has no
+        solutions in $R$ because $3\not|\; (2-\sqrt{-5})$ in $R$. On the
+        other hand, if $a^2+5b^2=9$, we have three cases to consider ---
+        $a=3$ with $b=0$, or $a=2$ with $b=1$, or $a=2$ with $b=-1$. The
+        first case is not possible because $3\not|\; (2-\sqrt{-5})$ in $R$.
+        The second and third cases are also not possible because
+        $2\pm\sqrt{-5}\not|\; 3$ in $R$. \\
+
+        The argument for showing $I_3'$ is non-principal is analogous to
+        the argument for $I_3$.
       \end{proof}
   \end{enumerate}
 \end{document}
