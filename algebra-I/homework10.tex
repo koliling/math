@@ -396,6 +396,28 @@ Let $R$ be a ring with identity $1\neq0$. \\
       c &= p_1^{\max(e_1,f_1)}\cdots p_n^{\max(e_n,f_n)}
     \end{align*}
     is a least common multiple of $a$ and $b$. $c$ clearly divides $a$ and
-    $b$.
+    $b$. Let $c'$ be a multiple of $a$ and $b$. We want to show that
+    $c|c'$. \\
+
+    We first show that that $p_i^{\max(e_i,f_i)}$ divides $c'$ for every
+    $i\in\{1,\ldots,n\}$. Assume without loss of generality that $e_i\geq
+    f_i$. Then $a$ divides $c'$ implies that $c'=ax$ for some $x\in R$. So
+    we can write $c'=up_1^{e_1}\cdots p_n^{e_n}x$, and thus
+    $p_i^{\max(e_i,f_i)}=p_i^{e_i}$ divides $c'$. \\
+
+    Let $c'=wp_1^{g_1}\cdots p_n^{g_n}q_1^{h_1}\cdots q_m^{h_m}$ be a prime
+    factor decomposition of $c'$, where $q_j$ are primes distinct from the
+    $p_i$'s and $w$ is a unit. We wish to show that $g_i\geq\max(e_i,f_i)$
+    for each $i\in\{1,\ldots,n\}$. Since $p_i^{\max(e_i,f_i)}$ divides
+    $c'$, we have 
+    \begin{align*}
+      wp_1^{g_1}\cdots p_n^{g_n}q_1^{h_1}\cdots q_m^{h_m}&=c' \\
+        &=p_i^{\max(e_i,f_i)}y &(\text{for some}\; y\in R) \\
+        &=p_i^{\max(e_i,f_i)+t} w'r_1^{s_1}\cdots r_k^{s_k}.
+          &(y=w'p_i^tr_1^{s_1}\cdots r_k^{s_k}\; \text{is
+          prime decomposition of}\; y) \\
+    \end{align*}
+    Then from uniqueness of prime decomposition, we have
+    $g_i=\max(e_i,f_i)+t$, and thus $g_i\geq\max(e_i,f_i)$.
   \end{proof}
 \end{document}
