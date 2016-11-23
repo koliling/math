@@ -420,4 +420,43 @@ Let $R$ be a ring with identity $1\neq0$. \\
     Then from uniqueness of prime decomposition, we have
     $g_i=\max(e_i,f_i)+t$, and thus $g_i\geq\max(e_i,f_i)$.
   \end{proof}
+
+\textbf{Section 8.3 Question 6a:} Prove that the quotient ring
+  $\mathbb{Z}[i]/(1+i)$ is a field of order 2.
+  \begin{proof}
+    We first show that the quotient ring is a field. This is equivalent to
+    showing that $(1+i)$ is a maximal ideal in $\mathbb{Z}[i]$.  It is
+    known that the Gaussian integers $\mathbb{Z}[i]$ is an Euclidean domain
+    with respect to the norm $N(a+bi)=a^2+b^2$. Since Euclidean domains are
+    PIDs, and every non-zero prime ideal in a PID is a maximal ideal
+    (Proposition 7, Section 8.2), it suffices to show that $(1+i)$ is a
+    prime ideal in $\mathbb{Z}[i]$, or equivalently, that $1+i$ is prime in
+    $\mathbb{Z}[i]$. Now since in PIDs, the prime elements are exactly the
+    irreducible elements (Proposition 11, Section 8.3), it suffices to show
+    that $1+i$ is an irreducible element in $\mathbb{Z}[i]$. \\
+
+    Let $1+i=xy$, where $x,y\in\mathbb{Z}[i]$. We wish to show that either
+    $x$ or $y$ is a unit. Now $2=N(1+i)=N(xy)=N(x)N(y)$, so either $N(x)=1$
+    or $N(y)=1$. Assume without loss of generality that $N(x)=1$, and write
+    $x=x_1+x+2i$. Then $N(x)=x_1^2+x_2^2=1$, which implies that either
+    $x_1=\pm1$ with $x_2=0$, or $x_1=0$ with $x_2=\pm1$. Thus $x=\pm1$ or
+    $x=\pm i$, and in all four cases, $x$ is a unit. Thus $1+i$ is
+    irreducible, and therefore $\mathbb{Z}[i]/(1+i)$ is a field. \\
+
+    Now we show that the quotient ring has order 2. Let
+    $x+(1+i)\in\mathbb{Z}[i]/(1+i)$. Since $\mathbb{Z}[i]$ is a Euclidean
+    domain, there exists some $q,r\in\mathbb{Z}[i]$ such that $x=q(1+i)+r$
+    and $N(r)<N(1+i)=2$. Then $x+(1+i)=r+(1+i)\in\mathbb{Z}[i]/(1+i)$.
+    Write $r=r_1+r_2i$. Then $N(r)=r_1^2+r_2^2\leq0$, which means $r=0$, or
+    $r=\pm1$, or $r=\pm i$. Thus the quotient ring has at most five
+    elements. Now $1+(1+i)=-1+(1+i)$ because $1-(-1)=2\in(1+i)$ since
+    $2=(1+i)(1-i)\in\mathbb{Z}[i]$. Also, $i+(1+i)=-i+(1+i)$ because
+    $i-(-i)=2i\in(1+i)$ since $2i=(1+i)(1+i)\in\mathbb{Z}[i]$. Also,
+    $1+(1+i)=-i+(1+i)$ because $1-(-i)=1+i\in(1+i)$. Thus the four cosets
+    $1+(1+i)$, $-1+(1+i)$, $i+(1+i)$, and $-i+(1+i)$ are equal. It remains
+    to show that the coset $0+(1+i)$ is distinct from $1+(1+i)$. This is
+    true because $1-0=1\not\in(1+i)$, since
+    $1/(1+i)=(1-i)/2\neq\in\mathbb{Z}[i]$. Thus the quotient ring has
+    exactly two elements $(1+i)$ and $1+(1+i)$.
+  \end{proof}
 \end{document}
