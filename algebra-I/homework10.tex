@@ -516,7 +516,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
       factorizations of 6 into irreducibles in $R$.
 
       \begin{proof}
-        Define the norm $N:R\rightarrow\mathbb{N}$ of $R$ by
+        Define the function $N:R\rightarrow\mathbb{N}$ of $R$ by
         $N(a+b\sqrt{-5})=a^2+5b^2$. It is known that $N(xy)=N(x)N(y)$ for
         all $x,y\in\mathbb{Z}[\sqrt{-5}]$. Thus if $x|y$ in $R$, we must
         have $N(x)|N(y)$. We use this rule to test for divisors of elements
@@ -528,7 +528,7 @@ Let $R$ be a ring with identity $1\neq0$. \\
         implies that $x=\pm1$. Thus the units of $R$ are only $1$ or $-1$.
         Thus the only associates of a given element $x$ in $R$ are $\pm x$.
         Therefore no pair of elements in the given four are associates in
-        $R$.
+        $R$. \\
 
         Let $2=xy$ in $R$. Then $N(x)$ and $N(y)$ divides $N(2)=4$, and so
         $N(x)$ must be 1, 2, or 4. We need to show that either $x$ or $y$
@@ -566,7 +566,27 @@ Let $R$ be a ring with identity $1\neq0$. \\
         We first prove that given $n\in\mathbb{N}^+$, we have
         \[R/\langle n\rangle =\{a+b\sqrt{-5}:0\leq a,b<n\}.\]
         Given $\langle n\rangle+x\in R/\langle n\rangle$, where $x\in R$,
-        write $x=x_1+x_2\sqrt{-5}$.
+        write $x=x_1+x_2\sqrt{-5}$. Then $x_i=q_in+r_i$ for some
+        $r_i\in\mathbb{N}$ with $r_i<n$, so
+        $x=n(q_1+q_2\sqrt{-5})+(r_1+r_2\sqrt{-5})$, and therefore $\langle
+        n\rangle+x=\langle n\rangle+(r_1+r_2\sqrt{-5})$. \\
+
+        Now from the Third Isomorphism Theorem for rings, we have
+        $R/I_2\cong (R/\langle2\rangle)/(I_2/\langle2\rangle)$. From the
+        claim in the first paragraph, we have $|R/\langle2\rangle|\leq4$.
+        To show that $|R/\langle2\rangle|=4$, note that if
+        $x=x_1+x_2\sqrt{-5}\in\langle2\rangle$ with $0\leq x_1,x_2<2$, then
+        taking norms give $N(x)=(x_1^2+5x_2^2)|N(2)=4$, which implies $x=0$
+        or $x=\pm1$. But $\pm1\not\in\langle2\rangle$, thus $x$ can only be
+        $0$, which implies $|R/\langle2\rangle|=4$. Then from Lagrange's
+        theorem, $[I_2:\langle2\rangle]$ equals 1, 2, or 4. But since
+        $1+\sqrt{-5}$ does not divide 2 in $R$, $I_2$ is a strict superset
+        of $\langle2\rangle$, so $[I_2:\langle2\rangle]$ equals 2 or 4,
+        which implies that $[R:I_2]$ is 1 or 2. Now from Question 5a of
+        Section 8.3, we have shown that $I_2$ is non-principal, and
+        therefore it must be strictly contained in $R$ (otherwise
+        $I_2=\langle1\rangle$). Thus $[R:I_2]=2$, and so
+        $R/I_2\cong\mathbb{Z}_2$ as a ring, and is therefore a field. \\
       \end{proof}
   \end{enumerate}
 \end{document}
