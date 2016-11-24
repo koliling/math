@@ -14,6 +14,19 @@
 
 Let $R$ be a ring with identity $1\neq0$. \\
 
+\textbf{Question 2:} Let $R$ be a commutative ring. Prove that the
+  polynomial ring in infinitely many variables with coefficients in $R$,
+  denoted $R[x_1,x_2,x_2\ldots]$ is not Noetherian.
+
+  \begin{proof}
+    We construct an infinitely ascending and non-converging chain of ideals
+    $I_1\subsetneq I_2\subsetneq I_3\subsetneq\ldots$ in
+    $R[x_1,x_2,x_2\ldots]$. For each $n\in\mathbb{N}^+$, define
+    $I_n=\langle x_1,\ldots,x_n\rangle$. Then $I_{n+1}\neq I_n$ because
+    $x_{n+1}\in I_{n+1}$ but $x_{n+1}\not\in I_{n}$. Thus
+    $R[x_1,x_2,x_2\ldots]$ is not Noetherian.
+  \end{proof}
+
 \textbf{Section 7.6 Question 4:} Prove that if $R$ and $S$ are nonzero
   rings then $R\times S$ is never a field.
   \begin{proof}
@@ -515,6 +528,14 @@ Let $R$ be a ring with identity $1\neq0$. \\
         Since the four given elements are irreducible in $R$ and
         $6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})$, the given factorizations
         are distinct factorizations of 6 into irreducbles in $R$.
+      \end{proof}
+
+    \item Prove that $I_2$, $I_3$, and $I_3'$ are prime ideals in $R$.
+      \begin{proof}
+        We first prove that given $n\in\mathbb{N}^+$, we have
+        \[R/\langle n\rangle =\{a+b\sqrt{-5}:0\leq a,b<n\}.\]
+        Given $\langle n\rangle+x\in R/\langle n\rangle$, where $x\in R$,
+        write $x=x_1+x_2\sqrt{-5}$.
       \end{proof}
   \end{enumerate}
 \end{document}
