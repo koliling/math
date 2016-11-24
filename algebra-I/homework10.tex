@@ -614,6 +614,30 @@ Let $R$ be a ring with identity $1\neq0$. \\
       $\langle6\rangle$ as the product of prime ideals.
 
       \begin{proof}
+        $\langle6\rangle=\langle2\rangle\langle3\rangle
+        =\langle1+\sqrt{-5}\rangle\langle1-\sqrt{-5}\rangle$ follows
+        immediately from $6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})$, which was
+        proven in part (a) of this question. In Question 5c of Section 8.2,
+        we have also shown that $\langle6\rangle =I_2^2I_3I_3'$, and from
+        part (b) above, we have shown that $I_2$, $I_3$, and $I_3'$ are
+        prime ideals of $R$. Furthermore, from Question 5b and 5c of
+        Section 8.2, we have shown that $\langle2\rangle =I_2^2$, and
+        $\langle1-\sqrt{-5}\rangle=I_2I_3$, and
+        $\langle1+\sqrt{-5}\rangle=I_2I_3'$. It remains to show that
+        $\langle3\rangle$ is a product of some of the prime ideals. We show
+        that $\langle3\rangle=I_3I_3'$: We have
+        \begin{align*}
+          I_3I_3' &=\langle 3\cdot3, 3(2-\sqrt{-5}), 3(2+\sqrt{-5}),
+            (2-\sqrt{-5})(2+\sqrt{-5}) \rangle
+            \\
+            &=\langle9, 6-3\sqrt{-5}, 6+3\sqrt{-5}, 9 \rangle \\
+            &=\langle9, 6-3\sqrt{-5}, 12 \rangle
+              &(\because12=6-3\sqrt{-5}+6+3\sqrt{-5}) \\
+            &=\langle3, 6-3\sqrt{-5} \rangle
+              &(\because3=12-9\; \text{and}\; 3|9,12) \\
+            &=\langle3\rangle.
+              &(\because3|(6-3\sqrt{-5})) \\
+        \end{align*}
       \end{proof}
   \end{enumerate}
 \end{document}
