@@ -459,4 +459,62 @@ Let $R$ be a ring with identity $1\neq0$. \\
     $1/(1+i)=(1-i)/2\neq\in\mathbb{Z}[i]$. Thus the quotient ring has
     exactly two elements $(1+i)$ and $1+(1+i)$.
   \end{proof}
+
+\textbf{Section 8.3 Question 8:} Let $R$ be the quadratic integer ring
+  $\mathbb{Z}[\sqrt{-5}]$ and define the ideals
+  $I_2=\langle2,1+\sqrt{-5}\rangle$, $I_3=\langle3,2+\sqrt{-5}\rangle$,
+  $I_3'=\langle3,2-\sqrt{-5}\rangle$.
+
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item Prove that 2, 3, $1+\sqrt{-5}$ and $1-\sqrt{-5}$ are irreducibles
+      in $R$, no two of which are associate in $R$, and that
+      $6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})$ are two distinct
+      factorizations of 6 into irreducibles in $R$.
+
+      \begin{proof}
+        Define the norm $N:R\rightarrow\mathbb{N}$ of $R$ by
+        $N(a+b\sqrt{-5})=a^2+5b^2$. It is known that $N(xy)=N(x)N(y)$ for
+        all $x,y\in\mathbb{Z}[\sqrt{-5}]$. Thus if $x|y$ in $R$, we must
+        have $N(x)|N(y)$. We use this rule to test for divisors of elements
+        in $R$. \\
+
+        To test for associativity, we first find the units of $R$.
+        Assume $xy=1$ in $R$. Then $N(x)N(y)=N(1)=1$, so $N(x)=N(y)=1$.
+        Write $x=x_1+x_2\sqrt{-5}$. Then $N(x)=x_1^2+5x_2^2=1$, which
+        implies that $x=\pm1$. Thus the units of $R$ are only $1$ or $-1$.
+        Thus the only associates of a given element $x$ in $R$ are $\pm x$.
+        Therefore no pair of elements in the given four are associates in
+        $R$.
+
+        Let $2=xy$ in $R$. Then $N(x)$ and $N(y)$ divides $N(2)=4$, and so
+        $N(x)$ must be 1, 2, or 4. We need to show that either $x$ or $y$
+        is a unit in $R$. If $N(x)=1$ or 2, then $x=\pm1$, which is a unit.
+        On the other hand, if $N(x)=4$, then $x=\pm2$, which implies
+        $y=\pm1$, which is a unit. Thus 2 is irreducible in $R$. \\
+
+        Let $3=xy$ in $R$. Then $N(x)$ and $N(y)$ divides $N(3)=9$, and so
+        $N(x)$ must be 1, 3, or 9. We need to show that either $x$ or $y$
+        is a unit in $R$. If $N(x)=1$ or 3, then $x=\pm1$, which is a unit.
+        On the other hand, if $N(x)=9$, then $x=\pm3$ or $x=2\pm\sqrt{-5}$.
+        $x=\pm3$ would give $y=\pm1$, which is a unit. So assume
+        $x=2\pm\sqrt{-5}$. But such $x$ will not divide 3 in $R$. Thus 3 is
+        irreducible in $R$. \\
+
+        Let $1+\sqrt{-5}=xy$ in $R$. Then $N(x)$ and $N(y)$ divides
+        $N(1+\sqrt{-5})=6$, and so $N(x)$ must be 1, 2, 3, or 6. We need to
+        show that either $x$ or $y$ is a unit in $R$. If $N(x)=1$, 2, or 3,
+        then $x=\pm1$, which is a unit. On the other hand, if $N(x)=6$,
+        then $x=\pm(1\pm\sqrt{-5})$. $x=\pm(1+\sqrt{-5})$ would give
+        $y=\mp1$, which is a unit. So assume $x=\pm(1-\sqrt{-5})$. But such
+        $x$ will not divide $1+\sqrt{-5}$ in $R$. Thus $1+\sqrt{-5}$ is
+        irreducible in $R$. \\
+
+        The argument for testing that $1-\sqrt{-5}$ is irreducible in $R$
+        is analogous with the argument for $1+\sqrt{-5}$. \\
+
+        Since the four given elements are irreducible in $R$ and
+        $6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})$, the given factorizations
+        are distinct factorizations of 6 into irreducbles in $R$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
