@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic I: Homework 11}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item Let $T$ be an inductive theory in a countable language and $\kappa$
+    an infinite cardinal. Prove that if $T$ is $\kappa$-categorical then
+    $T$ is model complete.
+
+  \item Let $\mathcal{L}$ be the language containing a unary function $f$
+    and a binary relation symbol $R$. Let $T$ be the $\mathcal{L}$-theory
+    $T=\{\forall x\forall y\; [R(x,y)\rightarrow R(x,f(y))]\}$.
+
+    \begin{enumerate}
+      \item Let $\mathcal{M}$ be an existentially closed in $T$ structure,
+        and $a,b\in M$ with $b\not\in\{a,f(a),f^2(a),\ldots\}$. Show that
+        $\mathcal{M}\models \exists x\; (R(x,a)\wedge\neg R(x,b))$.
+
+        \begin{proof}
+          Assume by contradiction that $\mathcal{M}\models \forall x\;
+          (\neg R(x,a)\vee R(x,b))$. We construct an extension
+          $\mathcal{N}$ of $\mathcal{M}$ with $N=M\cup\{c\}$ such that
+          $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg R(x,b))$ with
+          $c$ as the witness. This would contradict existential-closure of
+          $\mathcal{M}$. \\
+
+          We set $N=M\cup\{c\}$, and $f^\mathcal{N}(c)=c$. Also, we set
+          \[R^\mathcal{N}= R^\mathcal{M} \cup R_{x<c} \cup R_{c<x},\]
+          where
+          \[R_{x<c}:= \{R(b,c)\}\cup \{R(x,c):x\in M, R(x,b)\},\]
+          and
+          \[R_{c<x}:= \{R(c,a)\}\cup \{R(c,x):x\in M, R(a,x)\}.\]
+
+          These relations will ensure that $\mathcal{N}$ is a model of $T$
+          and that $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
+          R(x,b))$, which implies $\mathcal{M}\models \exists x\;
+          (R(x,a)\wedge\neg R(x,b))$ by existential closure of
+          $\mathcal{M}$, a contradiction.
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
