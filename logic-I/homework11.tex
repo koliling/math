@@ -30,19 +30,16 @@
         \begin{proof}
           Assume by contradiction that $\mathcal{M}\models \forall x\;
           (R(x,a)\rightarrow R(x,b))$. We construct an extension
-          $\mathcal{N}$ of $\mathcal{M}$ with $N=M\cup\{c\}$ such that
-          $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg R(x,b))$ with
-          $c$ as the witness. This would contradict existential-closure of
-          $\mathcal{M}$. \\
-
-          We set $N=M\cup\{c\}$, and $f^\mathcal{N}(c)=c$. Also, we set
+          $\mathcal{N}$ of $\mathcal{M}$ with $N=M\sqcup\{c\}$
+          such that $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
+          R(x,b))$ with $c$ as the witness. Set $f^\mathcal{N}(c)=c$, and
           \[R^\mathcal{N}= R^\mathcal{M} \cup
           \{(c,f^n(a):n\in\mathbb{N}\}.\]
 
           These relations will ensure that $\mathcal{N}$ is a model of $T$
-          and that $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
-          R(x,b))$, which implies $\mathcal{M}\models \exists x\;
-          (R(x,a)\wedge\neg R(x,b))$ by existential closure of
+          and that $c$ witnesses $\mathcal{N}\models \exists x\;
+          (R(x,a)\wedge\neg R(x,b))$, which implies $\mathcal{M}\models
+          \exists x\; (R(x,a)\wedge\neg R(x,b))$ by existential closure of
           $\mathcal{M}$, a contradiction.
         \end{proof}
 
@@ -53,12 +50,35 @@
         x\; [R(x,a)\rightarrow R(x,b)]$.
 
         \begin{proof}
-          Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{c\}$, where $c$
+          Note that if $R(M,a)=\emptyset$, then the assertion is trivially
+          true with $\mathcal{N}=\mathcal{M}$. Hence we can assume there
+          exists $a_0\in M$ with $\mathcal{M}\models R(a_0,a)$. \\
+
+          Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{b\}$, where $b$
           is a constant that does not appear in $\mathcal{L}(\mathcal{M})$.
-          Let \[T':=T_\mathcal{M}\cup \{c_m\neq c_n:m\neq n\in M\}
-          \cup\{R(c_m,c):m\in M\}\] be a theory in the language
-          $\mathcal{L}'$. Then $T\subset T'$ and $T'$ is finitely satisfied
-          by $\mathcal{M}$.
+          Let
+          \[\begin{array}{rrl}
+            T' &:= &T_\mathcal{M} \\
+              &&\cup \{c_m\neq c_n:m\neq n\in M\} \\
+              &&\cup\{R(c_m,b):m\in R(M,a)\} \\
+              &&\cup\{b\neq f^n(a):n\in\mathbb{N}\}
+          \end{array}\]
+          be a theory in the language $\mathcal{L}'$. We show that
+          $T'$ is finitely satisfied by $\mathcal{M}$: Assign each $c_m$ to
+          $m\in M$. Then clearly $\mathcal{M}$ satisfies all sentences in
+          $T_\mathcal{M}$ and also formulas of the form $c_m\neq c_n\in
+          T'$ by definition. Given a finite set of formulas
+          $\{b\neq f^{0}(a),\ldots,b\neq f^{n}(a)\}\subset T'$, assign $b$
+          to $f^{n+1}(a)\in M$. This assignment will satisfy all formulas
+          $R(c_m,b)\in T'$ because $R(m,a)$ implies $R(m,f^{n+1}(a))$ by
+          induction on $n$. \\
+
+          Thus by Compactness theorem $T'$ is satisfied by some model
+          $\mathcal{N}$. Then since $T\subset T'$ and $T_\mathcal{M}\subset
+          T'$, $\mathcal{N}$ is an elementary extension of $\mathcal{M}$ in
+          the original language $\mathcal{L}$, and also
+          $\mathcal{N}\models\forall x\; [R(x,a)\rightarrow R(x,b)]$ by our
+          choice of $T'$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
