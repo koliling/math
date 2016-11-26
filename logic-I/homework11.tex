@@ -40,10 +40,13 @@
           \{(c,f^n(a)):n\in\mathbb{N}\}.\]
 
           These relations will ensure that $\mathcal{N}$ is a model of $T$
-          and that $c$ witnesses $\mathcal{N}\models \exists x\;
-          (R(x,a)\wedge\neg R(x,b))$, which implies $\mathcal{M}\models
-          \exists x\; (R(x,a)\wedge\neg R(x,b))$ by existential closure of
-          $\mathcal{M}$, a contradiction.
+          and that $c$. Also, since $b\neq f^n(a)$ for all
+          $n\in\mathbb{N}$, $c$ will witness $\mathcal{N}\models \exists x\;
+          (R(x,a)\wedge\neg R(x,b))$. Also, since the new relations each
+          involve the new element $c$, $\mathcal{N}$ is an extension of
+          $\mathcal{M}$. Thus, from existential closure of $\mathcal{M}$,
+          we have $\mathcal{M}\models \exists x\; (R(x,a)\wedge\neg
+          R(x,b))$, a contradiction.
         \end{proof}
 
       \item Let $\mathcal{M}$ be a model of $T$ and $a\in M$ with
@@ -74,7 +77,9 @@
           $\{b\neq f^{0}(a),\ldots,b\neq f^{n}(a)\}\subset T'$, assign $b$
           to $f^{n+1}(a)\in M$. This assignment will satisfy all formulas
           $R(c_m,b)\in T'$ because $R(m,a)$ implies $R(m,f^{n+1}(a))$ by
-          induction on $n$. \\
+          induction on $n$. Also, since $f^{n+1}(a)\neq f^i(a)$ for all
+          $i<n+1$, the assignment will also satisfy the chosen finite set
+          of formulas. \\
 
           Thus by Compactness theorem $T'$ is satisfied by some model
           $\mathcal{N}$. Then since $T\subset T'$ and $T_\mathcal{M}\subset
