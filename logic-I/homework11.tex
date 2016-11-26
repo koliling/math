@@ -29,24 +29,36 @@
 
         \begin{proof}
           Assume by contradiction that $\mathcal{M}\models \forall x\;
-          (\neg R(x,a)\vee R(x,b))$. We construct an extension
+          (R(x,a)\rightarrow R(x,b))$. We construct an extension
           $\mathcal{N}$ of $\mathcal{M}$ with $N=M\cup\{c\}$ such that
           $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg R(x,b))$ with
           $c$ as the witness. This would contradict existential-closure of
           $\mathcal{M}$. \\
 
           We set $N=M\cup\{c\}$, and $f^\mathcal{N}(c)=c$. Also, we set
-          \[R^\mathcal{N}= R^\mathcal{M} \cup R_{x<c} \cup R_{c<x},\]
-          where
-          \[R_{x<c}:= \{R(b,c)\}\cup \{R(x,c):x\in M, R(x,b)\},\]
-          and
-          \[R_{c<x}:= \{R(c,a)\}\cup \{R(c,x):x\in M, R(a,x)\}.\]
+          \[R^\mathcal{N}= R^\mathcal{M} \cup
+          \{(c,f^n(a):n\in\mathbb{N}\}.\]
 
           These relations will ensure that $\mathcal{N}$ is a model of $T$
           and that $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
           R(x,b))$, which implies $\mathcal{M}\models \exists x\;
           (R(x,a)\wedge\neg R(x,b))$ by existential closure of
           $\mathcal{M}$, a contradiction.
+        \end{proof}
+
+      \item Let $\mathcal{M}$ be a model of $T$ and $a\in M$ with
+        $f^n(a)\neq f^m(a)$ for all $n\neq m$. Show that there is an
+        elementary extension $\mathcal{N}$ of $\mathcal{M}$ and
+        $b\not\in\{a,f(a),f^2(a),\ldots\}$ with $\mathcal{N}\models\forall
+        x\; [R(x,a)\rightarrow R(x,b)]$.
+
+        \begin{proof}
+          Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{c\}$, where $c$
+          is a constant that does not appear in $\mathcal{L}(\mathcal{M})$.
+          Let \[T':=T_\mathcal{M}\cup \{c_m\neq c_n:m\neq n\in M\}
+          \cup\{R(c_m,c):m\in M\}\] be a theory in the language
+          $\mathcal{L}'$. Then $T\subset T'$ and $T'$ is finitely satisfied
+          by $\mathcal{M}$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
