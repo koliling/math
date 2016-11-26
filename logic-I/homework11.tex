@@ -56,10 +56,6 @@
         x\; [R(x,a)\rightarrow R(x,b)]$.
 
         \begin{proof}
-          Note that if $R(M,a)=\emptyset$, then the assertion is trivially
-          true with $\mathcal{N}=\mathcal{M}$. Hence we can assume there
-          exists $a_0\in M$ with $\mathcal{M}\models R(a_0,a)$. \\
-
           Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{b\}$, where $b$
           is a constant that does not appear in $\mathcal{L}(\mathcal{M})$.
           Let
@@ -75,11 +71,11 @@
           $T_\mathcal{M}$ and also formulas of the form $c_m\neq c_n\in
           T'$ by definition. Given a finite set of formulas
           $\{b\neq f^{0}(a),\ldots,b\neq f^{n}(a)\}\subset T'$, assign $b$
-          to $f^{n+1}(a)\in M$. This assignment will satisfy all formulas
-          $R(c_m,b)\in T'$ because $R(m,a)$ implies $R(m,f^{n+1}(a))$ by
-          induction on $n$. Also, since $f^{n+1}(a)\neq f^i(a)$ for all
-          $i<n+1$, the assignment will also satisfy the chosen finite set
-          of formulas. \\
+          to $f^{n+1}(a)\in M$. This assignment will satisfy formulas of
+          the form $R(c_m,b)\in T'$ for each $m\in R(M,a)$ because $R(m,a)$
+          implies $R(m,f^{n+1}(a))$ by induction on $n$. Also, since
+          $f^{n+1}(a)\neq f^i(a)$ for all $i<n+1$, the assignment will also
+          satisfy the chosen finite set of formulas. \\
 
           Thus by Compactness theorem $T'$ is satisfied by some model
           $\mathcal{N}$. Then since $T\subset T'$ and $T_\mathcal{M}\subset
