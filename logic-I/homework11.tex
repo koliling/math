@@ -19,15 +19,10 @@
     $T$ is model complete.
 
     \begin{proof}
-      Let $T'$ denote the theory $T$ concatenated with the countable set of
+      Let $T'$ denote the theory $T$ extended with the countable set of
       sentences that say ``I have at least $n$ elements'' for each
       $n\in\mathbb{N}$. Then from Vaught's test (Theorem 4.34), $T'$ is a
-      complete theory from $\kappa$-categoricity of $T$ and thus $T'$. \\
-
-      %Also, since $T$ is inductive, it is equivalent to a
-      %$\forall\exists$-theory (Theorem 11.9), thus the models of
-      %$T=T_{\forall\exists}$ are exactly the existentially-closed
-      %substructures of models of $T$ (Lemma 11.5)
+      complete theory from $\kappa$-categoricity of $T$ and thus of $T'$. \\
 
       We first show that $T'$ is model-complete. Let $\mathcal{M}$ be an
       arbitrary model of $T'$. To show model-completeness, we need to show
@@ -38,7 +33,7 @@
       $\mathcal{N}$ of $T'$, then
       $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$. \\
 
-      Let $\lambda$ denote the cardinality of $\mathbb{N}$. Let
+      Let $\lambda$ denote the cardinality of $\mathcal{N}$. Let
       $\mathcal{N}_\lambda\models T'$ be a $\lambda^+$-saturated model of
       cardinality $\leq2^\lambda$. Such a model exists from completeness of
       $T'$ (Theorem 8.11). Then since $\mathcal{M},\mathcal{N}\models T'$
@@ -51,10 +46,10 @@
           &\Rightarrow\mathcal{N}\models \exists\bar{x}\;
           \varphi(\bar{x},\bar{m}) &(\because \mathcal{N}_0\leq\mathcal{N})
           \\
-          &\Rightarrow\mathcal{N}_\lambda\models \exists\bar{x}\;
+          &\Leftrightarrow\mathcal{N}_\lambda\models \exists\bar{x}\;
             \varphi(\bar{x},\bar{m}) &(\because
             \mathcal{N}\preceq\mathcal{N}_\lambda) \\
-          &\Rightarrow\mathcal{M}\models \exists\bar{x}\;
+          &\Leftrightarrow\mathcal{M}\models \exists\bar{x}\;
             \varphi(\bar{x},\bar{m}), &(\because
             \mathcal{M}\preceq\mathcal{N}_\lambda) \\
       \end{align*}
