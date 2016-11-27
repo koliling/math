@@ -21,26 +21,29 @@
     \begin{proof}
       Let $T'$ denote the theory $T$ extended with the countable set of
       sentences that say ``I have at least $n$ elements'' for each
-      $n\in\mathbb{N}$. Then from Vaught's test (Theorem 4.34), $T'$ is a
-      complete theory from $\kappa$-categoricity of $T$ and thus of $T'$. \\
+      $n\in\mathbb{N}$. Note that from Vaught's test (Theorem 4.34), $T'$
+      is a complete theory from $\kappa$-categoricity of $T$ and thus of
+      $T'$. \\
 
-      We first show that $T'$ is model-complete. Let $\mathcal{M}$ be an
-      arbitrary model of $T'$. To show model-completeness, we need to show
-      that $\mathcal{M}$ is an ec-closed model of $T'_\forall$ (Theorem
-      11.14.3). Now the models of $T'_\forall$ are the substructures of
-      models of $T'$ (Lemma 11.2), thus we need to show that if
-      $\mathcal{M}\leq \mathcal{N}_0\leq\mathcal{N}$ for some model
-      $\mathcal{N}$ of $T'$, then
-      $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$. \\
+      Let $\mathcal{M}$ be an arbitrary model of $T$. To show
+      model-completeness, we need to show that $\mathcal{M}$ is an
+      ec-closed model of $T_\forall$ (Theorem 11.14.3). Now the models of
+      $T_\forall$ are the substructures of models of $T$ (Lemma 11.2), thus
+      we need to show that if $\mathcal{M}\leq
+      \mathcal{N}_0\leq\mathcal{N}\models T$,
+      then $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$. \\
 
-      Let $\lambda$ denote the cardinality of $\mathcal{N}$. Let
-      $\mathcal{N}_\lambda\models T'$ be a $\lambda^+$-saturated model of
-      cardinality $\leq2^\lambda$. Such a model exists from completeness of
-      $T'$ (Theorem 8.11). Then since $\mathcal{M},\mathcal{N}\models T'$
-      and $|\mathcal{M}|\leq|\mathcal{N}|=\lambda<\lambda^+$, both
+      First consider the case where $\mathcal{M}$ is infinite. Let
+      $\lambda=\max(|\mathcal{N}|,\omega)$. Let $\mathcal{N}_\lambda\models
+      T'$ be a $\lambda^+$-saturated model of cardinality $\leq2^\lambda$.
+      Such a model exists from completeness of $T'$ (Theorem 8.11). Then
+      since $\mathcal{M},\mathcal{N}\models T'$ and
+      $|\mathcal{M}|\leq|\mathcal{N}|=\lambda<\lambda^+$, both
       $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
-      $\mathcal{N}_\lambda$ (Theorem 8.13.1). Then given arbitrary quantifier
-      free formula $\varphi(\bar{x},\bar{y})$ and $\bar{m}\in M$, we have
+      $\mathcal{N}_\lambda$ (Theorem 8.13.1). Then given arbitrary
+      quantifier free formula $\varphi(\bar{x},\bar{y})$ and $\bar{m}\in
+      M$, we have
+
       \begin{align*}
         \mathcal{N}_0\models \exists\bar{x}\; \varphi(\bar{x},\bar{m})
           &\Rightarrow\mathcal{N}\models \exists\bar{x}\;
@@ -53,7 +56,14 @@
             \varphi(\bar{x},\bar{m}), &(\because
             \mathcal{M}\preceq\mathcal{N}_\lambda) \\
       \end{align*}
-      thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$ as required.
+      thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$ as required. \\
+
+      Now consider the case where $\mathcal{M}$ is finite. Write
+      $M=\{m_1,\ldots,m_n\}$. Then $\mathcal{N}_0\geq\mathcal{M}$ must also
+      have $n$-elements, otherwise the existential-formula
+      \[\exists x\; (x\neq m_1\wedge \ldots\wedge x\neq m_n)\]
+      will be satisfied by $\mathcal{N}_0$ and not by $\mathcal{M}$, and
+      then $\mathcal{M}$ cannot be ec-closed in $\mathcal{N}_0$.
     \end{proof}
 
   \item Let $\mathcal{L}$ be the language containing a unary function $f$
