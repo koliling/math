@@ -166,29 +166,38 @@
         \begin{proof}
           The class of existentially-closed in $T$ substructures is
           axiomatized by $T_{\forall\exists}$ (Lemma 11.5). Since $T$ is
-          trivially a $\forall\exists$ theory, $T$ axiomatizes the class of
-          existentially-closed in $T$ substructures. Then $T\cup T=T$
-          should axiomatize the class of existentially-closed in $T$
-          structures, if such axiomatization exists. Thus to find a
-          contradiction, it suffices to show that $T$ does not axiomatize
-          the class of existentially-closed in $T$ structures, i.e. we find
-          two models $\mathcal{M}$ and $\mathcal{N}$ of $T$ where
+          trivially a $\forall\exists$-theory, this class is axiomatized by
+          $T$. Then $T\cup T=T$ should axiomatize the class of
+          existentially-closed in $T$ structures, if such an axiomatization
+          exists. Thus it suffices to show that $T$ does not axiomatize the
+          class of existentially-closed in $T$ structures, i.e. we find two
+          models $\mathcal{M}$ and $\mathcal{N}$ of $T$ where
           $\mathcal{M}\leq\mathcal{N}$ but
           $\mathcal{M}\not\leq_{\text{ec}}\mathcal{N}$. \\
 
-          Note that $T\subseteq T_\forall$,
-          that all substructures of models of $T$ must satisfy $T$ (Lemma
-          11.2). Assume by contradiction that there is a set of sentences
-          $S$ in the language $\mathcal{L}$ that axiomatizes the
-          existentially-closed in $T$ structures. Then since models of $S$
-          are substructures of models of $T$, the models of $S$ must
-          satisfy $T$ by our earlier claim, and thus $S\vdash T$. Also
-          since all models of $T$ are trivially substructures of models of
-          $T$, we have $T\vdash S$, thus $S\sim T$.
+          Consider model $\mathcal{M}$ that consists of exactly one element
+          $M=\{a\}$ and with functions and relations given by $f(a)=a$ and
+          $R^{\mathcal{M}}=\{(a,a)\}$. Consider an extension $\mathcal{N}$
+          of $\mathcal{M}$ that consists of exactly two elements
+          $N=\{a,b\}$ and with functions and relations given by $f(a)=a$,
+          $f(b)=b$, and $R^{\mathcal{N}}=\{(a,a),(b,b)\}$. Then we have
+          $\mathcal{M},\mathcal{N}\models T$ and $\mathcal{M}<\mathcal{N}$.
+          However, $\mathcal{M}\not<_{\text{ec}}\mathcal{N}$ because
+          the existential-formula $\exists x\; x\neq a$ is satisfied by
+          $\mathcal{N}$ but not by $\mathcal{M}$.
 
-          Then from Question 2.1, we
-          have
-          \[S\vdash \exists x\; (R(x,a)\wedge\neg R(x,b)).\]
+          %Note that $T\subseteq T_\forall$,
+          %that all substructures of models of $T$ must satisfy $T$ (Lemma
+          %11.2). Assume by contradiction that there is a set of sentences
+          %$S$ in the language $\mathcal{L}$ that axiomatizes the
+          %existentially-closed in $T$ structures. Then since models of $S$
+          %are substructures of models of $T$, the models of $S$ must
+          %satisfy $T$ by our earlier claim, and thus $S\vdash T$. Also
+          %since all models of $T$ are trivially substructures of models of
+          %$T$, we have $T\vdash S$, thus $S\sim T$.
+
+          %Then from Question 2.1, we have \[S\vdash \exists x\;
+          %(R(x,a)\wedge\neg R(x,b)).\]
         \end{proof}
     \end{enumerate}
 \end{enumerate}
