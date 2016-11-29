@@ -21,9 +21,12 @@
     \begin{proof}
       Let $T'$ denote the theory $T$ extended with the countable set of
       sentences that say ``I have at least $n$ elements'' for each
-      $n\in\mathbb{N}$. Note that from Vaught's test (Theorem 4.34), $T'$
-      is a complete theory from $\kappa$-categoricity of $T$ and thus of
-      $T'$. \\
+      $n\in\mathbb{N}$. Specifically, $T':=T\cup\{\phi_{\geq
+      n}:n\in\mathbb{N}\}$, where
+      \[\phi_{\geq n}:= \exists\; x_1,\ldots,x_n\; \bigwedge_{1\leq
+        i<j\leq n} x_i\neq x_j.\]
+      Note that from Vaught's test (Theorem 4.34), $T'$
+      is a complete theory from $\kappa$-categoricity of $T$. \\
 
       Let $\mathcal{M}$ be an arbitrary model of $T$. To show
       model-completeness, we need to show that $\mathcal{M}$ is an
@@ -41,7 +44,7 @@
       $|\mathcal{M}|\leq|\mathcal{N}|=\lambda<\lambda^+$, both
       $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
       $\mathcal{N}_\lambda$ (Theorem 8.13.1). Then given arbitrary
-      quantifier free formula $\varphi(\bar{x},\bar{y})$ and $\bar{m}\in
+      quantifier-free formula $\varphi(\bar{x},\bar{y})$ and $\bar{m}\in
       M$, we have
 
       \begin{align*}
@@ -58,15 +61,40 @@
       \end{align*}
       thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$ as required. \\
 
-      Now consider the case where $\mathcal{M}$ is finite. Write
-      $M=\{m_1,\ldots,m_n\}$. Then $\mathcal{N}_0\geq\mathcal{M}$ must also
-      have $n$-elements, otherwise the existential-formula
-      \[\exists x\; (x\neq m_1\wedge \ldots\wedge x\neq m_n)\]
-      will be satisfied by $\mathcal{N}_0$ and not by $\mathcal{M}$, and
-      then $\mathcal{M}$ cannot be ec-closed in $\mathcal{N}_0$. Thus the
-      embedding of $\mathcal{M}$ into $\mathcal{N}_0$ will be an
-      isomorphism, and thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$
-      trivially.
+      We have shown that $T'$ is model-complete. We now show that therefore
+      $T$ is also model-complete. This is equivalent to showing (by Theorem
+      11.16.3) that given any formula $\varphi(\bar{x})$, there is a
+      quantifier-free formula $\theta(\bar{x},\bar{y})$ such that
+      \[T\models \forall\bar{x}\; [\varphi(\bar{x})\leftrightarrow
+        \exists\bar{y}\; \theta(\bar{x},\bar{y})].\]
+
+      Now since $T'$ is model complete, there is a quantifier-free formula
+      $\theta'(\bar{x},\bar{y})$ such that
+      \[T'= T\cup\{\phi_{\geq n}:n\in\mathbb{N}\} \models
+      \forall\bar{x}\; [\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
+      \theta'(\bar{x},\bar{y})].\]
+
+      If $T$ alone models the formula on the right then we are done.
+      Otherwise by compactness theorem, there must be a non-empty finite
+      subset of $\{\phi_{\geq n}:n\in\mathbb{N}\}$ such that $T$ union this
+      subset models the formula on the right. Then since $\phi_{\geq n}$
+      implies $\phi_{\geq m}$ if $n>m$, there must be a minimal
+      $n\in\mathbb{N}$ such that
+      \[T\cup\{\phi_{\geq n}\} \models \forall\bar{x}\;
+      [\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
+      \theta'(\bar{x},\bar{y})].\]
+
+      In other words, models of
+
+      %Now consider the case where $\mathcal{M}$ is finite. Write
+      %$M=\{m_1,\ldots,m_n\}$. Then $\mathcal{N}_0\geq\mathcal{M}$ must also
+      %have $n$-elements, otherwise the existential-formula
+      %\[\exists x\; (x\neq m_1\wedge \ldots\wedge x\neq m_n)\]
+      %will be satisfied by $\mathcal{N}_0$ and not by $\mathcal{M}$, and
+      %then $\mathcal{M}$ cannot be ec-closed in $\mathcal{N}_0$. Thus the
+      %embedding of $\mathcal{M}$ into $\mathcal{N}_0$ will be an
+      %isomorphism, and thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$
+      %trivially.
     \end{proof}
 
   \item Let $\mathcal{L}$ be the language containing a unary function $f$
