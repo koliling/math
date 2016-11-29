@@ -109,7 +109,7 @@
         \begin{proof}
           Assume by contradiction that $\mathcal{M}\models \forall x\;
           (R(x,a)\rightarrow R(x,b))$. We construct an extension
-          $\mathcal{N}$ of $\mathcal{M}$ with $N=M\sqcup\{c\}$
+          $\mathcal{N}\models T$ of $\mathcal{M}$ with $N=M\sqcup\{c\}$
           such that $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
           R(x,b))$ with $c$ as the witness. Set $f^\mathcal{N}(c)=c$, and
           \[R^\mathcal{N}= R^\mathcal{M} \cup
@@ -164,6 +164,18 @@
       \item Show that the class of existentially-closed in $T$ structures
         is not axiomatizable.
         \begin{proof}
+          The class of existentially-closed in $T$ substructures is
+          axiomatized by $T_{\forall\exists}$ (Lemma 11.5). Since $T$ is
+          trivially a $\forall\exists$ theory, $T$ axiomatizes the class of
+          existentially-closed in $T$ substructures. Then $T\cup T=T$
+          should axiomatize the class of existentially-closed in $T$
+          structures, if such axiomatization exists. Thus to find a
+          contradiction, it suffices to show that $T$ does not axiomatize
+          the class of existentially-closed in $T$ structures, i.e. we find
+          two models $\mathcal{M}$ and $\mathcal{N}$ of $T$ where
+          $\mathcal{M}\leq\mathcal{N}$ but
+          $\mathcal{M}\not\leq_{\text{ec}}\mathcal{N}$. \\
+
           Note that $T\subseteq T_\forall$,
           that all substructures of models of $T$ must satisfy $T$ (Lemma
           11.2). Assume by contradiction that there is a set of sentences
