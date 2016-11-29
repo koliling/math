@@ -115,14 +115,14 @@
           \[R^\mathcal{N}= R^\mathcal{M} \cup
           \{(c,f^n(a)):n\in\mathbb{N}\}.\]
 
-          These relations will ensure that $\mathcal{N}$ is a model of $T$
-          and that $c$. Also, since $b\neq f^n(a)$ for all
-          $n\in\mathbb{N}$, $c$ will witness $\mathcal{N}\models \exists x\;
-          (R(x,a)\wedge\neg R(x,b))$. Also, since the new relations each
-          involve the new element $c$, $\mathcal{N}$ is an extension of
-          $\mathcal{M}$. Thus, from existential closure of $\mathcal{M}$,
-          we have $\mathcal{M}\models \exists x\; (R(x,a)\wedge\neg
-          R(x,b))$, a contradiction.
+          These relations will ensure that $\mathcal{N}$ is a model of $T$.
+          Also, since $b\neq f^n(a)$ for all $n\in\mathbb{N}$, $c$ will
+          witness $\mathcal{N}\models \exists x\; (R(x,a)\wedge\neg
+          R(x,b))$. Also, since the new relations each involve the new
+          element $c$, $\mathcal{N}$ is an extension of $\mathcal{M}$.
+          Thus, from existential closure of $\mathcal{M}$, we have
+          $\mathcal{M}\models \exists x\; (R(x,a)\wedge\neg R(x,b))$, a
+          contradiction.
         \end{proof}
 
       \item Let $\mathcal{M}$ be a model of $T$ and $a\in M$ with
@@ -161,9 +161,22 @@
           choice of $T'$.
         \end{proof}
 
-      \item Show that the class of existentially closed in $T$ structures
+      \item Show that the class of existentially-closed in $T$ structures
         is not axiomatizable.
         \begin{proof}
+          Note that $T\subseteq T_\forall$,
+          that all substructures of models of $T$ must satisfy $T$ (Lemma
+          11.2). Assume by contradiction that there is a set of sentences
+          $S$ in the language $\mathcal{L}$ that axiomatizes the
+          existentially-closed in $T$ structures. Then since models of $S$
+          are substructures of models of $T$, the models of $S$ must
+          satisfy $T$ by our earlier claim, and thus $S\vdash T$. Also
+          since all models of $T$ are trivially substructures of models of
+          $T$, we have $T\vdash S$, thus $S\sim T$.
+
+          Then from Question 2.1, we
+          have
+          \[S\vdash \exists x\; (R(x,a)\wedge\neg R(x,b)).\]
         \end{proof}
     \end{enumerate}
 \end{enumerate}
