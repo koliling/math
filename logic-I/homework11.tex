@@ -119,26 +119,25 @@
         x\; [R(x,a)\rightarrow R(x,b)]$.
 
         \begin{proof}
-          Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{b\}$, where $b$
+          Let $\mathcal{L}'=\mathcal{L}(\mathcal{M})\cup\{b\}$, where $c_b$
           is a constant that does not appear in $\mathcal{L}(\mathcal{M})$.
           Let
           \[\begin{array}{rrl}
             T' &:= &T_\mathcal{M} \\
-              &&\cup \{c_m\neq c_n:m\neq n\in M\} \\
-              &&\cup\{R(c_m,b):m\in R(M,a)\} \\
-              &&\cup\{b\neq f^n(a):n\in\mathbb{N}\}
+              &&\cup\{R(c_m,c_b):m\in R(M,a)\} \\
+              &&\cup\{c_b\neq c_{f^n(a)}:n\in\mathbb{N}\}
           \end{array}\]
           be a theory in the language $\mathcal{L}'$. We show that
-          $T'$ is finitely satisfied by $\mathcal{M}$: Assign each $c_m$ to
-          $m\in M$. Then clearly $\mathcal{M}$ satisfies all sentences in
-          $T_\mathcal{M}$ and also formulas of the form $c_m\neq c_n\in
-          T'$ by definition. Given a finite set of formulas
-          $\{b\neq f^{0}(a),\ldots,b\neq f^{n}(a)\}\subset T'$, assign $b$
-          to $f^{n+1}(a)\in M$. This assignment will satisfy formulas of
-          the form $R(c_m,b)\in T'$ for each $m\in R(M,a)$ because $R(m,a)$
-          implies $R(m,f^{n+1}(a))$ by induction on $n$. Also, since
-          $f^{n+1}(a)\neq f^i(a)$ for all $i<n+1$, the assignment will also
-          satisfy the chosen finite set of formulas. \\
+          $T'$ is finitely satisfied by $\mathcal{M}$: Assign $m\in M$ to
+          $c_m$. Then $\mathcal{M}$ satisfies all sentences in
+          $T_\mathcal{M}$. Given a finite set of formulas
+          $\{c_b\neq c_{f^{0}(a)},\ldots,c_b\neq c_{f^{n}(a)}\}\subset T'$,
+          assign $f^{n+1}(a)\in M$ to $c_b$. This assignment will satisfy
+          formulas of the form $R(c_m,c_b)\in T'$ for each $m\in R(M,a)$
+          because $R(m,a)$ implies $R(m,f^{n+1}(a))$ by induction on $n$.
+          Also, since $f^{n+1}(a)\neq f^i(a)$ for all $i\leq n$, the
+          assignment will also satisfy the chosen finite set of formulas.
+          \\
 
           Thus by Compactness theorem $T'$ is satisfied by some model
           $\mathcal{N}$. Then since $T\subset T'$ and $T_\mathcal{M}\subset
@@ -154,7 +153,7 @@
           The class of existentially-closed in $T$ substructures is
           axiomatized by $T_{\forall\exists}$ (Lemma 11.5). Since $T$ is
           trivially a $\forall\exists$-theory, this class is axiomatized by
-          $T$. Then $T\cup T=T$ should axiomatize the class of
+          $T$. Then $T\cup T=T$ will axiomatize the class of
           existentially-closed in $T$ structures, if such an axiomatization
           exists. Thus it suffices to show that $T$ does not axiomatize the
           class of existentially-closed in $T$ structures, i.e. we find two
@@ -171,19 +170,6 @@
           $\mathcal{M}\not<_{\text{ec}}\mathcal{N}$ because the
           existential-formula $\exists x\; x\neq 0$ is satisfied by
           $\mathcal{N}$ but not by $\mathcal{M}$.
-
-          %Note that $T\subseteq T_\forall$,
-          %that all substructures of models of $T$ must satisfy $T$ (Lemma
-          %11.2). Assume by contradiction that there is a set of sentences
-          %$S$ in the language $\mathcal{L}$ that axiomatizes the
-          %existentially-closed in $T$ structures. Then since models of $S$
-          %are substructures of models of $T$, the models of $S$ must
-          %satisfy $T$ by our earlier claim, and thus $S\vdash T$. Also
-          %since all models of $T$ are trivially substructures of models of
-          %$T$, we have $T\vdash S$, thus $S\sim T$.
-
-          %Then from Question 2.1, we have \[S\vdash \exists x\;
-          %(R(x,a)\wedge\neg R(x,b)).\]
         \end{proof}
     \end{enumerate}
 \end{enumerate}
