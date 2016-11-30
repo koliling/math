@@ -15,86 +15,71 @@
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
   \item Let $T$ be an inductive theory in a countable language and $\kappa$
-    an infinite cardinal. Prove that if $T$ is $\kappa$-categorical then
-    $T$ is model complete.
+    an infinite cardinal. Prove that if $T$ is $\kappa$-categorical and
+    does not have finite models then $T$ is model complete.
 
     \begin{proof}
-      Let $T'$ denote the theory $T$ extended with the countable set of
-      sentences that say ``I have at least $n$ elements'' for each
-      $n\in\mathbb{N}$. Specifically, $T':=T\cup\{\phi_{\geq
-      n}:n\in\mathbb{N}\}$, where
-      \[\phi_{\geq n}:= \exists\; x_1,\ldots,x_n\; \bigwedge_{1\leq
-        i<j\leq n} x_i\neq x_j.\]
-      Note that from Vaught's test (Theorem 4.34), $T'$
-      is a complete theory from $\kappa$-categoricity of $T$. \\
-
-      Let $\mathcal{M}$ be an arbitrary model of $T$. To show
-      model-completeness, we need to show that $\mathcal{M}$ is an
-      ec-closed model of $T_\forall$ (Theorem 11.14.3). Now the models of
-      $T_\forall$ are the substructures of models of $T$ (Lemma 11.2), thus
-      we need to show that if $\mathcal{M}\leq
-      \mathcal{N}_0\leq\mathcal{N}\models T$,
-      then $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$. \\
-
-      First consider the case where $\mathcal{M}$ is infinite. Let
-      $\lambda=\max(|\mathcal{N}|,\omega)$. Let $\mathcal{N}_\lambda\models
-      T'$ be a $\lambda^+$-saturated model of cardinality $\leq2^\lambda$.
-      Such a model exists from completeness of $T'$ (Theorem 8.11). Then
-      since $\mathcal{M},\mathcal{N}\models T'$ and
-      $|\mathcal{M}|\leq|\mathcal{N}|=\lambda<\lambda^+$, both
-      $\mathcal{M}$ and $\mathcal{N}$ can be elementarily embedded into
-      $\mathcal{N}_\lambda$ (Theorem 8.13.1). Then given arbitrary
-      quantifier-free formula $\varphi(\bar{x},\bar{y})$ and $\bar{m}\in
-      M$, we have
-
+      We first prove that every model $\mathcal{K}$ of $T$ of cardinality
+      $\kappa$ is ec-closed in $T$: Let $\mathcal{M}$ be a model of $T$
+      that embeds $\mathcal{K}$, let $\bar{k}\in\mathcal{K}$, and let
+      $\varphi(\bar{x},\bar{y})$ be a quantifier-free formula such that
+      \[\mathcal{M}\models \exists\bar{x}\; \varphi(\bar{x},\bar{k}).\] We
+      wish to show that $\mathcal{K}\models \exists\bar{x}\;
+      \varphi(\bar{x},\bar{k})$. Now $T$ has an ec-closed model
+      $\mathcal{K}_0$ of cardinality $\kappa$ (Lemma 11.13). Then
+      $\mathcal{K}$ is isomorphic to $\mathcal{K}_0$ by
+      $\kappa$-categoricity of $T$. Let
+      $\alpha:\mathcal{K}\rightarrow\mathcal{K}_0$ be an isomorphism
+      between the models. Consider the set of formulas $T_{M_0}$ given by
+      the $T_M$ but by renaming each constant $c_a$ for elements $a\in K$
+      by $c_{\alpha(a)}$. Then $T_{M_0}$ is satisfied by model
+      $\mathcal{M}_0\models T$, which is constructed from $\mathcal{M}$
+      through renaming elements $a$ in $K$ by $\alpha(a)$. Furthermore,
+      $\mathcal{M}_0$ embeds $\mathcal{K}_0$, and
+      \[\mathcal{M}\models \exists\bar{x}\; \varphi(\bar{x},\bar{k})\;
+        \Leftrightarrow \mathcal{M}_0\models
+        \exists\bar{x}\; \varphi(\bar{x},\alpha(\bar{k})).\]
+      Then
       \begin{align*}
-        \mathcal{N}_0\models \exists\bar{x}\; \varphi(\bar{x},\bar{m})
-          &\Rightarrow\mathcal{N}\models \exists\bar{x}\;
-          \varphi(\bar{x},\bar{m}) &(\because \mathcal{N}_0\leq\mathcal{N})
-          \\
-          &\Leftrightarrow\mathcal{N}_\lambda\models \exists\bar{x}\;
-            \varphi(\bar{x},\bar{m}) &(\because
-            \mathcal{N}\preceq\mathcal{N}_\lambda) \\
-          &\Leftrightarrow\mathcal{M}\models \exists\bar{x}\;
-            \varphi(\bar{x},\bar{m}), &(\because
-            \mathcal{M}\preceq\mathcal{N}_\lambda) \\
+        \mathcal{M}_0\models \exists\bar{x}\;
+          \varphi(\bar{x},\alpha(\bar{k})) &\Leftrightarrow
+            \mathcal{K}_0\models \exists\bar{x}\;
+            \varphi(\bar{x},\alpha(\bar{k})) &(\text{from ce-closure of}\;
+            \mathcal{K}_0) \\
+          &\Leftrightarrow \mathcal{K}\models
+            \exists\bar{x}\; \varphi(\bar{x},\bar{k}),
+            &(\text{from isomorphism}\;
+            \alpha:\mathcal{K}\rightarrow\mathcal{K}_0) \\
       \end{align*}
-      thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$ as required. \\
+      which completes our proof that $\mathcal{K}$ is ce-closed in $T$. \\
 
-      We have shown that $T'$ is model-complete. We now show that therefore
-      $T$ is also model-complete. This is equivalent to showing (by Theorem
-      11.16.3) that given any formula $\varphi(\bar{x})$, there is a
-      quantifier-free formula $\theta(\bar{x},\bar{y})$ such that
-      \[T\models \forall\bar{x}\; [\varphi(\bar{x})\leftrightarrow
-        \exists\bar{y}\; \theta(\bar{x},\bar{y})].\]
-
-      Now since $T'$ is model complete, there is a quantifier-free formula
-      $\theta'(\bar{x},\bar{y})$ such that
-      \[T'= T\cup\{\phi_{\geq n}:n\in\mathbb{N}\} \models
-      \forall\bar{x}\; [\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
-      \theta'(\bar{x},\bar{y})].\]
-
-      If $T$ alone models the formula on the right then we are done.
-      Otherwise by compactness theorem, there must be a non-empty finite
-      subset of $\{\phi_{\geq n}:n\in\mathbb{N}\}$ such that $T$ union this
-      subset models the formula on the right. Then since $\phi_{\geq n}$
-      implies $\phi_{\geq m}$ if $n>m$, there must be a minimal
-      $n\in\mathbb{N}$ such that
-      \[T\cup\{\phi_{\geq n}\} \models \forall\bar{x}\;
-      [\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
-      \theta'(\bar{x},\bar{y})].\]
-
-      In other words, models of
-
-      %Now consider the case where $\mathcal{M}$ is finite. Write
-      %$M=\{m_1,\ldots,m_n\}$. Then $\mathcal{N}_0\geq\mathcal{M}$ must also
-      %have $n$-elements, otherwise the existential-formula
-      %\[\exists x\; (x\neq m_1\wedge \ldots\wedge x\neq m_n)\]
-      %will be satisfied by $\mathcal{N}_0$ and not by $\mathcal{M}$, and
-      %then $\mathcal{M}$ cannot be ec-closed in $\mathcal{N}_0$. Thus the
-      %embedding of $\mathcal{M}$ into $\mathcal{N}_0$ will be an
-      %isomorphism, and thus $\mathcal{M}\leq_{\text{ec}}\mathcal{N}_0$
-      %trivially.
+      Assume by contradiction that $T$ is not model-complete. Then $T$ must
+      have a model $\mathcal{M}$ that is not ec-closed in $T_\forall$
+      (Theorem 11.14.3). Since models of $T_\forall$ are exactly the
+      substructures of models of $T$ (Lemma 11.2), $\mathcal{M}$ must be
+      embedded in some substructure $\mathcal{N}_0$ of $\mathcal{N}\models
+      T$, where
+      \[\mathcal{M}\not\leq_{\text{ec}}\mathcal{N}_0\leq\mathcal{N}\models
+        T.\]
+      Then $\mathcal{M}\leq\mathcal{N}$ since embeddings are transitive,
+      but $\mathcal{M}$ cannot be ec-closed in $\mathcal{N}$, because
+      \begin{align*}
+        \mathcal{N}_0\models \exists\bar{x}\;
+          \varphi(\bar{x},\bar{m}) &\Rightarrow
+          \mathcal{N}\models \exists\bar{x}\;
+          \varphi(\bar{x},\bar{m})
+          &(\because\mathcal{N}_0\leq\mathcal{N};\; \text{where}\;
+          \bar{m}\in M\; \text{and}\; \varphi\; \text{is quantifier-free}) \\
+        &\Rightarrow\mathcal{M}\models \exists\bar{x}\;
+          \varphi(\bar{x},\bar{m}), &(\text{assuming}\;
+          \mathcal{M}\leq_{\text{ec}}\mathcal{N}) \\
+      \end{align*}
+      which would contradict
+      $\mathcal{M}\not\leq_{\text{ec}}\mathcal{N}_0$. Thus we have an
+      infinite model $\mathcal{M}$ of $T$ that is not ec-closed in
+      $\mathcal{N}\models T$, which implies that $T$ has a model of
+      cardinality $\kappa$ that is not ec-closed in $T$ (Lemma 11.15). This
+      would contradict our claim in the first paragraph.
     \end{proof}
 
   \item Let $\mathcal{L}$ be the language containing a unary function $f$
@@ -175,15 +160,14 @@
           $\mathcal{M}\leq\mathcal{N}$ but
           $\mathcal{M}\not\leq_{\text{ec}}\mathcal{N}$. \\
 
-          Consider model $\mathcal{M}$ that consists of exactly one element
-          $M=\{a\}$ and with functions and relations given by $f(a)=a$ and
-          $R^{\mathcal{M}}=\{(a,a)\}$. Consider an extension $\mathcal{N}$
-          of $\mathcal{M}$ that consists of exactly two elements
-          $N=\{a,b\}$ and with functions and relations given by $f(a)=a$,
-          $f(b)=b$, and $R^{\mathcal{N}}=\{(a,a),(b,b)\}$. Then we have
-          $\mathcal{M},\mathcal{N}\models T$ and $\mathcal{M}<\mathcal{N}$.
-          However, $\mathcal{M}\not<_{\text{ec}}\mathcal{N}$ because
-          the existential-formula $\exists x\; x\neq a$ is satisfied by
+          Consider models
+          \[\mathcal{M}= \langle\{0\},=,\text{id}\rangle,\;\;
+            \text{and}\;\; \mathcal{N}=
+            \langle\{0,1\},=,\text{id}\rangle.\]
+          Then $\mathcal{M}<\mathcal{N}\models T$ in the language
+          $\mathcal{L}=\{=,\text{id}\}$, but
+          $\mathcal{M}\not<_{\text{ec}}\mathcal{N}$ because the
+          existential-formula $\exists x\; x\neq 0$ is satisfied by
           $\mathcal{N}$ but not by $\mathcal{M}$.
 
           %Note that $T\subseteq T_\forall$,
