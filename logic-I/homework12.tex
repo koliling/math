@@ -68,6 +68,44 @@
     $t>q$ for any $q\in\mathbb{Q}$.
 
     \begin{proof}
+      Let $\mathcal{L}=\{+,-,\cdot,0,1\}$ be the language of fields, and
+      $\mathcal{L}'=\{+,-,\cdot,0,1,<\}$ be the extended language of ordered
+      fields. Write $T_{\mathbb{Q}(t),\mathcal{L}}$ as the complete
+      diagram of the field $\mathbb{Q}(t)$ in the language
+      of fields $\mathcal{L}$. Let $T_{\text{lin ring}}$ be the sentences of
+      linear-orderings in rings, i.e.
+      \begin{align*}
+        T_{\text{lin ring}}:=\{ &\forall x,y\; (x\neq y\rightarrow x<y\vee
+          y<x) \;\; \wedge \\
+        &\forall x,y,z\; (x<y\wedge y<z\rightarrow x<z) \;\; \wedge \\
+        &\forall x,y,z\; (x<y\rightarrow x\not>y) \;\; \wedge \\
+        &\forall x,y,z\; (x<y\rightarrow x+z<y+z) \;\; \wedge \\
+        &\forall x,y,z\; (x<y\wedge z>0\rightarrow xz<yz\wedge zx<zy)\}. \\
+      \end{align*}
+      Finally, let $T_{t>\mathbb{Q}}:= \{t>q:q\in\mathbb{Q}\}$. \\
+
+      We show that $T_{\mathbb{Q}(t),\mathcal{L}}\cup
+      T_{\text{lin ring}}\cup T_{t>\mathbb{Q}}$ is finitely satisfiable: Given
+      any finite subset of formulas $\{t>q_1,\ldots,t>q_n\}$ in
+      $T_{t>\mathbb{Q}}$, choose any positive irrational
+      $r\in\mathbb{R}^+\setminus\mathbb{Q}^+$ with absolute value larger
+      than the absolute values of the $q_i$'s, i.e.
+      $r>\max(|q_1|,\ldots,|q_n|)$. Since there are uncountably many
+      irrationals, such $r$ must exist. In particular, we can choose
+      $r=\sqrt{(\max(|q_1|,\ldots,|q_n|))^2+1}$. Then by assigning $r$ to
+      $t$, $\mathbb{Q}(r)$ would satisfy $T_{\mathbb{Q}(t),\mathcal{L}}\cup
+      T_{\text{lin ring}}\cup \{t>q_1,\ldots,t>q_n\}$. \\
+
+      Thus from compactness theorem, $T:= T_{\mathbb{Q}(t),\mathcal{L}}\cup
+      T_{\text{lin ring}}\cup T_{t>\mathbb{Q}}$ is satisfiable. Any model
+      that satisfies $T$ must embed $\mathbb{Q}(t)$ elementarily as a field
+      since this model satisfies the complete diagram of $\mathbb{Q}(t)$ in
+      the language $\mathcal{L}$ of fields. Also, since a subset of a set
+      that satisfies $T_{\text{lin ring}}$ will also satisfy $T_{\text{lin
+      ring}}$, the embedded $\mathbb{Q}(t)$ will be an ordered field.
+      Finally, this embedded $\mathbb{Q}(t)$ will contain $t$ that
+      satisfies $T_{t>\mathbb{Q}}$, and thus have an ordering where $t$ is
+      larger than all rationals in $\mathbb{Q}$.
     \end{proof}
 
   \item \it Let $F$ be a field such that $-1$ is not a sum of two squares
