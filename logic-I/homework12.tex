@@ -14,9 +14,34 @@
 \maketitle
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
-  \item Prove Claim 13.11 from the notes: Let $F$ be a field and
+  \item \it Prove Claim 13.11 from the notes: Let $F$ be a field and
     $P\subseteq F$ a semi-positive cone satisfying $P\cup(-P)=F$. Then $F$
     is an ordered field with the ordering $a>b$ defined as $a-b\in P$ and
     $a-b\neq0$. 
+
+    \begin{proof}
+      We check that the given ordering satisfies the axioms of linear
+      order and the other ordering relations of an ordered field. \\
+
+      Total order: The order is clearly total because $a-b$ is either in
+      $P$ or not in $P$. \\
+
+      Anti-symmetry: If $ajb$, then $a-b\in P$ and $a\neq b$, which implies
+      $-(b-a)\notin P$ ($\because P\cap -P=0$), and thus $a\not<b$. \\
+
+      Transitivity: If $a>b$ and $b>c$, then $a-b,b-c\in P$ and $a\neq b$
+      and $b\neq c$, which implies $a-c=(a-b)+(b-c)\in P$ (by closure of
+      $P$ under addition), and so $a\geq c$. \\
+
+      $a>b\Rightarrow a+c>b+c$: If $a>b$, then $a-b\in P$ and $a\neq b$,
+      which means $(a+c)-(b+c)=a-b\in P$ and $a+c\neq b+c$, which means
+      $a+c>b+c$. \\
+
+      $a>b\wedge c>0\Rightarrow ac>bc\wedge ca>cb$: If $a>b$ and $c>0$,
+      then $a-b,c\in P$ and $a\neq b$ and $c\neq0$, so $ac-bc=(a-b)c\in P$
+      (by closure under multiplication) and $ac-bc=(a-b)c\neq0$ (since $F$
+      is an integral domain), and thus $ac>bc$. A similar argument shows
+      that $ca>cb$.
+    \end{proof}
 \end{enumerate}
 \end{document}
