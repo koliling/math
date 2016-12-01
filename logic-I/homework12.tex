@@ -43,5 +43,25 @@
       is an integral domain), and thus $ac>bc$. A similar argument shows
       that $ca>cb$.
     \end{proof}
+
+  \item \it Prove Lemma 13.17 from the notes: If $F$ is a real-closed field
+    and $a\in F$ then $a$ is a square or $-a$ is a square.
+
+    \begin{proof}
+      Since $F$ is real-closed, $a$ must be a sum of squares or $-a$
+      is a sum of squares (Corollary 13.16). Assume $a$ is a sum of squares.
+      Then if $a\neq0$, $-a$ cannot be a sum of squares: Otherwise
+      we have $a=\sum_{i=1}^n x_i^2$ and $-a=\sum_{j=1}^m y_j^2$, which
+      gives $\sum_{i=1}^n x_i^2+ \sum_{j=1}^m y_j^2=0$, which can only be
+      true if $x_i=y_j=0$ because if $x_i>0$ or $y_j>0$, then $x_i^2>0$ or
+      $y_j^2>0$, and then $\sum_{i=1}^n x_i^2+ \sum_{j=1}^m y_j^2>0$. \\
+
+      Then $F(\sqrt{a})$ will be formally real (Lemma 13.15). But since $F$
+      is real-closed, $F(\sqrt{a})$ cannot properly extend $F$, which
+      implies that $\sqrt{a}$ is contained in $F$, and thus $a$ is a square
+      in $F$. On the other hand, if $-a$ is a sum of squares, then
+      exchanging the roles of $a$ and $-a$ in the above argument, we will
+      get $-a$ is a square in $F$.
+    \end{proof}
 \end{enumerate}
 \end{document}
