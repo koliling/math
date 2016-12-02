@@ -148,9 +148,59 @@
         $\mathbb{Z}/(2)\cong\mathbb{Z}_2$. Thus $\mathbb{Z}[x]/(2)$ has
         characteristic 2.
 
-      \item $\mathbb{Z}[x]/(x)$
-      \item $\mathbb{Z}[x]/(x^2)$
-      \item $\mathbb{Z}[x,y]/(x^2,y^2,2)$
+      \item $\mathbb{Z}[x]/(x)$: The map
+        $\varphi:\mathbb{Z}[x]\rightarrow\mathbb{Z}$ defined by
+        $\varphi(xf(x)+c)=c$ is a surjective ring-homomorphism with kernel
+        $(x)$. Thus by the first isomorphism theorem, $\mathbb{Z}[x]/(x)$
+        is isomorphic to $\mathbb{Z}$, which has characteristic 0.
+
+      \item $\mathbb{Z}[x]/(x^2)$: We show that $\mathbb{Z}[x]/(x^2)
+        =\{\overline{ax+b}:a,b\in\mathbb{Z}\}$. Since every
+        $f(x)\in\mathbb{Z}[x]$ can be written in the form
+        $f(x)=x^2g(x)+ax+b$ where $g(x)\in\mathbb{Z}[x]$, the given set of
+        cosets contain all elements of $\mathbb{Z}[x]/(x^2)$. Also, since
+        $x^2|(ax+b)$ if and only if $a=b=0$, the given set of cosets are
+        distinct. Thus $\mathbb{Z}[x]/(x^2)
+        =\{\overline{ax+b}:a,b\in\mathbb{Z}\}$, which has characteristic 0.
+
+      \item $\mathbb{Z}[x,y]/(x^2,y^2,2)$: We show that
+        $\mathbb{Z}[x,y]/(x^2,y^2,2)
+        =\{\overline{axy+bx+cy+d}:a,b,c,d\in\mathbb{Z}_2\}$. Since every
+        $f(x)\in\mathbb{Z}[x]$ can be written in the form
+        \[f(x)=x^2g(x)+y^2h(x)+(2a_0+a)xy+(2b_0+b)x+(2c_0+c)y+(2d_0+d),\]
+        where $g(x),h(x)\in\mathbb{Z}[x,y]$, and $a,b,c,d\in\{0,1\}$, the
+        given set of cosets contain all elements of
+        $\mathbb{Z}[x,y]/(x^2,y^2,2)$. Next, we show that these cosets are
+        distinct. If $axy+bx+cy+d\in(x^2,y^2,2)$, since the coefficients of
+        $xy$, $x$, $y$, and $1$ must divide 2, we get $a=b=c=d=0$. Thus the
+        cosets are distinct. Then since $\bar{1}+\bar{1}=\bar{0}$, this
+        ring has characteristic 2.
     \end{enumerate}
+  \end{proof}
+
+\it \textbf{Section 9.2 Question 9:} Determine the greatest common divisor
+  of $a(x)=x^5+2x^3+x^2+x+1$ and the polynomial
+  $b(x)=x^5+x^4+2x^3+2x^2+2x+1$ in $\mathbb{Q}[x]$ and write it as a linear
+  combination (in $\mathbb{Q}[x]$) of $a(x)$ and $b(x)$.
+
+  \begin{proof}
+    Note that since $\mathbb{Q}$ is a field, $\mathbb{Q}$ is a Euclidean
+    domain, thus the notion of greatest common divisor is well-defined. We
+    perform the Euclidean algorithm to find the GCD,
+    and backtrack to express the GCD in terms of $a(x)$ and $b(x)$. The
+    Euclidean algorithm gives:
+
+    \[\begin{array}{rll}
+      a(x)= &b(x) &+(x^4+x^2+x) \\
+      b(x)= &x(x^4+x^2+x) &+(x^3+x+1) \\
+      (x^4+x^2+x)= &x(x^3+x+1) &+0 \\
+    \end{array}\]
+
+    Thus the GCD is $(x^3+x+1)$. Backtracking, we have
+    \begin{align*}
+      (x^3+x+1) &=b(x)-x(x^4+x^2+x) \\
+      &=b(x)-x(a(x)-b(x)) \\
+      &=-xa(x)+(x+1)b(x). \\
+    \end{align*}
   \end{proof}
 \end{document}
