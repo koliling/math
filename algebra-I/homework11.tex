@@ -99,4 +99,32 @@
     (Proposition 7, Section 8.2), thus $(f(x))$ is a maximal ideal, which
     makes $F[x]/(f(x))$ a field.
   \end{proof}
+
+\it \textbf{Section 9.2 Question 5:} Let $F$ be a field and let $x$ be an
+  indeterminate over $F$. Exhibit all the ideals in the ring $F[x]/(p(x))$,
+  where $F$ is a field and $p(x)$ is a polynomial in $F[x]$ (describe them
+  in terms of the factorization of $p(x)$).
+
+  \begin{proof}
+    Since $F$ is a field, $F[x]$ is a Euclidean domain, thus $p(x)$ factors
+    uniquely (up to associates) into a product of primes
+    $p(x)=u\prod_{i=1}^nf_i^{\alpha_i}(x)$, where the $f_i(x)$'s are unique
+    primes, $u$ is a unit (which is a unit in $R$, by Proposition 1 of
+    Section 9.1), and $\alpha_i>0$. \\
+
+    Now from the Lattice Isomorphism Theorem for rings, the ideals of
+    $F[x]/(p(x))$ are exactly the ideals $I/(p(x))$, where $I$ is an ideal
+    of $F[x]$ that contains $(p(x))$. Since $F[x]$ is a PID, we can write
+    $I=(q(x))$ for some $q(x)\in F[x]$. Now because $(q(x))$ contains
+    $(p(x))$ if and only if $q(x)$ divides $p(x)$. Therefore the ideals of
+    $F[x]/(p(x))$ are exactly those of the form $(q(x))/(p(x))$ for
+    divisors $q(x)$ of $p(x)$. \\
+
+    Furthermore, for principle ideals, $(q_1(x))$ equals $(q_2(x))$ if and
+    only if $q_1(x)$ and $q_2(x)$ are associates. Thus from the factor
+    decomposition of $p(x)$, the ideals of $F[x]/(p(x))$ are exactly those
+    of the form $(\prod_{i=1}^nf_i^{\beta_i}(x))/(p(x))$, where
+    $\beta_i\leq\alpha_i$, giving a total of $\prod_{i=1}^n\alpha_i$
+    unique ideals.
+  \end{proof}
 \end{document}
