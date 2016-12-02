@@ -61,4 +61,24 @@
     $\mathbb{Z}_2$ is a field, $(2,x,y)$ is a maximal and also prime ideal in
     $\mathbb{Z}[x,y]$.
   \end{proof}
+
+\it \textbf{Section 9.1 Question 6:} Prove that $(x,y)$ is not a principal
+  ideal in $\mathbb{Q}[x,y]$.
+
+  \begin{proof}
+    If $(x,y)$ is principal, then $(x,y)=(p(x,y))$ for some polynomial
+    $p(x,y)\in\mathbb{Q}[x,y]$. Then $x\in(p(x,y))$ implies $p(x,y)|x$ in
+    $\mathbb{Q}[x,y]$. Now in $\mathbb{Q}[x,y]$, the only divisors of the
+    polynomial $x$ are of the form $q$ or $qx$ for non-zero rationals
+    $q\in\mathbb{Q}\setminus\{0\}$, because if the degree of $x$ in
+    $p(x,y)$ is larger than 1, then the degree of $x$ in $p(x,y)f(x,y)$ for
+    any non-zero polynomial $f(x,y)\in\mathbb{Q}[x,y]$ will remain larger
+    than 1. Thus $p(x,y)$ must be of the form $q$ or $qx$.  Similarly,
+    since $y\in(p(x,y))$, $p(x,y)$ must be of a form $q$ or $qy$ for
+    non-zero rationals $q\in\mathbb{Q}\setminus\{0\}$. Thus $p(x,y)$ must
+    be a non-zero rational $q$. But $(q)=\mathbb{Q}[x,y]$ for non-zero
+    $q\in\mathbb{Q}$, yet $(x,y)$ is strictly contained in
+    $\mathbb{Q}[x,y]$ because the $\mathbb{Q}[x,y]$ contains $1$ but
+    $(x,y)$ does not.
+  \end{proof}
 \end{document}
