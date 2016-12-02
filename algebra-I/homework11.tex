@@ -81,4 +81,22 @@
     $\mathbb{Q}[x,y]$ because the $\mathbb{Q}[x,y]$ contains $1$ but
     $(x,y)$ does not.
   \end{proof}
+
+\it \textbf{Section 9.2 Question 3:} Let $F$ be a field and let $x$ be an
+  indeterminate over $F$. Let $f(x)$ be a polynomial in $F[x]$. Prove that
+  $F[x]/(f(x))$ is a field if and only if $f(x)$ is irreducible.
+
+  \begin{proof}
+    $\Rightarrow$: If $F[x]/(f(x))$ is a field, $(f(x))$ must be a prime
+    ideal, which means $f(x)$ is prime in $F(x)$. Now  since $F(x)$ is a
+    UFD, prime elements are equivalent to the irreducible elements, thus
+    $f(x)$ is irreducible. \\
+
+    $\Leftarrow$: Assume $f(x)$ is irreducible. Then since $F(x)$ is a UFD,
+    irreducible elements are equivalent to prime ones, so $f(x)$ is a prime
+    element. Then $(f(x))$ will be a prime ideal. Now since $F[x]$ is a PID
+    (Corollary 4, Section 9.2), its prime ideals are maximal ideals
+    (Proposition 7, Section 8.2), thus $(f(x))$ is a maximal ideal, which
+    makes $F[x]/(f(x))$ a field.
+  \end{proof}
 \end{document}
