@@ -113,12 +113,18 @@
     formally real.
 
     \begin{proof}
-      Let $P:= \{a\in F:a\; \text{is a square}\}$. We show that $P$ is a
-      semi-positive cone that satisfies $P\cup(-P)=F$:
-
-      Thus defining the ordering $a>b\Leftrightarrow (a\neq b \wedge a-b\in
-      P)$ would give a field ordering of $F$ (Claim 13.11), which is
-      equivalent to $F$ being formally real (Theorem 13.12).
+      Assume by contradiction that $-1$ is a sum of squares. Write
+      $-1=x_1^2+\ldots+x_n^2$, where each $x_i\neq0$, and $n>2$ is the
+      smallest positive integer for which $-1$ can be expressed as a sum of
+      $n$ squares. Consider $a=x_1^2+x_2^2$. From minimality of $n$, $a$
+      cannot be 0, otherwise $-1=x_3^2+\ldots+x_n^2$ will be a shorter
+      expression of $-1$ as a sum of squares. Also, from assumption, either
+      $a$ is square or $-a$ is a square. But $a$ cannot be a square again
+      from minimality of $n$, thus $-a$ must be a square. So we have
+      $x_1^2+x_2^2=a=-b^2$ for some $x_1,x_2,b\neq0\in F$. Rearranging, we
+      get
+      \[-1 =\left(\frac{x_1}{b}\right)^2 +\left(\frac{x_2}{b}\right)^2,\]
+      which expresses $-1$ as a sum of two squares, a contradiction.
     \end{proof}
 \end{enumerate}
 \end{document}
