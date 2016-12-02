@@ -40,4 +40,25 @@
     $\mathbb{Q}$ is field, $(x,y)$ is a maximal and also prime ideal in
     $\mathbb{Q}[x,y]$.
   \end{proof}
+
+\it \textbf{Section 9.1 Question 5:} Prove that $(x,y)$ and $(2,x,y)$ are
+  prime ideals in $\mathbb{Z}[x,y]$ but only the latter ideal is a maximal
+  ideal.
+
+  \begin{proof}
+    Consider the map $\phi:\mathbb{Z}[x,y]\rightarrow\mathbb{Z}$
+    defined by $\phi(xf(x,y)+yg(y)+c)=c$. This map is a surjective ring
+    homomorphism with kernel $(x,y)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Z}[x,y]/(x,y)\cong\mathbb{Z}$. Now since
+    $\mathbb{Z}$ is an integral domain, $(x,y)$ is a prime ideal in
+    $\mathbb{Z}[x,y]$. However, because $\mathbb{Z}$ is not a field,
+    $(x,y)$ is not a maximal ideal in $\mathbb{Z}[x,y]$. \\
+
+    Consider the map $\phi:\mathbb{Z}[x,y]\rightarrow\mathbb{Z}_2$
+    defined by $\phi(xf(x,y)+yg(y)+c)=\bar{c}$. This map is a surjective ring
+    homomorphism with kernel $(2,x,y)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Z}[x,y]/(2,x,y)\cong\mathbb{Z}_2$. Now since
+    $\mathbb{Z}_2$ is a field, $(2,x,y)$ is a maximal and also prime ideal in
+    $\mathbb{Z}[x,y]$.
+  \end{proof}
 \end{document}
