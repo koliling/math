@@ -487,4 +487,15 @@
     given polynomial do not lie in $\mathbb{Q}[\sqrt{2}]$, the polynomial
     is irreducible over $\mathbb{Z}[\sqrt{2}]$.
   \end{proof}
+
+\it \textbf{Section 9.4 Question 11:} Prove that $x^2+y^2-1$ is irreducible
+  in $\mathbb{Q}[x,y]$.
+  \begin{proof}
+    Consider $\mathbb{Q}[x,y]$ as $\mathbb{Q}[x][y]$. Note that
+    $\mathbb{Q}[x]$ is an integral domain since $\mathbb{Q}$ is. Thus we
+    can apply Eisenstein's Criterion with integral domain
+    $R=\mathbb{Q}[x]$. Then write $f(y)=y^2+(x-1)(x+1)$. Since
+    $x+1\in\mathbb{Q}[x]$ is irreducible and thus prime in $\mathbb{Q}[x]$,
+    by Eisenstein's Criterion, $f(y)$ is irreducible in $\mathbb{Q}[x,y]$.
+  \end{proof}
 \end{document}
