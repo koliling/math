@@ -15,7 +15,22 @@
 \it \textbf{Question 1:} For the field of 9 elements and for the field of 8
   elements you construct in Question 6 of Section 9.4 below, find a
   generator for the (cyclic) multiplicative group of non-zero elements.
+
   \begin{proof}
+    A field of 8 elements would have 7 non-zero elements in its
+    multiplicative group. Since all non-zero (in the multiplicative sense)
+    elements in a prime group are generators, any non-one and non-zero
+    element in the larger group would be a multiplicative generator. In
+    particular, $\overline{x}\in\mathbb{F}_2[x]/(x^3+x+1)$ will be a
+    multiplicative generator. \\
+
+    In the field $\mathbb{F}_3[x]/(x^2+1)$ with 8 non-zero elements, each
+    non-zero element can have multiplicative order 2, 4, or 8. Hence to
+    test if an element $\overline{ax+b}$ has multiplicative order 8, it
+    suffices to check that $\overline{ax+b}^4\neq\overline{1}$. We test
+    $\overline{x+1}^2=\overline{2x}$, thus $\overline{x+1}^4=
+    \overline{2x}^2= \overline{4x^2}= \overline{x^2}\neq\overline{1}$.
+    Hence $\overline{x+1}$ is a multiplicative generator.
   \end{proof}
 
 \it \textbf{Section 9.1 Question 4:} Prove that the ideals $(x)$ and
@@ -455,4 +470,9 @@
     $\ker(\alpha)=\mathbb{R}[x]$, which is not true since
     $1\not\in\ker(\alpha)$. Thus $\ker(\alpha)=(x^2+1)$.
   \end{proof}
+
+\it \textbf{Section 9.4 Question 9:} Prove that the polynomial
+  $x^2-\sqrt{2}$ is irreducible over $\mathbb{Z}[\sqrt{2}]$ (you may use
+  the fact that $\mathbb{Z}[\sqrt{2}]$ is a UFD, from Exercise 9 of Section
+  8.1).
 \end{document}
