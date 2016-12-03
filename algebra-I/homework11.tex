@@ -226,4 +226,23 @@
     $a(x)=x-\sqrt{2}\in F[x]$ and $b(x)=x+\sqrt{2}\in F[x]$. However
     $a(x)\not\in R[x]$. Thus $R$ is not a UFD.
   \end{proof}
+
+\it \textbf{Section 9.3 Question 4:} Let
+  $R=\mathbb{Z}+x\mathbb{Q}[x]\subset\mathbb{Q}[x]$ be the set of
+  polynomials in $x$ with rational coefficients whose constant term is an
+  integer.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that $R$ is an integral domain and its units are $\pm1$.
+      \begin{proof}
+        $\mathbb{Q}[x]$ is a Euclidean domain because $\mathbb{Q}$ is a
+        field, therefore $\mathbb{Q}[x]$ is an integral domain. Since any
+        zero-divisors of $R$ is also a zero-divisor of $\mathbb{Q}[x]$, $R$
+        must be an integral domain. \\
+
+        Since $R$ is a sub-ring of $\mathbb{Q}[x]$ whose units are
+        $\mathbb{Q}^+$ (Proposition 1, Section 9.1), the units of $R$ are
+        $\mathbb{Q}^+\cap R=\{1,-1\}$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
