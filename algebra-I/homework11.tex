@@ -435,4 +435,24 @@
     irreducible in $\mathbb{F}_2[x]$, and so $\mathbb{F}_2[x]/(x^3+x+1)$ is
     a field of order 8. \\
   \end{proof}
+
+\it \textbf{Section 9.4 Question 7:} Prove that $\mathbb{R}[x]/(x^2+1)$ is
+  a field which is isomorphic to the complex numbers.
+
+  \begin{proof}
+    Consider the map $\alpha:\mathbb{R}[x]\rightarrow\mathbb{C}$ given by
+    $\alpha(f(x))=f(i)$. Then $\alpha$ is surjective since every
+    $a+bi\in\mathbb{C}$ has an inverse image $a+bx\in\mathbb{R}[x]$. The
+    map is also a ring homomorphism by the commutative, associative, and
+    distributive properties of $\mathbb{R}[x]$. Thus from the first ring
+    isomorphism theorem, $\mathbb{C}$ is isomorphic to
+    $\mathbb{R}[x]/\ker(\alpha)$. It remains to prove that
+    $\ker(\alpha)=(x^2+1)$. Clearly $(x^2+1)\subseteq\ker(\alpha)$ since
+    $x^2+1\in\ker(\alpha)$. Also, $(x^2+1)$ is a prime ideal since $x^2+1$
+    is irreducible and thus prime in $\mathbb{R}[x]$. Then since
+    $\mathbb{R}[x]$ is a PID and $(x^2+1)$ is prime, $(x^2+1)$ must also be
+    maximal. Thus if $\ker(\alpha)\supsetneq(x^2+1)$ then
+    $\ker(\alpha)=\mathbb{R}[x]$, which is not true since
+    $1\not\in\ker(\alpha)$. Thus $\ker(\alpha)=(x^2+1)$.
+  \end{proof}
 \end{document}
