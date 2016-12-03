@@ -287,5 +287,39 @@
         product of irreducibles, and therefore $R$ is not a UFD by
         definition.
       \end{proof}
+
+    \item Show that $x$ is not prime in $R$ and describe the quotient ring
+      $R/(x)$.
+      \begin{proof}
+        $x$ divides $x=2\cdot(0.5x)$ in $R$, where $2,0.5x\in R$. However,
+        $x$ does not divide $2$ or $0.5x$ in $R$. Thus $x$ is not prime in
+        $R$. \\
+
+        We claim that
+        \[R/(x)= \{\overline{qx+n}:q\in\mathbb{Q},0\leq q<1,
+          n\in\mathbb{Z}\}.\]
+        Clearly the set of cosets is contained in the quotient ring. Given
+        any $f(x)=xf_0(x)+n\in R$, where
+        $f_0(x)=xf_1(x)+q_0\in\mathbb{Q}[x]$ and $n\in\mathbb{Z}$, we can
+        rearrange to get
+        \begin{align*}
+          f(x) &=x(f_1(x)+q_0)+n \\
+          &=xf_1(x)+q_0x+n \\
+          &=xf_1(x)-n_0x+(q_0-n_0)x+n, &(\text{where}\; n_0=\lfloor
+            q_0\rfloor) \\
+          &=x(f_1(x)-n_0)+(q_0-n_0)x+n. \\
+        \end{align*}
+        Then since $f_1(x)-n_0\in R$, $0\leq q_0-n_0<1$, and
+        $n\in\mathbb{Z}$, we have
+        $\overline{f(x)}=\overline{(q_0-n_0)x+n}$, which is contained in
+        the set of cosets we defined. Thus the set of cosets contain the
+        quotient ring. \\
+
+        Finally, we show that the set of cosets we defined are distinct.
+        Let $qx+n\in(x)$ where $q\in\mathbb{Q}$, $0\leq q<1$, and
+        $n\in\mathbb{Z}$. We need to show that $q=n=0$. Given any
+        $f(x)\in(x)$, the constant of $f(x)$ must be 0, thus $n=0$. Also,
+        the coefficient of $x$ in $f(x)$ must be an integer, thus $q=0$.
+      \end{proof}
   \end{enumerate}
 \end{document}
