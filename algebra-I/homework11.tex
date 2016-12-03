@@ -203,4 +203,27 @@
       &=-xa(x)+(x+1)b(x). \\
     \end{align*}
   \end{proof}
+
+\it \textbf{Section 9.3 Question 1:} Let $R$ be an integral domain with
+  quotient field $F$ and let $p(x)$ be a monic polynomial in $R[x]$. Assume
+  that $p(x)=a(x)b(x)$ where $a(x)$ and $b(x)$ are monic polynomials in
+  $F[x]$ of smaller degree than $p(x)$. Prove that if $a(x)\not\in R[x]$
+  then $R$ is not a UFD. Deduce that $\mathbb{Z}[2\sqrt{2}]$ is not a UFD.
+
+  \begin{proof}
+    Assume that $R$ is a UFD. Then by Gauss's lemma, there are non-zero
+    elements $a_0,b_0\in F$ such that $a_1(x)=a_0a(x),b_1(x)=b_0b(x)\in
+    R[x]$ and $p(x)=a_1(x)b_1(x)$. Comparing leading coefficients, we must
+    have $a_0b_0=1$. Also, since $a_0a(x)\in R[x]$ and $a(x)$ is monic,
+    $a_0$ must lie in $R$. Then $a(x)=a_0^{-1}a_1(x)$ which will be in
+    $R[x]$ since $a_0^{-1},a_1(x)\in R[x]$. \\
+
+    Let $\mathbb{Z}[2\sqrt{2}]$ play the role of $R$ in the question. Then
+    the field of fractions of $R$ will be
+    $F=\mathbb{Q}[2\sqrt{2}]=\mathbb{Q}[\sqrt{2}]$, since this is a field,
+    and the field of fractions of $R$ must contain both $\mathbb{Q}$ and
+    $2\sqrt{2}$. Consider $p(x)=x^2-2\in R[x]$. Then $p(x)=a(x)b(x)$, where
+    $a(x)=x-\sqrt{2}\in F[x]$ and $b(x)=x+\sqrt{2}\in F[x]$. However
+    $a(x)\not\in R[x]$. Thus $R$ is not a UFD.
+  \end{proof}
 \end{document}
