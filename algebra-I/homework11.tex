@@ -366,5 +366,38 @@
       \end{proof}
   \end{enumerate}
 
-\it \textbf{Section 9.4 Question 2:}
+\it \textbf{Section 9.4 Question 2:} Prove that the following polynomials
+  are irreducible in $\mathbb{Z}[x]$.
+  \begin{enumerate}[label={(\alph*)}]
+    \item $x^4-4x^3+6$
+      \begin{proof}
+        Eisenstein's criteria with $p=2$ shows that the polynomial is
+        irreducible.
+      \end{proof}
+
+    \item $x^6+30x^5-15x^3+6x-120$
+      \begin{proof}
+        Eisenstein's criteria with $p=3$ shows that the polynomial is
+        irreducible.
+      \end{proof}
+
+    \item $x^4+4x^3+6x^2+2x+1$ [Substitute $x-1$ for $x$.]
+      \begin{proof}
+        After substituting $x-1$ for $x$, we get $g(x)=x^4-2x+2$, which is
+        irreducible from Eisenstein's criteria with $p=2$. Thus the
+        original polynomial is irreducible.
+      \end{proof}
+
+    \item $f(x)=\frac{(x+2)^p-2^p}{x}$, where $p$ is an odd prime.
+      \begin{proof}
+        Expanding with binomial's theorem, we get \[f(x) = \sum_{i=0}^{p-1}
+        \binom{p}{i}2^ix^{p-1-i}.\] Note that for each
+        $i\in\{1,\ldots,p-1\}$, since $p$ is an odd prime,
+        $\binom{p}{i}=\frac{p!}{i!(p-i)!}$ is a multiple of $p$ because
+        $i!$ and $(p-i)!$ are not multiples of $p$. Note also that the
+        constant term $\binom{p}{p-1}2^{p-1}=p2^{p-1}$ is not a multiple of
+        $p^2$ since $p$ is an odd prime. Thus $f(x)$ is irreducible from
+        Eisenstein's criteria with prime $p$ as witness.
+      \end{proof}
+  \end{enumerate}
 \end{document}
