@@ -400,4 +400,39 @@
         Eisenstein's criteria with prime $p$ as witness.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 9.4 Question 6:} Construct fields of order 9 and 8.
+  \begin{proof}
+    We first prove that given a finite field $F$ of order $q$ and $f(x)$ a
+    polynomial in $F[x]$ of degree $n\geq1$, then $F[x]/(f(x))$ has $q^n$
+    elements (Question 2, Section 9.2): We show that the quotient ring is
+    the set of cosets given by
+    \[\{\overline{a_{n-1}x^{n-1}+\ldots+a_1x+a_0}: a_i\in F\},\]
+    which is defined by the set of polynomials in $F$ with degree smaller
+    or equal $n-1$. Since every polynomial $g(x)$ in $F(x)$ can be written
+    as $g(x)=h(x)f(x)+r(x)$ where $r(x)$ is a polynomial with degree
+    smaller than $n$, the set of cosets contains the quotient ring. Also,
+    the quotient ring clearly contains the given set of cosets. Finally,
+    since $F$ is an integral domain, no polynomial of degree less than $n$
+    can divide $f(x)$, thus the given set of cosets is distinct. Thus the
+    given set of cosets is the quotient ring, and this set has $q^n$
+    elements. \\
+
+    Thus, if $f(x)$ is irreducible in $F[x]$, then $F[x]/(f(x))$ will be a
+    field (Question 3, Section 9.2) of size $q^n$. We use this rule,
+    together with the fact that fields $\mathcal{F}_p$ have order $p$ for
+    all primes $p\in\mathbb{N}$, to find fields of the desired order. \\
+
+    From the above argument, to find a field of order 9, it suffices to
+    find a irreducible polynomial $f(x)\in\mathbb{F}_3$ of degree 2. Try
+    $f(x)=x^2+1$. Then $f(x)$ has no roots in $\mathbb{F}_3$, thus it is
+    irreducible in $\mathbb{F}_3[x]$, and so $\mathbb{F}_3[x]/(x^2+1)$ is a
+    field of order 9. \\
+
+    Similarly, to find a field of order 8, it suffices to
+    find a irreducible polynomial $f(x)\in\mathbb{F}_2$ of degree 3. Try
+    $f(x)=x^3+x+1$. Then $f(x)$ has no roots in $\mathbb{F}_2$, thus it is
+    irreducible in $\mathbb{F}_2[x]$, and so $\mathbb{F}_2[x]/(x^3+x+1)$ is
+    a field of order 8. \\
+  \end{proof}
 \end{document}
