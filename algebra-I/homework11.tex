@@ -241,8 +241,38 @@
         must be an integral domain. \\
 
         Since $R$ is a sub-ring of $\mathbb{Q}[x]$ whose units are
-        $\mathbb{Q}^+$ (Proposition 1, Section 9.1), the units of $R$ are
-        $\mathbb{Q}^+\cap R=\{1,-1\}$.
+        $\mathbb{Q}^+$ (Proposition 1, Section 9.1), the units of $R$ must
+        be a subset of $\mathbb{Q}^+\cap R=\{1,-1\}$. Clearly $\pm1$ are
+        units of $R$, thus the units of $R$ are $\pm1$.
+      \end{proof}
+
+    \item Show that the irreducibles in $R$ are $\pm p$ where $p$ is prime
+      in $\mathbb{Z}$ and the polynomials $f(x)$ are irreducible in
+      $\mathbb{Q}[x]$ and have constant term $\pm1$. Prove that these
+      irreducibles are prime in $R$.
+      \begin{proof}
+        We first check that the elements given in the question are
+        irreducibles in $R$. Primes $p$ are clearly irreducibles in $R$.
+        Also, let $f(x)=xg(x)\pm1\in R$ where $g(x)\in\mathbb{Q}[x]$ and
+        $f(x)$ is irreducible in $\mathbb{Q}[x]$. Assume by contradiction
+        that $f(x)$ is reducible. If the factor $r\in\mathbb{Z}$ witnesses
+        the irreducibility, then since the units of $R$ are only $\pm1$,
+        $|r|$ must be greater or equal 2. However, such $r$ cannot divide
+        $f(x)$ in $R$. So the factors of $f(x)$ must have degree between 1
+        and below the degree of $f(x)$. But such a factor would witness the
+        irreducibility of $f(x)$ in $\mathbb{Q}[x]$, since the units of
+        $\mathbb{Q}[x]$ are $\mathbb{Q}^+$. Thus $f(x)$ is irreducible in
+        $R$. \\
+
+        Next we show that there are no other irreducibles in $R$. Consider
+        elements in $R$ of degree 0. These are elements in $\mathbb{Z}$,
+        which are irreducible in $R$ if and only if they are prime, since
+        the units of $R$ are only $\pm1$. Now consider elements in $R$ of
+        degree greater or equal 1 and that are not of the form given in the
+        question. Such elements can be written as $f(x)=xg(x)+n\in R$ where
+        $g(x)\in\mathbb{Q}[x]$, the degree of $g(x)$ is greater or equal 1,
+        and $n\in\mathbb{Z}\setminus\{1,-1\}$. Then $n$ is a non-unit and
+        non-associate factor of $f(x)$, thus $f(x)$ is reducible.
       \end{proof}
   \end{enumerate}
 \end{document}
