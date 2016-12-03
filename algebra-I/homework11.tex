@@ -498,4 +498,66 @@
     $x+1\in\mathbb{Q}[x]$ is irreducible and thus prime in $\mathbb{Q}[x]$,
     by Eisenstein's Criterion, $f(y)$ is irreducible in $\mathbb{Q}[x,y]$.
   \end{proof}
+
+\it \textbf{Section 9.4 Question 14:} Factor each of the two polynomials:
+  $x^8-1$ and $x^6-1$ into irreducibles over each of the following rings:
+  \begin{enumerate}[label={(\alph*)}]
+    \item $\mathbb{Z}$
+      \begin{proof}
+        We have
+        \[x^8-1 =(x^4+1)(x^2+1)(x+1)(x-1).\]
+        Now since $\mathbb{Z}$ is a UFD, the factors $x^4+1$ and $x^2+1$
+        are irreducible in $\mathbb{Z}$ if and only if they are irreducible
+        in the field of fractions $\mathbb{Q}$. $x^2+1$ is irreducible in
+        $\mathbb{Q}$ because the polynomial has degree 2 and does not have
+        roots in $\mathbb{Q}$. $x^4+1$ does not have factors of degree 1 in
+        $\mathbb{Q}[x]$ since it does not have roots in $\mathbb{Q}$. Thus
+        to factorize $x^4+1$ over $\mathbb{Q}$ we try for factors of degree
+        2:
+        \[x^4+1=(x^2+ax\pm1)(x^2+bx\pm1).\]
+        Comparing coefficients give $ab=\mp2$ and $a+b=0$, which as no
+        solutions in $\mathbb{Q}$. Thus $x^4+1$ is irreducible over
+        $\mathbb{Q}$ and therefore also irreducible over $\mathbb{Z}$.
+        Hence
+        \[x^8-1 =(x^4+1)(x^2+1)(x+1)(x-1).\]
+        is a factorization into irreducibles. \\
+
+        Next, we have
+        \[x^6-1 =(x+1)(x^2-x+1)(x-1)(x^2+x+1).\]
+        Now since $\mathbb{Z}$ is a UFD, the factors $x^2-x+1$ and $x^2+x+1$
+        are irreducible in $\mathbb{Z}$ if and only if they are irreducible
+        in the field of fractions $\mathbb{Q}$. Both these polynomials have
+        are of degree 2 do not have roots in $\mathbb{Q}$, thus they are
+        irreducible over $\mathbb{Q}$ and therefore irreducible over
+        $\mathbb{Z}$. Hence
+        \[x^6-1 =(x+1)(x^2-x+1)(x-1)(x^2+x+1).\]
+        is a factorization into irreducibles. \\
+      \end{proof}
+
+    \item $\mathbb{Z}_2$
+      \begin{proof}
+        To factor over the given rings, we can take modulo 2 on the factors
+        obtained in part (a) of this question. Modulo 2, we can write
+        \[x^2+1= x^2-1= (x+1)(x-1)= (x+1)^2,\]
+        and
+        \[x^4+1= x^4-1= (x^2+1)(x^2-1)= (x+1)^4.\]
+        Thus
+        \[x^8-1 =(x+1)^8\]
+        is a factorization into irreducibles over $\mathbb{Z}_2$. \\
+
+        The factors $x^2-x+1$ and $x^2+x+1$ however do not have roots in
+        $\mathbb{Z}_2$ and since they are polynomials of degree 2, they are
+        irreducible over $\mathbb{Z}_2$. Thus
+        \begin{align*}
+          x^6-1 &=(x+1)(x^2-x+1)(x-1)(x^2+x+1) \\
+          &=(x+1)(x^2+x+1)(x+1)(x^2+x+1) \\
+          &=(x+1)^2(x^2+x+1)^2 \\
+        \end{align*}
+        is a factorization into irreducibles over $\mathbb{Z}_2$. \\
+      \end{proof}
+
+    \item $\mathbb{Z}_3$
+      \begin{proof}
+      \end{proof}
+  \end{enumerate}
 \end{document}
