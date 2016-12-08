@@ -14,12 +14,47 @@
 \maketitle
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it (See Section 3 for notations and definitions). Let
+    $\mathcal{L}$ be a countable language and $T$ an $\mathcal{L}$-theory.
+
+    \begin{enumerate}[label={\bf(\arabic*)}]
+      \item Assume $T$ is model-complete, and let $\mathcal{M}$ be a model
+        of $T$. Show that $T\cup\text{Diag}(\mathcal{M})\models
+        T_\mathcal{M}$. (Notice that both $\text{Diag}(\mathcal{M})$ and
+        $T_\mathcal{M}$ are $\mathcal{L}(\mathcal{M})$-theories.)
+
+        \begin{proof}
+          Let $\varphi(\bar{m})$ be an arbitrary formula in
+          $T_\mathcal{M}$, where $\bar{m}\in M$. We wish to show that
+          \[T\cup\text{Diag}(\mathcal{M})\vdash \varphi(\bar{m}).\]
+
+          By model-completeness of $T$, there is a quantifier-free formula
+          $\theta(\bar{x},\bar{y})$ such that
+          \[T\models \forall\bar{x}\; (\varphi(\bar{x})\leftrightarrow
+            \exists\bar{y}\; \theta(\bar{x},\bar{y})).\]
+
+          Thus since $\mathcal{M}\models\varphi(\bar{m})$, we must have
+          $\theta(\bar{m},\bar{a})$ for some $\bar{a}\in M$, which means
+          $\theta(\bar{m},\bar{a})\in\text{Diag}(\mathcal{M})$. Thus we
+          have
+          \begin{align*}
+            T\cup\text{Diag}(\mathcal{M}) &\models \forall\bar{x}\;
+              (\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
+              \theta(\bar{x},\bar{y}))\; \wedge\; \theta(\bar{m},\bar{a})
+              \\
+              &\models \varphi(\bar{m}). \\
+          \end{align*}
+
+          Since $\varphi(\bar{m})\in T_\mathcal{M}$ was arbitrary, we have
+          $T\cup\text{Diag}(\mathcal{M})\models T_\mathcal{M}$.
+        \end{proof}
+    \end{enumerate}
+
   \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
     binary predicate symbol $P(x,y)$. Let $T$ be a universal
     $\mathcal{L}$-theory such that $T\models\forall x\exists y\; P(x,y)$.
     Prove that there exists $\mathcal{L}$-terms $t_1(x),\ldots,t_n(x)$ such
     that \[T\models\forall x\; \bigvee_{m=1}^n P(x,t_m(x)).\]
-
     \begin{proof}
       Assume by contradiction that for any finite set of terms
       $t_1(x),\ldots,t_m(x)$ in variable $x$,
