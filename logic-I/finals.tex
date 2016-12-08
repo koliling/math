@@ -163,6 +163,32 @@
     $\varphi$ holds in every algebraically-closed field.
 
     \begin{proof}
+      If $\varphi$ holds in every algebraically-closed field of non-zero
+      characteristic, then it will also hold in every algebraically-closed
+      field of characteristic 0 (Corollary 4.42). Thus it suffices to prove
+      that $\varphi$ holds in the former. Also, for an arbitrary prime $p$,
+      if $\varphi$ holds in one algebraically-closed field of
+      characteristic $p$, then $\varphi$ will also hold in all
+      algebraically-closed fields of characteristic $p$, because
+      $\text{ACF}_p$ is $\kappa$-categorical for all $\kappa>\omega$ and
+      does not have finite models from closure property, and thus is a
+      complete theory from Vaught's test. Thus, it suffices to show that
+      given arbitrary prime $p$, $\varphi$ holds in one model of
+      $\text{ACF}_p$. \\
+
+      In particular, we show that $\varphi$ holds in
+      $\overline{\mathbb{F}}_p$, the algebraic-closure of the field
+      $\mathbb{F}_p$ of $p$ elements. Now \[\overline{\mathbb{F}}_p =
+      \bigcup_{n\in\mathbb{N}^+} \mathbb{F}_{p^n},\] where
+      $\mathbb{F}_{p^n}$ is the unique (up to ring-isomorphism) field with
+      $p^n$ elements that embeds $\mathbb{F}_{p^{n-1}}$. Since each
+      $\mathbb{F}_{p^n}$ is finite, $\varphi$ holds in each
+      $\mathbb{F}_{p^n}$. So we have a chain of models
+      \[\mathbb{F}_{p^1}< \mathbb{F}_{p^2}< \ldots\] of the
+      $\forall\exists$-theory $\{\varphi\}$. Then from inductiveness of
+      $\{\varphi\}$ (Corollary 11.8), the union $\overline{\mathbb{F}}_p$
+      will also be a model of $\{\varphi\}$, thus
+      $\overline{\mathbb{F}}_p\models\varphi$, as we wished to show.
     \end{proof}
 
   \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
