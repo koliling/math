@@ -48,6 +48,58 @@
           Since $\varphi(\bar{m})\in T_\mathcal{M}$ was arbitrary, we have
           $T\cup\text{Diag}(\mathcal{M})\models T_\mathcal{M}$.
         \end{proof}
+
+      \item Prove that $T$ is model-complete if and only if for every model
+        $\mathcal{M}$ of $T$ the $\mathcal{L}(\mathcal{M})$-theory
+        $\text{Diag}(\mathcal{M})\cup T$ is complete.
+
+        \begin{proof}
+          $\Rightarrow$: Follows directly from part 1 above, since
+          $T_\mathcal{M}$ is a complete theory in the language of
+          $\mathcal{L}(\mathcal{M})$. \\
+
+          $\Leftarrow$: Assume $\mathcal{L}(\mathcal{M})$-theory
+          $\text{Diag}(\mathcal{M})\cup T$ is complete for every model
+          $\mathcal{M}$ of $T$. To show that $T$ is model-complete is
+          equivalent to showing that every model of $T$ is ec-closed in
+          $T_\forall$ (Theorem 11.14.3). Now the models of $T_\forall$ are
+          exactly the substructures of the models of $T$ (Lemma 11.2).
+          Also, if every model of $T$ is ec-closed in $T$, then given
+          models $\mathcal{M},\mathcal{N}\models T$ such that
+          $\mathcal{M}<\mathcal{N}_0<\mathcal{N}$, we will have
+          $\mathcal{M}<\mathcal{N}$ is ec-closed and thus
+          $\mathcal{M}<\mathcal{N}_0$ is ec-closed. Therefore it suffices
+          to show that models of $T$ are ec-closed in $T$. \\
+
+          Let $\mathcal{M},\mathcal{N}\models T$ with
+          $\mathcal{M}<\mathcal{N}$. Assume by contradiction that
+          $\mathcal{M}$ is not ec-closed in $\mathcal{N}$. Then there is a
+          quantifier-free formula $\varphi(\bar{x},\bar{y})$ such that
+          $\mathcal{N}\models\exists\bar{x}\; \varphi(\bar{x},\bar{m})$ for
+          some $\bar{m}\in M$ but $\mathcal{M}\not\models\exists\bar{x}\;
+          \varphi(\bar{x},\bar{m})$. Then we have
+
+          \[\begin{array}{lrlr}
+            &\mathcal{M} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &T_\mathcal{M} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &\text{Diag}(\mathcal{M})\cup T
+              &\models\forall\bar{x}\; \neg\varphi(\bar{x},\bar{m})
+              &(\because\text{Diag}(\mathcal{M})\cup T\models
+              T_\mathcal{M}\; \text{by completeness assumption}) \\
+            \Rightarrow &\text{Diag}(\mathcal{N})\cup T
+              &\models\forall\bar{x}\; \neg\varphi(\bar{x},\bar{m})
+              &(\because\text{Diag}(\mathcal{M})\subseteq
+              \text{Diag}(\mathcal{N})\; \text{from}\;
+              \mathcal{M}<\mathcal{N}) \\
+            \Rightarrow &\mathcal{N} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &\mathcal{N} &\not\models\exists\bar{x}\;
+              \varphi(\bar{x},\bar{m}), \\
+          \end{array}\]
+          a contradiction.
+        \end{proof}
     \end{enumerate}
 
   \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
