@@ -104,7 +104,7 @@
 
   \item \it Let $\varphi$ be a sentence in the language of abelian groups.
     As usual for a prime $p$ we denote by $\mathbb{Z}_p$ the additive group
-    $\mathcal{Z}/p\mathcal{Z}$.
+    $\mathbb{Z}/p\mathbb{Z}$.
 
     \begin{enumerate}[label={\bf(\arabic*)}]
       \item Show that if $\mathbb{Q}\models\varphi$ then there is a prime
@@ -112,7 +112,7 @@
         is a torsion-free divisible abelian group.)
 
         \begin{proof}
-          The language we of abelian groups is $\mathcal{L}=\{+,-,0\}$.
+          The language of abelian groups is $\mathcal{L}=\{+,-,0\}$.
           Also, the theory of abelian groups $T_\text{Ab}$ can be
           considered a conjunction of a finite set of $\forall$-sentences.
           Then the theory of torsion-free divisible abelian groups
@@ -129,7 +129,24 @@
           Now $T_\text{tor-free}$ is $\kappa$-categorical for all
           $\kappa>\omega$ (Theorem 4.35), so since $T_0$ ensures that there
           are no finite-models, $T_\text{tor-free}$ is a complete theory by
-          Vaught's test (Theorem 4.34).
+          Vaught's test (Theorem 4.34). \\
+
+          Let $\varphi$ be a sentence in the language such that
+          $\mathbb{Q}\models\varphi$. Then
+          $T_\text{tor-free}\models\varphi$ from completeness of
+          $T_\text{tor-free}$, thus from compactness theorem, there must be
+          a finite subset of formulas $T_\text{fin}\subset
+          T_\text{tor-free}$ such that $T_\text{fin}\models\varphi$.
+          Without loss of generality, we can assume
+          \begin{align*}
+            T_\text{fin} &= T_\text{Ab}\cup \bigcup_{n=1}^N
+              \{\underbrace{x+\ldots+x}_{n\text{-times}}=0 \rightarrow
+              x=0\} \cup\bigcup_{n=1}^N
+              \{\forall x\exists y\;
+              \underbrace{y+\ldots+y}_{n\text{-times}}=x\}. \\
+          \end{align*}
+          Then by choosing prime $p>N$, we will have $\mathbb{Z}_p\models
+          T_\text{fin}$. Then $\mathbb{Z}_p\models\varphi$, as required.
         \end{proof}
 
       \item Write a sentence $\psi$ such that $\mathbb{Z}\models\psi$ and
