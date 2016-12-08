@@ -102,6 +102,45 @@
         \end{proof}
     \end{enumerate}
 
+  \item \it Let $\varphi$ be a sentence in the language of abelian groups.
+    As usual for a prime $p$ we denote by $\mathbb{Z}_p$ the additive group
+    $\mathcal{Z}/p\mathcal{Z}$.
+
+    \begin{enumerate}[label={\bf(\arabic*)}]
+      \item Show that if $\mathbb{Q}\models\varphi$ then there is a prime
+        $p$ such that $\mathbb{Z}_p\models\varphi$. (Hint: $(\mathbb{Q},+)$
+        is a torsion-free divisible abelian group.)
+
+        \begin{proof}
+          The language we of abelian groups is $\mathcal{L}=\{+,-,0\}$.
+          Also, the theory of abelian groups $T_\text{Ab}$ can be
+          considered a conjunction of a finite set of $\forall$-sentences.
+          Then the theory of torsion-free divisible abelian groups
+          $T_\text{tor-free}$ is $T_\text{Ab}\cup T_0 \cup T_1$, where
+          \begin{align*}
+            T_0 &:= \bigcup_{n\in\omega}
+              \{\underbrace{x+\ldots+x}_{n\text{-times}}=0 \rightarrow
+              x=0\}, \\
+            T_1 &:= \bigcup_{n\in\omega}
+              \{\forall x\exists y\;
+              \underbrace{y+\ldots+y}_{n\text{-times}}=x\}. \\
+          \end{align*}
+
+          Now $T_\text{tor-free}$ is $\kappa$-categorical for all
+          $\kappa>\omega$ (Theorem 4.35), so since $T_0$ ensures that there
+          are no finite-models, $T_\text{tor-free}$ is a complete theory by
+          Vaught's test (Theorem 4.34).
+        \end{proof}
+
+      \item Write a sentence $\psi$ such that $\mathbb{Z}\models\psi$ and
+        $\mathbb{Q}\models\neg\psi$.
+        \begin{proof}
+          Let $\psi$ be the sentence that says ``There is an element that
+          is not divisible by 2''. Formally,
+          \[\psi:= \exists x\forall y\; (y+y\neq x).\]
+        \end{proof}
+    \end{enumerate}
+
   \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
     binary predicate symbol $P(x,y)$. Let $T$ be a universal
     $\mathcal{L}$-theory such that $T\models\forall x\exists y\; P(x,y)$.
