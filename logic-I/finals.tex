@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic I: Final Exam}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+Consider the language $\mathcal{L}=\{P\}$ and the inductive theory
+$T=\{\forall x\exists y P(x,y)\}$. Consider the model $\mathcal{M}$ of $T$
+with only two elements defined by
+\begin{align*}
+  M &=\{a,b\}, \\
+  P^\mathcal{M} &=\{(a,b),(b,a)\}. \\
+\end{align*}
+Then $\mathcal{M}\models T$.  Then since this language does not have any
+function symbols, the only terms involving a given variable $x$ is $x$
+itself. However, \[T\not\vdash \forall x\; P(x,x)\vee\ldots\vee P(x,x).\]
+
+%\begin{enumerate}[label={\bf Q\arabic*:}]
+%  \item \it 
+%\end{enumerate}
+\end{document}
