@@ -13,18 +13,70 @@
 \date{\today}
 \maketitle
 
-Consider the language $\mathcal{L}=\{P\}$ and the inductive theory
-$T=\{\forall x\exists y P(x,y)\}$. Consider the model $\mathcal{M}$ of $T$
-with only two elements defined by
-\begin{align*}
-  M &=\{a,b\}, \\
-  P^\mathcal{M} &=\{(a,b),(b,a)\}. \\
-\end{align*}
-Then $\mathcal{M}\models T$.  Then since this language does not have any
-function symbols, the only terms involving a given variable $x$ is $x$
-itself. However, \[T\not\vdash \forall x\; P(x,x)\vee\ldots\vee P(x,x).\]
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
+    binary predicate symbol $P(x,y)$. Let $T$ be a universal
+    $\mathcal{L}$-theory such that $T\models\forall x\exists y\; P(x,y)$.
+    Prove that there exists $\mathcal{L}$-terms $t_1(x),\ldots,t_n(x)$ such
+    that \[T\models\forall x\; \bigvee_{m=1}^n P(x,t_m(x)).\]
 
-%\begin{enumerate}[label={\bf Q\arabic*:}]
-%  \item \it 
-%\end{enumerate}
+    \begin{proof}
+      Assume by contradiction that for any finite set of terms
+      $t_1(x),\ldots,t_m(x)$ in variable $x$,
+      \begin{equation}
+        \tag{$*$}
+        T\models\exists x\; \bigwedge_{m=1}^n \neg P(x,t_m(x).
+        \label{eqn:neg}
+      \end{equation}
+      Then there is a model $\mathcal{M}$ of $T$ satisfying all the
+      existential sentences given at equation~\eqref{eqn:neg}. Note that
+      because $T\models\forall x\exists y\; P(x,y)$, every element $a\in M$
+      has a witness $b\in M$ such that $P(a,b)$. \\
+
+      There are two possible cases for a model $\mathcal{M}$ satisfying all
+      the equations in \eqref{eqn:neg}. In the first case, there is an
+      element $a\in M$ whose witness $a'\in M$ of $P(a,a')$ is not any of the
+      terms $t(a)$ of $a$. In this case, consider the substructure $\langle
+      a\rangle<\mathcal{M}$, which is the smallest substructure of
+      $\mathcal{M}$ containing $a$, defined rigorously as
+      \begin{align*}
+        \langle a\rangle &=\{t^\mathcal{M}(a):
+          t^\mathcal{M}(x)\; \text{is an}\; \mathcal{L}\text{-term}\}. \\
+      \end{align*}
+
+      Note that $\langle a\rangle$ defined above will be closed under
+      functions since the composition of terms in variable $x$ remains a
+      term in variable $x$. Thus $\langle a\rangle$ is a substructure of
+      $\mathcal{M}$. Then since $T$ is a universal theory, it is closed
+      under substructures (Theorem 11.3), thus $\langle a\rangle$ is also a
+      model of $T$. However, $a\in\langle a\rangle$ will have no witness to
+      $P(a,y)$ because its witness is not $t(a)$ for any $\mathcal{L}$-term
+      $t(x)$. Thus $\langle a\rangle\models\forall y\; \neg P(a,y)$,
+      contradicting $T\models\forall x\exists y\; P(x,y)$. \\
+
+      In the second case, every element $a\in M$ has a witness $a'\in M$
+      for $P(a,a')$ such that $a'=t(a)$ for some $\mathcal{L}$-term $t(x)$.
+      We construct an elementary extension $\mathcal{N}\succ\mathcal{M}$
+      such that $\mathcal{N}$ falls under case 1 above. Add to language
+      $\mathcal{L}(\mathcal{M})$ a new constant symbol $c$, i.e.
+      $\mathcal{L}':=\mathcal{L}(\mathcal{M})\cup\{c\}$. In this extended
+      language, consider the theory
+      \[T':=T_\mathcal{M}\cup \{\neg P(c,t(c)):t^\mathcal{M}(x)\;
+        \text{is an}\; \mathcal{L}\text{-term}\}.\]
+
+      Then $T'$ is finitely satisfiable by $\mathcal{M}$: Clearly
+      $\mathcal{M}$ satisfies $T_\mathcal{M}$. Given any finite set of
+      $\mathcal{L}$-terms $t_1(x),\ldots,t_m(x)$ in variable $x$, because
+      $\mathcal{M}$ satisfies equation~\eqref{eqn:neg}, there must be an
+      element $a\in M$ that satisfies $\neg P(a,t_i(a))$ for all
+      $i\in\{1,\ldots,m\}$. Assigning $c$ to this element $a$, we will have
+      $\mathcal{M}\models T'$. Thus by Compactness theorem, $T'$
+      has a model $\mathcal{N}$, which will also be a model of $T$ since
+      $\mathcal{N}\models T_\mathcal{M}\supset T$. However in
+      $\mathcal{N}$, the constant element $c$ does not have a witness $c'$
+      of $P(c,c')$ which is a term $t(c)$ of $c$. Thus $\mathcal{N}$ is the
+      same as case 1 above, from which we can define a sub-structure that
+      gives a contradiction.
+    \end{proof}
+\end{enumerate}
 \end{document}
