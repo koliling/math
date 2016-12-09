@@ -415,8 +415,8 @@
           $\aleph_0\in\aleph_1$ does not have a immediate predecessor. We
           can write $\varphi$ in first-order language as
           \[\varphi:= \forall x\; (\exists y\; y<x)\rightarrow\;
-          \left[\exists z\; (z<x)\wedge \forall w\; (w<x\rightarrow(w<z\vee
-          w=z)) \right].\]
+            \left[\exists z\; (z<x)\wedge \forall w\; (w<x\rightarrow w\leq
+            z) \right].\]
         \end{proof}
 
       \item Show that some countable ordinal $\beta$ is an elementary
@@ -424,6 +424,25 @@
         segment of $\aleph_1$.
 
         \begin{proof}
+          We first apply Downward Lowenheim-Skolem to get a countable
+          elementary substructure $\mathcal{M}\prec\aleph_1$. Now since
+          $M\subset\aleph_1$ which is a well-ordering, $M$ is also a
+          well-ordering, thus $\langle M,<\rangle$ is isomorphic to some
+          ordinal $\beta$ (Theorem 1.18). Let $i:\beta\rightarrow M$ be the
+          order-preserving isomorphism. Note that $\beta$ must be countable
+          by regularity of $\aleph_1$, otherwise the function $i$ would be
+          cofinal in $\aleph_1$. \\
+
+          Then since $\mathcal{M}\prec\aleph_1$ and $i$ is an
+          order-preserving isomorphism between $M$ and $\beta$, $\beta$ is
+          also an elementary substructure of $\aleph_1$: Given arbitrary
+          formula $\varphi(\bar{x})$ in the language and
+          $\bar{b}\in\beta$, we have
+          \[\begin{array}{crlr}
+            &\aleph_1 &\models\varphi(\bar{b}) & \\
+            \Leftrightarrow &\mathcal{M} &\models\varphi(\bar{b})
+              &(\because\mathcal{M}\prec\aleph_1) \\
+          \end{array}\]
         \end{proof}
     \end{enumerate}
 \end{enumerate}
