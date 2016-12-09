@@ -403,6 +403,61 @@
         to $\omega$ that is not well-ordered.
 
         \begin{proof}
+          We construct an elementary extension of $\omega$. We add to the
+          language $\mathcal{L}$ constants for $\omega$ and for a new
+          chain $\mathbb{Q}$:
+          \begin{align*}
+            \mathcal{L}' &:=\mathcal{L}(\omega)\cup\{c_q':q\in\mathbb{Q}\}
+              \\
+            &=\mathcal{L}\cup\{c_n:n\in\omega\}\cup\{c_q':q\in\mathbb{Q}\}
+              \\
+          \end{align*}
+          where the $c_n$'s are the constants for $\omega$ and the $c_q'$
+          are the constants for the new $\mathbb{Q}$-chain. \\
+
+          Consider the theory
+          \begin{align*}
+            T &:= T_\omega \\
+            &\cup \{c_n\neq c_q':n\in\omega, q\in\mathbb{Q}\} \\
+            &\cup \{c_{q_0}'\neq c_{q_1}':q_0<q_1\in\mathbb{Q}\} \\
+            &\cup \{c_{q_0}'<c_{q_1}':q_0<q_1\in\mathbb{Q}\} \\
+          \end{align*}
+          Then $T$ is finitely satisfied by $\omega$: Given a finite subset
+          of formulas in $T$, we can assume without loss of generality that
+          $c_{n_1}<\ldots<c_{n_k}$ and $c_{q_{k+1}}'<\ldots<c_{q_{k+m}}'$
+          are the only constants that appear in the formulas. For each
+          $i\in\{1,\ldots,m\}$, assign the constant $c_{q_{k+i}}'$ to
+          $n_{k}+i\in\omega$. This assignment will ensure that $\omega$
+          satisfies the subset of formulas. \\
+
+          Thus by compactness theorem, $T$ is satisfiable by some model
+          $\mathcal{A}$. Since $T$ contains $T_\omega$, $\mathcal{A}$ will
+          be an elementary extension of $\omega$, and will therefore be
+          elementarily equivalent to $\omega$. However, $A$ is not
+          well-ordered because $\mathbb{Q}$ is not well-orderable. In
+          particular, the elements associated with the set of constants
+          \[\left\{c_{1/n}':n\in\omega\right\}\] does not have a minimal
+          element.
+
+          %We construct an elementary extension of $\omega$. The idea of the
+          %extension is to append to $\omega$ a countable chain of integers,
+          %where the set of chains are indexed by positive rationals. The
+          %extension will not be well-orderable because positive rationals
+          %are not well-ordered. More precisely, we would like the
+          %elementary extension to contain
+          %\[\omega\; \bigsqcup_{q\in\mathbb{Q}^+}\; \mathbb{Z}.\]
+
+          %We write the elements of $\omega$ as
+          %$\omega:=\{a_{0,n}\}_{n\in\omega}$, and the elements in the $q$th
+          %chain of integers $\mathbb{Z}_q$ for each $q\in\mathbb{Q}^+$ as
+          %\[\mathbb{Z}_q :=\{a_{q,z}\}_{z\in\mathbb{Z}}.\]
+          %Then we define the ordering on $\omega\;
+          %\sqcup_{q\in\mathbb{Q}^+}\; \mathbb{Z}$ to be
+          %\[a_{q,z}<a_{q',z'} \Leftrightarrow (q<q')\vee(q=q'\wedge z<z').\]
+
+          %To construct an elementary extension with such a structure, we
+          %add to the language new constants
+          %\[\mathcal{L}':= \mathcal{L}\cup\]
         \end{proof}
 
       \item Let $\aleph_1$ be the first uncountable cardinal. Show that
