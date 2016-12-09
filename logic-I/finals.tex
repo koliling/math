@@ -409,7 +409,8 @@
         $\aleph_1$ and $\omega$ are not elementarily equivalent (as ordered
         sets).
         \begin{proof}
-          Consider the sentence $\varphi$ which says that ``Every element
+          Consider the sentence $\varphi$ which says that ``I have no limit
+          elements''. More rigorously, this sentence says ``every element
           other than the smallest one has an immediate predecessor''. This
           sentence is satisfied by $\omega$ but not by $\aleph_1$, because
           $\aleph_0\in\aleph_1$ does not have a immediate predecessor. We
@@ -424,25 +425,62 @@
         segment of $\aleph_1$.
 
         \begin{proof}
-          We first apply Downward Lowenheim-Skolem to get a countable
-          elementary substructure $\mathcal{M}\prec\aleph_1$. Now since
-          $M\subset\aleph_1$ which is a well-ordering, $M$ is also a
-          well-ordering, thus $\langle M,<\rangle$ is isomorphic to some
-          ordinal $\beta$ (Theorem 1.18). Let $i:\beta\rightarrow M$ be the
-          order-preserving isomorphism. Note that $\beta$ must be countable
-          by regularity of $\aleph_1$, otherwise the function $i$ would be
-          cofinal in $\aleph_1$. \\
+          We repeatedly apply Downward Lowenheim-Skolem to
+          construct a chain of countable structures
+          \begin{equation*}
+            \tag{$**$}
+            \mathcal{M}_0\leq \mathcal{M}_1\leq\ldots
+            \label{eqn:chain}
+          \end{equation*}
+          in $\aleph_1$ such that
+          for all $n\in\mathbb{N}$, $\mathcal{M}_n\prec\aleph_1$, and
+          $M_{n+1}\subseteq\beta_n$, where $\beta_n=\sup M_n$. Then,
+          take $\beta=\cup_{n\in\omega}\mathcal{M}_n$, the union of this
+          chain. \\
 
-          Then since $\mathcal{M}\prec\aleph_1$ and $i$ is an
-          order-preserving isomorphism between $M$ and $\beta$, $\beta$ is
-          also an elementary substructure of $\aleph_1$: Given arbitrary
-          formula $\varphi(\bar{x})$ in the language and
-          $\bar{b}\in\beta$, we have
-          \[\begin{array}{crlr}
-            &\aleph_1 &\models\varphi(\bar{b}) & \\
-            \Leftrightarrow &\mathcal{M} &\models\varphi(\bar{b})
-              &(\because\mathcal{M}\prec\aleph_1) \\
+          To show that this $\beta$ works, note that by construction,
+          $\beta=\cup_{n\in\omega}\beta_n$, so $\beta$ will be an initial
+          segment of $\aleph_1$ since each $\beta_n$ is an initial segment
+          of $\aleph_1$. Also, because each $\mathcal{M}_n$ is countable,
+          each $\beta_n$ must also be countable by regularlity of
+          $\aleph_1$, otherwise the enumeration of elements in $M_n$ will
+          be cofinal in $\aleph_1$. Thus, $\beta$ is a union of a countable
+          set of countable initial segments, and is therefore a countable
+          ordinal. \\
+
+          Next, we show that $\beta$ is an elementary
+          substructure of $\aleph_1$. First, note that because
+          $\mathcal{M}_n\prec\aleph_1$ for all $n\in\mathbb{N}$, the chain
+          of structures given in \eqref{eqn:chain} is an elementary chain:
+          Given an arbitrary formula $\varphi(\bar{x})$ and
+          $\bar{a}\in M_n$, we have
+          \[\begin{array}{crll}
+            &\mathcal{M}_n &\models\varphi(\bar{a}) & \\
+            \Leftrightarrow &\aleph_1 &\models\varphi(\bar{a})
+              &(\because\mathcal{M}_n\prec\aleph_1) \\
+            \Leftrightarrow &\mathcal{M}_{n+1} &\models\varphi(\bar{a})
+              &(\because\mathcal{M}_{n+1}\prec\aleph_1), \\
           \end{array}\]
+          thus $\mathcal{M}_n\preceq\mathcal{M}_{n+1}$ for all
+          $n\in\mathbb{N}$. Hence by Tarski's Chain Lemma,
+          $\mathcal{M}_n\preceq\beta$ for all $n\in\mathbb{N}$.
+          Let $\varphi(\bar{x})$ be an arbitrary formula and
+          $\bar{b}\in\beta$ an arbitrary tuple of elements in $\beta$.
+          All elements in the tuple $\bar{b}\in\beta$ must be constructed
+          at some stage $n\in\mathbb{N}$, i.e. there is some
+          $n\in\mathbb{N}$ such that $\bar{b}\in M_n$. Then we have
+          \[\begin{array}{crll}
+            &\beta &\models\varphi(\bar{b}) & \\
+            \Leftrightarrow &\mathcal{M}_n &\models\varphi(\bar{b})
+              &(\because\mathcal{M}_n\prec\beta) \\
+            \Leftrightarrow &\aleph_1 &\models\varphi(\bar{b})
+              &(\because\mathcal{M}_{n}\prec\aleph_1), \\
+          \end{array}\]
+          thus $\beta\preceq\aleph_1$ as desired. \\
+
+          Now we show how to construct the chain of countable structures
+          described in the first paragraph. Construct $\mathcal{M}_0$ by
+          applying Downward Lowenheim-Skolem on $\aleph_1$,
         \end{proof}
     \end{enumerate}
 \end{enumerate}
