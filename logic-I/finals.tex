@@ -258,8 +258,8 @@
 
       At step $4r+1$, we exchange the roles of $M$ and $N$ as described in
       step $4r$. At step $4r+2$, we replace ``rational'' by ``irrational''
-      in step $4r$, and finally, at step $4r+3$, we replace ''rational'' by
-      ''irrational'' in step $4r+2$. \\
+      in step $4r$, and finally, at step $4r+3$, we replace ``rational'' by
+      ``irrational'' in step $4r+2$. \\
 
       Taking union $i=\cup_{r\in\omega}i_r$ will give us an
       order and rationality-preserving isomorphism between $M$ and $N$,
@@ -326,8 +326,73 @@
       $\mathcal{N}\models T_\mathcal{M}\supset T$. However in
       $\mathcal{N}$, the constant element $c$ does not have a witness $c'$
       of $P(c,c')$ which is a term $t(c)$ of $c$. Thus $\mathcal{N}$ is the
-      same as case 1 above, where we defined a sub-structure that
+      same as case 1 above, where we defined a substructure that
       gives a contradiction.
+    \end{proof}
+
+  \item \it Let $\mathcal{M}$ be an infinite structure. Show that there is
+    a structure $\mathcal{N}$ elementarily equivalent to $\mathcal{M}$ such
+    that every definable subset $A\subseteq N$ is either finite or
+    uncountable.
+
+    \begin{proof}
+      We construct an elementary chain of structures
+      \[\mathcal{M}=\mathcal{M}_0\preceq \mathcal{M}_1\preceq\ldots,\]
+      such that for each $n\in\omega$, every subset $A\subseteq M_{n+1}$
+      that is definable over elements in $M_n$ is either finite or
+      uncoutable. More precisely, given $n\in\omega$, formula
+      $\varphi(\bar{x},\bar{y})$, and $\bar{m}\in M_n$, we have
+      $|\varphi(M_{n+1},\bar{m})|$ is either finite or uncountable. Take
+      \[\mathcal{N}=\bigcup_{n\in\omega}\mathcal{M}_n.\]
+
+      Then $\mathcal{M}\preceq\mathcal{N}$ by Tarski's Chain Lemma, thus
+      $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$. Also,
+      every definable subset $A\subseteq N$ is either finite or
+      uncountable: Given arbitrary formula $\varphi(\bar{x},\bar{y})$ and
+      $\bar{a}\in N$, we want to show that $|\varphi(N,\bar{a})|$ is
+      either finite or uncountable. Now all elements in $\bar{a}$ must be
+      constructed at some stage $n\in\omega$, i.e. $\bar{a}\in M_n$ for
+      some $n\in\omega$. Then $|\varphi(M_{n+1},\bar{a})|$ is either finite
+      or uncountable. Now since $\mathcal{M}_{n+1}\preceq\mathcal{N}$ by
+      Tarski's Chain Lemma, if $|\varphi(M_{n+1},\bar{a})|=k$ is finite, then
+      $\mathcal{M}_{n+1}$ and thus $\mathcal{N}$ will satisfy the first
+      order formula that says $\varphi(x,\bar{a})$ has exactly $k$
+      solutions, and therefore $|\varphi(N,\bar{a})|=k$ is also finite. On
+      the other hand, if $|\varphi(M_{n+1},\bar{a})|>\omega$, then there
+      will be uncountably many elements in $M_{n+1}$ and thus in $N$ that
+      satisfy $\varphi(x,\bar{a})$, thus $|\varphi(N,\bar{a})|$ is also
+      uncountable. Hence $|\varphi(N,\bar{a})|$ is either finite or
+      uncountable, as required. \\
+
+      We now construct the chain. Given $\mathcal{M}_n$, formula
+      $\varphi(\bar{x},\bar{y})$, and $\bar{a}\in\mathcal{M}_n$, we wish to
+      construct $\mathcal{M}_{n+1}\succeq\mathcal{M}_n$ with the above
+      described properties. Note that if $|\varphi(M_n,\bar{a})|$ is finite
+      or uncountable, then like in the argument in the previous paragraph,
+      $|\varphi(M_{n+1},\bar{a})|$ will remain finite or uncountable. Thus
+      in constructing $\mathcal{M}_{n+1}$, we need not worry about formulas
+      with finite or uncountable solutions. \\
+
+      We consider the formulas $\varphi(\bar{x},\bar{a})$ with infinite
+      solutions in $\mathcal{M}_n$. We wish to add more solutions to make
+      the total number uncountable in $\mathcal{M}_{n+1}$. For each such
+      formula, add to the language an uncoutable set of constants
+      $\{c_{\varphi,\bar{a},i}\}_{i\in\omega_1}$, and consider the theorem
+      \[T_{\varphi,\bar{a}}:= \{\varphi(c_{\varphi,\bar{a},i}):
+        i\in\omega_1\} \cup \{c_{\varphi,\bar{a},i}\neq
+        c_{\varphi,\bar{a},j}: i<j\in\omega_1\}.\]
+
+      Let $T$ be the theorem
+      \[T:= T_{\mathcal{M}_n}\cup \bigcup_{|\varphi(M_n,\bar{a})|=\omega}
+        T_{\varphi,\bar{a}}.\]
+      Then $\mathcal{M}_n$ finitely satisfies $T$, because each involved
+      $\varphi(\bar{x},\bar{a})$ has countable solutions in
+      $\mathcal{M}_n$. Thus by compactness theorem, $T$ has a model
+      $\mathcal{M}_{n+1}$. This model elementary extends $\mathcal{M}_n$
+      since $T_{\mathcal{M}_n}\in T$. Also, each formula
+      $\varphi(x,\bar{a})$ will now have either fininte solutiosn, or
+      uncountable distinct solutions
+      $\{c_{\varphi,\bar{a},i}\}_{i\in\omega_1}$, as desired.
     \end{proof}
 \end{enumerate}
 \end{document}
