@@ -191,6 +191,81 @@
       $\overline{\mathbb{F}}_p\models\varphi$, as we wished to show.
     \end{proof}
 
+  \item \it Let $T$ be the theory of $\langle\mathbb{R};<,Q\rangle$, where
+    $Q$ is a unary predicate for rational numbers. Does $T$ have a prime
+    model?
+
+    \begin{proof}
+      We prove the stronger assertion that $T$ is $\omega$-categorical.
+      Then $S_n(T)$ is finite for every $n\in\mathbb{N}^+$
+      (Ryll-Nardjewski), so the isolated types are dense in $S_n(T)$ for
+      every $n\in\mathbb{N}^+$ (Theorem 7.17), thus $T$ has a prime model
+      (Theorem 7.12). \\
+
+      To prove $\omega$-categoricity, notice that $T$ includes the
+      following sets of sentences:
+      \begin{enumerate}
+        \item $T_\text{DLO}$, which are the sentences what say ``I am a
+          dense linear order (DLO) without endpoints''. $T$ includes
+          $T_\text{DLO}$ since $\langle\mathbb{R},<\rangle$ is a DLO
+          without endpoints.
+
+        \item $T_{\mathbb{Q}\text{-DLO}}$, which are the sentences what say
+          ``the set of rationals is a DLO without endpoints''.
+          $T_{\mathbb{Q}\text{-DLO}}$ can be obtained from $T_\text{DLO}$
+          by replacing each occurrence of any variable $x$ with
+          ``$Q(x)\rightarrow$''.
+
+        \item $T_{\text{dense}}$, which is the conjunction of eight
+          sentences saying between a rational (or irrational) and a
+          rational (or irrational) lies another rational (or irrational).
+      \end{enumerate}
+
+      We show that $T':=T_\text{DLO}\cup T_{\mathbb{Q}\text{-DLO}}\cup
+      T_{\text{dense}}$ is $\omega$-categorical, which would imply that $T$
+      is $\omega$-categorical, as desired. Let $\mathcal{M}$, $\mathcal{N}$
+      be countable models of $T'$. Note that from density of the rationals
+      as expressed in $T_{\mathbb{Q}\text{-DLO}}$,
+      $|Q(M)|=|Q(N)|=\omega$. Also, from density of the irrationals as
+      expressed in $T_{\text{dense}}$, we also have $|\neg Q(M)|=|\neg
+      Q(N)|=\omega$. Write
+      \[\begin{array}{ll}
+        M=\{m_k\}_{k\in\omega},\; &N=\{n_k\}_{k\in\omega}.
+        \\
+      \end{array}\]
+
+      We use back-and-forth theorem to construct an isomorphism
+      $i=\cup_{r\in\omega}i_r$ between $M$ and $N$. Set $i_0=\emptyset$.
+      The idea is to cycle through the four steps, where at step $4r$ for
+      $r\in\mathbb{N}^+$, we map an unmapped rational in $M$ to an unmapped
+      rational in $N$; at step $4r+1$, we map an unmapped rational in $N$
+      to an unmapped rational in $M$; at step $4r+2$ we map an unmapped
+      irrational in $M$ to an unmapped irrational in $N$; at step $4r+3$,
+      we map an unmapped irrational in $N$ to an unmapped irrational in
+      $M$. In extending the partial-isomorphism, we take care to preserve
+      ordering. \\
+
+      More precisely, at step $4r$ where $r\in\mathbb{N}^+$, let
+      $k\in\mathbb{N}$ be the smallest index such that $m_k$ is a rational,
+      $m_k\not\in\text{dom}(i_r)$, and let $k_0,k_1\in\mathbb{N}$ be the
+      smallest indices whose elements are are in $\text{dom}(i_r)$ and
+      which are closest to $m_k$, i.e. $m_{k_0}<m_k<m_{k_1}$ and
+      $m_{k_0},m_{k_1}\in\text{dom}(i_r)$. Then by construction, none of
+      the elements between $i_r(m_{k_0})$ and $i_r(m_{k_1})$ will be in the
+      range of $i_r$. Pick any rational $n_{k'}$ between them to be the
+      image of $m_k$; such a rational must exist from density of rationals.
+      Extend $i_{4r+1}=i_{4r}\cup\{(m_k,n_{k'})\}$. \\
+
+      At step $4r+1$, we exchange the roles of $M$ and $N$ as described in
+      step $4r$. At step $4r+2$, we replace ``rational'' by ``irrational''
+      in step $4r$, and finally, at step $4r+3$, we replace ''rational'' by
+      ''irrational'' in step $4r+2$. \\
+
+      Taking union $i=\cup_{r\in\omega}i_r$ will give us an
+      order and rationality-preserving isomorphism between $M$ and $N$,
+      thus $T$ is $\omega$-categorical.
+    \end{proof}
+
   \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
     binary predicate symbol $P(x,y)$. Let $T$ be a universal
     $\mathcal{L}$-theory such that $T\models\forall x\exists y\; P(x,y)$.
