@@ -257,9 +257,11 @@
       Extend $i_{4r+1}=i_{4r}\cup\{(m_k,n_{k'})\}$. \\
 
       At step $4r+1$, we exchange the roles of $M$ and $N$ as described in
-      step $4r$. At step $4r+2$, we replace ``rational'' by ``irrational''
-      in step $4r$, and finally, at step $4r+3$, we replace ``rational'' by
-      ``irrational'' in step $4r+2$. \\
+      step $4r$, and build $i_{4r+2}$ over $i_{4r+1}$. At step $4r+2$, we
+      replace ``rational'' by ``irrational'' in step $4r$, building
+      $i_{4r+3}$ over $i_{4r+2}$. Finally, at step $4r+3$, we replace
+      ``rational'' by ``irrational'' in step $4r+2$, building $i_{4r+4}$
+      over $i_{4r+3}$. \\
 
       Taking union $i=\cup_{r\in\omega}i_r$ will give us an
       order and rationality-preserving isomorphism between $M$ and $N$,
@@ -403,7 +405,26 @@
         \begin{proof}
         \end{proof}
 
-      \item Let $\alph_1$
+      \item Let $\aleph_1$ be the first uncountable cardinal. Show that
+        $\aleph_1$ and $\omega$ are not elementarily equivalent (as ordered
+        sets).
+        \begin{proof}
+          Consider the sentence $\varphi$ which says that ``Every element
+          other than the smallest one has a direct predecessor''. This
+          sentence is satisfied by $\omega$ but not by $\aleph_1$, because
+          $\aleph_0\in\aleph_1$ does not have a direct predecessor. We can
+          write $\varphi$ in first-order language as
+          \[\varphi:= \forall x\; (\exists y\; y<x)\rightarrow\;
+          \left[\exists z\; (z<x)\wedge \forall w\; (w<x\rightarrow(w<z\vee
+          w=z)) \right].\]
+        \end{proof}
+
+      \item Show that some countable ordinal $\beta$ is an elementary
+        substructure of $\aleph_1$. (Notice that $\beta$ must be an initial
+        segment of $\aleph_1$.
+
+        \begin{proof}
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
