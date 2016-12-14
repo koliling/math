@@ -27,7 +27,28 @@
       \[\mathcal{A} = \{T\phi:TU\rightarrow V\times\mathbb{R}^n|\;
         \phi:U\rightarrow V\; \text{a chart on}\; M^n\}\]
       has been shown to be a smooth atlas on $TM^n$ (Lemma 2.6), therefore
-      the tangent bundle is a smooth manifold.
+      the tangent bundle is a smooth manifold. So given any local chart
+      $(U,\phi)$ of $M^n$, the corresponding chart on $TM^n$ is given by
+      $(TU,T\phi)$, where $T\phi(p,v)=(\phi(p),d\phi(v))$. Let
+      $(TU_0,T\phi_0)$ be another chart for $TM$. Then we have
+      \[T\phi\circ T\phi_0^{-1}(x_1,\ldots,x_{2n})
+        =(\phi\circ\phi_0^{-1}(x_1,\ldots,x_n),\; d(\phi\circ\phi_0^{-1})
+        (x_{n+1},\ldots,x_{2n})),\]
+      and so
+      \[d(T\phi\circ T\phi_0^{-1})(x_{1},\ldots,x_{2n})
+        =(d(\phi\circ\phi_0^{-1})(x_{1},\ldots,x_{n}),\;
+        d(\phi\circ\phi_0^{-1})(x_{n+1},\ldots,x_{2n})).\]
+
+      Then, the eigenvectors of $d(T\phi\circ T\phi_0^{-1})$ are $(0,v_i)$
+      and $(v_1,0)$, where the $v_i$ are eigenvectors of
+      $d(\phi\circ\phi_0^{-1})$. Hence each eigenvalue of
+      $d(\phi\circ\phi_0^{-1})$ occurs twice in the eigenvalues of
+      $d(T\phi\circ T\phi_0^{-1})$, which implies that
+      \[\text{det}(d(T\phi\circ T\phi_0^{-1}))
+      =\text{det}(d(\phi\circ\phi_0^{-1}))^2 >0.\]
+
+      Thus for every change of coordinate function, the determinant of its
+      Jacobian matrix is positive, which is equivalent to being orientable.
     \end{proof}
 
   \item
