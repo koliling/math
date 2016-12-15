@@ -51,6 +51,31 @@
       Jacobian matrix is positive, which is equivalent to being orientable.
     \end{proof}
 
+  \item Let $G$ be a Lie group, that is, a group $G$ that is also a smooth
+    manifold such that the multiplication map $M\times M\rightarrow M$
+    taking $(x,y)$ to $xy$ and the inversion map $M\rightarrow M$ taking
+    $x$ to $x^{-1}$ are smooth. Letting $n$ be the dimension of $G$, prove
+    that $TG\cong G\times\mathbb{R}^n$.
+
+    \begin{proof}
+      Given $g\in G$, define the left multiplication function
+      $L_g:G\rightarrow G$ by $L_g(x)=gx$. Then $L_g$ is a diffeomorphism,
+      and $L_g(e)=ge=g$, where $e$ is the group identity. Thus $L_g$
+      induces a map on the tangent space $dL_g:T_eG\rightarrow T_gG$.  \\
+
+      Let $v_1,\ldots,v_n$ be a basis of the tangent space $T_eG$. Then the
+      $n$ vector fields $dL_g(v_1),\ldots,dL_g(v_n)\in T_gG$ are linearly
+      independent at $g\in M$: First, note that each $dL_g(v_i)$ is a smooth
+      vector field from the smoothness of the group operations. Now since
+      $L_g$ is a diffeomorphism, $dL_g$ is an isomorphism. Then since
+      $v_1,\ldots,v_n$ form a basis of $T_eG$, their images
+      $dL_g(v_1),\ldots,dL_g(v_n)$ form a basis of $T_gG$. \\
+
+      So the map $\phi:G\times \mathbb{R}^n\rightarrow TG$ defined by
+      $\phi((g,V))=(g,dL_g)_e(V)$ is a smooth vector-bundle isomorphism,
+      thus $TG\cong G\times\mathbb{R}^n$.
+    \end{proof}
+
   \item
 
   \item
