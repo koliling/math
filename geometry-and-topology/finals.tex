@@ -28,9 +28,54 @@
     manifold of dimension $2n$.
 
     \begin{proof}
+      We can realize the complex projective space in a similar manner that
+      we realized the real projective space in the notes (Basic example in
+      Section 1.2): $\mathbb{C}\mathbb{P}^n$ is the quotient
+      $S^{2n+1}/\sim$, where $\sim$ identifies antipodal points for all
+      $x\in S^{2n+1}$. For $1\leq i\leq 2n+1$, define
+      $U_i\subset\mathbb{C}\mathbb{P}^n$ to be the image of
+      $U_{x_i>0}\subset S^{2n+1}$ under the quotient map
+      $S^{2n+1}\rightarrow\mathbb{C}\mathbb{P}^n$. Letting $V$ be the unit
+      disk in $\mathbb{R}^{2n}$, we can define homeomorphisms
+      $\phi_i:U_i\rightarrow V$ as the composition
+      \[U_i\cong U_{x_i>0}\rightarrow V.\]
+      The set
+      \[\mathcal{A}=\{\phi_i:U_i\rightarrow V\}\]
+      then forms a smooth atlas for $\mathbb{C}\mathbb{P}^n$. Thus, the
+      complex projective space is a smooth manifold of dimension $2n$. \\
+
+      Orientable
+
+      %We know that the real projective space $\mathbb{R}\mathbb{P}^n$ is a
+      %smooth manifold of dimension $n$, with coordinate chart at
+      %$(x_0:\ldots:x_n)\in\mathbb{R}\mathbb{P}^n$ given by
+      %\[\phi_i(x_0:\ldots:x_n)
+      %  =\left(\frac{x_0}{x_i},\ldots,\frac{x_n}{x_i}\right),\]
+      %where the domain of $\phi_i$ is
+      %\[U_i=\{(x_0:\ldots:x_n):x^i\neq0\}.\]
+      %The map in this chart is continuous because the quotient map composed
+      %with it is continuous. Also, $\phi_i(U_i)=\mathbb{R}^n$ and the
+      %inverse
+      %\[\phi_i^{-1}(y_1,\ldots,y_n)=(y_1:\ldots:y_{i-1}:y_{i+1}:\ldots:y_n)\]
+      %is continuous. Thus the charts are homeomorphisms, and will give a
+      %smooth atlas for the real projective space. \\
     \end{proof}
 
-  \item
+  \item \it Let $f:M_1^{n_1}\rightarrow M_2^{n_2}$ be a smooth map between
+    smooth manifolds. Also, let $i:X^k\xhookrightarrow{}M_2^{n_2}$ be an
+    embedding of a smooth manifold $X^k$ into $M_2^{n_2}$. Assume that for
+    all $p\in M_1^{n_1}$ and $x\in X^k$ with $f(p)=i(x)$, the span of the
+    images of $D_pf:T_pM_1^{n_1}\rightarrow T_{f(p)}M_2^{n_2}$ and
+    $D_xi:T_xX^k\rightarrow T_{i(x)}M_2^{n_2}$ is all of
+    $T_{f(p)}M_2^{n_2}=T_{i(x)}M_2^{n_2}$. Prove that the set
+    $f^{-1}(i(X^k))\subset M_1^{n_1}$ is a smooth
+    $(n_1-(n_2-k))$-dimensional submanifold of $M_1^{n_1}$. Hint: One
+    special case of this is where $X^k$ is a single point $x$ and $i(x)$ is
+    a regular value of $f$. Use the local immersion theorem to reduce this
+    (locally) to this special case.
+
+    \begin{proof}
+    \end{proof}
 
   \item \it Let $M^n$ be an arbitrary smooth manifold. Prove that the tangent
     bundle $TM^n$ is orientable.
@@ -53,7 +98,7 @@
         d(\phi\circ\phi_0^{-1})(x_{n+1},\ldots,x_{2n})).\]
 
       Then, the eigenvectors of $d(T\phi\circ T\phi_0^{-1})$ are $(0,v_i)$
-      and $(v_1,0)$, where the $v_i$ are eigenvectors of
+      and $(v_i,0)$, where the $v_i$ are eigenvectors of
       $d(\phi\circ\phi_0^{-1})$. Hence each eigenvalue of
       $d(\phi\circ\phi_0^{-1})$ occurs twice in the eigenvalues of
       $d(T\phi\circ T\phi_0^{-1})$, which implies that
@@ -89,8 +134,24 @@
       thus $TG\cong G\times\mathbb{R}^n$.
     \end{proof}
 
-  \item
+  \item \it Let $M^3$ be a 3-manifold and let $\alpha\in\Omega^1(M^3)$ be a
+    1-form such that $\alpha\wedge d\alpha$ is a volume form on $M^3$.
+    Prove that there does not exist an embedding $f:X^2\rightarrow M^3$
+    with $X^2$ a 2-manifold such that for all $p\in X^2$ and all
+    $\vec{v}\in T_pX^2$, we have
+    \[\alpha(f(p))((D_pf)(\vec{v}))=0.\]
 
-  \item
+    \begin{proof}
+    \end{proof}
+
+  \item \it Let $f_0:M^k\rightarrow X^n$ and $f_1:M^k\rightarrow X^n$ be
+    smoothly homotopic maps between smooth manifolds and let
+    $\omega\in\Omega^k(X^n)$ be closed. Assume that $M^k$ is oriented and
+    compact. Prove that
+    \[\int_{M_k} f_0^*(\omega)= \int_{M^k} f_1^*(\omega).\]
+    Make sure to be careful about orientations i your proof!
+
+    \begin{proof}
+    \end{proof}
 \end{enumerate}
 \end{document}
