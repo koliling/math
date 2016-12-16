@@ -28,21 +28,46 @@
     manifold of dimension $2n$.
 
     \begin{proof}
-      We can realize the complex projective space in a similar way that
-      the real projective space was realized in the notes (Basic example in
-      Section 1.2): $\mathbb{C}\mathbb{P}^n$ is the quotient
-      $S^{2n+1}/\sim$, where $\sim$ identifies antipodal points for all
-      $x\in S^{2n+1}$. For $1\leq i\leq 2n+1$, define
-      $U_i\subset\mathbb{C}\mathbb{P}^n$ to be the image of
-      $U_{x_i>0}\subset S^{2n+1}$ under the quotient map
-      $S^{2n+1}\rightarrow\mathbb{C}\mathbb{P}^n$. Letting $V$ be the unit
-      disk in $\mathbb{R}^{2n}$, we can define homeomorphisms
-      $\phi_i:U_i\rightarrow V$ as the composition
-      \[U_i\cong U_{x_i>0}\xrightarrow{\phi_{x_i>0}} V.\]
-      Then the set
-      \[\mathcal{A}=\{\phi_i:U_i\rightarrow V\}\]
-      forms a smooth atlas for $\mathbb{C}\mathbb{P}^n$. Thus, the
-      complex projective space is a smooth manifold of dimension $2n$. \\
+      We first prove that $\mathbb{C}\mathbb{P}^n$ is Hausdorff. Define the
+      map $f:(\mathbb{C}^{n+1}\setminus\{0\})
+      \times(\mathbb{C}^{n+1}\setminus\{0\}) \rightarrow\mathbb{R}$ by
+      \[f(\bar{x},\bar{y}) = \sum_{i\neq j}\left|x_iy_j-x_jy_i\right|^2.\]
+      Then $f(\bar{x},\bar{y})=0$ if and only if $\bar{x}$ and $\bar{y}$
+      are in the same equivalence class. Thus $\mathbb{C}\mathbb{P}^n
+      =f^{-1}(0)$. Note that $f$ is continuous and $\{0\}$ is closed in
+      $\mathbb{R}$. Now from point-set topology, any quotient space
+      $X/\sim$ of a Hausdorff space $X$ where the projection map
+      $\pi:X\rightarrow X/\sim$ is open will also be Hausdorff if and only
+      if $\{(x,y)\in X\times X:x\sim y\}$ is closed in $X\times X$. Thus
+      $\mathbb{C}\mathbb{P}^n$ is Hausdorff. \\
+
+      Next we prove that $\mathbb{C}\mathbb{P}^n$ is second countable. This
+      projective space is an open quotient subspace of $\mathbb{R}^{2n}$,
+      where the projection map is open. Now the quotient space of a second
+      countable space with open projection map is also second countable.
+      Then since $\mathbb{R}^{2n}$ is second countable, the complex
+      projective space is also second countable. \\
+
+      Next we show that the complex projective space is a smooth manifold
+      of dimension $2n$. Define charts on $\mathbb{C}\mathbb{P}^n$ as
+      follows for each $i\in\{0,\ldots,n\}$:
+      \[U_i= \{[x_0:\ldots:x_n]\in\mathbb{C}\mathbb{P}^n\}\]
+      Then the function
+      \[\phi_i:U_i\rightarrow\mathbb{C}^n\quad [x_0:\ldots:x_n]\mapsto
+        \left(\frac{x_0}{x_i},\ldots,\frac{x_{i-1}}{x_i},
+        \frac{x_{i+1}}{x_i},\ldots,\frac{x_n}{x_1}\right)\]
+      is a homeomorphism since it has a continuous inverse
+      \[\phi_i^{-1}:\mathbb{C}^n\rightarrow U_i\quad
+        (x_1,\ldots,x_n)\mapsto[x_1:\ldots:x_{i-1}:x_{i+1}\ldots:x_n].\]
+      Consider the change of coordinates $\phi_i\circ\phi_j^{-1}$, where we
+      can assume without loss of generality that $i<j$,
+      \[(x_1,\ldots,x_n)\mapsto [x_1:\ldots:x_{i-1}:x_{i+1}\ldots:x_n]
+        \mapsto\left(\frac{x_1}{x_i},\ldots,
+        \frac{x_{i-1}}{x_i},\frac{x_{i+1}}{x_i},
+        \ldots,\frac{x_{j-1}}{x_i},\frac{1}{x_i},\frac{x_{j+1}}{x_i},
+        \ldots,\frac{x_n}{x_1}\right).\]
+      This is a smooth function, thus $\phi$ gives a smooth atlas for the
+      complex projective space.
 
       To show that the manifold is orientable, we show that for every
       change of coordinate function, the determinant of its Jacobian matrix
@@ -60,6 +85,29 @@
       $lB^∗=B^∗_0$, and the determinant of $l$, viewed as a
       $\mathbb{R}$-linear map, will be
       $\text{det}(d(\phi\circ\phi_0^{-1}))=|l|^2>0$, as required.
+
+      %Given $t\in\mathbb{C}\setminus\{0\}$, consider the scaling map
+      %$\phi_t:\mathbb{C}^{n+1}\setminus\{0\}\rightarrow
+      %\mathbb{C}^{n+1}\setminus\{0\}$ defined by $\phi_t(x)=tx$. This map
+      %is invertible with inverse $\phi_{1/t}$. Then since $\phi_t$ and
+      %$\phi_{1/t}$ are analytic, $\phi_t$ is a homeomorphism. Hence if
+      %$U\subset\mathbb{C}^{n+1}$ is open, its image
+      %$\phi_t(U)\subset\mathbb{C}^{n+1}$ will also be open.
+
+      %We can realize the complex projective space in a similar way that
+      %the real projective space was realized in the notes (Basic example in
+      %Section 1.2): $\mathbb{C}\mathbb{P}^n$ is the quotient
+      %$S^{2n+1}/S^1$. For $1\leq i\leq 2n+1$, define
+      %$U_i\subset\mathbb{C}\mathbb{P}^n$ to be the image of
+      %$U_{x_i>0}\subset S^{2n+1}$ under the quotient map
+      %$S^{2n+1}\rightarrow\mathbb{C}\mathbb{P}^n$. Letting $V$ be the unit
+      %disk in $\mathbb{R}^{2n}$, we can define homeomorphisms
+      %$\phi_i:U_i\rightarrow V$ as the composition
+      %\[U_i\cong U_{x_i>0}\xrightarrow{\phi_{x_i>0}} V.\]
+      %Then the set
+      %\[\mathcal{A}=\{\phi_i:U_i\rightarrow V\}\]
+      %forms a smooth atlas for $\mathbb{C}\mathbb{P}^n$. Thus, the
+      %complex projective space is a smooth manifold of dimension $2n$. \\
 
       %We know that the real projective space $\mathbb{R}\mathbb{P}^n$ is a
       %smooth manifold of dimension $n$, with coordinate chart at
