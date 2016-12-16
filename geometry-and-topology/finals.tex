@@ -143,7 +143,46 @@
       by the immersion theorem, an open $U_x\subset X^k$ containing $x$, an
       open $U_2\subset M_2^{n_2}$, an open $V\subset\mathbb{R}^{n_2-k}$,
       $v_0\in V$, and a diffeomorphism $\phi:U_2\rightarrow U_x\times V$
-      such that $\phi(i(u))=(u,v_0)$ for all $u\in U_x$.
+      such that $\phi(i(u))=(u,v_0)$ for all $u\in U_x$. Then because
+      $\phi$ is bijective, we have
+      \[\phi^{-1}(U_x\times\{v_0\})=i(U_x).\]
+
+      Consider the map $\varphi:f^{-1}(U_2)\rightarrow V$ given by
+      $\varphi(p)=\pi_2(\phi(f(p)))$, where $\pi_n$ is the $n$th-projection
+      map. Note that $\varphi$ is smooth because it is a composition of
+      smooth functions. We show that $v_0$ is a regular value of $\varphi$.
+      Note that $\varphi^{-1}(v_0)$ is non-empty because
+      $\phi^{-1}(U_x\times\{v_0\})=i(U_x)$. So let $p\in\varphi^{-1}(v_0)$,
+      and $y\in U_x$ such that $f(p)=i(y)$. Then the chain rule gives
+      \begin{align*}
+        D_p\varphi(T_pM_1^{n_1}) &=D_p(\pi_2\circ\phi\circ f)(T_pM_1^{n_1})
+          \\
+        &=D_{f(p)}(\pi_2\circ\phi)(D_pf(T_pM_1^{n_1})). \\
+      \end{align*}
+
+      Also, since both $\pi_2$ and $\phi$ are submersions, their
+      composition is also a submersion, thus
+      \[D_{f(p)}(\pi_2\circ\phi)(T_{f(p)}M_2^{n_2}) = T_{v_0}V.\]
+
+      Furthermore, because $\pi_2\circ\phi\circ i$ is a constant map, we
+      have
+      \[D_y(\pi_2\circ\phi\circ i)(T_yX^k)
+        =D_{f(p)}(\pi_2\circ\phi)(D_yi(T_yX^k)) =0,\]
+      where $y\in U_x$ is such that $f(p)=i(y)$.
+
+      Thus, from the assumption in the question, we have
+      \[D_p\varphi(T_pM_1^{n_1})=
+      D_{f(p)}(\pi_2\circ\phi)(D_pf(T_pM_1^{n_1})) =T_{v_0}W,\]
+      and thus $v_0$ is a regular value of $\varphi$. \\
+
+      Then by the regular value theorem,
+      \[\varphi^{-1}(v_0) =f^{-1}\circ\phi^{-1}\circ\pi_2^{-1}(v_0)
+      =f^{-1}(i(U_x))\]
+      is a smooth $(n_1-(n_2-k))$-dimensional submanifold of $M_1^{n_1}$.
+      Therefore
+      \[f^{-1}(i(X^k))=\bigcup_{x\in X^k} f^{-1}(i(U_x))\]
+      will also be a smooth $(n_1-(n_2-k))$-dimensional submanifold of
+      $M_1^{n_1}$.
     \end{proof}
 
   \item \it Let $M^n$ be an arbitrary smooth manifold. Prove that the tangent
