@@ -250,7 +250,14 @@
     \[\alpha(f(p))((D_pf)(\vec{v}))=0.\]
 
     \begin{proof}
-      Assume by contradiction that such an embedding exists.
+      Assume by contradiction that such an embedding exists. We will show
+      that $(\alpha\wedge d\alpha)(f(p))=0$, contradicting that $\alpha\wedge
+      d\alpha$ is a volume form on $M^3$. Let $\{e_1,e_2,e_3\}$ be the
+      basis elements of $\alpha(f(p))$. Then we have
+      \begin{align*}
+        (\alpha\wedge d\alpha)(f(p)) &=\alpha(f(p))\wedge d\alpha f((p)) \\
+        &=\text{alt}(\alpha\; d\alpha)(f(p)) \\
+      \end{align*}
     \end{proof}
 
   \item \it Let $f_0:M^k\rightarrow X^n$ and $f_1:M^k\rightarrow X^n$ be
