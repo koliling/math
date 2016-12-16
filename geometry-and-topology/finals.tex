@@ -212,10 +212,24 @@
     smoothly homotopic maps between smooth manifolds and let
     $\omega\in\Omega^k(X^n)$ be closed. Assume that $M^k$ is oriented and
     compact. Prove that
-    \[\int_{M_k} f_0^*(\omega)= \int_{M^k} f_1^*(\omega).\]
-    Make sure to be careful about orientations i your proof!
+    \[\int_{M^k} f_0^*(\omega)= \int_{M^k} f_1^*(\omega).\]
+    Make sure to be careful about orientations in your proof!
 
     \begin{proof}
+      Consider the manifold $M=M^k\times[0,1]$. The boundary on $M$
+      is comprised of $M^k\times\{0\}$ and $M^k\times\{1\}$, where the
+      former is counted with a minus sign and the latter with a plus sign.
+      Thus if $\phi:M^k\times[0,1]\rightarrow X^n$ is a homotopy between
+      $f_0$ and $f_1$, then we have
+      \begin{align*}
+        0 &=\int_{M^k\times[0,1]} \phi^*(d\omega) \\
+        &=\int_{M^k\times[0,1]} d\phi^*(\omega) \\
+        &=\int_{d(M^k\times[0,1])} \phi^*(\omega) &(\text{Stoke's theorem})
+          \\
+        &=\int_{M^k} f_1^*(\omega) - \int_{M^k} f_0^*(\omega), \\
+      \end{align*}
+      thus $\int_{M^k} f_0^*(\omega)= \int_{M^k} f_1^*(\omega)$ as
+      required.
     \end{proof}
 \end{enumerate}
 \end{document}
