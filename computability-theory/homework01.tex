@@ -1,0 +1,543 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic II: Problem Set 1}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it (See Section 3 for notations and definitions). Let
+    $\mathcal{L}$ be a countable language and $T$ an $\mathcal{L}$-theory.
+
+    \begin{enumerate}[label={\bf(\arabic*)}]
+      \item Assume $T$ is model-complete, and let $\mathcal{M}$ be a model
+        of $T$. Show that $T\cup\text{Diag}(\mathcal{M})\models
+        T_\mathcal{M}$. (Notice that both $\text{Diag}(\mathcal{M})$ and
+        $T_\mathcal{M}$ are $\mathcal{L}(\mathcal{M})$-theories.)
+
+        \begin{proof}
+          Let $\varphi(\bar{m})$ be an arbitrary formula in
+          $T_\mathcal{M}$, where $\bar{m}\in M$. We wish to show that
+          \[T\cup\text{Diag}(\mathcal{M})\vdash \varphi(\bar{m}).\]
+
+          By model-completeness of $T$, there is a quantifier-free formula
+          $\theta(\bar{x},\bar{y})$ such that
+          \[T\models \forall\bar{x}\; (\varphi(\bar{x})\leftrightarrow
+            \exists\bar{y}\; \theta(\bar{x},\bar{y})).\]
+
+          Thus since $\mathcal{M}\models\varphi(\bar{m})$, we must have
+          $\theta(\bar{m},\bar{a})$ for some $\bar{a}\in M$, which means
+          $\theta(\bar{m},\bar{a})\in\text{Diag}(\mathcal{M})$. Thus we
+          have
+          \begin{align*}
+            T\cup\text{Diag}(\mathcal{M}) &\models \forall\bar{x}\;
+              (\varphi(\bar{x})\leftrightarrow \exists\bar{y}\;
+              \theta(\bar{x},\bar{y}))\; \wedge\; \theta(\bar{m},\bar{a})
+              \\
+              &\models \varphi(\bar{m}). \\
+          \end{align*}
+
+          Since $\varphi(\bar{m})\in T_\mathcal{M}$ was arbitrary, we have
+          $T\cup\text{Diag}(\mathcal{M})\models T_\mathcal{M}$.
+        \end{proof}
+
+      \item Prove that $T$ is model-complete if and only if for every model
+        $\mathcal{M}$ of $T$ the $\mathcal{L}(\mathcal{M})$-theory
+        $\text{Diag}(\mathcal{M})\cup T$ is complete.
+
+        \begin{proof}
+          $\Rightarrow$: Follows directly from part 1 above, since
+          $T_\mathcal{M}$ is a complete theory in the language of
+          $\mathcal{L}(\mathcal{M})$. \\
+
+          $\Leftarrow$: Assume the $\mathcal{L}(\mathcal{M})$-theory
+          $\text{Diag}(\mathcal{M})\cup T$ is complete for every model
+          $\mathcal{M}$ of $T$. To show that $T$ is model-complete is
+          equivalent to showing that every model of $T$ is ec-closed in
+          $T_\forall$ (Theorem 11.14.3). Now the models of $T_\forall$ are
+          exactly the substructures of the models of $T$ (Lemma 11.2).
+          Also, if every model of $T$ is ec-closed in $T$, then given
+          models $\mathcal{M},\mathcal{N}\models T$ such that
+          $\mathcal{M}<\mathcal{N}_0<\mathcal{N}$, we will have
+          $\mathcal{M}<\mathcal{N}$ is ec-closed and thus
+          $\mathcal{M}<\mathcal{N}_0$ is ec-closed. Therefore it suffices
+          to show that models of $T$ are ec-closed in $T$. \\
+
+          Let $\mathcal{M},\mathcal{N}\models T$ with
+          $\mathcal{M}<\mathcal{N}$. Assume by contradiction that
+          $\mathcal{M}$ is not ec-closed in $\mathcal{N}$. Then there is a
+          quantifier-free formula $\varphi(\bar{x},\bar{y})$ such that
+          $\mathcal{N}\models\exists\bar{x}\; \varphi(\bar{x},\bar{m})$ for
+          some $\bar{m}\in M$ but $\mathcal{M}\not\models\exists\bar{x}\;
+          \varphi(\bar{x},\bar{m})$. Then we have
+
+          \[\begin{array}{lrlr}
+            &\mathcal{M} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &T_\mathcal{M} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &\text{Diag}(\mathcal{M})\cup T
+              &\models\forall\bar{x}\; \neg\varphi(\bar{x},\bar{m})
+              &(\because\text{Diag}(\mathcal{M})\cup T\models
+              T_\mathcal{M}\; \text{by completeness assumption}) \\
+            \Rightarrow &\text{Diag}(\mathcal{N})\cup T
+              &\models\forall\bar{x}\; \neg\varphi(\bar{x},\bar{m})
+              &(\because\text{Diag}(\mathcal{M})\subseteq
+              \text{Diag}(\mathcal{N})\; \text{from}\;
+              \mathcal{M}<\mathcal{N}) \\
+            \Rightarrow &\mathcal{N} &\models\forall\bar{x}\;
+              \neg\varphi(\bar{x},\bar{m}) \\
+            \Rightarrow &\mathcal{N} &\not\models\exists\bar{x}\;
+              \varphi(\bar{x},\bar{m}), \\
+          \end{array}\]
+          a contradiction.
+        \end{proof}
+    \end{enumerate}
+
+  \item \it Let $\varphi$ be a sentence in the language of abelian groups.
+    As usual for a prime $p$ we denote by $\mathbb{Z}_p$ the additive group
+    $\mathbb{Z}/p\mathbb{Z}$.
+
+    \begin{enumerate}[label={\bf(\arabic*)}]
+      \item Show that if $\mathbb{Q}\models\varphi$ then there is a prime
+        $p$ such that $\mathbb{Z}_p\models\varphi$. (Hint: $(\mathbb{Q},+)$
+        is a torsion-free divisible abelian group.)
+
+        \begin{proof}
+          The language of abelian groups is $\mathcal{L}=\{+,-,0\}$.
+          Also, the theory of abelian groups $T_\text{Ab}$ can be
+          considered a conjunction of a finite set of $\forall$-sentences.
+          Then the theory of torsion-free divisible abelian groups
+          $T_\text{tor-free}$ is $T_\text{Ab}\cup T_0 \cup T_1$, where
+          \begin{align*}
+            T_0 &:= \bigcup_{n\in\omega}
+              \{\underbrace{x+\ldots+x}_{n\text{-times}}=0 \rightarrow
+              x=0\}, \\
+            T_1 &:= \bigcup_{n\in\omega}
+              \{\forall x\exists y\;
+              \underbrace{y+\ldots+y}_{n\text{-times}}=x\}. \\
+          \end{align*}
+
+          Now $T_\text{tor-free}$ is $\kappa$-categorical for all
+          $\kappa>\omega$ (Theorem 4.35), so since $T_0$ ensures that there
+          are no finite-models, $T_\text{tor-free}$ is a complete theory by
+          Vaught's test (Theorem 4.34). \\
+
+          Let $\varphi$ be a sentence in the language such that
+          $\mathbb{Q}\models\varphi$. Then
+          $T_\text{tor-free}\models\varphi$ from completeness of
+          $T_\text{tor-free}$, thus from compactness theorem, there must be
+          a finite subset of formulas $T_\text{fin}\subset
+          T_\text{tor-free}$ such that $T_\text{fin}\models\varphi$.
+          Without loss of generality, we can assume
+          \begin{align*}
+            T_\text{fin} &= T_\text{Ab}\cup \bigcup_{n=1}^N
+              \{\underbrace{x+\ldots+x}_{n\text{-times}}=0 \rightarrow
+              x=0\} \cup\bigcup_{n=1}^N
+              \{\forall x\exists y\;
+              \underbrace{y+\ldots+y}_{n\text{-times}}=x\}. \\
+          \end{align*}
+          Then by choosing prime $p>N$, we will have $\mathbb{Z}_p\models
+          T_\text{fin}$. Then $\mathbb{Z}_p\models\varphi$, as required.
+        \end{proof}
+
+      \item Write a sentence $\psi$ such that $\mathbb{Z}\models\psi$ and
+        $\mathbb{Q}\models\neg\psi$.
+        \begin{proof}
+          Let $\psi$ be the sentence that says ``There is an element that
+          is not divisible by 2''. Formally,
+          \[\psi:= \exists x\forall y\; (y+y\neq x).\]
+        \end{proof}
+    \end{enumerate}
+
+  \item \it Let $\varphi$ be an $\forall\exists$-sentence in the language
+    of rings. Assume $\varphi$ holds in every finite field. Prove that
+    $\varphi$ holds in every algebraically-closed field.
+
+    \begin{proof}
+      If $\varphi$ holds in every algebraically-closed field of non-zero
+      characteristic, then it will also hold in every algebraically-closed
+      field of characteristic 0 (Corollary 4.42). Thus it suffices to prove
+      that $\varphi$ holds in the former. Also, for an arbitrary prime $p$,
+      if $\varphi$ holds in one algebraically-closed field of
+      characteristic $p$, then $\varphi$ will also hold in all
+      algebraically-closed fields of characteristic $p$, because
+      $\text{ACF}_p$ is $\kappa$-categorical for all $\kappa>\omega$ and
+      does not have finite models from closure property, and thus is a
+      complete theory from Vaught's test. Thus, it suffices to show that
+      given arbitrary prime $p$, $\varphi$ holds in one model of
+      $\text{ACF}_p$. \\
+
+      In particular, we show that $\varphi$ holds in
+      $\overline{\mathbb{F}}_p$, the algebraic-closure of the field
+      $\mathbb{F}_p$ of $p$ elements. Now \[\overline{\mathbb{F}}_p =
+      \bigcup_{n\in\mathbb{N}^+} \mathbb{F}_{p^n},\] where
+      $\mathbb{F}_{p^n}$ is the unique (up to ring-isomorphism) field with
+      $p^n$ elements that embeds $\mathbb{F}_{p^{n-1}}$. Since each
+      $\mathbb{F}_{p^n}$ is finite, $\varphi$ holds in each
+      $\mathbb{F}_{p^n}$. So we have a chain of models
+      \[\mathbb{F}_{p^1}< \mathbb{F}_{p^2}< \ldots\] of the
+      $\forall\exists$-theory $\{\varphi\}$. Then from inductiveness of
+      $\{\varphi\}$ (Corollary 11.8), the union $\overline{\mathbb{F}}_p$
+      will also be a model of $\{\varphi\}$, thus
+      $\overline{\mathbb{F}}_p\models\varphi$, as we wished to show.
+    \end{proof}
+
+  \item \it Let $T$ be the theory of $\langle\mathbb{R};<,Q\rangle$, where
+    $Q$ is a unary predicate for rational numbers. Does $T$ have a prime
+    model?
+
+    \begin{proof}
+      We prove the stronger assertion that $T$ is $\omega$-categorical.
+      Then $S_n(T)$ is finite for every $n\in\mathbb{N}^+$
+      (Ryll-Nardjewski), so the isolated types are dense in $S_n(T)$ for
+      every $n\in\mathbb{N}^+$ (Theorem 7.17), thus $T$ has a prime model
+      (Theorem 7.12). \\
+
+      To prove $\omega$-categoricity, notice that $T$ includes the
+      following sets of sentences:
+      \begin{enumerate}
+        \item $T_\text{DLO}$, which are the sentences what say ``I am a
+          dense linear order (DLO) without endpoints''. $T$ includes
+          $T_\text{DLO}$ since $\langle\mathbb{R},<\rangle$ is a DLO
+          without endpoints.
+
+        \item $T_{\mathbb{Q}\text{-DLO}}$, which are the sentences what say
+          ``the set of rationals is a DLO without endpoints''.
+          $T_{\mathbb{Q}\text{-DLO}}$ can be obtained from $T_\text{DLO}$
+          by replacing each occurrence of any variable $x$ with
+          ``$Q(x)\rightarrow$''.
+
+        \item $T_{\text{dense}}$, which is the conjunction of eight
+          sentences saying between a rational (or irrational) and a
+          rational (or irrational) lies another rational (or irrational).
+      \end{enumerate}
+
+      We show that $T':=T_\text{DLO}\cup T_{\mathbb{Q}\text{-DLO}}\cup
+      T_{\text{dense}}$ is $\omega$-categorical, which would imply that $T$
+      is $\omega$-categorical, as desired. Let $\mathcal{M}$, $\mathcal{N}$
+      be countable models of $T'$. Note that from density of the rationals
+      as expressed in $T_{\mathbb{Q}\text{-DLO}}$,
+      $|Q(M)|=|Q(N)|=\omega$. Also, from density of the irrationals as
+      expressed in $T_{\text{dense}}$, we also have $|\neg Q(M)|=|\neg
+      Q(N)|=\omega$. Write
+      \[\begin{array}{ll}
+        M=\{m_k\}_{k\in\omega},\; &N=\{n_k\}_{k\in\omega}.
+        \\
+      \end{array}\]
+
+      We use back-and-forth theorem to construct an isomorphism
+      $i=\cup_{r\in\omega}i_r$ between $M$ and $N$. Set $i_0=\emptyset$.
+      The idea is to cycle through four steps, where at step $4r$ for
+      $r\in\mathbb{N}^+$, we map an unmapped rational in $M$ to an unmapped
+      rational in $N$; at step $4r+1$, we map an unmapped rational in $N$
+      to an unmapped rational in $M$; at step $4r+2$ we map an unmapped
+      irrational in $M$ to an unmapped irrational in $N$; at step $4r+3$,
+      we map an unmapped irrational in $N$ to an unmapped irrational in
+      $M$. In extending the partial-isomorphism, we take care to preserve
+      ordering. \\
+
+      More precisely, at step $4r$ where $r\in\mathbb{N}^+$, let
+      $k\in\mathbb{N}$ be the smallest index such that $m_k$ is a rational,
+      $m_k\not\in\text{dom}(i_r)$, and let $k_0,k_1\in\mathbb{N}$ be the
+      smallest indices whose elements are are in $\text{dom}(i_r)$ and
+      which are closest to $m_k$, i.e. $m_{k_0}<m_k<m_{k_1}$ and
+      $m_{k_0},m_{k_1}\in\text{dom}(i_r)$. Then by construction, none of
+      the elements between $i_r(m_{k_0})$ and $i_r(m_{k_1})$ will be in the
+      range of $i_r$. Pick any rational $n_{k'}$ between them to be the
+      image of $m_k$; such a rational must exist from density of rationals.
+      Extend $i_{4r+1}=i_{4r}\cup\{(m_k,n_{k'})\}$. \\
+
+      At step $4r+1$, we exchange the roles of $M$ and $N$ as described in
+      step $4r$, and build $i_{4r+2}$ over $i_{4r+1}$. At step $4r+2$, we
+      replace ``rational'' by ``irrational'' in step $4r$, building
+      $i_{4r+3}$ over $i_{4r+2}$. Finally, at step $4r+3$, we replace
+      ``rational'' by ``irrational'' in step $4r+2$, building $i_{4r+4}$
+      over $i_{4r+3}$. \\
+
+      Taking union $i=\cup_{r\in\omega}i_r$ will give us an
+      order and rationality-preserving isomorphism between $M$ and $N$,
+      thus $T$ is $\omega$-categorical.
+    \end{proof}
+
+  \item \it Let $\mathcal{L}$ be a language. Assume $\mathcal{L}$ has a
+    binary predicate symbol $P(x,y)$. Let $T$ be a universal
+    $\mathcal{L}$-theory such that $T\models\forall x\exists y\; P(x,y)$.
+    Prove that there exists $\mathcal{L}$-terms $t_1(x),\ldots,t_n(x)$ such
+    that \[T\models\forall x\; \bigvee_{m=1}^n P(x,t_m(x)).\]
+    \begin{proof}
+      Assume by contradiction that for any finite set of terms
+      $t_1(x),\ldots,t_m(x)$ in variable $x$,
+      \begin{equation}
+        \tag{$*$}
+        T\models\exists x\; \bigwedge_{m=1}^n \neg P(x,t_m(x).
+        \label{eqn:neg}
+      \end{equation}
+      Then there is a model $\mathcal{M}$ of $T$ satisfying all the
+      existential sentences given at equation~\eqref{eqn:neg}. Note that
+      because $T\models\forall x\exists y\; P(x,y)$, every element $a\in M$
+      has a witness $a'\in M$ such that $P(a,a')$. \\
+
+      There are two possible cases for a model $\mathcal{M}$ satisfying all
+      the equations in \eqref{eqn:neg}. In the first case, there is an
+      element $a\in M$ whose witness $a'\in M$ of $P(a,a')$ is not any of the
+      terms $t(a)$ of $a$. In this case, consider the substructure $\langle
+      a\rangle<\mathcal{M}$, which is the smallest substructure of
+      $\mathcal{M}$ containing $a$, defined rigorously as
+      \begin{align*}
+        \langle a\rangle &=\{t^\mathcal{M}(a):
+          t^\mathcal{M}(x)\; \text{is an}\; \mathcal{L}\text{-term}\}. \\
+      \end{align*}
+
+      Note that $\langle a\rangle$ defined above will be closed under
+      functions since the composition of terms in variable $x$ remains a
+      term in variable $x$. Thus $\langle a\rangle$ is a substructure of
+      $\mathcal{M}$. Then since $T$ is a universal theory, it is closed
+      under substructures (Theorem 11.3), thus $\langle a\rangle$ is also a
+      model of $T$. However, $a\in\langle a\rangle$ will have no witness to
+      $P(a,y)$ because its witness is not $t(a)$ for any $\mathcal{L}$-term
+      $t(x)$. Thus $\langle a\rangle\models\forall y\; \neg P(a,y)$,
+      contradicting $T\models\forall x\exists y\; P(x,y)$. \\
+
+      In the second case, every element $a\in M$ has a witness $a'\in M$
+      for $P(a,a')$ such that $a'=t(a)$ for some $\mathcal{L}$-term $t(x)$.
+      We construct an elementary extension $\mathcal{N}\succ\mathcal{M}$
+      such that $\mathcal{N}$ falls under case 1 above. Add to language
+      $\mathcal{L}(\mathcal{M})$ a new constant symbol $c$, i.e.
+      $\mathcal{L}':=\mathcal{L}(\mathcal{M})\cup\{c\}$. In this extended
+      language, consider the theory
+      \[T':=T_\mathcal{M}\cup \{\neg P(c,t(c)):t^\mathcal{M}(x)\;
+        \text{is an}\; \mathcal{L}\text{-term}\}.\]
+
+      Then $T'$ is finitely satisfiable by $\mathcal{M}$: Clearly
+      $\mathcal{M}$ satisfies $T_\mathcal{M}$. Given any finite set of
+      $\mathcal{L}$-terms $t_1(x),\ldots,t_m(x)$ in variable $x$, because
+      $\mathcal{M}$ satisfies equation~\eqref{eqn:neg}, there must be an
+      element $a\in M$ that satisfies $\neg P(a,t_i(a))$ for all
+      $i\in\{1,\ldots,m\}$. Assigning $c$ to this element $a$, we will have
+      $\mathcal{M}\models T'$. Thus by Compactness theorem, $T'$
+      has a model $\mathcal{N}$, which will also be a model of $T$ since
+      $\mathcal{N}\models T_\mathcal{M}\supset T$. However in
+      $\mathcal{N}$, the constant element $c$ does not have a witness $c'$
+      of $P(c,c')$ which is a term $t(c)$ of $c$. Thus $\mathcal{N}$ is the
+      same as case 1 above, where we defined a substructure that
+      gives a contradiction.
+    \end{proof}
+
+  \item \it Let $\mathcal{M}$ be an infinite structure. Show that there is
+    a structure $\mathcal{N}$ elementarily equivalent to $\mathcal{M}$ such
+    that every definable subset $A\subseteq N$ is either finite or
+    uncountable.
+
+    \begin{proof}
+      We construct an elementary chain of structures
+      \[\mathcal{M}=\mathcal{M}_0\preceq \mathcal{M}_1\preceq\ldots,\]
+      such that for each $n\in\omega$, every subset $A\subseteq M_{n+1}$
+      that is definable over elements in $M_n$ is either finite or
+      uncoutable. More precisely, given $n\in\omega$, formula
+      $\varphi(\bar{x},\bar{y})$, and $\bar{m}\in M_n$, we have
+      $|\varphi(M_{n+1},\bar{m})|$ is either finite or uncountable. Take
+      \[\mathcal{N}=\bigcup_{n\in\omega}\mathcal{M}_n.\]
+
+      Then $\mathcal{M}\preceq\mathcal{N}$ by Tarski's Chain Lemma, thus
+      $\mathcal{N}$ is elementarily equivalent to $\mathcal{M}$. Also,
+      every definable subset $A\subseteq N$ is either finite or
+      uncountable: Given arbitrary formula $\varphi(\bar{x},\bar{y})$ and
+      $\bar{a}\in N$, we want to show that $|\varphi(N,\bar{a})|$ is
+      either finite or uncountable. Now all elements in $\bar{a}$ must be
+      constructed at some stage $n\in\omega$, i.e. $\bar{a}\in M_n$ for
+      some $n\in\omega$. Then $|\varphi(M_{n+1},\bar{a})|$ is either finite
+      or uncountable. Now since $\mathcal{M}_{n+1}\preceq\mathcal{N}$ by
+      Tarski's Chain Lemma, if $|\varphi(M_{n+1},\bar{a})|=k$ is finite, then
+      $\mathcal{M}_{n+1}$ and thus $\mathcal{N}$ will satisfy the first
+      order formula that says $\varphi(x,\bar{a})$ has exactly $k$
+      solutions, and therefore $|\varphi(N,\bar{a})|=k$ is also finite. On
+      the other hand, if $|\varphi(M_{n+1},\bar{a})|>\omega$, then there
+      will be uncountably many elements in $M_{n+1}$ and thus in $N$ that
+      satisfy $\varphi(x,\bar{a})$, thus $|\varphi(N,\bar{a})|$ is also
+      uncountable. Hence $|\varphi(N,\bar{a})|$ is either finite or
+      uncountable, as required. \\
+
+      We now construct the chain. Given $\mathcal{M}_n$, formula
+      $\varphi(\bar{x},\bar{y})$, and $\bar{a}\in\mathcal{M}_n$, we wish to
+      construct $\mathcal{M}_{n+1}\succeq\mathcal{M}_n$ with the above
+      described properties. Note that if $|\varphi(M_n,\bar{a})|$ is finite
+      or uncountable, then like in the argument in the previous paragraph,
+      $|\varphi(M_{n+1},\bar{a})|$ will remain finite or uncountable. Thus
+      in constructing $\mathcal{M}_{n+1}$, we need not worry about formulas
+      with finite or uncountable solutions. \\
+
+      We consider the formulas $\varphi(\bar{x},\bar{a})$ with countable
+      solutions in $\mathcal{M}_n$. We wish to add more solutions to make
+      the total number uncountable in $\mathcal{M}_{n+1}$. For each such
+      formula, add to the language an uncoutable set of constants
+      $\{c_{\varphi,\bar{a},i}\}_{i\in\omega_1}$, and consider the theorem
+      \[T_{\varphi,\bar{a}}:= \{\varphi(c_{\varphi,\bar{a},i}):
+        i\in\omega_1\} \cup \{c_{\varphi,\bar{a},i}\neq
+        c_{\varphi,\bar{a},j}: i<j\in\omega_1\}.\]
+
+      Let $T$ be the theorem
+      \[T:= T_{\mathcal{M}_n}\cup \bigcup_{|\varphi(M_n,\bar{a})|=\omega}
+        T_{\varphi,\bar{a}}.\]
+      Then $\mathcal{M}_n$ finitely satisfies $T$, because each involved
+      $\varphi(\bar{x},\bar{a})$ has countable solutions in
+      $\mathcal{M}_n$. Thus by compactness theorem, $T$ has a model
+      $\mathcal{M}_{n+1}$. This model elementary extends $\mathcal{M}_n$
+      since $T_{\mathcal{M}_n}\subseteq T$. Also, each formula
+      $\varphi(x,\bar{a})$ will now have either finite solutions, or
+      uncountable distinct solutions
+      $\{c_{\varphi,\bar{a},i}\}_{i\in\omega_1}$, as desired.
+    \end{proof}
+
+  \item \it Let $\mathcal{L}=\{<\}$ be the language for orders.
+    \begin{enumerate}[label={\bf(\arabic*)}]
+      \item Show that there is a structure $(A,<)$ elementarily equivalent
+        to $\omega$ that is not well-ordered.
+
+        \begin{proof}
+          We construct an elementary extension of $\omega$. We add to the
+          language $\mathcal{L}$ constants for $\omega$ and also for a new
+          chain $\mathbb{Q}$:
+          \begin{align*}
+            \mathcal{L}' &:=\mathcal{L}(\omega)\cup\{c_q':q\in\mathbb{Q}\}
+              \\
+            &=\mathcal{L}\cup\{c_n:n\in\omega\}\cup\{c_q':q\in\mathbb{Q}\}
+              \\
+          \end{align*}
+          where the $c_n$'s are the constants for $\omega$ and the $c_q'$
+          are the constants for the new $\mathbb{Q}$-chain. \\
+
+          Consider the theory
+          \begin{align*}
+            T &:= T_\omega \\
+            &\cup \{c_n\neq c_q':n\in\omega, q\in\mathbb{Q}\} \\
+            &\cup \{c_{q_0}'\neq c_{q_1}':q_0<q_1\in\mathbb{Q}\} \\
+            &\cup \{c_{q_0}'<c_{q_1}':q_0<q_1\in\mathbb{Q}\} \\
+          \end{align*}
+          Then $T$ is finitely satisfied by $\omega$: Given a finite subset
+          of formulas in $T$, we can assume without loss of generality that
+          $c_{n_1}<\ldots<c_{n_k}$ and $c_{q_{k+1}}'<\ldots<c_{q_{k+m}}'$
+          are the only constants that appear in the formulas. For each
+          $i\in\{1,\ldots,m\}$, assign the constant $c_{q_{k+i}}'$ to
+          $n_{k}+i\in\omega$. This assignment will ensure that $\omega$
+          satisfies the subset of formulas. \\
+
+          Thus by compactness theorem, $T$ is satisfiable by some model
+          $\mathcal{A}$. Since $T$ contains $T_\omega$, $\mathcal{A}$ will
+          be an elementary extension of $\omega$, and will therefore be
+          elementarily equivalent to $\omega$. However, $A$ is not
+          well-ordered because $\langle\mathbb{Q},<\rangle$ is not well-ordered. In
+          particular, the elements associated with the set of constants
+          \[\left\{c_{1/n}':n\in\omega\right\}\] does not have a minimal
+          element.
+
+          %We construct an elementary extension of $\omega$. The idea of the
+          %extension is to append to $\omega$ a countable chain of integers,
+          %where the set of chains are indexed by positive rationals. The
+          %extension will not be well-orderable because positive rationals
+          %are not well-ordered. More precisely, we would like the
+          %elementary extension to contain
+          %\[\omega\; \bigsqcup_{q\in\mathbb{Q}^+}\; \mathbb{Z}.\]
+
+          %We write the elements of $\omega$ as
+          %$\omega:=\{a_{0,n}\}_{n\in\omega}$, and the elements in the $q$th
+          %chain of integers $\mathbb{Z}_q$ for each $q\in\mathbb{Q}^+$ as
+          %\[\mathbb{Z}_q :=\{a_{q,z}\}_{z\in\mathbb{Z}}.\]
+          %Then we define the ordering on $\omega\;
+          %\sqcup_{q\in\mathbb{Q}^+}\; \mathbb{Z}$ to be
+          %\[a_{q,z}<a_{q',z'} \Leftrightarrow (q<q')\vee(q=q'\wedge z<z').\]
+
+          %To construct an elementary extension with such a structure, we
+          %add to the language new constants
+          %\[\mathcal{L}':= \mathcal{L}\cup\]
+        \end{proof}
+
+      \item Let $\aleph_1$ be the first uncountable cardinal. Show that
+        $\aleph_1$ and $\omega$ are not elementarily equivalent (as ordered
+        sets).
+        \begin{proof}
+          Consider the sentence $\varphi$ which says that ``I have no limit
+          elements''. More rigorously, this sentence says ``every element
+          other than the smallest one has an immediate predecessor''. This
+          sentence is satisfied by $\omega$ but not by $\aleph_1$, because
+          $\aleph_0\in\aleph_1$ does not have a immediate predecessor. We
+          can write $\varphi$ in first-order language as
+          \[\varphi:= \forall x\; (\exists y\; y<x)\rightarrow\;
+            \left[\exists z\; (z<x)\wedge \forall w\; (w<x\rightarrow w\leq
+            z) \right].\]
+        \end{proof}
+
+      \item Show that some countable ordinal $\beta$ is an elementary
+        substructure of $\aleph_1$. (Notice that $\beta$ must be an initial
+        segment of $\aleph_1$.
+
+        \begin{proof}
+          We repeatedly apply Downward Lowenheim-Skolem to construct a
+          chain of countable substructures
+          \begin{equation*}
+            \tag{$**$}
+            \mathcal{M}_0\leq \mathcal{M}_1\leq\ldots
+            \label{eqn:chain}
+          \end{equation*}
+          of $\aleph_1$ such that for all $n\in\mathbb{N}$,
+          $\mathcal{M}_n\prec\aleph_1$, and $M_{n+1}\supseteq\beta_n$,
+          where $\beta_n=\sup M_n$. We start by taking $\mathcal{M}_0$ to
+          be any countable elementary substructure of $\aleph_1$. Such
+          $\mathcal{M}_0$ exists from Downward Lowenheim-Skolem. Then for
+          each $n\in\mathbb{N}$, let $\mathcal{M}_{n+1}$ be a countable
+          elementary substructure of $\aleph_1$ that contains the ordinal
+          $\beta_n$. Again, $\mathcal{M}_{n+1}$ exists from Downward
+          Lowenheim-Skolem. \\
+
+          Take $\beta=\cup_{n\in\omega}\mathcal{M}_n$, the union of this
+          chain. To show that this $\beta$ works, note that by
+          construction, $\beta=\cup_{n\in\omega}\beta_n$, so $\beta$ will
+          be an initial segment of $\aleph_1$ since each $\beta_n$ is an
+          initial segment of $\aleph_1$. Also, because each $\mathcal{M}_n$
+          is countable, each $\beta_n$ must also be countable by
+          regularlity of $\aleph_1$, otherwise the enumeration of elements
+          in $M_n$ will be cofinal in $\aleph_1$. Thus, $\beta$ is a union
+          of a countable set of countable initial segments, and is
+          therefore a countable ordinal. \\
+
+          Next, we show that because $\mathcal{M}_n\prec\aleph_1$ for all
+          $n\in\mathbb{N}$, the chain of structures given in
+          \eqref{eqn:chain} is an elementary chain: Given an arbitrary
+          formula $\varphi(\bar{x})$ and $\bar{a}\in M_n$, we have
+          \[\begin{array}{crll}
+            &\mathcal{M}_n &\models\varphi(\bar{a}) & \\
+            \Leftrightarrow &\aleph_1 &\models\varphi(\bar{a})
+              &(\because\mathcal{M}_n\prec\aleph_1) \\
+            \Leftrightarrow &\mathcal{M}_{n+1} &\models\varphi(\bar{a})
+              &(\because\mathcal{M}_{n+1}\prec\aleph_1), \\
+          \end{array}\]
+          thus $\mathcal{M}_n\preceq\mathcal{M}_{n+1}$ for all
+          $n\in\mathbb{N}$. Hence by Tarski's Chain Lemma,
+          $\mathcal{M}_n\preceq\beta$ for all $n\in\mathbb{N}$. \\
+
+          Finally, we show that $\beta$ is an elementary substructure of
+          $\aleph_1$. Let $\varphi(\bar{x})$ be an arbitrary formula and
+          $\bar{b}\in\beta$ an arbitrary tuple of elements in $\beta$.  All
+          elements in the tuple $\bar{b}\in\beta$ must be constructed at
+          some stage $n\in\mathbb{N}$, i.e. there is some $n\in\mathbb{N}$
+          such that $\bar{b}\in M_n$. Then we have
+          \[\begin{array}{crll}
+            &\beta &\models\varphi(\bar{b}) & \\
+            \Leftrightarrow &\mathcal{M}_n &\models\varphi(\bar{b})
+              &(\because\mathcal{M}_n\prec\beta) \\
+            \Leftrightarrow &\aleph_1 &\models\varphi(\bar{b})
+              &(\because\mathcal{M}_{n}\prec\aleph_1), \\
+          \end{array}\]
+          thus $\beta\preceq\aleph_1$ as desired. \\
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
