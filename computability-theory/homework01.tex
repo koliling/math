@@ -116,6 +116,12 @@
     recursive functions.
 
     \begin{proof}
+      We use diagonal argument. Letting $p_e$ denote the $e$th primitive
+      recursive function, we define $f(n)$ as
+      \begin{equation*}
+        f(n) := \max(p_1(n),\ldots,p_n(n))+1.
+      \end{equation*}
+      Then for any given $e$, we will have $f(n)>p_e(n)$ for all $n\geq e$.
     \end{proof}
 \end{enumerate}
 \end{document}
