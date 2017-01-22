@@ -93,15 +93,23 @@
         h(x+1,y) &= &y+1. \\
       \end{array}\]
       Since addition is primitive recursive, $h(x,y)$ will also be primitive
-      recursive. This completes the derivation. \\
-
-      We work backwards to get the full derivation:
+      recursive. This completes the derivation
     \end{proof}
 
   \item \it What is the code of the primitive recursive used in your third
     step of the above derivation?
 
     \begin{proof}
+      We work backwards with the solution of the previous question to
+      get the first three steps of the derivation. In our solution, we
+      first derived addition function. Thus the first three steps are:
+      \begin{enumerate}[label={\arabic*.}]
+        \item $f_1(x) = x+1$
+        \item $f_2(x) = x$
+        \item $f_3(x_1,x_2,x_3) = x_2$
+      \end{enumerate}
+      The code of the third primitive recursive is therefore
+      $p_1^{3+1}p_2^{2+1}=2^4\cdot3^3=1296$.
     \end{proof}
 
   \item \it Find a ``computable'' function $f$ that dominates all primitive
