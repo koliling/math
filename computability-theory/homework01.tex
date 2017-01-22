@@ -18,7 +18,7 @@
     recursive.
 
     \begin{proof}
-      Note that
+      We work top-down to get the derivation. First, note that
       \[\chi_R(\bar{x})=\chi_{\neq}(\text{mult}(\bar{x}_1,
         \bar{x}_2), \bar{x}_3),\]
       where $\text{mult}(x_1,x_2)$ denotes the multiplication function,
@@ -31,20 +31,71 @@
       The multiplication function can be derived as:
       \[\begin{array}{lcl}
         \text{mult}(0,x_2) &= &0, \\
-        \text{mult}(x_1+1,x_2) &= &\text{mult}(x_1,x_2)+x_2 \\
-        &= &\text{add}(\text{mult}(x_1,x_2),x_2) \\
-        &= &h(x_1,\text{mult}(x_1,x_2),x_2), \\
+        \text{mult}(x_1+1,x_2) &= &\text{mult}(x_1,x_2)+x_2. \\
       \end{array}\]
-      where $h(\bar{x}):=\text{add}(\bar{x}_2,\bar{x}_3)$. Now the zero
-      function is primitive recursive by definition. Also, $h(\text{x})$ is
-      primitive recursive by closure under projection and composition, and
-      also by the fact that the addition function $\text{add}(x_1,x_2)$ is
-      primitive recursive (example on page 2 of notes). Therefore,
-      $\text{mult}(x_1,x_2)$ is primitive recursive by closure under
-      primitive recursion. \\
+      Now the zero
+      function is primitive recursive by definition. Also, the function
+      $\text{mult}(x_1,x_2)+x_2$ is primitive recursive by closure under
+      projection and composition, and also by the fact that the addition
+      function is primitive recursive (example on page 2 of notes).
+      Therefore, $\text{mult}(x_1,x_2)$ is primitive recursive by closure
+      under primitive recursion. \\
 
-      It remains to show that the inequality relation is primitive
-      recursive.
+      It remains to show that the inequality relation $\chi_{\neg}$ is
+      primitive recursive. This relation can be expressed as a composition
+      of functions:
+      \[\begin{array}{lcl}
+        \chi_{\neg}(x_1,x_2) &= &\chi_{>0}(\text{absDiff}(x_1,x_2)), \\
+      \end{array}\]
+      where $\chi_{>0}(x)$ is the relation for non-zero elements, and
+      $\text{absDiff}(x_1,x_2):=|x_1-x_2|$ is the function of absolute
+      difference. $\chi_{>0}(x)$ can be easily derived as follows:
+      \[\begin{array}{lcl}
+        g_1(0,x_2) &= &0, \\
+        g_1(x_1+1,x_2) &= &1, \\
+        \chi_{>0}(x) &= &g_1(x,0). \\
+      \end{array}\]
+
+      To derive $\text{absDiff}(x_1,x_2)$, notice that absolute difference
+      is the sum
+      \[\begin{array}{lcl}
+        \text{absDiff}(x_1,x_2) &=
+        &\text{diff}(x_1,x_2)+\text{diff}(x_2,x_1), \\
+      \end{array}\]
+      where $\text{diff}(x_1,x_2):=\max(x_2-x_1,0)$.
+      Thus by closure under composition and the fact that the addition
+      function is primitive recursive, it suffices to show that
+      $\text{diff}(x_1,x_2)$ is primitive recursive.
+      We can derive $\text{diff}(x_1,x_2)$ from primitive recursion:
+      \[\begin{array}{lcl}
+        \text{diff}(0,x_2) &= &x_2, \\
+        \text{diff}(x_1+1,x_2) &= &\text{pred}(\text{diff}(x_1,x_2)), \\
+      \end{array}\]
+      where $\text{pred}(x)$ is the predecessor function. \\
+      
+      Now $\text{pred}(x)$ can be derived from primitive recursion as
+      follows:
+      \[\begin{array}{lcl}
+        \text{pred}(x) &= &p_1(x,0), \\
+        p_1(0,x_2) &= &0, \\
+        p_1(x_1+1,x_2) &= &h(x_1,p_1(x_1,x_2)), \\
+      \end{array}\]
+      where $h(x,y)$ is defined as
+      \[h(x,y):=
+        \begin{cases}
+          y+1, &\text{if}\; x\geq1\\
+          0, &\text{otherwise}\\
+        \end{cases},
+      \]
+      and can be derived via primitive recursion as:
+      \[\begin{array}{lcl}
+        h(0,y) &= &0, \\
+        h(x+1,y) &= &y+1. \\
+      \end{array}\]
+      Since addition is primitive recursive, $h(x,y)$ will also be primitive
+      recursive. This completes the derivation. \\
+
+      We work backwards to get the full derivation:
     \end{proof}
 
   \item \it What is the code of the primitive recursive used in your third
