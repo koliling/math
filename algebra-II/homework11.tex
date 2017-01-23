@@ -1,0 +1,592 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage[inline]{enumitem}
+\usepackage{color}
+\setlength{\parindent}{0mm} %So that we do not indent on new paragraphs
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Graduate Algebra I: Homework 11}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\it \textbf{Question 1:} For the field of 9 elements and for the field of 8
+  elements you construct in Question 6 of Section 9.4 below, find a
+  generator for the (cyclic) multiplicative group of non-zero elements.
+
+  \begin{proof}
+    A field of 8 elements would have 7 non-zero elements in its
+    multiplicative group. Since all non-zero (in the multiplicative sense)
+    elements in a prime group are generators, any non-one and non-zero
+    element in the larger group would be a multiplicative generator. In
+    particular, $\overline{x}\in\mathbb{F}_2[x]/(x^3+x+1)$ will be a
+    multiplicative generator. \\
+
+    In the field $\mathbb{F}_3[x]/(x^2+1)$ with 8 non-zero elements, each
+    non-zero element can have multiplicative order 2, 4, or 8. Hence to
+    test if an element $\overline{ax+b}$ has multiplicative order 8, it
+    suffices to check that $\overline{ax+b}^4\neq\overline{1}$. We test
+    $\overline{x+1}^2=\overline{2x}$, thus $\overline{x+1}^4=
+    \overline{2x}^2= \overline{4x^2}= \overline{x^2}\neq\overline{1}$.
+    Hence $\overline{x+1}$ is a multiplicative generator.
+  \end{proof}
+
+\it \textbf{Section 9.1 Question 4:} Prove that the ideals $(x)$ and
+  $(x,y)$ are prime ideals in $\mathbb{Q}[x,y]$ but only the latter ideal
+  is a maximal ideal.
+
+  \begin{proof}
+    Consider the map $\varphi:\mathbb{Q}[x,y]\rightarrow\mathbb{Q}[y]$
+    defined by $\varphi(xf(x,y)+g(y))=g(y)$. This map is a surjective ring
+    homomorphism with kernel $(x)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Q}[x,y]/(x)\cong\mathbb{Q}[y]$. Now since
+    $\mathbb{Q}$ is an integral domain, $\mathbb{Q}[y]$ will also be an
+    integral domain, and thus $(x)$ is a prime ideal in $\mathbb{Q}[x,y]$.
+    However $(x)$ is not a maximal ideal in $\mathbb{Q}[x,y]$ because
+    $\mathbb{Q}[y]$ is not a field - the polynomial $y\in\mathbb{Q}[y]$
+    does not have a multiplicative inverse. \\
+
+    Consider the map $\phi:\mathbb{Q}[x,y]\rightarrow\mathbb{Q}$
+    defined by $\phi(xf(x,y)+yg(y)+c)=c$. This map is a surjective ring
+    homomorphism with kernel $(x,y)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Q}[x,y]/(x,y)\cong\mathbb{Q}$. Now since
+    $\mathbb{Q}$ is field, $(x,y)$ is a maximal and also prime ideal in
+    $\mathbb{Q}[x,y]$.
+  \end{proof}
+
+\it \textbf{Section 9.1 Question 5:} Prove that $(x,y)$ and $(2,x,y)$ are
+  prime ideals in $\mathbb{Z}[x,y]$ but only the latter ideal is a maximal
+  ideal.
+
+  \begin{proof}
+    Consider the map $\phi:\mathbb{Z}[x,y]\rightarrow\mathbb{Z}$
+    defined by $\phi(xf(x,y)+yg(y)+c)=c$. This map is a surjective ring
+    homomorphism with kernel $(x,y)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Z}[x,y]/(x,y)\cong\mathbb{Z}$. Now since
+    $\mathbb{Z}$ is an integral domain, $(x,y)$ is a prime ideal in
+    $\mathbb{Z}[x,y]$. However, because $\mathbb{Z}$ is not a field,
+    $(x,y)$ is not a maximal ideal in $\mathbb{Z}[x,y]$. \\
+
+    Consider the map $\phi:\mathbb{Z}[x,y]\rightarrow\mathbb{Z}_2$
+    defined by $\phi(xf(x,y)+yg(y)+c)=\bar{c}$. This map is a surjective ring
+    homomorphism with kernel $(2,x,y)$, and thus from the first isomorphism
+    theorem of rings, $\mathbb{Z}[x,y]/(2,x,y)\cong\mathbb{Z}_2$. Now since
+    $\mathbb{Z}_2$ is a field, $(2,x,y)$ is a maximal and also prime ideal in
+    $\mathbb{Z}[x,y]$.
+  \end{proof}
+
+\it \textbf{Section 9.1 Question 6:} Prove that $(x,y)$ is not a principal
+  ideal in $\mathbb{Q}[x,y]$.
+
+  \begin{proof}
+    If $(x,y)$ is principal, then $(x,y)=(p(x,y))$ for some polynomial
+    $p(x,y)\in\mathbb{Q}[x,y]$. Then $x\in(p(x,y))$ implies $p(x,y)|x$ in
+    $\mathbb{Q}[x,y]$. Now in $\mathbb{Q}[x,y]$, the only divisors of the
+    polynomial $x$ are of the form $q$ or $qx$ for non-zero rationals
+    $q\in\mathbb{Q}\setminus\{0\}$, because if the degree of $x$ in
+    $p(x,y)$ is larger than 1, then the degree of $x$ in $p(x,y)f(x,y)$ for
+    any non-zero polynomial $f(x,y)\in\mathbb{Q}[x,y]$ will remain larger
+    than 1. Thus $p(x,y)$ must be of the form $q$ or $qx$.  Similarly,
+    since $y\in(p(x,y))$, $p(x,y)$ must be of a form $q$ or $qy$ for
+    non-zero rationals $q\in\mathbb{Q}\setminus\{0\}$. Thus $p(x,y)$ must
+    be a non-zero rational $q$. But $(q)=\mathbb{Q}[x,y]$ for non-zero
+    $q\in\mathbb{Q}$, yet $(x,y)$ is strictly contained in
+    $\mathbb{Q}[x,y]$ because the $\mathbb{Q}[x,y]$ contains $1$ but
+    $(x,y)$ does not.
+  \end{proof}
+
+\it \textbf{Section 9.2 Question 3:} Let $F$ be a field and let $x$ be an
+  indeterminate over $F$. Let $f(x)$ be a polynomial in $F[x]$. Prove that
+  $F[x]/(f(x))$ is a field if and only if $f(x)$ is irreducible.
+
+  \begin{proof}
+    $\Rightarrow$: If $F[x]/(f(x))$ is a field, $(f(x))$ must be a prime
+    ideal, which means $f(x)$ is prime in $F(x)$. Now  since $F(x)$ is a
+    UFD, prime elements are equivalent to the irreducible elements, thus
+    $f(x)$ is irreducible. \\
+
+    $\Leftarrow$: Assume $f(x)$ is irreducible. Then since $F(x)$ is a UFD,
+    irreducible elements are equivalent to prime ones, so $f(x)$ is a prime
+    element. Then $(f(x))$ will be a prime ideal. Now since $F[x]$ is a PID
+    (Corollary 4, Section 9.2), its prime ideals are maximal ideals
+    (Proposition 7, Section 8.2), thus $(f(x))$ is a maximal ideal, which
+    makes $F[x]/(f(x))$ a field.
+  \end{proof}
+
+\it \textbf{Section 9.2 Question 5:} Let $F$ be a field and let $x$ be an
+  indeterminate over $F$. Exhibit all the ideals in the ring $F[x]/(p(x))$,
+  where $F$ is a field and $p(x)$ is a polynomial in $F[x]$ (describe them
+  in terms of the factorization of $p(x)$).
+
+  \begin{proof}
+    Since $F$ is a field, $F[x]$ is a Euclidean domain, thus $p(x)$ factors
+    uniquely (up to associates) into a product of primes
+    $p(x)=u\prod_{i=1}^nf_i^{\alpha_i}(x)$, where the $f_i(x)$'s are unique
+    primes, $u$ is a unit (which is a unit in $R$, by Proposition 1 of
+    Section 9.1), and $\alpha_i>0$. \\
+
+    Now from the Lattice Isomorphism Theorem for rings, the ideals of
+    $F[x]/(p(x))$ are exactly the ideals $I/(p(x))$, where $I$ is an ideal
+    of $F[x]$ that contains $(p(x))$. Since $F[x]$ is a PID, we can write
+    $I=(q(x))$ for some $q(x)\in F[x]$. Now because $(q(x))$ contains
+    $(p(x))$ if and only if $q(x)$ divides $p(x)$. Therefore the ideals of
+    $F[x]/(p(x))$ are exactly those of the form $(q(x))/(p(x))$ for
+    divisors $q(x)$ of $p(x)$. \\
+
+    Furthermore, for principle ideals, $(q_1(x))$ equals $(q_2(x))$ if and
+    only if $q_1(x)$ and $q_2(x)$ are associates. Thus from the factor
+    decomposition of $p(x)$, the ideals of $F[x]/(p(x))$ are exactly those
+    of the form $(\prod_{i=1}^nf_i^{\beta_i}(x))/(p(x))$, where
+    $\beta_i\leq\alpha_i$, giving a total of $\prod_{i=1}^n\alpha_i$
+    unique ideals.
+  \end{proof}
+
+\it \textbf{Section 9.2 Question 6:} Describe (briefly) the ring structure
+  of the following rings:
+  \begin{enumerate}[label={(\alph*)}]
+    \item $\mathbb{Z}[x]/(2)$
+    \item $\mathbb{Z}[x]/(x)$
+    \item $\mathbb{Z}[x]/(x^2)$
+    \item $\mathbb{Z}[x,y]/(x^2,y^2,2)$
+  \end{enumerate}
+  Show that $\alpha^2=0$ or 1 for every $\alpha$ in the last ring and
+  determine those elements with $\alpha^2=0$. Determine the characteristics
+  of each ring.
+
+  \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+      \item $\mathbb{Z}[x]/(2)$: By Proposition 2 of Section 9.1,
+        $\mathbb{Z}[x]/(2)$ is isomorphic to $\mathbb{Z}/(2)[x]$, which is
+        isomorphic to $\mathbb{Z}_2[x]$ since
+        $\mathbb{Z}/(2)\cong\mathbb{Z}_2$. Thus $\mathbb{Z}[x]/(2)$ has
+        characteristic 2.
+
+      \item $\mathbb{Z}[x]/(x)$: The map
+        $\varphi:\mathbb{Z}[x]\rightarrow\mathbb{Z}$ defined by
+        $\varphi(xf(x)+c)=c$ is a surjective ring-homomorphism with kernel
+        $(x)$. Thus by the first isomorphism theorem, $\mathbb{Z}[x]/(x)$
+        is isomorphic to $\mathbb{Z}$, which has characteristic 0.
+
+      \item $\mathbb{Z}[x]/(x^2)$: We show that $\mathbb{Z}[x]/(x^2)
+        =\{\overline{ax+b}:a,b\in\mathbb{Z}\}$. Since every
+        $f(x)\in\mathbb{Z}[x]$ can be written in the form
+        $f(x)=x^2g(x)+ax+b$ where $g(x)\in\mathbb{Z}[x]$, the given set of
+        cosets contain all elements of $\mathbb{Z}[x]/(x^2)$. Also, since
+        $x^2|(ax+b)$ if and only if $a=b=0$, the given set of cosets are
+        distinct. Thus $\mathbb{Z}[x]/(x^2)
+        =\{\overline{ax+b}:a,b\in\mathbb{Z}\}$, which has characteristic 0.
+
+      \item $\mathbb{Z}[x,y]/(x^2,y^2,2)$: We show that
+        $\mathbb{Z}[x,y]/(x^2,y^2,2)
+        =\{\overline{axy+bx+cy+d}:a,b,c,d\in\mathbb{Z}_2\}$. Since every
+        $f(x)\in\mathbb{Z}[x]$ can be written in the form
+        \[f(x)=x^2g(x)+y^2h(x)+(2a_0+a)xy+(2b_0+b)x+(2c_0+c)y+(2d_0+d),\]
+        where $g(x),h(x)\in\mathbb{Z}[x,y]$, and $a,b,c,d\in\{0,1\}$, the
+        given set of cosets contain all elements of
+        $\mathbb{Z}[x,y]/(x^2,y^2,2)$. Next, we show that these cosets are
+        distinct. If $axy+bx+cy+d\in(x^2,y^2,2)$, since the coefficients of
+        $xy$, $x$, $y$, and $1$ must divide 2, we get $a=b=c=d=0$. Thus the
+        cosets are distinct. Then since $\bar{1}+\bar{1}=\bar{0}$, this
+        ring has characteristic 2.
+    \end{enumerate}
+  \end{proof}
+
+\it \textbf{Section 9.2 Question 9:} Determine the greatest common divisor
+  of $a(x)=x^5+2x^3+x^2+x+1$ and the polynomial
+  $b(x)=x^5+x^4+2x^3+2x^2+2x+1$ in $\mathbb{Q}[x]$ and write it as a linear
+  combination (in $\mathbb{Q}[x]$) of $a(x)$ and $b(x)$.
+
+  \begin{proof}
+    Note that since $\mathbb{Q}$ is a field, $\mathbb{Q}$ is a Euclidean
+    domain, thus the notion of greatest common divisor is well-defined. We
+    perform the Euclidean algorithm to find the GCD,
+    and backtrack to express the GCD in terms of $a(x)$ and $b(x)$. The
+    Euclidean algorithm gives:
+
+    \[\begin{array}{rll}
+      a(x)= &b(x) &+(x^4+x^2+x) \\
+      b(x)= &x(x^4+x^2+x) &+(x^3+x+1) \\
+      (x^4+x^2+x)= &x(x^3+x+1) &+0 \\
+    \end{array}\]
+
+    Thus the GCD is $(x^3+x+1)$. Backtracking, we have
+    \begin{align*}
+      (x^3+x+1) &=b(x)-x(x^4+x^2+x) \\
+      &=b(x)-x(a(x)-b(x)) \\
+      &=-xa(x)+(x+1)b(x). \\
+    \end{align*}
+  \end{proof}
+
+\it \textbf{Section 9.3 Question 1:} Let $R$ be an integral domain with
+  quotient field $F$ and let $p(x)$ be a monic polynomial in $R[x]$. Assume
+  that $p(x)=a(x)b(x)$ where $a(x)$ and $b(x)$ are monic polynomials in
+  $F[x]$ of smaller degree than $p(x)$. Prove that if $a(x)\not\in R[x]$
+  then $R$ is not a UFD. Deduce that $\mathbb{Z}[2\sqrt{2}]$ is not a UFD.
+
+  \begin{proof}
+    Assume that $R$ is a UFD. Then by Gauss's lemma, there are non-zero
+    elements $a_0,b_0\in F$ such that $a_1(x)=a_0a(x),b_1(x)=b_0b(x)\in
+    R[x]$ and $p(x)=a_1(x)b_1(x)$. Comparing leading coefficients, we must
+    have $a_0b_0=1$. Also, since $a_0a(x)\in R[x]$ and $a(x)$ is monic,
+    $a_0$ must lie in $R$. Then $a(x)=a_0^{-1}a_1(x)$ which will be in
+    $R[x]$ since $a_0^{-1},a_1(x)\in R[x]$. \\
+
+    Let $\mathbb{Z}[2\sqrt{2}]$ play the role of $R$ in the question. Then
+    the field of fractions of $R$ will be
+    $F=\mathbb{Q}[2\sqrt{2}]=\mathbb{Q}[\sqrt{2}]$, since this is a field,
+    and the field of fractions of $R$ must contain both $\mathbb{Q}$ and
+    $2\sqrt{2}$. Consider $p(x)=x^2-2\in R[x]$. Then $p(x)=a(x)b(x)$, where
+    $a(x)=x-\sqrt{2}\in F[x]$ and $b(x)=x+\sqrt{2}\in F[x]$. However
+    $a(x)\not\in R[x]$. Thus $R$ is not a UFD.
+  \end{proof}
+
+\it \textbf{Section 9.3 Question 4:} Let
+  $R=\mathbb{Z}+x\mathbb{Q}[x]\subset\mathbb{Q}[x]$ be the set of
+  polynomials in $x$ with rational coefficients whose constant term is an
+  integer.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that $R$ is an integral domain and its units are $\pm1$.
+      \begin{proof}
+        $\mathbb{Q}[x]$ is a Euclidean domain because $\mathbb{Q}$ is a
+        field, therefore $\mathbb{Q}[x]$ is an integral domain. Since any
+        zero-divisors of $R$ is also a zero-divisor of $\mathbb{Q}[x]$, $R$
+        must be an integral domain. \\
+
+        Since $R$ is a sub-ring of $\mathbb{Q}[x]$ whose units are
+        $\mathbb{Q}^+$ (Proposition 1, Section 9.1), the units of $R$ must
+        be a subset of $\mathbb{Q}^+\cap R=\{1,-1\}$. Clearly $\pm1$ are
+        units of $R$, thus the units of $R$ are $\pm1$.
+      \end{proof}
+
+    \item Show that the irreducibles in $R$ are $\pm p$ where $p$ is prime
+      in $\mathbb{Z}$ and the polynomials $f(x)$ are irreducible in
+      $\mathbb{Q}[x]$ and have constant term $\pm1$. Prove that these
+      irreducibles are prime in $R$.
+      \begin{proof}
+        We first check that the elements given in the question are
+        irreducibles in $R$. Primes $p$ are clearly irreducibles in $R$.
+        Also, let $f(x)=xg(x)\pm1\in R$ where $g(x)\in\mathbb{Q}[x]$ and
+        $f(x)$ is irreducible in $\mathbb{Q}[x]$. Assume by contradiction
+        that $f(x)$ is reducible. If the factor $r\in\mathbb{Z}$ witnesses
+        the irreducibility, then since the units of $R$ are only $\pm1$,
+        $|r|$ must be greater or equal 2. However, such $r$ cannot divide
+        $f(x)$ in $R$. So the factors of $f(x)$ must have degree between 1
+        and below the degree of $f(x)$. But such a factor would witness the
+        irreducibility of $f(x)$ in $\mathbb{Q}[x]$, since the units of
+        $\mathbb{Q}[x]$ are $\mathbb{Q}^+$. Thus $f(x)$ is irreducible in
+        $R$. \\
+
+        Next we show that there are no other irreducibles in $R$. Consider
+        elements in $R$ of degree 0. These are elements in $\mathbb{Z}$,
+        which are irreducible in $R$ if and only if they are prime, since
+        the units of $R$ are only $\pm1$. Now consider elements in $R$ of
+        degree greater or equal 1 and that are not of the form given in the
+        question. Such elements can be written as $f(x)=xg(x)+n\in R$ where
+        $g(x)\in\mathbb{Q}[x]$, the degree of $g(x)$ is greater or equal 1,
+        and $n\in\mathbb{Z}\setminus\{1,-1\}$. Then $n$ is a non-unit and
+        non-associate factor of $f(x)$, thus $f(x)$ is reducible.
+      \end{proof}
+
+    \item Show that $x$ cannot be written as the product of irreducibles in
+      $R$ (in particular, $x$ is not irreducible) and conclude that $R$ is
+      not a UFD.
+
+      \begin{proof}
+        The factors of $x$ in $R$ are only $\pm1$ and $\pm x$, which
+        are either units or associates with $x$. Thus $x$ must be
+        irreducible by definition. However, from the first part of the
+        question, $x$ is not a unit. So $x$ cannot be decomposed into a
+        product of irreducibles, and therefore $R$ is not a UFD by
+        definition.
+      \end{proof}
+
+    \item Show that $x$ is not prime in $R$ and describe the quotient ring
+      $R/(x)$.
+      \begin{proof}
+        $x$ divides $x=2\cdot(0.5x)$ in $R$, where $2,0.5x\in R$. However,
+        $x$ does not divide $2$ or $0.5x$ in $R$. Thus $x$ is not prime in
+        $R$. \\
+
+        We claim that
+        \[R/(x)= \{\overline{qx+n}:q\in\mathbb{Q},0\leq q<1,
+          n\in\mathbb{Z}\}.\]
+        Clearly the set of cosets is contained in the quotient ring. Given
+        any $f(x)=xf_0(x)+n\in R$, where
+        $f_0(x)=xf_1(x)+q_0\in\mathbb{Q}[x]$ and $n\in\mathbb{Z}$, we can
+        rearrange to get
+        \begin{align*}
+          f(x) &=x(f_1(x)+q_0)+n \\
+          &=xf_1(x)+q_0x+n \\
+          &=xf_1(x)-n_0x+(q_0-n_0)x+n, &(\text{where}\; n_0=\lfloor
+            q_0\rfloor) \\
+          &=x(f_1(x)-n_0)+(q_0-n_0)x+n. \\
+        \end{align*}
+        Then since $f_1(x)-n_0\in R$, $0\leq q_0-n_0<1$, and
+        $n\in\mathbb{Z}$, we have
+        $\overline{f(x)}=\overline{(q_0-n_0)x+n}$, which is contained in
+        the set of cosets we defined. Thus the set of cosets contain the
+        quotient ring. \\
+
+        Finally, we show that the set of cosets we defined are distinct.
+        Let $qx+n\in(x)$ where $q\in\mathbb{Q}$, $0\leq q<1$, and
+        $n\in\mathbb{Z}$. We need to show that $q=n=0$. Given any
+        $f(x)\in(x)$, the constant of $f(x)$ must be 0, thus $n=0$. Also,
+        the coefficient of $x$ in $f(x)$ must be an integer, thus $q=0$.
+      \end{proof}
+  \end{enumerate}
+
+\it \textbf{Section 9.4 Question 1:} Determine whether the following
+  polynomials are irreducible in the rings indicated. For those that are
+  reducible, determine their factorization into irreducibles. The notation
+  $\mathbb{F}_p$ denotes the finite field $\mathbb{Z}_p$, $p$ a prime.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item $f(x)=x^2+x+1$ in $\mathbb{F}_2[x]$
+      \begin{proof}
+        $f(x)$ is irreducible. $f(x)$ is a polynomial of degree two over
+        field $\mathbb{F}_2$ with no roots, thus is irreducible
+        (Proposition 10 Section 9.3).
+      \end{proof}
+
+    \item $f(x)=x^3+x+1$ in $\mathbb{F}_3[x]$
+      \begin{proof}
+        $f(x)$ is reducible. $f(x)$ is a polynomial of degree three over
+        the field $\mathbb{F}_3$ with root $x=1$, thus it is reducible
+        (Proposition 10 Section 9.3).
+      \end{proof}
+
+    \item $f(x)=x^4+1$ in $\mathbb{F}_5[x]$
+      \begin{proof}
+        $f(x)$ is reducible. We first check that $f(x)$ has no roots in
+        $\mathbb{F}_5$, and thus has no factors of degree 1. So if $f(x)$
+        is reducible, it can only have roots of degree 2. We check that
+        $f(x)=x^4+1=x^4-4=(x^2-2)(x^2+2)$, thus $f(x)$ is reducible.
+      \end{proof}
+
+    \item $f(x)=x^4+10x^2+1$ in $\mathbb{Z}[x]$
+      \begin{proof}
+        $f(x)$ has no factors of degree 1 since $\pm1$, the factors of the
+        constant term of $f(x)$, are not roots of $f(x)$. Thus if $f(x)$ is
+        reducible, it can only have factors of degree 2. We first try
+        \[f(x)= (x^2+ax+1)(x^2+bx+1) =x^4+10x^2+1.\]
+        Comparing coefficients give us $a+b=0$ and $ab+2=10$, which does
+        not have integer solutions for $a$ or $b$. Next, we try
+        \[f(x)= (x^2+ax-1)(x^2+bx-1) =x^4+10x^2+1.\]
+        Comparing coefficients give us $a+b=0$ and $ab-2=10$, which also
+        does not have integer solutions for $a$ or $b$. Thus $f(x)$ is
+        irreducible in $\mathbb{Z}[x]$.
+      \end{proof}
+  \end{enumerate}
+
+\it \textbf{Section 9.4 Question 2:} Prove that the following polynomials
+  are irreducible in $\mathbb{Z}[x]$.
+  \begin{enumerate}[label={(\alph*)}]
+    \item $x^4-4x^3+6$
+      \begin{proof}
+        Eisenstein's criteria with $p=2$ shows that the polynomial is
+        irreducible.
+      \end{proof}
+
+    \item $x^6+30x^5-15x^3+6x-120$
+      \begin{proof}
+        Eisenstein's criteria with $p=3$ shows that the polynomial is
+        irreducible.
+      \end{proof}
+
+    \item $x^4+4x^3+6x^2+2x+1$ [Substitute $x-1$ for $x$.]
+      \begin{proof}
+        After substituting $x-1$ for $x$, we get $g(x)=x^4-2x+2$, which is
+        irreducible from Eisenstein's criteria with $p=2$. Thus the
+        original polynomial is irreducible.
+      \end{proof}
+
+    \item $f(x)=\frac{(x+2)^p-2^p}{x}$, where $p$ is an odd prime.
+      \begin{proof}
+        Expanding with binomial's theorem, we get \[f(x) = \sum_{i=0}^{p-1}
+        \binom{p}{i}2^ix^{p-1-i}.\] Note that for each
+        $i\in\{1,\ldots,p-1\}$, since $p$ is an odd prime,
+        $\binom{p}{i}=\frac{p!}{i!(p-i)!}$ is a multiple of $p$ because
+        $i!$ and $(p-i)!$ are not multiples of $p$. Note also that the
+        constant term $\binom{p}{p-1}2^{p-1}=p2^{p-1}$ is not a multiple of
+        $p^2$ since $p$ is an odd prime. Thus $f(x)$ is irreducible from
+        Eisenstein's criteria with prime $p$ as witness.
+      \end{proof}
+  \end{enumerate}
+
+\it \textbf{Section 9.4 Question 6:} Construct fields of order 9 and 8.
+  \begin{proof}
+    We first prove that given a finite field $F$ of order $q$ and $f(x)$ a
+    polynomial in $F[x]$ of degree $n\geq1$, then $F[x]/(f(x))$ has $q^n$
+    elements (Question 2, Section 9.2): We show that the quotient ring is
+    the set of cosets given by
+    \[\{\overline{a_{n-1}x^{n-1}+\ldots+a_1x+a_0}: a_i\in F\},\]
+    which is defined by the set of polynomials in $F$ with degree smaller
+    or equal $n-1$. Since every polynomial $g(x)$ in $F(x)$ can be written
+    as $g(x)=h(x)f(x)+r(x)$ where $r(x)$ is a polynomial with degree
+    smaller than $n$, the set of cosets contains the quotient ring. Also,
+    the quotient ring clearly contains the given set of cosets. Finally,
+    since $F$ is an integral domain, no polynomial of degree less than $n$
+    can divide $f(x)$, thus the given set of cosets is distinct. Thus the
+    given set of cosets is the quotient ring, and this set has $q^n$
+    elements. \\
+
+    Thus, if $f(x)$ is irreducible in $F[x]$, then $F[x]/(f(x))$ will be a
+    field (Question 3, Section 9.2) of size $q^n$. We use this rule,
+    together with the fact that fields $\mathcal{F}_p$ have order $p$ for
+    all primes $p\in\mathbb{N}$, to find fields of the desired order. \\
+
+    From the above argument, to find a field of order 9, it suffices to
+    find a irreducible polynomial $f(x)\in\mathbb{F}_3$ of degree 2. Try
+    $f(x)=x^2+1$. Then $f(x)$ has no roots in $\mathbb{F}_3$, thus it is
+    irreducible in $\mathbb{F}_3[x]$, and so $\mathbb{F}_3[x]/(x^2+1)$ is a
+    field of order 9. \\
+
+    Similarly, to find a field of order 8, it suffices to
+    find a irreducible polynomial $f(x)\in\mathbb{F}_2$ of degree 3. Try
+    $f(x)=x^3+x+1$. Then $f(x)$ has no roots in $\mathbb{F}_2$, thus it is
+    irreducible in $\mathbb{F}_2[x]$, and so $\mathbb{F}_2[x]/(x^3+x+1)$ is
+    a field of order 8. \\
+  \end{proof}
+
+\it \textbf{Section 9.4 Question 7:} Prove that $\mathbb{R}[x]/(x^2+1)$ is
+  a field which is isomorphic to the complex numbers.
+
+  \begin{proof}
+    Consider the map $\alpha:\mathbb{R}[x]\rightarrow\mathbb{C}$ given by
+    $\alpha(f(x))=f(i)$. Then $\alpha$ is surjective since every
+    $a+bi\in\mathbb{C}$ has an inverse image $a+bx\in\mathbb{R}[x]$. The
+    map is also a ring homomorphism by the commutative, associative, and
+    distributive properties of $\mathbb{R}[x]$. Thus from the first ring
+    isomorphism theorem, $\mathbb{C}$ is isomorphic to
+    $\mathbb{R}[x]/\ker(\alpha)$. It remains to prove that
+    $\ker(\alpha)=(x^2+1)$. Clearly $(x^2+1)\subseteq\ker(\alpha)$ since
+    $x^2+1\in\ker(\alpha)$. Also, $(x^2+1)$ is a prime ideal since $x^2+1$
+    is irreducible and thus prime in $\mathbb{R}[x]$. Then since
+    $\mathbb{R}[x]$ is a PID and $(x^2+1)$ is prime, $(x^2+1)$ must also be
+    maximal. Thus if $\ker(\alpha)\supsetneq(x^2+1)$ then
+    $\ker(\alpha)=\mathbb{R}[x]$, which is not true since
+    $1\not\in\ker(\alpha)$. Thus $\ker(\alpha)=(x^2+1)$.
+  \end{proof}
+
+\it \textbf{Section 9.4 Question 9:} Prove that the polynomial
+  $x^2-\sqrt{2}$ is irreducible over $\mathbb{Z}[\sqrt{2}]$ (you may use
+  the fact that $\mathbb{Z}[\sqrt{2}]$ is a UFD, from Exercise 9 of Section
+  8.1).
+
+  \begin{proof}
+    Note that the field of fractions of $\mathbb{Z}[\sqrt{2}]$ is
+    $\mathbb{Q}[\sqrt{2}]$. Then since $\mathbb{Z}[\sqrt{2}]$ is a UFD, the
+    given polynomial is reducible over $\mathbb{Z}[\sqrt{2}]$ if and only
+    if it is reducible over $\mathbb{Q}[\sqrt{2}]$ (Corollary 6, Section
+    9.3). Now since $\mathbb{Q}[\sqrt{2}]$ is a field, the given polynomial
+    of degree 2 is reducible over this field if and only if it has a root
+    in the field (Proposition 10, Section 9.4). So since the roots of the
+    given polynomial do not lie in $\mathbb{Q}[\sqrt{2}]$, the polynomial
+    is irreducible over $\mathbb{Z}[\sqrt{2}]$.
+  \end{proof}
+
+\it \textbf{Section 9.4 Question 11:} Prove that $x^2+y^2-1$ is irreducible
+  in $\mathbb{Q}[x,y]$.
+  \begin{proof}
+    Consider $\mathbb{Q}[x,y]$ as $\mathbb{Q}[x][y]$. Note that
+    $\mathbb{Q}[x]$ is an integral domain since $\mathbb{Q}$ is. Thus we
+    can apply Eisenstein's Criterion with integral domain
+    $R=\mathbb{Q}[x]$. Then write $f(y)=y^2+(x-1)(x+1)$. Since
+    $x+1\in\mathbb{Q}[x]$ is irreducible and thus prime in $\mathbb{Q}[x]$,
+    by Eisenstein's Criterion, $f(y)$ is irreducible in $\mathbb{Q}[x,y]$.
+  \end{proof}
+
+\it \textbf{Section 9.4 Question 14:} Factor each of the two polynomials:
+  $x^8-1$ and $x^6-1$ into irreducibles over each of the following rings:
+  \begin{enumerate}[label={(\alph*)}]
+    \item $\mathbb{Z}$
+      \begin{proof}
+        We have
+        \[x^8-1 =(x^4+1)(x^2+1)(x+1)(x-1).\]
+        Now since $\mathbb{Z}$ is a UFD, the factors $x^4+1$ and $x^2+1$
+        are irreducible in $\mathbb{Z}$ if and only if they are irreducible
+        in the field of fractions $\mathbb{Q}$. $x^2+1$ is irreducible in
+        $\mathbb{Q}$ because the polynomial has degree 2 and does not have
+        roots in $\mathbb{Q}$. $x^4+1$ does not have factors of degree 1 in
+        $\mathbb{Q}[x]$ since it does not have roots in $\mathbb{Q}$. Thus
+        to factorize $x^4+1$ over $\mathbb{Q}$ we try for factors of degree
+        2:
+        \[x^4+1=(x^2+ax\pm1)(x^2+bx\pm1).\]
+        Comparing coefficients give $ab=\mp2$ and $a+b=0$, which has no
+        solutions over $\mathbb{Q}$. Thus $x^4+1$ is irreducible over
+        $\mathbb{Q}$ and therefore also irreducible over $\mathbb{Z}$.
+        Hence
+        \[x^8-1 =(x^4+1)(x^2+1)(x+1)(x-1).\]
+        is a factorization into irreducibles. \\
+
+        Next, we have
+        \[x^6-1 =(x+1)(x^2-x+1)(x-1)(x^2+x+1).\]
+        Now since $\mathbb{Z}$ is a UFD, the factors $x^2-x+1$ and $x^2+x+1$
+        are irreducible in $\mathbb{Z}$ if and only if they are irreducible
+        in the field of fractions $\mathbb{Q}$. Both these polynomials have
+        are of degree 2 do not have roots in $\mathbb{Q}$, thus they are
+        irreducible over $\mathbb{Q}$ and therefore irreducible over
+        $\mathbb{Z}$. Hence
+        \[x^6-1 =(x+1)(x^2-x+1)(x-1)(x^2+x+1).\]
+        is a factorization into irreducibles. \\
+      \end{proof}
+
+    \item $\mathbb{Z}_2$
+      \begin{proof}
+        To factor over the given rings, we can take modulo 2 on the factors
+        obtained in part (a) of this question. Modulo 2, we can write
+        \[x^2+1= x^2-1= (x+1)(x-1)= (x+1)^2,\]
+        and
+        \[x^4+1= x^4-1= (x^2+1)(x^2-1)= (x+1)^4.\]
+        Thus
+        \[x^8-1 =(x+1)^8\]
+        is a factorization into irreducibles over $\mathbb{Z}_2$. \\
+
+        The factors $x^2-x+1$ and $x^2+x+1$ do not have roots in
+        $\mathbb{Z}_2$ and since they are polynomials of degree 2, they are
+        irreducible over $\mathbb{Z}_2$. Thus
+        \begin{align*}
+          x^6-1 &=(x+1)(x^2-x+1)(x-1)(x^2+x+1) \\
+          &=(x+1)(x^2+x+1)(x+1)(x^2+x+1) \\
+          &=(x+1)^2(x^2+x+1)^2 \\
+        \end{align*}
+        is a factorization into irreducibles over $\mathbb{Z}_2$. \\
+      \end{proof}
+
+    \item $\mathbb{Z}_3$
+      \begin{proof}
+        Like in part (b) above, to factor over $\mathbb{Z}_3$, we take
+        modulo 3 on the factors obtained in part (a) of this question.
+        $x^2+1$ has no roots in $\mathbb{Z}_3$, thus is irreducible over
+        $\mathbb{Z}_3$ since the polynomial has degree less than or equal
+        3. $x^4+1$ also has no roots over $\mathbb{Z}_3$, thus can only
+        possibly have factors of degree 2 in $\mathbb{Z}_3[x]$. We try
+        \[x^4+1=(x^2+ax\pm1)(x^2+bx\pm1).\] Comparing coefficients give
+        $ab=\mp2$ and $a+b=0$, which has solutions $a=1$ and $b=2$ over
+        $\mathbb{Z}_3$. Thus $x^4+1=(x^2+x+2)(x^2+2x+2)$. These two
+        factors are irreducible over $\mathbb{Z}_3$ because they do not
+        have roots in $\mathbb{Z}_3$. Summarizing,
+        \begin{align*}
+          x^8-1 &=(x^2+x+2)(x^2+2x+2)(x+1)(x-1) \\
+          &=(x^2+x+2)(x^2+2x+2)(x+1)(x+2) \\
+        \end{align*}
+        is a factorization into irreducibles over $\mathbb{Z}_3$. \\
+
+        $x^2-x+1$ has root 2 in $\mathbb{Z}_3$ and $x^2+x+1$ has root 1 in
+        $\mathbb{Z}$, thus these polynomials can be reduced over
+        $\mathbb{Z}_3$ to
+        \[x^2-x+1 = (x-2)^2=(x+1)^2,\] and
+        \[x^2+x+1 = (x-1)^2=(x+2)^2.\]
+        Thus
+        \begin{align*}
+          x^6-1 &=(x+1)(x+1)^2(x-1)(x+2)^2 \\
+          &=(x+1)(x+1)^2(x+2)(x+2)^2 \\
+          &=(x+1)^3(x+2)^3 \\
+        \end{align*}
+        is a factorization into irreducibles over $\mathbb{Z}_3$. \\
+      \end{proof}
+  \end{enumerate}
+\end{document}
