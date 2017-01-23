@@ -48,5 +48,40 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     ideal of $R$.
   \end{proof}
 
-\it \textbf{Section 10.1 Q5:} For any left ideal $I$ of $R$ define
+\it \textbf{Section 10.1 Q8:} An element $m$ of the $R$-module $M$ is
+  called a torsion element if $rm=0$ for some nonzero element $r\in R$. The
+  set of torsion elements is denoted
+  \[\text{Tor}(M) = \{m\in M| rm=0\; \text{for some nonzero}\; r\in R\}.\]
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item \it Prove that if $R$ is an integral domain then $\text{Tor}(M)$
+      is a submodule of $M$ (called the torsion submodule of $M$).
+
+      \begin{proof}
+        Let $x,y\in\text{Tor}(M)$ with $r_xx=r_yy=0$ for some nonzero
+        $r_x,r_y\in R$. Let $r\in R$. By the submodule criterion, we need
+        to show that $x+ry\in\text{Tor}(M)$. Now
+        \begin{align*}
+          r_xr_y(x+ry) &= r_xr_yx+r_xr_yry \\
+          &=r_yr_xx+r_xrr_yy &(\text{from commutativity of integral domain}) \\
+          &=r_y0+r_xr0 \\
+          &=0+0 &(s0=0\; \text{for all}\; s\in R,\; \text{shown in Q3}) \\
+          &=0.
+        \end{align*}
+        Also, because $R$ is an integral domain, $r_xr_y\neq0$, thus
+        $x+ry\in\text{Tor}(M)$.
+      \end{proof}
+
+    \item \it Give an example of a ring $R$ and an $R$-module $M$ such that
+      $\text{Tor}(M)$ is not a submodule. [Consider the torsion elements in
+      the $R$-module $R$.]
+
+      \begin{proof}
+      \end{proof}
+
+    \item \it If $R$ has zero divisors show that every nonzero $R$-module
+      has nonzero torsion elements.
+      \begin{proof}
+      \end{proof}
+  \end{enumerate}
 \end{document}
