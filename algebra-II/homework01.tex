@@ -29,4 +29,24 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     Also, we have $s0=s(0+0)=s0+s0$, so by cancellation, we get $s0=0$,
     which implies $m=0$, a contradiction.
   \end{proof}
+
+\it \textbf{Section 10.1 Q5:} For any left ideal $I$ of $R$ define
+  \[IM = \left\{\sum_{\text{finite}}a_im_i| a_i\in I, m_i\in M\right\}\]
+  to be the collection of all finite sums of elements of the form $am$
+  where $a\in I$ and $m\in M$. Prove that $IM$ is a submodule of $M$.
+
+  \begin{proof}
+    Let $r\in R$ and $x,y\in IM$. Write $x=a_1m_1+\ldots+a_pm_p$ and
+    $y=b_1n_1+\ldots+b_qn_q$ for some $a_i,b_j\in I$ and $m_i,n_j\in M$.
+    By the submodule criterion (Proposition 1, Section 10.1), it suffices
+    to show that $x+ry\in IM$. Now
+    \begin{align*}
+      x+ry &=a_1m_1+\ldots+a_pm_p + r(b_1n_1+\ldots+b_qn_q) \\
+      &=a_1m_1+\ldots+a_pm_p + (rb_1)n_1+\ldots+(rb_q)n_q, \\
+    \end{align*}
+    which is contained in $IM$ since $rb_j\in I$ because $I$ is a left
+    ideal of $R$.
+  \end{proof}
+
+\it \textbf{Section 10.1 Q5:} For any left ideal $I$ of $R$ define
 \end{document}
