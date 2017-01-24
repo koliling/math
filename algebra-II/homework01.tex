@@ -203,4 +203,46 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
         $N$ in $R$ is $2\mathbb{Z}$, which is not equals to $I$.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 10.1 Q22:} Suppose that $A$ is a ring with identity
+  $1_A$ that is a (unital) left $R$-module satisfying $r\cdot(ab)=(r\cdot
+  a)b=a(r\cdot b)$ for all $r\in R$ and $a,b\in A$. Prove that the map
+  $f:R\rightarrow A$ defined by $f(r)=r\cdot1_A$ is a ring homomorphism
+  mapping $1_R$ to $1_A$ and that $f(R)$ is contained in the center of $A$.
+  Conclude that $A$ is an $R$-algebra and that the $R$-module structure on
+  $A$ induced by its algebra structure is precisely the original $R$-module
+  structure.
+
+  \begin{proof}
+    Since $A$ is a unital $R$-module, we have $f(1_R)=1_R\cdot1_A=1_A$ as
+    required. Also, given $r_1,r_2\in R$, we have
+    \begin{align*}
+      f(r_1+r_2) &=(r_1+r_2)\cdot1_A \\
+      &=r_1\cdot1_A + r_2\cdot1_A \\
+      &=f(r_1)+f(r_2), \\
+      f(r_1r_2) &=(r_1r_2)\cdot1_A \\
+      &=r_1\cdot(r_2\cdot1_A) \\
+      &=r_1\cdot f(r_2) \\
+      &=(r_1\cdot1_A)f(r_2) \\
+      &=f(r_1)f(r_2). \\
+    \end{align*}
+    Thus $f$ is a ring homomorphism. \\
+
+    Given arbitrary $r\in R$ and $a\in A$, we want to show that
+    $f(r)a=af(r)$. We have
+    \begin{align*}
+      f(r)a &=(r\cdot1_A)a \\
+      &=r\cdot(1_Aa) \\
+      &=r\cdot(a) \\
+      &=r\cdot(a1_A) \\
+      &=a(r\cdot1_A) \\
+      &=af(r). \\
+    \end{align*}
+    Thus $f(R)$ is contained in the center of $A$, which implies $A$ is an
+    $R$-algebra by definition. \\
+
+    The induced algebra structure $\circ$ on $A$ is given by
+    \[r\circ a:=f(r)a=(r\cdot1_A)a=r\cdot(1_Aa)=r\cdot a,\]
+    which is precisely the original $R$-module structure.
+  \end{proof}
 \end{document}
