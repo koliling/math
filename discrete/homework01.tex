@@ -104,5 +104,20 @@
       uniquely coded by the edges which it contains. Thus there are
       $2^{\binom{n}{2}}$ possible graphs.
     \end{proof}
+
+  \item \it How many trees are there on vertex set $[n]$ that have vertex 1
+    as a leaf? (Note that such a tree may have many other leaves).
+
+    \begin{proof}
+      Observe that for a tree with vertex 1 as leaf, removing vertex 1
+      would give us a tree on vertex set $\{2,\ldots,n\}$. Also observe
+      that given any tree on vertex set $\{2,\ldots,n\}$, choosing
+      different vertices to attach vertex 1 to will give us different trees
+      on vertex set $[n]$ that have vertex 1 as a leaf. Thus, the number of
+      trees with vertex 1 as a leaf is $(n-1)$ times of the number of trees
+      on vertex set $\{2,\ldots,n\}$, giving a total of
+      \[(n-1)\times(n-1)^{n-3} = (n-1)^{n-2}\]
+      trees.
+    \end{proof}
 \end{enumerate}
 \end{document}
