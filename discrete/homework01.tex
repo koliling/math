@@ -119,5 +119,18 @@
       \[(n-1)\times(n-1)^{n-3} = (n-1)^{n-2}\]
       trees.
     \end{proof}
+
+  \item \it (Following on the previous question) What is the average number
+    of leaves in a tree on vertex set $[n]$?
+
+    \begin{proof}
+      From the previous question, each vertex appears $(n-1)^{n-2}$ times
+      as leaves. Thus, within the $n^{n-2}$ trees on vertex set $[n]$,
+      there is a total of $n\cdot(n-1)^{n-2}$ leaves. Since there is a
+      total of $n\cdot n^{n-2}$ vertices on the $n^{n-2}$ trees on vertex
+      set $[n]$, the average number of leaves in a tree is
+      \[\frac{n\cdot(n-1)^{n-2}}{n\cdot n^{n-2}} =
+      \left(1-\frac{1}{n}\right)^{n-2}.\]
+    \end{proof}
 \end{enumerate}
 \end{document}
