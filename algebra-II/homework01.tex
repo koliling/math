@@ -166,4 +166,41 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
         \times \langle25\rangle$.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 10.1 Q12:} In the notation of the preceding exercises
+  prove the following facts about annihilators.
+  \begin{enumerate}[label={(\alph*)}]
+    \item \it Let $N$ be a submodule of $M$ and let $I$ be its annihilator
+      in $R$. Prove that the annihilator of $I$ in $M$ contains $N$. Give
+      an example where the annihilator of $I$ in $M$ does not equal $N$.
+
+      \begin{proof}
+        Let $n\in N$. We need to show that $In$ is the zero set. Now since
+        elements in $I$ annihilate $n$, $In$ is the zero set by definition.
+        \\
+
+        Consider the case where $R=\mathbb{Z}$,
+        $M=\mathbb{Z}_2\times\mathbb{Z}_6$, and $N=\langle\bar{0}\rangle
+        \times\langle\bar{3}\rangle$. Then $I=2\mathbb{Z}$, but the
+        annihilator of $I$ in $M$ is
+        $\mathbb{Z}_2\times\langle\bar{3}\rangle$, which is not equals to
+        $N$.
+      \end{proof}
+
+    \item \it Let $I$ be a right ideal of $R$ and let $N$ be its
+      annihilator in $M$. Prove that the annihilator of $N$ in $R$ contains
+      $I$. Give an example where the annihilator of $N$ in $R$ does not
+      equal $I$.
+
+      \begin{proof}
+        Let $a\in I$. We need to show that $aN$ is the zero set. Now since
+        elements in $N$ annihilate $a$, $aN$ is the zero set by definition.
+        \\
+
+        Consider the case where $R=\mathbb{Z}$,
+        $M=\mathbb{Z}_2\times\mathbb{Z}_6$, and $I=4\mathbb{Z}$. Then
+        $N=\mathbb{Z}_2\times\langle\bar{3}\rangle$, but the annihilator of
+        $N$ in $R$ is $2\mathbb{Z}$, which is not equals to $I$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
