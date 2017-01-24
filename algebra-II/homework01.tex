@@ -77,6 +77,10 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
       the $R$-module $R$.]
 
       \begin{proof}
+        Consider $R=M=\mathbb{Z}_6$, where $M$ is a left module over
+        itself. Then $\text{Tor}(M)=\{\bar{0},\bar{2},\bar{3}\}$, but this
+        set is not closed under addition since $\bar{2}+\bar{3}=\bar{5}$ is
+        not in the set. Thus $\text{Tor}(M)$ is not a submodule.
       \end{proof}
 
     \item \it If $R$ has zero divisors show that every nonzero $R$-module
@@ -90,4 +94,20 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
         torsion element. In either cases we get a nonzero torsion element.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 10.1 Q9:} If $N$ is a submodule of $M$, the annihilator
+  of $N$ in $R$ is defined to be \[\{r\in R|rn=0\; \text{for all}\; n\in
+  N\}.\] Prove that the annihilator of $N$ in $R$ is a 2-sided ideal of $R$.
+
+  \begin{proof}
+    Write the annihilator of $N$ in $R$ as $\text{Ann}_R(N)$. Let
+    $a,b\in\text{Ann}_R(N)$. Then $aN=bN=0$, so $(a-b)N=aN-bN=0-0=0$ (here
+    the 0 means the subset of $M$ containing only the zero element). Thus
+    $a-b\in\text{Ann}_R(N)$, which implies that $\text{Ann}_R(N)$ is closed
+    under subtraction. Also, given arbitrary $r\in R$,
+    $z\in\text{Ann}_R(N)$, and $n\in N$, we have $(rz)n=r(zn)=r0=0$. Thus
+    $\text{Ann}_R(N)$ is a left ideal. Furthermore, $(zr)n=z(rn)=0$, where
+    the last equality holds because $rn\in N$ and $zN=0$. Thus
+    $\text{Ann}_R(N)$ is also a right ideal.
+  \end{proof}
 \end{document}
