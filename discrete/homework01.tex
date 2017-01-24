@@ -121,16 +121,44 @@
     \end{proof}
 
   \item \it (Following on the previous question) What is the average number
-    of leaves in a tree on vertex set $[n]$?
+    of leaves in a tree on vertex set $[n]$? In other words, where $\l(T)$
+    counts the number of leaves of the tree $T$, compute
+    \[\frac{1}{n^{n-2}}\sum_T l(T),\]
+    where the sum is over the trees on vertex set $[n]$. Your answer should
+    not involve a summation.
 
     \begin{proof}
       From the previous question, each vertex appears $(n-1)^{n-2}$ times
       as leaves. Thus, within the $n^{n-2}$ trees on vertex set $[n]$,
-      there is a total of $n\cdot(n-1)^{n-2}$ leaves. Since there is a
-      total of $n\cdot n^{n-2}$ vertices on the $n^{n-2}$ trees on vertex
-      set $[n]$, the average number of leaves in a tree is
-      \[\frac{n\cdot(n-1)^{n-2}}{n\cdot n^{n-2}} =
-      \left(1-\frac{1}{n}\right)^{n-2}.\]
+      there is a total of $n\cdot(n-1)^{n-2}$ leaves, i.e.
+      \[\sum_T l(T) =n\cdot(n-1)^{n-2}.\]
+      Thus we have
+      \begin{align*}
+        \frac{1}{n^{n-2}}\sum_T l(T) &=\frac{n\cdot(n-1)^{n-2}}{n^{n-2}} \\
+        &=n\left(1-\frac{1}{n}\right)^{n-2}. \\
+      \end{align*}
+    \end{proof}
+
+  \item \it (Following on the previous question) Denote by $\text{ave}(n)$
+    the average number of leaves in a tree on vertex set $[n]$. Compute
+    \[\lim_{n\rightarrow\infty}\frac{\text{ave}(n)}{n}.\]
+
+    \begin{proof}
+      From the previous question, we get 
+      \begin{align*}
+        \lim_{n\rightarrow\infty}\frac{\text{ave}(n)}{n}
+          &=\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n-2} \\
+          &=\lim_{n\rightarrow\infty}\left(\frac{n-1}{n}\right)^{n-2} \\
+          &=\lim_{n\rightarrow\infty}\left(\frac{n}{n+1}\right)^{n-1} \\
+          &=\lim_{n\rightarrow\infty}\left(\frac{n+1}{n}\right)^{1-n} \\
+          &=\lim_{n\rightarrow\infty}\left(1+\frac{1}{n}\right)^{1-n} \\
+          &=\lim_{n\rightarrow\infty}\left[
+            \left(1+\frac{1}{n}\right)^{n}\right]^{-1}
+            \cdot\lim_{n\rightarrow\infty}
+            \left(1+\frac{1}{n}\right) \\
+          &=e^{-1}\cdot1 \\
+          &=e^{-1}. \\
+      \end{align*}
     \end{proof}
 \end{enumerate}
 \end{document}
