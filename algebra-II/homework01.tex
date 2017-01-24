@@ -82,6 +82,12 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     \item \it If $R$ has zero divisors show that every nonzero $R$-module
       has nonzero torsion elements.
       \begin{proof}
+        Let $r,s\in R$ be nonzero elements such that $rs=0$. Let $M$ be
+        a nonzero $R$-module. If $sm=0$ for all $m\in M$, pick any
+        nonzero $m\in M$. This $m$ will be a torsion element with $s$ as
+        witness. If no such $m$ exists, then pick any nonzero $sm\in M$;
+        then we have $r(sm)=(rs)m=0m=0$, which implies that $sm$ is a
+        torsion element. In either cases we get a nonzero torsion element.
       \end{proof}
   \end{enumerate}
 \end{document}
