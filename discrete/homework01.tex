@@ -8,120 +8,89 @@
 \newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
 \begin{document}
-\title{Basic Logic II: Problem Set 1}
+\title{Discrete Mathematics: Problem Set 1}
 \author{Li Ling Ko\\ lko@nd.edu}
 \date{\today}
 \maketitle
 
 \begin{enumerate}[label={\bf Q\arabic*:}]
-  \item \it Show the relation $R(x,y,p):=\{(x,y,p)|xy\neq p\}$ is primitive
-    recursive.
+  \item \it Let $G$ be a graph on vertex set $V$. Argue that the following
+    are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+      \item \it $G$ is connected, but is no longer connected on the
+        deletion of any edge.
+      \item \it $G$ is acyclic (has no cycles), but is no longer acyclic
+        with the addition of any edge.
+      \item \it $G$ has $n-1$ edges and is connected.
+      \item \it $G$ has $n-1$ edges and is acyclic.
+      \item \it $G$ is connected and acyclic.
+    \end{enumerate}
+
+    \it The first of these is our definition of a tree, so this exercise
+    gives lots of different characterisations of a tree.
 
     \begin{proof}
-      We work top-down to get the derivation. First, note that
-      \[\chi_R(\bar{x})=\chi_{\neq}(\text{mult}(\bar{x}_1,
-        \bar{x}_2), \bar{x}_3),\]
-      where $\text{mult}(x_1,x_2)$ denotes the multiplication function,
-      $\bar{x}_i$ denotes the $i$th projection function, and
-      $\chi_{\neq}(x_1,x_2)$ denotes the graph of the inequality relation.
-      Thus by closure under projection and composition, it suffices to show
-      that the constituent functions $\text{mult}(x_1,x_2)$ and
-      $\chi_{\neq}(x_1,x_2)$ are primitive recursive. \\
+      Consider also the condition (f) given by:
+      \[\text{(f): There is exactly one path between any two vertices.}\]
+      We show that conditions (a) to (f) are equivalent. \\
 
-      The multiplication function can be derived as:
-      \[\begin{array}{lcl}
-        \text{mult}(0,x_2) &= &0, \\
-        \text{mult}(x_1+1,x_2) &= &\text{mult}(x_1,x_2)+x_2. \\
-      \end{array}\]
-      Now the zero
-      function is primitive recursive by definition. Also, the function
-      $\text{mult}(x_1,x_2)+x_2$ is primitive recursive by closure under
-      projection and composition, and also by the fact that the addition
-      function is primitive recursive (example on page 2 of notes).
-      Therefore, $\text{mult}(x_1,x_2)$ is primitive recursive by closure
-      under primitive recursion. \\
+      (a)$\Rightarrow$(f): If $G$ is connected, then there must be at least
+      one path between any pair of vertices. Also, there cannot be more
+      than one path, otherwise the graph would have a cycle, and deleting
+      an edge of the cycle will ensure that the graph remains connected,
+      contradicting minimal connectedness. \\
 
-      It remains to show that the inequality relation $\chi_{\neg}$ is
-      primitive recursive. This relation can be expressed as a composition
-      of functions:
-      \[\begin{array}{lcl}
-        \chi_{\neg}(x_1,x_2) &= &\chi_{>0}(\text{absDiff}(x_1,x_2)), \\
-      \end{array}\]
-      where $\chi_{>0}(x)$ is the relation for non-zero elements, and
-      $\text{absDiff}(x_1,x_2):=|x_1-x_2|$ is the function of absolute
-      difference. $\chi_{>0}(x)$ can be easily derived as follows:
-      \[\begin{array}{lcl}
-        g_1(0,x_2) &= &0, \\
-        g_1(x_1+1,x_2) &= &1, \\
-        \chi_{>0}(x) &= &g_1(x,0). \\
-      \end{array}\]
+      (f)$\Rightarrow$(a): If condition (f) holds, then $G$ must be
+      connected since there is a path between any two vertices. Assume by
+      contradiction that the graph remains connected after deleting an edge
+      between vertices $u$ and $v$. Then there are at least two paths from
+      $u$ to $v$. \\
 
-      To derive $\text{absDiff}(x_1,x_2)$, notice that absolute difference
-      is the sum
-      \[\begin{array}{lcl}
-        \text{absDiff}(x_1,x_2) &=
-        &\text{diff}(x_1,x_2)+\text{diff}(x_2,x_1), \\
-      \end{array}\]
-      where $\text{diff}(x_1,x_2):=\max(x_2-x_1,0)$.
-      Thus by closure under composition and the fact that the addition
-      function is primitive recursive, it suffices to show that
-      $\text{diff}(x_1,x_2)$ is primitive recursive.
-      We can derive $\text{diff}(x_1,x_2)$ from primitive recursion:
-      \[\begin{array}{lcl}
-        \text{diff}(0,x_2) &= &x_2, \\
-        \text{diff}(x_1+1,x_2) &= &\text{pred}(\text{diff}(x_1,x_2)), \\
-      \end{array}\]
-      where $\text{pred}(x)$ is the predecessor function. \\
-      
-      Now $\text{pred}(x)$ can be derived from primitive recursion as
-      follows:
-      \[\begin{array}{lcl}
-        \text{pred}(x) &= &p_1(x,0), \\
-        p_1(0,x_2) &= &0, \\
-        p_1(x_1+1,x_2) &= &h(x_1,p_1(x_1,x_2)), \\
-      \end{array}\]
-      where $h(x,y)$ is defined as
-      \[h(x,y):=
-        \begin{cases}
-          y+1, &\text{if}\; x\geq1\\
-          0, &\text{otherwise}\\
-        \end{cases},
-      \]
-      and can be derived via primitive recursion as:
-      \[\begin{array}{lcl}
-        h(0,y) &= &0, \\
-        h(x+1,y) &= &y+1. \\
-      \end{array}\]
-      Since addition is primitive recursive, $h(x,y)$ will also be primitive
-      recursive. This completes the derivation
-    \end{proof}
+      (f)$\Rightarrow$(b): If $G$ is cyclic, then there must be a pair of
+      vertices with at least two paths between them, thus condition (f)
+      will not hold. Also, when condition (f) holds, then adding any
+      non-existent edge will give at least two paths between the involved
+      vertices and thus make the graph cyclic. Hence $G$ is also maximally
+      acyclic. \\
 
-  \item \it What is the code of the primitive recursive used in your third
-    step of the above derivation?
+      (b)$\Rightarrow$(f): If condition (b) holds, then the graph must be
+      connected, otherwise adding an edge to connect two distinct
+      components will not make the graph cyclic. Thus every pair of
+      vertices must be connected by at least one path. Now if a pair of
+      vertices has more than one path between them, then the graph must be
+      cyclic, so (b) will not hold. \\
 
-    \begin{proof}
-      We work backwards with the solution of the previous question to
-      get the first three steps of the derivation. In our solution, we
-      first derived addition function. Thus the first three steps are:
-      \begin{enumerate}[label={\arabic*.}]
-        \item $f_1(x) = x+1$
-        \item $f_2(x) = x$
-        \item $f_3(x_1,x_2,x_3) = x_2$
-      \end{enumerate}
-      The code of the third primitive recursive is therefore
-      $p_1^{3+1}p_2^{2+1}=2^4\cdot3^3=1296$.
-    \end{proof}
+      (a)$\Rightarrow$(c): $G$ having $n-1$ edges follows from Theorem 3.1.
+      $G$ being connected follows directly from assumption of (a). \\
 
-  \item \it Find a ``computable'' function $f$ that dominates all primitive
-    recursive functions.
+      (c)$\Rightarrow$(a): Assume (c) holds but the graph $G$ is not
+      minimally connected. Then we can remove edges from $G$ until the
+      resulting graph $G$' becomes minimally connected. The edges can be
+      removed such that the number of vertices remain unchanged; this is
+      possible since the graph is not minimally connected. Thus $G'$ will
+      be a minimally connected graph with $n$ vertices but with less than
+      $n-1$ edges, which contradicts Theorem 3.1. \\
 
-    \begin{proof}
-      We use diagonal argument. Letting $p_e$ denote the $e$th primitive
-      recursive function, we define $f(n)$ as
-      \begin{equation*}
-        f(n) := \max(p_1(n),\ldots,p_n(n))+1.
-      \end{equation*}
-      Then for any given $e$, we will have $f(n)>p_e(n)$ for all $n\geq e$.
+      (a)$\Rightarrow$(d): $G$ having $n-1$ edges follows from Theorem 3.1.
+      If $G$ is cyclic, then deleting an edge in a cycle will not change
+      the connectedness of $G$, thus $G$ cannot be minimally connected. \\
+
+      (a)$\Rightarrow$(e): If $G$ is cyclic, then deleting an edge in a
+      cycle will not change the connectedness of $G$, thus $G$ cannot be
+      minimally connected. \\
+
+      (e)$\Rightarrow$(f): Since $G$ is connected, every pair of vertices
+      must have at least one path between them. If there is a pair of
+      vertices with more than one path between them, then the graph cannot
+      be acyclic. \\
+
+      (d)$\Rightarrow$(c): Assume (d) holds but the graph $G$ is not
+      connected. Then $G$ is the disjoint union of finitely many connected
+      subgraphs, each being acyclic since $G$ is acyclic. Then from (e) and
+      the equivalence of (e) with (c), the number of edges of each subgraph
+      is one less than its number of vertices. Then $G$ would have $n-k$
+      edges, where $k$ is the number of disjoint subgraphs. This
+      contradicts $G$ having $n-1$ edges.
     \end{proof}
 \end{enumerate}
 \end{document}
