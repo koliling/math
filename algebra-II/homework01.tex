@@ -345,4 +345,42 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     =n_0d\overline{a_0m_0} =\overline{n_0a_0(m_0d)} =\overline{n_0am} =0$.
     Thus $A_n=(\overline{m/(n,m)}) \cong\mathbb{Z}_{(n,m)}$.
   \end{proof}
+
+\it \textbf{Section 10.2 Q9:} Let $R$ be a commutative ring. Prove that
+  $\text{Hom}_R(R,M)$ and $M$ are isomorphic as left $R$-modules. [Show
+  that each element of $\text{Hom}_R(R,M)$ is determined by its value on
+  the identity of $R$.]
+
+  \begin{proof}
+    By Proposition 2 of Section 10.2, we know that $\text{Hom}_R(R,M)$ is
+    an $R$-module since $R$ is commutative. Consider the map
+    $\Theta:\text{Hom}_R(R,M)\rightarrow M$ defined by
+    $\Theta(phi)=phi(1)$. We show that $\Theta$ is an $R$-module
+    isomorphism. Let $\varphi,\phi\in\text{Hom}_R(R,M)$, and $r\in R$. Then
+    we have
+    \begin{align*}
+      \Theta(\varphi+r\phi) &=(\varphi+r\phi)(1) \\
+      &=\varphi(1)+r\phi(1) \\
+      &=\Theta(\varphi)+r\Theta(phi),
+    \end{align*}
+    and so $\Theta$ is an $R$-module homomorphism. \\
+
+    Let $\varphi\in\ker(\Theta)$. Then $\Theta(\varphi)=\varphi(1)=0$, so
+    given arbitrary $r\in R$, we have $\varphi(r) =\varphi(r1)
+    =r\varphi(1) =r0$, thus $\varphi$ is the zero $R$-homomorphism. Hence
+    $\Theta$ is injective. \\
+
+    Let $m\in M$ be arbitrary, and consider the map $\varphi_m:R\rightarrow
+    M$ defined by $\varphi_m(r)=r\cdot m$. Then given $x,y\in R$ and $r\in
+    R$, we have
+    \begin{align*}
+      \varphi_m(x+r\cdot y) &=(x+r\cdot y)\cdot m \\
+      &=x\cdot m + r\cdot(y\cdot m) \\
+      &=\varphi_m(x) + r\varphi_m(y),
+    \end{align*}
+    which shows that $\varphi_m$ is an $R$-module homomorphism. Since $m$
+    was arbitrary, and $\varphi_m(1)=1$, $\Theta$ is surjective. \\
+
+    Thus $\Theta$ is bijective, and so $\text{Hom}_R(R,M)\cong M$.
+  \end{proof}
 \end{document}
