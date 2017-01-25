@@ -327,4 +327,22 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     $\varphi_0$, $\varphi_7$, and $\varphi_{14}$, where
     $\varphi_a(\bar{k})=ka$.
   \end{proof}
+
+\it \textbf{Section 10.2 Q6:} Prove that
+  $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,\mathbb{Z}_m)
+  \cong\mathbb{Z}_{(n,m)}$.
+
+  \begin{proof}
+    From Section 10.2 Question 4, we know that
+    $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,\mathbb{Z}_m) \cong A_n$, where
+    $A_n:=\{a\in\mathbb{Z}_{m}|na=0\}$. 
+    Write $d=(n,m)$, $n=n_0d$, and $m=m_0d$. Then $(m_0,n_0)=1$. We show
+    that $A_n=(\overline{m_0})$, which is isomorphic to $\mathbb{Z}_{d}$.
+    If $\bar{a}\in A_n$, then $m|na$, which implies that $m_0d|n_0da$,
+    which implies that $m_0|n_0a$. Then since $(m_0,n_0)=1$, we have
+    $m_0|a$. Hence $A_n\subseteq(\overline{m_0})$. Conversely, if $a=a_0m_0$
+    for some $a_0\in\mathbb{Z}$, then $n\overline{a} =n\overline{a_0m_0}
+    =n_0d\overline{a_0m_0} =\overline{n_0a_0(m_0d)} =\overline{n_0am} =0$.
+    Thus $A_n=(\overline{m/(n,m)}) \cong\mathbb{Z}_{(n,m)}$.
+  \end{proof}
 \end{document}
