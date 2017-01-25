@@ -245,4 +245,71 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     \[r\circ a:=f(r)a=(r\cdot1_A)a=r\cdot(1_Aa)=r\cdot a,\]
     which is precisely the original $R$-module structure.
   \end{proof}
+
+\it \textbf{Section 10.2 Q4:} Let $A$ be any $\mathbb{Z}$-module, let $a$
+  be any element of $A$ and let $n$ be a positive integer. Prove that the
+  map $\varphi_a:\mathbb{Z}_n\rightarrow A$ given by $\varphi_a(\bar{k})=ka$
+  is a well defined $\mathbb{Z}$-module homomorphism if and only if
+  $na=0$. Prove that $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,A)\cong A_n$,
+  where $A_n=\{a\in A|na=0\}$.
+
+  \begin{proof}
+    To respect $\mathbb{Z}$-module structure, any $\mathbb{Z}$-module
+    homomorphism $\varphi$ must satisfy $\varphi(\bar{k})
+    =\varphi(k\bar{1}) =k\varphi(\bar{1})$. Write $a=\varphi(\bar{1})$, all
+    $\mathbb{Z}$-module homomorphisms must be of the form
+    $\varphi(\bar{k})=ka$ for some $a\in A$. \\
+
+    Now the homomorphism is well defined if and only if
+    $\varphi_a(\overline{k_0+sn})=\varphi_a(\overline{k_0})$ for any
+    $k_0,s\in\mathbb{Z}$. Now
+    \begin{align*}
+      \varphi_a(\overline{k_0+sn}) &=(k_0+sn)a \\
+      &=k_0a+(sn)a \\
+      &=k_0a+s(na) \\
+      &=\varphi_a(\overline{k_0})+s(na), \\
+    \end{align*}
+    thus the map is well defined if and only if $s(na)=0$ for any
+    $s\in\mathbb{Z}$. So if $na=0$, the map will be well defined.
+    For the converse, if the map is well defined, then setting $s=1$ will
+    give us $1(na)=0$, which implies that $na=0$. \\
+
+    We now show that if $na=0$, then $\varphi_a$ is a
+    $\mathbb{Z}$-module homomorphism. Given
+    $\overline{k_1},\overline{k_2}\in\mathbb{Z}_n$ and $r\in\mathbb{Z}$, we
+    have
+    \begin{align*}
+      \varphi_a(r\overline{k_1}+\overline{k_2})
+        &=\varphi_a(\overline{rk_1+k_2}) \\
+      &=(rk_1+k_2)a \\
+      &=(rk_1)a+k_2a \\
+      &=r(k_1a)+k_2a \\
+      &=r\varphi_a(k_1)+\varphi_a(k_2). \\
+    \end{align*}
+
+    Now we prove that $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,A)\cong A_n$,
+    where $A_n=\{a\in A|na=0\}$. Note that since $A_n$ is the annihilator
+    of the ideal $(n)$ of $\mathbb{Z}$, it is a submodule of $A$ and is
+    therefore also a $\mathbb{Z}$-module. Also, since $\mathbb{Z}$ is a
+    commutative ring with identity,
+    $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,A)$ is a $\mathbb{Z}$-module.
+    Consider the map $\Theta:A_n\rightarrow
+    \text{Hom}_{\mathbb{Z}}(\mathbb{Z}_n,A)$ defined by
+    $\Theta(a)=\varphi_a$. Note that from argument in the first paragraph,
+    this map is surjective. Also, from earlier argument, this map is well
+    defined. If $a\in\ker(\Theta)$, then $\varphi_a$ is the zero map, where
+    $\varphi_a(\bar{1})=1a=0$, implying that $a=0$. Thus $\ker(\Theta)$ is
+    the zero submodule, which means $\Theta$ is injective. It remains to
+    show that $\Theta$ respects $\mathbb{Z}$-module structure. Given
+    $a_1,a_2\in A_n$, $r\in\mathbb{Z}$, and $\bar{k}\in\mathbb{Z}_n$, we
+    have
+    \begin{align*}
+      \varphi_{ra_1+a_2}(\bar{k}) &=k(ra_1+a_2) \\
+      &=rka_1+ka_2 \\
+      &=r\varphi_{a_1}(\bar{k})+\varphi_{a_2}(\bar{k}), \\
+      &=(r\varphi_{a_1})(\bar{k})+\varphi_{a_2}(\bar{k}), \\
+    \end{align*}
+    thus $\Theta(ra_1+a_2) =\varphi_{ra_1+a_2} =r\Theta(a_1)+\Theta(a_2)$,
+    as required.
+  \end{proof}
 \end{document}
