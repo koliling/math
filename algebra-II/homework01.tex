@@ -355,7 +355,7 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     By Proposition 2 of Section 10.2, we know that $\text{Hom}_R(R,M)$ is
     an $R$-module since $R$ is commutative. Consider the map
     $\Theta:\text{Hom}_R(R,M)\rightarrow M$ defined by
-    $\Theta(phi)=phi(1)$. We show that $\Theta$ is an $R$-module
+    $\Theta(\varphi)=\varphi(1)$. We show that $\Theta$ is an $R$-module
     isomorphism. Let $\varphi,\phi\in\text{Hom}_R(R,M)$, and $r\in R$. Then
     we have
     \begin{align*}
@@ -382,5 +382,25 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     was arbitrary, and $\varphi_m(1)=1$, $\Theta$ is surjective. \\
 
     Thus $\Theta$ is bijective, and so $\text{Hom}_R(R,M)\cong M$.
+  \end{proof}
+
+\it \textbf{Section 10.2 Q10:} Let $R$ be a commutative ring. Prove that
+  $\text{Hom}_R(R,R)$ and $R$ are isomorphic as rings.
+
+  \begin{proof}
+    From Section 10.2 Question 9, we showed that
+    $\Theta:\text{Hom}_R(R,R)\rightarrow R$ defined by
+    $\Theta(\varphi)=\varphi(1)$ is an $R$-module isomorphism. Thus
+    $\Theta(\varphi+\phi)=\Theta(\varphi)+\Theta(\phi)$. It remains to show
+    that $\Theta(\varphi\circ\phi)=\Theta(\varphi)\Theta(\phi)$. We have
+    \begin{align*}
+      \Theta(\varphi\circ\phi) &=(\varphi\circ\phi)(1) \\
+      &=\varphi(\phi(1)) \\
+      &=\phi(1)\cdot\varphi(1) \\
+      &=\varphi(1)\phi(1) \\
+      &=\Theta(\varphi)\Theta(\phi),
+    \end{align*}
+    from commutativity of $R$. Thus $\text{Hom}_R(R,R)$ and $R$ are
+    isomorphic as rings.
   \end{proof}
 \end{document}
