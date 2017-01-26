@@ -404,5 +404,47 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     isomorphic as rings.
   \end{proof}
 
-\it \textbf{Section 10.2 Q11:}
+\it \textbf{Section 10.2 Q11:} Let $A_1,\ldots,A_n$ be $R$-modules and let
+  $B_i$ be a submodule of $A_i$ for each $i=1,\ldots,n$. Prove that
+  \[(A_1\times\ldots\times A_n)/(B_1\times\ldots\times B_n)
+  \cong(A_1/B_1)\times\ldots\times(A_n/B_n).\]
+
+  \begin{proof}
+    Consider the map $\Theta:(A_1\times\ldots\times
+    A_n)/(B_1\times\ldots\times B_n)
+    \rightarrow(A_1/B_1)\times\ldots\times(A_n/B_n)$ defined by
+    $\Theta(\overline{(a_1,\ldots,a_n)})
+    =(\overline{a_1},\ldots,\overline{a_n})$. We show that $\Theta$ is an
+    $R$-module isomorphism. \\
+
+    Let $r\in R$, and $x=\overline{(x_1,\ldots,x_n)},
+    y=\overline{(y_1,\ldots,y_n)}\in (A_1\times\ldots\times
+    A_n)/(B_1\times\ldots\times B_n)$. Then
+    \begin{align*}
+      \Theta(x+r\cdot y) &=\Theta(\overline{(x_1,\ldots,x_n)}
+        +r\cdot\overline{(y_1,\ldots,y_n)}) \\
+      &=\Theta(\overline{(x_1,\ldots,x_n)}
+        +\overline{r\cdot(y_1,\ldots,y_n)}) \\
+      &=\Theta(\overline{(x_1,\ldots,x_n)}
+        +\overline{(r\cdot y_1,\ldots,r\cdot y_n)}) \\
+      &=\Theta(\overline{(x_1+r\cdot y_1,\ldots,x_n+r\cdot y_n)}) \\
+      &=(\overline{x_1+r\cdot y_1},\ldots,\overline{x_n+r\cdot y_n}) \\
+      &=(\overline{x_1},\ldots,\overline{x_n})
+        +(\overline{r\cdot y_1},\ldots,\overline{r\cdot y_n}) \\
+      &=(\overline{x_1},\ldots,\overline{x_n})
+        +r\cdot(\overline{y_1},\ldots,\overline{y_n}) \\
+      &=\Theta(x)+r\cdot\Theta(y). \\
+    \end{align*}
+    Thus, $\Theta$ is an $R$-module homomorphism. \\
+
+    Let $a=\overline{(a_1,\ldots,a_n)}\in\ker(\Theta)$. Then
+    $(\overline{a_1},\ldots,\overline{a_n})
+    =(\overline{0},\ldots,\overline{0})$, which implies that $a_i\in B_i$
+    for all $i=1,\ldots,n$. Equivalently, $a=0$. Thus the map $\Theta$ is
+    injective. \\
+
+    Finally, we show that $\Theta$ is surjective. This is clearly true
+    since any $(\overline{a_1},\ldots,\overline{a_n})$ has preimage
+    $\overline{(a_1,\ldots,a_n)}$.
+  \end{proof}
 \end{document}
