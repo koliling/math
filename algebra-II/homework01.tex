@@ -451,4 +451,42 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
 \it \textbf{Section 10.2 Q12:} Let $I$ be a left ideal of $R$ and let $n$
   be a positive integer. Prove
   \[R^n/IR^n \cong R/IR\times\cdots\times R/IR\;\; (n\; \text{times})\]
+  where $IR^n$ is defined as in Exercise 5 of Section 1. [Use the preceding
+  exercise.]
+
+  \begin{proof}
+    From Section 10.2 Question 11, it suffices to show that $R^n/IR^n
+    \cong R^n/(IR)^n$. Consider the map $\Theta:R^n\rightarrow R^n/(IR)^n$,
+    defined by $\Theta((r_1,\ldots,r_n)) =\overline{(r_1,\ldots,r_n)}$.
+    This map is clearly surjective. So by the first isomorphism theorem, it
+    suffices to show that $\ker(\Theta)=IR^n$. \\
+    
+    Let
+    \[x=a_1\cdot(r_{1,1},\ldots,r_{1,n}) +\ldots
+    +a_m\cdot(r_{m,1},\ldots,r_{m,n}) \in IR^n,\]
+    where $a_i\in I$. Then
+    \[x=((a_1\cdot r_{1,1}+\ldots+a_m\cdot r_{m,1}),\;\; \cdots,\;\;
+    (a_1\cdot r_{1,n}+\ldots+a_m\cdot r_{m,n})),\]
+    and since $a_1\cdot r_{1,j}+\ldots+a_m\cdot r_{m,j}\in IR$ for each
+    $j=1,\ldots,n$, we have $x\in (IR)^n$, and so $x\in\ker(\Theta)$. Thus,
+    $IR^n\subseteq\ker(\Theta)$. \\
+
+    For the reverse inclusion, let $x\in\ker(\Theta)$. Then $x\in(IR)^n$,
+    thus we can write
+    \[x =(x_1,\ldots,x_n),\]
+    where each
+    \[x_i=a_{i,1}\cdot r_{i,1} + \cdots + a_{i,m_i}\cdot r_{i,m_i} \in
+    IR.\]
+    Given $r\in R$, let $r^i$ denote $(0,\ldots,0,r,0,\ldots,0)\in R^n$,
+    where $r$ is placed in the $i$th position. Then 
+    \begin{align*}
+      x &=(x_1,\ldots,x_n) \\
+      &=(\sum_{j=1}^{m_1}a_{1,j}\cdot r_{1,j},\;\; \cdots,
+        \sum_{j=1}^{m_n}a_{n,j}\cdot r_{n,j}) \\
+      &=\sum_{i=1}^n\sum_{j=1}^{m_i} a_{i,j}\cdot r^i_{i,j},
+    \end{align*}
+    which is contained in $IR^n$ since each $r^i_{i,j}\in R^n$. Thus
+    $\ker(\Theta)\subseteq IR^n$, and we have $\ker(\Theta)=IR^n$ as
+    required.
+  \end{proof}
 \end{document}
