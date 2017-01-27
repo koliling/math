@@ -34,5 +34,19 @@ identity.
       $f(A)=A\bigtriangleup\{1\}$, where $\bigtriangleup$ denotes symmetric
       difference. Then $f$ is a bijection, thus the formula holds.
     \end{proof}
+
+  \item \it (Parallel summation identity) For $m,n\geq0$,
+    \[\sum_{k=0}^n\binom{m+k}{k} =\binom{n+m+1}{n}.\]
+
+    \begin{proof}
+      $\binom{n+m+1}{n}$ is the number of subsets $\mathcal{S}$ of
+      $A=\{a_1,\ldots,a_n,b_1,\ldots,b_m,c\}$ of size $n$. For
+      $k\in\{0,\ldots,n\}$, denote by $\mathcal{S}_{k}$ the set of subsets
+      of $A$ of size $n$ such that all elements in $\{a_1,\ldots,a_k\}$
+      appear in the subset but $a_{k+1}$ does not. Then
+      $|\mathcal{S}_k|=\binom{m+n-k}{n-k}$. Also, $\mathcal{S}$ is the
+      disjoint union of $\mathcal{S}_0,\ldots,\mathcal{S}_n$. Thus the
+      parallel summation identity holds.
+    \end{proof}
 \end{enumerate}
 \end{document}
