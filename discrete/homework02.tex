@@ -48,5 +48,20 @@ identity.
       disjoint union of $\mathcal{S}_0,\ldots,\mathcal{S}_n$. Thus the
       parallel summation identity holds.
     \end{proof}
+
+  \item \it Derive the parallel summation identity from the upper summation
+    identity, using an early, extremely simple binomial coefficient
+    identity.
+
+    \begin{proof}
+      \begin{align*}
+        \binom{n+m+1}{n} &=\binom{n+m+1}{m+1} &(\text{symmetry identity}) \\
+        &=\binom{m}{m}+\binom{m+1}{m}+\ldots+\binom{m+n}{m} &(\text{
+          upper summation identity}) \\
+        &=\binom{m}{0}+\binom{m+1}{1}+\ldots+\binom{m+n}{n} &(\text{
+          symmetry identity}) \\
+        &=\sum_{k=0}^n\binom{m+k}{k}.
+      \end{align*}
+    \end{proof}
 \end{enumerate}
 \end{document}
