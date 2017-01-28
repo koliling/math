@@ -69,7 +69,7 @@ identity.
     k\binom{n}{k}=n\binom{n-1}{k-1}.\]
 
     \begin{proof}
-      We ask the question of how many ways there are to choose $k$
+      We ask how many ways there are to choose $k$
       committee members from $n$ people, and electing 1 of the $k$ members
       to be the committee chair. On the left hand side, we first choose $k$
       members from $n$ people, and for each of these choices, we elect
@@ -87,7 +87,7 @@ identity.
     \[\binom{k}{r}\binom{n}{k} = \binom{n}{r}\binom{n-r}{k-r}.\]
 
     \begin{proof}
-      We ask the question of how many ways there are to choose $k$
+      We ask how many ways there are to choose $k$
       committee members from $n$ people, and within these $k$ members, to
       choose $r$ of them to be subcommittee members. On the left hand
       side, we first choose $k$ members from $n$ people, and for each of
@@ -100,6 +100,21 @@ identity.
       $\binom{n}{r}\binom{n-1}{k-1}$ ways to answer the question. Equating
       both solutions give us
       \[\binom{k}{r}\binom{n}{k}=\binom{n}{r}\binom{n-1}{k-1}.\]
+    \end{proof}
+
+  \item \it (Vandermonde's identity) For $m,n,r\geq0$,
+    \[\binom{m+n}{r} =\sum_{k=0}^r\binom{m}{k}\binom{n}{r-k}.\]
+
+    \begin{proof}
+      We ask how many ways there are to choose $r$ elements from a set with
+      $m+n$ elements. On the left hand side, we know that the number of
+      ways is $\binom{m+n}{r}$. On the right hand side, we let the set $S$ of
+      $m+n$ elements be the disjoint union of sets $A$ with $m$ elements
+      and set $B$ with $n$ elements. Then for case $k\in\{0,\ldots,r\}$, to
+      form a subset of $S$ with $r$ elements, we first choose $k$ elements
+      from $A$ before choosing $r-k$ elements from $B$. Each of these cases
+      give us $\binom{m}{k}\binom{n}{r-k}$ subsets. This gives the total
+      number of ways to be $\sum_{k=0}^r\binom{m}{k}\binom{n}{r-k}$.
     \end{proof}
 \end{enumerate}
 \end{document}
