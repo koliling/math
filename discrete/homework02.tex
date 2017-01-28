@@ -69,6 +69,18 @@ identity.
     k\binom{n}{k}=n\binom{n-1}{k-1}.\]
 
     \begin{proof}
+      We ask the question of how many ways there are to choose $k$
+      committee members from $n$ people, and electing 1 of the $k$ members
+      to be the committee chair. On the left hand side, we first choose $k$
+      members from $n$ people, and for each of these choices, we can elect
+      one of the $k$ members to be the committee chair. Thus we get
+      $k\binom{n}{k}$ ways to answer the question. On the right hand side,
+      we first choose the committee-chair from one of the $n$ people. From
+      the remaining $n-1$ people, we pick $k-1$ to be in the committee, but
+      none of these $k-1$ committee members are chair. This gives us
+      $n\binom{n-1}{k-1}$ ways to answer the question. Equating both
+      solutions give us
+      \[k\binom{n}{k}=n\binom{n-1}{k-1}.\]
     \end{proof}
 \end{enumerate}
 \end{document}
