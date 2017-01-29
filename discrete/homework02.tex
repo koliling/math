@@ -156,7 +156,24 @@ identity.
       where $x,y\geq n\in\mathbb{N}$. \\
 
       Now we generalize our solution to the case where $x,y\in\mathbb{C}$.
-      Denote $f(x,y):=(x+y)_n-\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}$.
+      Denote \[f(x,y):=(x+y)_n-\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}.\]
+      Notice that $f(x,y)\in\mathbb{C}[x,y]$, thus we can write
+      \[f(x,y)= g_m(y)x^m+\ldots+g_1(y)x+g_0(y),\]
+      for some $m\in\mathbb{N}$, and
+      $g_m(y),\ldots,g_0(y)\in\mathbb{C}[y]$. Earlier, we proved that
+      $f(x,y)=0$ for all $x,y\in\mathbb{N}$ and $x,y\geq n$. Thus, at
+      $y=n$, the polynomial
+      \[f(x,n)= g_m(n)x^m+\ldots+g_1(n)x+g_0(n) \in\mathbb{C}[x]\]
+      has infinite solutions $x=n,n+1,n+1,\ldots$. Thus from Principle 7.6,
+      the coefficients $g_m(n),\ldots,g_0(n)$ must be identically 0.
+      Repeating the argument at $y=n+1,n+2,\ldots$, we get
+      \[g_m(n+i)=\ldots=g_0(n+i)=0\]
+      for all $i\in\mathbb{N}$. In other words, for each
+      $k\in\{0,\ldots,m\}$, the polynomial $g_k(y)\in\mathbb{C}[y]$ has
+      infinite solutions $n,n+1,n+2,\ldots$. Applying Principle 7.6 again,
+      the $g_k(y)$ must be identically 0. Thus, $f(x,y)=0$ for all
+      $x,y\in\mathbb{C}$, and the assertion in the question holds in the
+      general case where $x,y\in\mathbb{C}$.
     \end{proof}
 \end{enumerate}
 \end{document}
