@@ -116,5 +116,46 @@ identity.
       give us $\binom{m}{k}\binom{n}{r-k}$ subsets. This gives the total
       number of ways to be $\sum_{k=0}^r\binom{m}{k}\binom{n}{r-k}$.
     \end{proof}
+
+  \item \it (Binomial theorem for falling powers) With
+    $(x)_k=x(x-1)\ldots(x-k+1)$,
+    \[(x+y)_n =\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}.\]
+    Here $x$ and $y$ are (complex) variables, and $n\geq0$.
+
+    \begin{proof}
+      We first prove for the case where $x,y\in\mathbb{N}$ and $x,y\geq n$.
+      Then the left hand side computes the number of ways to draw $n$
+      objects from a set of size $x+y$, and arrange them in order. This is
+      the same as asking how many ordered subsets of size $n$ we can get
+      from the disjoint union $S=A\sqcup B$, where $A=\{a_1,\ldots,a_x\}$
+      and $B=\{b_1,\ldots,b_y\}$. Let $\mathcal{S}$ denote the set of
+      ordered subsets, and let $\mathcal{S}_k$ denote the set of ordered
+      subsets where $k$ elements come from set $A$ and $n-k$ elements come
+      from set $B$. Then $\mathcal{S}$ is the disjoint union
+      $\mathcal{S}=\mathcal{S}_0\sqcup\ldots\sqcup\mathcal{S}_n$. Thus
+      \[(x+y)_n =|\mathcal{S}|
+      =|\mathcal{S}_0|\sqcup\ldots\sqcup|\mathcal{S}_n|.\]
+
+      Now for $k=0,\ldots,n$, to compute $|\mathcal{S}_k|$, we first
+      consider determining the $k$ positions amongst positions $1,\ldots,n$
+      that should contain elements from set $A$; there are $\binom{n}{k}$
+      such positions. For each such position, we consider how we can choose
+      $k$ elements from set $A$ and order them within the chosen positions;
+      there are $(x)_k$ such possibilities. Similarly, for each such
+      possibility, we consider how we can choose $n-k$ elements from set
+      $B$ and order them within the remaining $n-k$ positions; there are
+      $(y)_{n-k}$ such possibilities. Thus,
+      $|\mathcal{S}_k|=\binom{n}{k}(x)_k(y)_{n-k}$. Summarizing, we have
+      \begin{align*}
+        (x+y)_n &=|\mathcal{S}| \\
+        &=|\mathcal{S}_0|\sqcup\ldots\sqcup|\mathcal{S}_n| \\
+        &=\binom{n}{0}(x)_0(y)_n +\ldots +\binom{n}{n}(x)_n(y)_0. \\
+        &=\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}, \\
+      \end{align*}
+      so the assertion in the question holds for all $x,y\in\mathbb{N}$,
+      where $x,y\geq n\in\mathbb{N}$. \\
+
+      Now we generalize our solution to the case where $x,y\in\mathbb{C}$.
+    \end{proof}
 \end{enumerate}
 \end{document}
