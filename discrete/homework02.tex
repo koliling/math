@@ -175,5 +175,20 @@ identity.
       all $x,y\in\mathbb{C}$, so the assertion in the question holds in
       the general case where $x,y\in\mathbb{C}$.
     \end{proof}
+
+  \item \it Derive the binomial theorem for falling powers from
+    Vandermonde's identity.
+
+    \begin{proof}
+      We are assuming that $x,y\in\mathbb{N}$ and $x,y\geq n$. Then we have
+      \begin{align*}
+        (x+y)_n &=n!\binom{x+y}{n} \\
+        &=\sum_{k=0}^nn!\binom{x}{k}\binom{y}{n-k} &(\text{Vandermonde's
+          identity}) \\
+        &=\sum_{k=0}^nn!\frac{(x)_k}{k!}\frac{(y)_{n-k}}{(n-k)!} \\
+        &=\sum_{k=0}^n\frac{n!}{k!(n-k)!}(x)_k(y)_{n-k} \\
+        &=\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}. \\
+      \end{align*}
+    \end{proof}
 \end{enumerate}
 \end{document}
