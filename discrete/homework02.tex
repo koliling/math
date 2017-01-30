@@ -190,5 +190,36 @@ identity.
         &=\sum_{k=0}^n\binom{n}{k}(x)_k(y)_{n-k}. \\
       \end{align*}
     \end{proof}
+
+  \item \it (Binomial theorem for rising powers) Using the binomial theorem
+    for falling powers, derive the following. With
+    $x^{(k)}:=x(x+1)\ldots(x+k-1)$,
+    \[(x+y)^{(n)} =\sum_{k=0}^n\binom{n}{k}x^{(k)}y^{(n-k)}.\]
+    Here again $x$ and $y$ are complex variables, and $n\geq0$.
+
+    \begin{proof}
+      First observe that given $z\in\mathbb{C}$ and $k\in\mathbb{N}$, we
+      have
+      \begin{align*}
+        (-z)_{k} &=(-z)(-z-1)\ldots(-z-k+1) \\
+        &=(-1)^kz(z+1)\ldots(z+k-1) \\
+        &=(-1)^kz^{(k)}.
+      \end{align*}
+      Rearranging, we also get $z^{(k)}=(-1)^k(-z)_k$.  Note that since the
+      binomial theorem for falling powers hold for variables in
+      $\mathbb{C}$, these equations also hold for all $z\in\mathbb{C}$.
+
+      Thus we have
+      \begin{align*}
+        (x+y)^{(n)} &=(-1)^n(-x-y)_{n} \\
+        &=(-1)^n \sum_{k=0}^{n} \binom{n}{k}(-x)_{k}(-y)_{n-k}
+          &(\text{Binomial theorem for falling powers}) \\
+        &=(-1)^n \sum_{k=0}^{n} \binom{n}{k} (-1)^kx^{(k)}
+          (-1)^{n-k}y^{(n-k)} \\
+        &=(-1)^n \sum_{k=0}^{n} \binom{n}{k} (-1)^nx^{(k)} y^{(n-k)} \\
+        &=(-1)^{2n} \sum_{k=0}^{n} \binom{n}{k} x^{(k)} y^{(n-k)} \\
+        &=\sum_{k=0}^{n} \binom{n}{k} x^{(k)} y^{(n-k)}. \\
+      \end{align*}
+    \end{proof}
 \end{enumerate}
 \end{document}
