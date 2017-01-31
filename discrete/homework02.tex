@@ -227,10 +227,28 @@ identity.
       =\binom{n}{m-1}\binom{n-1}{m}\binom{n+1}{m+1}.\]
     Note that an algebraic proof of this identity is very easy. You will
     probably find a combinatorial proof very hard! To see why this is
-    called the hexagon idetity, mark the terms involved in Pascal's
+    called the hexagon identity, mark the terms involved in Pascal's
     triangle.
 
     \begin{proof}
+      On the left hand side, we are counting the number of ways of choosing
+      $m-1$ elements from the set $A=\{a_1,\ldots,a_{n-1}\}$, followed by
+      choosing $m+1$ elements from the set $B=\{b_1,\ldots,b_{n}\}$,
+      followed by choosing $m$ elements from the set
+      $C=\{c_1,\ldots,c_{n+1}\}$. The choices are made independently, and
+      the ordering of the chosen elements does not matter. \\
+
+      To get the formula on the right hand side, consider moving the last
+      element from set $B$ and the last element from set $C$ into set $A$.
+      Thus we have the new sets
+      \begin{align*}
+        A' &=\{a_1,\ldots,a_{n-1},b_n,c_{n+1}\}, \\
+        B' &=\{b_1,\ldots,b_{n-1}\}, \\
+        C' &=\{c_1,\ldots,c_{n}\}. \\
+      \end{align*}
+      So in order to get the same possible subsets of $A\sqcup B\sqcup C$
+      as on the left hand side, we must now choose an extra two elements
+      from set $A'$,
     \end{proof}
 \end{enumerate}
 \end{document}
