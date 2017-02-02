@@ -109,5 +109,34 @@
       definition. Thus $C$ computably separates $A$ and $B$, a
       contradiction.
     \end{proof}
+
+  \item \it Show that $\text{Fin}\leq_1\text{Cof}$, where $\text{Fin}$ is
+    the index set of all finite sets and $\text{Cof}$ is the index set of
+    all co-finite sets.
+
+    \begin{proof}
+      Given $e,s\in\mathbb{N}$, let $W_{e,s}$ denote the set of indices $i$
+      in $\{0,\ldots,s-1\}$ such that $\varphi_i$ halts after $s$ steps.
+      Consider the function
+      \begin{equation*}
+        \psi(e,s) :=
+        \begin{cases}
+          0, &\text{if}\; |W_{e,s+1}|>|W_{e,s}|\\
+          \uparrow, &\text{otherwise}\\
+        \end{cases}.
+      \end{equation*}
+      Note that $\psi(e,s)$ is recursive since $W_{e,s}$ is computable.
+      Thus by the s-m-n theorem and Lemma 25, there is a primitive
+      recursive function and injective function $f(e)$ such that
+      \[\psi(e,s)=\varphi_{f(e)}(s).\]
+
+      Also, note that for a fixed $e\in\mathbb{N}$, $W_{e,s}$ is
+      nondecreasing in $s$. Furthermore, $|W_{e,s}|$ converges in $s$ if
+      and only if $e\in\text{Fin}$. Thus
+      \begin{align*}
+        e\in\text{Fin} &\Leftrightarrow f(e)\in\text{Cof}.\\
+      \end{align*}
+      Then since $f$ is injective, we have $\text{Fin}\leq_1\text{Cof}$.
+    \end{proof}
 \end{enumerate}
 \end{document}
