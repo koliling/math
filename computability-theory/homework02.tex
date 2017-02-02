@@ -40,5 +40,39 @@
       \end{align*}
       Since $f(e,x)$ is injective, we have $H\leq_1K$.
     \end{proof}
+
+  \item \it Disjoint sets $A$ and $B$ are computably inseparable if there
+    is no computable set $C$ such that $A\subseteq C$ and $C\cap
+    B=\emptyset$. Show that $A=\{e|\varphi_e(e)=0\}$ and
+    $B=\{e|\varphi_e(e)\downarrow\neq0\}$ are computably inseparable. Prove
+    that $K\equiv_1A\equiv_1B$. $\text{Ext}$ is the index set of all
+    partial computable functions which can be extended to a total
+    computable function. Show that $\text{Ext}$ is not $\emptyset$ or
+    $\omega$.
+
+    \begin{proof}
+      Assume that $C$ computably separates $A$ from $B$. We show that this
+      would make $K$ computable, a contradiction. Consider the function
+      \begin{equation*}
+        \psi(e,x) :=
+        \begin{cases}
+          0, &\text{if}\; e\in K\\
+          \uparrow, &\text{otherwise}\\
+        \end{cases}.
+      \end{equation*}
+
+      Note that $\psi(e,x)$ is recursive because $K$ is recursively
+      enumerable. Thus by the s-m-n theorem, there is a primitive
+      recursive function $f(e)$ such that
+      \[\psi(e,x)=\varphi_{f(e)}(x).\]
+
+      Observe that $\varphi_{f(e)}$ is the 0 function if and only if $e\in
+      K$, otherwise $\varphi_{f(e)}$ is the function that never halts on
+      any input. Thus given any $e\in\mathbb{N}$, we can decide if $e$ lies
+      in $K$ by checking if $f(e)$ lies in $C$. More precisely,
+      \[e\in K \Leftrightarrow \chi_C(f(e))=1.\]
+      Since $f$ and $\chi_C$ are total computable functions, $K$ will be
+      decidable, a contradiction.
+    \end{proof}
 \end{enumerate}
 \end{document}
