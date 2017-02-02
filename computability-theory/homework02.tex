@@ -43,7 +43,7 @@
 
   \item \it Disjoint sets $A$ and $B$ are computably inseparable if there
     is no computable set $C$ such that $A\subseteq C$ and $C\cap
-    B=\emptyset$. Show that $A=\{e|\varphi_e(e)=0\}$ and
+    B=\emptyset$. Show that $A=\{e|\varphi_e(e)\downarrow=0\}$ and
     $B=\{e|\varphi_e(e)\downarrow\neq0\}$ are computably inseparable. Prove
     that $K\equiv_1A\equiv_1B$. $\text{Ext}$ is the index set of all
     partial computable functions which can be extended to a total
@@ -72,7 +72,32 @@
       in $K$ by checking if $f(e)$ lies in $C$. More precisely,
       \[e\in K \Leftrightarrow \chi_C(f(e))=1.\]
       Since $f$ and $\chi_C$ are total computable functions, $K$ will be
-      decidable, a contradiction.
+      decidable, a contradiction. \\
+
+      To show $K\leq_1A$, consider the function
+      $\psi(e,x)=\varphi_{f(e)}(x)$ defined above. We can assume that $f$
+      is injective from Lemma 25. Then
+      \[e\in K \Leftrightarrow f(e)\in A,\]
+      thus $K\leq_1A$. \\
+
+      To show $A\leq_1B$, consider the function
+      \begin{equation*}
+        \psi(e,x) :=
+        \begin{cases}
+          1, &\text{if}\; e\in A\\
+          \uparrow, &\text{otherwise}\\
+        \end{cases}.
+      \end{equation*}
+      $\psi(e,x)$ is recursive because $A$ is recursively enumerable. Thus
+      by the s-m-n theorem and Lemma 25, there is a primitive recursive
+      injective function $f(e)$ such that $\psi(e,x)=\varphi_{f(e)}(x)$.
+      Then
+      \[e\in A \Leftrightarrow f(e)\in B,\]
+      thus $A\leq_1B$.
+
+      Finally $B\leq_1K$ because $B$ is recursively enumerable and $K$ is
+      1-complete. So from transitivity of $\leq_1$, the sets $A$, $B$, and
+      $K$ have the same 1-degree.
     \end{proof}
 \end{enumerate}
 \end{document}
