@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic II: Problem Set 2}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it Show that $H\leq_1K$.
+    \begin{proof}
+      Consider the function
+      \begin{equation*}
+        \psi(e,x,y) :=
+        \begin{cases}
+          0, &\text{if}\; (e,x)\in H\\
+          \uparrow, &\text{otherwise}\\
+        \end{cases}.
+      \end{equation*}
+
+      Note that $\psi(e,x,y)$ is recursive because $H$ is recursively
+      enumerable. Thus by the s-m-n theorem, there is a primitive
+      recursive function $f(e,x)$ such that
+      \[\psi(e,x,y)=\varphi_{f(e,x)}(y).\]
+
+      By Lemma 25 we can assume that $f(e,x)$ is injective. Note that
+      $\varphi_{f(e,x)}$ is the 0 function if and only if $(e,x)\in H$,
+      otherwise it is the function that never halts on any input. Thus
+      \begin{align*}
+        (e,x)\in H &\Leftrightarrow \varphi_{f(e,x)}\; \text{is the 0
+          function}\\
+        &\Leftrightarrow f(e,x)\in K.\\
+      \end{align*}
+      Since $f(e,x)$ is injective, we have $H\leq_1K$.
+    \end{proof}
+\end{enumerate}
+\end{document}
