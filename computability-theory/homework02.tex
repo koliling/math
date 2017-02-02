@@ -97,7 +97,17 @@
 
       Finally $B\leq_1K$ because $B$ is recursively enumerable and $K$ is
       1-complete. So from transitivity of $\leq_1$, the sets $A$, $B$, and
-      $K$ have the same 1-degree.
+      $K$ have the same 1-degree. \\
+
+      Clearly $\text{Ext}$ is non-empty because the partial-recursive
+      function that never halts on any input can be extended to the
+      total computable 0 function. We show that the partial-recursive
+      function $\phi_x(x)$ cannot be extended to a total computable
+      function. Otherwise let $f(x)$ be an extension. Consider the set
+      $C:=\{e\in\mathbb{N}|\; f(e)=0\}$. Since $f(x)$ is total, set $C$
+      will be computable. Also, $A\subset C$ and $B\cap C=\emptyset$ by
+      definition. Thus $C$ computably separates $A$ and $B$, a
+      contradiction.
     \end{proof}
 \end{enumerate}
 \end{document}
