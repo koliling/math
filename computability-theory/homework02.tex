@@ -102,7 +102,7 @@
       Clearly $\text{Ext}$ is non-empty because the partial-recursive
       function that never halts on any input can be extended to the
       total computable 0 function. We show that the partial-recursive
-      function $\phi_x(x)$ cannot be extended to a total computable
+      function $\varphi_x(x)$ cannot be extended to a total computable
       function. Otherwise let $f(x)$ be an extension. Consider the set
       $C:=\{e\in\mathbb{N}|\; f(e)=0\}$. Since $f(x)$ is total, set $C$
       will be computable. Also, $A\subset C$ and $B\cap C=\emptyset$ by
@@ -144,10 +144,23 @@
     \begin{enumerate}[label={\bf (\roman*)}]
       \item Show that any index set is a cylinder.
         \begin{proof}
+          This follows directly from Lemma 25: Let $I$ be an index set, and
+          $S(x)$ a total recursive function witnessing $B\leq_m I$. Then
+          $\bar{S}(x)$ defined in Lemma 25 will witness $B\leq_1 I$,
+          because $\bar{S}(x)\in I\Leftrightarrow S(x)\in I$ since $I$ is
+          an index set.
         \end{proof}
 
       \item Show that any set of the form $A\times\omega$ is a cylinder.
         \begin{proof}
+          Let $f(n):\omega\rightarrow\omega\times\omega$ be a total
+          recursive function witnessing $B\leq_m A\times\omega$. Consider
+          the function
+          \[\bar{f}(n):= (f(n)_0,\max(f(0)_1,\ldots,f(n-1)_1)+1),\]
+          where $f(n)_i$ for $i\in\{0,1\}$ denotes the $i$th coordinate of
+          $f(n)\in\omega\times\omega$. Then $\bar{f}(n):\omega\times\omega$
+          is total recursive since $f(n)$ is, and is also injective from
+          definition. Finally, it witnesses $B\leq_1A\times\omega$.
         \end{proof}
 
       \item Show that $A$ is a cylinder iff $A\equiv_1B\times\omega$ for
