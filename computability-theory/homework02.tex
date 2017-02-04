@@ -162,10 +162,30 @@
           is total recursive since $f(n)$ is, and is also injective from
           definition. Finally, it witnesses $B\leq_1A\times\omega$.
         \end{proof}
+        \label{qn:cylinder}
 
       \item Show that $A$ is a cylinder iff $A\equiv_1B\times\omega$ for
         some set $B$.
         \begin{proof}
+          $\Rightarrow$: Let $A$ be a cylinder. We show that
+          $A\equiv_1A\times\omega$. Cleary $A\leq_1A\times\omega$ via the
+          total recursive function $f:\omega\rightarrow\omega\times\omega$,
+          $f(n)=(n,0)$. Also, $A\times\omega\leq_m A$ via the projection
+          function $\pi:\omega\times\omega\rightarrow\omega$,
+          $\pi((n,m))=n$, therefore $A\times\omega\leq_1A$ since $A$ is a
+          cylinder. Hence $A\equiv_1A\times\omega$. \\
+
+          $\Leftarrow$: Assume $A\equiv_1B\times\omega$ for some set $B$,
+          and let $C\leq_m A$ with total recursive function $f$ as witness.
+          From MyHill, there is a computable permutation
+          $p:\omega\rightarrow\omega\times\omega$ such that
+          $p(A)=B\times\omega$. Then $p\circ f$ witnesses $C\leq_m
+          B\times\omega$, so from part~\ref{qn:cylinder} of this question,
+          there is a total recursive and injective function
+          $g:\omega\rightarrow\omega\times\omega$ witnessing
+          $C\leq_1B\times\omega$. Then $p^{-1}\circ
+          g:\omega\rightarrow\omega$ will be a total recursive and
+          injective function witnessing $C\leq_1A$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
