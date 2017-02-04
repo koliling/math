@@ -231,24 +231,27 @@ identity.
     triangle.
 
     \begin{proof}
-      On the left hand side, we are counting the number of ways of choosing
-      $m-1$ elements from the set $A=\{a_1,\ldots,a_{n-1}\}$, followed by
-      choosing $m+1$ elements from the set $B=\{b_1,\ldots,b_{n}\}$,
-      followed by choosing $m$ elements from the set
-      $C=\{c_1,\ldots,c_{n+1}\}$. The choices are made independently, and
-      the ordering of the chosen elements does not matter. \\
+      Consider the question ``How many ways are there to partition a set
+      $A$ of size $3n$ into 6 sets, of sizes $m-1,m,m+1,n-m-1,n-m,n-m+1$?''
+      There are at least two ways of counting the number of partitions. In
+      one approach, we first partition set $A$ into 3 sets of sizes
+      $n-1,n,n+1$; then partition the first set into sets of sizes
+      $m-1$ and $n-m$; partition the second set into sets of sizes $m+1$
+      and $n-m-1$; and finally partition the third set into sets of sizes
+      $m$ and $n-m+1$. This gives a total of
+      \[\binom{3n}{n-1,n,n+1}\binom{n-1}{m-1}\binom{n}{m+1}\binom{n+1}{m}\]
+      ways of partitioning. \\
 
-      To get the formula on the right hand side, consider moving the last
-      element from set $B$ and the last element from set $C$ into set $A$.
-      Thus we have the new sets
-      \begin{align*}
-        A' &=\{a_1,\ldots,a_{n-1},b_n,c_{n+1}\}, \\
-        B' &=\{b_1,\ldots,b_{n-1}\}, \\
-        C' &=\{c_1,\ldots,c_{n}\}. \\
-      \end{align*}
-      So in order to get the same possible subsets of $A\sqcup B\sqcup C$
-      as on the left hand side, we must now choose an extra two elements
-      from set $A'$,
+      In another approach, we first partition set $A$ into 3 sets of sizes
+      $n-1,n,n+1$; then partition the first set into sets of sizes $m$
+      and $n-m-1$; partition the second set into sets of sizes $m-1$ and
+      $n-m+1$; and finally partition the third set into sets of sizes $m+1$
+      and $n-m$. This gives a total of
+      \[\binom{3n}{n-1,n,n+1}\binom{n-1}{m}\binom{n}{m-1}\binom{n+1}{m+1}\]
+      ways of partitioning. \\
+
+      Equating these two formulas and cancelling the
+      $\binom{3n}{n-1,n,n+1}$ term gives us the Hexagon identity.
     \end{proof}
 \end{enumerate}
 \end{document}
