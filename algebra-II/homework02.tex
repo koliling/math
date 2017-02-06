@@ -108,7 +108,7 @@
   \begin{proof}
     We first show that the canonical projection maps $\pi_k$ are $R$-module
     homomorphisms: Given $r\in R$ and $a=(a_i)_{i\in I}, b=(b_i)_{i\in I}\in
-    \prod_{i\in I}M_i$. Then
+    \prod_{i\in I}M_i$,
     \begin{align*}
       \pi_k(r\cdot a+b) &=\pi_k((r\cdot a_i+b_i)_{i\in I})\\
       &=r\cdot a_k +b_k\\
@@ -139,34 +139,32 @@
 \it \textbf{Q6:} Show that the coproduct is initial in the category of
   $R$-modules.
   \begin{proof}
-    We first show that the canonical projection maps $\pi_k$ are $R$-module
-    homomorphisms: Given $r\in R$ and $a=(a_i)_{i\in I}, b=(b_i)_{i\in I}\in
-    \prod_{i\in I}M_i$. Then
+    Chasing definitions, the canonical map given is injective and also an
+    $R$-module homomorphism. \\
+
+    Let $N$ be an $R$-module and $\{\psi:M_i\rightarrow N|i\in I\}$ a
+    collection of $R$-module homomorphisms. Then consider the map
+    $\Psi:\coprod_{i\in I}M_i\rightarrow N$ defined by $(m_i)_{i\in
+    I}\mapsto \sum_{i\in I}\varphi_i(m_i)$. Note that this map is
+    well-defined because there are only finitely nonzero $m_i$ in
+    $(m_i)_{i\in I}$. Then $\Psi\circ\iota_k=\varphi_k$ for all $k\in I$ by
+    definition. Also, $\Psi$ is an $R$-module homomorphism, because given
+    $r\in R$ and $a=(a_i)_{i\in I}, b=(b_i)_{i\in I}\in\coprod_{i\in
+    I}M_i$,
     \begin{align*}
-      \pi_k(r\cdot a+b) &=\pi_k((r\cdot a_i+b_i)_{i\in I})\\
-      &=r\cdot a_k +b_k\\
-      &=r\cdot\pi_k(a) +\pi_k(b).\\
+      \Psi(r\cdot a+b) &=\Psi((r\cdot a_i+b_i)_{i\in I})\\
+      &=\sum_{i\in I}\varphi_i(r\cdot a_i+b_i)\\
+      &=\sum_{i\in I} r\cdot\varphi_i(a_i) +\sum_{i\in I}\varphi_i(b_i)\\
+      &= r\cdot\sum_{i\in I}\varphi_i(a_i) +\sum_{i\in I}\varphi_i(b_i)\\
+      &= r\cdot\Psi(a) +\Psi(b).\\
     \end{align*}
 
-    Let $N$ be an $R$-module and $\{\varphi_i:N\rightarrow M_i|i\in I\}$ a
-    collection of $R$-module homomorphisms. Then consider
-    $\Phi:N\rightarrow\prod_{i\in I}M_i$ defined by
-    $n\mapsto(\varphi_i(n))_{i\in I}$. Then $\pi_k\circ\Phi=\varphi_k$ for
-    all $k\in I$ by definition. Also, $\Phi$ is an $R$-module homomorphism,
-    because given $r\in R$ and $n_1,n_2\in N$,
-    \begin{align*}
-      \Phi(r\cdot n_1+n_2) &=(\varphi_i(r\cdot n_1+n_2))_{i\in I}\\
-      &=(\varphi_i(r\cdot n_1))_{i\in I} +(\varphi_i(n_2))_{i\in I}\\
-      &=(r\cdot\varphi_i(n_1))_{i\in I} +(\varphi_i(n_2))_{i\in I}\\
-      &=r\cdot(\varphi_i(n_1))_{i\in I} +(\varphi_i(n_2))_{i\in I}\\
-      &=r\cdot\Phi(n_1) +\Phi(n_2).\\
-    \end{align*}
-
-    Finally, we show uniqueness of $\Phi$. Let $\Theta$ be another
+    Finally, we show uniqueness of $\Psi$. Let $\Omega$ be another
     $R$-module homomorphism that satisfies the property
-    $\pi_k\circ\Theta=\varphi_k$ for all $k\in I$. Then given $n\in N$, we
-    have $\pi_k(\Theta(n))=\pi_k(\Phi(n))$ for all $k\in I$, which is
-    equivalent to $\Theta(n)=\Phi(n)$.
+    $\Omega\circ\iota_k=\varphi_k$ for all $k\in I$. Then given
+    $a=(a_i)_{i\in I}\in\coprod_{i\in I}M_i$, we
+    have $\Omega\circ\iota_k(a_k)=\Psi\circ\iota_k(a_k)=\varphi_k(a_k)$ for
+    all $k\in I$, which will give $\Omega(a)=\Psi(a)$.
   \end{proof}
 
 In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
