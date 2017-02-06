@@ -12,6 +12,22 @@
 \date{\today}
 \maketitle
 
+\it \textbf{Q1:} Let $V$ be a vector space over $\mathbb{F}$, and let
+  $\text{End}_{\mathbb{F}}(V)$ denote the associative $\mathbb{F}$-algebra
+  of linear transformations from $V$ to $V$ under the usual composition of
+  linear transformations. Define the bracket on $V$ to be $[x,y]=xy-yx$,
+  (also called the commutator on $\text{End}_{\mathbb{F}}(V)$). Show that
+  with this bracket $\text{End}_{\mathbb{F}}(V)$) is a Lie algebra.
+
+  \begin{proof}
+    Skew-symmetry: $[x,y]=xy-yx=-(yx-xy)=-[y,x]$. \\
+    Jacobi identity: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]$
+    \begin{align*}
+      &=x(yz-zy)-(yz-zy)x +y(zx-xz)-(zx-xz)y +z(xy-yx)-(xy-yx)z\\
+      &=0.\\
+    \end{align*}
+  \end{proof}
+
 In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
 
 \it \textbf{Section 10.3 Q4:} An $R$-module $M$ is called a torsion module
