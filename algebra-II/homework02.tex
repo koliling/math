@@ -224,6 +224,54 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
       \times\text{Hom}_R(M,B)$
 
       \begin{proof}
+        Consider the map $\Theta:\text{Hom}_R(M,A) \times\text{Hom}_R(M,B)
+        \rightarrow \text{Hom}_R(M,A\times B)$ defined by
+        \[\Theta((\alpha,\beta))(m) :=(\alpha(m),\beta(m)).\]
+
+        We first show that $\Theta((\alpha,\beta))\in\text{Hom}_R(M,A\times
+        B)$: Given $r\in R$ and $x,y\in M$,
+        \begin{align*}
+           \Theta((\alpha,\beta))(r\cdot x+y) &=(\alpha(r\cdot x+y),
+            \beta(r\cdot x+y))\\
+          &=(r\cdot\alpha(x)+\alpha(y), r\cdot\beta(x)+\beta(y))\\
+          &=r\cdot(\alpha(x),\beta(x)) +(\alpha(y),\beta(y))\\
+          &=r\cdot\Theta((\alpha,\beta))(x) +\Theta((\alpha,\beta))(y).\\
+        \end{align*}
+
+        Next, we show that $\Theta$ is an $R$-module homomorphism: Given
+        $r\in R$, $\gamma_1=(\alpha_1,\beta_1),
+        \gamma_2=(\alpha_2,\beta_2)\in \text{Hom}_R(M,A)
+        \times\text{Hom}_R(M,B)$, and $m\in M$,
+        \begin{align*}
+          \Theta(r\cdot\gamma_1+\gamma_2)(m)
+            &=\Theta((r\cdot\alpha_1+\beta_1, r\cdot\alpha_2+\beta_2))(m)\\
+          &=((r\cdot\alpha_1+\beta_1)(m), (r\cdot\alpha_2+\beta_2)(m))\\
+          &=((r\cdot\alpha_1(m)+\beta_1(m), r\cdot\alpha_2(m)+\beta_2(m))\\
+          &=(r\cdot\alpha_1(m), r\cdot\alpha_2(m)) +(\beta_1(m),\beta_2(m))\\
+          &=r\cdot(\alpha_1(m),\alpha_2(m)) +(\beta_1(m),\beta_2(m))\\
+          &=r\cdot\Theta(\gamma_1)(m) +\Theta(\gamma_2)(m)\\
+          &=(r\cdot\Theta(\gamma_1)+\Theta(\gamma_2))(m).\\
+        \end{align*}
+
+        Next, we show that $\Theta$ is injective. Let
+        $(\alpha,\beta)\in\ker(\Theta)$. Then for all $m\in M$,
+        $(\alpha(m),\beta(m))=(0,0)$, which means $\alpha$ and $\beta$ are
+        the zero $R$-homomorphisms. Thus $(\alpha,\beta)=0$, and $\Theta$
+        is injective. \\
+
+        Finally, we show that $\Theta$ is surjective. Let
+        $\gamma:M\rightarrow A\times B$ be an arbitrary $R$-homomorphism.
+        Consider the map $\alpha:M\rightarrow A$ defined by
+        $\alpha(m)=\pi_1(\gamma(m))$, where $\pi_i$ is the $i$-th
+        projection map. Then $\gamma$ is an $R$-module homomorphism.
+        Similarly, the map $\beta:M\rightarrow B$ defined by
+        $\beta(m)=\pi_2(\gamma(m))$ is an $R$-module homomorphism. Also,
+        $(\alpha,\beta)$ is a pre-image of $\gamma$ under $\Theta$: Given
+        $m\in M$,
+        \begin{align*}
+          \Theta((\alpha,\beta))(m) &=(\alpha(m),\beta(m))\\
+          &=\gamma(m).\\
+        \end{align*}
       \end{proof}
   \end{enumerate}
 \end{document}
