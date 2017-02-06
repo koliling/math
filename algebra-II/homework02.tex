@@ -35,7 +35,19 @@
   a derivation if $x(ab)=x(a)b+ax(b)$ for all $a,b\in A$.)
 
   \begin{proof}
-    Let $\alpha,\beta\in\text{Der}_{\mathbb{F}}(A)$ and $a,b\in A$. Then
+    We first check that $\text{Der}_{\mathbb{F}}(A)$ is a subspace of
+    $\text{End}_{\mathbb{F}}(A)$. Let $f\in\mathbb{F}$,
+    $\alpha,\beta\in\text{Der}_{\mathbb{F}}(A)$, and $a,b\in A$. Then
+    \begin{align*}
+      (f\alpha+\beta)(ab) &=f\alpha(ab) +\beta(ab)\\
+      &=f\alpha(a)b +fa\alpha(b) +\beta(a)b +a\beta(b)\\
+      &=f\alpha(a)b +\beta(a)b +af\alpha(b) +a\beta(b)\\
+      &=(f\alpha+\beta)(a)b +a(f\alpha+\beta)(b).\\
+    \end{align*}
+
+    Now we check that $\text{Der}_{\mathbb{F}}(A)$ is a Lie subalgebra of
+    $\text{End}_{\mathbb{F}}(A)$. Let
+    $\alpha,\beta\in\text{Der}_{\mathbb{F}}(A)$ and $a,b\in A$. Then
     \begin{align*}
       [\alpha,\beta](ab) &=(\alpha\beta)(ab) -(\beta\alpha)(ab)\\
       &=\alpha(\beta(a)b+a\beta(b)) -\beta(\alpha(a)b+a\alpha(b))\\
@@ -48,7 +60,57 @@
       &=(\alpha\beta-\beta\alpha)(a)b + a(\alpha\beta-\beta\alpha)(b)\\
       &=[\alpha,\beta](a)b + a[\alpha,\beta](b).\\
     \end{align*}
-    Thus $f\text{Der}_{\mathbb{F}}(A)$ is a Lie subalgebra.
+    Thus $\text{Der}_{\mathbb{F}}(A)$ is a Lie subalgebra.
+  \end{proof}
+
+\it \textbf{Q3:} Prove that in general $\text{Der}_{\mathbb{F}}(A)$ need
+  not be an (associative) subalgebra under the usual product (i.e.,
+  composition) on $\text{End}_{\mathbb{F}}(A)$.
+
+  \begin{proof}
+    Consider the case where $\mathbb{F}=\mathbb{R}$ and $A=\mathbb{R}[x]$.
+    Then the derivative function $d:\mathbb{R}[x]\rightarrow\mathbb{R}[x]$
+    defined by
+    \[d\left(\sum_{i=0}^{n}a_ix^i\right) =\sum_{i=1}^{n}ia_ix^{i-1}\]
+    lies in $\text{Der}_{\mathbb{R}}(\mathbb{R}[x])$. However, $d\circ d$
+    does not lie in this Lie subalgebra, because
+    \[(d\circ d)(x^2)=2\neq2x =1x+x1 =d(x)x+xd(x).\]
+  \end{proof}
+
+\it \textbf{Q4:} Let $sl_n(\mathbb{F})\subset gl_n(\mathbb{F})$ be the
+  vector subspace of traceless matrices.
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item \it Prove that under matrix multiplication $sl_n(\mathbb{F})$ is
+      not a subalgebra of $gl_n(\mathbb{F})$ for $n>1$.
+      \begin{proof}
+        Consider the matrices $A=\begin{bmatrix}0&1\\1&0\\\end{bmatrix}$
+        and $B=\begin{bmatrix}1&1\\1&-1\\\end{bmatrix}$. Then
+        $AB=\begin{bmatrix}1&-1\\1&1\\\end{bmatrix}$, which does not belong
+        to $sl_n(\mathbb{F})$.
+      \end{proof}
+
+    \item \it Prove that with the bracket $[x,y]=xy-yx$ on
+      $gl_n(\mathbb{F})$, then $sl_n(\mathbb{F})$ is a Lie subalgebra of
+      $gl_n(\mathbb{F})$.
+      \begin{proof}
+        Given matrices $A,B\in gl_n(\mathbb{F})$,
+        \begin{align*}
+          \text{trace}(AB) &=\sum_{i=1}^n\sum_{j=1}^nA_{i,j}B_{j,i}\\
+          &=\sum_{j=1}^n\sum_{i=1}^nB_{j,i}A_{i,j}\\
+          &=\text{trace}(AB).\\
+        \end{align*}
+        Thus $[A,B]=0$.
+      \end{proof}
+  \end{enumerate}
+
+\it \textbf{Q5:} Show that the product is terminal in the category of
+  $R$-modules.
+  \begin{proof}
+  \end{proof}
+
+\it \textbf{Q6:} Show that the coproduct is initial in the category of
+  $R$-modules.
+  \begin{proof}
   \end{proof}
 
 In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
