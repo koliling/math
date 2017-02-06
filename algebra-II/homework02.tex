@@ -35,6 +35,20 @@
   a derivation if $x(ab)=x(a)b+ax(b)$ for all $a,b\in A$.)
 
   \begin{proof}
+    Let $\alpha,\beta\in\text{Der}_{\mathbb{F}}(A)$ and $a,b\in A$. Then
+    \begin{align*}
+      [\alpha,\beta](ab) &=(\alpha\beta)(ab) -(\beta\alpha)(ab)\\
+      &=\alpha(\beta(a)b+a\beta(b)) -\beta(\alpha(a)b+a\alpha(b))\\
+      &=\alpha(\beta(a))b +\beta(a)\alpha(b) +\alpha(a)\beta(b)
+        +a\alpha(\beta(b))\\
+      &-\beta(\alpha(a))b -\alpha(a)\beta(b) -\beta(a)\alpha(b)
+        -a\beta(\alpha(b))\\
+      &=\alpha(\beta(a))b -\beta(\alpha(a))b + a\alpha(\beta(b))
+        -a\beta(\alpha(b))\\
+      &=(\alpha\beta-\beta\alpha)(a)b + a(\alpha\beta-\beta\alpha)(b)\\
+      &=[\alpha,\beta](a)b + a[\alpha,\beta](b).\\
+    \end{align*}
+    Thus $f\text{Der}_{\mathbb{F}}(A)$ is a Lie subalgebra.
   \end{proof}
 
 In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
