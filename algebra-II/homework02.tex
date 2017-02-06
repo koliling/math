@@ -59,4 +59,78 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     $r\in\mathbb{Q}$ does not annihilate
     $\overline{1/(2r)}\in\mathbb{Q}/\mathbb{Z}$.
   \end{proof}
+
+\it \textbf{Section 10.3 Q9:} An $R$-module $M$ is called irreducible if
+  $M\neq0$ and if 0 and $M$ are the only submodules of $M$. Show that $M$
+  is irreducible if and only if $M\neq0$ and $M$ is a cyclic module with
+  any nonzero element as generator. Determine all the irreducible
+  $\mathbb{Z}$-modules.
+
+  \begin{proof}
+    $\Rightarrow$: Let $M$ be an irreducible $R$-module. Then any nonzero
+    $m\in M$ must generate the whole of $M$, otherwise $Rm$ will be a
+    nontrivial submodule of $M$. \\
+
+    $\Leftarrow$: Assume $M$ is a nonzero cyclic $R$-module with any
+    nonzero element as generator, and let $N$ be an arbitrary submodule of
+    $M$. Choose any $n\in N$ be any nonzero element of $N$. Then
+    $M=Rn\subseteq N$, and also clearly $N\subseteq M$, thus $N=M$. \\
+
+    Let $M$ be an irreducible $\mathbb{Z}$-module. We first show that $M$
+    must be torsion. Otherwise let $m$ be a nonzero element in $M$. Then
+    $M=\mathbb{Z}m=\mathbb{Z}(2\cdot m)$, so $m=(2k)\cdot m$ for some
+    $k\in\mathbb{Z}$. Rearranging, we get $(2k-1)\cdot m=0$, and since
+    $2k-1\neq0$ for any $k\in\mathbb{Z}$, $m$ must be torsion, a
+    contradiction. \\
+
+    Let $m\in M$. Then $m$ is a torsion element.  Let $k\in\mathbb{Z}$ be
+    the smallest positive integer that annihilates $m$. Note that such an
+    integer exists because if $m$ is annihilated by some negative integer
+    $k$, then $(-k)\cdot m=-k\cdot m=0$. Now given arbitrary nonzero
+    $m'=k'\cdot m\in M$, we have $m'=(k'\pmod{k})\cdot m$ since $k\cdot
+    m=0$. Thus the unique elements of $M$ are exactly
+    \[M =\{0,1\cdot m,2\cdot m,\ldots,k\cdot m\} =\mathbb{Z}_km
+    \cong\mathbb{Z}_k.\]
+
+    Now since irreducible $\mathbb{Z}$-modules are exactly the cyclic ones
+    with any nonzero element as generator, every nonzero element in
+    $\mathbb{Z}_k$ must generate $\mathbb{Z}_k$, which holds if and only if
+    $k$ is prime. Thus the irreducible $\mathbb{Z}$-modules are exactly all
+    $\mathbb{Z}_p$ for prime $p$. \\
+  \end{proof}
+
+\it \textbf{Section 10.3 Q10:} Assume $R$ is commutative. Show that an
+  $R$-module $M$ is irreducible if and only if $M$ is isomorphic (as an
+  $R$-module) to $R/I$ where $I$ is a maximal ideal of $R$. [By the
+  previous exercise, if $M$ is irreducible there is a natural map
+  $R\rightarrow M$ defined by $r\mapsto rm$, where $m$ is any fixed nonzero
+  element of $M$.]
+
+  \begin{proof}
+    Let $M$ be an irreducible $R$-module, and $m$ a nonzero element in $M$.
+    Note from the previous question that $m$ generates $M$. Consider the
+    natural map $\pi_m:R\rightarrow M$, $r\mapsto r\cdot m$. This map is
+    a $R$-module homomorphism: For any $r,x,y\in R$,
+    $\pi_m(rx+y)=(rx+y)\cdot m=rx\cdot m+y\cdot m =r\cdot(x\cdot m)+y\cdot
+    m =r\cdot\pi_m(x)+\pi_m(y)$. This map is also surjective because $m$
+    generates $M$. Thus from the first isomorphism theorem, $M\cong
+    R/\ker(\pi_m)$ as a $R$-module. It suffices to show that $\ker(\pi_m)$
+    is a maximal ideal of $R$. Let $r\in R$ be an arbitrary element outside
+    $\ker(\pi_m)$. Then since $M$ is irreducible, $r\cdot m$ generates $M$,
+    from the claim in the previous question. Therefore, $m=r'\cdot(r\cdot
+    m)=(r'r)\cdot m$ for some nonzero $r'\in R$. Equivalently,
+    $(r'r-1)\cdot m=0$, so $r'r-1\in\ker(\pi_m)$, which implies
+    $\bar{r}\bar{r'}=\bar{1}\in R\ker(\pi_m)$. Thus $R\ker(\pi_m)$ is a
+    field, which is equivalent to $\ker(\pi_m)$ being a maximal ideal of
+    $R$. \\
+
+    Assume $M\cong R/I$, where $I$ is a maximal ideal of $R$. Then $R/I$ is
+    a field. Let $\bar{r}\in R/I$ be an arbitrary nonzero element. By the
+    previous question, it suffices to show that $\bar{r}$ generates $M$ as
+    an $R$-module. Now since $R/I$ is a field, there exists some nonzero
+    $\bar{r'}\in R/I$ such that $\bar{r'}\bar{r}=\bar{r'r}=\bar{1}$. Let
+    $\bar{m}\in R/I$ be arbitrary. Then
+    $\bar{m}=\overline{r'rm}=\overline{r'mr}=(r'm)\cdot\bar{r}$, thus
+    $\bar{r}$ generates $\bar{m}$.
+  \end{proof}
 \end{document}
