@@ -128,9 +128,30 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     a field. Let $\bar{r}\in R/I$ be an arbitrary nonzero element. By the
     previous question, it suffices to show that $\bar{r}$ generates $M$ as
     an $R$-module. Now since $R/I$ is a field, there exists some nonzero
-    $\bar{r'}\in R/I$ such that $\bar{r'}\bar{r}=\bar{r'r}=\bar{1}$. Let
+    $\bar{r'}\in R/I$ such that $\bar{r'}\bar{r}=\overline{r'r}=\bar{1}$. Let
     $\bar{m}\in R/I$ be arbitrary. Then
     $\bar{m}=\overline{r'rm}=\overline{r'mr}=(r'm)\cdot\bar{r}$, thus
     $\bar{r}$ generates $\bar{m}$.
+  \end{proof}
+
+\it \textbf{Section 10.3 Q11:} Show that if $M_1$ and $M_2$ are irreducible
+  $R$-modules, then any nonzero $R$-module homomorphism from $M_1$ to $M_2$
+  is an isomorphism. Deduce that if $M$ is irreducible then
+  $\text{End}_R(M)$ is a division ring (this result is called Schur's
+  Lemma). [Consider the kernel and the image]
+
+  \begin{proof}
+    Let $\varphi:M_1\rightarrow M_2$ be nonzero $R$-module homomorphism
+    between the two irreducible $R$-modules. Since $\ker(\varphi)$ is a
+    submodule of $M_1$ and $M_1$ has no non-trivial submodules (Section
+    10.3 Question 9), $\ker(\varphi)$ must be 0, otherwise $\varphi$ would
+    be the zero homomorphism. Also, since $\varphi(M_1)$ is a submodule of
+    $M_2$ which also has no non-trivial submodules, $\varphi(M_1)$ must be
+    $M_2$, otherwise $\varphi$ would be the zero homomorphism. Thus
+    $\varphi$ is surjective and injective, which makes it an isomorphism.
+    \\
+
+    Thus, any nonzero $\varphi\in\text{End}_R(M)$ will have a
+    multiplicative inverse which sends $m\in M_1$ to $\varphi^{-1}(m)$.
   \end{proof}
 \end{document}
