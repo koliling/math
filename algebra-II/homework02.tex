@@ -154,4 +154,76 @@ In these exercises $R$ is a ring with 1 and $M$ is a left $R$-module. \\
     Thus, any nonzero $\varphi\in\text{End}_R(M)$ will have a
     multiplicative inverse which sends $m\in M_1$ to $\varphi^{-1}(m)$.
   \end{proof}
+
+\it \textbf{Section 10.3 Q12:} Let $R$ be a commutative ring and let $A,B$
+  and $M$ be $R$-modules Prove the following isomorphism of $R$-modules:
+  \begin{enumerate}[label={\bf(\alph*)}]
+    \item $\text{Hom}_R(A\times B,M) \cong\text{Hom}_R(A,M)
+      \times\text{Hom}_R(B,M)$
+
+      \begin{proof}
+        Consider the map $\Theta:\text{Hom}_R(A,M)\times\text{Hom}_R(B,M)
+        \rightarrow \text{Hom}_R(A\times B,M)$, defined by
+        \[\Theta(\alpha,\beta)(a,b) :=\alpha(a)+\beta(b).\]
+        We first show that $\Theta(\alpha,\beta) \in\text{Hom}_R(A\times
+        B,M)$: Given $r\in R$, $x=(a_1,b_1),y=(a_2,b_2)\in A\times B$, we
+        have
+        \begin{align*}
+          \Theta(\alpha,\beta)(rx+y) &=\Theta(\alpha,\beta)(r\cdot
+            a_1+a_2,r\cdot b_1+b_2)\\
+          &=\alpha(r\cdot a_1+a_2) +\beta(r\cdot b_1+b_2)\\
+          &=\alpha(r\cdot a_1)+\beta(r\cdot b_1) +\alpha(a_2)+\beta(b_2)\\
+          &=r\cdot(\alpha(a_1)+\beta(b_1)) +\alpha(a_1)+\beta(b_2)\\
+          &=r\cdot\Theta(\alpha,\beta)(x) +\Theta(\alpha,\beta)(y).\\
+        \end{align*}
+
+        Next, we show that $\Theta$ is an $R$-module. Let $r\in R$,
+        $\gamma_1=(\alpha_1,\beta_1), \gamma_2=(\alpha_2,\beta_2)\in
+        \text{Hom}_R(A,M)\times\text{Hom}_R(B,M)$, and $(a,b)\in A\times
+        B$. Then
+        \begin{align*}
+          \Theta(r\gamma_1+\gamma_2)(a,b)
+            &=\Theta((r\alpha_1+r\alpha_2,\beta_1+\beta_2))(a,b)\\
+          &=(r\alpha_1+r\alpha_2)(a) +(\beta_1+\beta_2)(b)\\
+          &=r\cdot\alpha_1(a)+r\cdot\alpha_2(a) +\beta_1(b)+\beta_2(b)\\
+          &=r\cdot\Theta(\gamma_1)(a,b) +\Theta(\gamma_2)(a,b).\\
+        \end{align*}
+
+        Now we show that $\Theta$ is injective. Let
+        $(\alpha,\beta)\in\ker(\Theta)$. Then $\alpha(a)+\beta(b)=0$ for
+        all $a\in A$, $b\in B$. In particular, setting $b=0$, $\alpha(a)=0$
+        for all $a\in A$, which means $\alpha\in\text{Hom}_R(A,M)$ is the
+        zero homomorphism. Similarly, setting $a=0$, we get
+        $\beta\in\text{Hom}_R(B,M)$ is the zero homomorphism. Thus
+        $(\alpha,\beta)=0$. Since $(\alpha,\beta)\in\ker(\Theta)$ was
+        arbitrary, $\Theta$ is injective. \\
+
+        Finally we show that $\Theta$ is surjective. Let $\gamma:A\times
+        B\rightarrow M$ be an $R$-module homomorphism. Consider the map
+        $\alpha:A\rightarrow M$ defined by $\alpha(a)=\gamma((a,0))$. Then
+        $\alpha$ is an $R$-module homomorphism, because given $r\in R$ and
+        $a_1,a_2\in A$,
+        \begin{align*}
+          \alpha(r\cdot a_1+a_2) &=\gamma((r\cdot a_1+a_2,0)\\
+          &=r\cdot\gamma((a_1,0)) +\gamma((a_2,0))\\
+          &=r\cdot\alpha(a_1) +\alpha(a_2).\\
+        \end{align*}
+
+        Similarly, the map $\beta:B\rightarrow M$ defined by
+        $\beta(b)=\gamma((0,b))$ is an $R$-module homomorphism. We show
+        that $(\alpha,\beta)$ is a pre-image of $\gamma$: Given any $a\in
+        A$ and $b\in B$,
+        \begin{align*}
+          \Theta((\alpha,\beta))(a,b) &=\alpha(a)+\beta(b)\\
+          &=\gamma((a,0)) +\gamma((0,b))\\
+          &=\gamma((a,b)).\\
+        \end{align*}
+      \end{proof}
+
+    \item $\text{Hom}_R(M,A\times B) \cong\text{Hom}_R(M,A)
+      \times\text{Hom}_R(M,B)$
+
+      \begin{proof}
+      \end{proof}
+  \end{enumerate}
 \end{document}
