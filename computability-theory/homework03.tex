@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic II: Problem Set 3}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it Working in $\mathbb{N}$ show that for every $k\in\mathbb{N}$ and
+    for every subset $F\subseteq[0,k]$, there are $m,n\in\mathbb{N}$ such
+    that for every $i\leq k$, $i\in F \Leftrightarrow m(i+1)+1|n$.
+
+    \begin{proof}
+      Choose $m=k!$. We first show that $m+1,\ldots,m(k+1)+1$ are pairwise
+      coprime: Assume that $mx+1$ and $my+1$ are not coprime for some
+      distinct $x,y\in\{1,\ldots,k+1\}$. We can assume without loss of
+      generality that $x>y$. Let $p$ be the smallest prime that divides
+      $mx+1$ and $my+1$. Then $p$ must also divide $(mx+1)-(my+1)=m(x-y)$.
+      But $x-y\in\{1,\ldots,k\}$ and $m=k!$, so $p$ must divide one of
+      $\{2,\ldots,k\}$, and therefore divide $mx$ and $my$. Thus $p$,
+      cannot divide $mx+1$ and $my+1$, a contradiction. \\
+
+      So the integers $m+1,\ldots,m(k+1)+1$ are pairwise coprime. Consider
+      the system of $k+1$ equations in $n$:
+      \[\begin{array}{llll}
+        n &\equiv &\delta(0\not\in F) &\mod{m+1}\\
+        n &\equiv &\delta(1\not\in F) &\mod{2m+1}\\
+        \ldots &&&\\
+        n &\equiv &\delta(k\not\in F) &\mod{(k+1)m+1},\\
+      \end{array}\]
+      where
+      \[\delta(x)
+      :=\begin{cases}1,\text{if}\;x,\\0,\text{otherwise}\end{cases}.\]
+
+      By the Chinese remainder theorem, there is a solution for $n$. This
+      $n$ will satisfy the requirement we are looking for.
+    \end{proof}
+\end{enumerate}
+\end{document}
