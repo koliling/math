@@ -43,5 +43,31 @@
       By the Chinese remainder theorem, there is a solution for $n$. This
       $n$ will satisfy the requirement we are looking for.
     \end{proof}
+
+  \item \it Let $\varphi$ be $\sum_1$ in $\mathbb{N}$. Consider in
+    $\mathbb{N}$ the definable set $W=\{a|\varphi(a)\}$. Is $W$ computably
+    enumerable? Why or why not?
+
+    \begin{proof}
+      Yes $W$ is computably enumerable. If $W$ is finite then it is
+      trivially computably enumerable. So assume $W$ is infinite. Now since
+      $\varphi$ is $\sum_1$, $\varphi(x)$ is equivalent to $\exists
+      y\;\phi(x,y)$ for some $\bigtriangleup_0$-formula $\phi$. Fix any
+      computable permutation
+      $p:\mathbb{N}\rightarrow\mathbb{N}\times\mathbb{N}$, and let $\pi_i$
+      denote the $i$th projection function. Consider the function
+      $f(n):\mathbb{N}\rightarrow\mathbb{N}$ defined recursively as
+      follows: \\
+
+      At input $0$, we find the first $s_0\in\mathbb{N}$ such that
+      $\phi(\pi_1(p(s_0)),\pi_2(p(s_0)))$ holds, and output
+      $\pi_1(p(s_0))$. Then, at input $n+1$, we find the next
+      $s_{n+1}>s_{n}$ such that $\phi(\pi_1(p(s_{n+1})),\pi_2(p(s_{n+1})))$
+      holds, and output $\pi_1(p(s_{n+1}))$. Such $s_{n+1}$ always exists
+      since $W$ is infinite. Since $f$ is defined by an algorithmic
+      procedure and produces an output for every input, it is total
+      recursive by the Church-Turing thesis. Also, since $p$ is surjective,
+      $f$ will enumerate all elements of $W$. 
+    \end{proof}
 \end{enumerate}
 \end{document}
