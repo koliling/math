@@ -87,8 +87,8 @@
       This procedure is computable by the Church-Turing thesis, and
       describes $\varphi$ as a function. \\
 
-      Comment: I don't think $\varphi$ needs to be $\prod_1$ for i to be
-      computable as a function.
+      Comment: I don't think $\varphi$ needs to be $\prod_1$ for $\varphi$
+      to be computable as a function.
     \end{proof}
 
   \item \it Show that for every computably enumerable theory $T$ there is
@@ -119,17 +119,58 @@
 
     \begin{proof}
       Assume $Q$ is complete. We show that because the axioms of $Q$ is
-      recursive, the theory of $Q$ would be decidable, contradicting
-      Church's Theorem (Corollary 68). Since the axioms of $Q$ is
-      recursive, we can enumerate all possible proofs from the axioms, and
-      thus also enumerate all theories of $Q$. So to decide if a given any
-      sentence $\varphi$ is a theory of $Q$, we enumerate all the $Q$
-      theories until we reach either $\varphi$ or $\neg\varphi$; we will
-      always reach one or the other since $Q$ is complete by assumption.
-      Thus we can decide whether $\varphi$ is a theory of $Q$ by checking
-      if $\varphi$ is enumerated. Since the described procedure is
-      algorithmic, it is recursive by the Church-Turing thesis, so the
-      theory of $Q$ is decidable, a contradiction.
+      recursively enumerable, the theory of $Q$ would be decidable,
+      contradicting Church's Theorem (Corollary 68). Since the axioms of
+      $Q$ is enumerable, we can enumerate all possible proofs from the
+      axioms, and thus also enumerate all theories of $Q$. So to decide if
+      a given any sentence $\varphi$ is a theory of $Q$, we enumerate all
+      the $Q$ theories until we reach either $\varphi$ or $\neg\varphi$; we
+      will always reach one or the other since $Q$ is complete by
+      assumption. Thus the theory of $Q$ is decidable, a contradiction.
+    \end{proof}
+
+  \item \it A theory is decidable if and only if
+    $\{\varphi:T\vdash\varphi\}$ is computable. Let $T$ be a computable
+    theory with finitely many complete extensions. Show that $T$ is
+    decidable.
+
+    \begin{proof}
+      Note that we can assume that $T$ is consistent, otherwise $T$ is
+      trivially decidable. \\
+
+      Let $T_1,\ldots,T_n$ be the distinct complete extensions of $T$.
+      We first show that for each $i\in\{1,\ldots,n\}$, the theory of $T_i$
+      is the same as the theory of $T\cup S_i$ for some finite set of
+      sentences $S_i\subset T_i$: For each $1\neq j\in\{1,\ldots,n\}$,
+      since $T_i$ is different from $T_j$, it must contain some sentence
+      $\varphi_{i,j}$ that is not contained in $T_j$, i.e.
+      $\neg\varphi_{i,j}\in T_j$. Choose
+      \[S_i :=\{\varphi_{i,1},\ldots,\varphi_{i,i-1},
+      \varphi_{i,i+1},\ldots,\varphi_{i,n}\}.\]
+
+      To show that $T\cup S_i$ is complete, assume it is not. Then there
+      must be a sentence $\varphi$ such that both $T\cup
+      S_i\cup\{\varphi\}$ and $T\cup S_i\cup\{\neg\varphi\}$ are
+      consistent. Let $T_i'$ and $T_i''$ be respective complete extensions
+      of those theorems. Then from choice of $S_i$, neither $T_i'$ nor
+      $T_i''$ can be $T_j$ for any $j\neq i$, since $S_i\in T_i'$ and
+      $S_i\in T_i''$. Thus $T_i'$ and $T_i''$ are both equal to $T_i$,
+      which means $T_i$ contains both $\varphi$ and $\neg\varphi$,
+      contradicting consistency of $T_i$. \\
+
+      To decide if a given any sentence $\varphi$ is a consequence of $T$,
+      we use the fact $\varphi$ is a consequence of $T$ if and only if it
+      is a consequence of all possible extensions of $T$, by Godel's
+      completeness theorem. In other words, $T\vdash\varphi$ if and only if
+      $T_i\vdash\varphi$ for all $i\in\{1,\ldots,n\}$. Thus it suffices to
+      show that each $T_i$ is decidable. Now since the theory of $T_i$ is
+      the same as the theory of $T\cup S_i$, it suffices to show that
+      $T\cup S_i$ is decidable. To this end, note that $T$ is enumerable
+      and $S_i$ is finite, so $T\cup S_i$ is also enumerable. Also, $T\cup
+      S_i$ is complete since it is the same theory as $T_i$, thus from the
+      claim made in question 5 (where we showed that enumerable and
+      complete theories are decidable), $T_i$ is decidable, which completes
+      our proof.
     \end{proof}
 \end{enumerate}
 \end{document}
