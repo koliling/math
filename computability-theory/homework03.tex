@@ -85,7 +85,10 @@
       enumerate the $\varphi(\mathbb{N})$'s to find the first tuple where
       the first coordinate is $x_0$, and output the second coordinate.
       This procedure is computable by the Church-Turing thesis, and
-      describes $\varphi$ as a function.
+      describes $\varphi$ as a function. \\
+
+      Comment: I don't think $\varphi$ needs to be $\prod_1$ for i to be
+      computable as a function.
     \end{proof}
 
   \item \it Show that for every computably enumerable theory $T$ there is
@@ -101,11 +104,32 @@
       Then clearly $\{\varphi:T\vdash\varphi\}
       =\{\varphi:T^*\vdash\varphi\}$. To check if a given formula $\phi$
       lies in $T^*$, we first decompose $\phi$ into its finite conjunction
-      of formulas $\phi=\phi_0\wedge\ldots\wedge\phi_n$, and check if each
-      $\phi_i$ is the same as $f(i)$. We know that $\phi\in T^*$ if and
-      only if $\phi_i=f(i)$ for all $i\in\{0,\ldots,n\}$. Since the
-      described procedure is algorithmic, by the Church-Turing thesis,
-      $T^*$ is computable.
+      of formulas $\phi=\phi_0\wedge\ldots\wedge\phi_n$; this decomposition
+      is unique if the coding is done properly. Next, we check if each
+      $\phi_i$ is the same as $f(i)$, and decide $\phi\in T^*$ if and only
+      if $\phi_i=f(i)$ for all $i\in\{0,\ldots,n\}$. Since the described
+      procedure is algorithmic, by the Church-Turing thesis, $T^*$ is
+      computable.
+    \end{proof}
+
+  \item \it A theory is complete if and only if for all sentences
+    $\varphi$, $T\vdash\varphi$ or $T\vdash\neg\varphi$. Show $Q$ is is not
+    complete. A similar proof should show that $Q$ plus induction is not
+    complete.
+
+    \begin{proof}
+      Assume $Q$ is complete. We show that because the axioms of $Q$ is
+      recursive, the theory of $Q$ would be decidable, contradicting
+      Church's Theorem (Corollary 68). Since the axioms of $Q$ is
+      recursive, we can enumerate all possible proofs from the axioms, and
+      thus also enumerate all theories of $Q$. So to decide if a given any
+      sentence $\varphi$ is a theory of $Q$, we enumerate all the $Q$
+      theories until we reach either $\varphi$ or $\neg\varphi$; we will
+      always reach one or the other since $Q$ is complete by assumption.
+      Thus we can decide whether $\varphi$ is a theory of $Q$ by checking
+      if $\varphi$ is enumerated. Since the described procedure is
+      algorithmic, it is recursive by the Church-Turing thesis, so the
+      theory of $Q$ is decidable, a contradiction.
     \end{proof}
 \end{enumerate}
 \end{document}
