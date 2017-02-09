@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Discrete Mathematics: Problem Set 2}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it \textbf{Section 8 Problem 13:} In how many ways can one choose
+    a pair of subsets $S,T\subseteq\{1,\ldots,n\}$, subject to the
+    condition that $S$ is a subset of $T$?
+
+    \begin{proof}
+      We first choose the larger subset $T$, then consider all subsets $S$
+      that can be chosen from the larger subset $T$. There are
+      $\binom{n}{k}$ ways to choose $T$ such that $T$ contains $k$
+      elements. For each such $T$, there are $2^k$ ways to choose $S$. This
+      gives a total of
+      \begin{align*}
+        \binom{n}{0}2^0+\ldots+\binom{n}{n}2^n
+          &=\sum_{k=0}^n\binom{n}{k}2^k\\
+          &=(1+2)^n &(\text{by Binomial expansion})\\
+          &=3^n\\
+      \end{align*}
+      ways to choose $S\subseteq T\subseteq[n]$.
+    \end{proof}
+\end{enumerate}
+\end{document}
