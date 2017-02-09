@@ -32,5 +32,25 @@
       \end{align*}
       ways to choose $S\subseteq T\subseteq[n]$.
     \end{proof}
+
+  \item \it \textbf{Section 8 Problem 14:} Let $n$, $p$, and $q$ be fixed
+    positive integers with $p\leq n$ and $q\leq n$. Prove that
+    \[\sum_{k=0}^n \binom{n}{k}\binom{n-k}{p-k}\binom{n-p}{q-k}
+    =\binom{n}{p}\binom{n}{q}.\]
+
+    \begin{proof}
+      Consider the question of how many ways there are to choose a pair of
+      subsets $P,Q\subseteq[n]$ such that $|P|=p$ and $|Q|=q$. We can
+      choose the subsets independently to get $\binom{n}{p}\binom{n}{q}$
+      choices. Alternatively, we first select $k$ elements from $[n]$ to
+      represent $P\cap Q$; there are $\binom{n}{k}$ ways to do this for
+      $k=0,\ldots n$. From the remaining $n-k$ unchosen elements, we pick
+      $p-k$ of them to be in $P\setminus Q$. Finally, from the remaining
+      $n-p$ elements, we pick $q-k$ of them to be in $Q\setminus P$. So
+      there are $\binom{n}{k}\binom{n-k}{p-k}\binom{n-p}{q-k}$ choices
+      if $|P\cap Q|=k$, giving a total of 
+      \[\sum_{k=0}^n \binom{n}{k}\binom{n-k}{p-k}\binom{n-p}{q-k}\]
+      choices.
+    \end{proof}
 \end{enumerate}
 \end{document}
