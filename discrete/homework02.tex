@@ -58,37 +58,17 @@
     divisible by 4.
 
     \begin{proof}
-      The binomial expansion gives
-      \[(1+x)^n =\sum_{i=0}^n\binom{n}{i}x^i\]
-      for all $x\in\mathbb{C}$. Then letting $\epsilon=e^{\frac{2\pi
-      i}{4}}$ denote the $4$th root of unity and substituting $x$ with
-      $\epsilon,\epsilon^2,\epsilon^3,$ and 1 into the binomial expansion
-      above, we get a series of $4$ equations
+      Let $c$ denote the number of subsets of $[n]$ of size divisible by 4.
+      Following our proof of Section 8 Problem 11, and from the fact that
+      the 4th root of unity is $i$, we get
       \begin{align*}
-        (1+1)^n         &=c_0+c_1+c_2+c_3\\
-        (1+\epsilon)^n   &=c_0+c_1\epsilon  +c_2\epsilon^2
-          +c_3\epsilon^3\\
-        (1+\epsilon^2)^n &=c_0+c_1\epsilon^2+c_2\epsilon^4
-          +c_3\epsilon^6\\
-        (1+\epsilon^3)^n &=c_0+c_1\epsilon^3+c_2\epsilon^6
-          +c_3\epsilon^9\\
+        4c &=2^n +(1+i)^n +(1-i)^n +(1-1)^n\\
+        &=2^n +(1+i)^{2(2k+1)} +(1-i)^{2(2k+1)}\\
+        &=2^n +(2i)^{2k+1} +(-2i)^{2k+1}\\
+        &=2^n +(2i)^{2k+1} -(2i)^{2k+1}\\
+        &=2^n.\\
       \end{align*}
-      where
-      \[c_i :=\binom{n}{i}+\binom{n}{i+4}+\binom{n}{i+8}+
-      \ldots+\binom{n}{i+4k}\]
-      for $i\in\{0,1,2,3\}$. \\
-
-      Now as the $4$th root of unity, $\epsilon$ satisfies
-      $\epsilon^4=1$ and also $1+\epsilon+\epsilon^2+\epsilon^{3}=0$,
-      thus when we add the 4 equations together and simplify, we get
-      \begin{align*}
-        \text{LHS} &=(1+\epsilon_n)^n+\ldots+(1+\epsilon_n^n)^n
-          =2^n+\sum_{k=1}^{n-1}(1+\epsilon_n^k)^n\\
-        =\text{RHS} &=nc_0
-          +(c_1+\ldots+c_{l-1})(1+\epsilon_n+\ldots+\epsilon_n^{n-1})\\
-        &=nc_0 +(c_1+\ldots+c_{l-1})0\\
-        &=nc_0.\\
-      \end{align*}
+      Thus $c=2^n/4$, which is exactly one-quarter of all subsets of $[n]$.
     \end{proof}
 
   \item \it \textbf{Section 8 Problem 11:} Show that for each fixed
@@ -160,10 +140,11 @@
 
       Observe that for $k\in\{1,\ldots,l-1\}$,
       \[\lim_{n\rightarrow\infty}
-      \left|\epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)\right|
+      \left|\epsilon_l^{nk/2} \cos^n\left(\frac{k\pi}{l}\right)\right|
       \leq\lim_{n\rightarrow\infty}
-      \left|\cos^n\left(\frac{k\pi}{l}\right)\right|=0\]
-      because $\left|\cos\left(\frac{k\pi}{l}\right)\right|<1$, therefore
+      \left|\cos^n\left(\frac{k\pi}{l}\right)\right|=0,\]
+      because $|\epsilon_l^{nk/2}|=1$ and
+      $\left|\cos\left(\frac{k\pi}{l}\right)\right|<1$, therefore
       \begin{align*}
         \lim_{n\rightarrow\infty}\; \sum_{k=0}^{l-1}
           \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)
