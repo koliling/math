@@ -52,5 +52,128 @@
       \[\sum_{k=0}^n \binom{n}{k}\binom{n-k}{p-k}\binom{n-p}{q-k}\]
       choices.
     \end{proof}
+
+  \item \it \textbf{Section 8 Problem 12:} Fix $k\geq0$ and set $n=4k+2$.
+    Prove that exactly one-quarter of all subsets of $[n]$ have size
+    divisible by 4.
+
+    \begin{proof}
+      The binomial expansion gives
+      \[(1+x)^n =\sum_{i=0}^n\binom{n}{i}x^i\]
+      for all $x\in\mathbb{C}$. Then letting $\epsilon=e^{\frac{2\pi
+      i}{4}}$ denote the $4$th root of unity and substituting $x$ with
+      $\epsilon,\epsilon^2,\epsilon^3,$ and 1 into the binomial expansion
+      above, we get a series of $4$ equations
+      \begin{align*}
+        (1+1)^n         &=c_0+c_1+c_2+c_3\\
+        (1+\epsilon)^n   &=c_0+c_1\epsilon  +c_2\epsilon^2
+          +c_3\epsilon^3\\
+        (1+\epsilon^2)^n &=c_0+c_1\epsilon^2+c_2\epsilon^4
+          +c_3\epsilon^6\\
+        (1+\epsilon^3)^n &=c_0+c_1\epsilon^3+c_2\epsilon^6
+          +c_3\epsilon^9\\
+      \end{align*}
+      where
+      \[c_i :=\binom{n}{i}+\binom{n}{i+4}+\binom{n}{i+8}+
+      \ldots+\binom{n}{i+4k}\]
+      for $i\in\{0,1,2,3\}$. \\
+
+      Now as the $4$th root of unity, $\epsilon$ satisfies
+      $\epsilon^4=1$ and also $1+\epsilon+\epsilon^2+\epsilon^{3}=0$,
+      thus when we add the 4 equations together and simplify, we get
+      \begin{align*}
+        \text{LHS} &=(1+\epsilon_n)^n+\ldots+(1+\epsilon_n^n)^n
+          =2^n+\sum_{k=1}^{n-1}(1+\epsilon_n^k)^n\\
+        =\text{RHS} &=nc_0
+          +(c_1+\ldots+c_{l-1})(1+\epsilon_n+\ldots+\epsilon_n^{n-1})\\
+        &=nc_0 +(c_1+\ldots+c_{l-1})0\\
+        &=nc_0.\\
+      \end{align*}
+    \end{proof}
+
+  \item \it \textbf{Section 8 Problem 11:} Show that for each fixed
+    $l\geq2$,
+    \[\lim_{n\rightarrow\infty}
+    \frac{\binom{n}{0}+\binom{n}{l}+\binom{n}{2l}+\ldots}{2^n}
+    =\frac{1}{l}.\]
+
+    \begin{proof}
+      The binomial expansion gives
+      \[(1+x)^n =\sum_{k=0}^n\binom{n}{k}x^k\]
+      for all $x\in\mathbb{C}$. Then letting $\epsilon_l=e^{\frac{2\pi
+      i}{l}}$ denote the $l$th root of unity and substituting $x$ with
+      $\epsilon_l,\epsilon_l^2,\ldots,\epsilon_l^l$ into the binomial
+      expansion above, we get a series of $l$ equations
+      \begin{align*}
+        (1+1)^n           &=c_0+c_1+c_2+\ldots+c_{l-1}\\
+        (1+\epsilon_l)^n   &=c_0+c_1\epsilon_l  +c_2\epsilon_l^2
+          +\ldots+c_{l-1}\epsilon_l^l\\
+        (1+\epsilon_l^2)^n &=c_0+c_1\epsilon_l^2+c_2\epsilon_l^4
+          +\ldots+c_{l-1}\epsilon_l^{2l}\\
+        \ldots\\
+        (1+\epsilon_l^k)^n &=c_0+c_1\epsilon_l^k+c_2\epsilon_l^{2k}
+          +\ldots+c_{l-1}\epsilon_l^{kl}\\\
+        \ldots\\
+        (1+\epsilon_l^{l-1})^n
+          &=c_0+c_1\epsilon_l^{l-1}+c_2\epsilon_l^{2(l-1)}
+          +\ldots+c_{l-1}\epsilon_l^{l(l-1)},\\
+      \end{align*}
+      where
+      \[c_k :=\binom{n}{k}+\binom{n}{k+l}+\binom{n}{k+2l}+
+      \ldots+\binom{n}{k+\lfloor n/l\rfloor l}\]
+      for $k\in\{0,\ldots,l-1\}$. \\
+
+      Now when we sum the $l$ equations above together, the coefficient of
+      $c_k$ for $k\in\{0,\ldots,l-1\}$ will be $f(\epsilon_l^k)$, where
+      \[f(x):=1+x+x^2+\ldots+x^{l-1}.\]
+
+      However, because $\epsilon_l$ is the $l$th root of unity,
+      each $\epsilon_l^k$ is a root of $x^l-1=(x-1)f(x)$, thus if
+      $\epsilon_l^k\neq1$ then $f(\epsilon_l^k)=0$. In other words, for
+      $k\in\{1,\ldots,l-1\}$, we have $f(\epsilon_l^k)=0$. Therefore when
+      we add the $l$ equations together and simplify, we get on the
+      right hand side
+      \begin{align*}
+        \text{RHS} &=lc_0 +c_1f(\epsilon_l) +c_2f(\epsilon_l^2) +\ldots
+          +c_{l-1}f(\epsilon_l^{l-1})\\
+        &=lc_0.\\
+      \end{align*}
+
+      On the left hand side, we get
+      \begin{align*}
+        \text{LHS} &=2^n+(1+\epsilon_l)^n+\ldots+(1+\epsilon_l^{l-1})^n\\
+        &=\sum_{k=0}^{l-1}(1+\epsilon_l^k)^n\\
+        &=\sum_{k=0}^{l-1}
+          \epsilon_l^{nk/2}(\epsilon_l^{k/2}+\epsilon_l^{-k/2})^n\\
+        &=2^n\sum_{k=0}^{l-1}
+          \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right).\\
+      \end{align*}
+
+      Equating LHS to RHS and rearranging, we get
+      \[\frac{c_0}{2^n}
+      =\frac{\sum_{k=0}^{l-1}
+      \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)}{l}.\]
+
+      Thus it suffices to show that 
+      \[\lim_{n\rightarrow\infty}\; \sum_{k=0}^{l-1}
+      \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right) =1.\]
+
+      Observe that for $k\in\{1,\ldots,l-1\}$,
+      \[\lim_{n\rightarrow\infty}
+      \left|\epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)\right|
+      \leq\lim_{n\rightarrow\infty}
+      \left|\cos^n\left(\frac{k\pi}{l}\right)\right|=0\]
+      because $\left|\cos\left(\frac{k\pi}{l}\right)\right|<1$, therefore
+      \begin{align*}
+        \lim_{n\rightarrow\infty}\; \sum_{k=0}^{l-1}
+          \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)
+        &=\sum_{k=0}^{l-1} \lim_{n\rightarrow\infty}\;
+          \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)\\
+        &=1+\sum_{k=1}^{l-1} \lim_{n\rightarrow\infty}\;
+          \epsilon_l^{nk/2}\cos^n\left(\frac{k\pi}{l}\right)\\
+        &=1+\sum_{k=1}^{l-1}0\\
+        &=1.\\
+      \end{align*}
+    \end{proof}
 \end{enumerate}
 \end{document}
