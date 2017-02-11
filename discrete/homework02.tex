@@ -164,28 +164,32 @@
         &=1 +\sum_{0\leq i\leq k,\; i\; \text{odd}} \binom{|J|}{i}
         -\sum_{0\leq i\leq k,\; i\; \text{even}} \binom{|J|}{i}.\\
       \end{align*}
-      Thus it suffices to show that the number of \textbf{strict} subsets
-      of $J$ of odd size exceeds the number of \textbf{strict} subsets of
-      $J$ of even size if and only if $k$ is odd. To that end, let
-      $\mathcal{S}_{<J}^{\text{odd}}$ denote the set of \textbf{strict}
-      subsets of $J$ of odd size, and similarly let
-      $\mathcal{S}_{<J}^{\text{even}}$ denote the set of \textbf{strict}
-      subsets of $J$ of even size. We wish to show that
-      \[|\mathcal{S}_{<J}^{\text{odd}}|
-      >|\mathcal{S}_{<J}^{\text{even}}| \Leftrightarrow\; |J|\; \text{is
-      odd}.\]
+      Thus it suffices to show that if and only if $k$ is
+      odd, the number of odd-sized subsets of $J$
+      with not more than $k$ elements exceeds the number of even-sized
+      subsets of $J$ with not more than $k$ elements. \\
 
-      Recall that in class, we showed that the number of even subsets of
-      $J$ equals the number of odd subsets of $J$. Thus
-      \begin{align*}
-        |\mathcal{S}_{<J}^{\text{odd}}
-          \sqcup\{J\}| &=|\mathcal{S}_{<J}^{\text{even}}|,\;\; &\text{if}\;
-          |J|\; \text{is odd},\\
-        |\mathcal{S}_{<J}^{\text{even}}
-          \sqcup\{J\}| &=|\mathcal{S}_{<J}^{\text{odd}}|,\;\; &\text{if}\;
-          |J|\; \text{is even}.\\
-      \end{align*}
-      Rearranging the formulas give us the desired relation.
+      To that end, recall that fixing any $a\in J$, there is a bijection
+      $\pi:\mathcal{P}(J)\rightarrow\mathcal{P}(J)$, defined by
+      \[\pi(S):=
+        \begin{cases}
+          S\setminus\{a\}, &\text{if}\; a\in J\\
+          S\cup\{a\}, &\text{otherwise}\\
+        \end{cases},\]
+      which sends subsets of $J$ of odd sizes to subsets of $J$ of even
+      sizes and vice-versa. \\
+
+      First consider the case where $k$ is odd. Then even-sized subsets of
+      $J$ with not more than $k$ elements will be mapped to odd-sized
+      subsets of $J$ with not more than $k$ elements. So from the
+      injectivity of the map, there must be more odd-sized than even-sized
+      subsets of $J$ with not more than $k$ elements. \\
+
+      Similarly, when $k$ is even, $\pi$ will map odd-sized subsets of $J$
+      with not more than $k$ elements will injectively to even-sized
+      subsets of $J$ with not more than $k$ elements, implying that there
+      are more eved-sized than odd-sized subsets of $J$ with not more than
+      $k$ elements. \\
     \end{proof}
 
   \item \it \textbf{Section 8 Problem 11:} Show that for each fixed
