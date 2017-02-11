@@ -87,15 +87,14 @@
     \begin{proof}
       We partition the set of surjective functions $f:[n]\rightarrow[k]$
       into two disjoint sets - in the first set, the $f(n)$ has only $n$ as
-      pre-image, and in the second set, $f(n)$ has more than one pre-image.
-      In the first case, there are $k$ choices for the image of $n$, and
-      for each of these choices, there are $\text{Surj}(n-1,k-1)$ ways to
-      map $[n-1]$ surjectively to the remaining $k-1$ elements. In the
-      second case, there are $k$ choices for the image of $n$, and for
-      each of these choices, there are $\text{Surj}(n-1,k)$ ways to map
-      $[n-1]$ surjectively to $[k]$ such that the chosen image of $n$
-      gets mapped elements different from $n$. Thus we have the
-      recurrence relation
+      pre-image, and in the second set, $f(n)$ has pre-images other than
+      $n$. In the first case, there are $k$ choices for the image of $n$,
+      and for each of these choices, there are $\text{Surj}(n-1,k-1)$ ways
+      to map $[n-1]$ surjectively to the remaining $k-1$ elements. In the
+      second case, there are $k$ choices for the image of $n$, and for each
+      of these choices, there are $\text{Surj}(n-1,k)$ ways to map $[n-1]$
+      surjectively to $[k]$ such that the chosen $f(n)$ has pre-images
+      different from $n$. Thus we have the recurrence relation
       \[\text{Surj}(n,k) =k\text{Surj}(n-1,k-1) +k\text{Surj}(n-1,k).\]
 
       The initial conditions are
@@ -128,16 +127,57 @@
     one alternatively over-counts and under-counts the size of a union.
     Specifically, for each $n\geq1$ and $1\leq k\leq n$, if $k$ is odd then
     \[|\cup_{i-1}^n A_i| \leq\sum_{j=1}^k(-1)^{j-1}
-    \sum_{I\subseteq[n],|I|=j} |\cup_{i\in I} A_i|,\]
+    \sum_{I\subseteq[n],|I|=j} |\cap_{i\in I} A_i|,\]
     while if $k$ is even
     \[|\cup_{i-1}^n A_i| \geq\sum_{j=1}^k(-1)^{j-1}
-    \sum_{I\subseteq[n],|I|=j} |\cup_{i\in I} A_i|.\]
+    \sum_{I\subseteq[n],|I|=j} |\cap_{i\in I} A_i|.\]
 
     In particular when $k=1$ we get the easy and useful union bound:
     \[|A_1\cup\ldots\cup A_n \leq|A_1|+\ldots+|A_n|.\]
     Give a combinatorial proof of the Bonferroni inequalities.
 
     \begin{proof}
+      Let the right hand side of the equation be denoted by $N_k$, i.e.
+      \[N_k :=\sum_{j=1}^k(-1)^{j-1} \sum_{I\subseteq[n],|I|=j} |\cap_{i\in
+      I} A_i|.\]
+
+      Also, given $J\subseteq[n]$, denote
+      \[A_J:=\cap_{j\in J}A_j -\cup_{k\not\in J}A_k.\]
+
+      Then given arbitrary $x\in A_J$ where $J\subseteq[n]$ and $|J|\leq
+      k$, the number of times we count $x$ on the left hand side is 1, and
+      the number of times counted on the right hand side in $N_k$ is
+      \begin{align*}
+        \sum_{i=1}^{|J|} (-1)^{i-1}\binom{|J|}{i} &=1-\sum_{i=0}^{|J|}
+          (-1)^{i}\binom{|J|}{i}\\
+        &=1-(1-1)^{|J|}\\
+        &=1.\\
+      \end{align*}
+
+      Thus we only need consider the counts of $x\in A_J$ where $|J|>k$.
+      Given such an $x$, the number of times we count $x$ on the left hand
+      side is 1, but the number of times counted on the right hand side in
+      $N_k$ is
+      \begin{align*}
+        \sum_{i=1}^{k} (-1)^{i-1}\binom{|J|}{i} &=1+\sum_{i=0}^{k}
+          (-1)^{i+1}\binom{|J|}{i}\\
+        &=1 +\sum_{0\leq i\leq k,\; i\; \text{odd}} \binom{|J|}{i}
+        -\sum_{0\leq i\leq k,\; i\; \text{even}} \binom{|J|}{i}.\\
+      \end{align*}
+      Thus it suffices to show that the number of subsets of $J$ of odd
+      size exceeds the number of subsets of $J$ of even size if and only if
+      $k$ is odd. \\
+
+      Recall that there is a bijection
+      $\pi:\mathcal{P}([n])\rightarrow\mathcal{P}([n])$, defined by
+      \[\pi(S):=
+        \begin{cases}
+          S\setminus\{1\}, &\text{if}\; 1\in S\\
+          S\cup\{1\}, &\text{otherwise}\\
+        \end{cases},\]
+      which sends subsets
+      of $[n]$ of odd sizes to subsets of $[n]$ of even sizes and
+      vice-versa.
     \end{proof}
 
   \item \it \textbf{Section 8 Problem 11:} Show that for each fixed
