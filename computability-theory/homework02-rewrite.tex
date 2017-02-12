@@ -39,8 +39,8 @@
           \overline{C})\\
         &\Rightarrow \chi_C(e)=0 &(\text{by definition of}\; \chi_C),\\
       \end{align*}
-      also a contradiction. Since $\chi_C(e)$ can only be 0 or 1, no
-      $\chi_C$ exists.
+      also a contradiction. Since $\chi_C(e)$ can only be 0 or 1, $\chi_C$
+      does not exist.
     \end{proof}
 
   \item \it Show that $\text{Fin}\leq_1\text{Cof}$, where $\text{Fin}$ is
@@ -48,14 +48,14 @@
     all co-finite sets.
 
     \begin{proof}
-      Given $e,s\in\mathbb{N}$, let $W_{e,s}$ denote the set of indices $i$
-      in $\{0,\ldots,s-1\}$ such that $\varphi_i$ halts after $s$ steps.
-      Consider the function
+      Given $e,s\in\mathbb{N}$, let $W_{e,s}\subseteq\{0,\ldots,s\}$ denote
+      the set of indices such that $x\in W_{e,s}$ if and only if
+      $\varphi_e(x)$ halts after $s$ steps. Consider the function
       \begin{equation*}
         \psi(e,s) :=
         \begin{cases}
-          0, &\text{if}\; |W_{e,s+1}|>|W_{e,s}|\\
-          \uparrow, &\text{otherwise}\\
+          \uparrow, &\text{if}\; |W_{e,s+1}|>|W_{e,s}|\\
+          0, &\text{otherwise}\\
         \end{cases}.
       \end{equation*}
       Note that $\psi(e,s)$ is recursive since $W_{e,s}$ is computable.
@@ -63,13 +63,15 @@
       recursive function and injective function $f(e)$ such that
       \[\psi(e,s)=\varphi_{f(e)}(s).\]
 
-      Also, note that for a fixed $e\in\mathbb{N}$, $W_{e,s}$ is
-      nondecreasing in $s$. Furthermore, $|W_{e,s}|$ converges in $s$ if
-      and only if $e\in\text{Fin}$. Thus
-      \begin{align*}
-        e\in\text{Fin} &\Leftrightarrow f(e)\in\text{Cof}.\\
-      \end{align*}
-      Then since $f$ is injective, we have $\text{Fin}\leq_1\text{Cof}$.
+      Also, note that for a fixed $e\in\mathbb{N}$, $|W_{e,s}|$ is
+      nondecreasing in $s$. Thus if $e\in\text{Fin}$, then
+      $\lim_{s\rightarrow\infty}|W_{e,s}|$ exists and so
+      $\varphi_{f(e)}(s)=0$ for all $s\geq s_0$ for some large
+      $s_0\in\mathbb{N}$, therefore $f(e)\in\text{Cof}$. On the
+      other hand, if $e\not\in\text{Fin}$, then
+      $|W_{e,s}|$ increases to infinity as $s$ increases, so
+      $\varphi_{f(e)}(s)\uparrow$ for an infinite number of
+      $s\in\mathbb{N}$, therefore $f(e)\not\in\text{Cof}$.
     \end{proof}
 \end{enumerate}
 \end{document}
