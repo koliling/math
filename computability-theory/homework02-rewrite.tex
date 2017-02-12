@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic II: Problem Set 2 (rewrite)}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \setcounter{enumi}{1}
+  \item \it Disjoint sets $A$ and $B$ are computably inseparable if there
+    is no computable set $C$ such that $A\subseteq C$ and $C\cap
+    B=\emptyset$. Show that $A=\{e|\varphi_e(e)\downarrow=0\}$ and
+    $B=\{e|\varphi_e(e)\downarrow\neq1\}$ are computably inseparable.
+
+    \begin{proof}
+      Assume that $C$ computably separates $A$ from $B$. Then
+      $\chi_C=\varphi_e$ for some index $e\in\mathbb{N}$. Then
+      \begin{align*}
+        \chi_C(e)=0 &\Rightarrow \varphi_e(e)=0 &(\because
+          \chi_C=\varphi_e)\\
+        &\Rightarrow e\in A &(\text{by definition of}\; A)\\
+        &\Rightarrow e\in C &(\because A\subseteq C)\\
+        &\Rightarrow \chi_C(e)=1 &(\text{by definition of}\; \chi_C),\\
+      \end{align*}
+      a contradiction. Similarly,
+      \begin{align*}
+        \chi_C(e)=1 &\Rightarrow \varphi_e(e)=1 &(\because
+          \chi_C=\varphi_e)\\
+        &\Rightarrow e\in B &(\text{by definition of}\; B)\\
+        &\Rightarrow e\in \overline{C} &(\because B\subseteq
+          \overline{C})\\
+        &\Rightarrow \chi_C(e)=0 &(\text{by definition of}\; \chi_C),\\
+      \end{align*}
+      also a contradiction. Since $\chi_C(e)$ can only be 0 or 1, no
+      $\chi_C$ exists.
+    \end{proof}
+
+  \item \it Show that $\text{Fin}\leq_1\text{Cof}$, where $\text{Fin}$ is
+    the index set of all finite sets and $\text{Cof}$ is the index set of
+    all co-finite sets.
+
+    \begin{proof}
+      Given $e,s\in\mathbb{N}$, let $W_{e,s}$ denote the set of indices $i$
+      in $\{0,\ldots,s-1\}$ such that $\varphi_i$ halts after $s$ steps.
+      Consider the function
+      \begin{equation*}
+        \psi(e,s) :=
+        \begin{cases}
+          0, &\text{if}\; |W_{e,s+1}|>|W_{e,s}|\\
+          \uparrow, &\text{otherwise}\\
+        \end{cases}.
+      \end{equation*}
+      Note that $\psi(e,s)$ is recursive since $W_{e,s}$ is computable.
+      Thus by the s-m-n theorem and Lemma 25, there is a primitive
+      recursive function and injective function $f(e)$ such that
+      \[\psi(e,s)=\varphi_{f(e)}(s).\]
+
+      Also, note that for a fixed $e\in\mathbb{N}$, $W_{e,s}$ is
+      nondecreasing in $s$. Furthermore, $|W_{e,s}|$ converges in $s$ if
+      and only if $e\in\text{Fin}$. Thus
+      \begin{align*}
+        e\in\text{Fin} &\Leftrightarrow f(e)\in\text{Cof}.\\
+      \end{align*}
+      Then since $f$ is injective, we have $\text{Fin}\leq_1\text{Cof}$.
+    \end{proof}
+\end{enumerate}
+\end{document}
