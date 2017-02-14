@@ -96,90 +96,94 @@
     \item Show that $\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
       \cong\mathbb{Z}_c$, where $c=(m,n)$.
       \begin{proof}
-        Consider the map $\varphi:\mathbb{Z}_m\times\mathbb{Z}_n
-        \rightarrow\mathbb{Z}_c$ defined by
-        $(\bar{a},\bar{b})\mapsto\overline{ab}$. We first show this map is
-        well-defined and $\mathbb{Z}$-bilinear. To show that the map is
-        well-defined, we have
-        \begin{align*}
-          \varphi((\overline{a+m},\overline{b+n}))
-            &=\overline{(a+m)(b+n)}\\
-          &=\overline{ab+mb+na+mn}\\
-          &=\overline{ab} &(\because c|m\; \text{and}\; c|n)\\
-          &=\varphi((\overline{a},\overline{b})).\\
-        \end{align*}
+        This follows immediately from part (a), by replacing $m$ with $n$,
+        letting $A=\mathbb{A}_m$, and observing that
+        $\mathbb{Z}_m/n\mathbb{Z}_m\cong \mathbb{Z}_c$.
 
-        To show $\mathbb{Z}$-bilinearlity, we have
-        \begin{align*}
-          &\;\varphi((\overline{a_1}+\overline{a_2},\overline{b}))\\
-          =&\;\varphi((\overline{a_1+a_2},\overline{b}))\\
-          =&\;\overline{(a_1+a_2)b}\\
-          =&\;\overline{a_1b+a_2b}\\
-          =&\;\overline{a_1b} +\overline{a_2b}\\
-          =&\;\varphi((\overline{a_1},\overline{b}))
-            +\varphi((\overline{a_2},\overline{b})),\\
-        \end{align*}
+        %Consider the map $\varphi:\mathbb{Z}_m\times\mathbb{Z}_n
+        %\rightarrow\mathbb{Z}_c$ defined by
+        %$(\bar{a},\bar{b})\mapsto\overline{ab}$. We first show this map is
+        %well-defined and $\mathbb{Z}$-bilinear. To show that the map is
+        %well-defined, we have
+        %\begin{align*}
+        %  \varphi((\overline{a+m},\overline{b+n}))
+        %    &=\overline{(a+m)(b+n)}\\
+        %  &=\overline{ab+mb+na+mn}\\
+        %  &=\overline{ab} &(\because c|m\; \text{and}\; c|n)\\
+        %  &=\varphi((\overline{a},\overline{b})).\\
+        %\end{align*}
 
-        and similarly we can show that
-        \[\varphi((\overline{a},\overline{b_1}+\overline{b_2}))
-          =\varphi((\overline{a},\overline{b_1}))
-          +\varphi((\overline{a},\overline{b_2})).\]
+        %To show $\mathbb{Z}$-bilinearlity, we have
+        %\begin{align*}
+        %  &\;\varphi((\overline{a_1}+\overline{a_2},\overline{b}))\\
+        %  =&\;\varphi((\overline{a_1+a_2},\overline{b}))\\
+        %  =&\;\overline{(a_1+a_2)b}\\
+        %  =&\;\overline{a_1b+a_2b}\\
+        %  =&\;\overline{a_1b} +\overline{a_2b}\\
+        %  =&\;\varphi((\overline{a_1},\overline{b}))
+        %    +\varphi((\overline{a_2},\overline{b})),\\
+        %\end{align*}
 
-        Also,
-        \begin{align*}
-          &\;\varphi((n\cdot\overline{a},\overline{b}))\\
-          =&\;\varphi((\overline{na},\overline{b}))\\
-          =&\;\overline{nab}\\
-          =&\;n\cdot\overline{ab}\\
-          =&\;n\cdot\varphi((\overline{a},\overline{b})),\\
-        \end{align*}
-        and similarly we can show that
-        \[\varphi((\overline{a},n\cdot\overline{b}))
-          =n\cdot\varphi((\overline{a},\overline{b})).\]
+        %and similarly we can show that
+        %\[\varphi((\overline{a},\overline{b_1}+\overline{b_2}))
+        %  =\varphi((\overline{a},\overline{b_1}))
+        %  +\varphi((\overline{a},\overline{b_2})).\]
 
-        Thus from Corollary 12, $\varphi$ induces a $\mathbb{Z}$-module
-        homomorphism $\Phi:\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
-        \rightarrow\mathbb{Z}_c$ defined by
-        $\Phi(\bar{a}\otimes\bar{b})=\overline{ab}$. Now $\Phi$ is clearly
-        surjective since every $\overline{c}\in\mathbb{Z}_c$ has a
-        pre-image $\bar{c}\otimes\bar{1}$. It remains to show that $\Phi$
-        is injective:
-        \begin{align*}
-          \;&\bar{a}\otimes\bar{b}\in\ker(\Phi)\\
-          \Leftrightarrow\;&\overline{ab}=\overline{0}\in\mathbb{Z}_c\\
-          \Leftrightarrow\;&c|ab\\
-          \Leftrightarrow\;&ab=kc\in\mathbb{Z}\; \text{for some}\;
-            k\in\mathbb{Z}\\
-          \Rightarrow\;&(ab)\cdot(\bar{1}\otimes\bar{1})
-            =(kc)\cdot(\bar{1}\otimes\bar{1})\; \text{for some}\;
-            k\in\mathbb{Z}.\\
-        \end{align*}
+        %Also,
+        %\begin{align*}
+        %  &\;\varphi((n\cdot\overline{a},\overline{b}))\\
+        %  =&\;\varphi((\overline{na},\overline{b}))\\
+        %  =&\;\overline{nab}\\
+        %  =&\;n\cdot\overline{ab}\\
+        %  =&\;n\cdot\varphi((\overline{a},\overline{b})),\\
+        %\end{align*}
+        %and similarly we can show that
+        %\[\varphi((\overline{a},n\cdot\overline{b}))
+        %  =n\cdot\varphi((\overline{a},\overline{b})).\]
 
-        Now since $c=(m,n)$, $c=xm+yn$ for some $x,y\in\mathbb{Z}$. Thus
-        \begin{align*}
-          \;&(kc)\cdot(\bar{1}\otimes\bar{1})\\
-          =\;&k\cdot(\overline{c}\otimes\bar{1})\\
-          =\;&k\cdot(\overline{xm+yn}\otimes\bar{1})\\
-          =\;&k\cdot((\overline{xm}+\overline{yn})\otimes\bar{1})\\
-          =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-            +(\overline{yn}\otimes\bar{1})]\\
-          =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-            +(yn)\cdot(\bar{1}\otimes\bar{1})]\\
-          =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-            +(\bar{1}\otimes\overline{yn})]\\
-          =\;&k\cdot[x\cdot(\overline{m}\otimes\bar{1})
-            +y\cdot(\bar{1}\otimes\overline{n})]\\
-          =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{1})
-            +y\cdot(\bar{1}\otimes\overline{0})]\\
-          =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{0})
-            +y\cdot(\bar{1}\otimes\overline{0})]\\
-          =\;&\bar{0}\otimes\bar{0}.\\
-        \end{align*}
+        %Thus from Corollary 12, $\varphi$ induces a $\mathbb{Z}$-module
+        %homomorphism $\Phi:\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
+        %\rightarrow\mathbb{Z}_c$ defined by
+        %$\Phi(\bar{a}\otimes\bar{b})=\overline{ab}$. Now $\Phi$ is clearly
+        %surjective since every $\overline{c}\in\mathbb{Z}_c$ has a
+        %pre-image $\bar{c}\otimes\bar{1}$. It remains to show that $\Phi$
+        %is injective:
+        %\begin{align*}
+        %  \;&\bar{a}\otimes\bar{b}\in\ker(\Phi)\\
+        %  \Leftrightarrow\;&\overline{ab}=\overline{0}\in\mathbb{Z}_c\\
+        %  \Leftrightarrow\;&c|ab\\
+        %  \Leftrightarrow\;&ab=kc\in\mathbb{Z}\; \text{for some}\;
+        %    k\in\mathbb{Z}\\
+        %  \Rightarrow\;&(ab)\cdot(\bar{1}\otimes\bar{1})
+        %    =(kc)\cdot(\bar{1}\otimes\bar{1})\; \text{for some}\;
+        %    k\in\mathbb{Z}.\\
+        %\end{align*}
 
-        Also, from similar argument of the $\mathbb{Z}$-bilinear property
-        of tensors, we have $(ab)\cdot(\bar{1}\otimes\bar{1})
-        =\bar{a}\otimes\bar{b}$. Thus $\bar{a}\otimes\bar{b}=0$, and so
-        $\Phi$ is injective.
+        %Now since $c=(m,n)$, $c=xm+yn$ for some $x,y\in\mathbb{Z}$. Thus
+        %\begin{align*}
+        %  \;&(kc)\cdot(\bar{1}\otimes\bar{1})\\
+        %  =\;&k\cdot(\overline{c}\otimes\bar{1})\\
+        %  =\;&k\cdot(\overline{xm+yn}\otimes\bar{1})\\
+        %  =\;&k\cdot((\overline{xm}+\overline{yn})\otimes\bar{1})\\
+        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
+        %    +(\overline{yn}\otimes\bar{1})]\\
+        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
+        %    +(yn)\cdot(\bar{1}\otimes\bar{1})]\\
+        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
+        %    +(\bar{1}\otimes\overline{yn})]\\
+        %  =\;&k\cdot[x\cdot(\overline{m}\otimes\bar{1})
+        %    +y\cdot(\bar{1}\otimes\overline{n})]\\
+        %  =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{1})
+        %    +y\cdot(\bar{1}\otimes\overline{0})]\\
+        %  =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{0})
+        %    +y\cdot(\bar{1}\otimes\overline{0})]\\
+        %  =\;&\bar{0}\otimes\bar{0}.\\
+        %\end{align*}
+
+        %Also, from similar argument of the $\mathbb{Z}$-bilinear property
+        %of tensors, we have $(ab)\cdot(\bar{1}\otimes\bar{1})
+        %=\bar{a}\otimes\bar{b}$. Thus $\bar{a}\otimes\bar{b}=0$, and so
+        %$\Phi$ is injective.
       \end{proof}
   \end{enumerate}
 \end{document}
