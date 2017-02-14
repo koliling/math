@@ -188,5 +188,19 @@
 
     \item If $A$ is a torsion group (i.e. a torsion $\mathbb{Z}$-module),
       then $A\otimes_\mathbb{Z}\mathbb{Q}=0$.
+      \begin{proof}
+        Let $a\in A$ and $q\in\mathbb{Q}$ be arbitrary. Then $n\cdot a=0\in
+        A$ for some $n\in\mathbb{Z}$, since $A$ is a torsion group. Then
+        \begin{align*}
+          &\;a\otimes q\\
+          =&\;a\otimes(n\cdot(q/n))\\
+          =&\;(n\cdot a)\otimes(q/n)\\
+          =&\;0\otimes(q/n)\\
+          =&\;(0\cdot0)\otimes(q/n)\\
+          =&\;0\otimes(0\cdot q/n)\\
+          =&\;0\otimes0\\
+          =&\;0.\\
+        \end{align*}
+      \end{proof}
   \end{enumerate}
 \end{document}
