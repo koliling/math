@@ -17,89 +17,56 @@
   \begin{enumerate}[label={(\alph*)}]
     \item Show that $A\otimes_\mathbb{Z}\mathbb{Z}_m \cong A/mA$.
       \begin{proof}
-        Consider the map $\varphi:A\otimes_\mathbb{Z}\mathbb{Z}_m
+        Consider the map $\varphi:A\times\mathbb{Z}_m
         \rightarrow A/mA$ defined by
-        $a\otimes\bar{z}\mapsto\overline{z\cdot a}$. We first show this map
-        is well-defined. We have
+        $a\times\bar{z}\mapsto\overline{z\cdot a}$. We first show this map
+        is well-defined and $\mathbb{Z}$-bilinear. To show that the map is
+        well-defined, we have
         \begin{align*}
-          \varphi(a\otimes\overline{z+m}) &=\overline{(z+m)\cdot a}\\
+          \varphi((a,\overline{z+m})) &=\overline{(z+m)\cdot a}\\
           &=\overline{z\cdot a+m\cdot a}\\
           &=\overline{z\cdot a}\\
-          &=\varphi(a\otimes\overline{z}).\\
+          &=\varphi((a,\overline{z})).\\
         \end{align*}
 
-        Also,
+        To show bilinearlity, we have
         \begin{align*}
-          \varphi((a_1+a_2)\otimes\overline{z}) &=\overline{z\cdot
+          \varphi(((a_1+a_2),\overline{z})) &=\overline{z\cdot
             (a_1+a_2)}\\
           &=\overline{z\cdot a_1 +z\cdot a_2}\\
           &=\overline{z\cdot a_1} +\overline{z\cdot a_2}\\
-          &=\varphi(a_1\otimes\overline{z})
-            +\varphi(a_2\otimes\overline{z}),\\
+          &=\varphi((a_1,\overline{z}))
+            +\varphi((a_2,\overline{z})),\\
         \end{align*}
 
         and
         \begin{align*}
-          \varphi(a\otimes(\overline{z_1}+\overline{z_2}))
-            &=\varphi(a\otimes(\overline{z_1+z_2}))\\
+          \varphi((a,(\overline{z_1}+\overline{z_2})))
+            &=\varphi((a,(\overline{z_1+z_2})))\\
           &=\overline{(z_1+z_2)\cdot a}\\
           &=\overline{z_1\cdot a +z_2\cdot a}\\
           &=\overline{z_1\cdot a} +\overline{z_2\cdot a}\\
-          &=\varphi(a\otimes\overline{z_1})
-            +\varphi(a\otimes\overline{z_2}),\\
+          &=\varphi((a,\overline{z_1}))
+            +\varphi((a,\overline{z_2})),\\
         \end{align*}
 
         and
         \begin{align*}
-          \varphi((n\cdot a)\otimes \overline{z}))
+          \varphi(((n\cdot a),\overline{z})))
           &=\overline{z\cdot (n\cdot a)}\\
           &=\overline{(nz)\cdot a}\\
           &=\overline{(n\cdot\overline{z})\cdot a}\\
-          &=\varphi(a\otimes (n\cdot \overline{z})).\\
+          &=\varphi((a, (n\cdot \overline{z}))).\\
         \end{align*}
 
-        Thus we have
+        Thus from Corollary 12, $\varphi$ induces a $\mathbb{Z}$-module
+        homomorphism $\Phi:A\otimes_\mathbb{Z}\mathbb{Z}_m \rightarrow
+        A/mA$ defined by $\Phi(a\otimes\bar{z})=\overline{z\cdot a}$. Now
+        $\Phi$ is clearly surjective since every $\overline{a}\in
+        A/mA$ has a pre-image $a\otimes\bar{1}$. It remains to show that
+        $\Phi$ is injective:
         \begin{align*}
-          \varphi(a\otimes\overline{z+m} -a\otimes\overline{z}) &=0,\\
-          \varphi((a_1+a_2)\otimes\overline{z}) -a_1\otimes\overline{z})
-            -a_2\otimes\overline{z}) &=0,\\
-          \varphi(a\otimes(\overline{z_1}+\overline{z_2})
-            -a\otimes\overline{z_1} -a\otimes\overline{z_2}) &=0.\\
-          \varphi((n\cdot a)\otimes \overline{z}) -a\otimes (n\cdot
-            \overline{z})) &=0,\\
-        \end{align*}
-        so $\varphi$ is well-defined.
-
-        Next, we show $\varphi$ is a $\mathbb{Z}$-module homomorphism. We
-        have
-        \begin{align*}
-          \;&\varphi(n\cdot(a_1\otimes \overline{z_1}) +(a_2\otimes
-            \overline{z_2}))\\
-          =\;&\varphi(((n\cdot a_1)\otimes\overline{z_1})
-            +(a_2\otimes\overline{z_2})))\\
-          =\;&\varphi(((n\cdot a_1)\otimes(z_1\cdot\overline{1}))
-            +(a_2\otimes(z_2\cdot\overline{1}))))\\
-          =\;&\varphi((z_1\cdot((n\cdot a_1))\otimes\overline{1})
-            +((z_2\cdot a_2)\otimes\overline{1})))\\
-          =\;&\varphi((z_1n\cdot a_1)\otimes\overline{1}) +((z_2\cdot
-            a_2)\otimes\overline{1})))\\
-          =\;&\varphi((z_1n\cdot a_1+z_2\cdot a_2)\otimes\overline{1})\\
-          =\;&1\cdot\overline{z_1n\cdot a_1+z_2\cdot a_2}\\
-          =\;&\overline{z_1n\cdot a_1+z_2\cdot a_2}\\
-          =\;&\overline{z_1n\cdot a_1} +\overline{z_2\cdot a_2}\\
-          =\;&\overline{n\cdot(z_1\cdot a_1)} +\overline{z_2\cdot a_2}\\
-          =\;&n\cdot\overline{z_1\cdot a_1} +\overline{z_2\cdot a_2}\\
-          =\;&n\cdot\varphi(a_1\otimes\overline{z_1})
-            +\varphi(a_2\otimes\overline{z_2}).\\
-        \end{align*}
-
-        Also, $\varphi$ is clearly surjective since every $\overline{a}\in
-        A/mA$ has a pre-image $a\otimes\bar{1}$. Finally, we show $\varphi$
-        is injective, which is equivalent to showing that
-        $\ker(\varphi)=0$. Now $a\otimes\bar{z}\in\ker(\varphi)$ if and
-        only if $\overline{z\cdot a}=\overline{0}\in A/mA$.
-        \begin{align*}
-          \;&a\otimes\overline{z}\in\ker(\varphi)\\
+          \;&a\otimes\overline{z}\in\ker(\Phi)\\
           \Leftrightarrow\;&\overline{z\cdot a}=\overline{0}\in A/mA\\
           \Leftrightarrow\;&z\cdot a\in mA\\
           \Leftrightarrow\;&z\cdot a =m\cdot b\in A\; \text{for some}\;
@@ -114,7 +81,7 @@
         $(z\cdot a)\otimes\bar{1} =a\otimes(z\cdot\bar{1})
         =a\otimes\overline{z}$. Thus we have
         \[a\otimes\overline{z} =0\otimes\overline{0},\]
-        which means $\ker(\varphi)=0$.
+        which means $\ker(\Phi)=0$.
       \end{proof}
   \end{enumerate}
 \end{document}
