@@ -97,93 +97,8 @@
       \cong\mathbb{Z}_c$, where $c=(m,n)$.
       \begin{proof}
         This follows immediately from part (a), by replacing $m$ with $n$,
-        letting $A=\mathbb{A}_m$, and observing that
+        letting $A=\mathbb{Z}_m$, and observing that
         $\mathbb{Z}_m/n\mathbb{Z}_m\cong \mathbb{Z}_c$.
-
-        %Consider the map $\varphi:\mathbb{Z}_m\times\mathbb{Z}_n
-        %\rightarrow\mathbb{Z}_c$ defined by
-        %$(\bar{a},\bar{b})\mapsto\overline{ab}$. We first show this map is
-        %well-defined and $\mathbb{Z}$-bilinear. To show that the map is
-        %well-defined, we have
-        %\begin{align*}
-        %  \varphi((\overline{a+m},\overline{b+n}))
-        %    &=\overline{(a+m)(b+n)}\\
-        %  &=\overline{ab+mb+na+mn}\\
-        %  &=\overline{ab} &(\because c|m\; \text{and}\; c|n)\\
-        %  &=\varphi((\overline{a},\overline{b})).\\
-        %\end{align*}
-
-        %To show $\mathbb{Z}$-bilinearlity, we have
-        %\begin{align*}
-        %  &\;\varphi((\overline{a_1}+\overline{a_2},\overline{b}))\\
-        %  =&\;\varphi((\overline{a_1+a_2},\overline{b}))\\
-        %  =&\;\overline{(a_1+a_2)b}\\
-        %  =&\;\overline{a_1b+a_2b}\\
-        %  =&\;\overline{a_1b} +\overline{a_2b}\\
-        %  =&\;\varphi((\overline{a_1},\overline{b}))
-        %    +\varphi((\overline{a_2},\overline{b})),\\
-        %\end{align*}
-
-        %and similarly we can show that
-        %\[\varphi((\overline{a},\overline{b_1}+\overline{b_2}))
-        %  =\varphi((\overline{a},\overline{b_1}))
-        %  +\varphi((\overline{a},\overline{b_2})).\]
-
-        %Also,
-        %\begin{align*}
-        %  &\;\varphi((n\cdot\overline{a},\overline{b}))\\
-        %  =&\;\varphi((\overline{na},\overline{b}))\\
-        %  =&\;\overline{nab}\\
-        %  =&\;n\cdot\overline{ab}\\
-        %  =&\;n\cdot\varphi((\overline{a},\overline{b})),\\
-        %\end{align*}
-        %and similarly we can show that
-        %\[\varphi((\overline{a},n\cdot\overline{b}))
-        %  =n\cdot\varphi((\overline{a},\overline{b})).\]
-
-        %Thus from Corollary 12, $\varphi$ induces a $\mathbb{Z}$-module
-        %homomorphism $\Phi:\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
-        %\rightarrow\mathbb{Z}_c$ defined by
-        %$\Phi(\bar{a}\otimes\bar{b})=\overline{ab}$. Now $\Phi$ is clearly
-        %surjective since every $\overline{c}\in\mathbb{Z}_c$ has a
-        %pre-image $\bar{c}\otimes\bar{1}$. It remains to show that $\Phi$
-        %is injective:
-        %\begin{align*}
-        %  \;&\bar{a}\otimes\bar{b}\in\ker(\Phi)\\
-        %  \Leftrightarrow\;&\overline{ab}=\overline{0}\in\mathbb{Z}_c\\
-        %  \Leftrightarrow\;&c|ab\\
-        %  \Leftrightarrow\;&ab=kc\in\mathbb{Z}\; \text{for some}\;
-        %    k\in\mathbb{Z}\\
-        %  \Rightarrow\;&(ab)\cdot(\bar{1}\otimes\bar{1})
-        %    =(kc)\cdot(\bar{1}\otimes\bar{1})\; \text{for some}\;
-        %    k\in\mathbb{Z}.\\
-        %\end{align*}
-
-        %Now since $c=(m,n)$, $c=xm+yn$ for some $x,y\in\mathbb{Z}$. Thus
-        %\begin{align*}
-        %  \;&(kc)\cdot(\bar{1}\otimes\bar{1})\\
-        %  =\;&k\cdot(\overline{c}\otimes\bar{1})\\
-        %  =\;&k\cdot(\overline{xm+yn}\otimes\bar{1})\\
-        %  =\;&k\cdot((\overline{xm}+\overline{yn})\otimes\bar{1})\\
-        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-        %    +(\overline{yn}\otimes\bar{1})]\\
-        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-        %    +(yn)\cdot(\bar{1}\otimes\bar{1})]\\
-        %  =\;&k\cdot[(\overline{xm}\otimes\bar{1})
-        %    +(\bar{1}\otimes\overline{yn})]\\
-        %  =\;&k\cdot[x\cdot(\overline{m}\otimes\bar{1})
-        %    +y\cdot(\bar{1}\otimes\overline{n})]\\
-        %  =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{1})
-        %    +y\cdot(\bar{1}\otimes\overline{0})]\\
-        %  =\;&k\cdot[x\cdot(\overline{0}\otimes\bar{0})
-        %    +y\cdot(\bar{1}\otimes\overline{0})]\\
-        %  =\;&\bar{0}\otimes\bar{0}.\\
-        %\end{align*}
-
-        %Also, from similar argument of the $\mathbb{Z}$-bilinear property
-        %of tensors, we have $(ab)\cdot(\bar{1}\otimes\bar{1})
-        %=\bar{a}\otimes\bar{b}$. Thus $\bar{a}\otimes\bar{b}=0$, and so
-        %$\Phi$ is injective.
       \end{proof}
 
     \item If $A$ is a torsion group (i.e. a torsion $\mathbb{Z}$-module),
@@ -203,4 +118,80 @@
         \end{align*}
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Q2:} What is the difference between the homomorphism $f\otimes
+  g$ as defined in class, and the element $f\otimes g\in\text{Hom}_R(A,A')
+  \otimes_\mathbb{Z}\text{Hom}_R(B,B')$?
+  \begin{proof}
+  \end{proof}
+
+\it \textbf{Q3:}
+  \begin{enumerate}[label={(\alph*)}]
+    \item From Exercise 1, determine what
+      $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$ is as n abelian group,
+      and what $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$  is as an
+      abelian group.
+
+      \begin{proof}
+        From Question 1b, $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2
+        \cong\mathbb{Z}_2$ as a $\mathbb{Z}$-module, thus it is isomorphic
+        to $\mathbb{Z}_2$ as an abelian group. Similarly,
+        $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$ is isomorphic to
+        $\mathbb{Z}_2$ as an abelian group.
+      \end{proof}
+
+    \item Let $\phi:\mathbb{Z}_2\rightarrow\mathbb{Z}_4$ be the usual
+      injection of abelian groups. Show that $1\otimes\phi:
+      \mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2
+      \rightarrow\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$, is the zero
+      map, even though $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$ and
+      $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$ are nontrivial.
+
+      \begin{proof}
+        Given arbitrary $a,b\in\mathbb{Z}_2$,
+        \begin{align*}
+          &\;(1\otimes\phi)(\overline{a}\otimes \overline{b})\\
+          =&\;\overline{a}\otimes \overline{2b}
+            \in\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4\\
+          =&\;\overline{2a}\otimes \overline{b}\\
+          =&\;\overline{0}\otimes \overline{b} &(\because\; 2|2a)\\
+          =&\;\overline{0}\otimes \overline{0}.\\
+        \end{align*}
+      \end{proof}
+  \end{enumerate}
+
+\it \textbf{Section 10.4 Q3:} Show that
+  $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ and
+  $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ are both left
+  $\mathbb{R}$-modules but are not isomorphic as $\mathbb{R}$-modules.
+
+  \begin{proof}
+    $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ is a left $\mathbb{R}$-module
+    because $\mathbb{C}$ is trivally a $\mathbb{R}$-module. Similarly,
+    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ is a left $\mathbb{C}$-module
+    because $\mathbb{C}$ is trivially a $\mathbb{C}$-module. Then since
+    $\mathbb{R}$ is a subring of $\mathbb{C}$ with the same unity,
+    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ will also be a left
+    $\mathbb{R}$-module. \\
+
+    First, note that $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ can be
+    spanned as an $\mathbb{R}$-module by four elements
+    $\{1\otimes1,i\otimes1,1\otimes i,i\otimes i\}$, because given any
+    $a,b,c,d\in\mathbb{R}$, we can write
+    \begin{align*}
+      &\;(a+bi)\otimes(c+di)\\
+      =&\;a\otimes c+a\otimes di +bi\otimes c +bi\otimes di\\
+      =&\;ac\cdot(1\otimes1) +ad\cdot(1\otimes i) +bc\cdot(i\otimes1)
+        +bd\cdot(i\otimes i).\\
+    \end{align*}
+
+    Similarly, $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be spanned by
+    the same four elements, however because
+    $i\otimes1=i\cdot(1\otimes1)=1\otimes 1$ and $i\otimes i=i\cdot
+    i\cdot(1\otimes1)=-1\cdot(1\otimes 1)$ in
+    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$,
+    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be spanned by just two
+    elements $\{1\otimes1,i\otimes1\}$. Furthermore, these two elements are
+    distinct in $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$.
+  \end{proof}
 \end{document}
