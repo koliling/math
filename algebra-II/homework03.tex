@@ -83,6 +83,8 @@
             \in\ker(\Phi)\\
           \Leftrightarrow\;&\sum_{i=1}^n \overline{z_i\cdot
             a_i}=\overline{0}\in A/mA\\
+          \Leftrightarrow\;&\overline{\sum_{i=1}^n z_i\cdot
+            a_i}=\overline{0}\in A/mA\\
           \Leftrightarrow\;&\sum_{i=1}^n z_i\cdot a_i\in mA\\
           \Leftrightarrow\;&\sum_{i=1}^n z_i\cdot a_i =m\cdot b\in A\;
             \text{for some}\; b\in A\\
@@ -122,7 +124,7 @@
         is closed under multiplication modulo $m$, $n\mathbb{Z}_m$ must
         equal
         \[n\mathbb{Z}_m =\{\overline{0}, \overline{c},
-        \overline{2c}, \ldots, \overline{m-c}\}=c\mathbb{Z}.\]
+        \overline{2c}, \ldots, \overline{m-c}\}=c\mathbb{Z}_m.\]
 
         Therefore
         \[\mathbb{Z}_m/n\mathbb{Z}_m =\mathbb{Z}_m/c\mathbb{Z}_m
@@ -359,4 +361,55 @@
   $V=\mathbb{R}^2$. Show that the element $e_1\otimes e_2+e_2\otimes e_1$
   in $V\otimes_\mathbb{R}V$ cannot be written as a simple tensor $v\otimes
   w$ for any $v,w\in\mathbb{R}^2$.
+
+  \begin{proof}
+    Consider the map $\varphi:V\times V\rightarrow\mathbb{R}^2$ defined by
+    $\varphi\left(\left(\binom{r}{s},\binom{x}{y}\right)\right)
+    =\binom{rx}{ry}$. It is routine to check that $\varphi$ is an
+    $\mathbb{R}$-bilinear map. Thus by Corollary 12, $\varphi$ induces an
+    $\mathbb{R}$-homomorphism
+    $\Phi:V\otimes_\mathbb{R}V\rightarrow\mathbb{R}^2$ defined by
+    $\Phi\left(\binom{r}{s}\otimes\binom{x}{y}\right) =\binom{rx}{ry}$.
+    Thus if $\binom{r_1}{s_1}\otimes\binom{x_1}{y_1}
+    =\binom{r_2}{s_2}\otimes\binom{x_2}{y_2} \in V\otimes V$, their image
+    under $\Phi$ should be the same. In other words, we must have
+    $r_1\binom{x_1}{y_1} =r_2\binom{x_2}{y_2}$. By a similar argument,
+    swapping the roles of $s$ and $r$, we also get that if
+    $\binom{r_1}{s_1}\otimes\binom{x_1}{y_1}
+    =\binom{r_2}{s_2}\otimes\binom{x_2}{y_2} \in V\otimes V$ then
+    $s_1\binom{x_1}{y_1} =s_2\binom{x_2}{y_2}$. We use these observations
+    to check if two elements in $V\otimes V$ can be the same. \\
+
+    In particular, if $\binom{r_1}{s_1}\otimes e_1 =\binom{r_2}{s_2}\otimes
+    e_2$, then we must have $r_1\cdot e_1=r_2\cdot e_2$ and $s_1\cdot
+    e_1=s_2\cdot e_2$. However, since $e_1$ and $e_2$ are linearly
+    independent, we must have $r_1=r_2=s_1=s_2=0$. Thus $a\otimes e_1
+    =b\otimes e_2$ if and only if $a=b=0$. Equivalently, $a\otimes e_1
+    +b\otimes e_2=0$ has only trivial solutions $a=b=0\in V$. Thus, if
+    \[r_{1,1}(e_1\otimes e_1) +r_{1,2}(e_1\otimes e_2) +r_{2,1}(e_2\otimes
+      e_1) +r_{2,2}(e_2\otimes e_2)=0,\]
+    for some $r_{1,1}=r_{1,2}=r_{2,1}=r_{2,2}\in\mathbb{R}$, then
+    rearranging will give us
+    \[(r_{1,1}e_1 +r_{2,1}e_2)\otimes e_1 +(r_{1,2}e_1 +r_{2,2}e_2)\otimes
+      e_2=0\]
+    Then from the above observation, we can only have trivial solutions
+    \[r_{1,1}e_1 +r_{2,1}e_2 =r_{1,2}e_1 +r_{2,2}e_2 =0,\]
+    which in turn only has trivial solutions
+    $r_{1,1}=r_{1,2}=r_{2,1}=r_{2,2}=0$ since $e_1,e_2$ are linearly
+    independent. \\
+
+    Now assume $e_1\otimes e_2+e_2\otimes e_1 =v\otimes w$ for some $v,w\in
+    V$. Then since $\{e_1,e_2\}$ is a basis of $\mathbb{R}^2$, we can write
+    $v=r_1e_1+r_2e_2$ and $w=s_1e_1+s_2e_2$ for some
+    $r_1,r_2,s_1,s_2\in\mathbb{R}$. Then
+    \begin{align*}
+      e_1\otimes e_2+e_2\otimes e_1 &=v\otimes w\\
+      &=(r_1e_1+r_2e_2) \otimes(s_1e_1+s_2e_2)\\
+      &=r_1s_1(e_1\otimes e_1) +r_1s_2(e_1\otimes e_2) +r_2s_1(e_2\otimes
+        e_1) +r_2s_2(e_2\otimes e_2).\\
+    \end{align*}
+    Then from the previous argument, $v=w=0\in V$, thus $e_1\otimes
+    e_2+e_2\otimes e_1=0$. But this would give a non-trivial solution for
+    $a\otimes e_1+b\otimes e_2=0$, a contradiction.
+  \end{proof}
 \end{document}
