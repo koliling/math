@@ -96,9 +96,26 @@
     \item Show that $\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
       \cong\mathbb{Z}_c$, where $c=(m,n)$.
       \begin{proof}
-        This follows immediately from part (a), by replacing $m$ with $n$,
-        letting $A=\mathbb{Z}_m$, and observing that
-        $\mathbb{Z}_m/n\mathbb{Z}_m\cong \mathbb{Z}_c$.
+        By replacing $m$ with $n$ in part (a) of this question letting
+        $A=\mathbb{Z}_m$, it suffices to show that
+        $\mathbb{Z}_m/n\mathbb{Z}_m\cong \mathbb{Z}_c$ as
+        $\mathbb{Z}$-modules. First, observe that $n\mathbb{Z}_m=\langle
+        c\rangle$: $c$ is the smallest positive integer such that there
+        exists $x_0,y_0\in\mathbb{Z}$ with $c=x_0m+y_0n$. Thus in
+        $\mathbb{Z}_m$,
+        $\overline{c}=\overline{x_0m+y_0n}=\overline{y_0n}=n\overline{y_0}
+        \in n\mathbb{Z}_m$. Also, since all elements in $n\mathbb{Z}_m$
+        should be of the form $xm+yn$ for some $x,y\in\mathbb{Z}$, and $c$
+        is the smallest positive integer of such form, and $n\mathbb{Z}_m$
+        is closed under multiplication modulo $m$, $n\mathbb{Z}_m$ must
+        equal
+        \[n\mathbb{Z}_m =\{\overline{0}, \overline{c},
+        \overline{2c}, \ldots, \overline{m-c}\}.\]
+
+        Therefore
+        \[\mathbb{Z}_m/n\mathbb{Z}_m
+        =\mathbb{Z}_m/\langle\overline{c}\rangle
+        \cong\mathbb{Z}_c.\]
       \end{proof}
 
     \item If $A$ is a torsion group (i.e. a torsion $\mathbb{Z}$-module),
