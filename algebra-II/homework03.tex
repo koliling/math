@@ -426,5 +426,28 @@
       &=v'\otimes av'\\
       &=v'\otimes v.\\
     \end{align*}
+
+    For the forward direction. Let $\{e_i:i\in I\}$ be a
+    basis of $V$. Assuming axiom of Choice, such a basis exists. Given
+    $w\in V$, let $\alpha_i(w)\in F$ denote the coefficient of $e_i$ in the
+    unique expression of $w$ as a linear sum of the basis elements. \\
+
+    For each $i\in I$, consider the map $\varphi_i:V\times V\rightarrow V$
+    defined by $\varphi_i((x,y))=\alpha_i(x)y$. It is routine to prove that
+    $\varphi_i$ is an $F$-bilinear map. Thus by Corollary 12, $\varphi_i$
+    induces an $F$-module homomorphism $\Phi_i:V\otimes_F V\rightarrow V$
+    defined by $\Phi_i(x\otimes y)=\alpha_i(x)y$. Thus if $x_1\otimes
+    y_1=x_2\otimes y_2\in V\otimes_F V$, then their images under $\Phi_i$
+    for all $i\in I$ should be the same. In other words, we need
+    $\alpha_i(x_1)y_1=\alpha_i(x_2)y_2$ for all $i\in I$. \\
+
+    So assume $v\otimes v'=v'\otimes v \in V\otimes_F V$ where $v,v'\in V$
+    are nonzero. Since $v'\neq0$, $\alpha_k(v')\neq0$ for some $k\in I$. So
+    from the above argument, we have $\alpha_k(v)v'=\alpha_k(v')v$, which
+    implies $v'$ and $v$ are linearly dependent since $\alpha_k(v)\neq0$.
+    Then since $F$ is a field, $\alpha_k(v)$ has a multiplicative inverse.
+    Rearranging, we get
+    \[v=\alpha_k(v)\alpha_k(v')^{-1}v',\]
+    where $\alpha_k(v)\alpha_k(v')^{-1} \in F$ as required.
   \end{proof}
 \end{document}
