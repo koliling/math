@@ -450,4 +450,36 @@
     \[v=\alpha_k(v)\alpha_k(v')^{-1}v',\]
     where $\alpha_k(v)\alpha_k(v')^{-1} \in F$ as required.
   \end{proof}
+
+\it \textbf{Section 10.4 Q16:} Suppose $R$ is commutative and let $I$ and
+  $J$ be ideals of $R$, so $R/I$ and $R/J$ are naturally $R$-modules.
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that every element of $R/I\otimes_R R/J$ can be written as
+      a simple tensor of the form $(1\mod{I})\otimes(r\mod{J})$.
+      \begin{proof}
+        Given $\overline{i}\otimes\overline{j} \in R/I\otimes_R R/J$ with a
+        simple form, we can write
+        \begin{align*}
+          &\;\overline{i}\otimes\overline{j}\\
+          =&\;(i\cdot\overline{1})\otimes\overline{j}\\
+          =&\;i\cdot(\overline{1}\otimes\overline{j})\\
+          =&\;\overline{1}\otimes(i\cdot\overline{j})\\
+          =&\;\overline{1}\otimes\overline{ij},\\
+        \end{align*}
+        which is of the desired form. \\
+
+        Now since every element of $R/I\otimes_R R/J$ is a finite sum of
+        elements of the simple form, by induction on the number of elements
+        in the sum and the above, it suffices to show that the sum of two
+        elements of the desired form is equal to an element of the desired
+        form. To that end, we have
+        \begin{align*}
+          &\;\overline{1}\otimes\overline{r_1}
+            +\overline{1}\otimes\overline{r_2}\\
+          &\;\overline{1}\otimes (\overline{r_1}+\overline{r_2})\\
+          &\;\overline{1}\otimes (\overline{r_1+r_2}),\\
+        \end{align*}
+        which is also of the desired form.
+      \end{proof}
+  \end{enumerate}
 \end{document}
