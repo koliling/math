@@ -120,19 +120,27 @@
 
     \item If $A$ is a torsion group (i.e. a torsion $\mathbb{Z}$-module),
       then $A\otimes_\mathbb{Z}\mathbb{Q}=0$.
+
       \begin{proof}
-        Let $a\in A$ and $q\in\mathbb{Q}$ be arbitrary. Then $n\cdot a=0\in
-        A$ for some $n\in\mathbb{Z}$, since $A$ is a torsion group. Then
+        Every element in $x\in A\otimes_\mathbb{Z}\mathbb{Q}$ can be
+        written as a finite sum
+        \[x=\sum_{i=1}^k a_i\otimes q_i\]
+        for some $a_i\in A$, $q_i\in \mathbb{Q}$ by definition of torsion
+        products. Since $A$ is torsion, for each $i=\{1,\ldots,k\}$,
+        there exists $n_i$ such that $n_i\cdot a_i=0$. Let $n=n_1\cdots
+        n_k$. Then $n\cdot a_i=0$ for all $i=\{1,\ldots,k\}$. So
         \begin{align*}
-          &\;a\otimes q\\
-          =&\;a\otimes(n\cdot(q/n))\\
-          =&\;(n\cdot a)\otimes(q/n)\\
-          =&\;0\otimes(q/n)\\
-          =&\;(0\cdot0)\otimes(q/n)\\
-          =&\;0\otimes(0\cdot q/n)\\
+          &\;a_i\otimes q_i\\
+          =&\;a_i\otimes(n\cdot(q_i/n))\\
+          =&\;(n\cdot a_i)\otimes(q_i/n)\\
+          =&\;0\otimes(q_i/n)\\
+          =&\;(0\cdot0)\otimes(q_i/n)\\
+          =&\;0\otimes(0\cdot q_i/n)\\
           =&\;0\otimes0\\
-          =&\;0.\\
+          =&\;0,\\
         \end{align*}
+        thus
+        \[x=\sum_{i=1}^k a_i\otimes q_i =\sum_{i=1}^k 0=0.\]
       \end{proof}
   \end{enumerate}
 
@@ -176,6 +184,8 @@
         \end{align*}
       \end{proof}
   \end{enumerate}
+
+Let $R$ be a ring with 1.
 
 \it \textbf{Section 10.4 Q3:} Show that
   $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ and
@@ -252,7 +262,8 @@
     where the $q_i$'s are distinct primes from $p$, and
     \[P=\mathbb{Z}_{p^{\alpha_1}}
     \oplus\ldots\oplus\mathbb{Z}_{p^{\alpha_n}}\]
-    is the Sylow $p$-subgroup of $A$. Then
+    is the Sylow $p$-subgroup of $A$. Note that the decomposition is
+    expressed as direct sum of $\mathbb{Z}$-modules. Then
     \begin{align*}
       &\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}A\\
       =&\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}
@@ -281,6 +292,22 @@
       =&\;(\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P) \oplus\mathbb{Z}_1
         \oplus\ldots \oplus\mathbb{Z}_1\\
       =&\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P.\\
+    \end{align*}
+  \end{proof}
+
+\it \textbf{Section 10.4 Q7:} If $R$ is any integral domain with quotient
+  field $Q$ and $N$ is a left $R$-module, prove that every element of the
+  tensor product $Q\otimes_R N$ can be written as a simple tensor of the
+  form $(1/d)\otimes n$ for some nonzero $d\in R$ and some $n\in N$.
+
+  \begin{proof}
+    Let $q\in Q$ and $n'\in N$ be arbitrary. Then $q=c/d$ for some $c,d\in
+    R$, thus
+    \begin{align*}
+      &\;q\otimes n'\\
+      =&\;(c/d)\otimes n'\\
+      =&\;c\cdot((1/d)\otimes n')\\
+      =&\;(1/d)\otimes (c\cdot n')\\
     \end{align*}
   \end{proof}
 \end{document}
