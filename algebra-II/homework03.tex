@@ -240,4 +240,47 @@
     dimension equal 4, so they cannot be isomorphic as
     $\mathbb{R}$-modules.
   \end{proof}
+
+\it \textbf{Section 10.4 Q5:} Let $A$ be a finite abelian group of order
+  $n$ and let $p^k$ be the largest power of the prime $p$ dividing $n$.
+  Prove that $\mathbb{Z}_{p^k}\otimes_\mathbb{Z}A$ is isomorphic to
+  the Sylow $p$-subgroup of $A$.
+
+  \begin{proof}
+    Let the elementary divisor decomposition of $A$ be
+    \[A\cong P\oplus_{i=1}^m\mathbb{Z}_{q_i^{\alpha_i}},\]
+    where the $q_i$'s are distinct primes from $p$, and
+    \[P=\mathbb{Z}_{p^{\alpha_1}}
+    \oplus\ldots\oplus\mathbb{Z}_{p^{\alpha_n}}\]
+    is the Sylow $p$-subgroup of $A$. Then
+    \begin{align*}
+      &\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}A\\
+      =&\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}
+        (P\oplus_{i=1}^m \mathbb{Z}_{q_i^{\alpha_i}})\\
+      =&\;(\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P)
+        \oplus(\mathbb{Z}_{p^k}
+        \otimes_{\mathbb{Z}}\mathbb{Z}_{q_1^{\alpha_1}}) \oplus\ldots
+        \oplus(\mathbb{Z}_{p^k}
+        \otimes_{\mathbb{Z}}\mathbb{Z}_{q_m^{\alpha_m}}).
+        &(\text{distributive property of tensors})\\
+    \end{align*}
+
+    Now for each $i\in\{1,\ldots,m\}$, since $p$ and $q_i$ are distinct
+    primes, we have from Question 1b that
+    \[\mathbb{Z}_{p^k} \otimes_{\mathbb{Z}}\mathbb{Z}_{q_m^{\alpha_m}}
+    \cong\mathbb{Z}_1.\]
+
+    Therefore
+    \begin{align*}
+      &\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}A\\
+      =&\;(\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P)
+        \oplus(\mathbb{Z}_{p^k}
+        \otimes_{\mathbb{Z}}\mathbb{Z}_{q_1^{\alpha_1}}) \oplus\ldots
+        \oplus(\mathbb{Z}_{p^k}
+        \otimes_{\mathbb{Z}}\mathbb{Z}_{q_m^{\alpha_m}})\\
+      =&\;(\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P) \oplus\mathbb{Z}_1
+        \oplus\ldots \oplus\mathbb{Z}_1\\
+      =&\;\mathbb{Z}_{p^k}\otimes_{\mathbb{Z}}P.\\
+    \end{align*}
+  \end{proof}
 \end{document}
