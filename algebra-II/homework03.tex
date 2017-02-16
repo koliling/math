@@ -73,24 +73,36 @@
         A/mA$ defined by $\Phi(a\otimes\bar{z})=\overline{z\cdot a}$. Now
         $\Phi$ is clearly surjective since every $\overline{a}\in
         A/mA$ has a pre-image $a\otimes\bar{1}$. It remains to show that
-        $\Phi$ is injective:
+        $\Phi$ is injective. Now by definition, every element $x$ of
+        $A\otimes_\mathbb{Z}\mathbb{Z}_m$ can be written
+        \[x=\sum_{i=1}^n a_i\otimes\overline{z_i}\]
+        for some $a_i\in A$, $\overline{z_i}\in\mathbb{Z}_m$. Thus
         \begin{align*}
-          \;&a\otimes\overline{z}\in\ker(\Phi)\\
-          \Leftrightarrow\;&\overline{z\cdot a}=\overline{0}\in A/mA\\
-          \Leftrightarrow\;&z\cdot a\in mA\\
-          \Leftrightarrow\;&z\cdot a =m\cdot b\in A\; \text{for some}\;
-            b\in A\\
-          \Rightarrow\;&(z\cdot a)\otimes\bar{1}=(m\cdot
+          \;&x\in\ker(\Phi)\\
+          \Leftrightarrow\;&\sum_{i=1}^n a_i\otimes\overline{z_i}
+            \in\ker(\Phi)\\
+          \Leftrightarrow\;&\sum_{i=1}^n \overline{z_i\cdot
+            a_i}=\overline{0}\in A/mA\\
+          \Leftrightarrow\;&\sum_{i=1}^n z_i\cdot a_i\in mA\\
+          \Leftrightarrow\;&\sum_{i=1}^n z_i\cdot a_i =m\cdot b\in A\;
+            \text{for some}\; b\in A\\
+          \Rightarrow\;&\left(\sum_{i=1}^n z_i\cdot a_i\right)
+            \otimes\bar{1}=(m\cdot b)\otimes\bar{1}\; \text{for some}\;
+            b\in A.\\
+          \Rightarrow\;&\sum_{i=1}^n (z_i\cdot a_i)\otimes\bar{1} =(m\cdot
             b)\otimes\bar{1}\; \text{for some}\; b\in A.\\
         \end{align*}
 
-        Now $(m\cdot b)\otimes\bar{1} =b\otimes(m\cdot\bar{1})
-        =b\otimes\overline{m} =b\otimes\bar{0} =b\otimes(0\cdot\bar{1})
-        =(0\cdot b)\otimes\overline{0} =0\otimes\overline{0}$. Also,
-        $(z\cdot a)\otimes\bar{1} =a\otimes(z\cdot\bar{1})
-        =a\otimes\overline{z}$. Thus we have
-        \[a\otimes\overline{z} =0\otimes\overline{0},\]
-        which means $\ker(\Phi)=0$.
+        Now by $\mathbb{Z}$-bilinear property of tensors, given arbitrary
+        $a\in A$ and $z\in\mathbb{Z}_m$,
+        \begin{align*}
+          &\;(z\cdot a)\otimes\bar{1}\\
+          =&\;a\otimes(z\cdot\bar{1})\\
+          =&\;a\otimes\bar{z},\\
+        \end{align*}
+        thus we can simplify the above conditions to get
+        \[\sum_{i=1}^n a_i\otimes\overline{z_i} =b\otimes\overline{m}=0,\]
+        which implies $x=0$. Thus $\ker(\Phi)=0$.
       \end{proof}
 
     \item Show that $\mathbb{Z}_m\otimes_\mathbb{Z}\mathbb{Z}_n
@@ -153,8 +165,8 @@
 \it \textbf{Q3:}
   \begin{enumerate}[label={(\alph*)}]
     \item From Exercise 1, determine what
-      $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$ is as n abelian group,
-      and what $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$  is as an
+      $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$ is as an abelian group,
+      and what is $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4$ as an
       abelian group.
 
       \begin{proof}
@@ -180,12 +192,19 @@
             \in\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4\\
           =&\;\overline{2a}\otimes \overline{b}\\
           =&\;\overline{0}\otimes \overline{b} &(\because\; 2|2a)\\
-          =&\;\overline{0}\otimes \overline{0}.\\
+          =&\;\overline{0}\otimes \overline{0}\\
+          =&\;0\in\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_4.\\
         \end{align*}
+
+        So since elements of $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$
+        are finite sums of elements of the form $a\otimes b$ with
+        $a,b\in\mathbb{Z}_2$ and homomorphisms preserve addition, the image
+        of any element in $\mathbb{Z}_2\otimes_\mathbb{Z}\mathbb{Z}_2$ will
+        be a finite sum of $0$'s, which will remain 0.
       \end{proof}
   \end{enumerate}
 
-Let $R$ be a ring with 1.
+\textbf{Let $R$ be a ring with 1.} \\
 
 \it \textbf{Section 10.4 Q3:} Show that
   $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ and
