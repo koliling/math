@@ -245,20 +245,9 @@
     $\Phi((a_0+b_0i)\otimes(a_1+b_1i))=(a_0,b_0,a_1,b_1)$. This map is
     trivially surjective, since arbitrary
     $(r_0,r_1,r_2,r_3)\in\mathbb{R}^4$ as pre-image
-    $(r_0+r_1i)\otimes(r_2+r_3i)$. This map is also injective: if
-    $x=\sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji) \in\ker(\Phi)$, then
-    \begin{align*}
-      &\;\Phi\left( \sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji)
-      \in\ker(\Phi)\right) =0\\
-      \Rightarrow&\;\Phi\left( \sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji)
-      \in\ker(\Phi)\right) =0\\
-    \end{align*}
-    
-    So $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}
-    \cong_\mathbb{R}\mathbb{R}^4$ as $\mathbb{R}$-modules. Since
-    $\mathbb{R}^4$ has dimension 4 as an $\mathbb{R}$-module,
-    $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ also has dimension 4 as an
-    $\mathbb{R}$-module. \\
+    $(r_0+r_1i)\otimes(r_2+r_3i)$. Thus the dimension of
+    $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ as an $\mathbb{R}$-module must
+    be at least the dimension of $\mathbb{R}^4$, which is 4. \\
 
     Next, observe that $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be
     spanned as an $\mathbb{R}$-module by two elements
@@ -277,7 +266,7 @@
     Thus $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ has $\mathbb{R}$-module
     dimension no greater than 2, while
     $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ has $\mathbb{R}$-module
-    dimension equal 4, so they cannot be isomorphic as
+    dimension at least 4, so they cannot be isomorphic as
     $\mathbb{R}$-modules.
   \end{proof}
 
@@ -332,12 +321,27 @@
 
   \begin{proof}
     Let $q\in Q$ and $n'\in N$ be arbitrary. Then $q=c/d$ for some $c,d\in
-    R$, thus
+    R$ and $d\neq0$, thus
     \begin{align*}
       &\;q\otimes n'\\
       =&\;(c/d)\otimes n'\\
       =&\;c\cdot((1/d)\otimes n')\\
-      =&\;(1/d)\otimes (c\cdot n')\\
+      =&\;(1/d)\otimes (c\cdot n'),\\
     \end{align*}
+    which is of the desired form. \\
+
+    Now since elements of $Q\otimes_R N$ can
+    be written as a finite sum of elements of the form $q\otimes n$ for
+    some $q\in Q$ and $n\in N$, by induction on the number of sums, it
+    suffices to show the sum of two elements $(1/d_1)\otimes n_1$ and
+    $(1/d_2)\otimes n_2$ is of the desired form:
+    \begin{align*}
+      &\;(1/d_1)\otimes n_1 +(1/d_2)\otimes n_2\\
+      =&\;(1/(d_1d_2))\otimes d_2n_1 +(1/(d_1d_2))\otimes d_1n_2
+      &(\text{possible since}\; d_1,d_2\neq0)\\
+      =&\;(1/(d_1d_2))\otimes(d_2n_1+d_1n_2),\\
+    \end{align*}
+    which is of the desired form since $d_1d_2\neq0$ because $R$ is an
+    integral domain.
   \end{proof}
 \end{document}
