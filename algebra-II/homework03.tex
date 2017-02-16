@@ -481,5 +481,38 @@
         \end{align*}
         which is also of the desired form.
       \end{proof}
+
+    \item Prove that there is an $R$-module isomorphism $R/I\otimes_R R/J
+      \cong R/(I+J)$ mapping $(r\mod{I})\otimes(r'\mod{J})$ to
+      $rr'\mod{(I+J)}$.
+
+      \begin{proof}
+        Define the map $\varphi:R/I\times_R R/J \rightarrow R/(I+J)$ by
+        $\varphi((\overline{r},\overline{r'})) =\overline{rr'}$. This map
+        is well-defined because given $i\in I$ and $j\in J$, within
+        $R/(I+J)$, we have $\overline{(r+i)(r'+j)}
+        =\overline{rr'+rj+r'i+ij} =\overline{rr'} \in R/(I+J)$ because
+        $rj+r'i+ij\in I+J$. Also, it is routine to show that this map is
+        $R$-bilinear. Thus by Corollary 12, $\varphi$ induces an $R$-module
+        homomorphism $\Phi:R/I\otimes_R R/J \rightarrow R/(I+J)$ given by
+        $\Phi(\overline{r}\otimes\overline{r'}) =\overline{rr'}$. $\Phi$ is
+        trivially surjective since every $\overline{r}\in R/(I+J)$ has
+        pre-image $\overline{1}\otimes\overline{r} \in R/I\otimes_R R/J$.
+        It remains to show that $\Phi$ is injective. Let $x\in\ker(\Phi)$.
+        From part (a), we can assume $x=\overline{1}\otimes\overline{r} \in
+        R/I\otimes_R R/J$. Then $\Phi(x) =\overline{r}=0\in R/(I+J)$,
+        which implies that $r\in I+J$. Thus $r=i+j$ for some $i\in I$ and
+        $j\in J$. Then
+        \begin{align*}
+          x &=\overline{1}\otimes\overline{r} &\in R/I\otimes_R R/J\\
+          &=\overline{1}\otimes\overline{i+j}\\
+          &=\overline{1}\otimes\overline{i} &(\because j\in J)\\
+          &=\overline{1}\otimes(i\cdot\overline{1})\\
+          &=\overline{i}\otimes\overline{1}\\
+          &=\overline{0}\otimes\overline{1} &(\because i\in I)\\
+          &=0. &\in R/I\otimes_R R/J\\
+        \end{align*}
+        Thus $\Phi$ is injective.
+      \end{proof}
   \end{enumerate}
 \end{document}
