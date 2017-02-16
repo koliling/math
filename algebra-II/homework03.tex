@@ -174,24 +174,53 @@
     $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ will also be a left
     $\mathbb{R}$-module. \\
 
-    First, note that $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ can be
-    spanned as an $\mathbb{R}$-module by four elements
-    $\{1\otimes1,i\otimes1,1\otimes i,i\otimes i\}$, because given any
-    $a,b,c,d\in\mathbb{R}$, we can write
+    We first show that $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ is
+    isomorphic to $\mathbb{R}^4$ as $\mathbb{R}$-modules. Consider the map
+    $\varphi:\mathbb{C}\times\mathbb{C}\rightarrow\mathbb{R}^4$ defined by
+    $\varphi((a_0+b_0i,a_1+b_1i))=(a_0,b_0,a_1,b_1)$, where
+    $a_0,b_0,a_1,b_1\in\mathbb{R}$. It is routine to show that $\varphi$ is
+    a $\mathbb{R}$-bilinear map: Given
+    $r,a_0,b_0,a_1,b_1,c_0,c_1,d_0,d_1\in\mathbb{R}$,
+    \begin{align*}
+      \;&\varphi(r(a_0+b_0i,a_1+b_1i)+(c_0+d_0i,c_1+d_1i))\\
+      =\;&\varphi(ra_0+c_0+(rb_0+d_0)i, ra_1+c_1+(rb_1+d_1)i)\\
+      =\;&(ra_0+c_0, rb_0+d_0, ra_1+c_1, rb_1+d_1)\\
+      =\;&(ra_0,rb_0,ra_1,rb_1) +(c_0,d_0,c_1,d_1)\\
+      =\;&r(a_0,b_0,a_1,b_1) +(c_0,d_0,c_1,d_1)\\
+      =\;&r\varphi((a_0+b_0i,a_1+b_1i)) +\varphi((c_0+d_0i,c_1+d_1i)).\\
+    \end{align*}
+    Similarly, we can show that
+    \[\varphi((a_0+b_0i,a_1+b_1i)+r(c_0+d_0i,c_1+d_1i))
+    =\varphi((a_0+b_0i,a_1+b_1i)) +r\varphi((c_0+d_0i,c_1+d_1i)).\]
+
+    Thus from Corollary 12, $\varphi$ induces an $\mathbb{R}$-module
+    homomorphism $\Phi:\mathbb{C}\otimes_\mathbb{R}\mathbb{C}\rightarrow
+    \mathbb{R}^4$ defined by
+    $\Phi((a_0+b_0i)\otimes(a_1+b_1i))=(a_0,b_0,a_1,b_1)$. This map is
+    clearly a bijection, thus $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}
+    \cong_\mathbb{R}\mathbb{R}^4$ as $\mathbb{R}$-modules. Since
+    $\mathbb{R}^4$ has dimension 4 as an $\mathbb{R}$-module,
+    $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ also has dimension 4 as an
+    $\mathbb{R}$-module. \\
+
+    Next, observe that $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be
+    spanned as an $\mathbb{R}$-module by two elements
+    $\{1\otimes1,1\otimes i\}$, because given $a,b,c,d\in\mathbb{R}$, we can
+    write
     \begin{align*}
       &\;(a+bi)\otimes(c+di)\\
       =&\;a\otimes c+a\otimes di +bi\otimes c +bi\otimes di\\
       =&\;ac\cdot(1\otimes1) +ad\cdot(1\otimes i) +bc\cdot(i\otimes1)
-        +bd\cdot(i\otimes i).\\
+        +bd\cdot(i\otimes i)\\
+      =&\;ac\cdot(1\otimes1) +ad\cdot(1\otimes i) +bc\cdot(1\otimes i)
+        -bd\cdot(1\otimes1)\\
+      =&\;(ac-bd)\cdot(1\otimes1) +(ad+bc)\cdot(1\otimes i).\\
     \end{align*}
 
-    Similarly, $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be spanned by
-    the same four elements, however because
-    $i\otimes1=i\cdot(1\otimes1)=1\otimes 1$ and $i\otimes i=i\cdot
-    i\cdot(1\otimes1)=-1\cdot(1\otimes 1)$ in
-    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$,
-    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ can be spanned by just two
-    elements $\{1\otimes1,i\otimes1\}$. Furthermore, these two elements are
-    distinct in $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$.
+    Thus $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ has $\mathbb{R}$-module
+    dimension no greater than 2, while
+    $\mathbb{C}\otimes_\mathbb{C}\mathbb{C}$ has $\mathbb{R}$-module
+    dimension equal 4, so they cannot be isomorphic as
+    $\mathbb{R}$-modules.
   \end{proof}
 \end{document}
