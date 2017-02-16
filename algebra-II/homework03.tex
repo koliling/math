@@ -243,7 +243,18 @@
     homomorphism $\Phi:\mathbb{C}\otimes_\mathbb{R}\mathbb{C}\rightarrow
     \mathbb{R}^4$ defined by
     $\Phi((a_0+b_0i)\otimes(a_1+b_1i))=(a_0,b_0,a_1,b_1)$. This map is
-    clearly bijective, thus $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}
+    trivially surjective, since arbitrary
+    $(r_0,r_1,r_2,r_3)\in\mathbb{R}^4$ as pre-image
+    $(r_0+r_1i)\otimes(r_2+r_3i)$. This map is also injective: if
+    $x=\sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji) \in\ker(\Phi)$, then
+    \begin{align*}
+      &\;\Phi\left( \sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji)
+      \in\ker(\Phi)\right) =0\\
+      \Rightarrow&\;\Phi\left( \sum_{j=1}^n (a_j+b_ji)\otimes(c_j+d_ji)
+      \in\ker(\Phi)\right) =0\\
+    \end{align*}
+    
+    So $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}
     \cong_\mathbb{R}\mathbb{R}^4$ as $\mathbb{R}$-modules. Since
     $\mathbb{R}^4$ has dimension 4 as an $\mathbb{R}$-module,
     $\mathbb{C}\otimes_\mathbb{R}\mathbb{C}$ also has dimension 4 as an
