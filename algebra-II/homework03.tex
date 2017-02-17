@@ -592,4 +592,32 @@
         x) =\bar{1}$ while $\Phi(x\otimes2) =\bar{0}$.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 10.4 Q18:} Suppose $I$ is a principal ideal in the
+  integral domain $R$. Prove that the $R$-module $I\otimes_R I$ has no
+  nonzero torsion elements (i.e., $rm=0$ with $0\neq r\in R$ and $m\in
+  I\otimes_R I$ implies that $m=0$).
+
+  \begin{proof}
+    Write $I=(a)$ for some $a\in I$. First, we show that the elements of
+    $I\otimes_RI$ are all simple, and of the form $ra\otimes a$ for some
+    $r\in R$. For simple elements $r_1a\otimes r_2a$, this is equal to
+    $r_1r_2a\otimes a$. For two simple elements of such form, their sum
+    can be written $r_1a\otimes a+r_2a\otimes a =(r_1+r_2)a\otimes a$.
+    Thus by induction on the number of elements in a finite sum of simple
+    elements, all elements of $I\otimes_RI$ can be expressed as
+    $ra\otimes a$ for some $r\in R$. \\
+
+    Consider the map $\varphi:I\times I\rightarrow R$ defined by
+    $\varphi(r_1a,r_2a)=r_1r_2$. It is routine to show that $\varphi$ is
+    $R$-bilinear. Thus from Corollary 12, $\varphi$ induces an $R$-module
+    homomorphism $\Phi:I\otimes_R I\rightarrow R$ defined by
+    $\Phi(r_1a\otimes r_2a)=r_1r_2$. Let $m\in I\otimes_R I$ be torsion
+    with $r\neq0$ as witness. Then from above, we can write $m=sa\otimes a$
+    for some $s\in R$, so $rm=rsa\otimes a=0\otimes0$. Thus
+    \[0=\Phi(0)=\Phi(m)=\Phi(rsa\otimes a)=rs.\]
+
+    Then since $r\neq0$ and $R$ is an integral domain, we must have $s=0$,
+    so $m=sa\otimes a=0\otimes a=0$.
+  \end{proof}
 \end{document}
