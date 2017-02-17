@@ -666,4 +666,28 @@
     factors are not in $I$. Thus no $a(x),b(x)\in I$ exists that satisfy
     $2\otimes2+x\otimes x=a(x)\otimes b(x)$.
   \end{proof}
+
+\it \textbf{Section 10.4 Q21:} Suppose $R$ is commutative and let $I$ and
+  $J$ be ideals of $R$.
+  \begin{enumerate}[label={(\alph*)}]
+    \item Show that there is a surjective $R$-module homomorphism from
+      $I\otimes_RJ$ to the product ideal mapping $i\otimes j$ to the
+      element $ij$.
+
+      \begin{proof}
+        Consider the map $\varphi:I\times J\rightarrow IJ$ defined by
+        $\varphi(i,j)=ij$. It is routine to show that $\varphi$ is an
+        $R$-module homomorphism. Therefore $\varphi$ induces an $R$-module
+        homomorphism $\Phi:I\otimes_RJ\rightarrow IJ$ defined by
+        $\Phi(i\otimes j)=ij$. This map is surjective because any element
+        of $i_1j_1+\ldots i_nj_n$ in $IJ$ has pre-image $i_1\otimes
+        j_1+\ldots+i_n\otimes j_n$.
+      \end{proof}
+
+    \item Give an example to show that the map in (a) need not be
+      injective (cf. Exercise 17).
+
+      \begin{proof}
+      \end{proof}
+  \end{enumerate}
 \end{document}
