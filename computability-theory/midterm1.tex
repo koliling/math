@@ -100,17 +100,37 @@
       \[\Gamma_\sigma:= \{\varphi_i| \sigma(i)=1\} \cup\{\neg\varphi_i|
       \sigma(i)=0\}.\]
 
-      We put $\sigma$ into $T$ if and only if in the enumeration
-      $\text{Th}(\Gamma_\sigma)$ of all the theorems of $\Gamma_\sigma$,
-      none of the first $|\sigma|$ theorems are a contradiction. Then if
-      $\Gamma_f$ is a complete and consistent extension of PA, $f$ will be
-      contained in $[T]$ by construction of $T$. Conversely, if $\Gamma_f$
+      Also, given a finite set of formulas $\Gamma=\{\phi_0,\ldots,\phi_k\}$,
+      let $\text{En}_\Gamma:\omega\rightarrow\text{Th}(\Gamma)$ be a recursive
+      enumeration of the theorems of $\Gamma\cup\text{PA}$. By coding
+      $\Gamma$ recursively, $\text{En}_\Gamma(k)$ function is recursive in
+      both $\Gamma$ and $k$. \\
+
+      To construct $T$, put $\sigma$ into $T$ if and only if
+      \begin{align*}
+        \text{``0=1''}\notin &\{\text{En}_{\Gamma_{\sigma\restriction1}}(0),
+          \ldots,\text{En}_{\Gamma_{\sigma\restriction1}}(|\sigma|)\}\\
+        \cup &\{\text{En}_{\Gamma_{\sigma\restriction2}}(0),
+          \ldots,\text{En}_{\Gamma_{\sigma\restriction2}}(|\sigma|)\}\\
+        \cup &\ldots\\
+        \cup &\{\text{En}_{\Gamma_\sigma}(0),
+          \ldots,\text{En}_{\Gamma_\sigma}(|\sigma|)\}.\\
+      \end{align*}
+
+      Then if $\Gamma_f$ is a complete and consistent extension of PA, $f$
+      will be contained in $[T]$ by construction. Conversely, if $\Gamma_f$
       is inconsistent, then by the compactness theorem, there must be some
       initial segment $\sigma\prec f$ and $n\in\omega$ such that
-      $\text{Th}(\Gamma_\sigma)$ we derive a contradiction within the first
-      $n$ theorems that are derived. So from construction, $\sigma$ and all
-      extensions of $\sigma$ will not be placed in $T$. Thus $[T]$ contains
-      exactly all complete and consistent extensions of PA.
+      $\text{En}_\sigma(n)$ is the contradiction ``0=1''. So from
+      construction, all large enough extensions of $\sigma$ will not be
+      placed in $T$, and thus $\Gamma_f$ will not be contained in $[T]$.
+      Thus $[T]$ contains exactly all complete and consistent extensions of
+      PA. \\
+
+      The fact that $T$ has no isolated paths follows directly from the
+      fact that $T$ is computable, $T$ has no computable paths, and that
+      all isolated paths in computable trees are computable, as we have
+      shown in question 1.
     \end{proof}
 \end{enumerate}
 \end{document}
