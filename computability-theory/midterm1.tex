@@ -69,9 +69,17 @@
       algorithmic. Thus by Church-Turing thesis, $p$ is computable. \\
 
       Assume $T$ contains a path $p$ that is not isolated. Then we can find
-      infinite paths in $T$ as follows: Staring at $n=0$, let
-      $q_0\preceq p$ be a path in $T$ that is different from $p$; such a
-      path must exist otherwise 
+      countably infinite distinct paths $\{q_n:n\in\omega\}$ in $T$
+      different from $p$ as follows: Staring at $n=0$, since the empty
+      string does not isolate $p$, there must be a path $q_0\in T$ that is
+      distinct from $p$. For $n+1$, let $\sigma_n\in2^{<\omega}$ denote the
+      longest initial segment shared by $p$ and $q_n$. Note that $\sigma_n$
+      exists since $p$ and $q_n$ are distinct. Also from construction,
+      $|\sigma_n|$ is strictly increasing in $n$. Then let $q_{n+1}$ be a
+      path in $T$ that extends $p\restriction(|\sigma_n|+1)$ and that is
+      distinct from $p$. Such a $q_{n+1}$ must exist since $\sigma_n$ does
+      not isolate $p$. Also, note $q_{n+1}$ will be distinct from
+      $\{q_0,\ldots,q_n\}$ from construction. Thus $[T]$ is infinite.
     \end{proof}
 
   \item \it Chase definitions.
