@@ -1,9 +1,9 @@
 .PHONY: main
 
 main:
-	pdflatex homework02-rewrite.tex
-	pdflatex homework02-rewrite.tex
-	pdflatex homework02-rewrite.tex
+	pdflatex midterm1.tex
+	pdflatex midterm1.tex
+	pdflatex midterm1.tex
 
 clean:
 	rm *.aux
