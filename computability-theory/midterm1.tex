@@ -102,7 +102,15 @@
 
       We put $\sigma$ into $T$ if and only if in the enumeration
       $\text{Th}(\Gamma_\sigma)$ of all the theorems of $\Gamma_\sigma$,
-      none of the first $|\sigma|$ theorems are a contradiction.
+      none of the first $|\sigma|$ theorems are a contradiction. Then if
+      $\Gamma_f$ is a complete and consistent extension of PA, $f$ will be
+      contained in $[T]$ by construction of $T$. Conversely, if $\Gamma_f$
+      is inconsistent, then by the compactness theorem, there must be some
+      initial segment $\sigma\prec f$ and $n\in\omega$ such that
+      $\text{Th}(\Gamma_\sigma)$ we derive a contradiction within the first
+      $n$ theorems that are derived. So from construction, $\sigma$ and all
+      extensions of $\sigma$ will not be placed in $T$. Thus $[T]$ contains
+      exactly all complete and consistent extensions of PA.
     \end{proof}
 \end{enumerate}
 \end{document}
