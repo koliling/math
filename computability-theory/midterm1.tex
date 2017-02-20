@@ -17,13 +17,61 @@
   \item \it A tree $T$ is a set of finite strings of 0 and 1 and closed
     under initial segments, $\prec$. So $T\subseteq2^{<\omega}$. If
     $f\in2^\omega$ and, for all $n$, $f\restriction n\in T$, then $f$ is a
-    path through $T$ and $f\in[T]$. A path $p$ is isolated in $T$ iff there
-    is a $\sigma\in2^{<\omega}$ such that $\{p\}=[\tau\in
+    path through $T$ and $f\in[T]$. A path $p$ is isolated in $T$ if and
+    only if there is a $\sigma\in2^{<\omega}$ such that $\{p\}=[\tau\in
     T:\sigma\preceq\tau\; \text{or}\; \tau\preceq\sigma]$. Assume that $T$
     is computable. Show that all isolated paths of $T$ are computable. Show
     that if $[T]$ is finite then all paths are isolated.
 
     \begin{proof}
+      Let $p$ be an isolated path of a computable tree $T$ as described in
+      the question, with $\sigma\in T$ witnessing the isolation. Let
+      $\tau\in2^{<\omega}$. To decide if $\tau$ lies in $p$, we first check
+      if $\tau\in T$. Next, we check if $\tau$ is comparable with
+      $\sigma$. If either of these two conditions fail, then $\tau$ is not
+      in $p$. Otherwise, if $\tau$ is an initial segment of $\sigma$, then
+      $\tau$ is definitely in $p$. \\
+
+      But if $\tau$ strictly extends $\sigma$, we need to check for one
+      more condition to decide if $\tau$ lies on $p$. We check by induction
+      on the length of $\tau$. Assume without loss of generality that
+      $|\tau|=n+1$, where $n\geq|\sigma|$. We can also assume that
+      $\tau(n)=0$. Then $\tau\in p$ if and only if $\tau\restriction n\in
+      p$ and $(\tau\restriction n)^\frown1 \not\in p$, where $^\frown$
+      denotes concatenation. The second condition follows because $p$ is
+      isolated. We can check for the first condition recursively on the
+      length of the $\tau$, where the base case $|\tau|=|\sigma|$ gives
+      $\tau\in p$ if and only if $\tau=\sigma$. To check for the second
+      condition, note that from the isolation of $p$, exactly one of the
+      subtrees $T_{(\tau\restriction n)^\frown0}$ or $T_{(\tau\restriction
+      n)^\frown1}$ contains a path. Furthermore, from Konig's lemma, the
+      subtree that does not contain a path must be finite. Thus, letting
+      $T_k$ denote the complete binary tree of length $k\in\omega$, there
+      exists some large $k\in\omega$ such that either of
+      $T_{(\tau\restriction n)^\frown0}$ is contained in $\tau\restriction
+      n^\frown0^\frown T_k$, or $T_{(\tau\restriction n)^\frown1}$ is
+      contained in $\tau\restriction n^\frown1^\frown T_k$. Note that
+      deciding if $T_{(\tau\restriction n)^\frown i}$ is contained in
+      $\tau\restriction n^\frown i^\frown T_k$ is computable because $T$ is
+      computable. Thus if $T_{(\tau\restriction n)^\frown1}$ is contained
+      in $\tau\restriction n^\frown1^\frown T_k$ for some large enough
+      $k\in\omega$, then we know $\tau\in p$. On the other hand, if
+      $T_{(\tau\restriction n)^\frown0}$ is contained in $\tau\restriction
+      n^\frown0^\frown T_k$ for some large enough $k\in\omega$, then
+      $\tau\not\in p$. \\
+
+      Observe that all checks we performed to determine if $\tau\in p$ are
+      algorithmic in nature: checking if $\tau\in T$ is algorithmic since
+      $T$ is computable; checking if $\tau$ is an initial segment or an
+      extension of $\sigma$ is also algorithmic since $\sigma$ and $\tau$
+      are finite in length; checking if $p$ extends $\tau$ as described in
+      the previous paragraph is also recursive in nature and thus
+      algorithmic. Thus by Church-Turing thesis, $p$ is computable. \\
+
+      Assume $T$ contains a path $p$ that is not isolated. Then we can find
+      infinite paths in $T$ as follows: Staring at $n=0$, let
+      $q_0\preceq p$ be a path in $T$ that is different from $p$; such a
+      path must exist otherwise 
     \end{proof}
 
   \item \it Chase definitions.
