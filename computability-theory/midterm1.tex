@@ -137,5 +137,51 @@
       all isolated paths in computable trees are computable, as we have
       shown in question 1.
     \end{proof}
+
+  \item \it Fix the above tree $T$. Show for every infinite computable
+    subtree $\tilde{T}\subseteq T$ we can effectively find an computable
+    consistent theory $H_{\tilde{T}}$ extending PA such that if
+    $f\in[\tilde{T}]$ then $\Gamma_f$ is a complete consistent extension of
+    $H_{\tilde{T}}$ and if $\Gamma$ is a complete consistent extension of
+    $H_{\tilde{T}}$ then there is $f\in[\tilde{T}]$ such that
+    $\Gamma=\Gamma_f$.
+
+    \begin{proof}
+      Let $H_{\tilde{T}}$ be the theory of PA plus $\Phi_{\tilde{T}}$, the
+      sentences that all segments that $\tilde{T}$ agree with, plus
+      $\Omega_{\tilde{T}}$, the negation of the sentences that are
+      associated with segments not in $\tilde{T}$. \\
+
+      More precisely, let
+      \[H_{\tilde{T}} :=\text{PA} \cup\Phi_{\tilde{T}}
+      \cup\Omega_{\tilde{T}},\]
+      where
+      \[\Phi_{\tilde{T}} :=\{\varphi_i:i\in\omega\; \wedge\; (\sigma(i)=1\;
+      \forall \sigma\in \tilde{T}_{i})\},\]
+      and
+      \[\Omega_{\tilde{T}} :=\{\neg(\theta_{\sigma,0} \wedge\ldots
+        \wedge\theta_{\sigma,|\sigma|-1}): \sigma\in
+        2^{<\omega}-\tilde{T}\},\]
+      where
+      \begin{equation*}
+        \theta_{\sigma,i} :=
+        \begin{cases}
+          \varphi_i, &\text{if}\; \sigma(i)=1,\\
+          \neg\varphi_i, &\text{otherwise}.
+        \end{cases}
+      \end{equation*}
+
+      Note that $\Phi_{\tilde{T}}$ and $\Omega_{\tilde{T}}$ are computable
+      because $\tilde{T}$ is, thus $H_{\tilde{T}}$ is also computable. \\
+
+      Clearly, all paths in $\tilde{T}$ will satisfy $H_{\tilde{T}}$ by
+      definition of $H_{\tilde{T}}$. To prove the reverse inclusion, let
+      $p$ be a path in $T$ but not in $\tilde{T}$. Then there must be some
+      initial segment $\sigma\prec p$ that is not in $\tilde{T}$. Then the
+      theorem associated with $p$ will satisfy the sentence
+      \[\theta_{\sigma,0} \wedge\ldots \wedge\theta_{\sigma,|\sigma|-1},\]
+      and therefore cannot satisfy the negation of the sentence which is
+      contained in $H_{\tilde{T}}$.
+    \end{proof}
 \end{enumerate}
 \end{document}
