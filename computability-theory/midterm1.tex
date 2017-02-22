@@ -46,19 +46,15 @@
       the subtrees $T_{(\tau\restriction n)^\frown0}$ or
       $T_{(\tau\restriction n)^\frown1}$ contains a path. Furthermore, from
       Konig's lemma, the subtree that does not contain a path must be
-      finite. Thus, letting $T_k$ denote the complete binary tree of length
-      $k\in\omega$, there exists some large $k\in\omega$ such that either
-      of $T_{(\tau\restriction n)^\frown0}$ is contained in
-      $\tau\restriction n^\frown0^\frown T_k$, or $T_{(\tau\restriction
-      n)^\frown1}$ is contained in $\tau\restriction n^\frown1^\frown T_k$.
-      Note that deciding if $T_{(\tau\restriction n)^\frown i}$ is
-      contained in $\tau\restriction n^\frown i^\frown T_k$ is computable
-      because $T$ is computable. Thus if $T_{(\tau\restriction n)^\frown1}$
-      is contained in $\tau\restriction n^\frown1^\frown T_k$ for some
-      large enough $k\in\omega$, then we know $\tau\in p$. On the other
-      hand, if $T_{(\tau\restriction n)^\frown0}$ is contained in
-      $\tau\restriction n^\frown0^\frown T_k$ for some large enough
-      $k\in\omega$, then $\tau\not\in p$. \\
+      finite. Thus there exists some large $k\in\omega$ such that either
+      $T_{(\tau\restriction n)^\frown0}$ is contained in $(\tau\restriction
+      n)^\frown0^\frown 2^k$, or $T_{(\tau\restriction n)^\frown1}$ is
+      contained in $(\tau\restriction n)^\frown1^\frown 2^k$, and exactly
+      one of these two conditions holds. Note that deciding if
+      $T_{(\tau\restriction n)^\frown i}$ is contained in $\tau\restriction
+      n^\frown i^\frown 2^k$ is computable because $T$ is computable. Thus
+      if the former is true, then $\tau\not\in p$, otherwise $\tau\in
+      p$. \\
 
       Observe that all checks we performed to determine if $\tau\in p$ are
       algorithmic in nature: checking if $\tau\in T$ is algorithmic since
@@ -117,11 +113,12 @@
           \ldots,\text{En}_{\Gamma_\sigma}(|\sigma|)\}.\\
       \end{align*}
 
-      Then if $\Gamma_f$ is a complete and consistent extension of PA, $f$
-      will be contained in $[T]$ by construction. Conversely, if $\Gamma_f$
-      is inconsistent, then by the compactness theorem, there must be some
-      initial segment $\sigma\prec f$ and $n\in\omega$ such that
-      $\text{En}_\sigma(n)$ is the contradiction ``0=1''. So from
+      Note that from construction, $T$ is closed under initial segment, and
+      is therefore a tree. Also, if $\Gamma_f$ is a complete and consistent
+      extension of PA, $f$ will be contained in $[T]$.  Conversely, if
+      $\Gamma_f$ is inconsistent, then by the compactness theorem, there
+      must be some initial segment $\sigma\prec f$ and $n\in\omega$ such
+      that $\text{En}_\sigma(n)$ is the contradiction ``0=1''. So from
       construction, all large enough extensions of $\sigma$ will not be
       placed in $T$, and thus $\Gamma_f$ will not be contained in $[T]$.
       Thus $[T]$ contains exactly all complete and consistent extensions of
@@ -147,21 +144,15 @@
     $\Gamma=\Gamma_f$.
 
     \begin{proof}
-      Let $H_{\tilde{T}}$ be the theory of PA plus $\Phi_{\tilde{T}}$, the
-      sentences that all segments that $\tilde{T}$ agree with, plus
-      $\Omega_{\tilde{T}}$, the negation of the sentences that are
-      associated with segments not in $\tilde{T}$. \\
+      Let $H_{\tilde{T}}$ be the theory of PA plus $\Omega_{\tilde{T}}$,
+      the negation of the initial segments that are not in $\tilde{T}$. \\
+      %plus $\Phi_{\tilde{T}}$, the sentences that all segments that
+      %$\tilde{T}$ agree with
 
       More precisely, let
-      \[H_{\tilde{T}} :=\text{PA} \cup\Phi_{\tilde{T}}
-      \cup\Omega_{\tilde{T}},\]
-      where
-      \[\Phi_{\tilde{T}} :=\{\varphi_i:i\in\omega\; \wedge\; (\sigma(i)=1\;
-      \forall \sigma\in \tilde{T}_{i})\},\]
-      and
-      \[\Omega_{\tilde{T}} :=\{\neg(\theta_{\sigma,0} \wedge\ldots
-        \wedge\theta_{\sigma,|\sigma|-1}): \sigma\in
-        2^{<\omega}-\tilde{T}\},\]
+      \[H_{\tilde{T}} :=\text{PA} \cup \{\neg(\theta_{\sigma,0}
+      \wedge\ldots \wedge\theta_{\sigma,|\sigma|-1}): \sigma\in
+      2^{<\omega}-\tilde{T}\},\]
       where
       \begin{equation*}
         \theta_{\sigma,i} :=
@@ -170,18 +161,33 @@
           \neg\varphi_i, &\text{otherwise}.
         \end{cases}
       \end{equation*}
+      %\[\Phi_{\tilde{T}} :=\{\varphi_i:i\in\omega\; \wedge\; (\sigma(i)=1\;
+      %\forall \sigma\in \tilde{T}_{i})\},\]
+      %and
 
-      Note that $\Phi_{\tilde{T}}$ and $\Omega_{\tilde{T}}$ are computable
-      because $\tilde{T}$ is, thus $H_{\tilde{T}}$ is also computable. \\
-
+      Note that $H_{\tilde{T}}$ is computable because $\tilde{T}$ is.
       Clearly, all paths in $\tilde{T}$ will satisfy $H_{\tilde{T}}$ by
-      definition of $H_{\tilde{T}}$. To prove the reverse inclusion, let
-      $p$ be a path in $T$ but not in $\tilde{T}$. Then there must be some
-      initial segment $\sigma\prec p$ that is not in $\tilde{T}$. Then the
-      theorem associated with $p$ will satisfy the sentence
-      \[\theta_{\sigma,0} \wedge\ldots \wedge\theta_{\sigma,|\sigma|-1},\]
-      and therefore cannot satisfy the negation of the sentence which is
-      contained in $H_{\tilde{T}}$.
+      definition of $H_{\tilde{T}}$. For the reverse inclusion, let $p$ be
+      a path in $T$ but not in $\tilde{T}$. Then there must be some initial
+      segment $\sigma\prec p$ that is not in $\tilde{T}$. Then the theorem
+      associated with $p$ will satisfy the sentence \[\theta_{\sigma,0}
+      \wedge\ldots \wedge\theta_{\sigma,|\sigma|-1},\] and therefore cannot
+      satisfy the negation of this sentence which is contained in
+      $H_{\tilde{T}}$.
+    \end{proof}
+
+  \item \it Use Problem 3 and Rosser's Theorem to show there is a
+    computable tree $T$ with the same two properties in Problem 2 and there
+    is an infinite computable set $M$ such that for all $m\in M$, for all
+    $\sigma\in T^{\text{ext}}\cap2^m$, $\sigma0,\sigma1\in T^{\text{ext}}$.
+    (Hint: rearrange the $\varphi_i$.)
+
+    \begin{proof}
+      Rosser's theorem says that given any consistent
+      $T\supseteq\text{PA}$ and sentence $\varphi$, there exists a sentence
+      $\psi(\varphi)$ that is independent of $T$. More precisely, this
+      sentence is defined by
+      \[\psi(\varphi) :=\varphi()\]
     \end{proof}
 \end{enumerate}
 \end{document}
