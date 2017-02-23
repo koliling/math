@@ -16,5 +16,17 @@
   \begin{proof}
     $\{2,x\}$ is not a basis of $M$ because $x,-2\in R$ witnesses their
     $R$-linear dependency; i.e. $x\cdot2+(-2)\cdot x=0$. \\
+
+    Any two distinct elements $f(x)\neq g(x)\in M$ are $R$-linearly
+    dependent with $g(x),-f(x)$ as witness. Thus $M$ has rank less than 2,
+    and so can only be of rank 1. \\
+
+    Since $M$ is an $R$-module with rank 1, if it is also free-module, then
+    $M=Rf(x)$ for some $f(x)\in M$. In particular, $2,x\in Rf(x)$, so
+    $f(x)$ divides $2$ and $x$ in $R$. Thus $f(x)$ divides a greatest
+    common divisor of $2$ and $x$ which is 1, and thus is either 1 or -1.
+    Yet neither of these are in $M$, so $M$ is not a free module.
   \end{proof}
+
+\it \textbf{Section 12.1 Q6:}
 \end{document}
