@@ -212,4 +212,23 @@
         elementary divisors.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 12.1 Q13:} If $M$ is finitely generated module over the
+  PID $R$, describe the structure of $M/\text{Tor}(M)$.
+  \begin{proof}
+    By the fundamental theorem, we can write
+    \[M\cong R^t \oplus R/(a_1)\oplus\ldots \oplus R/(a_n),\]
+    where the $a_i$'s are the invariant factors of $M$. Thus
+    \[\text{Tor}(M) \cong R/(a_1)\oplus\ldots \oplus R/(a_n),\]
+    so
+    \begin{align*}
+      M/\text{Tor}(M) &=\frac{R^t \oplus R/(a_1)\oplus\ldots \oplus R/(a_n)}
+        {R/(a_1)\oplus\ldots \oplus R/(a_n)}\\
+      &\cong R^t,\\
+    \end{align*}
+    where the last equality follows from proving that the natural
+    projection \[\varphi:R^t \oplus R/(a_1)\oplus\ldots \oplus R/(a_n)
+    \rightarrow R^t\] is surjective with kernel $R/(a_1)\oplus\ldots \oplus
+    R/(a_n)$.
+  \end{proof}
 \end{document}
