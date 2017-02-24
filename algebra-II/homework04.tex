@@ -327,5 +327,12 @@
   a PID is projective if and only if it is free.
 
   \begin{proof}
+    If $M$ is a finitely generated free-module over PID $R$, then it is
+    projective from Corollary 31 of Section 10.5. Conversely, if $M$ is
+    projective, then from Corollary 31 again, $M$ is a direct sum of
+    finitely generated free modules since $M$ is finitely generated. Then
+    since $\text{Tor}(\oplus_{i\in I}M_i) =\oplus_{i\in I}\text{Tor}(M_i)$
+    and free modules are torsion free, $M$ is torsion free. So from Theorem
+    5 of Section 12.5, $M$ is free.
   \end{proof}
 \end{document}
