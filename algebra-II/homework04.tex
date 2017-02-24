@@ -159,4 +159,57 @@
     On the other hand, if $k>n$, then
     \[p^{k-1}M/p^kM \cong\frac{(p^n)/(a)}{(p^n)/(a)} \cong0.\]
   \end{proof}
+
+\it \textbf{Section 12.1 Q12:} Let $R$ be a PID and let $p$ be a prime in
+  $R$.
+  \begin{enumerate}[label={(\alph*)}]
+    \item Let $M$ be a finitely generated torsion $R$-module. Use the
+      previous exercise to prove that $p^{k-1}M/p^kM\cong F^{n_k}$ where
+      $F$ is the field $R/(p)$ and $n_k$ is the number of elementary
+      divisors of $M$ which are powers $p^\alpha$ with $\alpha\geq k$.
+
+      \begin{proof}
+        By the fundamental theorem, since $M$ is finitely generated
+        torsion, we can assume $M=R/(p_1^{\alpha_1})
+        \oplus\ldots \oplus R/(p_n^{\alpha_n})$, where the $p_i^{\alpha_i}$
+        are the elementary divisors of $M$. Then
+        \begin{align*}
+          \frac{p^{k-1}M}{p^kM} &=\frac{p^{k-1}(R/(p_1^{\alpha_1})
+            \oplus\ldots \oplus R/(p_n^{\alpha_n}))}{p^k(R/(p_1^{\alpha_1})
+            \oplus\ldots \oplus R/(p_n^{\alpha_n}))}\\
+          &=\frac{p^{k-1}(R/(p_1^{\alpha_1}))
+            \oplus\ldots \oplus p^{k-1}(R/(p_n^{\alpha_n}))}
+            {p^{k}(R/(p_1^{\alpha_1})) \oplus\ldots \oplus
+            p^{k}(R/(p_n^{\alpha_n}))}\\
+          &\cong\frac{p^{k-1}(R/(p_1^{\alpha_1}))}
+            {p^{k}(R/(p_1^{\alpha_1}))} \oplus\ldots
+            \oplus\frac{p^{k-1}(R/(p_n^{\alpha_n}))}
+            {p^{k}(R/(p_n^{\alpha_n}))}\\
+          &\cong F^{n_k},\\
+        \end{align*}
+        where the last equality follows from question 11, and the second
+        and third equalities follow easily from constructing the natural
+        isomorphism between the relevant rings.
+      \end{proof}
+
+    \item Suppose $M_1$ and $M_2$ are isomorphic finitely generated torsion
+      $R$-modules. Use (a) to prove that, for every $k\geq0$, $M_1$ and
+      $M_2$ have the same number of elementary divisors $p^\alpha$ with
+      $\alpha\geq k$. Prove that this implies $M_1$ and $M_2$ have the same
+      set of elementary divisors.
+
+      \begin{proof}
+        Let $n_{i,k}$ be the number of elementary divisors of $M_i$ which
+        are powers of $p^\alpha$ with $\alpha>k$. Then from the previous
+        exercise,
+        \begin{align*}
+          F^{n_{1,k}} &\cong\frac{p^{k-1}M_1}{p^kM_1}\\
+          &\cong\frac{p^{k-1}M_2}{p^kM_2}\\
+          &\cong F^{n_{2,k}},\\
+        \end{align*}
+        which implies that $n_{1,k}=n_{2,k}$. Since this holds for all
+        $k\geq0$ and prime $p$, $M_1$ and $M_2$ must have the same
+        elementary divisors.
+      \end{proof}
+  \end{enumerate}
 \end{document}
