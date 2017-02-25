@@ -206,8 +206,7 @@
       \end{center}
 
       We construct this sentence $\varphi$ effectively using the diagonal
-      lemma. We use notation similar to the ones used in the notes. In
-      particular, denote the following formulas:
+      lemma. We denote formulas similarly to what was used in the notes:
       \begin{align*}
         \text{Prov}_T(p,s) :=&\;\text{``Proof}\; p\; \text{proves
           sentence}\; s\; \text{in theory}\; T\text{''},\\
@@ -219,9 +218,13 @@
           \text{''},\\ :=&\;\text{Prov}_{T_i}(p,s)\\
           \bigwedge_{j=1}^n&\; \text{Con}_{T_j} \rightarrow [(\forall
           s',p'<p)\; \text{Prov}_{T_j}(p',s') \rightarrow
-          (s'\neq\text{neg}(s) \wedge s\neq\text{neg}(s'))] \\
+          (s'\neq\text{neg}(s) \wedge s\neq\text{neg}(s'))], \\
+        \text{Pr}(s) :=&\;\exists p\; \bigvee_{i=1}^n
+          \text{Prov}_{T_i}^R(p,s),\\
+        \varphi :=&\;\text{``Diagonalization of}\; \neg\text{Pr}(s)
+          \text{''}.\\
       \end{align*}
-      \TODO{Finish constructing the bloody sentence!!!}\\
+      \TODO{Double check this sentence works!!!}\\
 
       Now we show that this sentence $\varphi$ works, i.e., that it is
       independent of all consistent $T_1,\ldots,T_n$. Assume that one of
