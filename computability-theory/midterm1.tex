@@ -206,7 +206,22 @@
       \end{center}
 
       We construct this sentence $\varphi$ effectively using the diagonal
-      lemma: \TODO{Construct the bloody sentence!!!}\\
+      lemma. We use notation similar to the ones used in the notes. In
+      particular, denote the following formulas:
+      \begin{align*}
+        \text{Prov}_T(p,s) :=&\;\text{``Proof}\; p\; \text{proves
+          sentence}\; s\; \text{in theory}\; T\text{''},\\
+        \text{Con}_T :=&\;\text{``}T\; \text{is consistent''},\\
+        \text{Prov}_{T_i}^R(p,s) :=&\;\text{``}p\; \text{proves}\;
+          T_i\vdash s\; \text{and no shorter proof can prove its
+          negation}\\
+          &\;\text{from consistent theories of}\; T_1,\ldots,T_n
+          \text{''},\\ :=&\;\text{Prov}_{T_i}(p,s)\\
+          \bigwedge_{j=1}^n&\; \text{Con}_{T_j} \rightarrow [(\forall
+          s',p'<p)\; \text{Prov}_{T_j}(p',s') \rightarrow
+          (s'\neq\text{neg}(s) \wedge s\neq\text{neg}(s'))] \\
+      \end{align*}
+      \TODO{Finish constructing the bloody sentence!!!}\\
 
       Now we show that this sentence $\varphi$ works, i.e., that it is
       independent of all consistent $T_1,\ldots,T_n$. Assume that one of
