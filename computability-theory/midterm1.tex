@@ -200,22 +200,20 @@
       To generalize Rosser's trick, we change the sentence $\varphi$ to
       say:
       \begin{center}
-        ``\textit{For any proof of me from any consistent theories in
+        ``\textit{For any proof of me from any consistent theory in
         $T_1,\ldots,T_n$, there is a shorter proof of my
         negation from one of those consistent theories.}''
       \end{center}
 
       We construct this sentence $\varphi$ effectively using the diagonal
-      lemma: \\
+      lemma: \TODO{Construct the bloody sentence!!!}\\
 
       Now we show that this sentence $\varphi$ works, i.e., that it is
       independent of all consistent $T_1,\ldots,T_n$. Assume that one of
-      these consistent theories proves $\varphi$; we can assume without
-      loss of generality that this theory is $T_1$. Then there is a
-      ``real'' proof coded as some natural number $n_1\in\omega$ such that
-      $T_1\vdash\varphi$ via this proof. By choosing the shortest proof of
-      $\varphi$ from $T_1$, we can assume that no proof shorter than $n_1$
-      can give $T_1\vdash\varphi$. So we have
+      these consistent theories $T_1$ proves $\varphi$. Then there is a
+      ``real'' proof coded as some natural number $n_1\in\omega$ that
+      proves $T_1\vdash\varphi$. Choose $n_1$ to be the length of the
+      shortest such proof. So we have
       \[\exists\; \text{shortest proof of}\; T_1\vdash\varphi\; \text{with
       length}\; n_1\in\omega.\]
 
@@ -228,23 +226,44 @@
       proof. So we also have
       \[\exists\; \text{shortest proof of}\; T_2\vdash\neg\varphi\;
       \text{with length}\; n_2<n_1\in\omega.\]
-      
+
       Then from the assumption of $\neg\varphi$, there is a proof of
-      $\varphi$ of length $n_3$ from one of the consistent theories
-      $T_1,\ldots,T_n$, such that the proof is shorter than all proofs (if
-      any) of $\neg\varphi$ from any consistent theory in $T_1,\ldots,T_n$.
-      Now we already have $T_2\vdash\neg\varphi$ via a proof of length
-      $n_2$, so from the assumption of $\neg\varphi$, we have $n_3<n_2$,
-      and in particular, implies that this proof is a ``real'' proof, and
+      $\varphi$ from one of the consistent theories $T_1,\ldots,T_n$, which
+      is shorter than all proofs of $\neg\varphi$ from any consistent
+      theory in $T_1,\ldots,T_n$. Now we already have
+      $T_2\vdash\neg\varphi$ via a proof of length $n_2$, so from the
+      assumption of $\neg\varphi$, the proof of $\varphi$ we are seeking
+      must have length $n_3<n_2$, and in particular, is a ``real'' proof,
       not just a proof from a non-standard number. Then the theory that
-      proves $\varphi$ cannot be $T_1$ from the minimality of $n_1$, and
-      also cannot be $T_2$ from consistency of $T_2$. Assume it is $T_3$
-      that proves $\varphi$, and let $n_3$ be the length of shortest proof
-      of $\varphi$ from $T_3$. So we have
+      proves $\varphi$ cannot be $T_1$ from the minimality of $n_1$ and
+      from $n_3<n_1$. Also, the theory cannot be $T_2$ from consistency of
+      $T_2$. Assume it is $T_3$ that proves $\varphi$, and let $n_3$ be the
+      length of shortest proof of $\varphi$ from $T_3$. So we have
       \[\exists\; \text{shortest proof of}\; T_3\vdash\varphi\;
       \text{with length}\; n_3<n_2<n_1\in\omega.\]
 
-      Continueing in this manner, we can 
+      Continuing in this manner, we get a series of proofs of decreasing
+      lengths from distinct consistent theories, where the sentence proved
+      alternates between $\varphi$ and $\neg\varphi$. Furthermore, the
+      length of each proof is the shortest possible from each theory, i.e.
+      \[\begin{array}{l}
+        \exists\; \text{shortest proof of}\; T_1\vdash\varphi\; \text{with
+        length}\; n_1\in\omega\\
+        \exists\; \text{shortest proof of}\; T_2\vdash\neg\varphi\;
+        \text{with length}\; n_2<n_1\in\omega\\
+        \exists\; \text{shortest proof of}\; T_3\vdash\varphi\;
+        \text{with length}\; n_3<n_2<n_1\in\omega\\
+        \ldots\\
+      \end{array}\]
+
+      Since the number of theories considered is finite, we will eventually
+      exhaust all possible consistent theories, and be unable to find an
+      unused consistent theory to prove either $\varphi$ or $\neg\varphi$.
+      Thus $\varphi$ is independent in all consistent $T_1,\ldots,T_n$. \\
+
+      Note that if we begin by assuming that $T_1$ proves $\neg\varphi$
+      instead of $\varphi$, we can also use the same alternating series
+      argument to get a contradiction. 
 
       %We first use Rosser's theorem to obtain a computable and infinite set
       %of formulas $\Phi_\text{ind}$ that are independent in the theory
@@ -262,6 +281,28 @@
     on the list are computable.
 
     \begin{proof}
+      We first construct a total recursive function $f$ that enumerates
+      indices $e$ where $\text{range}(\varphi_e)$ is increasing. We
+      construct $f$ by constructing another function $\varphi_{f(e)}(s)$
+      recursively: let $\varphi_{f(e)}(s+1)$ be the first element in
+      $\text{range}(\varphi_e)$ that is larger than all of
+      $\{\varphi_{f(e)}(0), \ldots,\varphi_{f(e)}(s)\}$. If no such element
+      exists, then $\varphi_{f(e)}(s+1)$ will not halt. Note that $f(e)$
+      exists from the SMN theorem, and is total recursive from
+      construction. \\
+
+      Now since a set is computable if and only if it is the range of some
+      strictly increasing partial recursive function, $f$ will enumerate
+      only indices whose range is a computable set, and also all computable
+      sets will have a partial recursive function whose range enumerates it
+      and whose index is enumerated by $f$. Thus by letting $g(e)$ be a
+      total recursive function that outputs the index whose domain equals
+      the range of $\varphi_e$, the composition $g\circ f$ will give a
+      computable listing of all computable sets. \\
+
+      Once again, we can construct $g$ via the SMN theorem, by first
+      constructing another function $\varphi_{g(e)}(x)$ that outputs
+      0 if $x\in\text{range}(\varphi_e)$ and that does not halt otherwiseand .
     \end{proof}
 
   \item \it Soare 2.4.17:
