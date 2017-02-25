@@ -177,6 +177,8 @@
       $H_{\tilde{T}}$.
     \end{proof}
 
+  \item \it Soare 3.7.3:
+
   \item \it Use Problem 3 and Rosser's Theorem to show there is a
     computable tree $T$ with the same two properties in Problem 2 and there
     is an infinite computable set $M$ such that for all $m\in M$, for all
@@ -184,15 +186,44 @@
     (Hint: rearrange the $\varphi_i$.)
 
     \begin{proof}
-      We first use Rosser's theorem to obtain a computable and infinite set
-      of formulas $\Phi_\text{ind}$ that are independent in the theory
-      $T=\text{PA}$: By Rosser's theorem, by applying the diagonal lemma to
-      the formula $\neg\text{Pr}_{\text{PA}}(x)$, we can obtain a formula
-      $\text{Diag}(\neg\text{Pr}_{\text{PA}})$ that is independent in PA.
-      By the same argument, replacing $\text{Pr}_\text{PA}(x)$ by $n$
-      conjunctions of itself for some $n\in\omega$, the formula
-      $\text{Diag}(\neg(\text{Pr}_{\text{PA}} \wedge\ldots
-      \wedge\text{Pr}_{\text{PA}}))$ is also independent in PA.
+      Rosser's trick uses the diagonal lemma to effectively construct a
+      sentence that is independent of a given computable extension $T$ of
+      PA. We first generalize Rosser's trick to effectively construct a
+      sentence that is independent of a given finite set of computable
+      extensions $T_1,\ldots,T_n$ of PA. The sentence constructed from
+      Rosser's trick says:\\
+      \begin{center}
+        ``For any proof of me from $T$, there is a shorter proof of my
+        negation from $T$.''
+      \end{center}
+
+      To generalize Rosser's trick, we change the sentence to say\\
+      \begin{center}
+        ``For any proof of me from any consistent theories in
+        $T_1,\ldots,T_n$, there is a shorter proof of my
+        negation from one of those consistent theories.''
+      \end{center}
+
+      %We first use Rosser's theorem to obtain a computable and infinite set
+      %of formulas $\Phi_\text{ind}$ that are independent in the theory
+      %$T=\text{PA}$: By Rosser's theorem, by applying the diagonal lemma to
+      %the formula $\neg\text{Pr}_{\text{PA}}(x)$, we can obtain a formula
+      %$\text{Diag}(\neg\text{Pr}_{\text{PA}})$ that is independent in PA.
+      %By the same argument, replacing $\text{Pr}_\text{PA}(x)$ by $n$
+      %conjunctions of itself for some $n\in\omega$, the formula
+      %$\text{Diag}(\neg(\text{Pr}_{\text{PA}} \wedge\ldots
+      %\wedge\text{Pr}_{\text{PA}}))$ is also independent in PA.
     \end{proof}
+
+  \item \it Prove there is a computable listing of computably enumerable
+    sets which contains all the computable sets and the only sets appearing
+    on the list are computable.
+
+    \begin{proof}
+    \end{proof}
+
+  \item \it Soare 2.4.17:
+
+  \item \it Soare 2.4.18:
 \end{enumerate}
 \end{document}
