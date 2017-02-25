@@ -191,18 +191,60 @@
       PA. We first generalize Rosser's trick to effectively construct a
       sentence that is independent of a given finite set of computable
       extensions $T_1,\ldots,T_n$ of PA. The sentence constructed from
-      Rosser's trick says:\\
+      Rosser's trick says:
       \begin{center}
-        ``For any proof of me from $T$, there is a shorter proof of my
-        negation from $T$.''
+        ``\textit{For any proof of me from $T$, there is a shorter proof of my
+        negation from $T$.}''
       \end{center}
 
-      To generalize Rosser's trick, we change the sentence to say\\
+      To generalize Rosser's trick, we change the sentence $\varphi$ to
+      say:
       \begin{center}
-        ``For any proof of me from any consistent theories in
+        ``\textit{For any proof of me from any consistent theories in
         $T_1,\ldots,T_n$, there is a shorter proof of my
-        negation from one of those consistent theories.''
+        negation from one of those consistent theories.}''
       \end{center}
+
+      We construct this sentence $\varphi$ effectively using the diagonal
+      lemma: \\
+
+      Now we show that this sentence $\varphi$ works, i.e., that it is
+      independent of all consistent $T_1,\ldots,T_n$. Assume that one of
+      these consistent theories proves $\varphi$; we can assume without
+      loss of generality that this theory is $T_1$. Then there is a
+      ``real'' proof coded as some natural number $n_1\in\omega$ such that
+      $T_1\vdash\varphi$ via this proof. By choosing the shortest proof of
+      $\varphi$ from $T_1$, we can assume that no proof shorter than $n_1$
+      can give $T_1\vdash\varphi$. So we have
+      \[\exists\; \text{shortest proof of}\; T_1\vdash\varphi\; \text{with
+      length}\; n_1\in\omega.\]
+
+      Now from the assumption of $\varphi$, one of the consistent theories
+      of $T_1,\ldots,T_n$ also proves $\neg\varphi$ via some proof whose
+      code $n_2$ is smaller than $n_1$. The theory that proves
+      $\neg\varphi$ cannot be $T_1$ since $T_1$ is consistent and already
+      proves $\varphi$. We can assume that it is $T_2$ that proves
+      $\neg\varphi$, and choose $n_2$ to be the length of the shortest such
+      proof. So we also have
+      \[\exists\; \text{shortest proof of}\; T_2\vdash\neg\varphi\;
+      \text{with length}\; n_2<n_1\in\omega.\]
+      
+      Then from the assumption of $\neg\varphi$, there is a proof of
+      $\varphi$ of length $n_3$ from one of the consistent theories
+      $T_1,\ldots,T_n$, such that the proof is shorter than all proofs (if
+      any) of $\neg\varphi$ from any consistent theory in $T_1,\ldots,T_n$.
+      Now we already have $T_2\vdash\neg\varphi$ via a proof of length
+      $n_2$, so from the assumption of $\neg\varphi$, we have $n_3<n_2$,
+      and in particular, implies that this proof is a ``real'' proof, and
+      not just a proof from a non-standard number. Then the theory that
+      proves $\varphi$ cannot be $T_1$ from the minimality of $n_1$, and
+      also cannot be $T_2$ from consistency of $T_2$. Assume it is $T_3$
+      that proves $\varphi$, and let $n_3$ be the length of shortest proof
+      of $\varphi$ from $T_3$. So we have
+      \[\exists\; \text{shortest proof of}\; T_3\vdash\varphi\;
+      \text{with length}\; n_3<n_2<n_1\in\omega.\]
+
+      Continueing in this manner, we can 
 
       %We first use Rosser's theorem to obtain a computable and infinite set
       %of formulas $\Phi_\text{ind}$ that are independent in the theory
