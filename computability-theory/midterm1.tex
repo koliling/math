@@ -380,61 +380,54 @@
           $\psi(\langle e_0,e_1\rangle)$ converges.  Otherwise, we convert
           $W_{e_0}$ and $W_{e_1}$ to $W_a$ and $W_b$ respectively. \\
 
-          We first effectively code $W_{e_0}$ and $W_{e_1}$
-          in $W_{e_0}\oplus W_{e_1}$ if $\psi(e_0,e_1)$ converges,
-          otherwise we code $W_{e_0}$ and $W_{e_1}$ to $\emptyset$. We code
-          these functions using the SMN theorem to get a total recursive
-          function $h(x)$ such that
+          Following the hint from Exercise 2.4.11, we first effectively
+          change $W_{e_0}$ and $W_{e_1}$ to the empty set if and only if
+          $\psi(\langle e_0,e_1\rangle)$ does not halt. By the SMN theorem,
+          there are total recursive functions $h_0,h_1$ that performs this
+          conversion:
           \begin{align*}
-            W_{h(\langle e_0,e_1\rangle)} :=
+            W_{h_0(\langle e_0,e_1\rangle)} :=
             \begin{cases}
-              W_{e_0}\oplus W_{e_1}, &\text{if}\; \psi(\langle
-                e_0,e_1\rangle)\downarrow,\\
-              \emptyset, &\text{otherwise}.\\
-            \end{cases}
-          \end{align*}
-
-          Then composition $f\circ h$ gives us
-          \begin{align*}
-            W_{fh(\langle e_0,e_1\rangle)} :=
-            \begin{cases}
-              (W_a\cup W_{e_0})\oplus(W_b\cup W_{e_1})
-                =W_{f(a,e_0)}\oplus W_{f(b,e_1)}, &\text{if}\; \psi(\langle
-                e_0,e_1\rangle)\downarrow,\\
-              W_a\oplus W_b =(W_a\cup\emptyset)\oplus(W_b\cup\emptyset),
-                &\text{otherwise}.\\
-            \end{cases}
-          \end{align*}
-
-          By SMN again, we have ``reverse join'' functions $j_0$ and $j_1$
-          such that
-          \begin{align*}
-            W_e &=W_{j_0(e)} \oplus W_{j_1(e)}.\\
-          \end{align*}
-
-          By composing with reverse join functions, we can recover
-          \begin{align*}
-            W_{j_0fh(\langle e_0,e_1\rangle)} :=
-            \begin{cases}
-              W_a\cup W_{e_0}, &\text{if}\; \psi(\langle
-                e_0,e_1\rangle)\downarrow,\\
-              W_a, &\text{otherwise},\\
+              W_{e_0}, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow,\\
+              \emptyset, &\text{otherwise},\\
             \end{cases}
           \end{align*}
 
           and
           \begin{align*}
-            W_{j_1fh(\langle e_0,e_1\rangle)} :=
+            W_{h_1(\langle e_0,e_1\rangle)} :=
             \begin{cases}
-              W_b\cup W_{e_1}, &\text{if}\; \psi(\langle
-                e_0,e_1\rangle)\downarrow,\\
-              W_b, &\text{otherwise}.\\
+              W_{e_1}, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow,\\
+              \emptyset, &\text{otherwise}.\\
             \end{cases}
           \end{align*}
 
-          Then by composing with the $g$ function, we get functions
+          With SMN theorem again, we can find total recursive functions
+          $f_0,f_1$ that adds $W_a$ to $W_{e_0}$ and adds $W_b$ to
+          $W_{e_1}$:
           \begin{align*}
-            W_{g(j_0fh(\langle e_0,e_1\rangle),\; j_1fh(\langle
+            W_{f_0h_0(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              W_a\cup W_{e_0}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              W_a\cup\emptyset =W_a, &\text{otherwise},\\
+            \end{cases}
+          \end{align*}
+
+          and
+          \begin{align*}
+            W_{f_1h_1(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              W_b\cup W_{e_1}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              W_b\cup\emptyset =W_b, &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          Then by composing with the $g$ function to perform the $\backslash$
+          operation,
+          \begin{align*}
+            W_{g(f_0h_0(\langle e_0,e_1\rangle),\; f_1h_1(\langle
             e_0,e_1\rangle))} :=
             \begin{cases}
               (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1}), &\text{if}\;
@@ -445,7 +438,7 @@
 
           and
           \begin{align*}
-            W_{g(j_1fh(\langle e_0,e_1\rangle)),\; j_0fh(\langle
+            W_{g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
             e_0,e_1\rangle)} :=
             \begin{cases}
               (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0}), &\text{if}\;
@@ -455,28 +448,11 @@
           \end{align*}
 
           Finally, the composition
-          \[q(\langle e_0,e_1\rangle) :=\psi(g(j_0fh(\langle
-            e_0,e_1\rangle),\; j_1fh(\langle e_0,e_1\rangle))\langle
-            ,\;g(j_1fh(\langle e_0,e_1\rangle)),\; j_0fh(\langle
+          \[q(\langle e_0,e_1\rangle) :=\psi(\langle g(f_0h_0(\langle
+            e_0,e_1\rangle),\; f_1h_1(\langle e_0,e_1\rangle))
+            ,\;g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
             e_0,e_1\rangle) \rangle)\]
           will give us the required total function.
-
-          %Such $g$ can be constructed by applying the SMN theorem on the
-          %partial recursive function
-          %\begin{align*}
-          %  \varphi_{g(\langle e_0,e_1\rangle)}(x) :=
-          %  \begin{cases}
-          %    0, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow\;
-          %      \text{and}\; 2|x\; \text{and}\;
-          %      \varphi_{e_0}(x/2)\downarrow,\\
-          %    0, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow\;
-          %      \text{and}\; 2\not|x\; \text{and}\;
-          %      \varphi_{e_1}((x-1)/2)\downarrow,\\
-          %    \uparrow, &\text{otherwise}.\\
-          %  \end{cases}
-          %\end{align*}
-
-          %Define
         \end{proof}
     \end{enumerate}
 
