@@ -190,15 +190,15 @@
       sentence that is independent of a given computable extension $T$ of
       PA. We first generalize Rosser's trick to effectively construct a
       sentence that is independent of a given finite set of computable
-      extensions $T_1,\ldots,T_n$ of PA. The sentence constructed from
-      Rosser's trick says:
+      extensions $T_1,\ldots,T_n$ of PA. The original Rosser's sentence
+      says:
       \begin{center}
         ``\textit{For any proof of me from $T$, there is a shorter proof of my
         negation from $T$.}''
       \end{center}
 
-      To generalize Rosser's trick, we change the sentence $\varphi$ to
-      say:
+      To generalize Rosser's trick, we change Rosser's sentence to
+      $\varphi$ that says:
       \begin{center}
         ``\textit{For any proof of me from any consistent theory in
         $T_1,\ldots,T_n$, there is a shorter proof of my
@@ -217,7 +217,7 @@
           &\;\text{from consistent theories of}\; T_1,\ldots,T_n
           \text{''},\\ :=&\;\text{Prov}_{T_i}(p,s)\\
           \bigwedge_{j=1}^n&\; \text{Con}_{T_j} \rightarrow [(\forall
-          s',p'<p)\; \text{Prov}_{T_j}(p',s') \rightarrow
+          s'\forall p'<p)\; \text{Prov}_{T_j}(p',s') \rightarrow
           (s'\neq\text{neg}(s) \wedge s\neq\text{neg}(s'))], \\
         \text{Pr}(s) :=&\;\exists p\; \bigvee_{i=1}^n
           \text{Prov}_{T_i}^R(p,s),\\
@@ -320,10 +320,165 @@
 
       Once again, we can construct $g$ via the SMN theorem, by first
       constructing another function $\varphi_{g(e)}(x)$ that outputs
-      0 if $x\in\text{range}(\varphi_e)$ and that does not halt otherwiseand .
+      0 if $x\in\text{range}(\varphi_e)$ and that does not halt otherwise.
     \end{proof}
 
-  \item \it Soare 2.4.17:
+  \item \it Soare 2.4.17: Assume the disjoint pair $(A,B)$ of c.e. sets is
+    effectively inseparable via $\psi$.
+    \begin{enumerate}[label={(\roman*)}]
+      \item Use the method of Exercise 2.4.11 to prove that we may assume
+        $\psi$ is total and 1-1.
+
+        \begin{proof}
+          We first make $\psi$ total. We can assume that there exists some
+          $a,b\in\omega$ such that $A\subseteq W_a$ and $B\subseteq W_b$
+          and $W_a\cap W_b=\emptyset$, because if no such $a,b$ exists,
+          then the constant 0 function would be make $(A,B)$ effectively
+          inseparable. Observe that given arbitrary $e_0,e_1\in\omega$ such
+          that $A\subseteq W_{e_0}$ and $B\subseteq W_{e_1}$ and
+          $W_{e_0}\cap W_{e_1}=\emptyset$, the sets $W_a\cup W_{e_0}$ and
+          $W_b\cup W_{e_1}$ will also separate $A$ and $B$, even though
+          they may not the disjoint. Then by Theorem 89, there is a total
+          recursive function $f$ such that
+          \begin{align*}
+            W_a\cup W_{e_0} &=W_{f(a,e_0)},\\
+            W_b\cup W_{e_1} &=W_{f(b,e_1)}.
+          \end{align*}
+
+          Observe further that since $(W_a\cup W_{e_0})\cap (W_b\cup
+          W_{e_1})$ do intersect with $A$ or $B$, the disjoint sets
+          $(W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
+          W_{e_1})\backslash(W_a\cup W_{e_0})$ will separate $A$ and $B$.
+          From the reduction principle for computably enumerable sets,
+          there is a total recursive function $g$ such that
+          \begin{align*}
+            (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})
+              &=W_{f(a,e_0)}\backslash W_{f(b,e_1)}
+              =W_{g(f(a,e_0),f(b,e_1))},\\
+            (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})
+              &=W_{f(b,e_1)}\backslash W_{f(a,e_0)}
+              =W_{g(f(b,e_1),f(a,e_0))}.\\
+          \end{align*}
+
+          Thus if disjoint sets $W_{e_0}$ and $W_{e_1}$ separate $A$ and
+          $B$, then disjoint sets $(W_a\cup W_{e_0})\backslash(W_b\cup
+          W_{e_1})$ and $(W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})$ will
+          also separate $A$ and $B$. Furthermore, the union of these two
+          sets will contain $W_{e_0}\cup W_{e_1}$, thus
+          \[\psi(\langle g(f(a,e_0),f(b,e_1)), g(f(b,e_1),f(a,e_0))\rangle)
+          \not\in W_{e_0}\cup W_{e_1}.\]
+
+          In addition, if $W_{e_0}=W_{e_1}=\emptyset$, then $(W_a\cup
+          W_{e_0})\backslash(W_b\cup W_{e_1})=W_a$ and $(W_b\cup
+          W_{e_1})\backslash(W_a\cup W_{e_0})=W_b$, which will also
+          separate $A$ and $B$. \\
+
+          Using these observations, we make $\psi$ a total function by
+          effectively ``converting'' $W_{e_0}$ and $W_{e_1}$ to $(W_a\cup
+          W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
+          W_{e_1})\backslash(W_a\cup W_{e_0})$ respectively, if
+          $\psi(\langle e_0,e_1\rangle)$ converges.  Otherwise, we convert
+          $W_{e_0}$ and $W_{e_1}$ to $W_a$ and $W_b$ respectively. \\
+
+          We first effectively code $W_{e_0}$ and $W_{e_1}$
+          in $W_{e_0}\oplus W_{e_1}$ if $\psi(e_0,e_1)$ converges,
+          otherwise we code $W_{e_0}$ and $W_{e_1}$ to $\emptyset$. We code
+          these functions using the SMN theorem to get a total recursive
+          function $h(x)$ such that
+          \begin{align*}
+            W_{h(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              W_{e_0}\oplus W_{e_1}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              \emptyset, &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          Then composition $f\circ h$ gives us
+          \begin{align*}
+            W_{fh(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              (W_a\cup W_{e_0})\oplus(W_b\cup W_{e_1})
+                =W_{f(a,e_0)}\oplus W_{f(b,e_1)}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              W_a\oplus W_b =(W_a\cup\emptyset)\oplus(W_b\cup\emptyset),
+                &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          By SMN again, we have ``reverse join'' functions $j_0$ and $j_1$
+          such that
+          \begin{align*}
+            W_e &=W_{j_0(e)} \oplus W_{j_1(e)}.\\
+          \end{align*}
+
+          By composing with reverse join functions, we can recover
+          \begin{align*}
+            W_{j_0fh(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              W_a\cup W_{e_0}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              W_a, &\text{otherwise},\\
+            \end{cases}
+          \end{align*}
+
+          and
+          \begin{align*}
+            W_{j_1fh(\langle e_0,e_1\rangle)} :=
+            \begin{cases}
+              W_b\cup W_{e_1}, &\text{if}\; \psi(\langle
+                e_0,e_1\rangle)\downarrow,\\
+              W_b, &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          Then by composing with the $g$ function, we get functions
+          \begin{align*}
+            W_{g(j_0fh(\langle e_0,e_1\rangle),\; j_1fh(\langle
+            e_0,e_1\rangle))} :=
+            \begin{cases}
+              (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1}), &\text{if}\;
+                \psi(\langle e_0,e_1\rangle)\downarrow,\\
+              W_a\backslash W_b=W_a, &\text{otherwise},\\
+            \end{cases}
+          \end{align*}
+
+          and
+          \begin{align*}
+            W_{g(j_1fh(\langle e_0,e_1\rangle)),\; j_0fh(\langle
+            e_0,e_1\rangle)} :=
+            \begin{cases}
+              (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0}), &\text{if}\;
+                \psi(\langle e_0,e_1\rangle)\downarrow,\\
+              W_b\backslash W_a=W_b, &\text{otherwise},\\
+            \end{cases}
+          \end{align*}
+
+          Finally, the composition
+          \[q(\langle e_0,e_1\rangle) :=\psi(g(j_0fh(\langle
+            e_0,e_1\rangle),\; j_1fh(\langle e_0,e_1\rangle))\langle
+            ,\;g(j_1fh(\langle e_0,e_1\rangle)),\; j_0fh(\langle
+            e_0,e_1\rangle) \rangle)\]
+          will give us the required total function.
+
+          %Such $g$ can be constructed by applying the SMN theorem on the
+          %partial recursive function
+          %\begin{align*}
+          %  \varphi_{g(\langle e_0,e_1\rangle)}(x) :=
+          %  \begin{cases}
+          %    0, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow\;
+          %      \text{and}\; 2|x\; \text{and}\;
+          %      \varphi_{e_0}(x/2)\downarrow,\\
+          %    0, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow\;
+          %      \text{and}\; 2\not|x\; \text{and}\;
+          %      \varphi_{e_1}((x-1)/2)\downarrow,\\
+          %    \uparrow, &\text{otherwise}.\\
+          %  \end{cases}
+          %\end{align*}
+
+          %Define
+        \end{proof}
+    \end{enumerate}
 
   \item \it Soare 2.4.18:
 \end{enumerate}
