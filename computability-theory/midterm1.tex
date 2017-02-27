@@ -224,7 +224,6 @@
         \varphi :=&\;\text{``Diagonalization of}\; \neg\text{Pr}(s)
           \text{''}.\\
       \end{align*}
-      \TODO{Double check this sentence works!!!}\\
 
       Now we show that this sentence $\varphi$ works, i.e., that it is
       independent of all consistent $T_1,\ldots,T_n$. Assume that one of
@@ -281,17 +280,21 @@
 
       Note that if we begin by assuming that $T_1$ proves $\neg\varphi$
       instead of $\varphi$, we can also use the same alternating series
-      argument to get a contradiction. 
+      argument to get a contradiction. \\
 
-      %We first use Rosser's theorem to obtain a computable and infinite set
-      %of formulas $\Phi_\text{ind}$ that are independent in the theory
-      %$T=\text{PA}$: By Rosser's theorem, by applying the diagonal lemma to
-      %the formula $\neg\text{Pr}_{\text{PA}}(x)$, we can obtain a formula
-      %$\text{Diag}(\neg\text{Pr}_{\text{PA}})$ that is independent in PA.
-      %By the same argument, replacing $\text{Pr}_\text{PA}(x)$ by $n$
-      %conjunctions of itself for some $n\in\omega$, the formula
-      %$\text{Diag}(\neg(\text{Pr}_{\text{PA}} \wedge\ldots
-      %\wedge\text{Pr}_{\text{PA}}))$ is also independent in PA.
+      Fix an enumeration of the sentences $\Phi$. We build the tree $T$ in
+      steps, such that $T=\cup_{n\in\omega} T_n$, where $T_n=T\cap2^n$. At
+      each step $n$, we choose an appropriate sentence $\varphi_n$ and
+      extend the tree $T_{n-1}$ to $T_n$ in the way that was described in
+      Question 2. At even steps, the sentence we choose is the first one in
+      the enumeration $\Phi$ that has not been used yet. At odd steps
+      $2n+1$, the sentence we choose is the one described earlier, where we
+      effectively construct a sentence that is independent of all the
+      consistent theories of the branches of of length $2n$. Note that the
+      theory of each branch is computable since it is the finite
+      conjunction of the sentences in of the branch together with PA. So
+      setting $M$ to be all the even numbers gives us an infinite
+      computable set that satisfies the requirements.
     \end{proof}
 
   \item \it Prove there is a computable listing of computably enumerable
@@ -330,79 +333,6 @@
         $\psi$ is total and 1-1.
 
         \begin{proof}
-          %We first make $\psi$ total. We can assume that there exists some
-          %$a,b\in\omega$ such that $A\subseteq W_a$ and $B\subseteq W_b$
-          %and $W_a\cap W_b=\emptyset$, because if no such $a,b$ exists,
-          %then the constant 0 function would be make $(A,B)$ effectively
-          %inseparable. Observe that given arbitrary $e_0,e_1\in\omega$ such
-          %that $A\subseteq W_{e_0}$ and $B\subseteq W_{e_1}$ and
-          %$W_{e_0}\cap W_{e_1}=\emptyset$, the sets $W_a\cup W_{e_0}$ and
-          %$W_b\cup W_{e_1}$ will also separate $A$ and $B$, even though
-          %they may not the disjoint. Then by Theorem 89, there is a total
-          %recursive function $f$ such that
-          %\begin{align*}
-          %  W_a\cup W_{e_0} &=W_{f(a,e_0)},\\
-          %  W_b\cup W_{e_1} &=W_{f(b,e_1)}.
-          %\end{align*}
-
-          %Observe further that since $(W_a\cup W_{e_0})\cap (W_b\cup
-          %W_{e_1})$ do intersect with $A$ or $B$, the disjoint sets
-          %$(W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
-          %W_{e_1})\backslash(W_a\cup W_{e_0})$ will separate $A$ and $B$.
-          %From the reduction principle for computably enumerable sets,
-          %there is a total recursive function $g$ such that
-          %\begin{align*}
-          %  (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})
-          %    &=W_{f(a,e_0)}\backslash W_{f(b,e_1)}
-          %    =W_{g(f(a,e_0),f(b,e_1))},\\
-          %  (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})
-          %    &=W_{f(b,e_1)}\backslash W_{f(a,e_0)}
-          %    =W_{g(f(b,e_1),f(a,e_0))}.\\
-          %\end{align*}
-
-          %Thus if disjoint sets $W_{e_0}$ and $W_{e_1}$ separate $A$ and
-          %$B$, then disjoint sets $(W_a\cup W_{e_0})\backslash(W_b\cup
-          %W_{e_1})$ and $(W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})$ will
-          %also separate $A$ and $B$. Furthermore, the union of these two
-          %sets will contain $W_{e_0}\cup W_{e_1}$, thus
-          %\[\psi(\langle g(f(a,e_0),f(b,e_1)), g(f(b,e_1),f(a,e_0))\rangle)
-          %\not\in W_{e_0}\cup W_{e_1}.\]
-
-          %In addition, if $W_{e_0}=W_{e_1}=\emptyset$, then $(W_a\cup
-          %W_{e_0})\backslash(W_b\cup W_{e_1})=W_a$ and $(W_b\cup
-          %W_{e_1})\backslash(W_a\cup W_{e_0})=W_b$, which will also
-          %separate $A$ and $B$. \\
-
-          %Using these observations, we make $\psi$ a total function by
-          %effectively ``converting'' $W_{e_0}$ and $W_{e_1}$ to $(W_a\cup
-          %W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
-          %W_{e_1})\backslash(W_a\cup W_{e_0})$ respectively, if
-          %$\psi(\langle e_0,e_1\rangle)$ converges. Otherwise, we convert
-          %$W_{e_0}$ and $W_{e_1}$ to $W_a$ and $W_b$ respectively. \\
-
-          %Then by composing with the $g$ function to perform the $\backslash$
-          %operation, we get
-          %\begin{align*}
-          %  W_{g(f_0h_0(\langle e_0,e_1\rangle),\; f_1h_1(\langle
-          %  e_0,e_1\rangle))} :=
-          %  \begin{cases}
-          %    (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1}), &\text{if}\;
-          %      \psi(\langle e_0,e_1\rangle)\downarrow,\\
-          %    W_a\backslash W_b=W_a, &\text{otherwise},\\
-          %  \end{cases}
-          %\end{align*}
-
-          %and
-          %\begin{align*}
-          %  W_{g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
-          %  e_0,e_1\rangle)} :=
-          %  \begin{cases}
-          %    (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0}), &\text{if}\;
-          %      \psi(\langle e_0,e_1\rangle)\downarrow,\\
-          %    W_b\backslash W_a=W_b, &\text{otherwise},\\
-          %  \end{cases}
-          %\end{align*}
-
           Since $A$ and $B$ are computably enumerable, we can write $A=W_a$
           and $B=W_b$ for some $a,b\in\omega$. We first make $\psi$ total.
           The idea is to first use the hint of Exercise 2.4.11 to
