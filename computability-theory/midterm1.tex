@@ -428,6 +428,7 @@
       \item Prove that the following c.e. sets are effectively inseparable:
         $A=\{x:\varphi_x(x)=0\}$ and $B=\{x:\varphi_x(x)=1\}$. Hint: Define
         $\psi$ by
+
         \begin{align*}
           \varphi_{\psi(x,y)}(z)=
           \begin{cases}
@@ -456,6 +457,19 @@
           $B\cap W_x=\emptyset$. By a symmetrical argument,
           $\psi(x,y)\not\in W_y$, thus $\psi(x,y)\in\overline{W_x\cup W_y}$
           as required.
+        \end{proof}
+
+      \item Show that if $(A,B)$ is a pair of effectively inseparable c.e.
+        sets, then each of $A$ and $B$ is creative.
+
+        \begin{proof}
+          By symmetrical argument, it suffices to show that $\bar{A}$ is
+          productive. Since $A$ and $B$ are c.e., we can write $A=W_a$ and
+          $B=W_b$ for some $a,b\in\omega$.  Let $h(x)$ be a recursive
+          function such that $W_{h(x)}=W_x\cup W_b$. Note that $h(x)$
+          exists from SMN. Then if $W_x\subseteq\bar{A}$,
+          $\psi(a,h(x))\in\overline{A}-W_x$. Thus the recursive function
+          $\psi(a,h(x))$ witnesses the productivity of $\bar{A}$.
         \end{proof}
     \end{enumerate}
 
