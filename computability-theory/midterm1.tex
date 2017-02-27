@@ -421,7 +421,41 @@
           enumerate
           \[\{\psi(n+1), \psi h(n+1), \psi h^2(n+1),\ldots\}\]
           until either some $y$ not in $\{\psi'(0),\ldots,\psi'(n)\}$ is
-          found, or a repetition occurs. Then set $\psi(n+1)=y$.
+          found, or a repetition occurs. Then set $\psi'(n+1)=y$. Note that
+          $\psi'$ will be total recursive from the Church-Turing thesis.
+        \end{proof}
+
+      \item Prove that the following c.e. sets are effectively inseparable:
+        $A=\{x:\varphi_x(x)=0\}$ and $B=\{x:\varphi_x(x)=1\}$. Hint: Define
+        $\psi$ by
+        \begin{align*}
+          \varphi_{\psi(x,y)}(z)=
+          \begin{cases}
+            1 &\text{if}\; z\in W_x\backslash W_y\\
+            0 &\text{if}\; z\in W_y\backslash W_z\\
+            \uparrow &\text{otherwise}.\\
+          \end{cases}
+        \end{align*}
+
+        \begin{proof}
+          We show that the $\psi$ given in the hint works. Assume that
+          $W_x\supseteq A$ and $W_y\subseteq B$ are disjoint, however
+          $\psi(x,y)\in W_x$. Since $W_x$ and $W_y$ are disjoint, we have
+          \begin{align*}
+            \varphi_{\psi(x,y)}(z)=
+            \begin{cases}
+              1 &\text{if}\; z\in W_x\\
+              0 &\text{if}\; z\in W_y\\
+              \uparrow &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          So since $\varphi(x,y)\in W_x$,
+          $\varphi_{\psi(x,y)}(\psi(x,y))=1$, which implies that
+          $\psi(x,y)\in B$, which contradicts $\psi(x,y)\in W_x$ where
+          $B\cap W_x=\emptyset$. By a symmetrical argument,
+          $\psi(x,y)\not\in W_y$, thus $\psi(x,y)\in\overline{W_x\cup W_y}$
+          as required.
         \end{proof}
     \end{enumerate}
 
