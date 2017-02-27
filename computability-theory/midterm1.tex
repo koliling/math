@@ -330,63 +330,97 @@
         $\psi$ is total and 1-1.
 
         \begin{proof}
-          We first make $\psi$ total. We can assume that there exists some
-          $a,b\in\omega$ such that $A\subseteq W_a$ and $B\subseteq W_b$
-          and $W_a\cap W_b=\emptyset$, because if no such $a,b$ exists,
-          then the constant 0 function would be make $(A,B)$ effectively
-          inseparable. Observe that given arbitrary $e_0,e_1\in\omega$ such
-          that $A\subseteq W_{e_0}$ and $B\subseteq W_{e_1}$ and
-          $W_{e_0}\cap W_{e_1}=\emptyset$, the sets $W_a\cup W_{e_0}$ and
-          $W_b\cup W_{e_1}$ will also separate $A$ and $B$, even though
-          they may not the disjoint. Then by Theorem 89, there is a total
-          recursive function $f$ such that
+          %We first make $\psi$ total. We can assume that there exists some
+          %$a,b\in\omega$ such that $A\subseteq W_a$ and $B\subseteq W_b$
+          %and $W_a\cap W_b=\emptyset$, because if no such $a,b$ exists,
+          %then the constant 0 function would be make $(A,B)$ effectively
+          %inseparable. Observe that given arbitrary $e_0,e_1\in\omega$ such
+          %that $A\subseteq W_{e_0}$ and $B\subseteq W_{e_1}$ and
+          %$W_{e_0}\cap W_{e_1}=\emptyset$, the sets $W_a\cup W_{e_0}$ and
+          %$W_b\cup W_{e_1}$ will also separate $A$ and $B$, even though
+          %they may not the disjoint. Then by Theorem 89, there is a total
+          %recursive function $f$ such that
+          %\begin{align*}
+          %  W_a\cup W_{e_0} &=W_{f(a,e_0)},\\
+          %  W_b\cup W_{e_1} &=W_{f(b,e_1)}.
+          %\end{align*}
+
+          %Observe further that since $(W_a\cup W_{e_0})\cap (W_b\cup
+          %W_{e_1})$ do intersect with $A$ or $B$, the disjoint sets
+          %$(W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
+          %W_{e_1})\backslash(W_a\cup W_{e_0})$ will separate $A$ and $B$.
+          %From the reduction principle for computably enumerable sets,
+          %there is a total recursive function $g$ such that
+          %\begin{align*}
+          %  (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})
+          %    &=W_{f(a,e_0)}\backslash W_{f(b,e_1)}
+          %    =W_{g(f(a,e_0),f(b,e_1))},\\
+          %  (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})
+          %    &=W_{f(b,e_1)}\backslash W_{f(a,e_0)}
+          %    =W_{g(f(b,e_1),f(a,e_0))}.\\
+          %\end{align*}
+
+          %Thus if disjoint sets $W_{e_0}$ and $W_{e_1}$ separate $A$ and
+          %$B$, then disjoint sets $(W_a\cup W_{e_0})\backslash(W_b\cup
+          %W_{e_1})$ and $(W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})$ will
+          %also separate $A$ and $B$. Furthermore, the union of these two
+          %sets will contain $W_{e_0}\cup W_{e_1}$, thus
+          %\[\psi(\langle g(f(a,e_0),f(b,e_1)), g(f(b,e_1),f(a,e_0))\rangle)
+          %\not\in W_{e_0}\cup W_{e_1}.\]
+
+          %In addition, if $W_{e_0}=W_{e_1}=\emptyset$, then $(W_a\cup
+          %W_{e_0})\backslash(W_b\cup W_{e_1})=W_a$ and $(W_b\cup
+          %W_{e_1})\backslash(W_a\cup W_{e_0})=W_b$, which will also
+          %separate $A$ and $B$. \\
+
+          %Using these observations, we make $\psi$ a total function by
+          %effectively ``converting'' $W_{e_0}$ and $W_{e_1}$ to $(W_a\cup
+          %W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
+          %W_{e_1})\backslash(W_a\cup W_{e_0})$ respectively, if
+          %$\psi(\langle e_0,e_1\rangle)$ converges. Otherwise, we convert
+          %$W_{e_0}$ and $W_{e_1}$ to $W_a$ and $W_b$ respectively. \\
+
+          %Then by composing with the $g$ function to perform the $\backslash$
+          %operation, we get
+          %\begin{align*}
+          %  W_{g(f_0h_0(\langle e_0,e_1\rangle),\; f_1h_1(\langle
+          %  e_0,e_1\rangle))} :=
+          %  \begin{cases}
+          %    (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1}), &\text{if}\;
+          %      \psi(\langle e_0,e_1\rangle)\downarrow,\\
+          %    W_a\backslash W_b=W_a, &\text{otherwise},\\
+          %  \end{cases}
+          %\end{align*}
+
+          %and
+          %\begin{align*}
+          %  W_{g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
+          %  e_0,e_1\rangle)} :=
+          %  \begin{cases}
+          %    (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0}), &\text{if}\;
+          %      \psi(\langle e_0,e_1\rangle)\downarrow,\\
+          %    W_b\backslash W_a=W_b, &\text{otherwise},\\
+          %  \end{cases}
+          %\end{align*}
+
+          Since $A$ and $B$ are computably enumerable, we can write $A=W_a$
+          and $B=W_b$ for some $a,b\in\omega$. We first make $\psi$ total.
+          The idea is to first use the hint of Exercise 2.4.11 to
+          ``convert'' both $W_{e_0}$ and $W_{e_1}$ to $\emptyset$ if and
+          only if $\psi(\langle e_0,e_1\rangle)$ diverges. Then, we append
+          $W_a$ to $W_{e_0}$ and $W_b$ to $W_{e_1}$, so that $W_{e_0}$ is
+          converted to $W_a$ and $W_{e_1}$ is converted to $W_b$ if and
+          only if $\psi(\langle e_0,e_1\rangle)$ diverges. If $\psi(\langle
+          e_0,e_1\rangle)$ converges, $W_{e_0}$ and $W_{e_1}$ will remain
+          the same, since $W_a\subseteq W_{e_0}$ and $W_b\subseteq
+          W_{e_1}$. \\
+
+          Specifically, by the SMN theorem, there are total recursive
+          functions $f_0,f_1$ that convert $W_{e_0}$ and $W_{e_1}$ to the
+          empty set if and only if $\psi(\langle e_0,e_1\rangle)$ does not
+          halt:
           \begin{align*}
-            W_a\cup W_{e_0} &=W_{f(a,e_0)},\\
-            W_b\cup W_{e_1} &=W_{f(b,e_1)}.
-          \end{align*}
-
-          Observe further that since $(W_a\cup W_{e_0})\cap (W_b\cup
-          W_{e_1})$ do intersect with $A$ or $B$, the disjoint sets
-          $(W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
-          W_{e_1})\backslash(W_a\cup W_{e_0})$ will separate $A$ and $B$.
-          From the reduction principle for computably enumerable sets,
-          there is a total recursive function $g$ such that
-          \begin{align*}
-            (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1})
-              &=W_{f(a,e_0)}\backslash W_{f(b,e_1)}
-              =W_{g(f(a,e_0),f(b,e_1))},\\
-            (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})
-              &=W_{f(b,e_1)}\backslash W_{f(a,e_0)}
-              =W_{g(f(b,e_1),f(a,e_0))}.\\
-          \end{align*}
-
-          Thus if disjoint sets $W_{e_0}$ and $W_{e_1}$ separate $A$ and
-          $B$, then disjoint sets $(W_a\cup W_{e_0})\backslash(W_b\cup
-          W_{e_1})$ and $(W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0})$ will
-          also separate $A$ and $B$. Furthermore, the union of these two
-          sets will contain $W_{e_0}\cup W_{e_1}$, thus
-          \[\psi(\langle g(f(a,e_0),f(b,e_1)), g(f(b,e_1),f(a,e_0))\rangle)
-          \not\in W_{e_0}\cup W_{e_1}.\]
-
-          In addition, if $W_{e_0}=W_{e_1}=\emptyset$, then $(W_a\cup
-          W_{e_0})\backslash(W_b\cup W_{e_1})=W_a$ and $(W_b\cup
-          W_{e_1})\backslash(W_a\cup W_{e_0})=W_b$, which will also
-          separate $A$ and $B$. \\
-
-          Using these observations, we make $\psi$ a total function by
-          effectively ``converting'' $W_{e_0}$ and $W_{e_1}$ to $(W_a\cup
-          W_{e_0})\backslash(W_b\cup W_{e_1})$ and $(W_b\cup
-          W_{e_1})\backslash(W_a\cup W_{e_0})$ respectively, if
-          $\psi(\langle e_0,e_1\rangle)$ converges.  Otherwise, we convert
-          $W_{e_0}$ and $W_{e_1}$ to $W_a$ and $W_b$ respectively. \\
-
-          Following the hint from Exercise 2.4.11, we first effectively
-          change $W_{e_0}$ and $W_{e_1}$ to the empty set if and only if
-          $\psi(\langle e_0,e_1\rangle)$ does not halt. By the SMN theorem,
-          there are total recursive functions $h_0,h_1$ that performs this
-          conversion:
-          \begin{align*}
-            W_{h_0(\langle e_0,e_1\rangle)} :=
+            W_{f_0(\langle e_0,e_1\rangle)} :=
             \begin{cases}
               W_{e_0}, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow,\\
               \emptyset, &\text{otherwise},\\
@@ -395,20 +429,19 @@
 
           and
           \begin{align*}
-            W_{h_1(\langle e_0,e_1\rangle)} :=
+            W_{f_1(\langle e_0,e_1\rangle)} :=
             \begin{cases}
               W_{e_1}, &\text{if}\; \psi(\langle e_0,e_1\rangle)\downarrow,\\
               \emptyset, &\text{otherwise}.\\
             \end{cases}
           \end{align*}
 
-          With SMN theorem again, we can find total recursive functions
-          $f_0,f_1$ that adds $W_a$ to $W_{e_0}$ and adds $W_b$ to
-          $W_{e_1}$:
+          By SMN again, there are total recursive functions $g_0,g_1$ that
+          append $W_a$ to $W_{e_0}$ and append $W_b$ to $W_{e_1}$:
           \begin{align*}
-            W_{f_0h_0(\langle e_0,e_1\rangle)} :=
+            W_{g_0f_0(\langle e_0,e_1\rangle)} :=
             \begin{cases}
-              W_a\cup W_{e_0}, &\text{if}\; \psi(\langle
+              W_{e_0}\cup W_a=W_{e_0}, &\text{if}\; \psi(\langle
                 e_0,e_1\rangle)\downarrow,\\
               W_a\cup\emptyset =W_a, &\text{otherwise},\\
             \end{cases}
@@ -416,42 +449,17 @@
 
           and
           \begin{align*}
-            W_{f_1h_1(\langle e_0,e_1\rangle)} :=
+            W_{g_1f_1(\langle e_0,e_1\rangle)} :=
             \begin{cases}
-              W_b\cup W_{e_1}, &\text{if}\; \psi(\langle
+              W_{e_1}\cup W_b=W_{e_1}, &\text{if}\; \psi(\langle
                 e_0,e_1\rangle)\downarrow,\\
               W_b\cup\emptyset =W_b, &\text{otherwise}.\\
             \end{cases}
           \end{align*}
 
-          Then by composing with the $g$ function to perform the $\backslash$
-          operation,
-          \begin{align*}
-            W_{g(f_0h_0(\langle e_0,e_1\rangle),\; f_1h_1(\langle
-            e_0,e_1\rangle))} :=
-            \begin{cases}
-              (W_a\cup W_{e_0})\backslash(W_b\cup W_{e_1}), &\text{if}\;
-                \psi(\langle e_0,e_1\rangle)\downarrow,\\
-              W_a\backslash W_b=W_a, &\text{otherwise},\\
-            \end{cases}
-          \end{align*}
-
-          and
-          \begin{align*}
-            W_{g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
-            e_0,e_1\rangle)} :=
-            \begin{cases}
-              (W_b\cup W_{e_1})\backslash(W_a\cup W_{e_0}), &\text{if}\;
-                \psi(\langle e_0,e_1\rangle)\downarrow,\\
-              W_b\backslash W_a=W_b, &\text{otherwise},\\
-            \end{cases}
-          \end{align*}
-
-          Finally, the composition
-          \[q(\langle e_0,e_1\rangle) :=\psi(\langle g(f_0h_0(\langle
-            e_0,e_1\rangle),\; f_1h_1(\langle e_0,e_1\rangle))
-            ,\;g(f_1h_1(\langle e_0,e_1\rangle)),\; f_0h_0(\langle
-            e_0,e_1\rangle) \rangle)\]
+          Then
+          \[q(\langle e_0,e_1\rangle) :=\psi(\langle g_0f_0(\langle
+            e_0,e_1\rangle), g_1f_1(\langle e_0,e_1\rangle)\rangle)\]
           will give us the required total function.
         \end{proof}
     \end{enumerate}
