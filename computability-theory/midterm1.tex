@@ -464,6 +464,174 @@
         \end{proof}
     \end{enumerate}
 
-  \item \it Soare 2.4.18:
+  \item \it Soare 2.4.18: (Smullyan). Assume that $(A_1,A_2)$ is a pair of
+    effectively inseparable c.e. sets with productive function $p$. Prove
+    that if $(B_1,B_2)$ is a pair of disjoint c.e. cets then
+    $(B_1,B_2)\leq_1(A_1,A_2)$, as in Definition 2.4.9. Hint. By the Double
+    Recursion Theorem with one parameter Excercise 2.3.14, define 1:1
+    computable functions $g(z)$, $h(z)$ such that
+    \begin{align*}
+      W_{g(z)}=
+      \begin{cases}
+        A_1\cup\{p(\langle g(z),h(z)\rangle)\} &\text{if}\; z\in B_2\\
+        A_1 &\text{otherwise},
+      \end{cases}
+    \end{align*}
+
+    and
+    \begin{align*}
+      W_{h(z)}=
+      \begin{cases}
+        A_2\cup\{p(\langle g(z),h(z)\rangle)\} &\text{if}\; z\in B_1\\
+        A_2 &\text{otherwise}.
+      \end{cases}
+    \end{align*}
+
+    Let $f(z)=p(\langle g(z),h(z)\rangle)$ and show that
+    $(B_1,B_2)\leq_1(A_1,A_2)$ via $f$.
+
+    \begin{proof}
+      We follow Smullyan's proof to prove the Double Recursion Theorem,
+      which states that given any c.e. functions
+      $f_1(x,y_1,y_2,z_1,z_2)$ and $f_2(x,y_1,y_2,z_1,z_2)$, there are
+      injective and total recursive functions $t_1(y_1,y_2)$ and
+      $t_2(y_1,y_2)$ such that
+      \begin{align*}
+        \varphi_{t_1(y_1,y_2)}(x)
+          &=f_1(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)),\\
+        \varphi_{t_2(y_1,y_2)}(x)
+          &=f_2(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)).\\
+      \end{align*}
+
+      From SMN and the padding theorem, there is an injective and total
+      recursive function $t(y,z)$ such that
+      \[\varphi_{t(y,z)}(x) =\varphi_y(x,y,z).\]
+
+      By SMN and padding again, let $\phi_1(y_1,y_2)$, $\phi_2(y_1,y_2)$ be
+      injective and total recursive functions such that
+      \begin{align*}
+        \varphi_{\phi_1(y_1,y_2)}(x,y,z) &=f_1(x,y_1,y_2,t(y,z),t(z,y)),\\
+        \varphi_{\phi_2(y_1,y_2)}(x,y,z) &=f_2(x,y_1,y_2,t(z,y),t(y,z)).\\
+      \end{align*}
+
+      Let
+      \begin{align*}
+        t_1(y_1,y_2) &:=t(\phi_1(y_1,y_2),\phi_2(y_1,y_2)),\\
+        t_2(y_1,y_2) &:=t(\phi_2(y_1,y_2),\phi_1(y_1,y_2)).\\
+      \end{align*}
+
+      We show that these $t_1$ and $t_2$ work:
+      \begin{align*}
+        \varphi_{t_1(y_1,y_2)}(x)
+          &=\varphi_{t(\phi_1(y_1,y_2),\phi_2(y_1,y_2))}(x)\\
+        &=\varphi_{\phi_1(y_1,y_2)} (x,\phi_1(y_1,y_2),\phi_2(y_1,y_2))\\
+        &=f_1(x,y_1,y_2, t(\phi_1(y_1,y_2),\phi_2(y_1,y_2)),
+          t(\phi_2(y_1,y_2),\phi_1(y_1,y_2)))\\
+        &=f_1(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)).\\
+      \end{align*}
+
+      By symmetrical argument, we also get
+      \[\varphi_{t_2(y_1,y_2)}(x) =f_2(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)),\]
+      as required. \\
+
+      To get the functions $g(z)$ and $h(z)$ given in the hint, we let
+      \begin{align*}
+        f_1(x,y_1,y_2,z_1,z_2) &:=\varphi_{r_1(z_1,z_2,\langle
+          y_1,y_2\rangle)}(x),\\
+        f_2(x,y_1,y_2,z_1,z_2) &:=\varphi_{r_2(z_1,z_2,\langle
+          y_1,y_2\rangle)}(x),\\
+      \end{align*}
+
+      where
+      \begin{align*}
+        W_{r_1(z_1,z_2,y)}(x) &:=
+        \begin{cases}
+          A_1\cup\{p(\langle z_1,z_2\rangle)\}, &\text{if}\; y\in B_2,\\
+          A_1, &\text{otherwise},
+        \end{cases}\\
+      \end{align*}
+
+      and
+      \begin{align*}
+        W_{r_2(z_1,z_2,y)}(x) &:=
+        \begin{cases}
+          A_2\cup\{p(\langle z_1,z_2\rangle)\}, &\text{if}\; y\in B_1,\\
+          A_2, &\text{otherwise},
+        \end{cases}\\
+      \end{align*}
+
+      where $r_1$ and $r_2$ exist from the SMN theorem, and apply the
+      double recursion theorem to get
+      \begin{align*}
+        g(z) &:= t_1(\pi_1(z),\pi_2(z))\\
+        h(z) &:= t_2(\pi_1(z),\pi_2(z)),\\
+      \end{align*}
+      where $\pi_i$ are the inverse pairing functions. \\
+
+      Now we show that $(B_1,B_2)\leq_1(A_1,A_2)$ via $f(z)=p(\langle
+      g(z),h(z)\rangle)$. $f$ is injective since it is a composition of
+      injective functions.\\
+
+      Assume $z\in B_1$, but $f(z)\not\in A_1$. Now
+      since $z\not\in B_2$, $W_{g(z)}=A_1$ by definition. And since $z\in
+      B_1$, $W_{h(z)}=A_2\cup\{f(z)\}$. Thus we have $A_1\subseteq
+      W_{g(z)}$, $A_2\subset W_{h(z)}$, and $W_{g(z)}\cap
+      W_{h(z)}=\emptyset$. Thus $\psi(g(z),h(z))=f(z)$ should lie outside
+      $A_1\cup A_2$, a contradiction. Hence $f(z)\in A_1$. By symmetrical
+      argument, $f(B_2)\subseteq A_2$. \\
+
+      Finally, let $z\in\overline{B_1\cup B_2}$. Then $W_{g(z)}=A_1$ and
+      $W_{h(z)}=A_2$, so $\psi(g(z),h(z))=f(z)$ lies outside
+      $A_1\cup A_2$, as we are required to show.
+
+      %We first prove the Double Recursion Theorem, which states that given
+      %computable functions $f(x,y,z)$ and $g(x,y,z)$, there are injective
+      %and computable functions $a(z)$ and $b(z)$ such that
+      %\begin{align*}
+      %  \varphi_{a(z)} &=\varphi_{f(a(z),b(z),z)},\\
+      %  \varphi_{b(z)} &=\varphi_{g(a(z),b(z),z)}.
+      %\end{align*}
+
+      %We follow Smullyan's proof to prove the Double Recursion Theorem,
+      %which states that given any c.e. functions
+      %$f_1(x,y,z_1,z_2)$ and $f_2(x,y,z_1,z_2)$, there are
+      %recursive functions $t_1(y)$ and $t_2(y)$ such that
+      %\begin{align*}
+      %  \varphi_{t_1(y)}(x)
+      %    &=f_1(x,y,t_1(y),t_2(y)),\\
+      %  \varphi_{t_2(y)}(x)
+      %    &=f_2(x,y,t_1(y),t_2(y)).\\
+      %\end{align*}
+
+      %From SMN and the pading theorem, there is an injective and total
+      %recursive function $t(y,z)$ such that
+      %\[\varphi_{t(y,z)}(x) =\varphi_y(x,z).\]
+
+      %By SMN and padding again, let $\phi_1(y)$, $\phi_2(y)$ be
+      %injective and total recursive functions such that
+      %\begin{align*}
+      %  \varphi_{\phi_1(y)}(x,z) &=f_1(x,y,t(y,z),t(z,y)),\\
+      %  \varphi_{\phi_2(y)}(x,z) &=f_2(x,y,t(z,y),t(y,z)).\\
+      %\end{align*}
+
+      %Let
+      %\begin{align*}
+      %  t_1(y) &:=t(\phi_1(y),\phi_2(y)),\\
+      %  t_2(y) &:=t(\phi_2(y),\phi_1(y)).\\
+      %\end{align*}
+
+      %We show that these $t_1$ and $t_2$ work:
+      %\begin{align*}
+      %  \varphi_{t_1(y)}(x)
+      %    &=\varphi_{t(\phi_1(y),\phi_2(y))}(x)\\
+      %  &=\varphi_{\phi_1(y)} (x,\phi_2(y))\\
+      %  &=f_1(x,y,t(y,\phi_2(y)),t(\phi_2(y),y))\\
+      %  &=f_1(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)).\\
+      %\end{align*}
+
+      %By symmetrical argument, we also get
+      %\[\varphi_{t_2(y_1,y_2)}(x) =f_2(x,y_1,y_2,t_1(y_1,y_2),t_2(y_1,y_2)),\]
+      %as required.
+    \end{proof}
 \end{enumerate}
 \end{document}
