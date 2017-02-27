@@ -178,6 +178,35 @@
     \end{proof}
 
   \item \it Soare 3.7.3:
+    \begin{enumerate}
+      \item Prove that $T^{\text{ext}}$ is the smallest subtree of $T$
+        under inclusion such that $[T^{\text{ext}}]=[T]$, i.e., prove that
+        if $[T_1]=[T]$, then $T^{\text{ext}}\subseteq[T_1]$.
+
+        \begin{proof}
+          We first show that $[T^{\text{ext}}]=[T]$. Clearly
+          $[T^{\text{ext}}]\subseteq[T]$. For the reverse inclusion, if
+          $f\in[T]$, then all its initial segments must be in
+          $[T^{\text{ext}}]$ by definition of $[T^{\text{ext}}]$, thus
+          $f\in[T^{\text{ext}}]$. Assume $[T_1]=[T]$. Let $\sigma\in T$ be
+          an initial segment that is extended by a path $f$ in $T$. Let
+          $n=|\sigma|$. Then since $f\in[T_1]$, $f\restriction
+          n=\sigma\in[T_1]$, as required.
+        \end{proof}
+
+      \item Prove that $T_{\sigma}$ is infinite if and only if
+        $[T_\sigma]\neq\emptyset$.
+
+        \begin{proof}
+          Since paths have infinite length, clearly if $T_\sigma$ is
+          finite, then $[T_\sigma]=\emptyset$. The forward implication is
+          true from Konig's lemma: If $T_\sigma$ is infinite, then we can
+          recursively construct a path $f=\cup_{n\in\omega}\tau_n\in
+          [T_\sigma]$ by letting $\tau_0=\sigma$, and choosing
+          $\tau_{n+1}\succ\tau_n$ to be $\tau_n$ extended with the child
+          node whose subtree has infinite nodes.
+        \end{proof}
+    \end{enumerate}
 
   \item \it Use Problem 3 and Rosser's Theorem to show there is a
     computable tree $T$ with the same two properties in Problem 2 and there
