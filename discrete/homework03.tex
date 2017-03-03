@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Discrete Mathematics: Problem Set 3}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[label={\bf Q\arabic*:}]
+  \item \it \textbf{Section 15 Problem 5:}
+    \begin{proof}
+      Let $F_k(n)$ be the number of partitions of $[n]$ into $k$ blocks,
+      each containing at least two elements. Find a formula for $F_k(n)$ in
+      terms of Stirling numbers of the second kind.
+
+      \begin{proof}
+        We apply the inclusion-exclusion theorem to get our formula.
+        Let $\mathcal{S}_k(n)$ denote the set of partitions of $[n]$ into
+        $k$ non-empty blocks, and given $I\subseteq[k]$, let
+        $\mathcal{S}_{k,I}(n)\subseteq \mathcal{S}_k(n)$ denote the set of
+        these partitions where for each $m\in I$, the $m$-th partition has
+        only one element. Note that we have
+        \begin{align*}
+          \mathcal{S}_{k,I}(n) &=\bigcap_{m\in I} \mathcal{S}_{k,\{m\}}(n),\\
+          |\mathcal{S}_{k,I}(n)| &=(n)_{|I|} F_{k-|I|}(n-|I|).\\
+        \end{align*}
+
+        Therefore,
+        \begin{align*}
+          F_k(n) &=|\mathcal{S}_k(n)| -\left|\bigcup_{m=1}^k
+            \mathcal{S}_{k,\{m\}}(n)\right|\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix} -\left|\bigcup_{m=1}^k
+            \mathcal{S}_{k,\{m\}}(n)\right|\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
+            -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
+            \left|\bigcap_{m\in I} \mathcal{S}_{k,\{m\}}(n)\right|
+            &(\text{by inclusion-exclusion})\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
+            -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
+            \left|\mathcal{S}_{k,I}(n)\right| &(\text{by above})\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
+            -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
+            (n)_{|I|} F_{k-|I|}(n-|I|)\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
+            -\sum_{m=1}^k \sum_{I\subseteq[k],|I|=m} (-1)^{m-1}
+            (n)_{m} F_{k-m}(n-m)\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
+            -\sum_{m=1}^k \binom{k}{m} (-1)^{m-1}
+            (n)_{m} F_{k-m}(n-m).\\
+        \end{align*}
+      \end{proof}
+    \end{proof}
+\end{enumerate}
+\end{document}
