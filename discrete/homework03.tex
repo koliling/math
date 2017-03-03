@@ -23,39 +23,116 @@
       \begin{proof}
         We apply the inclusion-exclusion theorem to get our formula.
         Let $\mathcal{S}_k(n)$ denote the set of partitions of $[n]$ into
-        $k$ non-empty blocks, and given $I\subseteq[k]$, let
+        $k$ non-empty blocks, and given $I\subseteq[n]$, let
         $\mathcal{S}_{k,I}(n)\subseteq \mathcal{S}_k(n)$ denote the set of
-        these partitions where for each $m\in I$, the $m$-th partition has
-        only one element. Note that we have
+        these partitions where for each $i\in I$, the $i$-th element is
+        isloated. Observe that
         \begin{align*}
-          \mathcal{S}_{k,I}(n) &=\bigcap_{m\in I} \mathcal{S}_{k,\{m\}}(n),\\
-          |\mathcal{S}_{k,I}(n)| &=(n)_{|I|} F_{k-|I|}(n-|I|).\\
+          \mathcal{S}_{k,I}(n) &=\bigcap_{i\in I} \mathcal{S}_{k,\{i\}}(n),\\
+          |\mathcal{S}_{k,I}(n)| &=
+            \begin{Bmatrix}n-|I|\\k-|I|\end{Bmatrix}.\\
         \end{align*}
 
-        Therefore,
+        Then,
         \begin{align*}
-          F_k(n) &=|\mathcal{S}_k(n)| -\left|\bigcup_{m=1}^k
-            \mathcal{S}_{k,\{m\}}(n)\right|\\
-          &=\begin{Bmatrix}n\\k\\\end{Bmatrix} -\left|\bigcup_{m=1}^k
-            \mathcal{S}_{k,\{m\}}(n)\right|\\
+          F_k(n) &=|\mathcal{S}_k(n)| -\left|\bigcup_{i=1}^n
+            \mathcal{S}_{k,\{i\}}(n)\right|\\
+          &=\begin{Bmatrix}n\\k\\\end{Bmatrix} -\left|\bigcup_{i=1}^n
+            \mathcal{S}_{k,\{i\}}(n)\right|\\
           &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
             -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
-            \left|\bigcap_{m\in I} \mathcal{S}_{k,\{m\}}(n)\right|
+            \left|\bigcap_{i\in I} \mathcal{S}_{k,\{i\}}(n)\right|
             &(\text{by inclusion-exclusion})\\
           &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
             -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
             \left|\mathcal{S}_{k,I}(n)\right| &(\text{by above})\\
           &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
             -\sum_{I\neq\emptyset\subseteq[k]} (-1)^{|I|-1}
-            (n)_{|I|} F_{k-|I|}(n-|I|)\\
+            \begin{Bmatrix}n-|I|\\k-|I|\end{Bmatrix}\\
           &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
-            -\sum_{m=1}^k \sum_{I\subseteq[k],|I|=m} (-1)^{m-1}
-            (n)_{m} F_{k-m}(n-m)\\
+            -\sum_{i=1}^n \sum_{I\subseteq[k],|I|=i} (-1)^{i-1}
+            \begin{Bmatrix}n-i\\k-i\end{Bmatrix}\\
           &=\begin{Bmatrix}n\\k\\\end{Bmatrix}
-            -\sum_{m=1}^k \binom{k}{m} (-1)^{m-1}
-            (n)_{m} F_{k-m}(n-m).\\
+            -\sum_{i=1}^n \binom{k}{i} (-1)^{i-1}
+            \begin{Bmatrix}n-i\\k-i\end{Bmatrix}.\\
         \end{align*}
       \end{proof}
+    \end{proof}
+
+  \item \it \textbf{Section 22 Problem 1:} A hotel corridor has $n$ rooms
+    in a row, numbered 1 through $n$. The rooms are to be painted, each one
+    either red, or white, or blue, subject to the condition that a red room
+    can't be immediately adjacent to a blue room. Let $p_n$ be the number
+    of different ways to paint the rooms. Find a recurrence for $p_n$, and
+    use generating functions to find an explicit expression for $p_n$.
+
+    \begin{proof}
+      Let $\mathcal{S}_n\subset\{R,W,B\}^n$ denote the number of such
+      paintings, and for each $i\in\{0,\ldots,n\}$, let
+      $\mathcal{S}_n(i)\subset\mathcal{S}_n$ denote the paintings where $i$
+      is the number of the largest room painted white, with
+      $\mathcal{S}_n(0)$ denoting the case where no door is painted white.
+      Then
+      \[\mathcal{S}_n =\bigsqcup_{i=0}^n \mathcal{S}_n(i).\]
+
+      Also, observe that if $i$ is number of the largest room colored
+      white, then the rooms numbered $i+1\ldots n$ must be either all
+      colored red or all colored blue. Then
+      \[|\mathcal{S}_n(0)|=|\mathcal{S}_n(1)|=2,\]
+      and for for $i\in\{2,\ldots,n-1\}$,
+      \[|\mathcal{S}_n(i)| =2p_{i-1},\]
+      and finally,
+      \[|\mathcal{S}_n(n)| =p_{n-1}.\]
+
+      Then using the convention that $p_0=1$, we have the following
+      recurrence relation:
+      \begin{align*}
+        p_n &=|\mathcal{S}_n|\\
+        &=\left|\bigsqcup_{i=0}^n \mathcal{S}_n(i)\right|\\
+        &=\sum_{i=0}^n|\mathcal{S}_n(i)|\\
+        &=2+2+\sum_{i=2}^{n-1} 2p_{i-1}+p_{n-1}\\
+        &=4+2p_1+\ldots+2p_{n-2}+p_{n-1}\\
+        &=2+2p_0+\ldots+2p_{n-2}+p_{n-1}.\\
+      \end{align*}
+
+      So the generating function $P(x)$ of the sequence $p_n$ is
+      \begin{align*}
+        P(x) &=p_0 +p_1x +p_2x^2+\ldots\\
+          &=1\\
+          &\;\;\;+(2+p_0)x\\
+          &\;\;\;+(2+2p_0+p_1)x^2\\
+          &\;\;\;+(2+2p_0+2p_1+p_2)x^3\\
+          &\;\;\;+\ldots\\
+        &=1+x(p_0+p_1x+p_2x^2+\ldots)\\
+          &\;\;\;+2x(1+x+x^2+\ldots)\\
+          &\;\;\;+2p_0x^2(1+x+x^2+\ldots)\\
+          &\;\;\;+2p_1x^3(1+x+x^2+\ldots)\\
+          &\;\;\;+\ldots\\
+        &=1+xP(x) +\frac{2x+2x^2(p_0+p_1x+p_2x^2+\ldots)}{1-x}\\
+        &=1+xP(x) +\frac{2x+2x^2P(x)}{1-x}.\\
+      \end{align*}
+
+      Rearranging to solve for $P(x)$, we get
+      \begin{align*}
+        P(x) &=-\frac{x+1}{x^2+2x-1}\\
+        &=-\frac{x+1}{(x+1+\sqrt{2})(x+1-\sqrt{2})}.\\
+      \end{align*}
+
+      Solving for partial fractions, we get
+      \begin{align*}
+        P(x) &=-\frac{x+1}{(x+1+\sqrt{2})(x+1-\sqrt{2})}\\
+        &=\frac{(1-\sqrt{2})/2}{1-(1-\sqrt{2})x}
+          +\frac{(1+\sqrt{2})/2}{1-(1+\sqrt{2})x}\\
+        &=\frac{1-\sqrt{2}}{2} \sum_{n=0}^\infty
+          \left(1-\sqrt{2}\right)^nx^n +\frac{1-\sqrt{2}}{2}
+          \sum_{n=0}^\infty \left(1+\sqrt{2}\right)^nx^n\\
+        &=\frac{1}{2} \sum_{n=0}^\infty \left[\left(1-\sqrt{2}\right)^{n+1}
+        +\left(1+\sqrt{2}\right)^{n+1}\right] x^n.\\
+      \end{align*}
+
+      Comparing coefficients, we get
+      \[p_n =\frac{1}{2} \left[\left(1-\sqrt{2}\right)^{n+1}
+        +\left(1+\sqrt{2}\right)^{n+1}\right].\]
     \end{proof}
 \end{enumerate}
 \end{document}
