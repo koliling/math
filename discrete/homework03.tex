@@ -151,10 +151,10 @@
       the remaining people into two circular groups - the first group
       comprising of persons 2 through $k-1$, and the second group
       comprising of persons $k+1$ through $2n$. Furthermore, to avoid
-      crossing hands with the 1 to $k$ pairing, members within each group
-      can only shake hands within their groups. Thus the size of these
-      groups must both be even, and therefore person 1 can only shake hands
-      with even numbered persons. \\
+      crossing hands with the 1 to $k$ pairing, members within each
+      circular group can only shake hands within their groups. Thus the
+      size of these groups must both be even, which forces person 1 to
+      only be allowed to shake hands with even numbered persons. \\
 
       So we have scenarios 1 through $n$, where at the $k$th scenario,
       person 1 shakes hands with person $2k$, and partitions the remaining
@@ -167,7 +167,52 @@
       when person 1 shakes hands with person $2k$. Thus we have the
       recurrence relation for $h_n$:
       \[h_n =\sum_{k=0}^{n-1} h_kh_{n-k-1},\]
-      which is the same recurrence as the Catalan number.
+      which is the same recurrence as the Catalan number. \\
+
+      Finally, to get $h_1=1$ from the recurrence relation, we need to
+      assume the convention $h_0=1$.
+    \end{proof}
+
+  \item \it \textbf{Section 29 Problem 1:} Show combinatorially that for
+    $n,m\geq1$ we have
+    \[b_{n,m} =b_{n-1,m} +b_{n,m-1} +b_{n-1,m-1}.\]
+
+    \begin{proof}
+      Partition $B_n(m)$ into three disjoint subgroups depending on the
+      last coordinate value of the elements in the subgroup:
+      \[B_n(m) =B_0 \sqcup B_+ \sqcup B_-,\]
+      where
+      \begin{align*}
+        B_0 &=\{(x_1,\ldots,x_n)\in B_n(m): x_n=0\},\\
+        B_+ &=\{(x_1,\ldots,x_n)\in B_n(m): x_n\neq0\; \text{or}\; -1\},\\
+        B_- &=\{(x_1,\ldots,x_n)\in B_n(m): x_n=-1\}.\\
+      \end{align*}
+
+      Then there is a bijection between $B_0$ and $B_{n-1}(m)$, which sends
+      elements $(x_1,\ldots,x_{n-1},0)\in B_0$ to $(x_1,\ldots,x_{n-1})\in
+      B_{n-1}(m)$. Thus
+      \[|B_0|=|B_{n-1}(m)|=b_{n-1,m}.\]
+
+      Similarly, there is a bijection between $B_-$ and $B_{n-1}(m-1)$, which
+      sends elements $(x_1,\ldots,x_{n-1},-1)\in B_-$ to
+      $(x_1,\ldots,x_{n-1})\in B_{n-1}(m-1)$. Thus
+      \[|B_-|=|B_{n-1}(m-1)|=b_{n-1,m-1}.\]
+
+      Finally, there is a bijection between $B_+$ and $B_{n}(m-1)$, which
+      sends elements $(x_1,\ldots,x_{n-1},x_n)\in B_+$ to
+      $(x_1,\ldots,x_{n-1},f(x_n))\in B_{n}(m-1)$, where $f$ is defined as
+      \begin{align*}
+        f(x)=\begin{cases}
+          x-1 &\text{if}\; x\geq0\\
+          x+1 &\text{otherwise}.\\
+        \end{cases}
+      \end{align*}
+      Thus
+      \[|B_+|=|B_{n}(m-1)|=b_{n,m-1}.\]
+
+      So
+      \[b_{n,m} =|B_n(m)| =|B_0|+|B_+|+|B_-| =b_{n-1,m} +b_{n,m-1}
+      +b_{n-1,m-1}.\]
     \end{proof}
 \end{enumerate}
 \end{document}
