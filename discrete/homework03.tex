@@ -214,5 +214,80 @@
       \[b_{n,m} =|B_n(m)| =|B_0|+|B_+|+|B_-| =b_{n-1,m} +b_{n,m-1}
       +b_{n-1,m-1}.\]
     \end{proof}
+
+  \item \it \textbf{Section 32 Problem 1:} Let $m_{n,k}$ denote the number
+    of ways of extracting $k$ pairs from a set of $n$. Find a recurrence
+    relation for $m_{n,k}$ with initial conditions. Show that the
+    generating function $P_n(y)=\sum_{k\geq0} m_{n,k}y^k$ always has all
+    real roots.
+
+    \begin{proof}
+      Partition the set of legal pairings into two disjoint subsets, where
+      the first subset comprises of pairings that exclude the largest
+      element $n$, and the second subset comprises of pairings that include
+      $n$. Clearly the first subset has $m_{n-1,k}$ elements. To count
+      the number of elements in the second subset, observe that to
+      construct $k$ pairings from $[n]$ of which one of them includes $n$,
+      we can first construct $k-1$ pairings from $[n-1]$, then pick one of
+      the remaining $n-2(k-1)-1$ elements to be paired with $n$. Thus the
+      second subset has $(n+1-2k)m_{n-1,k-1}$ elements, giving us the
+      following recurrence relation:
+      \[m_{n,k} =m_{n-1,k} +(n+1-2k)m_{n-1,k-1}.\]
+
+      The initial conditions are
+      \begin{align*}
+        m_{1,k}=0 &\;\;\text{for all}\; k\in\mathbb{N},\\
+        m_{n,0}=1 &\;\;\text{for all}\; 1\neq n\in\mathbb{N}.\\
+      \end{align*}
+
+      To find a recurrence relation for $P_n(y)$, we have
+      \begin{align*}
+        P_n(y) &=\sum_{k\geq0} m_{n,k}y^k\\
+        &=m_{n,0} +\sum_{k\geq1} m_{n,k}y^k\\
+        &=m_{n,0} +\sum_{k\geq1} \left[m_{n-1,k}
+          +(n+1-2k)m_{n-1,k-1}\right] y^k\\
+        &=\sum_{k\geq0} m_{n-1,k}y^k +(n+1)\sum_{k\geq1} m_{n-1,k-1} y^k -2
+          \sum_{k\geq1} km_{n-1,k-1} y^k\\
+        &=P_n(y) +(n+1)yP_{n-1}(y) -2y[P_{n-1}(y)+yP_{n-1}'(y)]\\
+        &=[1+(n-1)y] P_{n-1}(y) -2y^2 P_{n-1}'(y).\\
+      \end{align*}
+
+      Observe that $P_{2k}(y)$ and $P_{2k+1}(y)$ are polynomials of
+      degree $k$ with positive coefficients, because $m_{a,b}>0$ for all
+      $b\in\{0,\ldots,\lfloor a/2\rfloor\}$, and because $m_{a,b}=0$ for
+      all $a>2b$. Also, since $m_{n,0}=1$, the constant term for all
+      $P_n(y)$ is always 1, which means $P_n(0)=1$ for all
+      $n\in\mathbb{N}$. \\
+
+      We follow the proof of Theorem 31.7 to show that $P_n(y)$ always has
+      all real distinct, and negative roots, and that the roots of $P_n(y)$
+      and $P_{n-1}(y)$ are distinct from each other and interleave, with
+      the least negative root of $P_n(y)$ being closer to 0 than the least
+      negative root of $P_{n-1}(y)$. \\
+
+      The statements hold trivially for initial case $P_2(y)=1+y$ and
+      $P_3(y)=1+3y$. Assume the statements hold for $P_2(y)$ up to
+      $P_{2k}(y)$, and consider the case of $P_{2k+1}(y)$. Let $0> y_1'>
+      y_2'\ldots>y_k'$ be the $k$ distinct negative roots of $P_{2k}(y)$.
+      Then because $P_{2k}(0)=1$ and $y_1'$ is the first negative root of
+      $P_{2k}(y)$ and all roots of $P_{2k}(y)$ are distinct, we must have
+      $P_{2k}'(y_1')>0$. Therefore $P_{2k+1}(y_1')\leq0$ from the
+      recurrence relation of $P_{2k+1}(y)$. So since $P_{2k+1}(0)=1$,
+      $P_{2k+1}(y)$ must have a negative root $y_1$ between $y_1'$ and 0.
+      By a similar argument, the $k$ distinct and negative roots of
+      $P_{2k+1}(y)$ $0> y_1> y_2\ldots>y_k$ interleave and are distinct
+      from $0> y_1'> y_2'\ldots>y_k'$, i.e.
+      \[0>y_1>y_1'>y_2>y_2'\ldots>y_k>y_k'.\]
+
+      The same argument also holds going from the case of $P_{2k-1}(y)$ to
+      $P_{2k}$, giving $P_{2k}(y)$ at least $k-1$ distinct negative roots.
+      However, because the degree of $P_{2k}(y)$ is one higher than the
+      degree of $P_{2k-1}$, the gradient of $P_{2k}(y)$ for extremely large
+      negative values of $y$ should be the opposite of the gradient of
+      $P_{2k-1}(y)$ at the same values, implying that $P_{2k}(y)$ must cut
+      the $y$-axis one more time beyond the most negative root of
+      $P_{2k-1}(y)$. Therefore $P_{2k}(y)$ has at $k$ distinct negative
+      roots that interleave with the roots of $P_{2k-1}(y)$.
+    \end{proof}
 \end{enumerate}
 \end{document}
