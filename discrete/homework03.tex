@@ -26,7 +26,7 @@
         $k$ non-empty blocks, and given $I\subseteq[n]$, let
         $\mathcal{S}_{k,I}(n)\subseteq \mathcal{S}_k(n)$ denote the set of
         these partitions where for each $i\in I$, the $i$-th element is
-        isloated. Observe that
+        isolated. Observe that
         \begin{align*}
           \mathcal{S}_{k,I}(n) &=\bigcap_{i\in I} \mathcal{S}_{k,\{i\}}(n),\\
           |\mathcal{S}_{k,I}(n)| &=
@@ -77,7 +77,7 @@
 
       Also, observe that if $i$ is number of the largest room colored
       white, then the rooms numbered $i+1\ldots n$ must be either all
-      colored red or all colored blue. Then
+      colored red or all colored blue. Thus
       \[|\mathcal{S}_n(0)|=|\mathcal{S}_n(1)|=2,\]
       and for for $i\in\{2,\ldots,n-1\}$,
       \[|\mathcal{S}_n(i)| =2p_{i-1},\]
@@ -133,6 +133,41 @@
       Comparing coefficients, we get
       \[p_n =\frac{1}{2} \left[\left(1-\sqrt{2}\right)^{n+1}
         +\left(1+\sqrt{2}\right)^{n+1}\right].\]
+    \end{proof}
+
+  \item \it \textbf{Section 25 Problem 1:} $2n$ people sit around a
+    circular table. Let $h_n$ be the number of ways that they can pair off
+    into $n$ pairs, in such a way that the $n$ pairs can shake hands
+    simultaneously without there being any pair of handshakers with
+    crossing hands. With $h_0=1$ by definition, show that $h_n$ is the
+    $n$th Catalan number.
+
+    \begin{proof}
+      We can assume the $2n$ people are numbered 1 to $2n$, and seated in
+      that order, with person 1 sitting next to person 2 and person $2n$.
+      We partition the legal hand-shaking pairings according to the person
+      that person 1 shakes hands with. Observe that if person 1 shakes
+      hands with person $k$, then these two persons will have partitioned
+      the remaining people into two circular groups - the first group
+      comprising of persons 2 through $k-1$, and the second group
+      comprising of persons $k+1$ through $2n$. Furthermore, to avoid
+      crossing hands with the 1 to $k$ pairing, members within each group
+      can only shake hands within their groups. Thus the size of these
+      groups must both be even, and therefore person 1 can only shake hands
+      with even numbered persons. \\
+
+      So we have scenarios 1 through $n$, where at the $k$th scenario,
+      person 1 shakes hands with person $2k$, and partitions the remaining
+      people into two circular groups: the first group of size $2k-2$ and
+      comprised of members 2 through $2k-1$, and the second group of size
+      $2n-2k$ and comprised of members $2k+1$ through $2n$.
+      There are $h_{k-1}$ ways the first group can shake hands legally, and
+      $h_{n-k}$ ways the second group can shake hands legally, giving a
+      total of $h_{k-1}h_{n-k}$ ways for everyone to shake hands legally
+      when person 1 shakes hands with person $2k$. Thus we have the
+      recurrence relation for $h_n$:
+      \[h_n =\sum_{k=0}^{n-1} h_kh_{n-k-1},\]
+      which is the same recurrence as the Catalan number.
     \end{proof}
 \end{enumerate}
 \end{document}
