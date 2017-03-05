@@ -239,4 +239,55 @@
       0&1&3c\\
     \end{pmatrix}.\]
   \end{proof}
+
+\it \textbf{Section 12.2 Q10:} Find all similarlity classes of $6\times6$
+  matrices over $\mathbb{Q}$ with minimal polynomial $m(x)=(x+2)^2(x-1)$ (it
+  suffices to give all lists of invariant factors and write out some of
+  their corresponding matrices).
+
+  \begin{proof}
+    From Proposition 20, the remaining invariant factors can only have
+    roots -2 or 1, and must divide $m(x)$. Furthermore, the products the
+    invariant factors must have degree 6, and the first invariant factor
+    must divide the second and so on. Finally, the similarity classes is
+    completely characterized by its corresponding set of invariant factors.
+    Thus these are the similarity classes, with some respective rational
+    canonical forms:
+
+    \begin{table}[h]\centering
+    \begin{tabular}{lc}
+      Invariant factors &Rational canonical form\\\hline\\
+      $(x+2)^2(x-1)$, $(x+2)^2(x-1)$
+        &$\begin{pmatrix}
+          0&0&4&0&0&0\\
+          1&0&0&0&0&0\\
+          0&1&-3&0&0&0\\
+          0&0&0&0&0&4\\
+          0&0&0&1&0&0\\
+          0&0&0&0&1&-3\\
+        \end{pmatrix}$\\\\
+      $x+2$, $(x+2)(x-1)$, $(x+2)^2(x-1)$
+        &$\begin{pmatrix}
+          -2&0&0&0&0&0\\
+          0&0&2&0&0&0\\
+          0&1&-1&0&0&0\\
+          0&0&0&0&0&4\\
+          0&0&0&1&0&0\\
+          0&0&0&0&1&-3\\
+        \end{pmatrix}$\\\\
+      $x-1$, $(x+2)(x-1)$, $(x+2)^2(x-1)$
+        &$\begin{pmatrix}
+          1&0&0&0&0&0\\
+          0&0&2&0&0&0\\
+          0&1&-1&0&0&0\\
+          0&0&0&0&0&4\\
+          0&0&0&1&0&0\\
+          0&0&0&0&1&-3\\
+        \end{pmatrix}$\\\\
+      $x+2$, $(x+2)^2$, $(x+2)^2(x-1)$&\\
+      $x+2$, $x+2$, $x+2$, $(x+2)^2(x-1)$&\\
+      $x-1$, $x-1$, $x-1$, $(x+2)^2(x-1)$&\\
+    \end{tabular}
+    \end{table}
+  \end{proof}
 \end{document}
