@@ -149,24 +149,16 @@
   \end{pmatrix}.\]
 
   \begin{proof}
-    Let $v$ be an eigenvector of $A$ with corresponding eigenvalue
-    $\lambda$. Observe that $A$ describes a permutation of order four, and
-    therefore satisfies $A^4=I$. Then it is routine to show by induction on
-    $n$ that $A^nv=\lambda^nv$, which implies in particular that
-    $\lambda^4$ is a eigenvalue of $A^4=I$. But the only eigenvalue of $A$
-    is 1, thus the eigenvalues of $A$ must be from the set of fourth roots
-    of unities, i.e. from the set $\{1,-1,i,-1\}$. \\
-
-    Now from the previous question, the sum of the eigenvalues is
-    $\text{tr}(A)=0$ and their product is $\text{det}(A)=-1$. Also,
-    observe that $[1,1,1,1]^T$ is an eigenvector of $A$ with eigenvalue 1.
-    So in order for the four eigenvalues to sum to 0 given that one of them
-    is 1 and the eigenvalues must be from the set $\{1,-1,i,-1\}$, we must
-    have that -1 is also one of the eigenvalues. So the remaining two
-    eigenvalues must sum to 0 and multiply to 1, meaning they can either
-    be 1 and -1, or $i$ and $-i$. We can easily check that
-    $\text{det}(iI-A)=0$, therefore one of the eigenvalues must be $i$.
-    Hence the eigenvalues are $1,-1,i,-i$.
+    Observe that $A$ describes a permutation of order four, and therefore
+    satisfies $A^4=I$. So $m_A(x)$ must divide $x^4-1$, which has distinct
+    roots $1,-1,i,-i$. Since $c_A(x)$ has the same roots as $m_A(x)$ and
+    the roots of $c_A(x)$ are the eigenvalues of $A$, therefore the
+    eigenvalues of $A$ can only be from $\{1,-1,i,-i\}$. We observe that
+    $1$ is an eigenvalue via eigenvector $[1,1,1,1]^T$. Thus, from
+    Question 6, for the eigenvalues to sum to 0, -1 must also be an
+    eigenvalue. Furthermore, since $\text{det}(iI-A)=0$, $i$ is also an
+    eigenvalue, and so for the eigenvalues to sum to 0 again, $-i$ is also
+    an eigenvalue. Thus the four eigenvalues are \[1,-1,i,-i.\]
   \end{proof}
 
 \it \textbf{Section 12.2 Q9:} Find the rational canonical forms of
@@ -254,7 +246,7 @@
     Thus Table~\ref{tbl:classes} are the similarity classes, with some
     respective rational canonical forms:
 
-    \begin{table}[h]\label{tbl:classes}
+    \begin{table}[h]
     \centering
     \begin{tabular}{lc}
       Invariant factors &Rational canonical form\\\hline\\
@@ -288,8 +280,9 @@
       $x+2$, $(x+2)^2$, $(x+2)^2(x-1)$&\\
       $x+2$, $x+2$, $x+2$, $(x+2)^2(x-1)$&\\
       $x-1$, $x-1$, $x-1$, $(x+2)^2(x-1)$&\\
-    \end{tabular}\label{tbl:classes}
+    \end{tabular}
     \caption{Similarity classes where $m(x)=(x+2)^2(x-1)$}
+    \label{tbl:classes}
     \end{table}
   \end{proof}
 
@@ -308,6 +301,103 @@
       \item $(x+1)$, $(x+i)(x-i)(x+1)(x-1)^2$
       \item $(x-1)$, $(x+i)(x-i)(x+1)^2(x-1)$
       \item $(x+1)(x-1)$, $(x+i)(x-i)(x+1)(x-1)$
+    \end{enumerate}
+  \end{proof}
+
+\it \textbf{Section 12.2 Q12:} Find all similarity classes of $3\times3$
+  matrices $A$ over $\mathbb{F}_2$ satisfying $A^6=I$ (compare with the
+  answer we computed over $\mathbb{Q}$). Do the same for $4\times4$ matrices
+  $B$ satisfying $B^{20}=I$.
+
+  \begin{proof}
+    $x^6-1$ factorizes into:
+    \[x^6-1=(x-1)(x+1)(x^2+x+1)(x^2-x+1).\]
+
+    Over $\mathbb{F}_2$, since the quadratic factors do not have roots,
+    they must be irreducible. Then from irreducibility criteria
+    (Proposition 12 Section 9.4), the quadratic factors are also
+    irreducible over $\mathbb{Z}$, which makes them irreducible over
+    $\mathbb{Q}$ (Proposition 11 Section 9.4). Therefore the factorization
+    given above gives factors that are irreducible over $\mathbb{F}_2$ and
+    $\mathbb{Q}$. \\
+
+    Now $m_A(x)$ is the monic polynomial of smallest degree that
+    annihilates $A$, therefore it must divide $x^6-1$. Furthermore,
+    $c_A(x)$ must have the same roots as $m_A(x)$, must be a multiple of
+    $m_A(x)$, and must have degree 3, therefore the only possible pairs of
+    minimal and characteristic polynomials are as shown in
+    Table~\ref{tbl:A1} for $\mathbb{Q}$ and in Table~\ref{tbl:A2} for
+    $\mathbb{F}_2$. Now since similarity classes of $3\times3$ matrices are
+    characterized by the characteristic and minimal polynomial pairs
+    (Question 6), the pairings in Tables~\ref{tbl:A1} and~\ref{tbl:A2} are
+    exactly the similarity classes for both $\mathbb{Q}$ and $\mathbb{F}_2$
+    respectively. \\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+      Minimal polynomial &Characteristic polynomial\\\hline\\
+      $(x-1)(x^2+x+1)$ &$(x-1)(x^2+x+1)$\\
+      $(x+1)(x^2+x+1)$ &$(x+1)(x^2+x+1)$\\
+      $(x-1)(x^2-x+1)$ &$(x-1)(x^2-x+1)$\\
+      $(x+1)(x^2-x+1)$ &$(x+1)(x^2-x+1)$\\
+      $(x-1)(x+1)$ &$(x-1)(x+1)^2$\\
+      $(x-1)(x+1)$ &$(x-1)^2(x+1)$\\
+      $(x-1)$ &$(x-1)^3$\\
+      $(x+1)$ &$(x+1)^3$\\
+    \end{tabular}
+    \caption{All possible pairs of characteristic and minimal polynomials
+      over $\mathbb{Q}$}
+    \label{tbl:A1}
+    \end{table}
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+      Minimal polynomial &Characteristic polynomial\\\hline\\
+      $(x-1)(x^2+x+1)$ &$(x-1)(x^2+x+1)$\\
+      $(x-1)^2$ &$(x-1)^3$\\
+      $(x-1)$ &$(x-1)^3$\\
+    \end{tabular}
+    \caption{All possible pairs of characteristic and minimal polynomials
+      over $\mathbb{F}_2$}
+    \label{tbl:A2}
+    \end{table}
+
+    For $4\times4$ matrices $B$ satisfying $B^{20}=1$, we first factorize
+    $x^{20}-1$ over $\mathbb{F}_2$ as follows:
+    \begin{align*}
+      x^{20}-1 &=(x^{10}-1)(x^{10}+1)\\
+      &=(x^{10}-1)^2\\
+      &=((x^{5}-1)(x^{5}+1))^2\\
+      &=(x^{5}-1)^4\\
+      &=((x-1)(x^4+x^3+x^2+x+1))^4\\
+      &=(x-1)^4(x^4+x^3+x^2+x+1)^4.\\
+    \end{align*}
+
+    We show that the quartic factor is irreducible in $\mathbb{F}_2$: It
+    has no linear factors since it it has no roots in $\mathbb{F}_2$. Thus
+    it can only have quadratic factors. Then we will be able to write 
+    \[(x^4+x^3+x^2+x+1) =(x^2+ax+1)(x^2+bx+1).\]
+    But comparing coefficients for $x^2$ gives us $a=b=1$, yet comparing
+    coefficients for $x^3$ gives us $a+b=1$, a contradiction. \\
+
+    Therefore the factorization given above gives factors that are
+    irreducible over $\mathbb{F}_2$. Then repeating the argument above to
+    get the minimal polynomial, the only possibilities for the minimal
+    polynomial are
+    \[m_B(x)=x-1, (x-1)^2, (x-1)^3, (x-1)^4,\;\; \text{or}\;\;
+    x^4+x^3+x^2+x+1.\]
+
+    For each of these minimal polynomials, the possible invariant factors
+    that will characterize the similarity classes are as given by:
+    \begin{enumerate}
+      \item $x^4+x^3+x^2+x+1$
+      \item $(x-1)^4$
+      \item $x-1$, $(x-1)^3$
+      \item $(x-1)^2$, $(x-1)^2$
+      \item $x-1$, $x-1$, $(x-1)^2$
+      \item $x-1$, $x-1$, $x-1$, $x-1$.
     \end{enumerate}
   \end{proof}
 \end{document}
