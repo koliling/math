@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage[inline]{enumitem}
+\usepackage{color}
+\setlength{\parindent}{0mm} %So that we do not indent on new paragraphs
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Graduate Algebra II: Homework 5}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\it \textbf{Section 12.2 Q3:} Prove that two $2\times2$ matrices over $F$
+  which are not scalar matrices are similar if and only if they have the
+  same characteristic polynomial.
+  \begin{proof}
+    We first show that similar matrices have the same characteristic
+    polynomial. Given similar matrices $A$ and $P^{-1}AP$,
+    \begin{align*}
+      \text{char}(P^{-1}AP) &=|xI-P^{-1}AP|\\
+      &=|P(xI-P^{-1}AP)P^{-1}|\\
+      &=|P(xI)P^{-1}-A|\\
+      &=|xI-A|\\
+      &=\text{char}(A).\\
+    \end{align*}
+
+    For the converse, let $A,B\in\text{Mat}_2(F)$ be two non-scalar
+    matrices over with the same characteristic polynomial. Assume the
+    characteristic polynomial of $A$ and $B$ has distinct roots. Write
+    \[c_A(x) =c_B(x) =(x-\alpha)(x-\beta),\]
+    where $\alpha\neq\beta\in F$.
+    Then $A$ and $B$ must also have the same minimal polynomial which
+    equals their characteristic polynomial, by Proposition 20.3. Thus from
+    Theorem 15, matrices $A$ and $B$ are similar.\\
+
+    On the other hand, if the roots of the characteristic polynomial are
+    not distinct, i.e.
+    \[c_A(x)=c_B(x)=(x-\alpha)^2\]
+    for some $\alpha\in F$, then $m_A(x)$ is either $x-\alpha$ or
+    $(x-\alpha)^2$. If $m_A(x)=x-\alpha$, then the invariant factors of $A$
+    are $x-\alpha$ and $x-\alpha$, which implies that the rational
+    canonical form of $A$ is $\alpha I$. Now since $A$ is similar to its
+    rational canonical form $\alpha I$,we have $A=Q^{-1}(\alpha I)Q=\alpha
+    I$ for some invertible matrix $Q\in\text{Mat}_2(F)$, which makes $A$ a
+    scalar matrix, a contradiction. Therefore we must have
+    $m_A(x)=m_B(x)=(x-\alpha)^2$, and so $A$ and $B$ have the same rational
+    canonical form, making them similar by Theorem 15.
+  \end{proof}
+
+\it \textbf{Section 12.2 Q4:} Prove that two $3\times3$ matrices are
+  similar if and only if they have the same characteristic and same minimal
+  polynomial. Give an explicit counterexample to this assertion for
+  $4\times4$ matrices.
+
+  \begin{proof}
+  \end{proof}
+
+\it \textbf{Section 12.2 Q6:} Prove that the constant term in the
+  characteristic polynomial of the $n\times n$ matrix $A$ is
+  $(-1)^n\text{det}A$ and that the coefficient of $x^{n-1}$ is the negative
+  of the sum of the diagonal entries of $A$ (the sum of the diagonal
+  entries of $A$ is called the trace of $A$). Prove that $\text{det}A$ is
+  the product of the eigenvalues of $A$ and that the trace of $A$ is the
+  sum of the eigenvalues of $A$.
+\end{document}
