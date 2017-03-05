@@ -32,8 +32,9 @@
     \[c_A(x) =c_B(x) =(x-\alpha)(x-\beta),\]
     where $\alpha\neq\beta\in F$.
     Then $A$ and $B$ must also have the same minimal polynomial which
-    equals their characteristic polynomial, by Proposition 20.3. Thus from
-    Theorem 15, matrices $A$ and $B$ are similar.\\
+    equals their characteristic polynomial, by Proposition 20.3. Therefore
+    $A$ and $B$ have the same rational canonical form, and so $A$ and $B$
+    are similar from Theorem 17.\\
 
     On the other hand, if the roots of the characteristic polynomial are
     not distinct, i.e.
@@ -46,7 +47,7 @@
     I$ for some invertible matrix $Q\in\text{Mat}_2(F)$, which makes $A$ a
     scalar matrix, a contradiction. Therefore we must have
     $m_A(x)=m_B(x)=(x-\alpha)^2$, and so $A$ and $B$ have the same rational
-    canonical form, making them similar by Theorem 15.
+    canonical form, making them similar by Theorem 17.
   \end{proof}
 
 \it \textbf{Section 12.2 Q4:} Prove that two $3\times3$ matrices are
@@ -55,6 +56,49 @@
   $4\times4$ matrices.
 
   \begin{proof}
+    Assume $A,B\in\text{Mat}_3(F)$ are similar. Then from the argument in
+    the previous question, the $A$ and $B$ have the same characteristic
+    polynomial. Also, from Theorem 15, $A$ and $B$ have the same rational
+    canonical form and thus also have the same minimal polynomial.\\
+
+    For the converse, assume $A,B\in\text{Mat}_3(F)$ have the same
+    characteristic polynomial $c(x)$ and minimal polynomial $m(x)$. If
+    $c(x)$ has distinct roots, then $m(x)=c(x)$ also has distinct roots, so
+    $A$ and $B$ has only one invariant factor $m(x)$, which implies that
+    $A$ and $B$ have the same rational canonical form. Then $A$ and $B$
+    would be similar from Theorem 17. \\
+
+    On the other hand, if $c(x)$ has only two distinct roots, i.e.
+    \[c_A(x)=c_B(x)=c(x) =(x-\alpha)(x-\beta)^2\]
+    for some $\alpha\neq\beta\in F$, the minimal polynomial $m(x)$ of $A$
+    and $B$ can either be $c(x)$ or $(x-\alpha)(x-\beta)$. If
+    $m(x)=c(x)$, then the invariant factors of $A$ and of $B$ can only be
+    $m(x)$, and then $A$ would be similar to $B$ from Theorem 17. If
+    $m(x)=(x-\alpha)(x-\beta)$, then the invariant factors of both matrices
+    can only be $(x-\beta)$ and $(x-\alpha)(x-\beta)$. Then again, $A$ and
+    $B$ are similar from Theorem 17. \\
+
+    Finally, if $c(x)$ has only one root, i.e.
+    \[c_A(x)=c_B(x)=c(x) =(x-\alpha)^3\]
+    for some $\alpha\in F$, the minimal polynomial $m(x)$ of $A$ and $B$
+    can either be $x-\alpha$, $(x-\alpha)^2$, or $(x-\alpha)^3$. If it is
+    the first case, then the invariant factors of $A$ and of $B$ can only
+    be $x-\alpha$ three times, and then $A$ would be similar to $B$ from
+    Theorem 17. If it is the second case, then the invariant factors can
+    only be $x-\alpha$ and $(x-\alpha)^2$, and again $A$ would be similar
+    to $B$. Finally, if it is the third case, then the invariant factors
+    can only be $(x-\alpha)^3$, and then $A$ and $B$ would still be
+    similar from Theorem 17. \\
+
+    Thus two $3\times3$ matrices are similar if and only if they have the
+    same characteristic and minimal polynomial. The assertion for
+    $4\times4$ matrices $A$ and $B$ will fail if for both matrices, the
+    characteristic polynomial is $(x-\alpha)^4$ and the minimal polynomial
+    is $(x-\alpha)^2$. Then if $A$ has invariant factors $(x-\alpha)^2$ and
+    $(x-\alpha)^2$ and $B$ has invariant factors $x-\alpha$, $x-\alpha$,
+    and $(x-\alpha)^2$, by Theorem 17, their respective rational canonical
+    forms $A'$ and $B'$ will not be similar even though they have the same
+    characteristic and minimal polynomials.
   \end{proof}
 
 \it \textbf{Section 12.2 Q6:} Prove that the constant term in the
