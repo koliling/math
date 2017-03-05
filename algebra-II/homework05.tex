@@ -251,10 +251,11 @@
     invariant factors must have degree 6, and the first invariant factor
     must divide the second and so on. Finally, the similarity classes is
     completely characterized by its corresponding set of invariant factors.
-    Thus these are the similarity classes, with some respective rational
-    canonical forms:
+    Thus Table~\ref{tbl:classes} are the similarity classes, with some
+    respective rational canonical forms:
 
-    \begin{table}[h]\centering
+    \begin{table}[h]\label{tbl:classes}
+    \centering
     \begin{tabular}{lc}
       Invariant factors &Rational canonical form\\\hline\\
       $(x+2)^2(x-1)$, $(x+2)^2(x-1)$
@@ -287,7 +288,26 @@
       $x+2$, $(x+2)^2$, $(x+2)^2(x-1)$&\\
       $x+2$, $x+2$, $x+2$, $(x+2)^2(x-1)$&\\
       $x-1$, $x-1$, $x-1$, $(x+2)^2(x-1)$&\\
-    \end{tabular}
+    \end{tabular}\label{tbl:classes}
+    \caption{Similarity classes where $m(x)=(x+2)^2(x-1)$}
     \end{table}
+  \end{proof}
+
+\it \textbf{Section 12.2 Q11:} Find all similarity classes of $6\times6$
+  matrices over $\mathbb{C}$ with characteristic polynomial
+  $c(x)=(x^4-1)(x^2-1)$.
+
+  \begin{proof}
+    Repeating the argument used in the previous question, since
+    \[c(x)=(x^4-1)(x^2-1)=(x+i)(x-i)(x+1)^2(x-1)^2,\]
+    the only possible similarity classes as characterized by the set of
+    invariant factors are:
+
+    \begin{enumerate}
+      \item $(x+i)(x-i)(x+1)^2(x-1)^2$
+      \item $(x+1)$, $(x+i)(x-i)(x+1)(x-1)^2$
+      \item $(x-1)$, $(x+i)(x-i)(x+1)^2(x-1)$
+      \item $(x+1)(x-1)$, $(x+i)(x-i)(x+1)(x-1)$
+    \end{enumerate}
   \end{proof}
 \end{document}
