@@ -15,6 +15,7 @@
 \it \textbf{Section 12.2 Q3:} Prove that two $2\times2$ matrices over $F$
   which are not scalar matrices are similar if and only if they have the
   same characteristic polynomial.
+
   \begin{proof}
     We first show that similar matrices have the same characteristic
     polynomial. Given similar matrices $A$ and $P^{-1}AP$,
@@ -27,14 +28,12 @@
     \end{align*}
 
     For the converse, let $A,B\in\text{Mat}_2(F)$ be two non-scalar
-    matrices over with the same characteristic polynomial. Assume the
-    characteristic polynomial of $A$ and $B$ has distinct roots. Write
-    \[c_A(x) =c_B(x) =(x-\alpha)(x-\beta),\]
-    where $\alpha\neq\beta\in F$.
-    Then $A$ and $B$ must also have the same minimal polynomial which
-    equals their characteristic polynomial, by Proposition 20.3. Therefore
-    $A$ and $B$ have the same rational canonical form, and so $A$ and $B$
-    are similar from Theorem 17.\\
+    matrices over with the same characteristic polynomial. Suppose the
+    characteristic polynomial of $A$ and $B$ has two distinct roots, or is
+    an irreducible polynomial of degree two. Then the minimal polynomial of
+    the matrices must also be the characteristic polynomial by Proposition
+    20, so the matrices have the same rational canonical form, and
+    are therefore similar to each other from Theorem 17. \\
 
     On the other hand, if the roots of the characteristic polynomial are
     not distinct, i.e.
@@ -63,10 +62,10 @@
 
     For the converse, assume $A,B\in\text{Mat}_3(F)$ have the same
     characteristic polynomial $c(x)$ and minimal polynomial $m(x)$. If
-    $c(x)$ has distinct roots, then $m(x)=c(x)$ also has distinct roots, so
-    $A$ and $B$ has only one invariant factor $m(x)$, which implies that
-    $A$ and $B$ have the same rational canonical form. Then $A$ and $B$
-    would be similar from Theorem 17. \\
+    $c(x)$ has distinct roots, or is an irreducible polynomial of degree 3,
+    or is the product of an irreducible polynomial of degree 2 with a
+    linear factor, then by Proposition 20, $A$ and $B$ will have the same
+    invariant factors, and therefore are similar from Theorem 17. \\
 
     On the other hand, if $c(x)$ has only two distinct roots, i.e.
     \[c_A(x)=c_B(x)=c(x) =(x-\alpha)(x-\beta)^2\]
@@ -108,4 +107,36 @@
   entries of $A$ is called the trace of $A$). Prove that $\text{det}A$ is
   the product of the eigenvalues of $A$ and that the trace of $A$ is the
   sum of the eigenvalues of $A$.
+
+  \begin{proof}
+    The constant term of $c_A(x)$ is
+    \[c_A(0)=\text{det}(0I-A)=\text{det}(-A)=(-1)^n\text{det}(A).\]
+
+    To prove the assertion on the coefficient of $x^{n-1}$, first note that
+    given two matrices $X$ and $Y$, we have $\text{tr}(XY)=\text{tr}(YX)$,
+    and therefore similar matrices will have the same trace. Hence it
+    suffices to prove that the coefficient of $x^{n-1}$ is the same as the
+    trace of the rational canonical form of $A$. By definition, if the
+    invariant factors of $A$ are $m_1(x),\ldots,m_k(x)$, then the trace of
+    the rational canonical form of $A$ is $-\sum_{i=1}^k c_{i}$, where
+    $c_{i}$ is the coefficient of the second highest degree of $m_i(x)$.
+    Now since similar matrices have the same characteristic polynomial, we
+    can assume that the matrix $A$ is of rational canonical form. Then the
+    coefficient of $x^{n-1}$ of $c_A(x)=m_1(x)\cdots m_k(x)$ will be
+    $-\sum_{i=1}^k c_{i}$, as required. \\
+
+    The $n$ eigenvalues of $A$ (including multiplicities)
+    $\lambda_1,\ldots,\lambda_n$ are exactly the set of
+    roots of the characteristic polynomial of $A$, i.e.
+    \[c_A(x) =(x-\lambda_1)\cdots(x-\lambda_n).\]
+    Setting $x=0$ in the above equation gives us
+    $c_A(0)=(-1)^n\lambda_1\cdots\lambda_n$. And since $c_A(0)$ is
+    $(-1)^n\text{det}(A)$ as shown earlier, we have
+    \[\text{det}(A) =\lambda_1\cdots\lambda_n.\]
+
+    Similarly, in the expansion of $c_A(x)$, the coefficient of $x^{n-1}$
+    is the negative of the sum of the eigenvalues of $A$. And since we have
+    shown earlier that the former is the same as $-\text{tr}(A)$, we get
+    that the sum of the eigenvalues is the same as $\text{tr}(A)$.
+  \end{proof}
 \end{document}
