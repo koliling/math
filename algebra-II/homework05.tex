@@ -445,4 +445,26 @@
     which lies outside $\mathbb{Q}$. But the coefficient of $x^2$ gives
     $3a\in\mathbb{Q}$, which implies $a\in\mathbb{Q}$, a contradiction.
   \end{proof}
+
+\it \textbf{Section 12.2 Q19:} Let $V$ be the infinite dimensional real
+  vector space
+  \[\mathbb{R}^\infty =\{(a_0,a_1,a_2,\ldots)|a_0,a_1,a_2\in\mathbb{R}.\}\]
+  Define the map $T:V\rightarrow V$ by
+  $T(a_0,a_1,a_2\ldots)=(0,a_0,a_1,a_2,\ldots)$. Prove that $T$ has no
+  eigenvectors.
+
+  \begin{proof}
+    Assume that $T$ has eigenvector $v=(a_0,a_1,\ldots)\neq0$. Then
+    \begin{align*}
+      (0,a_0,a_1,\ldots) &=Tv\\
+      &=\lambda v\\
+      &=(\lambda a_0,\lambda a_1,\ldots).\\
+    \end{align*}
+    for some $\lambda\in\mathbb{R}$. Therefore $\lambda a_0=0$, and
+    $\lambda a_{i+1}=a_i$ for all $i\in\mathbb{N}$. If $\lambda=0$, then
+    $a_i=0$ for all $i\in\mathbb{N}$, implying $v=0$, a contradiction. Thus
+    $\lambda\neq0$ and $a_0=0$. But this would also give
+    $a_{i+1}=a_i/\lambda=0$ for all $i\in\mathbb{N}$, which implies $v=0$,
+    also a contradiction. Thus no such $v$ exists.
+  \end{proof}
 \end{document}
