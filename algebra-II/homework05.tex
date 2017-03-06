@@ -216,7 +216,7 @@
     $(-1)^3\text{det}(C)=0$. Thus one of the eigenvalues must be 0, and the
     other two eigenvalues must be additive inverses. Indeed,
     \[c_C(x)=\text{det}(xI-C)=x^3-2x,\]
-    which has distinct roots $\{0,\sqrt{2},-\sqrt{2}\}$.
+    which has distinct roots $\{0,\sqrt{2},-\sqrt{2}\}$. \\
 
     Then
     \[c_B(x)=c_C(x-c)=(x-c)^3-2(x-c) =x^3-3cx^2+(3c^2-2)x+(2c-c^3),\]
@@ -399,5 +399,50 @@
       \item $x-1$, $x-1$, $(x-1)^2$
       \item $x-1$, $x-1$, $x-1$, $x-1$.
     \end{enumerate}
+  \end{proof}
+
+\it \textbf{Section 12.2 Q13:} Prove that the number of similarity
+  classes of $3\times3$ matrices over $\mathbb{Q}$ with a given
+  characteristic polynomial in $\mathbb{Q}[x]$ is the same as the number of
+  similarity classes over any extension field of $\mathbb{Q}$. Give an
+  example to show that this is not true in general for $4\times4$ matrices.
+
+  \begin{proof}
+    Observe that as the extension field gets larger, the characteristic
+    polynomial $c(x)$ can be split into smaller factors, and therefore will
+    have more similarity classes, because there will be more possibilities
+    for sets of invariant factors, and also because invariant factors from
+    the smaller field remain valid invariant factors over the larger
+    field.  Also observe that $\mathbb{C}$, the completion of
+    $\mathbb{Q}$, will give the maximum number of similarity classes
+    since the characteristic polynomial will be factorized completely
+    into linear factors. Thus it suffices to show that the number of
+    similarity classes over $\mathbb{Q}$ is the same as the number of
+    similarity classes over $\mathbb{C}$. \\
+
+    Let $c(x)\in\mathbb{Q}[x]$ be the characteristic polynomial of degree
+    three. If $c(x)$ has distinct roots in $\mathbb{C}$, then the minimal
+    polynomial can only be $c(x)$ itself, giving a single invariant factor
+    equal to $c(x)$ and therefore a single similarity class. Also, if all
+    the roots of $c(x)$ lie in $\mathbb{Q}$, then $c(x)$ will factorize
+    linearly over $\mathbb{Q}$, and so the possible sets of invariant
+    factors will be the same over $\mathbb{Q}$ or over $\mathbb{C}$. Thus
+    we can assume that $c(x)$ has at most two distinct roots, and at least
+    one of them lies outside $\mathbb{Q}$. \\
+
+    Assume $c(x)=(x-a)(x-b)^2\in\mathbb{Q}[x]$ has two distinct roots, at
+    least one of which lies outside $\mathbb{Q}$. Then the minimal
+    polynomial $m(x)\in\mathbb{Q}[x]$ can only be either $(x-a)(x-b)$ or
+    $c(x)$. If it is the former, then the coefficients of $c(x)$
+    give $a+2b\in\mathbb{Q}$, and the coefficeints of $m(x)$ give
+    $a+b\in\mathbb{Q}$. Thus, $b\in\mathbb{Q}$, and therefore also
+    $a\in\mathbb{Q}$, which would contradict $a,b\not\in\mathbb{Q}$. Hence
+    the minimal polynomial can only be $c(x)$, giving only one possible
+    similarity class, which is the one associated with the set of invariant
+    factors containing only $c(x)$ itself. \\
+
+    Finally, assume $c(x)=(x-a)^3\in\mathbb{Q}[x]$ has only one root $a$
+    which lies outside $\mathbb{Q}$. But the coefficient of $x^2$ gives
+    $3a\in\mathbb{Q}$, which implies $a\in\mathbb{Q}$, a contradiction.
   \end{proof}
 \end{document}
