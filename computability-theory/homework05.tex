@@ -49,5 +49,28 @@
       \[\mathcal{D} =\{f\in2^\omega:\; \forall n\exists m\; (m>n \wedge
       f(m)=0)\}.\]
     \end{proof}
+
+  \item \it Show that there is no partial computable function $f$ such that
+    if $\varphi_e$ is the characteristic function of a finite set $F$ then
+    $f(e)=y$ where $F=D_y$.
+
+    \begin{proof}
+      Assume such a partial computable function $f$ exists. By the SMN
+      theorem, there is a total recursive function $g(e)$ such that
+      \begin{align*}
+        \varphi_{g(e)}(s) :=
+        \begin{cases}
+          0, &\text{if}\; \varphi_{e}(e)\; \text{has not halted after}\;
+            s\; \text{steps}\\
+          1, &\text{otherwise}.
+        \end{cases}
+      \end{align*}
+
+      Then if $e\in K$ halts, $\varphi_{g(e)}$ will be the characteristic
+      function of the finite set $\{1\}$, otherwise $\varphi_{g(e)}$ will
+      be the characteristic function of the empty set. Thus $e\in K$ if and
+      only if $f(g(e))$ is the index corresponding to the finite set
+      $\{1\}$, which contradicts the incomputability of $K$.
+    \end{proof}
 \end{enumerate}
 \end{document}
