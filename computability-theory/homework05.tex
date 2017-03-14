@@ -173,7 +173,7 @@
       Now by relativized SMN theorem, there is a total recursive function
       $g(e,x,y)$ such that
       \begin{align*}
-        \Phi^{\emptyset^{(n)}}_{g(e,x,y)}(z) :=
+        \Phi^{\emptyset^{(n)}}_{g(x,y)}(z) :=
         \begin{cases}
           0 &\text{if}\; \exists z>y\;
             \Phi_e^{\emptyset^{(n)}}(x,z)\downarrow\neq
@@ -181,6 +181,22 @@
           \uparrow &\text{otherwise}.\\
         \end{cases}
       \end{align*}
+
+      Observe that $\Phi^{\emptyset^{(n)}}_{g(x,y)}$ is the zero function
+      if and only if $y$ is smaller than the least modulus of
+      $\Phi_e^{\emptyset^{(n)}}(x,y_1)$ at $x$, seen as a function of
+      $y_1$. Otherwise, $\Phi^{\emptyset^{(n)}}_{g(x,y)}$ is the function
+      that never halts at any input. Therefore
+      \[g(x,y) \in\emptyset^{(n+1)} \Rightarrow
+      \Phi^{\emptyset^{(n)}}_{e}(x,y) =\lim_{y_1}
+      \Phi^{\emptyset^{(n)}}_{e}(x,y_1).\]
+
+      Hence
+      \[h(x) =\Phi^{\emptyset^{(n)}}_{e}(x,y),\]
+      where
+      \[y =\mu y\; g(x,y)\in\emptyset^{(n+1)},\]
+      and so
+      \[h(x) \leq_T \emptyset^{(n+1)}.\]
     \end{proof}
 
   \item \it Soare 3.8.10:
