@@ -149,7 +149,7 @@
       \end{align*}
       where $\bar{f}(y_1,\ldots,y_{n+1})(t)$ denotes
       $\hat{f}(t,y_1,\ldots,y_{n+1})$. Then repeating the earlier argument,
-      we can shift the limits out to get
+      we can shift the limits out repeatedly to get
       \begin{align*}
         h(x) &=\Phi_e^{\lim_{y_{n+1}}\lim_{y_1}\ldots\lim_{y_n}
           \bar{f}(y_1,\ldots,y_{n+1})}(x)\\
@@ -158,7 +158,29 @@
       \end{align*}
       which makes $h(x)$ in the required form. \\
 
-      For the converse, let
+      For the converse, assume
+      \[h(x) =\lim_{y_{1}}\ldots\lim_{y_{n+1}}
+      \hat{h}(x,y_1,\ldots,y_{n+1})\]
+      for some recursive $\hat{h}$. Then
+      \begin{align*}
+        h(x) &=\lim_{y_1} \left(\lim_{y_{1}}\ldots\lim_{y_{n+1}}
+          \hat{h}(x,y_1,\ldots,y_{n+1}) \right)\\
+        &=\lim_{y_1} \left(\Phi_e^{\emptyset^{(n)}}(x,y_1) \right)\;
+          \text{for some}\; e\in\omega &(\text{by induction
+          hypothesis}).\\
+      \end{align*}
+
+      Now by relativized SMN theorem, there is a total recursive function
+      $g(e,x,y)$ such that
+      \begin{align*}
+        \Phi^{\emptyset^{(n)}}_{g(e,x,y)}(z) :=
+        \begin{cases}
+          0 &\text{if}\; \exists z>y\;
+            \Phi_e^{\emptyset^{(n)}}(x,z)\downarrow\neq
+            \Phi_e^{\emptyset^{(n)}}(x,y),\\
+          \uparrow &\text{otherwise}.\\
+        \end{cases}
+      \end{align*}
     \end{proof}
 
   \item \it Soare 3.8.10:
