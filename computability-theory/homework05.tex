@@ -75,11 +75,112 @@
 
   \item \it Soare 3.6.9: (Iterated Limit Lemma) Prove that if $n\geq1$,
     then $f\leq_T\emptyset^{(n)}$ iff there is a computable function
-    $\hat{f}$ of $(n+1)$ variable such that
+    $\hat{f}$ of $(n+1)$ variables such that
     \[f(x) =\lim_{y_1} \lim_{y_2} \ldots \lim_{y_n}\;
     \hat{f}(x,y_1,\ldots,y_n).\]
 
     \begin{proof}
+      %We first show by induction on $n$ that given any computable function
+      %$h(y_1,\ldots,y_{n})$, we have
+      %\begin{align*}
+      %  \lim_{y_1}\ldots\lim_{y_n} \Phi_x^{h(y_1,\ldots,y_{n+1})}(x)
+      %  =\Phi_x^{\lim_{y_1}\ldots\lim_{y_n} h(y_1,\ldots,y_{n+1})}(x).
+      %\end{align*}
+
+      %there is a computable function $\hat{f}$ such that
+      %\[\emptyset^{(n+1)} =\lim_{y_1} \lim_{y_2} \ldots \lim_{y_{n+1}}\;
+      %\hat{f}(x,y_1,\ldots,y_{n+1}).\]
+
+      We prove by induction on $n$. The base case for $n=1$ is the limit
+      lemma (Lemma 3.6.2). For the inductive step $(n+1)$, we first show
+      that $\emptyset^{(n+1)}$ has the required form. From induction
+      hypothesis, there is a computable function $\hat{g}$ such that
+      \[\emptyset^{(n)}(e) =\lim_{y_1} \lim_{y_2} \ldots \lim_{y_{n}}\;
+      \hat{g}(e,y_1,\ldots,y_n).\]
+
+      Consider the computable function
+      \begin{align*}
+        \hat{f}(e,y_1,\ldots,y_{n+1}) :=
+        \begin{cases}
+          1 &\text{if}\; \Phi_e^{\bar{g}(y_1,\ldots,y_n)}(e)\; \text{halts
+            after}\; y_{n+1}\; \text{steps},\\
+          0 &\text{otherwise},
+        \end{cases}
+      \end{align*}
+      where $\bar{g}(y_1,\ldots,y_n)(x)$ denotes
+      $\hat{g}(x,y_1,\ldots,y_n)$. Note that $\hat{f}$ is total computable
+      since $\hat{g}$ is. We show that $\hat{f}$ gives $\emptyset^{(n+1)}$
+      the required form. \\
+
+      First, observe that since $\lim_{y_n}
+      \hat{g}(x,y_1,\ldots,y_{n-1},y_n)$ exists for arbitrary
+      $x,y_1,\ldots,y_{n-1}\in\omega$, therefore
+      \begin{align*}
+        \lim_{y_n} \hat{f}(e,y_1,\ldots,y_{n+1}) =
+        \begin{cases}
+          1 &\text{if}\; \Phi_e^{\lim_{y_n} \bar{g}(y_1,\ldots,y_n)} (e)\;
+            \text{halts after}\; y_{n+1}\; \text{steps},\\
+          0 &\text{otherwise},
+        \end{cases}
+      \end{align*}
+      because the left hand side equals $\hat{f}(e,y_1,\ldots,y_{n-1},m)$
+      for some large enough $m\in\omega$, and similarly the right hand
+      side equals 1 if $\Phi_{e,y_{n+1}}^{\lim_{y_n}
+      \bar{g}(y_1,\ldots,y_{n-1},m)}(e)\downarrow$ and 0 otherwise, which
+      is the same as $\hat{f}(e,y_1,\ldots,y_{n-1},m)$. Repeating the
+      argument, by induction on $n$, we get
+      \begin{align*}
+        \lim_{y_1}\ldots\lim_{y_n} \hat{f}(e,y_1,\ldots,y_{n+1}) &=
+        \begin{cases}
+          1 &\text{if}\; \Phi_e^{\lim_{y_1}\ldots\lim_{y_n}
+            \bar{g}(y_1,\ldots,y_n)} (e)\; \text{halts after}\; y_{n+1}\;
+            \text{steps},\\
+          0 &\text{otherwise}.
+        \end{cases}\\
+        &=
+        \begin{cases}
+          1 &\text{if}\; \Phi_e^{\emptyset^{(n)}} (e)\; \text{halts
+            after}\; y_{n+1}\; \text{steps},\\
+          0 &\text{otherwise}.
+        \end{cases}\\
+      \end{align*}
+
+      Then
+      \[e\in\emptyset^{(n+1)} \Leftrightarrow
+      \lim_{y_{n+1}}\lim_{y_1}\ldots\lim_{y_n}
+      \hat{f}(e,y_1,\ldots,y_{n+1}) =1,\]
+      so $\emptyset^{(n+1)}$ has the required form.
+
+      %First, observe that given any computable
+      %function $h(y_1,\ldots,y_{n+1})$, we have
+      %\begin{align*}
+      %  \lim_{y_1}\ldots\lim_{y_n} \Phi_x^{h(y_1,\ldots,y_{n+1})}(x)
+      %  =\Phi_x^{\lim_{y_1}\ldots\lim_{y_n} h(y_1,\ldots,y_{n+1})}(x),
+      %\end{align*}
+      %therefore
+      %\begin{align*}
+      %  \lim_{y_1}\ldots\lim_{y_n} \hat{f}(x,y_1,\ldots,y_{n+1}) :=
+      %  \begin{cases}
+      %    1 &\text{if}\; \Phi_x^{\emptyset^{(n)} \restriction
+      %      y_{n+1}}(x)\; \text{halts},\\
+      %    0 &\text{otherwise}.
+      %  \end{cases}
+      %\end{align*}
+
+      %Hence
+      %\begin{align*}
+      %  x\in\emptyset^{(n+1)} \Rightarrow\;
+      %    &\Phi_{x,s}^{\emptyset^{(n)}\restriction s}(x) \downarrow\;
+      %      \text{for some}\; s\in\omega\\
+      %  \Rightarrow\; &\Phi_{x,y_{n+1}}^{\lim_{y_1} \ldots
+      %    \lim_{y_{n}}\; \bar{g}(y_1,\ldots,y_n)\restriction y_{n+1}}(x)
+      %    \downarrow\; \text{for all}\; y_{n+1}>s\\
+      %  \Rightarrow\; &\lim_{y_1} \ldots \lim_{y_{n}}\;
+      %    \Phi_{x,y_{n+1}}^{\bar{g}(y_1,\ldots,y_n)\restriction y_{n+1}}(x)
+      %    \downarrow\; \text{for all}\; y_{n+1}>s\\
+      %  \Rightarrow\; &\lim_{y_1}\ldots\lim_{y_{n}}\;
+      %    \hat{f}(x,y_1,\ldots,y_{n+1}) =1\\
+      %\end{align*}
     \end{proof}
 
   \item \it Soare 3.8.10:
