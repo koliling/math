@@ -149,38 +149,24 @@
       \[e\in\emptyset^{(n+1)} \Leftrightarrow
       \lim_{y_{n+1}}\lim_{y_1}\ldots\lim_{y_n}
       \hat{f}(e,y_1,\ldots,y_{n+1}) =1,\]
-      so $\emptyset^{(n+1)}$ has the required form.
-
-      %First, observe that given any computable
-      %function $h(y_1,\ldots,y_{n+1})$, we have
-      %\begin{align*}
-      %  \lim_{y_1}\ldots\lim_{y_n} \Phi_x^{h(y_1,\ldots,y_{n+1})}(x)
-      %  =\Phi_x^{\lim_{y_1}\ldots\lim_{y_n} h(y_1,\ldots,y_{n+1})}(x),
-      %\end{align*}
-      %therefore
-      %\begin{align*}
-      %  \lim_{y_1}\ldots\lim_{y_n} \hat{f}(x,y_1,\ldots,y_{n+1}) :=
-      %  \begin{cases}
-      %    1 &\text{if}\; \Phi_x^{\emptyset^{(n)} \restriction
-      %      y_{n+1}}(x)\; \text{halts},\\
-      %    0 &\text{otherwise}.
-      %  \end{cases}
-      %\end{align*}
-
-      %Hence
-      %\begin{align*}
-      %  x\in\emptyset^{(n+1)} \Rightarrow\;
-      %    &\Phi_{x,s}^{\emptyset^{(n)}\restriction s}(x) \downarrow\;
-      %      \text{for some}\; s\in\omega\\
-      %  \Rightarrow\; &\Phi_{x,y_{n+1}}^{\lim_{y_1} \ldots
-      %    \lim_{y_{n}}\; \bar{g}(y_1,\ldots,y_n)\restriction y_{n+1}}(x)
-      %    \downarrow\; \text{for all}\; y_{n+1}>s\\
-      %  \Rightarrow\; &\lim_{y_1} \ldots \lim_{y_{n}}\;
-      %    \Phi_{x,y_{n+1}}^{\bar{g}(y_1,\ldots,y_n)\restriction y_{n+1}}(x)
-      %    \downarrow\; \text{for all}\; y_{n+1}>s\\
-      %  \Rightarrow\; &\lim_{y_1}\ldots\lim_{y_{n}}\;
-      %    \hat{f}(x,y_1,\ldots,y_{n+1}) =1\\
-      %\end{align*}
+      so $\emptyset^{(n+1)}$ has the required form. Thus if
+      $h\leq_T\emptyset^{(n+1)}$, then there exists some $e\in\omega$ such
+      that
+      \begin{align*}
+        h(x) &=\Phi_e^{\emptyset^{(n+1)}}(x)\\
+        &=\Phi_e^{\lim_{y_{n+1}}\lim_{y_1}\ldots\lim_{y_n}
+          \bar{f}(y_1,\ldots,y_{n+1})}(x),\\
+      \end{align*}
+      where $\bar{f}(y_1,\ldots,y_{n+1})(t)$ denotes
+      $\hat{f}(t,y_1,\ldots,y_{n+1})$. Then repeating the earlier argument,
+      we get
+      \begin{align*}
+        h(x) &=\Phi_e^{\lim_{y_{n+1}}\lim_{y_1}\ldots\lim_{y_n}
+          \bar{f}(y_1,\ldots,y_{n+1})}(x)\\
+        &=\lim_{y_{n}}\lim_{y_1}\ldots\lim_{y_{n+1}}
+          \Phi_e^{\bar{f}(y_1,\ldots,y_{n+1})}(x),\\
+      \end{align*}
+      which makes $h(x)$ in the required form. \\
     \end{proof}
 
   \item \it Soare 3.8.10:
