@@ -199,8 +199,31 @@
       \[h(x) \leq_T \emptyset^{(n+1)}.\]
     \end{proof}
 
-  \item \it Soare 3.8.10:
+  \item \it Soare 3.8.10: Let $f$ be a one-to-one computable function with
+    range $A$. Define the deficiency set for this enumeration $f$ to be:
+    \[D= \{s: (\exists t>s)\; \left[f(t)<f(s)\right]\}.\]
+    Prove that $A\leq_TD$ and $D\leq_{tt}A$.
+
     \begin{proof}
+      We first show that because $f$ is one-to-one,
+      $|\overline{D}|=\infty$. Assume by contradiction that $\overline{D}$
+      contains a largest element $x_0\in\omega$. Then $f(x_0+1)>f(x_0)$
+      since $x_0\in\overline{D}$. But $x_0+1\in D$, so there must be some
+      $x>x_0+1$ such that $f(x_0)<f(x)<f(x_0+1)$. Now since $f$ is
+      one-to-one, and there are only a finite number of elements between
+      $f(x_0)$ and $f(x_0+1)$, therefore there can only be a finite number
+      of distinct elements $a_n>\ldots>a_1>x_0+1$ such that
+      $f(x_0)<f(a_i)<f(x_0+1)$.  Then we have $a_n\in D$, yet there is no
+      $x>a_n$ such that $f(x)<f(a_n)$, because $f(x)>f(x_0+1)>f(a_n)$ for
+      all $x>a_n$. This is a contradiction, hence $|\overline{D}|=\infty$.
+      \\
+
+      Assume we know $D$ and we want to decide if a given $y\in\omega$ lies
+      in $A$. We find the smallest $x_0\in\omega$ such that $x_0\not\in D$
+      and $f(x_0)\geq y$. Such $x_0$ must exist because
+      $|\overline{D}|=\infty$ and $f$ is one-to-one. Then we will know that
+      $y\in A$ if and only if $f(x)=y$ for some $x\leq x_0$. Thus $A\leq_T
+      D$.\\
     \end{proof}
 
   \item \it Soare 3.8.16:
