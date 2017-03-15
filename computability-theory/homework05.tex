@@ -283,10 +283,10 @@
     \end{enumerate}
 
     \begin{proof}
-      We prove by induction on $n$. We begin with the base case $n=1$. Let
-      $A=\lim_s A_s$ be a 1-c.e. set, with $A_s$ being a computable
-      sequence witnessing the 1-c.e.-ness of $A$. Then $A=W_e$, where
-      $\varphi_e$ is the partial computable function
+      We prove by induction on $n$. We begin with the first base case
+      $n=1$. Let $A=\lim_s A_s$ be a 1-c.e. set, with $A_s$ being a
+      computable sequence witnessing the 1-c.e.-ness of $A$. Then $A=W_e$,
+      where $\varphi_e$ is the partial computable function
       \begin{align*}
         \varphi_e(x) :=
         \begin{cases}
@@ -294,14 +294,47 @@
           \uparrow &\text{otherwise}.\\
         \end{cases}
       \end{align*}
-      Conversely, if $A=W_e$ for some $e\in\omega$, then $A=\lim_sA_s$,
-      where $A_s(x)$ is a computable function defined by
+      Conversely, if $A=W_e$ for some $e\in\omega$, then the following
+      computable sequence $A_s$ will witness the 1-c.e.-ness of $A$:
       \begin{align*}
         A_s(x) :=
         \begin{cases}
           0 &\text{if}\; s=0\\
           1 &\text{if}\; s>0\; \text{and}\; \varphi_e(x)\downarrow\;
           \text{after}\; s\; \text{steps}.\\
+        \end{cases}
+      \end{align*}
+
+      Next, we prove the second base case $n=2$. Let $A=\lim_s A_s$ be a
+      2-c.e. set, with $A_s$ being a computable sequence witnessing the
+      2-c.e.-ness of $A$. Then $A=W_e-W_f$, where $\varphi_e$ and
+      $\varphi_f$ are the partial computable functions
+      \begin{align*}
+        \varphi_e(x) &:=
+        \begin{cases}
+          1 &\text{if}\; 1\in\{A_s(x):s\in\omega\}\\
+          \uparrow &\text{otherwise},\\
+        \end{cases}\\
+        \varphi_f(x) &:=
+        \begin{cases}
+          1 &\text{if}\; \exists s<t\; \left[A_s(x)=1\wedge
+            A_t(x)=0\right]\\
+          \uparrow &\text{otherwise}.\\
+        \end{cases}\\
+      \end{align*}
+
+      Conversely, if $A=W_e-W_f$ for some $e,f\in\omega$, then the
+      following computable sequence $A_s$ will witness the 2-c.e.-ness of
+      $A$:
+      \begin{align*}
+        A_s(x) :=
+        \begin{cases}
+          0 &\text{if}\; s=0\\
+          0 &\text{if}\; s>0\; \text{and}\; \varphi_f(x)\downarrow\;
+            \text{after}\; s\; \text{steps},\\
+          1 &\text{if}\; s>0\; \text{and}\; \varphi_f(x)\uparrow\;
+            \text{after}\; s\; \text{steps and}\; \varphi_e(x)\downarrow\;
+            \text{after}\; s\; \text{steps}.\\
         \end{cases}
       \end{align*}
 
