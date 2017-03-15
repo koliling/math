@@ -213,17 +213,33 @@
       one-to-one, and there are only a finite number of elements between
       $f(x_0)$ and $f(x_0+1)$, therefore there can only be a finite number
       of distinct elements $a_n>\ldots>a_1>x_0+1$ such that
-      $f(x_0)<f(a_i)<f(x_0+1)$.  Then we have $a_n\in D$, yet there is no
+      $f(x_0)<f(a_i)<f(x_0+1)$. Then we have $a_n\in D$, yet there is no
       $x>a_n$ such that $f(x)<f(a_n)$, because $f(x)>f(x_0+1)>f(a_n)$ for
       all $x>a_n$. This is a contradiction, hence $|\overline{D}|=\infty$.
       \\
 
-      Assume we know $D$ and we want to decide if a given $y\in\omega$ lies
-      in $A$. We find the smallest $x_0\in\omega$ such that $x_0\not\in D$
-      and $f(x_0)\geq y$. Such $x_0$ must exist because
-      $|\overline{D}|=\infty$ and $f$ is one-to-one. Then we will know that
+      Assume we know $D$ and want to decide if a given $y\in\omega$ lies in
+      $A$. Since we know $D$, we can find the smallest $x_0\in\omega$ such
+      that $x_0\not\in D$ and $f(x_0)\geq y$. Such $x_0$ must exist because
+      $|\overline{D}|=\infty$ and $f$ is one-to-one. Then we know that
       $y\in A$ if and only if $f(x)=y$ for some $x\leq x_0$. Thus $A\leq_T
       D$.\\
+
+      Assume we know $A$ and want to decide if a given $x\in\omega$ lies in
+      $D$. Since $f$ is one-to-one, we know that $x\in D$ if and only if
+      there is an element smaller than $f(x)$ that lies $A$ but which has
+      not yet been enumerated, i.e.
+      \[x\in D \Leftrightarrow A\restriction f(x) \not\subseteq
+      \{f(0),\ldots,f(x-1)\},\]
+      where $A\restriction k$ denotes $A\cap\{0,\ldots,k-1\}$. \\
+
+      Consider the Turing functional $\Phi_e(x)$ such that given
+      $X\in2^\omega$ and $x\in\omega$, first computes the set
+      $X\restriction f(x)$, and then the set $\{f(0),\ldots,f(x-1)\}$, and
+      returns 1 if the first set is not contained in the second, and
+      returns 0 otherwise. Then $\Phi_e$ is total because $f$ is total
+      recursive. Also, $D=\Phi_e^A$. Thus from the Truth-table theorem
+      (Nerode, Theorem 3.8.5), $D\leq_{tt}A$.
     \end{proof}
 
   \item \it Soare 3.8.16:
