@@ -233,9 +233,9 @@
       \{f(0),\ldots,f(x-1)\},\]
       where $A\restriction k$ denotes $A\cap\{0,\ldots,k-1\}$. \\
 
-      Consider the Turing functional $\Phi_e(x)$ such that given
+      Consider the Turing functional $\Phi_e(x)$ such that given arbitrary
       $X\in2^\omega$ and $x\in\omega$, first computes the set
-      $X\restriction f(x)$, and then the set $\{f(0),\ldots,f(x-1)\}$, and
+      $\{a<f(x): X(a)=1\}$, and then the set $\{f(0),\ldots,f(x-1)\}$, and
       returns 1 if the first set is not contained in the second, and
       returns 0 otherwise. Then $\Phi_e$ is total because $f$ is total
       recursive. Also, $D=\Phi_e^A$. Thus from the Truth-table theorem
