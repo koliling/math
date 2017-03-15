@@ -305,21 +305,18 @@
         \end{cases}
       \end{align*}
 
-      Now consider the $(2n+2)$ inductive step. Let $A$ be the union of
-      $(n+1)$ d.c.e. sets
-      \[A=\bigcup_{i=1}^{n+1}(W_{e_i}-W_{f_i}).\]
-      By induction hypothesis, the union of the first $n$ d.c.e. sets, is
-      $n$-c.e. Thus denoting $A_{2k}:=\cup_{i=1}^{k}(W_{e_i}-W_{f_i})$,
-      we can write $A_{2n}=\lim_s A_s$ for some recursive $A_s$, where
-      $A_0=\emptyset$, $A_s(x)\in\{0,1\}$, and $|\{s:A_s(x)\neq
-      A_{s+1}(x)\}| \leq n$. Similarly, $B:=W_{e_{n+1}}-W_{f_{n+1}}$ is
-      2.c.e. from induction hypothesis, so write $B=\lim_s B_s$. Then $A$
-      is the union of $A_{2n}$ and $B$, so we can construct a recursive
-      $C_s(x) :=(A_s(x)\vee B_s(x))$. Then $A=\lim_s C_s$, and
-      $C_s$ witnesses the $(2n+2)$-c.e.-ness of $A$. \\
+      Now consider the $k+2$ inductive step. Let $A=B\cup C$ be the union
+      of sets $B$ and $C$, where $C$ is d.c.e., and where $B$ is a union of
+      $k/2$ d.c.e. sets if $k$ is even, and otherwise a union of $(k-1)/2$
+      d.c.e. sets with a c.e. set if $k$ is odd. By induction hypothesis,
+      $B$ is $k$-c.e. and $C$ is 2-c.e. Let $B_s$ and $C_s$ be recursive
+      functions witnessing the $k$-c.e.-ness of $B$ and the 2-c.e.-ness of
+      $C$ respectively. Define the recursive sequence $A_s(x) :=(B_s(x)\vee
+      C_s(x))$. Then since $A$ is the union of $B$ and $C$, we have
+      $A=\lim_s A_s$, and $A_s$ witnesses the $(k+2)$-c.e.-ness of $A$. \\
 
-      For the converse, let $A$ be $(2n+2)$-c.e. with recursive sequence
-      $A_s$ as witness. We ``split'' $A_s$ into a union of a $(2n)$-c.e.
+      For the converse, let $A$ be $(k+2)$-c.e. with recursive sequence
+      $A_s$ as witness. We ``split'' $A_s$ into a union of a $k$-c.e.
       set $B$ and a 2-c.e. set $B$, such that $A_s(x)=(B_s(x)\vee C_s(x))$,
       $B=\lim_sB_s$, and $C=\lim_sC_s$, by defining the recursive sequences
       $B_s$ and $C_s$ recursively as follows:
@@ -327,23 +324,25 @@
         B_s(x) &:=
         \begin{cases}
           A_s(x) &\text{if}\; s=0\; \text{or}\;
-            \{A_0(x),\ldots,A_{s-1}(x)\}\; \text{changes less than}\; 2n\;
+            \{A_0(x),\ldots,A_{s-1}(x)\}\; \text{changes less than}\; k\;
             \text{times},\\
           B_{s-1}(x) &\text{otherwise},\\
         \end{cases}\\
         C_s(x) &:=
         \begin{cases}
           A_s(x) &\text{if}\; s=0\; \text{or}\;
-            \{A_0(x),\ldots,A_{s-1}(x)\}\; \text{changes more than}\; 2n\;
+            \{A_0(x),\ldots,A_{s-1}(x)\}\; \text{changes more than}\; k\;
             \text{times},\\
           0 &\text{otherwise}.\\
         \end{cases}\\
       \end{align*}
 
-      Note that $B$ will be $(2n)$-c.e. by construction, and $C$ will be
-      2-c.e. because $A$ is $(2n+2)$-c.e. Now by induction hypothesis, $B$
-      is a union of $n$ d.c.e. and $C$ is a d.c.e. set, so $A$ is the union
-      of $(n+1)$ d.c.e. sets.
+      Note that $B$ will be $k$-c.e. by construction, and $C$ will be
+      2-c.e. because $A$ is $(2n+2)$-c.e. Now by induction hypothesis, $C$
+      is d.c.e., and $B$ is a union of $k/2$ d.c.e. sets if $k$ is even and
+      a union of $(k-1)/2$ d.c.e. sets with a c.e. set if $k$ is odd.
+      Therefore $A$ is a union of $k/2+1$ d.c.e. sets if $k$ is even and
+      a union of $(k+1)/2$ d.c.e. sets with a c.e. set if $k$ is odd.
     \end{proof}
 \end{enumerate}
 \end{document}
