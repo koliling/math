@@ -256,6 +256,72 @@
     computable function $\varphi_e$.
 
     \begin{proof}
+      We follow the hint and first find an effective list of all $n$-c.e.
+      sets. We have shown that the $n$-c.e. sets are characterized by
+      differences and unions of $n$ c.e. sets (\ref{q:ce}). Therefore,
+      an effective enumeration of $\omega^n$ would effectively list the
+      $n$-tuples of the indices of the c.e. sets involved in constructing
+      each the $n$-c.e. sets. For example, we can associate with an arbitrary
+      $(2k+1)$-tuple $e:=\langle e_0,\ldots,e_{2k+1}\rangle\in
+      \omega^{2k+1}$ the $(2k+1)$-c.e. set
+      \[Z_{e}^{2k+1} :=W_{2k+1} \cup \bigcup_{i=0}^k (W_{e_i}-W_{e_{i+1}}).\]
+      Similarly, we can associate with an arbitrary
+      $(2k)$-tuple $e:=\langle e_0,\ldots,e_{2k}\rangle\in
+      \omega^{2k}$ the $(2k)$-c.e. set
+      \[Z_{e}^{2k} :=\bigcup_{i=0}^k (W_{e_i}-W_{e_{i+1}}).\]
+
+      Furthermore, given $e:=\langle e_0,\ldots,e_{n}\rangle\in
+      \omega^{n}$, we can effectively find the computable sequence
+      $A_{e,s}^n(x)$ that witnesses the $n$-c.e.-ness of $Z_e^n$, as
+      follows: For each $i\in\{0,\ldots,\lfloor n/2\rfloor\}$, construct
+      the computable sequence $d_{i,s}(x)$ that witnesses the d.c.e.-ness
+      of $W_{e_i}-W_{e_{i+1}}$, as follows:
+      \begin{align*}
+        d_{i,s}(x) :=
+        \begin{cases}
+          0 &\text{if}\; s=0\\
+          0 &\text{if}\; s>0\; \text{and}\; \varphi_{e_{i+1}}(x)\downarrow\;
+            \text{after}\; s\; \text{steps},\\
+          1 &\text{if}\; s>0\; \text{and}\; \varphi_{e_{i+1}}(x)\uparrow\;
+            \text{after}\; s\; \text{steps and}\; \varphi_{e_i}(x)\downarrow\;
+            \text{after}\; s\; \text{steps}.\\
+        \end{cases}
+      \end{align*}
+
+      Then if $n$ is odd, construct the computable sequence $c_s(x)$ that
+      witnesses the 1-c.e.-ness of $W_{e_n}$, i.e. let
+      \begin{align*}
+        c_{s}(x) :=
+        \begin{cases}
+          0 &\text{if}\; s=0,\\
+          1 &\text{if}\; s>0\; \text{and}\; \varphi_{e_n}(x)\downarrow\;
+            \text{after}\; s\; \text{steps},\\
+          0 &\text{otherwise}.\\
+        \end{cases}
+      \end{align*}
+
+      Finally, we can construct the computable sequence
+      $A_{e,s}^n(x)$ that witnesses the $n$-c.e.-ness of $Z_e^n$, as
+      \[A_{e,s}^n(x) :=c_s(x) \vee \bigvee_{i=0}^{\lfloor n/2\rfloor}
+      d_{i,s}(x).\]
+
+      Hence, we have an effective enumeration of all the $n$-c.e. sets
+      $\{Z_e^n\}_{e\in\omega}$, and also an effective enumeration of the
+      computable sequences $\{A_{e,s}^n\}_{e\in\omega}$ that witness the
+      $n$-c.e.-ness of the corresponding $n$-c.e. sets. Following the
+      hint, we apply a diagonalization argument to construct a $(n+1)$-c.e.
+      set which is not $n$-c.e. Using the enumeration
+      $\{A_{e,s}^n\}_{e\in\omega}$, we construct a recursive sequence
+      $D_s(x)$ that witness the $(n+1)$-c.e.-ness of a set $B$, such that
+      $D(e)\neq A(e)$ for each $e\in\omega$:
+      \begin{align*}
+        D_s(e) :=
+        \begin{cases}
+          0 &\text{if}\; s=0,\\
+          0 &\text{if}\; s>0\; \text{and}\; A_{e,s}(e)=1,\\
+          1 &\text{if}\; s>0\; \text{and}\; A_{e,s}(e)=0.\\
+        \end{cases}
+      \end{align*}
     \end{proof}
 
   \item \it Soare 4.1.12:
@@ -274,7 +340,8 @@
     \begin{proof}
     \end{proof}
 
-  \item \it Soare 3.8.12 (Not assigned but was used to solve Soare 3.8.16):
+  \item \label{q:ce} \it Soare 3.8.12 (Not assigned but was used to solve
+    Soare 3.8.16):
     \begin{enumerate}[label={(\roman*)}]
       \item \it Show that $A$ is $(2n+1)$-c.e. iff $A$ is the union of $n$
         d.c.e. sets and a c.e. set.
