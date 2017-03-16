@@ -302,18 +302,25 @@
 
       Finally, we can construct the computable sequence
       $A_{e,s}^n(x)$ that witnesses the $n$-c.e.-ness of $Z_e^n$, as
-      \[A_{e,s}^n(x) :=c_s(x) \vee \bigvee_{i=0}^{\lfloor n/2\rfloor}
-      d_{i,s}(x).\]
+      \begin{align*}
+        A_{e,s}^n(x) :=
+        \begin{cases}
+          c_s(x) \vee \bigvee_{i=0}^{\lfloor n/2\rfloor} d_{i,s}(x)
+            &\text{if}\; n\; \text{is odd},\\
+          \bigvee_{i=0}^{\lfloor n/2\rfloor} d_{i,s}(x)
+            &\text{if}\; n\; \text{is even}.\\
+        \end{cases}
+      \end{align*}
 
       Hence, we have an effective enumeration of all the $n$-c.e. sets
-      $\{Z_e^n\}_{e\in\omega}$, and also an effective enumeration of the
-      computable sequences $\{A_{e,s}^n\}_{e\in\omega}$ that witness the
-      $n$-c.e.-ness of the corresponding $n$-c.e. sets. Following the
-      hint, we apply a diagonalization argument to construct a $(n+1)$-c.e.
-      set which is not $n$-c.e. Using the enumeration
-      $\{A_{e,s}^n\}_{e\in\omega}$, we construct a recursive sequence
-      $D_s(x)$ that witness the $(n+1)$-c.e.-ness of a set $B$, such that
-      $D(e)\neq A(e)$ for each $e\in\omega$:
+      $\{Z_e^n\}_{e\in\omega}$, and also an effective enumeration of their
+      corresponding computable sequences $\{A_{e,s}^n\}_{e\in\omega}$ that
+      witness their $n$-c.e.-ness. Following the hint, we apply a
+      diagonalization argument to construct a $(n+1)$-c.e. set which is
+      not $n$-c.e. Using the enumeration $\{A_{e,s}^n\}_{e\in\omega}$, we
+      construct a recursive sequence $D_s(x)$ that witness the
+      $(n+1)$-c.e.-ness of a set $B$, such that $D(e)\neq Z^n_e(e)$ for each
+      $e\in\omega$:
       \begin{align*}
         D_s(e) :=
         \begin{cases}
@@ -322,6 +329,9 @@
           1 &\text{if}\; s>0\; \text{and}\; A_{e,s}(e)=0.\\
         \end{cases}
       \end{align*}
+
+      Then $D=\lim_sD_s$ is $(n+1)$-c.e. because each $Z_e^n$ is $n$-c.e.
+      Also, from construction, $D(e)\neq Z_e^n(e)$ for any $e\in\omega$.
     \end{proof}
 
   \item \it Soare 4.1.12:
