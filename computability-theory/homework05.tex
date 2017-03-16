@@ -360,15 +360,37 @@
         W_e\cup W_f=\omega\; &\Leftrightarrow \forall x\; (x\in W_e \vee
           x\in W_f) &\in\Pi_2,\\
         W_e\cap W_f=\emptyset\; &\Leftrightarrow \forall x\; (x\not\in W_e
-        \vee x\not\in W_f) &\in\Pi_1,\\
+          \vee x\not\in W_f) &\in\Pi_1,\\
         W_x\subseteq W_e=\emptyset\; &\Leftrightarrow \forall x\; (x\in W_e
-        \vee x\not\in W_x) &\in\Pi_2.\\
+          \vee x\not\in W_x) &\in\Pi_2.\\
       \end{align*}
       Therefore $\varphi(x,y)$ is $\sigma_3$.
     \end{proof}
 
-  \item \it Soare 4.1.13:
+  \item \it Soare 4.1.13: Define $A\subseteq^*B$ if $A-B$ is finite, i.e.,
+    if $A\subseteq B$ except for at most finitely many elements. Define
+    $A=^*B$ if $A\subseteq^*B$ and $B\subseteq^*A$. Prove that the
+    following two sets are $\Sigma_3$:
+    \[\{\langle x,y\rangle: W_x\subseteq^* W_y\};\]
+    \[\{\langle x,y\rangle: W_x=^* W_y\}.\]
+
     \begin{proof}
+      Since $A=^*B$ is the same as $A\subseteq^*B$ and $B\subseteq^*A$, and
+      the conjunction of two $\Sigma_3$ formulas is still $\Sigma_3$, thus
+      it suffices to show that the first set is $\Sigma_3$. Observe that
+      $W_x\subseteq^*W_y$ if and only if $W_x$ contains a largest element
+      $n$ that is not in $W_y$. Thus
+      \begin{align*}
+        W_x\subseteq^* W_y &\Leftrightarrow \exists n\forall t\;
+          \left[(t>n \wedge t\in W_x) \rightarrow t\in W_y\right]\\
+        &\Leftrightarrow \exists n\forall t\;
+          \left[t\in W_y \vee (t\leq n \vee t\not\in W_x)\right]\\
+        &\Leftrightarrow \exists n\forall t\;
+          \left[t\leq n \vee t\in W_y \vee t\not\in W_x\right].\\
+      \end{align*}
+
+      Now from argument in the previous question, $t\in W_e$ is $\Sigma_1$.
+      Therefore the above formula is $\Sigma_3$.
     \end{proof}
 
   \item \it Soare 8.7.7:
