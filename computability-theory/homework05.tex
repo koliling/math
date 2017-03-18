@@ -421,13 +421,70 @@
       Therefore the above formula is $\Sigma_3$.
     \end{proof}
 
-  \item \it Soare 8.7.7:
+  \item \it Soare 8.7.7: Prove that Definition 8.7.6 for the
+    Cantor-Bendixon derivative of a closed set does not depend on the
+    choice of the tree such that $[T]=\mathcal{C}$. Take any two trees
+    $T_1$ and $T_2$ such that $[T_1]=[T_2]=\mathcal{C}$ and prove that the
+    tree derivative of Definition 8.7.5 gives the samerank in both trees
+    for any $f\in\mathcal{C}$. Hint: Keep applying the fact that
+    $T_1^{\text{ext}}=T_2^{\text{ext}}$.
+
     \begin{proof}
     \end{proof}
 
   \item \it Soare 8.7.8:
-    \begin{proof}
-    \end{proof}
+    \begin{enumerate}[label={(\roman*)}]
+      \item Prove that $D^\alpha(T)$ is a tree and hence $[D^\alpha(T)]$ is
+        closed subset of $\mathcal{A}=[T]$.
+
+        \begin{proof}
+          We prove by transfinite induction on $\alpha$ that $D^\alpha(T)$
+          is a tree. The base case $D^0(T)=T$ is a tree by definition.
+          At the inductive step for successor ordinals $\alpha+1$, let
+          $\sigma\in D^{\alpha+1}(T)$ and $\tau\preceq\sigma$. Then
+          $\sigma$ is contained in $D^\alpha(T)$ which is a tree by
+          inductive hypothesis, and thus $\tau$ is also contained in
+          $D^\alpha(T)$. Also, $\sigma$ is not contained in
+          $\Gamma(D^\alpha(T))$, which means there are inifinite paths that
+          pass through $\sigma$. This implies that there are infinite paths
+          that pass through $\tau$, so $\tau$ is also not contained in
+          $\Gamma(D^\alpha(T))$. Hence $\tau$ is contained in
+          $D^{\alpha+1}(T)$, which implies that $D^{\alpha+1}(T)$ is closed
+          under initial initial segments and is therefore a tree. For the
+          inductive step where $\alpha$ is a limit ordinal, $D^\alpha(T)$
+          is the intersection of trees by the induction hypothesis.
+          Therefore if $\sigma\in D^\alpha(T)$ and $\tau\preceq\sigma$,
+          then $\tau$ must be contained in those trees whose intersection
+          is $D^\alpha(T)$, so $\tau$ is also contaiend in $D^\alpha(T)$.
+          Thus $D^\alpha(T)$ is closed under initial segments, making it a 
+          tree. \\
+        \end{proof}
+
+      \item Show that there is an ordinal $\beta$ such that
+        $D^\beta(T)=D^\alpha(T)$ for all $\alpha>\beta$. Define
+        $D^\infty(T)=D^\beta(T)$. Prove that there is an $\alpha<\omega_1$
+        such that $D^\alpha=D^\infty(T)$. We call $D^\infty(T)$ and
+        $[D^\infty(T)]$ the perfect kernel.
+
+        \begin{proof}
+        \end{proof}
+
+      \item Prove that either $D^\infty(T)=\emptyset$ or else $D^\infty(T)$
+        is a perfect tree, namely every $\sigma\in D^\infty(T)$ splits as
+        defined above. In this case $D^\infty(T)$ has $2^{\aleph_0}$ many
+        infinite paths.
+
+        \begin{proof}
+        \end{proof}
+
+      \item Let $\beta$ be as in (ii). Prove that
+        $[D^\alpha(T)]-[D^{\alpha+1}(T)]$ is countable for every
+        $\alpha<\beta$. Therefore, $\cup_{\alpha<\beta}[D^\alpha(T)]$ is
+        countable, namely $[T]-[D^\infty(T)]$ is countable.
+
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 
   \item \label{q:ce} \it Soare 3.8.12 (Not assigned but was used to solve
     Soare 3.8.16):
