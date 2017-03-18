@@ -73,6 +73,34 @@
       $\{1\}$, which contradicts the incomputability of $K$.
     \end{proof}
 
+  \item \it The computable code for a computable set $W_e$ is a pair
+    $\langle a,b\rangle$ such that $W_e=W_a$ and $W_a\sqcup
+    W_b=\mathbb{N}$. Show there is no partial computable function $f$ such
+    that if $W_e$ is computable then $f(e)$ is the computable code for
+    $W_e$.
+
+    \begin{proof}
+      Assume such a partial computable function $f$ exists. By the SMN
+      theorem, there is a total recursive function $g(e)$ such that
+      \begin{align*}
+        \varphi_{g(e)}(x) :=
+        \begin{cases}
+          0 &\text{if}\; x=0\; \text{and}\; \varphi_e(e)\downarrow,\\
+          \uparrow &\text{otherwise}.\\
+        \end{cases}
+      \end{align*}
+
+      Observe that if $e\in K$, then $W_{g(e)}=\{0\}$, otherwise
+      $W_{g(e)}=\emptyset$. In either cases, $W_{g(e)}$ will be computable.
+      Therefore to decide if $e\in K$, we first compute $\langle
+      e_a,e_b\rangle=f(g(e))$. Then if $e\in K$, 0 will be contained in
+      $W_{e_a}$ but not $W_{e_b}$. Otherwise 0 will be contained in
+      $W_{e_b}$ but not $W_{e_a}$. Thus we enumerate $W_{e_a}$ and
+      $W_{e_b}$ simultaneously and wait for one of them to output 0. If the
+      first one outputs 0, then $e\in K$, otherwise the $e\not\in K$. Thus
+      $K$ is computable, a contradiction.
+    \end{proof}
+
   \item \it Soare 3.6.9: (Iterated Limit Lemma) Prove that if $n\geq1$,
     then $f\leq_T\emptyset^{(n)}$ iff there is a computable function
     $\hat{f}$ of $(n+1)$ variables such that
@@ -364,7 +392,7 @@
         W_x\subseteq W_e=\emptyset\; &\Leftrightarrow \forall x\; (x\in W_e
           \vee x\not\in W_x) &\in\Pi_2.\\
       \end{align*}
-      Therefore $\varphi(x,y)$ is $\sigma_3$.
+      Therefore $\varphi(x,y)$ is $\Sigma_3$.
     \end{proof}
 
   \item \it Soare 4.1.13: Define $A\subseteq^*B$ if $A-B$ is finite, i.e.,
