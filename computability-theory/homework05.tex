@@ -303,7 +303,7 @@
       $A_{e,s}^n(x)$ that witnesses the $n$-c.e.-ness of $Z_e^n$, as
       follows: For each $i\in\{0,\ldots,\lfloor n/2\rfloor\}$, construct
       the computable sequence $d_{i,s}(x)$ that witnesses the d.c.e.-ness
-      of $W_{e_i}-W_{e_{i+1}}$, as follows:
+      of $W_{e_i}-W_{e_{i+1}}$:
       \begin{align*}
         d_{i,s}(x) :=
         \begin{cases}
@@ -467,10 +467,22 @@
       \item Show that there is an ordinal $\beta$ such that
         $D^\beta(T)=D^\alpha(T)$ for all $\alpha>\beta$. Define
         $D^\infty(T)=D^\beta(T)$. Prove that there is an $\alpha<\omega_1$
-        such that $D^\alpha=D^\infty(T)$. We call $D^\infty(T)$ and
+        such that $D^\alpha(T)=D^\infty(T)$. We call $D^\infty(T)$ and
         $[D^\infty(T)]$ the perfect kernel.
 
         \begin{proof}
+          We show that $D^{\omega_1}(T)=D^\alpha(T)$ for all
+          $\alpha<\omega_1$. Assume by contradiction that
+          $D^{\alpha+1}(T)\subsetneq D^\alpha(T)$ for all
+          $\alpha<\omega_1$. Then we will be able to construct an injective
+          function from $\omega_1$ to $2^{<\omega}$, which would contradict
+          the uncountability of $\omega_1$: Given $\alpha<\omega_1$, we map
+          $\alpha$ to an initial segment in $\Gamma(D^\alpha(T))$. Such a
+          segment exists since $D^{\alpha+1}(T)\subsetneq D^\alpha(T)$.
+          The constructed map will be injective for the same reason.
+          Finally, the constructed map exists from the Axiom of Choice.
+          Therefore, there must be an $\alpha<\omega_1$ such that
+          $D^\alpha(T)=D^\infty(T)$.
         \end{proof}
 
       \item Prove that either $D^\infty(T)=\emptyset$ or else $D^\infty(T)$
