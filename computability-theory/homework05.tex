@@ -491,6 +491,25 @@
         infinite paths.
 
         \begin{proof}
+          Let $\beta<\omega_1$ be the smallest ordinal such that
+          $D^\infty(T)=D^\beta(T)$. If $D^\infty(T)$ is not a perfect tree,
+          it would contain an initial segment $\sigma$ that does not split.
+          Then there cannot be more than one path in $D^\infty(T)$ that
+          extends $\sigma$, so $\sigma$ will be contained in
+          $\Gamma(D^\beta(T))$, and so $D^{\beta+1}(T)\neq
+          D^\infty(T)$, a contradiction. \\
+
+          The number of paths in $D^\infty(T)$ cannot be greater than
+          $2^{\aleph_0}$ since $[D^\infty(T)]$ is a subset of
+          $2^{\aleph_0}$. For the reverse containment, we construct an
+          injective map between from $2^{\aleph_0}$ to $D^\infty(T)$. Given
+          a path $f\in2^{\aleph_0}$, map $f$ to a path
+          $p=\cup_{n\in\omega}\sigma_n$ in $[D^\infty(T)]$ recursively, as
+          follows: For each $n\in\omega$, $\sigma_n$ will always split
+          since $D^\infty(T)$ is a perfect tree. Let $\sigma_{n+1}$ be a
+          left extension of $\sigma_{n}$ if $f(n)=0$, otherwise let
+          $\sigma_{n+1}$ be a right extension. Furthermore, we extend
+          $\sigma_n$ up to the point before $\sigma_{n+1}$ splits.
         \end{proof}
 
       \item Let $\beta$ be as in (ii). Prove that
