@@ -422,14 +422,40 @@
     \end{proof}
 
   \item \it Soare 8.7.7: Prove that Definition 8.7.6 for the
-    Cantor-Bendixon derivative of a closed set does not depend on the
+    Cantor-Bendixson derivative of a closed set does not depend on the
     choice of the tree such that $[T]=\mathcal{C}$. Take any two trees
     $T_1$ and $T_2$ such that $[T_1]=[T_2]=\mathcal{C}$ and prove that the
-    tree derivative of Definition 8.7.5 gives the samerank in both trees
+    tree derivative of Definition 8.7.5 gives the same rank in both trees
     for any $f\in\mathcal{C}$. Hint: Keep applying the fact that
     $T_1^{\text{ext}}=T_2^{\text{ext}}$.
 
     \begin{proof}
+      Let $T_1$ and $T_2$ be trees such that $[T_1]=[T_2]=\mathcal{C}$
+      where $\mathcal{C}$ is a closed set, and let $f\in\mathcal{C}$.
+      We first show that $D^1(T_1)=D^1(T_2)$. By symmetrical argument, it
+      suffices to show $D^1(T_1)\subseteq D^1(T_2)$. Let $\sigma\in
+      D^1(T_1)$. Then $\sigma\in T_1$ and $\sigma\not\in\Gamma(T_1)$, which
+      implies that there are infinite paths through $\sigma$ that are
+      contained in $[T_1]$. Each of these paths will also be in $[T_2]$
+      since $[T_2]=[T_1]$, which implies that $\sigma\in T_2$ and also
+      $\sigma\not\in\Gamma(T_2)$. Therefore $\sigma$ is also contained in
+      $D^1(T_2)$, and so $D^1(T_1)=D^1(T_2)$.  \\
+
+      Therefore from transfinite induction, $D^\alpha(T_1)=D^\alpha(T_2)$
+      for all ordinals $\alpha\geq1$. So if the ranks of $f$ with respect
+      to $T_1$ and in $T_2$ are both larger than 0, then the ranks
+      must be equal, because the rank of $f$ with respect to $T_i$ is the
+      largest ordinal $\alpha$ at which all initial segments $f\restriction
+      n$ of $f$ are contained in $D^\alpha(T_i)$. \\
+
+      So assume that the rank of $f$ with respect to $T_1$ is 0. So there
+      must be an initial segment $f\restriction n$ of $f$ such that
+      $f\restriction n \in\Gamma(T_1)$. So there can only be a finite
+      number of paths through $f\restriction n$ that is contained in
+      $[T_1]$. Since $[T_2]=[T_1]$, these paths must also be contained in
+      $[T_2]$, and must be the only paths that pass through $f\restriction
+      n$ in $T_2$. Thus $f\restriction n \in\Gamma(T_2)$, which means that
+      the rank of $f$ with respect to $T_2$ is also 0.
     \end{proof}
 
   \item \it Soare 8.7.8:
@@ -501,7 +527,7 @@
 
           The number of paths in $D^\infty(T)$ cannot be greater than
           $2^{\aleph_0}$ since $[D^\infty(T)]$ is a subset of
-          $2^{\aleph_0}$. For the reverse containment, we construct an
+          $2^{\aleph_0}$. For the reverse inclusion, we construct an
           injective map between from $2^{\aleph_0}$ to $D^\infty(T)$. Given
           a path $f\in2^{\aleph_0}$, map $f$ to a path
           $p=\cup_{n\in\omega}\sigma_n$ in $[D^\infty(T)]$ recursively, as
