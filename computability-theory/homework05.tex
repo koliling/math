@@ -60,17 +60,17 @@
       \begin{align*}
         \varphi_{g(e)}(s) :=
         \begin{cases}
-          0, &\text{if}\; \varphi_{e}(e)\; \text{has not halted after}\;
-            s\; \text{steps}\\
-          1, &\text{otherwise}.
+          1, &\text{if}\; \varphi_{e}(e)\; \text{halts at step}\; s,\\
+          0, &\text{otherwise}.
         \end{cases}
       \end{align*}
 
       Then if $e\in K$ halts, $\varphi_{g(e)}$ will be the characteristic
-      function of the finite set $\{1\}$, otherwise $\varphi_{g(e)}$ will
-      be the characteristic function of the empty set. Thus $e\in K$ if and
-      only if $f(g(e))$ is the index corresponding to the finite set
-      $\{1\}$, which contradicts the incomputability of $K$.
+      function of some single element set $\{s\}$, otherwise
+      $\varphi_{g(e)}$ will be the characteristic function of the empty
+      set. Thus $e\in K$ if and only if $f(g(e))$ is the index
+      corresponding to a finite set $\{s\}$, which contradicts the
+      incomputability of $K$.
     \end{proof}
 
   \item \it The computable code for a computable set $W_e$ is a pair
