@@ -20,6 +20,45 @@
         odd-length cycles. Use the exponential formula to show that $A(x)$,
         the exponential generating function of $(a_n)_{n\geq0}$ satisfies
         \[A(x) = \sqrt{\frac{1+x}{1-x}}.\]
+
+        \begin{proof}
+          Following the notation of Theorem 37.1 in the notes, we have
+          \begin{align*}
+            c_n =
+            \begin{cases}
+              (n-1)! &\text{if}\; n\; \text{is odd},\\
+              0 &\text{otherwise},\\
+            \end{cases}
+          \end{align*}
+
+          so
+          \begin{align*}
+            (c_n)_{n\geq0}\xleftrightarrow{\text{egf}} &C(x)\\
+            =&\sum_{n\geq0} \frac{c_nx^n}{n!}\\
+            =&\sum_{k\geq0} \frac{(2k)!x^{2k+1}}{(2k+1)!}\\
+            =&\sum_{k\geq0} \frac{x^{2k+1}}{2k+1}.\\
+          \end{align*}
+
+          Now the Taylor series expansion of $\ln{(1+x)}$ is
+          \[\ln{(1+x)} =x -\frac{x^2}{2} +\frac{x^3}{3} -\ldots
+          =\sum_{k\geq0} \frac{x^{2k+1}}{2k+1} -\sum_{k\geq1}
+          \frac{x^{2k}}{2k},\]
+          so
+          \[\frac{1}{2}\ln{(1-x^2)} =-\frac{x^2}{4} -\frac{x^4}{6}
+          -\frac{x^6}{8} -\ldots =-\sum_{k\geq1} \frac{x^{2k}}{2k},\]
+          therefore
+          \begin{align*}
+            C(x) &=\sum_{k\geq0} \frac{x^{2k+1}}{2k+1}\\
+            &=\ln{(1+x)} -\frac{1}{2}\ln{(1-x^2)}\\
+            &=\ln{\frac{1+x}{\sqrt{1-x^2}}}\\
+            &=\ln{\sqrt{\frac{1+x}{1-x}}}.\\
+          \end{align*}
+
+          Then
+          \[A(x) =\exp{\left(C(x)\right)}
+          =\exp{\left(\ln{\sqrt{\frac{1+x}{1-x}}}\right)}
+          =\sqrt{\frac{1+x}{1-x}}.\]
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
