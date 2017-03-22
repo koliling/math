@@ -135,4 +135,50 @@
         \end{align*}
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 40 Problem 2} The Lah number $L(n,k)$ is the number of
+  ways to partition $[n]$ into $k$ non-empty lists. By convention
+  $L(0,0)=1$.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Use the exponential formula to get a closed-form expression for
+      the mixed generating function $L(x,y) =\sum_{n,k\geq0} L(n,k)
+      \frac{x^n}{n!} y^k$, and in turn use this to find an explicit
+      expression for $L(n,k)$ (which should turn out to be very simple
+      involving no summation).
+
+      \begin{proof}
+        Using the notation of Theorem 35.1, for the Lah numbers, we have
+        $c_n=n!$, therefore
+        \begin{align*}
+          (c_n)_{n\geq0}\xleftrightarrow{\text{egf}} &C(x)\\
+          =&\sum_{n\geq0} \frac{c_nx^n}{n!}\\
+          =&\sum_{n\geq0} \frac{n!x^n}{n!}\\
+          =&\sum_{n\geq0} x^n\\
+          =&\frac{1}{1-x}.\\
+        \end{align*}
+
+        Then Theorem 35.1 gives
+        \begin{align*}
+          A(x,y) &=\exp{\left(yC(x)\right)}\\
+          &=\exp{\left(\frac{y}{1-x} \right)}\\
+          &=\sum_{k\geq0} \frac{1}{k!} \frac{y^k}{(1-x)^k}\\
+          &=\sum_{k\geq0} \frac{y^k}{k!} (1+x+x^2+\ldots)^k.\\
+        \end{align*}
+
+        Observe that $[x^n](1+x+x^2+\ldots)^k$ is the same as the number of
+        $k$-tuples of non-negative integers that sum to $n$, which is the
+        same as number of weak compositions of $n$ into $k$ parts, which
+        equals $\binom{n+k-1}{n}$ (Proposition 13.3). Thus we can further
+        simplify
+        \begin{align*}
+          A(x,y) &=\sum_{k\geq0} \frac{y^k}{k!} (1+x+x^2+\ldots)^k\\
+          &=\sum_{k\geq0} \frac{y^k}{k!} \sum_{n\geq0} \binom{n+k-1}{n} x^n\\
+          &=\sum_{n,k\geq0} \frac{1}{k!} \binom{n+k-1}{n} x^ny^k\\
+          &=\sum_{n,k\geq0} \frac{1}{n!} \frac{(n+k-1)!}{k!(k-1)!}
+            x^ny^k,\\
+        \end{align*}
+        so $L(n,k)=\frac{(n+k-1)!}{k!(k-1)!}$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
