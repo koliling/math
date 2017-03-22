@@ -145,25 +145,33 @@
       the mixed generating function $L(x,y) =\sum_{n,k\geq0} L(n,k)
       \frac{x^n}{n!} y^k$, and in turn use this to find an explicit
       expression for $L(n,k)$ (which should turn out to be very simple
-      involving no summation).
+      involving no summation). \label{qn:Lah}
 
       \begin{proof}
         Using the notation of Theorem 35.1, for the Lah numbers, we have
-        $c_n=n!$, therefore
+        \begin{align*}
+          c_n =
+          \begin{cases}
+            n! &\text{if}\; n\geq1\\
+            0 &\text{if}\; n=0.\\
+          \end{cases}
+        \end{align*}
+
+        Therefore
         \begin{align*}
           (c_n)_{n\geq0}\xleftrightarrow{\text{egf}} &C(x)\\
           =&\sum_{n\geq0} \frac{c_nx^n}{n!}\\
-          =&\sum_{n\geq0} \frac{n!x^n}{n!}\\
-          =&\sum_{n\geq0} x^n\\
-          =&\frac{1}{1-x}.\\
+          =&\sum_{n\geq1} \frac{n!x^n}{n!}\\
+          =&\sum_{n\geq1} x^n\\
+          =&\frac{x}{1-x}.\\
         \end{align*}
 
         Then Theorem 35.1 gives
         \begin{align*}
           A(x,y) &=\exp{\left(yC(x)\right)}\\
-          &=\exp{\left(\frac{y}{1-x} \right)}\\
-          &=\sum_{k\geq0} \frac{1}{k!} \frac{y^k}{(1-x)^k}\\
-          &=\sum_{k\geq0} \frac{y^k}{k!} (1+x+x^2+\ldots)^k.\\
+          &=\exp{\left(\frac{xy}{1-x} \right)}\\
+          &=\sum_{k\geq0} \frac{1}{k!} \frac{x^ky^k}{(1-x)^k}\\
+          &=\sum_{k\geq0} \frac{x^ky^k}{k!} (1+x+x^2+\ldots)^k.\\
         \end{align*}
 
         Observe that $[x^n](1+x+x^2+\ldots)^k$ is the same as the number of
@@ -172,13 +180,25 @@
         equals $\binom{n+k-1}{n}$ (Proposition 13.3). Thus we can further
         simplify
         \begin{align*}
-          A(x,y) &=\sum_{k\geq0} \frac{y^k}{k!} (1+x+x^2+\ldots)^k\\
-          &=\sum_{k\geq0} \frac{y^k}{k!} \sum_{n\geq0} \binom{n+k-1}{n} x^n\\
-          &=\sum_{n,k\geq0} \frac{1}{k!} \binom{n+k-1}{n} x^ny^k\\
-          &=\sum_{n,k\geq0} \frac{1}{n!} \frac{(n+k-1)!}{k!(k-1)!}
-            x^ny^k,\\
+          A(x,y) &=\sum_{k\geq0} \frac{x^ky^k}{k!} (1+x+x^2+\ldots)^k\\
+          &=\sum_{k\geq0} \frac{x^ky^k}{k!} \sum_{n\geq0} \binom{n+k-1}{n}
+            x^n\\
+          &=\sum_{n,k\geq0} \frac{1}{k!} \binom{n+k-1}{n} x^{n+k}y^k\\
+          &=\sum_{n,k\geq0} \frac{(n+k-1)!}{k!n!(k-1)!}
+            x^{n+k}y^k,\\
+          &=\sum_{n,k\geq0} \frac{(n-1)!}{k!(n-k)!(k-1)!} x^{n}y^k.\\
         \end{align*}
-        so $L(n,k)=\frac{(n+k-1)!}{k!(k-1)!}$.
+
+        Then
+        \begin{align*}
+          L(n,k) &=[\frac{x^ny^k}{n!}]A(x,y)\\
+          &=\frac{n!(n-1)!}{k!(n-k)!(k-1)!}.\\
+        \end{align*}
+      \end{proof}
+
+    \item Give a combinatorial explanation for the formula you obtained in
+      part~\ref{qn:Lah}.
+      \begin{proof}
       \end{proof}
   \end{enumerate}
 \end{document}
