@@ -16,7 +16,8 @@
 \begin{enumerate}[label={\bf Q\arabic*:}]
   \item \it \textbf{Section 40 Problem 1:}
     \begin{enumerate}
-      \item Let $a_n$ be the number of permutations of $[n]$ with only
+      \item \label{qn:odd}
+        Let $a_n$ be the number of permutations of $[n]$ with only
         odd-length cycles. Use the exponential formula to show that $A(x)$,
         the exponential generating function of $(a_n)_{n\geq0}$ satisfies
         \[A(x) = \sqrt{\frac{1+x}{1-x}}.\]
@@ -58,6 +59,35 @@
           \[A(x) =\exp{\left(C(x)\right)}
           =\exp{\left(\ln{\sqrt{\frac{1+x}{1-x}}}\right)}
           =\sqrt{\frac{1+x}{1-x}}.\]
+        \end{proof}
+
+      \item Let $b_n$ be the number of permutations of $[n]$ with an even
+        number of cycles, all odd-length. Use the result of
+        part (\ref{qn:odd}) to find $B(x)$, the exponential generating
+        function of $(b_n)_{n\geq0}$.
+
+        \begin{proof}
+          Observe that if $n$ is odd, then there can only be an odd number
+          of cycles all of odd-length. Likewise, if $n$ is even, then there
+          can only be an even number of cycles all of odd-length. Therefore
+          \begin{align*}
+            b_n =
+            \begin{cases}
+              a_n &\text{if}\; n\; \text{is even},\\
+              0 &\text{otherwise}.\\
+            \end{cases}
+          \end{align*}
+
+          Thus
+          \begin{align*}
+            B(x) &=a_0+a_2x^2+a_4x^4+\ldots\\
+            &=\sum_{n\geq0} a_{2n}x^{2n}\\
+            &=\frac{1}{2} \left[\sum_{n\geq0} a_{n}x^{n} + \sum_{n\geq0}
+              a_{n}(-x)^{n}\right]\\
+            &=\frac{1}{2} \left[A(x) + A(-x)\right]\\
+            &=\frac{1}{2} \left[\sqrt{\frac{1+x}{1-x}} +
+              \sqrt{\frac{1-x}{1+x}}\right].\\
+          \end{align*}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
