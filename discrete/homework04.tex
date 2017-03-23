@@ -191,13 +191,43 @@
 
         Then
         \begin{align*}
-          L(n,k) &=[\frac{x^ny^k}{n!}]A(x,y)\\
+          L(n,k) &=\left[\frac{x^ny^k}{n!}\right] A(x,y)\\
           &=\frac{n!(n-1)!}{k!(n-k)!(k-1)!}.\\
         \end{align*}
       \end{proof}
 
     \item Give a combinatorial explanation for the formula you obtained in
       part~\ref{qn:Lah}.
+      \begin{proof}
+        We first pick the first element for each of the $k$ lists, say
+        $a_1,\ldots,a_k\subseteq[n]$. There
+        are $\binom{n}{k}$ ways to do this. This leaves $(n-k)$ elements
+        whose relative positions have yet to be decided. We arrange the
+        $(n-k)$ elements in ascending order $b_1<\ldots b_{n-k}$, and
+        decide the positions of the smaller elements first before deciding
+        the positions of the larger elements. We only allow that each
+        element be placed behind exactly one of the elements that has
+        already been fixed. So for the smallest of the $(n-k)$ elements
+        $b_1$, since there are $k$ elements whose relative positions have
+        been decided, $b_1$ has only $k$ positions to choose from,
+        depending on which element $a_1,\ldots,a_k$ it should lie behind,
+        though not necessarily directly behind. Then for the next smallest
+        element $b_2$, there are $(k+1)$ positions to choose from,
+        depending on which element $a_1,\ldots,a_k,b_1$ it should lie behind,
+        again though not necessarily directly behind. Continueing in this
+        manner, there are $k(k+1)\cdots(n-1)$ ways to decide the positions
+        of the remaining $(n-k)$ elements $b_1\ldots b_{n-k}$. Thus
+        \[L(n,k) =\binom{n}{k} k(k+1)\cdots(n-1)
+        =\frac{n!(n-1)!}{k!(n-k)!(k-1)!}.\]
+      \end{proof}
+
+    \item Either combinatorially, or from the generating function, show
+      that for all $n\geq1$
+      \[x^{(n)} =\sum_{k=1}^n L(n,k)(x)_k\]
+      (so that the Lah matrix $(L(n,k))_{n,k\geq0}$ moves one from the
+      falling-power basis of the space of polynomials to the rising-power
+      basis).
+
       \begin{proof}
       \end{proof}
   \end{enumerate}
