@@ -251,5 +251,27 @@
         ways to choose $n$ elements from $[x+n-1]$ and arrange them in
         order.
       \end{proof}
+
+    \item Deduce that
+      \[(x)_n =\sum_{k=1}^n (-1)^{n-k} L(n,k)x^{(k)}\]
+      so that the matrix that moves one in the other direction is the
+      signed Lah matrix
+      \[((-1)^{n-k} L(n,k))_{n,k\geq0}.\]
+
+      \begin{proof}
+        Using the fact that
+        \begin{align*}
+          (-x)_n &=(-1)^nx^{(n)},\\
+          (-x)^{(k)} &=(-1)^k(x)_k,\\
+        \end{align*}
+        the previous part of the question will give us
+        \begin{align*}
+          (x)_n &=(-1)^n (-x)^{(n)}\\
+          &=(-1)^n \sum_{k=1}^n L(n,k) (-x)_{k}\\
+          &=(-1)^n \sum_{k=1}^n L(n,k) (-1)^{k} x^{(k)}\\
+          &=(-1)^n \sum_{k=1}^n L(n,k) (-1)^{-k} x^{(k)}\\
+          &=\sum_{k=1}^n (-1)^{n-k} L(n,k) x^{(k)}.\\
+        \end{align*}
+      \end{proof}
   \end{enumerate}
 \end{document}
