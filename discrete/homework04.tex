@@ -214,11 +214,11 @@
         though not necessarily directly behind. Then for the next smallest
         element $b_2$, there are $(k+1)$ positions to choose from,
         depending on which element $a_1,\ldots,a_k,b_1$ it should lie behind,
-        again though not necessarily directly behind. Continueing in this
+        again though not necessarily directly behind. Continuing in this
         manner, there are $k(k+1)\cdots(n-1)$ ways to decide the positions
         of the remaining $(n-k)$ elements $b_1\ldots b_{n-k}$. Thus
         \[L(n,k) =\binom{n}{k} k(k+1)\cdots(n-1)
-        =\frac{n!(n-1)!}{k!(n-k)!(k-1)!}.\]
+        =\frac{n!(n-1)!}{k!(n-k)!(k-1)!} =\binom{n-1}{k-1}\frac{n!}{k!}.\]
       \end{proof}
 
     \item Either combinatorially, or from the generating function, show
@@ -229,6 +229,27 @@
       basis).
 
       \begin{proof}
+        From the polynomial principle, it suffices to prove for the cases
+        where $x$ is a positive integer.  Observe that $x^{(n)}$ is the
+        same as $(x+n-1)_n$, where we count the number of ways of choosing
+        $n$ elements from $[x+n-1]$ and arange them order. Consider
+        $[x+n-1]$ as the disjoint union of sets $A=\{a_1,\ldots,a_{x}\}$
+        and $B=\{b_1,\ldots,b_{n-1}\}$. Note that at least one of the chosen
+        elements must come from set $A$ because there are less than $n$
+        elements in $B$. \\
+
+        To choose $n$ elements from $A\sqcup B$ and arrange them in order,
+        we first choose $k$ unordered elements from $A$, which gives us
+        \[\binom{x}{k} =\frac{(x)_k}{k!}\]
+        ways to choose. For each choices of $k$ elements, there are
+        \[\binom{n-1}{n-k} =\binom{n-1}{k-1}\]
+        ways to choose the remaining unordered $n-k$ elements from $A$.
+        Then with each choice of $n$ unordered elements, there are $n!$
+        ways to arrange them in order. Thus there is a total of
+        \[\sum_{k=1}^n \frac{(x)_k}{k!}\binom{n-1}{k-1} n! =\sum_{k=1}^n
+        L(n,k)(x)_k\]
+        ways to choose $n$ elements from $[x+n-1]$ and arrange them in
+        order.
       \end{proof}
   \end{enumerate}
 \end{document}
