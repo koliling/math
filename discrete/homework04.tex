@@ -274,4 +274,64 @@
         \end{align*}
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 40 Problem 3} In the coupon collector's problem we
+  imagine that we would like to get a complete collection of photos of
+  movie stars, where each time we buy a box of cereal we acquire one such
+  photo, which may of course duplicate one that is already in our
+  collection. Suppose there are $d$ different photos in a complete
+  collection. Let $p_n$ be the probability that exactly $n$ trials are
+  needed in order, for the first time, to have a complete collection.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Find a very simple formula for $p_n$ involving Stirling numbers
+      of the second kind.
+
+      \begin{proof}
+        Clearly if $n<d$ then $p_n=0$. So assume $n\geq d$. Let
+        $\mathcal{S}_n\subseteq [d]^{[n]}$ be the set of $n$-tuples with
+        values in $[d]$ that represent the set of $n$ trials that first
+        complete the collection of $d$ photos. Notice that for each 
+        $n$-tuple $\bar{a}=(a_1,\ldots,a_n)\in\mathcal{S}$, the last coupon
+        number $a_n$ must have not appeared before, and the first $(n-1)$
+        elements of the tuple must contain all $(d-1)$ elements
+        $[d]-\{a_n\}$. \\
+        
+        Write $[d]-\{a_n\}=\{b_1<\ldots<b_{n-1}\}$. We can associate to
+        each tuple $\bar{a}$ with the partition into $(d-1)$-parts
+        \[S_1|\ldots|S_{d-1},\]
+        where
+        \[S_k:=\{i\in[n-1]: a_i=b_k\}.\]
+
+        Then $\mathcal{S}_n$ will give ${n-1\brace d-1}$ partitions, where
+        each partition is repeated exactly $d!$ times. Thus
+        \[p_n =|\mathcal{S}_n|/d^n ={n-1\brace d-1}\frac{d!}{d^n}.\]
+      \end{proof}
+
+    \item Let $p(x)$ be the ordinary generating function of $(p_n)_{n\geq
+      d}$. Show that
+      \[p(x) =\frac{(d-1)!x^d}{(d-x)(d-2x)\cdots(d-(d-1)x)}.\]
+      (You can use anything we know about the generating function of
+      Stirling numbers of the second kind.)
+
+      \begin{proof}
+        From Section 30 of the notes, we know that
+        \[B_d(x) :=\sum_{n\geq0} {n\brace d} x^n =\sum_{n\geq d} {n\brace
+        d} x^n =\frac{x^d}{(1-x)(1-2x)\ldots(1-dx)}.\]
+
+        Now the ordinary generating function we want is
+        \begin{align*}
+          p(x) &=\sum_{n\geq d} p_n x^n\\
+          &=\sum_{n\geq d} {n-1\brace d-1}\frac{d!}{d^n} x^n\\
+          &=d! \sum_{n\geq d} {n-1\brace d-1} \left(\frac{x}{d}\right)^n\\
+          &=(d-1)!x \sum_{n\geq d} {n-1\brace d-1}
+            \left(\frac{x}{d}\right)^{n-1}\\
+          &=(d-1)!x \sum_{n\geq d-1} {n\brace d-1}
+            \left(\frac{x}{d}\right)^{n}\\
+          &=(d-1)!x B_{d-1}(x/d)\\
+          &=(d-1)!x \frac{(x/d)^{d-1}}{(1-x/d)(1-2x/d)\cdots(1-x)}\\
+          &=\frac{(d-1)!x^d}{(d-x)(d-2x)\cdots(d-(d-1)x)}.
+        \end{align*}
+      \end{proof}
+  \end{enumerate}
 \end{document}
