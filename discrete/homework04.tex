@@ -333,5 +333,104 @@
           &=\frac{(d-1)!x^d}{(d-x)(d-2x)\cdots(d-(d-1)x)}.
         \end{align*}
       \end{proof}
+
+    \item Find, directly from the generating function $p(x)$, the average
+      number of trials that are needed to get a complete collection of all
+      $d$ coupons.
+
+      \begin{proof}
+        The average number of trials is
+        \[\mu_d :=\sum_{n\geq d} np_n =p'(1).\]
+        To compute $p'(1)$ more easily, we first take logarithm before
+        taking derivatives:
+
+        \begin{align*}
+          \ln{p(x)}
+            &=\ln{\left[\frac{(d-1)!x^d}{(d-x)(d-2x)\cdots(d-(d-1)x)}
+            \right]}\\
+          &=\ln{(d-1)!} +d\ln{x} -\ln{(d-x)} -\cdots -\ln{(d-(d-1)x)}.\\
+        \end{align*}
+
+        Taking derivatives with respect to $x$ on both sides give
+        \begin{align*}
+          \frac{p'(x)}{p(x)} &=\frac{d}{x} +\frac{1}{d-x} +\frac{2}{d-2x}
+            +\cdots +\frac{d-1}{d-(d-1)x}.\\
+        \end{align*}
+
+        Multiplying with $p(x)$ and substituting with $x=1$ give
+        \begin{align*}
+          \mu_d=p'(1) &=\left[\frac{d}{1} +\frac{1}{d-1} +\frac{2}{d-2}
+            +\cdots +\frac{d-1}{d-(d-1)} \right] p(1)\\
+          &=\left[d +\sum_{k-1}^{d-1} \frac{k}{d-k}\right] \cdot
+            \frac{(d-1)!}{(d-2)(d-1)\cdots2\cdot1}\\
+          &=d +\sum_{k=1}^{d-1} \frac{k}{d-k}\\
+          &=d +d\sum_{k=1}^{d-1} \frac{1}{d-k} -\sum_{k=1}^{d-1}1\\
+          &=1 +d\sum_{k=1}^{d-1} \frac{1}{k}\\
+          &=d\sum_{k=1}^{d} \frac{1}{k}\\
+          &=dH_d.\\
+        \end{align*}
+      \end{proof}
+
+    \item Similarly, using $p(x)$, find the standard deviation of the
+      number of trials.
+
+      \begin{proof}
+        Let $X$ be the random variable that represents the number of trials
+        needed to get for the first time a complete collection of coupons.
+        Then
+        \[E(X^2) =\sum_{n\geq d} n^2p_n =p''(1)+p'(1).\]
+
+        Like in the previous part of the question, to compute the
+        derivatives more easily, we take logarithm before differentiating.
+        From the previous part of the question, we have
+        \begin{align*}
+          p'(x) &=\left[\frac{d}{x} +\frac{1}{d-x} +\frac{2}{d-2x}
+            +\cdots +\frac{d-1}{d-(d-1)x} \right] p(x)\\
+          &=\left[\frac{d}{x} +\sum_{k=1}^{d-1} \frac{k}{d-kx}\right]
+            p(x).\\
+        \end{align*}
+
+        Differentiating with respect to $x$ gives
+        \begin{align*}
+          p''(x) &=\left[-\frac{d}{x^2} +\sum_{k=1}^{d-1}
+            \frac{k^2}{(d-kx)^2}\right] p(x) + \left[\frac{d}{x}
+            +\sum_{k=1}^{d-1} \frac{k}{d-kx}\right] p'(x)\\
+          &=\left[-\frac{d}{x^2} +\sum_{k=1}^{d-1}
+            \frac{k^2}{(d-kx)^2}\right] p(x) + \frac{p'(x)}{p(x)} p'(x)\\
+          &=\left[-\frac{d}{x^2} +\sum_{k=1}^{d-1}
+            \frac{k^2}{(d-kx)^2}\right] p(x) + \frac{(p'(x))^2}{p(x)}.\\
+        \end{align*}
+
+        Substituting $x=1$ and using $p(1)=1$ and $p'(1)=dH_d$ as shown in
+        the previous part of this question, we have
+        \begin{align*}
+          p''(1) &=\left[-d +\sum_{k=1}^{d-1}
+            \frac{k^2}{(d-k)^2}\right] +d^2H_d^2\\
+          &=-d +\sum_{k=1}^{d-1} \left[\frac{d^2}{(d-k)^2}
+            -\frac{2d}{d-k} +1\right] +d^2H_d^2\\
+          &=d^2 \sum_{k=1}^{d-1} \frac{1}{k^2} -2d\sum_{k=1}^{d-1}
+            \frac{1}{k} +d^2H_d^2-1\\
+          &=d^2 \sum_{k=1}^{d-1} \frac{1}{k^2} -2dH_d +d^2H_d^2+1\\
+        \end{align*}
+
+        Then
+        \begin{align*}
+          \sigma_d^2 &=E(X^2)-\mu_d^2\\
+          &=p''(1)+p'(1) -p'(1)^2\\
+          &=d^2 \sum_{k=1}^{d-1} \frac{1}{k^2} -2dH_d +d^2H_d^2+1 +dH_d
+            -d^2H_d^2\\
+          &=d^2 \sum_{k=1}^{d} \frac{1}{k^2} -dH_d.\\
+        \end{align*}
+
+        So
+        \[\sigma_d = \sqrt{d^2 \sum_{k=1}^{d} \frac{1}{k^2} -dH_d}.\]
+      \end{proof}
+
+    \item If there are 10 different kinds of pictures, how many boxes of
+      cereal would you expect to have to buy in order to collect all 10?
+
+      \begin{proof}
+        This is $p'(1)=10H_{10}$, as proven in part (c).
+      \end{proof}
   \end{enumerate}
 \end{document}
