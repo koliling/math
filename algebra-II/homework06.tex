@@ -89,4 +89,38 @@
     So the invariant factors are
     \[(x+1)^2(x-1)(x^2+1)^2, (x+1)^2(x-1)(x^2+1), (x+1)(x-1).\]
   \end{proof}
+
+\it \textbf{Section 12.3 Q2:} Prove that if $\lambda_1,\ldots,\lambda_n$
+  are the eigenvalues of the $n\times n$ matrix $A$ then
+  $\lambda_1^k,\ldots,\lambda_n^k$ are the eigenvalues of $A^k$ for any
+  $k\geq0$.
+
+  \begin{proof}
+    The $\lambda_i^k$ are eigenvalues of $A^k$ by induction on $k$, since
+    $A^{k-1}\vec{v}=\lambda^{k-1}\vec{v}$ implies
+    $A^{k}\vec{v}=\lambda^{k}\vec{v}$ when we multiply both sides by $A$.
+    \\
+
+    Now we show that the $\lambda_i^k$'s are the only possible eigenvalues
+    of $A^k$. Let $A=P^{-1}JP$, where $J$ is the Jordan canonical form of
+    $A$. So the diagonal values of $J$ are the eigenvalues
+    $\lambda_1,\ldots,\lambda_n$. Then $A^k=P^{-1}J^kP$. We show that the
+    eigenvalues of $J^k$ are $\lambda_1^k,\ldots,\lambda_n^k$. Now since
+    $J$ is a diagonal matrix with diagonal entries
+    $\lambda_1,\ldots,\lambda_n$, by induction on $k$, $J^k$ will be a
+    diagonal matrix with diagonal entries $\lambda_1^k,\ldots,\lambda_n^k$.
+    Then the characteristic polynomial of $J^k$ will be
+    \[c_{J^k}(x) =|J^k-xI| =(\lambda_1^k-x) \cdots(\lambda_n^k-x),\]
+    since the determinant of an upper-triangular matrix is the product of
+    its diagonal entries. Thus the eigenvalues of $J^k$ which are the roots
+    of $c_{J^k}(x)$ will be $\lambda_1^k,\ldots,\lambda_n^k$. \\
+
+    So the Jordan canonical form of $J^k=Q^{-1}KQ$, where $K$ is the Jordan
+    canonical form of $J^k$, and has diagonal entries
+    $\lambda_1^k,\ldots,\lambda_n^k$. Then
+    \[A^k =P^{-1}Q^{-1}KQP =(QP)^{-1}K(QP),\]
+    which implies that $K$ is the Jordan canonical form of $A^k$, and so
+    the eigenvalues of $A^k$ are the diagonal entries of $K$ which are
+    $\lambda_1^k,\ldots,\lambda_n^k$.
+  \end{proof}
 \end{document}
