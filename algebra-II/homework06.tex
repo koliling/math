@@ -241,4 +241,16 @@
     is
     \[\begin{pmatrix} \omega&0\\ 0&\omega^2\\ \end{pmatrix}.\]
   \end{proof}
+
+\it \textbf{Section 12.3 Q24:} Prove that there are no $3\times3$ matrices
+  $A$ over $\mathbb{Q}$ with $A^8=I$ but $A^4\neq I$. 
+
+  \begin{proof}
+    If such a matrix exists, then it would satisfy $x^8-1=(x^4-1)(x^4+1)$
+    but not $x^4-1$, therefore it would satisfy $f(x):=(x^4+1)$. Hence its
+    characteristic polynomial must divide $f(x)$. Since the characteristic
+    polynomial has degree 3 and $f(x)$ has degree 4, $f(x)$ must have a
+    factor of degree 3 over $\mathbb{Q}$. But $f(x)$ is irreducible over
+    $\mathbb{Q}$, a contradiction.
+  \end{proof}
 \end{document}
