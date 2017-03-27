@@ -123,4 +123,81 @@
     the eigenvalues of $A^k$ are the diagonal entries of $K$ which are
     $\lambda_1^k,\ldots,\lambda_n^k$.
   \end{proof}
+
+\it \textbf{Section 12.3 Q5:} Compute the Jordan canonical form for the
+  matrix
+  \[A =\begin{pmatrix}1&0&0\\ 0&0&-2\\ 0&1&3\\ \end{pmatrix}.\]
+
+  \begin{proof}
+    The characteristic polynomial of $A$ is
+    \[c_A(x) =|A-xI| =(1-x)[(-x)(3-x)+2] =(1-x)^2(2-x).\]
+
+    Therefore the eigenvalues are 1, 1, and 2. We check that $A$
+    satisfies $(1-x)(2-x)$, so its minimal polynomial equals its
+    characteristic polynomial. Then from Corollary 25, the Jordan Canonical
+    form is
+    \[\begin{pmatrix} 1&0&0\\ 0&1&0\\ 0&0&2\\ \end{pmatrix}.\]
+  \end{proof}
+
+\it \textbf{Section 12.3 Q7:} Determine the Jordan canonical form for the
+  following matrices
+  \[A =\begin{pmatrix} 5&4&1\\ -1&0&0\\ -3&-4&1\\ \end{pmatrix},\]
+  \[B =\begin{pmatrix} 3&4&2\\ -2&-3&-1\\ -4&-4&-3\\ \end{pmatrix}.\]
+
+  \begin{proof}
+    We check that $c_A(x)=(2-x)^3$. Also, $\text{Rank}(A-2I)=2$, so the
+    Jordan canonical form of $A$ is
+    \[\begin{pmatrix} 2&1&0\\ 0&2&1\\ 0&0&2\\ \end{pmatrix}.\]
+
+    We check that $c_B(x)=(1+x)^3$. Also, $\text{Rank}(B+I)=1$, so the
+    Jordan canonical form of $B$ is
+    \[\begin{pmatrix} -1&1&0\\ 0&-1&0\\ 0&0&-1\\ \end{pmatrix}.\]
+  \end{proof}
+
+\it \textbf{Section 12.3 Q10:} Find all Jordan canonical forms of
+  $2\times2$, $3\times3$, and $4\times4$ matrices over $\mathbb{C}$.
+
+  \begin{proof}
+    For any distinct
+    $\lambda_1,\lambda_2,\lambda_3,\lambda_4\in\mathbb{C}$, the possible
+    Jordan canonical forms are
+
+    \begin{align*}
+      \begin{pmatrix} \lambda_1&0\\ 0&\lambda_2\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&0\\ 0&\lambda_1\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1\\ 0&\lambda_1\\ \end{pmatrix},\\
+      \begin{pmatrix} \lambda_1&0&0\\ 0&\lambda_2&0\\ 0&0&\lambda_3\\
+        \end{pmatrix},
+        \begin{pmatrix} \lambda_1&0&0\\ 0&\lambda_1&0\\ 0&0&\lambda_2\\
+        \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0\\ 0&\lambda_1&0\\ 0&0&\lambda_2\\
+        \end{pmatrix},
+        \begin{pmatrix} \lambda_1&0&0\\ 0&\lambda_1&0\\ 0&0&\lambda_1\\
+        \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0\\ 0&\lambda_1&0\\ 0&0&\lambda_1\\
+        \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0\\ 0&\lambda_1&1\\ 0&0&\lambda_1\\
+        \end{pmatrix},\\
+      \begin{pmatrix} \lambda_1&0&0&0\\ 0&\lambda_2&0&0\\
+        0&0&\lambda_3&0\\ 0&0&0&\lambda_4\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&0&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_2&0\\ 0&0&0&\lambda_3\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_2&0\\ 0&0&0&\lambda_3\\ \end{pmatrix},\\
+        \begin{pmatrix} \lambda_1&0&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_2&0\\ 0&0&0&\lambda_2\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_2&0\\ 0&0&0&\lambda_2\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_2&1\\ 0&0&0&\lambda_2\\ \end{pmatrix},\\
+        \begin{pmatrix} \lambda_1&0&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_1&0\\ 0&0&0&\lambda_1\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&0&0\\
+          0&0&\lambda_1&0\\ 0&0&0&\lambda_1\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&1&0\\
+          0&0&\lambda_1&0\\ 0&0&0&\lambda_1\\ \end{pmatrix},
+        \begin{pmatrix} \lambda_1&1&0&0\\ 0&\lambda_1&1&0\\
+          0&0&\lambda_1&1\\ 0&0&0&\lambda_1\\ \end{pmatrix}.\\
+    \end{align*}
+  \end{proof}
 \end{document}
