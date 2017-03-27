@@ -222,4 +222,23 @@
         0&0&0&0&3\\ \end{pmatrix}.
     \end{align*}
   \end{proof}
+
+\it \textbf{Section 12.3 Q23:} Suppose $A$ is a $2\times2$ matrix with
+  entries from $\mathbb{Q}$ for which $A^3=I$ but $A\neq I$. Write $A$ in
+  rational canonical form and in Jordan canonical form viewed as a matrix
+  over $\mathbb{C}$.
+
+  \begin{proof}
+    Matrix $A$ satisfies $x^3-1=(x-1)(x^2+x+1)$ but not $(x-1)$, therefore
+    it must satisfy $f(x):=(x^2+x+1)$. Over $\mathbb{Q}$, the polynomial
+    $f(x)$ is irreducible and has degree equal to 2, thus $f(x)$ must be the
+    minimal polynomial of $A$. Thus the rational canonical form is
+    \[\begin{pmatrix} 0&-1\\ 1&-1\\ \end{pmatrix}.\]
+
+    Over $\mathbb{C}$, the eigenvalues are the distinct roots of $f(x)$
+    which are $\omega$ and $\omega^2$, where $\omega$ is the 2nd root of
+    unity. Since the eigenvalues are distinct, the Jordan canonical form
+    is
+    \[\begin{pmatrix} \omega&0\\ 0&\omega^2\\ \end{pmatrix}.\]
+  \end{proof}
 \end{document}
