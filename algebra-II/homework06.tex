@@ -236,7 +236,7 @@
     \[\begin{pmatrix} 0&-1\\ 1&-1\\ \end{pmatrix}.\]
 
     Over $\mathbb{C}$, the eigenvalues are the distinct roots of $f(x)$
-    which are $\omega$ and $\omega^2$, where $\omega$ is the 2nd root of
+    which are $\omega$ and $\omega^2$, where $\omega$ is the 3rd root of
     unity. Since the eigenvalues are distinct, the Jordan canonical form
     is
     \[\begin{pmatrix} \omega&0\\ 0&\omega^2\\ \end{pmatrix}.\]
@@ -247,10 +247,80 @@
 
   \begin{proof}
     If such a matrix exists, then it would satisfy $x^8-1=(x^4-1)(x^4+1)$
-    but not $x^4-1$, therefore it would satisfy $f(x):=(x^4+1)$. Hence its
-    characteristic polynomial must divide $f(x)$. Since the characteristic
-    polynomial has degree 3 and $f(x)$ has degree 4, $f(x)$ must have a
-    factor of degree 3 over $\mathbb{Q}$. But $f(x)$ is irreducible over
-    $\mathbb{Q}$, a contradiction.
+    but not $x^4-1$, therefore it would satisfy $f(x):=x^4+1$. Now
+    $f(x)$ is irreducible over $\mathbb{Q}$ since it has no linear factors
+    and factorizing into a product of two quadratic factors would give a
+    contradiction when we calculate the coefficients. Yet the minimal
+    polynomial of $A$ must have degree less than 4 and divide $f(x)$, a
+    contradiction.
+  \end{proof}
+
+\it \textbf{Section 13.1 Q2:} Show that $x^3-2x-2$ is irreducible over
+  $\mathbb{Q}$ and let $\theta$ be a root. Compute
+  $(1+\theta)(1+\theta+\theta^2)$ and $\frac{1+\theta}{1+\theta+\theta^2}$
+  in $\mathbb{Q}(\theta)$.
+
+  \begin{proof}
+    $f(x):=x^3-2x-2$ is irreducible over $\mathbb{Q}$ from Eisenstein's
+    criteria with prime $2\in\mathbb{Q}$. \\
+
+    From long division, we get
+    \[(1+\theta)(1+\theta+\theta^2) \equiv 2\theta^2+4\theta+3
+    \mod{f(\theta)}.\]
+    Thus $(1+\theta)(1+\theta+\theta^2) =2\theta^2+4\theta+3$. \\
+
+    To find the multiplicative inverse of $1+\theta+\theta^2$ in
+    $\mathbb{Q}(\theta)$, we backtrack from Euclid's algorithm to find
+    polynomials $g(x),h(x)\in\mathbb{Q}[x]$ such that
+    \[g(x)(1+x+x^2) -h(x)f(x) =\text{gcd}(f(x),1+x+x^2)=1.\]
+
+    Note that $\text{gcd}(f(x),1+x+x^2)=1$ because $f(x)$ is irreducible
+    over $\mathbb{Q}$ and $1+x+x^2$ has degree less than $f(x)$. Then
+    \[g(\theta)(1+\theta+\theta^2) \equiv 1 \mod{f(\theta)},\]
+    so $g(\theta)$ will be the multiplicative inverse of
+    $(1+\theta+\theta^2)$. Following Euclid's algorithm, we have
+    \begin{align*}
+      \theta^3-2\theta-2 &=(\theta-1)(\theta^2+\theta+1) -2\theta-1\\
+      \theta^2+\theta+1 &=\left(-\frac{1}{2}\theta-\frac{1}{4}\right)
+        (-2\theta-1) +\frac{3}{4}\\
+    \end{align*}
+
+    Working backwards, we get
+    \begin{align*}
+      \theta^3-2\theta-2 &=(\theta-1)(\theta^2+\theta+1)
+        +\frac{(\theta^2+\theta+1)-\frac{3}{4}}
+        {-\frac{1}{2}\theta-\frac{1}{4}}\\
+      \left(-\frac{1}{2}\theta-\frac{1}{4}\right) (\theta^3-2\theta-2)
+        &=(\theta-1) \left(-\frac{1}{2}\theta -\frac{1}{4}\right)
+        (\theta^2+\theta+1) +(\theta^2+\theta+1)-\frac{3}{4}\\
+      &=\left[(\theta-1) \left(-\frac{1}{2}\theta-\frac{1}{4}\right) +1
+        \right] (\theta^2+\theta+1) -\frac{3}{4}\\
+      \left(-\frac{1}{2}\theta-\frac{1}{4}\right) (\theta^3-2\theta-2)
+        +\frac{3}{4}
+        &=\left[(\theta-1) \left(-\frac{1}{2}\theta-\frac{1}{4}\right) +1
+        \right] (\theta^2+\theta+1)\\
+      \frac{4}{3} \left(-\frac{1}{2}\theta-\frac{1}{4}\right)
+        (\theta^3-2\theta-2) +1
+        &=\frac{4}{3} \left[(\theta-1)
+        \left(-\frac{1}{2}\theta-\frac{1}{4}\right) +1 \right]
+        (\theta^2+\theta+1)\\
+    \end{align*}
+
+    Thus the multiplicative inverse of $\theta^2+\theta+1$ is
+    \[\frac{4}{3} \left[(\theta-1)
+    \left(-\frac{1}{2}\theta-\frac{1}{4}\right) +1 \right]
+    =-\frac{2}{3}\theta^2 +\frac{1}{3}\theta +\frac{5}{3} =-\frac{1}{3}
+    \left(2\theta^2-\theta-5 \right).\]
+
+    So multiplying with $1+\theta$ gives
+    \begin{align*}
+      \frac{1+\theta}{1+\theta+\theta^2} &=-\frac{1}{3} (\theta+1)
+        \left(2\theta^2-\theta-5 \right) \\
+      &=-\frac{1}{3} \left(2\theta^3+\theta^2-6\theta-5 \right)\\
+      &=-\frac{1}{3} \left[2(\theta^3-2\theta-2) +\theta^2-2\theta-1
+        \right]\\
+      &=-\frac{1}{3} \left[2\cdot0 +\theta^2-2\theta-1 \right]\\
+      &=-\frac{1}{3} \left(\theta^2-2\theta-1 \right).\\
+    \end{align*}
   \end{proof}
 \end{document}
