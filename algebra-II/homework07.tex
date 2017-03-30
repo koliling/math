@@ -193,4 +193,19 @@
     \[-1 =(p_1(\beta))^2 +\ldots +(p_m(\beta))^2\]
     in $F(\beta)$, violating the minimality of $f(x)$.
   \end{proof}
+
+\it \textbf{Section 13.2 Q16:} Let $K/F$ be an algebraic extension and let
+  $R$ be a ring contained in $K$ and containing $F$. Show that $R$ is a
+  subfield of $K$ containing $F$.
+
+  \begin{proof}
+    Since rings are closed under addition, subtraction, and multiplication,
+    it suffices to show that $R$ is closed under multiplicative inverse.
+    Now given $\alpha\in R$, since $K/F$ is an algebraic extension,
+    $\alpha$ must be algebraic over $F$. So the minimal polynomial
+    of $\alpha$ exists. Let $n$ be the degree of the minimal polynomial.
+    Then $F(\alpha)$ is an $F$-subspace of $R$ with basis
+    $\{1,\alpha,\alpha^2,\ldots,\alpha^{n-1}\}$. Thus $R$ contains the
+    multiplicative inverse of $\alpha$.
+  \end{proof}
 \end{document}
