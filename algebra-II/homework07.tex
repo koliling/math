@@ -22,7 +22,7 @@
   \end{proof}
 
 \it \textbf{Section 13.2 Q4:} Determine the degree over $\mathbb{Q}$ of
-  $\alpha=2+\sqrt{3}$ and of $\beta=1+\sqrt[3]{2}+\sqrt[3]{4}$.
+  $2+\sqrt{3}$ and of $1+\sqrt[3]{2}+\sqrt[3]{4}$.
 
   \begin{proof}
     Observe that $\mathbb{Q}(2+\sqrt{3}) =\mathbb{Q}(\sqrt{3})$. Then since
@@ -56,5 +56,41 @@
     $\alpha_i$. For the reverse inclusion, $F(\alpha_1),F(\alpha_2),\ldots
     F(\alpha_n)$ clearly contains $F$ and each of
     $\alpha_1,\alpha_2,\ldots,\alpha_n$.
+  \end{proof}
+
+\it \textbf{Section 13.2 Q7:} Prove that $\mathbb{Q}(\sqrt{2}+\sqrt{3})
+  =\mathbb{Q}(\sqrt{2},\sqrt{3})$. Conclude that
+  $[\mathbb{Q}(\sqrt{2}+\sqrt{3}):\mathbb{Q}]=4$ Find an irreducible
+  polynomial satisfied by $\sqrt{2}+\sqrt{3}$.
+
+  \begin{proof}
+    Clearly $\mathbb{Q}(\sqrt{2}+\sqrt{3})
+    \subseteq\mathbb{Q}(\sqrt{2},\sqrt{3})$. For the reverse inclusion,
+    observe that $\sqrt{2}-\sqrt{3} \in\mathbb{Q}(\sqrt{2}+\sqrt{3})$ since
+    \[\sqrt{3}-\sqrt{2} =\frac{5}{\sqrt{2}+\sqrt{3}}.\]
+
+    Therefore
+    \[\sqrt{2} =\frac{1}{2} [(\sqrt{2}+\sqrt{3}) +(\sqrt{2}-\sqrt{3})]
+    \in\mathbb{Q}(\sqrt{2}+\sqrt{3}),\]
+    and similarly $\sqrt{3} \in\mathbb{Q}(\sqrt{2}+\sqrt{3})$. Thus
+    $\mathbb{Q}(\sqrt{2}+\sqrt{3}) \supseteq\mathbb{Q}(\sqrt{2},\sqrt{3})$.
+    \\
+
+    Therefore
+    \[[\mathbb{Q}(\sqrt{2}+\sqrt{3}):\mathbb{Q}]
+    =[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}]
+    =[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}(\sqrt{2})]
+    [\mathbb{Q}(\sqrt{2}):\mathbb{Q}].\]
+
+    Now $[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2$ since the minimal polynomial
+    of $\sqrt{2}$ over $\mathbb{Q}$ is $x^2-2$. Now
+    $\sqrt{3}\not\in\mathbb{Q}(\sqrt{2})$ because otherwise $\sqrt{3}$ is
+    spanned by $\{1,\sqrt{2}\}$ as a $\mathbb{Q}$ vector space. Thus
+    $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}(\sqrt{2})] >1$. Now
+    $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}(\sqrt{2})]
+    \leq[\mathbb{Q}(\sqrt{3}):\mathbb{Q}]$, and
+    $[\mathbb{Q}(\sqrt{3}):\mathbb{Q}]=2$, thus
+    $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}(\sqrt{2})]$ can only be 2.
+    Hence $[\mathbb{Q}(\sqrt{2}+\sqrt{3}):\mathbb{Q}]=2\cdot2=4$.
   \end{proof}
 \end{document}
