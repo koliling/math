@@ -21,7 +21,7 @@
     $2\in\mathbb{Z}$. Thus the minimal polynomial is $x^2-2x+2=0$.
   \end{proof}
 
-\it \textbf{Section 13.2 Q3:} Determine the degree over $\mathbb{Q}$ of
+\it \textbf{Section 13.2 Q4:} Determine the degree over $\mathbb{Q}$ of
   $\alpha=2+\sqrt{3}$ and of $\beta=1+\sqrt[3]{2}+\sqrt[3]{4}$.
 
   \begin{proof}
@@ -39,5 +39,22 @@
     means it can only be 1 or 3. But
     $1+\sqrt[3]{2}+\sqrt[3]{4}\not\in\mathbb{Q}$, so the degree can only be
     3.
+  \end{proof}
+
+\it \textbf{Section 13.2 Q6:} Prove directly from the definitions that the
+  field $F(\alpha_1,\alpha_2,\ldots,\alpha_n)$ is the composite of the
+  fields $F(\alpha_1),F(\alpha_2),\ldots F(\alpha_n)$.
+
+  \begin{proof}
+    By definition, $F(\alpha_1,\alpha_2,\ldots,\alpha_n)$ is the smallest
+    field containing $F$ and $\alpha_1,\alpha_2,\ldots,\alpha_n$. Also by
+    definition, $F(\alpha_1),F(\alpha_2),\ldots F(\alpha_n)$ is the
+    smallest field containing $F(\alpha_1),F(\alpha_2),\ldots F(\alpha_n)$.
+    Such a field must also contain each of $F(\alpha_i)$ since
+    $F(\alpha_i)$ is the smallest field containing $F$ and $\alpha_i$ and
+    $F(\alpha_1),F(\alpha_2),\ldots F(\alpha_n)$ contains $F$ and
+    $\alpha_i$. For the reverse inclusion, $F(\alpha_1),F(\alpha_2),\ldots
+    F(\alpha_n)$ clearly contains $F$ and each of
+    $\alpha_1,\alpha_2,\ldots,\alpha_n$.
   \end{proof}
 \end{document}
