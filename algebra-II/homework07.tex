@@ -137,4 +137,19 @@
         degree of the extension is 2.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 13.2 Q14:} Prove that if $[F(\alpha):F]$ is odd then
+  $F(\alpha)=F(\alpha^2)$.
+
+  \begin{proof}
+    Since $F\subseteq F(\alpha^2) \subseteq F(\alpha)$, we have
+    \[[F(\alpha):F] =[F(\alpha):F(\alpha^2)] [F(\alpha^2):F].\]
+
+    Now $[F(\alpha):F(\alpha^2)]\leq2$ since the minimal polynomial of
+    $\alpha$ over $F(\alpha^2)$ is $x^2-\alpha^2$ if $\alpha\not\in
+    F(\alpha^2)$. However if $[F(\alpha):F(\alpha^2)]=2$, then
+    $[F(\alpha):F]$ will be even. Thus $[F(\alpha):F(\alpha^2)]=1$ and
+    \[[F(\alpha):F] =[F(\alpha^2):F],\]
+    which implies that $F(\alpha)=F(\alpha^2)$.
+  \end{proof}
 \end{document}
