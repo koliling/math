@@ -208,4 +208,42 @@
     $\{1,\alpha,\alpha^2,\ldots,\alpha^{n-1}\}$. Thus $R$ contains the
     multiplicative inverse of $\alpha$.
   \end{proof}
+
+\it \textbf{Section 13.2 Q19:} Let $K$ be an extension of $F$ of degree
+  $n$.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item For any $\alpha\in K$ prove that $\alpha$ acting by left
+      multiplication on $K$ is an $F$-linear transformation of $K$.
+
+      \begin{proof}
+        Let $\varphi_\alpha:K\rightarrow K$ denote the action by left
+        multiplication. Then given $f\in F$ and $\beta_1,\beta_2\in K$,
+        \begin{align*}
+          \varphi_\alpha(f\beta_1+\beta_2) &=\alpha(f\beta_1+\beta_2)\\
+          &=\alpha f\beta_1 +\alpha \beta_2\\
+          &=f \alpha \beta_1 +\alpha \beta_2\\
+          &=f \varphi_\alpha(\beta_1) +\varphi_\alpha(\beta_2).\\
+        \end{align*}
+        Thus $\varphi_\alpha$ is an $F$-linear transformation of $K$.
+      \end{proof}
+
+    \item Prove that $K$ is isomorphic to a subfield of the ring of
+      $n\times n$ matrices over $F$, so the ring of $n\times n$ matrices
+      over $F$ contains an isomorphic copy of every extension of $F$ of
+      degree $\leq n$.
+
+      \begin{proof}
+        Fix a basis of $K$ over $F$. This basis should contain $n$ elements
+        since $[K:F]=n$. Then consider the map $\varphi:
+        K\rightarrow\text{Mat}_n(F)$ which takes $\alpha\in K$ and returns
+        the matrix of $\varphi_\alpha$ with respect to the chosen basis,
+        where $\varphi_\alpha$ has been defined in the previous part of
+        this question. Then since $\varphi_\alpha$ is an $F$-linear map as
+        shown earlier, $\varphi$ will be a ring homomorphism. Furthermore,
+        if $\alpha\in\ker(\varphi)$, then $\varphi_\alpha(\beta)=0$ for all
+        $\beta\in K$, which implies that $\alpha=0$. Thus $\varphi$ is
+        injective.
+      \end{proof}
+  \end{enumerate}
 \end{document}
