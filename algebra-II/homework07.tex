@@ -152,4 +152,45 @@
     \[[F(\alpha):F] =[F(\alpha^2):F],\]
     which implies that $F(\alpha)=F(\alpha^2)$.
   \end{proof}
+
+\it \textbf{Section 13.2 Q15:} A field $F$ is said to be formally real if
+  $-1$ is not expressible as a sum of squares in $F$. Let $F$ be a formally
+  real field, let $f(x)\in F[x]$ be an irreducible polynomial of odd degree
+  and let $\alpha$ be a root of $f(x)$. Prove that $F(\alpha)$ is also
+  formally real. [Pick $\alpha$ a counterexample of minimal degree. Show
+  that $-1+f(x)g(x) =(p_1(x))^2 +\ldots +(p_m(x))^2$ for some
+  $p_i(x),g(x)\in F[x]$ where $g(x)$ has odd degree $<\text{deg}\; f$. Show
+  that some root $\beta$ of $g$ has odd degree over $F$ and $F(\beta)$ is
+  not formally real, violating the minimality of $\alpha$.] 
+
+  \begin{proof}
+    Following the hint, assume $F$ is formally real and let $f(x)\in F[x]$
+    be an irreducible polynomial of minimal odd odd degree with $\alpha$ as
+    root and, where $F(\alpha)$ is not formally real. Then $-1$ must be
+    expressible as a sum of squares in $F(\alpha)$. In other words, there
+    must exist $p_i(\alpha)\in F(\alpha)$ such that
+    \[-1 =(p_1(\alpha))^2 +\ldots +(p_m(\alpha))^2.\]
+
+    Note that we can assume the degrees of $p_i$ are smaller than
+    $\text{deg}\; f$, because otherwise we can take modulo $f(\alpha)$.
+    Then the above equation is the same as having some $g(x)\in F[x]$ where
+    \begin{equation}
+      -1+f(x)g(x) =(p_1(x))^2 +\ldots +(p_m(x))^2.
+      \label{eq:p}
+    \end{equation}
+
+    Now since the degree of each $p_i$ is less than the degree of $f$, the
+    degree of $g$ must also be smaller than the degree of $f$. Furthermore,
+    since the degree of each $(p_i(x))^2$ is even and the degree of $f$ is
+    odd, the degree of $g$ must be odd. Pick any root $\beta$ of $g(x)$,
+    and let $g_\beta(x)$ be the minimal polynomial of $\beta$. Then
+    $g_\beta(x)$ divides $g(x)$, so $g_\beta(x)$ must
+    have odd degree less than the degree of $f$. Now we can rewrite
+    equation~\ref{eq:p} as
+    \[-1+g_\beta(x)h(x) =(p_1(x))^2 +\ldots +(p_m(x))^2\]
+    for some $h(x)\in F[x]$, which implies $F(\beta)$ is formally real with
+    $-1$ expressed as a sum of squares
+    \[-1 =(p_1(\beta))^2 +\ldots +(p_m(\beta))^2\]
+    in $F(\beta)$, violating the minimality of $f(x)$.
+  \end{proof}
 \end{document}
