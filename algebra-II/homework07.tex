@@ -12,6 +12,23 @@
 \date{\today}
 \maketitle
 
+\it \textbf{Q1:} Let $K$ be an algebraic extension of $F$, and suppose $R$
+  is a ring such that $F\subset R\subset K$. In problem 16 of Section 13.2
+  assigned below, you prove that $R$ is a field. Show that if we remove the
+  word ``algebraic'' above, then $R$ need not be a field.
+
+  \begin{proof}
+    Consider the field extension $\mathbb{Q}(t) \subset \mathbb{Q}$ defined
+    by
+    \[\mathbb{Q}(t):=\left\{\frac{f(t)}{g(t)}: f(t),g(t)\in\mathbb{Q}[t],
+    g(t)\neq0\right\}.\]
+
+    Then $\mathbb{Q}(t)$ is not an algebraic extension of $\mathbb{Q}$.
+    Then the ring $\mathbb{Q}[t]$ lies between $\mathbb{Q}$ and
+    $\mathbb{Q}(t)$, but it is not a field since the element $t$ does not
+    have a multiplicative inverse.
+  \end{proof}
+
 \it \textbf{Section 13.2 Q3:} Determine the minimal polynomial over
   $\mathbb{Q}$ for the element $1+i$.
 
@@ -291,5 +308,12 @@
     which has characteristic polynomial $c_A(x)=|A-xI|=-x^3+2x^2+5x+2$.
     Thus a monic polynomial of degree 3 satisfied by
     $1+\sqrt[3]{2}+\sqrt[3]{4}$ is $x^3-2x^2-5x-2$. \\
+  \end{proof}
+
+\it \textbf{Section 13.2 Q22:} Let $K_1$ and $K_2$ be two finite extensions
+  of a field $F$ contained in the field $K$. Prove that the $F$-algebra
+  $K_1\otimes_F F_2$ is a field if and only if $[K_1K_2:F]=[K_1:F][K_2:F]$.
+
+  \begin{proof}
   \end{proof}
 \end{document}
