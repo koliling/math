@@ -246,4 +246,50 @@
         injective.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Section 13.2 Q20:} Show that if the matrix of the linear
+  transformation ``multiplication by $\alpha$'' considered in the previous
+  exercise is $A$ then $\alpha$ is a root of the characteristic polynomial
+  for $A$. This gives an effective procedure for determining an equation of
+  degree $n$ satisfied by an element $\alpha$ in an extension of $F$ of
+  degree $n$. Use this procedure to obtain the monic polynomial of degree 3
+  satisfied by $\sqrt[3]{2}$ and by $1+\sqrt[3]{2}+\sqrt[3]{4}$.
+
+  \begin{proof}
+    Denote the minimal polynomial of $\alpha$ over $F$ by $m_\alpha(x)$.
+    Note that the minimal polynomial exists because the extension has
+    finite degree. Consider the linear transformation ``multiplication by
+    $m_\alpha(\alpha)$''. By $F$-linearity, the matrix of this
+    transformation is $m_\alpha(A)$, which is 0 since $m_\alpha(\alpha)=0$.
+    Thus $A$ satisfies $m_\alpha(x)$ which is irreducible, implying that
+    the minimal polynomial of $A$ is also $m_\alpha(x)$, and so the
+    $m_\alpha(x)$ divides the characteristic polynomial of $A$ and $\alpha$
+    is a root of this characteristic polynomial. \\
+
+    Consider the basis $\{1,\sqrt[3]{2},\sqrt[3]{4}\}$. Then for
+    $\alpha=\sqrt[3]{2}$, the matrix $A$ is
+    \begin{align*}
+      A =
+      \begin{pmatrix}
+        0&1&0\\
+        0&0&1\\
+        2&0&0\\
+      \end{pmatrix},
+    \end{align*}
+    which has characteristic polynomial $c_A(x)=|A-xI|=-x^3+2$. Thus a
+    monic polynomial of degree 3 satisfied by $\sqrt[3]{2}$ is $x^3-2$. \\
+
+    Similarly, for $\alpha=1+\sqrt[3]{2}+\sqrt[3]{4}$, the matrix $A$ is
+    \begin{align*}
+      A =
+      \begin{pmatrix}
+        0&1&1\\
+        2&1&1\\
+        2&2&1\\
+      \end{pmatrix},
+    \end{align*}
+    which has characteristic polynomial $c_A(x)=|A-xI|=-x^3+2x^2+5x+2$.
+    Thus a monic polynomial of degree 3 satisfied by
+    $1+\sqrt[3]{2}+\sqrt[3]{4}$ is $x^3-2x^2-5x-2$. \\
+  \end{proof}
 \end{document}
