@@ -18,7 +18,7 @@
   word ``algebraic'' above, then $R$ need not be a field.
 
   \begin{proof}
-    Consider the field extension $\mathbb{Q}(t) \subset \mathbb{Q}$ defined
+    Consider the field extension $\mathbb{Q}(t) \supset \mathbb{Q}$ defined
     by
     \[\mathbb{Q}(t):=\left\{\frac{f(t)}{g(t)}: f(t),g(t)\in\mathbb{Q}[t],
     g(t)\neq0\right\}.\]
@@ -34,6 +34,33 @@
   $F(x_1,\ldots,x_n)$ that is not in $F$ is transcendental over $F$.
 
   \begin{proof}
+    Assume by contradiction that there is an element $\alpha\in
+    F(x_1,\ldots,x_n)$ that is not in $F$ and that is algebraic over $F$.
+    We can write
+    \[\alpha =\frac{f(x_1,\ldots,x_n)} {g(x_1,\ldots,x_n)}\]
+    where $f,g\in F[x_1,\ldots,x_n]$ and $g\neq0$.
+    By rearranging the variables $x_1,\ldots,x_n$, if necessary, we can
+    assume without loss of generality that $x_n$ appears in $f$ or $g$.
+    Then rearranging to remove the denominator, we can write
+    \begin{equation}
+      x_n^mf_m(\alpha,x_1,\ldots,x_{n-1}) +\ldots
+      +x_nf_1(\alpha,x_1,\ldots,x_{n-1}) +f_0(\alpha,x_1,\ldots,x_{n-1})
+      =0,
+      \label{eq:F}
+    \end{equation}
+    where $m\in\mathbb{N}$ and the $f_i$'s are polynomials over $F$ in
+    $n$-variables.\\
+
+    Consider the field extension
+    \[F(x_1,\ldots,x_{n-1}) \subset F(x_1,\ldots,x_{n-1},\alpha) \subset
+    F(x_1,\ldots,x_{n-1},x_n).\]
+    Now since $\alpha$ is algebraic over $F$, it must be algebraic over the
+    larger field $F(x_1,\ldots,x_{n-1})$. Therefore $[F(x_1,\ldots,x_{n-1})
+    \subset F(x_1,\ldots,x_{n-1},\alpha)$ is an algebraic extension. Also,
+    the field extension $F(x_1,\ldots,x_{n-1},\alpha) \subset
+    F(x_1,\ldots,x_{n-1},x_n)$ is algebraic from equation~(\ref{eq:F}).
+    Therefore the field extension $F(x_1,\ldots,x_{n-1}) \subset
+    F(x_1,\ldots,x_{n})$ must be algebraic, a contradiction.
   \end{proof}
 
 \it \textbf{Section 13.2 Q3:} Determine the minimal polynomial over
@@ -307,14 +334,14 @@
     \begin{align*}
       A =
       \begin{pmatrix}
-        0&1&1\\
+        1&1&1\\
         2&1&1\\
         2&2&1\\
       \end{pmatrix},
     \end{align*}
-    which has characteristic polynomial $c_A(x)=|A-xI|=-x^3+2x^2+5x+2$.
+    which has characteristic polynomial $c_A(x)=|A-xI|=-(x^3-3x^2-3x-1)$.
     Thus a monic polynomial of degree 3 satisfied by
-    $1+\sqrt[3]{2}+\sqrt[3]{4}$ is $x^3-2x^2-5x-2$. \\
+    $1+\sqrt[3]{2}+\sqrt[3]{4}$ is $x^3-3x^2-3x-1$. \\
   \end{proof}
 
 \it \textbf{Section 13.2 Q22:} Let $K_1$ and $K_2$ be two finite extensions
