@@ -86,6 +86,35 @@
     $F(a)$.
   \end{proof}
 
+\it \textbf{Q4:}
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that if $K$ is a field extension of $F$ such that $u\in K$
+      is transcendental over $F$, then $F(u)$ and $F(x)$ are isomorphic as
+      fields, where $F(x)$ denotes the field of rational functions in the
+      formal variable $x$.
+
+      \begin{proof}
+        Consider the map $\varphi:F(x)\rightarrow F(u)$ defined by
+        \[\varphi \left(\frac{f(x)}{g(x)} \right) =\frac{f(u)}{g(u)},\]
+        where $f,g\in F[x]$ and $g\neq0$. Chasing definitions, this map is
+        a ring homomorphism. It is also surjective since every
+        $\frac{f(u)}{g(u)}\in F(u)$ has inverse image $\frac{f(x)}{g(x)}\in
+        F(x)$. Finally, the map is injective since maps of fields are
+        always injective. Therefore $F(u)$ and $F(x)$ are isomorphic as
+        fields. \\
+      \end{proof}
+
+    \item Give an example of a field extension $K$ over $F$ such that
+      $u,v\in K$ are transcendental over $F$, but $F(u,v)$ is not
+      isomorphic to $F(x_1,x_2)$, where $x_1$ and $x_2$ are formal
+      variables.
+
+      \begin{proof}
+        Consider the case where $v=u$. Then $F(u,v)=F(u,u)=F(u)$, which is
+        isomorphic to $F(x_1)$, but is not isomorphic to $F(x_1,x_2)$.
+      \end{proof}
+  \end{enumerate}
+
 \it \textbf{Section 13.2 Q3:} Determine the minimal polynomial over
   $\mathbb{Q}$ for the element $1+i$.
 
