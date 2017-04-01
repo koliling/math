@@ -49,18 +49,41 @@
       \label{eq:F}
     \end{equation}
     where $m\in\mathbb{N}$ and the $f_i$'s are polynomials over $F$ in
-    $n$-variables.\\
+    $n$-variables. Thus $x_n$ is algebraic over
+    $F(x_1,\ldots,x_{n-1},\alpha)$. \\
 
     Consider the field extension
     \[F(x_1,\ldots,x_{n-1}) \subset F(x_1,\ldots,x_{n-1},\alpha) \subset
     F(x_1,\ldots,x_{n-1},x_n).\]
     Now since $\alpha$ is algebraic over $F$, it must be algebraic over the
-    larger field $F(x_1,\ldots,x_{n-1})$. Therefore $[F(x_1,\ldots,x_{n-1})
-    \subset F(x_1,\ldots,x_{n-1},\alpha)$ is an algebraic extension. Also,
-    the field extension $F(x_1,\ldots,x_{n-1},\alpha) \subset
-    F(x_1,\ldots,x_{n-1},x_n)$ is algebraic from equation~(\ref{eq:F}).
-    Therefore the field extension $F(x_1,\ldots,x_{n-1}) \subset
-    F(x_1,\ldots,x_{n})$ must be algebraic, a contradiction.
+    larger field $F(x_1,\ldots,x_{n-1})$. Therefore
+    $F(x_1,\ldots,x_{n-1},\alpha)/ F(x_1,\ldots,x_{n-1})$ is an algebraic
+    extension. Also, the field extension
+    \[F(x_1,\ldots,x_{n-1},x_n)/ F(x_1,\ldots,x_{n-1},\alpha)\]
+    is algebraic from equation~(\ref{eq:F}).
+    Therefore the field extension $F(x_1,\ldots,x_{n})/
+    F(x_1,\ldots,x_{n-1})$ must be algebraic, a contradiction.
+  \end{proof}
+
+\it \textbf{Q3:} Let $K$ be an extension of $F$ (not necessarily
+  algebraic). Suppose $a$ is is algebraic over $F(u)$ for some $u\in K$,
+  and suppose $a$ is transcendental over $F$. Prove that $u$ must be
+  algebraic over $F(a)$.
+
+  \begin{proof}
+    We first show that $u$ must be transcendental over $F$: Otherwise
+    $F(u,a)/F(u)$ and $F(u)/F$ will both be algebraic extensions, which
+    makes $F(u,a)/F$ an algebraic extension. Then $F(a)/F$ must also be
+    algebraic, a contradiction. \\
+
+    Now $a$ is algebraic over $F(u)$, so we can write
+    \[a^n\frac{f_n(u)}{g_n(u)} +\ldots +a\frac{f_1(u)}{g_1(u)}
+    +\frac{f_0(u)}{g_0(u)} =0\]
+    for some $f_i,g_i\in F[x]$ and $n\in\mathbb{N}$. Then rearranging to
+    remove denominators, we can write
+    \[u^mh_m(a) +\ldots +uh_1(a) +h_0(a)=0\]
+    for some $h_i\in F[x]$ and $m\in\mathbb{N}$. Thus $u$ is algebraic over
+    $F(a)$.
   \end{proof}
 
 \it \textbf{Section 13.2 Q3:} Determine the minimal polynomial over
