@@ -463,5 +463,54 @@
   $K_1\otimes_F K_2$ is a field if and only if $[K_1K_2:F]=[K_1:F][K_2:F]$.
 
   \begin{proof}
+    Note that $K_1$ and $K_2$ are trivially $F$-algebras since they are
+    field extensions of $F$. Therefore from Proposition 21 of Chapter 10.4,
+    $K_1\otimes_F K_2$ is also an $F$-algebra, and the multiplication
+    $(a\otimes b)(a'\otimes b')=aa'\otimes bb'$ is well-defined. Hence
+    $K_1\otimes_F K_2$ is a ring. \\
+
+    Now consider the map $\varphi:K_1\times K_2\rightarrow K_1K_2$ defined
+    by $\varphi(a,b)=ab$. It is routine to show that this map is
+    $F$-bilinear. Therefore from the universal property, $\varphi$ induces
+    a $F$-module homomorphism $\Phi:K_1\otimes_F K_2\rightarrow K_1K_2$
+    defined by $\Phi(a\otimes b)=ab$. We check that $\Phi$ is not just an
+    $F$-module homomorphism, but also a homomorphism of rings: Let $x=\sum_i
+    (a_i\otimes b_i), y=\sum_j (c_j\otimes d_j) \in K_1\otimes_F K_2$. We
+    need to check that $\Phi(xy)=\Phi(x)\Phi(y)$. To that end,
+    \begin{align*}
+      \Phi(xy) &=\Phi \left(\sum_i (a_i\otimes b_i) \sum_j (c_j\otimes d_j)
+        \right)\\
+      &=\Phi \left(\sum_{i,j} (a_ic_j\otimes b_id_j) \right)\\
+      &=\sum_{i,j} a_ic_jb_id_j\\
+      &=\sum_{i} a_ib_i \sum_{j} c_jd_j\\
+      &=\Phi \left(\sum_{i} (a_i\otimes b_i) \right) \Phi \left(\sum_{j}
+        (c_j\otimes d_j) \right)\\
+      &=\Phi(x)\Phi(y).\\
+    \end{align*}
+
+    Therefore $\Phi$ is a ring homomorphism. Also, it is not the 0
+    homomorphism since 1 has a pre-image $1\otimes 1$. Now from Corollary
+    19 of Chapter 10.4, $K_1\otimes_F K_2$ has dimension $[K_1:F][K_2:F]$
+    as an $F$-vector space. On the other hand, $K_1K_2$ has dimension
+    $[K_1K_2:F]$ as an $F$-vector space. Then from Proposition 2 of Chapter
+    13.1, if $K_1\otimes_F K_2$ is a field, then $\Phi$ must be injective
+    since it is not the zero homomorphism, which implies that the dimension
+    of $K_1\otimes_F K_2$ must be smaller than the dimension of $K_1K_2$,
+    which is only possible here if $[K_1:F][K_2:F]=[K_1K_2:F]$. \\
+
+    Conversely, suppose $K_1\otimes_F K_2$ and $K_1K_2$ have the same
+    dimension $[K_1:F][K_2:F]=[K_1K_2:F]$ as $F$-vector spaces. We check
+    that $\Phi$ is a surjective map: Let $B_1=\{a_1,\ldots,a_n\}$ be a
+    basis of $K_1$ and $B_2=\{b_1,\ldots,b_m\}$ be a
+    basis of $K_2$. Then $B=B_1\times B_2$ is a basis of $K_1K_2$ from
+    Proposition 21 of Chapter 13.2. Also, each basis element $a_ib_j$ of
+    $K_1K_2$ has pre-image $a_i\otimes b_j$. Therefore $\Phi$ is
+    surjective. \\
+
+    Now $\Phi$ is a surjective linear transformation of vector spaces that
+    have the same dimension, therefore it must also be injective and thus
+    bijective. So $\Phi$ is a bijective homomorphism of fields, and is
+    therefore an isomorphism of fields. Thus $K_1\otimes_F K_2$ must also
+    be a field.
   \end{proof}
 \end{document}
