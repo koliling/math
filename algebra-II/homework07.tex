@@ -141,7 +141,6 @@
           -\frac{x^3}{x+1}\in F\left(\frac{x^3}{x+1} \right)[t].
           \label{eq:t}
         \end{equation}
-        Therefore $[F(x):F(f(x))]$ must divide 3, and can only be 1 or 3.
         We show that equation~(\ref{eq:t}) is irreducible in $F(f(x))[t]$,
         which would give us $[F(x):F(f(x))]=3$. By Gauss's Lemma, it
         suffices to show that equation~(\ref{eq:t}) is irreducible in
@@ -149,31 +148,6 @@
         since $F[f(x)]/(f(x))\cong F$ which is trivially an integral
         domain. Thus by Eisenstein's criteria, equation~(\ref{eq:t}) is
         irreducible over $F(f(x))$, thus $[F(x):F(f(x))]=3$.
-
-        %We show that the degree of extension cannot be 1, or in other
-        %words, we show that $x\not\in F\left(\frac{x^3}{x+1}\right)$.
-        %Assume otherwise. Then we can find $g(t),h(t)\in F[t]$, $h\neq0$
-        %such that
-        %\[\frac{g\left(\frac{x^3}{x+1}\right)}
-        %{h\left(\frac{x^3}{x+1}\right)} =x.\]
-
-        %Rearranging to get rid of the denominator, and writing
-        %$g(t)=a_nt^n+\ldots+a_1t+a_0$ and $h(t)=b_mt^m+\ldots+b_1t+b_0$
-        %where $a_i,b_j\in F$ and $a_n,b_m\neq0$, we get
-        %\begin{align*}
-        %  a_n\frac{x^{3n}}{(x+1)^n} +\ldots +a_1\frac{x^{3}}{x+1} +a_0 &=x
-        %    \left[b_m\frac{x^{3m}}{(x+1)^m} +\ldots +b_1\frac{x^{3}}{x+1}
-        %    +b_0 \right]\\
-        %  \Rightarrow a_nx^{3n} +\ldots
-        %    +a_0(x+1)^n &= x(x+1)^{n-m} \left[b_mx^{3m} +\ldots
-        %    +b_0(x+1)^m \right].\\
-        %\end{align*}
-        %The highest degree on the left hand side is $3n$, while the highest
-        %degree on the right hand side is $1+n-m+3m=1+n+2m$. These two must
-        %equal each other, giving $3n=1+n+2m$, which implies $2n=2m+1$,
-        %which does not have positive integer solutions. Thus no such
-        %$g(t),h(t)\in F[t]$ exits, and $x\not\in
-        %F\left(\frac{x^3}{x+1}\right)$. Therefore $[F(x):F(f(x))]=3$.
       \end{proof}
   \end{enumerate}
 
