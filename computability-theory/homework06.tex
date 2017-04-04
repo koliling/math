@@ -24,6 +24,13 @@
       $A_y=\Phi_{f(y)}^C$ for all $y$, then $\oplus_y A_y\leq_T C$.
 
       \begin{proof}
+        Let $C$ be a set and $f$ a computable function such that
+        $A_y=\Phi_{f(y)}^C$ for all $y$. Then to decide if $\langle
+        x,y\rangle$ lies in $\oplus_y A_y$, we just check if
+        $\Phi_{f(y)}^C(x)=1$. If it is then $\langle x,y\rangle$ lies in
+        $\oplus_y A_y$, otherwise $\Phi_{f(y)}^C(x)=0$ and then $\langle
+        x,y\rangle$ does not lie in $\oplus_y A_y$. Therefore $\oplus_y
+        A_y\leq_T C$.
       \end{proof}
   \end{enumerate}
 \end{document}
