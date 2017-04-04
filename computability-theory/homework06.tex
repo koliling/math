@@ -32,5 +32,27 @@
         x,y\rangle$ does not lie in $\oplus_y A_y$. Therefore $\oplus_y
         A_y\leq_T C$.
       \end{proof}
+
+    \item Prove that this operation is not well defined on degrees. Namely,
+      define $\{A_y\}_{y\in\omega}$ and  $\{B_y\}_{y\in\omega}$ such that
+      $A_y \equiv_T B_y$ but $A\not\equiv_T B$ for $A=\oplus_y A_y$ and
+      $B=\oplus_y B_y$.
+
+      \begin{proof}
+        Consider the case where $A_y(x)=0$ for all $x,y\in\omega$, and
+        where
+        \begin{align*}
+          B_y(x) =
+          \begin{cases}
+            1 &\text{if}\; x=0\; \text{and}\; y\in K,\\
+            0 &\text{otherwise}.\\
+          \end{cases}
+        \end{align*}
+        Then for each $y\in\omega$, $B_y$ only differs from $A_y$ at no
+        more than a single $x$ value, therefore $A_y\equiv_T B_y$. However,
+        $B\not\leq_T A$, because $A=\emptyset$ is clearly computable,
+        while $K\leq_T B$, since
+        \[e\in K \Leftrightarrow \langle 0,e\rangle \in B.\]
+      \end{proof}
   \end{enumerate}
 \end{document}
