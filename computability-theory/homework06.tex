@@ -84,8 +84,9 @@
     If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}
     =\sigma_j^{s\frown}(\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}+1)$, and
     $\sigma_{i_l}^{s+1}=\rho_l$ for each $l\in\{1,\ldots,k\}$.
-    Otherwise set $\sigma_j^{s+1}=\sigma_j^{s}$, and
-    $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$. \\
+    Otherwise set $\sigma_j^{s+1}=\sigma_j^{s\frown}0$ (to ensure that
+    $A_j$ is total eventually), and $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$.
+    \\
 
     Clearly this construction will satisfy restriction~(\ref{eq:join})
     for all $s,j\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
