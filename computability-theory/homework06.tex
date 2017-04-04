@@ -14,7 +14,7 @@
 \date{\today}
 \maketitle
 
-\it \textbf{Q1:} Soare 3.4.7:
+\it \textbf{Soare 3.4.7:}
   \begin{enumerate}[label={\bf (\alph*):}]
     \item Let $\{A_y\}_{y\in\omega}$ be any countable sequence of sets.
       Define the infinite join $\oplus_y A_y$ as in (2.29). Prove that
@@ -55,4 +55,41 @@
         \[e\in K \Leftrightarrow \langle 0,e\rangle \in B.\]
       \end{proof}
   \end{enumerate}
+
+\it \textbf{Soare 6.1.4:} Modify the proof of Theorem 6.1.1 to build an
+  independent sequence $\{A_j\}_{j\in\omega}$ of sets each computable in
+  $\emptyset'$.
+
+  \begin{proof}
+    We follow Soare's hint to construct the sequence. Fix any enumeration
+    of $\omega^2$ such that for any given $j\in\omega$, $\langle
+    s,j\rangle$ always gets enumerated before $\langle s+1,j\rangle$. We
+    construct the sequence in stages $\langle s,j\rangle \in\omega^2$, so
+    that $A_j=\cup_{s\in\omega} \sigma_{j}^s$, where $\sigma_j^s\prec
+    \sigma_j^{s+1}$, and $\sigma_j^0=\emptyset$. At stage $\langle
+    s,j\rangle$, we extend $\sigma_j^s$ to become $\sigma_j^{s+1}$ to satisfy
+    the restriction
+    \begin{equation}
+      R_{s,j}: A_j \neq \Phi_s^{\oplus_{i\neq j} A_i}.
+      \label{eq:join}
+    \end{equation}
+
+    More specifically, at stage $\langle s,j\rangle$, there are only a
+    finite number indices $i_1,\ldots,i_k$ that are not equal to $j$ and
+    whose initial segment $\sigma_{i_l}^s$ is non-empty. We ask the
+    $\emptyset'$-question
+    \[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
+    \rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
+    \rho_{i_l}^s} \downarrow?\]
+    If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}
+    =\sigma_j^{s\frown}(\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}+1)$, and
+    $\sigma_{i_l}^{s+1}=\rho_l$ for each $l\in\{1,\ldots,k\}$.
+    Otherwise set $\sigma_j^{s+1}=\sigma_j^{s}$, and
+    $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$. \\
+
+    Clearly this construction will satisfy restriction~(\ref{eq:join})
+    for all $s,j\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
+    in particular that $A_j\neq \Phi_e^{A_i}$ for all $i\neq j$ and
+    $e\in\omega$. 
+  \end{proof}
 \end{document}
