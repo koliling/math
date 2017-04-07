@@ -102,8 +102,7 @@
   universal.
 
   \begin{proof}
-    Consider the Boolean algebra
-    $\mathcal{P}=(P,\leq_P)$ where
+    Consider the Boolean algebra $\mathcal{P}=(P,\leq_P)$ where
     \[P:= \{\overline{x}\in \{0,1\}^\omega: x\in \{0,1\}^{<\omega}\},\]
     where $\overline{x}$ is the infinite string in $\{0,1\}^\omega$ when we
     repeat $x$ infinitely, and where
@@ -111,91 +110,62 @@
     \overline{x}(n)=1\} \subseteq \{n\in\omega: \overline{y}(n)=1\}.\]
 
     This Boolean algebra is computable since $\{0,1\}^{<\omega}$ can be
-    effectively enumerated. Therefore $\mathcal{P}$ can be effectively
+    effectively enumerated. In particular $\mathcal{P}$ can be effectively
     enumerated. Furthermore, $\mathcal{P}$ is clearly computably presented,
-    and does not have atoms because given any non-zero
+    and does not contain atoms because given any non-zero
     $\overline{a_0,\ldots,a_{n-1}}\in P$, there is a non-zero element
-    $\overline{a_0,\ldots,a_{n-1},0,\ldots,0}$ ($n$ number of zeros) which
-    is smaller. By a similar argument, $P$ is dense in the sense that
-    between any two distinct comparable elements in in $P$ lie an element
-    between them. Finally, given any non-zero and non-one element in $P$,
-    there are infinite distinct elements that are incomparable with it. \\
+    \[\overline{a_0,\ldots,a_{n-1},\underbrace{0,\ldots,0}_{n\;
+    \text{zeros}}}\]
+    which is smaller. \\
 
-    Let $\mathcal{R}=(\omega,\leq_R)$ be countable partial order. We
-    construct an embedding $\varphi:\mathcal{R}\rightarrow\mathcal{P}$ that
-    preserves order. We construct $\varphi$ in stages, where we define
-    $\varphi(s)$ at stage $s$, such that the subordering
-    $(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$ is isomorphic to its image
-    $\varphi(\{0,\ldots,s\},\leq_P)\subset\mathcal{P}$. At stage 0, let
-    $\varphi(0)$ be an arbitrary non-zero non-one element in $P$. At stage
-    $s+1$, consider the subordering
-    $(\{0,\ldots,s+1\},\leq_R)\subset\mathcal{R}$. \\
+    Also observe that $P$ is dense: given two comparable
+    elements, we can effectively construct an element that lies between
+    them by considering elements whose periods are a common multiple of the
+    periods of two given elements. Specifically, by taking multiples of
+    periods, we can assume that the two given elements
+    $\overline{a_0,\ldots,a_{n-1}} <_P\overline{b_0,\ldots,b_{n-1}}\in P$
+    have the same period $n$. Let $i$ be the first index such that $b_i=1$
+    but $a_i=0$; then the element
+    \[\overline{a_0,\ldots,a_{i-1},1,a_{i+1},\ldots,a_{n-1},
+    a_0,\ldots,a_{n-1}}\]
+    lies strictly between the two given elements. \\
 
-    %To define the image of
-    %the new unmapped element $s+1$, we find the elements in
-    %$\{0,\ldots,s\}$ that are comparable with $s+1$. If such elements
-    %exist, let $l$ be the largest comparable element that is smaller than
-    %$s+1$, and let $u$ be the smallest comparable element that is larger
-    %than $s+1$, if such elements exist. If both $l$ and $u$ exist, then we
-    %have $l<s+1<u$, so by density of $\mathcal{B}$, we can find an element
-    %$\overline{x}\in P$ between $\varphi(l)$ and $\varphi(u)$ to map $s+1$
-    %to. If only $u$ exists, we can also similarly from density of
-    %$\mathcal{B}$ map $s+1$ to an element $\overline{x}$ where
-    %$0<_P\overline{x}<\varphi(u)$. A similar argument holds if only $l$
-    %exists. \\
+    By a similar argument of considering multiples of periods, we can show
+    that given any finite number of incomparable elements from $P$, we can
+    effectively construct a new element that is incomparable from all those
+    elements: Like before, we can assume that the given $k$ elements
+    \[a_0=\overline{a_{0,0},\ldots,a_{0,n-1}},\; \ldots,\;
+    a_{k-1}=\overline{a_{k-1,0},\ldots,a_{k-1,n-1}}\]
+    have the same period $n$. For each element $a_i$, let $u_i$ be the
+    first index such that $a_{i,u_i}=0$, and let $v_i$ be the
+    first index such that $a_{i,v_i}=1$. Then the element with period $kn$
+    that is 0 everywhere except at indices $ni+iu_i$ and $ni+v_i$ for all
+    $i\in\{0,\ldots,k-1\}$ will be incomparable with all the elements
+    $a_0,\ldots,a_{k-1}$. \\
 
-    %On the other hand, if $s+1$ is incomparable with any element in
-    %$\{0,\ldots,s\}$, map
-
-    %we define $\varphi(s)$
-    %by considering the element in $\{0,\ldots,s-1\}$ that are the
-    %``closest'' to $s$. Specifically, let $l_s$ be the element in
-    %$\{0,\ldots,s-1\}$ that is the largest element which is smaller than
-    %$s$, if such an element exists, and let $u_s$ be the element in
-    %$\{0,\ldots,s-1\}$ that is the smallest element which is larger than
-    %$s$, if such an element exists. So if both $l_s$ and $u_s$ exist, we
-    %would have $l_s<_Q s<_Q u_s$, and no element in $\{0,\ldots,s-1\}$ lies
-    %in between. \\
-
-    %There are three cases to consider. In the first case, both $l_s$ and
-    %$u_s$ exist. Then we check if there are infinite elements between $l_s$
-    %and $s$, and if there are infinite elements between $u_s$ and $s$. If
-
-    %There are three cases to consider. In the first case, neither $l_s$ nor
-    %$u_s$ exists. Then we know that $s$ is $\leq_Q$ incomparable with all
-    %elements in $\{0,\ldots,s-1\}$. We check if $s$ has a common ancestor
-    %with any of the elements in $\{0,\ldots,s-1\}$.
-
-    %We follow the proof of Godel's Compactness theorem, where we
-    %effectively construct a model for a finitely satisfiable set of
-    %sentences using Henkin constants. We work in the language
-    %$\mathcal{L}=(\leq_P)$. Fix an enumeration
-    %$\{(k_n,\leq_{n})\}_{n\in\omega}$ of the order types of
-    %finite elements. For each order type
-    %$(k_n,\leq_{n})$, let $\varphi_n$ be the sentence that
-    %describes the order type in the given language. Specifically, let
-    %$c_1,\ldots,c_{k_n}$ be new constants in the language, and define
-    %\[\varphi_n := \bigwedge_{i\leq_{n}j} (c_i\leq_P c_j)
-    %\bigwedge_{i\not\leq_{n}j} (c_i\not\leq_P c_j).\]
-
-    %Now the set of sentences $\{\varphi_n\}_{n\in\omega}$ is finitely
-    %satisfiable, since we can always add new constants to 
-
-    %We follow the first hint given by Soare and construct $\mathcal{P}$ in
-    %stages, where at stage $s+1$, given a finite set $P_s$ of elements in
-    %$\leq_R$, we obtain $P_{s+1}$ by adding a new point for each possible
-    %order type of $P_s$. We start with $P_0=\emptyset$, and let
-    %$\mathcal{P}=\cup_{s\in\omega} P_s$. Then $\mathcal{P}$ is computable
-    %since every stage $s$ is computable. \\
-
-    %More specifically, at stage $s$, there are only a finite number of
-    %points in $P_s$. Consider all possible partial orderings of $P_s$;
-    %there can only be a finite number of them since $|P_s|$ is finite. Each
-    %partial ordering can be coded as an element in $\mathcal{P}(|P_s|^2)$,
-    %the powerset of $|P_s|^2$. Fixing an ordering on this powerset, we can
-    %check which order types of $|P_s|$ elements are not already in the
-    %$P_s$, and add points $p_{s,0},\cdots,p_{s,k}$ to $P_s$ to construct the
-    %missing order types. \\
+    Let $\mathcal{R}=(\omega,\leq_R)$ be an arbitrary countable partial
+    order. We construct an order-preserving embedding
+    $\varphi:\mathcal{R}\rightarrow\mathcal{P}$. We construct this map in
+    stages, where we define $\varphi(s)$ at stage $s$, such that the
+    subordering $(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$ is isomorphic
+    to its image $\varphi(\{0,\ldots,s\},\leq_P)\subset\mathcal{P}$. At
+    stage 0, let $\varphi(0)$ be an arbitrary non-zero non-one element in
+    $P$. At stage $s+1$, consider the subordering $\mathcal{R}_{s}
+    :=(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$. Let
+    $A=\{a_0,\ldots,a_{m-1}\}$ denote the set of direct ancestors of $s+1$
+    from $\{0,\ldots,s\}$, and similarly let $D=\{d_0,\ldots,a_{n-1}\}$ be
+    the set of direct descendants of $s+1$ from the same set. If $A$ and
+    $D$ are non-empty, then map $s+1$ to any element that lies strictly
+    between $\varphi(a_0)\wedge\ldots\wedge\varphi(a_{m-1})$ and
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $A$ is empty,
+    map $s+1$ to any element that lies strictly between 0 and
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $D$ is empty,
+    map $s+1$ to any element that lies strictly between
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$ and 1. Finally, if both
+    $A$ and $D$ are empty, then $s+1$ must be incomparable with all
+    elements in $\{0,\ldots,s\}$, so map $s+1$ to an element that is
+    incomparable with $\varphi(0),\ldots,\varphi(s)$. Such an element
+    exists from the above argument.
   \end{proof}
 
 \it \textbf{Soare 6.1.6:} Show that for a countable partially ordered set
