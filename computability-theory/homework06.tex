@@ -81,8 +81,9 @@
     \[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
     \rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
     \rho_{i_l}^s} \downarrow?\]
-    If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}
-    =\sigma_j^{s\frown}(\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}+1)$, and
+    If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}$, and to
+    be $\sigma_j^s$ concatenated by the first value in $\{0,1\}$ that is
+    different from $\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}$, and set
     $\sigma_{i_l}^{s+1}=\rho_l$ for each $l\in\{1,\ldots,k\}$.
     Otherwise set $\sigma_j^{s+1}=\sigma_j^{s\frown}0$ (to ensure that
     $A_j$ is total eventually), and $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$.
@@ -92,5 +93,170 @@
     for all $s,j\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
     in particular that $A_j\neq \Phi_e^{A_i}$ for all $i\neq j$ and
     $e\in\omega$. 
+  \end{proof}
+
+\it \textbf{Soare 6.1.5:} A partially ordered set $\mathcal{P}=(P,\leq_P)$
+  is countably universal if every countable partially ordered set is order
+  isomorphic to a subordering of $\mathcal{P}$. Prove that there is a
+  computable partial ordering $\leq_R$ of $\omega$ which is countably
+  universal.
+
+  \begin{proof}
+    Consider the Boolean algebra
+    $\mathcal{P}=(P,\leq_P)$ where
+    \[P:= \{\overline{x}\in \{0,1\}^\omega: x\in \{0,1\}^{<\omega}\},\]
+    where $\overline{x}$ is the infinite string in $\{0,1\}^\omega$ when we
+    repeat $x$ infinitely, and where
+    \[\overline{x} \leq_B\overline{y}\; \Leftrightarrow\; \{n\in\omega:
+    \overline{x}(n)=1\} \subseteq \{n\in\omega: \overline{y}(n)=1\}.\]
+
+    This Boolean algebra is computable since $\{0,1\}^{<\omega}$ can be
+    effectively enumerated. Therefore $\mathcal{P}$ can be effectively
+    enumerated. Furthermore, $\mathcal{P}$ is clearly computably presented,
+    and does not have atoms because given any non-zero
+    $\overline{a_0,\ldots,a_{n-1}}\in P$, there is a non-zero element
+    $\overline{a_0,\ldots,a_{n-1},0,\ldots,0}$ ($n$ number of zeros) which
+    is smaller. By a similar argument, $P$ is dense in the sense that
+    between any two distinct comparable elements in in $P$ lie an element
+    between them. Finally, given any non-zero and non-one element in $P$,
+    there are infinite distinct elements that are incomparable with it. \\
+
+    Let $\mathcal{R}=(\omega,\leq_R)$ be countable partial order. We
+    construct an embedding $\varphi:\mathcal{R}\rightarrow\mathcal{P}$ that
+    preserves order. We construct $\varphi$ in stages, where we define
+    $\varphi(s)$ at stage $s$, such that the subordering
+    $(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$ is isomorphic to its image
+    $\varphi(\{0,\ldots,s\},\leq_P)\subset\mathcal{P}$. At stage 0, let
+    $\varphi(0)$ be an arbitrary non-zero non-one element in $P$. At stage
+    $s+1$, consider the subordering
+    $(\{0,\ldots,s+1\},\leq_R)\subset\mathcal{R}$. \\
+
+    %To define the image of
+    %the new unmapped element $s+1$, we find the elements in
+    %$\{0,\ldots,s\}$ that are comparable with $s+1$. If such elements
+    %exist, let $l$ be the largest comparable element that is smaller than
+    %$s+1$, and let $u$ be the smallest comparable element that is larger
+    %than $s+1$, if such elements exist. If both $l$ and $u$ exist, then we
+    %have $l<s+1<u$, so by density of $\mathcal{B}$, we can find an element
+    %$\overline{x}\in P$ between $\varphi(l)$ and $\varphi(u)$ to map $s+1$
+    %to. If only $u$ exists, we can also similarly from density of
+    %$\mathcal{B}$ map $s+1$ to an element $\overline{x}$ where
+    %$0<_P\overline{x}<\varphi(u)$. A similar argument holds if only $l$
+    %exists. \\
+
+    %On the other hand, if $s+1$ is incomparable with any element in
+    %$\{0,\ldots,s\}$, map
+
+    %we define $\varphi(s)$
+    %by considering the element in $\{0,\ldots,s-1\}$ that are the
+    %``closest'' to $s$. Specifically, let $l_s$ be the element in
+    %$\{0,\ldots,s-1\}$ that is the largest element which is smaller than
+    %$s$, if such an element exists, and let $u_s$ be the element in
+    %$\{0,\ldots,s-1\}$ that is the smallest element which is larger than
+    %$s$, if such an element exists. So if both $l_s$ and $u_s$ exist, we
+    %would have $l_s<_Q s<_Q u_s$, and no element in $\{0,\ldots,s-1\}$ lies
+    %in between. \\
+
+    %There are three cases to consider. In the first case, both $l_s$ and
+    %$u_s$ exist. Then we check if there are infinite elements between $l_s$
+    %and $s$, and if there are infinite elements between $u_s$ and $s$. If
+
+    %There are three cases to consider. In the first case, neither $l_s$ nor
+    %$u_s$ exists. Then we know that $s$ is $\leq_Q$ incomparable with all
+    %elements in $\{0,\ldots,s-1\}$. We check if $s$ has a common ancestor
+    %with any of the elements in $\{0,\ldots,s-1\}$.
+
+    %We follow the proof of Godel's Compactness theorem, where we
+    %effectively construct a model for a finitely satisfiable set of
+    %sentences using Henkin constants. We work in the language
+    %$\mathcal{L}=(\leq_P)$. Fix an enumeration
+    %$\{(k_n,\leq_{n})\}_{n\in\omega}$ of the order types of
+    %finite elements. For each order type
+    %$(k_n,\leq_{n})$, let $\varphi_n$ be the sentence that
+    %describes the order type in the given language. Specifically, let
+    %$c_1,\ldots,c_{k_n}$ be new constants in the language, and define
+    %\[\varphi_n := \bigwedge_{i\leq_{n}j} (c_i\leq_P c_j)
+    %\bigwedge_{i\not\leq_{n}j} (c_i\not\leq_P c_j).\]
+
+    %Now the set of sentences $\{\varphi_n\}_{n\in\omega}$ is finitely
+    %satisfiable, since we can always add new constants to 
+
+    %We follow the first hint given by Soare and construct $\mathcal{P}$ in
+    %stages, where at stage $s+1$, given a finite set $P_s$ of elements in
+    %$\leq_R$, we obtain $P_{s+1}$ by adding a new point for each possible
+    %order type of $P_s$. We start with $P_0=\emptyset$, and let
+    %$\mathcal{P}=\cup_{s\in\omega} P_s$. Then $\mathcal{P}$ is computable
+    %since every stage $s$ is computable. \\
+
+    %More specifically, at stage $s$, there are only a finite number of
+    %points in $P_s$. Consider all possible partial orderings of $P_s$;
+    %there can only be a finite number of them since $|P_s|$ is finite. Each
+    %partial ordering can be coded as an element in $\mathcal{P}(|P_s|^2)$,
+    %the powerset of $|P_s|^2$. Fixing an ordering on this powerset, we can
+    %check which order types of $|P_s|$ elements are not already in the
+    %$P_s$, and add points $p_{s,0},\cdots,p_{s,k}$ to $P_s$ to construct the
+    %missing order types. \\
+  \end{proof}
+
+\it \textbf{Soare 6.1.6:} Show that for a countable partially ordered set
+  $\mathcal{P}=(P,\leq_P)$ there is a 1:1 order-preserving map from $P$
+  into $\mathcal{D}(\leq\emptyset')$, the degrees $\leq\emptyset'$.
+
+  \begin{proof}
+  \end{proof}
+
+\it \textbf{Q3:} Show that every partial computable function $f$ has a low
+  total function $g$ extending $f$. So if $f(x)$ exists then $f(x)=g(x)$.
+
+  \begin{proof}
+    We $\emptyset'$-construct $g(x)$ in stages $s$, such that
+    $g(x)=\cup_{s\in\omega} g_s(x)$ for all $x\in\omega$, where $g_s\in
+    \omega^{<\omega}$, $g_s\prec g_{s+1}$, and $g_s(x)$ is an extension of
+    $f(x)$ when $x<|g_s|$. \\
+
+    To ensure that the resulting $g$ is low, we force the jump by
+    making sure that for all $s$, we satisfy the jump requirement
+    \[J_s: (\exists \sigma\succ g_s)\; \left\{ \left[
+    \Phi_s^{\sigma}(s)\downarrow\; \text{or}\;\; (\forall
+    \rho\succ\sigma)\; \Phi_s^{\rho}(s)\uparrow \right]\; \text{and}\;
+    \sigma\; \text{is consistent with}\; f\right\}.\]
+
+    At stage 0, set $g_0=\emptyset$. At stage $s+1$, we satisfy $J_s$ by
+    asking the $\emptyset'$-question:
+    \begin{center}
+      \textit{Is there a finite extension $\sigma\in\omega^{<\omega}$ of
+      $g_s$ that is consistent with $f$ such that $\Phi^\sigma_s(s)$
+      converges?}
+    \end{center}
+
+    Observe that this is a $\emptyset'$-question because we can
+    effectively enumerate all finite extensions
+    $\sigma\in\omega^{<\omega}$ of $g_s$, and for each of these extensions,
+    use $\emptyset'$ to check of it is consistent with $f$. If it is
+    consistent, we can use $\emptyset'$ again to check if
+    $\Phi^\sigma_s(s)$ converges. Formally, this question is a
+    $\Sigma_1$-question
+    \[(\exists \sigma,t)\; \left\{ g_s\prec\sigma \wedge (\forall
+    x<|\sigma|)\; \left[ (\exists u\; f_u(x)\downarrow)
+    \rightarrow\sigma(x)=f(x) \right]\; \wedge\;
+    \Phi^\sigma_{s,t}(s)\downarrow \right\},\]
+    and therefore can be answered by $\emptyset'$. If such $\sigma$ exists,
+    set $g_{s+1}=\sigma$. Otherwise, let $g_{s+1}$ be the first strict
+    extension of $g_s$ that is consistent with $f$ (extension needs to be
+    strict to ensure that $g$ is total). Observe that in the latter case,
+    every finite extension $\rho$ of $g_s$ that is consistent with $f$
+    gives $\Phi_s^\rho(s)\uparrow$, so the jump requirement $J_s$ is
+    satisfied. \\
+
+    Our construction ensures that $g$ is total and extends $f$. It remains
+    to verify that $J_s$ ensures that $g$ is low. We show that
+    $g'\leq_T\emptyset'$. Now $g\leq_T\emptyset'$ since the construction
+    asked only $\emptyset'$ questions. To decide if $e\in g'$, or
+    equivalently, if $\Phi_e^g(e)$ converges, we know that at stage $e$,
+    $g_{e+1}\prec g$ satisfies the jump requirement $J_e$. Thus from
+    construction, \[e\in g'\; \Leftrightarrow\; \Phi_e^g(e)\downarrow\;
+    \Leftrightarrow\; \Phi_e^{g_{e+1}}(e)\downarrow,\] and $\emptyset'$ can
+    check if $\Phi_e^{g_{e+1}}(e)\downarrow$ holds, since $g_{e+1}\leq_T
+    \emptyset'$. Therefore $g'\leq_T\emptyset'$ as required.
   \end{proof}
 \end{document}
