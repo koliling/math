@@ -95,9 +95,9 @@
     Fix an $i\in[n]$. Partition $\mathcal{I}=\mathcal{A}\sqcup
     \mathcal{B}$, where $\mathcal{A}$ contains exactly those elements that
     that contain $i$. Then the set
-    \[\mathcal{A}':=\{A\setminus\{i\}: A\in\mathcal{A}\}\]
+    \[\mathcal{A}^*:=\{A\setminus\{i\}: A\in\mathcal{A}\}\]
     must be a subset of $\mathcal{B}$ since $\mathcal{I}$ is an ideal. Also
-    $|\mathcal{A}'|=|\mathcal{A}|$, therefore
+    $|\mathcal{A}^*|=|\mathcal{A}|$, therefore
     $|\mathcal{B}|\geq|\mathcal{A}|$ as we are required to show.
   \end{proof}
 
@@ -108,5 +108,44 @@
   all $A\in\mathcal{I}$.
 
   \begin{proof}
+    We can assume $|\mathcal{I}|>0$ otherwise the result is trivial.
+    Following the hint, first fix any element $i\in[n]$ that appears in at
+    least one element of $\mathcal{I}$; we can assume without loss of
+    generality that this element is 1. Then partition
+    \[\mathcal{I}=\mathcal{A}\sqcup\mathcal{A}^*\sqcup\mathcal{B},\]
+    where
+    \[\mathcal{A} :=\{X\in\mathcal{I}: 1\in X\},\]
+    and
+    \[\mathcal{A}^* :=\{X\setminus\{i\}: X\in\mathcal{A}\}.\]
+
+    Now observe that both $\mathcal{A}$ and
+    $\mathcal{A}^*\sqcup\mathcal{B}$ are ideals. So since
+    $|\mathcal{A}|=|\mathcal{A}^*|$, the number of elements in
+    $\mathcal{A}$ or in $\mathcal{A}^*\sqcup\mathcal{B}$ is strictly less
+    than $|\mathcal{I}|$. Thus by induction on the length of ideals, these
+    ideals induce respective bijections $f_{\mathcal{A}}$ and
+    $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ satisfying the assertion given in
+    the question. \\
+
+    %Also observe that the map
+    %$f_{\mathcal{A}^*}:\mathcal{A}^*\rightarrow\mathcal{A}^{*'}$ defined by
+    %\[f_{\mathcal{A}^*}(X) :=f_{\mathcal{A}}(X\cup\{i\})\setminus\{i\}\]
+    %gives a bijection which satisfies the containment criteria $X\subseteq
+    %f_{\mathcal{A}^*}(X)$, because $f_{\mathcal{A}}$ satisfies the same
+    %criteria. \\
+
+    Consider the map $f:\mathcal{I}\rightarrow\mathcal{I}'$ defined by
+    \begin{align*}
+      f(X) :=
+      \begin{cases}
+        f_{\mathcal{A}}(X)\cup\{1\} &\text{if}\; X\in \mathcal{A},\\
+        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) &\text{if}\; X\in
+          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
+          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) \in\mathcal{B},\\
+        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)\setminus\{1\} &\text{if}\; X\in
+          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
+          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) \in\mathcal{A}^*.\\
+      \end{cases}
+    \end{align*}
   \end{proof}
 \end{document}
