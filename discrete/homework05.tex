@@ -108,7 +108,6 @@
   all $A\in\mathcal{I}$.
 
   \begin{proof}
-    We can assume $|\mathcal{I}|>0$ otherwise the result is trivial.
     Following the hint, first fix any element $i\in[n]$ that appears in at
     least one element of $\mathcal{I}$; we can assume without loss of
     generality that this element is 1. Then partition
@@ -116,16 +115,17 @@
     where
     \[\mathcal{A} :=\{X\in\mathcal{I}: 1\in X\},\]
     and
-    \[\mathcal{A}^* :=\{X\setminus\{i\}: X\in\mathcal{A}\}.\]
+    \[\mathcal{A}^* :=\{X\setminus\{1\}: X\in\mathcal{A}\}.\]
 
     Now observe that both $\mathcal{A}^*$ and
     $\mathcal{A}^*\sqcup\mathcal{B}$ are ideals. So since
     $|\mathcal{A}|=|\mathcal{A}^*|$, the number of elements in
     $\mathcal{A}^*$ or in $\mathcal{A}^*\sqcup\mathcal{B}$ is strictly less
-    than $|\mathcal{I}|$. Thus by induction on the length of ideals, these
+    than $|\mathcal{I}|$ (unless $|\mathcal{I}|=0$, in which case the
+    result is trivial ). Thus by induction on the length of ideals, the two
     ideals induce respective bijections $f_{\mathcal{A}^*}$ and
-    $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ satisfying the assertion given in
-    the question. \\
+    $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ satisfying the containment
+    criteria given in the question. \\
 
     %Also observe that the map
     %$f_{\mathcal{A}^*}:\mathcal{A}^*\rightarrow\mathcal{A}^{*'}$ defined by
@@ -139,13 +139,25 @@
       f(X) :=
       \begin{cases}
         f_{\mathcal{A}^*}(X\setminus\{1\}) &\text{if}\; X\in \mathcal{A},\\
-        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) &\text{if}\; X\in
-          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
-          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) \in\mathcal{B},\\
         f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)\setminus\{1\} &\text{if}\; X\in
           \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
-          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) \in\mathcal{A}^*.\\
+          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)' \in\mathcal{A}^*,\\
+        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) &\text{if}\; X\in
+          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
+          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)' \in\mathcal{B}.\\
       \end{cases}
     \end{align*}
+
+    This map modifies $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ by first sending
+    elements whose image $Y$ is in the complement of $\mathcal{A}^*$ to a
+    corresponding element $Y\setminus\{1\}\in\mathcal{A}$ instead; this
+    modification preserves bijectiveness since the correspondence is
+    bijective, and also preserves the containment criteria since the domain
+    of $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ does not contain 1. Then with
+    the complement of $\mathcal{A}^*$ having no pre-image, map $f$ sends
+    elements in $\mathcal{A}$ to this complement, where bijectiveness
+    and the containment criteria is inherited from the same properties of
+    $f_{\mathcal{A}^*}$. Thus $f$ is a bijection satisfying the desired
+    containment criteria. 
   \end{proof}
 \end{document}
