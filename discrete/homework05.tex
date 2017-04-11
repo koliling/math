@@ -88,10 +88,17 @@
 
 \it \textbf{Section 50 Problem 4}: An ideal is a set system $\mathcal{I}$
   on ground set $[n]$ that is closed under taking subsets. Prove that if
-  $I$ is an ideal, then each $i\in[n]$ appears in at most half of
-  the members of $I$.
+  $\mathcal{I}$ is an ideal, then each $i\in[n]$ appears in at most half of
+  the members of $\mathcal{I}$.
 
   \begin{proof}
+    Fix an $i\in[n]$. Partition $\mathcal{I}=\mathcal{A}\sqcup
+    \mathcal{B}$, where $\mathcal{A}$ contains exactly those elements that
+    that contain $i$. Then the set
+    \[\mathcal{A}':=\{A\setminus\{i\}: A\in\mathcal{A}\}\]
+    must be a subset of $\mathcal{B}$ since $\mathcal{I}$ is an ideal. Also
+    $|\mathcal{A}'|=|\mathcal{A}|$, therefore
+    $|\mathcal{B}|\geq|\mathcal{A}|$ as we are required to show.
   \end{proof}
 
 \it \textbf{Section 50 Problem 5}: Let $\mathcal{I}$ be an ideal on the
