@@ -52,8 +52,8 @@
   Show that $\mathcal{F}''$ is an intersecting family.
 
   \begin{proof}
-    First, observe that since each element in $\mathcal{F}''$ is of half
-    the length of the number of elements in the ground set, any other
+    First, observe that since each element in $\mathcal{F}''$ is exactly of
+    half the length of the number of elements in the ground set, any other
     element of the same length that is not its complement must intersect
     it. \\
 
@@ -72,6 +72,18 @@
   intersecting families on ground set $[n]$ that have size $2^{n-1}$.
 
   \begin{proof}
+    Each of the intersecting sets $\mathcal{F}''$ of Problem 2 can be
+    characterized by $\mathcal{F}'$, the subsets of $\mathcal{F}''$ that
+    contain element 1. Now there are exactly $\binom{2m-1}{m-1}$ possible
+    subsets of $[n]$ of size $m$ and containing 1. Therefore from Problem
+    2, there are at least $2^{\binom{2m-1}{m-1}}$ intersecting families.
+    Each of these families have size $\binom{2m-1}{m-1}$, which is smaller
+    than $2^{2m-1}$ since $2^{2m-1}=\sum_{i=0}^{2m-1} \binom{2m-1}{i}$ by
+    the binomial expansion. Then from Problem 1, each intersecting family
+    can be extended to an intersecting family of size $2^{n-1}$. The
+    extended families remain distinct since the original families are
+    distinct. Therefore we have at least $2^{\binom{2m-1}{m-1}}$
+    intersecting families of size $2^{n-1}$.
   \end{proof}
 
 \it \textbf{Section 50 Problem 4}: An ideal is a set system $\mathcal{I}$
