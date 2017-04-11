@@ -19,6 +19,28 @@
   $\mathcal{F}\subseteq\mathcal{F}'$.
 
   \begin{proof}
+    Partition $\mathcal{B}_n$ into $2^{n-1}$ pairs of the form
+    $(A,[n]\setminus A)$, and remove all pairs that contain an element of
+    $\mathcal{F}$. Observe that there would be exactly
+    $m:=2^{n-1}-|\mathcal{F}|$ pairs left, because any pair that contains an
+    element of $\mathcal{F}$ cannot contain more than one element of
+    $\mathcal{F}$ since complements do not intersect. Fix any enumeration
+    of the remaining pairs
+    \[(A_1,[n]\setminus A_1), \ldots, (A_m, [n]\setminus A_m).\]
+
+    We show that we can iteratively extend the $\mathcal{F}$ to a size of
+    $2^{n-1}$ by adding exactly one element from each remaining pair to
+    $\mathcal{F}$. Start with $\mathcal{F}_0=\mathcal{F}$. For each
+    $i\in\{1,\ldots,m\}$, select an element from $(A_i,[n]\setminus A_i)$
+    to add to $\mathcal{F}_{i-1}$ such that the resulting set
+    $\mathcal{F}_i$ remains intersecting. Such an element must exist
+    because if $A_i$ does not intersect some element $B$ in
+    $\mathcal{F}_i$, then the complement $[n]\setminus A_i$ must contain
+    $B$ and therefore intersect every element in $\mathcal{F}_i$ since $B$
+    intersects every element in $\mathcal{F}_i$. Thus repeating this
+    process $m$ times and setting $\mathcal{F}'=\mathcal{F}_m$ gives us an
+    extension of $\mathcal{F}$ that is intersecting and that contains
+    $2^{n-1}$ elements.
   \end{proof}
 
 \it \textbf{Section 50 Problem 2}: Let $n=2m$ be even. Let
