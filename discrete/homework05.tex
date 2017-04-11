@@ -95,9 +95,9 @@
     Fix an $i\in[n]$. Partition $\mathcal{I}=\mathcal{A}\sqcup
     \mathcal{B}$, where $\mathcal{A}$ contains exactly those elements that
     that contain $i$. Then the set
-    \[\mathcal{A}^*:=\{A\setminus\{i\}: A\in\mathcal{A}\}\]
+    \[\mathcal{A}_*:=\{A\setminus\{i\}: A\in\mathcal{A}\}\]
     must be a subset of $\mathcal{B}$ since $\mathcal{I}$ is an ideal. Also
-    $|\mathcal{A}^*|=|\mathcal{A}|$, therefore
+    $|\mathcal{A}_*|=|\mathcal{A}|$, therefore
     $|\mathcal{B}|\geq|\mathcal{A}|$ as we are required to show.
   \end{proof}
 
@@ -111,45 +111,49 @@
     Following the hint, first fix any element $i\in[n]$ that appears in at
     least one element of $\mathcal{I}$; we can assume without loss of
     generality that this element is 1. Then partition
-    \[\mathcal{I}=\mathcal{A}\sqcup\mathcal{A}^*\sqcup\mathcal{B},\]
+    \[\mathcal{I}=\mathcal{A}\sqcup\mathcal{A}_*\sqcup\mathcal{B},\]
     where
     \[\mathcal{A} :=\{X\in\mathcal{I}: 1\in X\},\]
     and
-    \[\mathcal{A}^* :=\{X\setminus\{1\}: X\in\mathcal{A}\}.\]
+    \[\mathcal{A}_* :=\{X\setminus\{1\}: X\in\mathcal{A}\}.\]
 
-    Now observe that both $\mathcal{A}^*$ and
-    $\mathcal{A}^*\sqcup\mathcal{B}$ are ideals. So since
-    $|\mathcal{A}|=|\mathcal{A}^*|$, the number of elements in
-    $\mathcal{A}^*$ or in $\mathcal{A}^*\sqcup\mathcal{B}$ is strictly less
+    Now observe that both $\mathcal{A}_*$ and
+    $\mathcal{A}_*\sqcup\mathcal{B}$ are ideals. So since
+    $|\mathcal{A}|=|\mathcal{A}_*|$, the number of elements in
+    $\mathcal{A}_*$ or in $\mathcal{A}_*\sqcup\mathcal{B}$ is strictly less
     than $|\mathcal{I}|$ (unless $|\mathcal{I}|=0$, in which case the
     result is trivial ). Thus by induction on the length of ideals, the two
-    ideals induce respective bijections $f_{\mathcal{A}^*}$ and
-    $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ satisfying the containment
-    criteria given in the question. \\
+    ideals induce respective bijections $f_{\mathcal{A}_*}:A_*\rightarrow
+    A_*'$ and $f_{\mathcal{A}_*\sqcup\mathcal{B}}:
+    \mathcal{A}_*\sqcup\mathcal{B} \rightarrow
+    (\mathcal{A}_*\sqcup\mathcal{B})'$ satisfying the
+    containment criteria $f_{\mathcal{A}_*}(X)\subseteq X$ and
+    $f_{\mathcal{A}_*\sqcup\mathcal{B}}(X)\subseteq X$. \\
 
     Consider the map $f:\mathcal{I}\rightarrow\mathcal{I}'$ defined by
     \begin{align*}
       f(X) :=
       \begin{cases}
-        f_{\mathcal{A}^*}(X\setminus\{1\}) &\text{if}\; X\in \mathcal{A},\\
-        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)\setminus\{1\} &\text{if}\; X\in
-          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
-          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)' \in\mathcal{A}^*,\\
-        f_{\mathcal{A}^*\sqcup\mathcal{B}}(X) &\text{if}\; X\in
-          \mathcal{A}^*\sqcup\mathcal{B}\; \text{and}\;
-          f_{\mathcal{A}^*\sqcup\mathcal{B}}(X)' \in\mathcal{B}.\\
+        f_{\mathcal{A}_*}(X\setminus\{1\}) &\text{if}\; X\in \mathcal{A},\\
+        f_{\mathcal{A}_*\sqcup\mathcal{B}}(X)\setminus\{1\} &\text{if}\; X\in
+          \mathcal{A}_*\sqcup\mathcal{B}\; \text{and}\;
+          f_{\mathcal{A}_*\sqcup\mathcal{B}}(X) \in\mathcal{A}_*',\\
+        f_{\mathcal{A}_*\sqcup\mathcal{B}}(X) &\text{if}\; X\in
+          \mathcal{A}_*\sqcup\mathcal{B}\; \text{and}\;
+          f_{\mathcal{A}_*\sqcup\mathcal{B}}(X) \in\mathcal{B}'.\\
       \end{cases}
     \end{align*}
 
-    This map modifies $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ by first sending
-    elements whose image $Y$ is in the complement of $\mathcal{A}^*$ to a
-    corresponding element $Y\setminus\{1\}\in\mathcal{A}$ instead; this
-    modification preserves bijectiveness since the correspondence is
-    bijective, and also preserves the containment criteria since the domain
-    of $f_{\mathcal{A}^*\sqcup\mathcal{B}}$ does not contain 1. Then with
-    the complement of $\mathcal{A}^*$ having no pre-image, map $f$ sends
-    elements in $\mathcal{A}$ to this complement, where bijectiveness
-    and the containment criteria is inherited from $f_{\mathcal{A}^*}$.
-    Thus $f$ is a bijection satisfying the desired containment criteria. 
+    This map modifies $f_{\mathcal{A}_*\sqcup\mathcal{B}}$ by first sending
+    elements whose image $Y$ lies in $\mathcal{A}_*'$ to a corresponding
+    element $Y\setminus\{1\}$ in $\mathcal{A}'$ instead; this modification
+    preserves injectiveness since the correspondence is bijective, and also
+    preserves the containment criteria since the domain of
+    $f_{\mathcal{A}_*\sqcup\mathcal{B}}$ does not contain 1 and
+    $\mathcal{A}'$ is simply $\mathcal{A}_*'$ with the 1's removed. Then
+    with $\mathcal{A}_*'$ having no pre-image, map $f$ sends elements in
+    $\mathcal{A}$ to $\mathcal{A}_*'$, where bijectiveness and the
+    containment criteria is inherited from $f_{\mathcal{A}_*}$. Thus $f$
+    is a bijection satisfying the desired containment criteria. 
   \end{proof}
 \end{document}
