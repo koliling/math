@@ -70,4 +70,30 @@
     of the 5 isosceles triangles that when put together, form a 5-gon.
   \end{proof}
 
+\it \textbf{DF 13.4.1:} Determine the splitting field and its degree over
+  $\mathbb{Q}$ for $x^4-2$.
+
+  \begin{proof}
+    This polynomial has four distinct roots $\{\sqrt[4]{2}, -\sqrt[4]{2},
+    \sqrt[4]{2}i, -\sqrt[4]{2}i\}$. These roots lie in
+    $\mathbb{Q}(\sqrt[2]{4},i)$, thus the splitting field must lie in this
+    field extension. Also, any field extension that contains the roots
+    $\sqrt[2]{4}$ and $\sqrt[2]{4}i$ must also contain
+    $i=\sqrt[2]{4}i/\sqrt[2]{4}$, therefore the splitting field is exactly
+    $\mathbb{Q}(\sqrt[2]{4},i)$. \\
+
+    To compute $[\mathbb{Q}(\sqrt[2]{4},i):\mathbb{Q}]
+    =[\mathbb{Q}(\sqrt[2]{4},i):\mathbb{Q}(\sqrt[2]{4})]
+    [\mathbb{Q}(\sqrt[2]{4}):\mathbb{Q}]$, we first compute
+    $[\mathbb{Q}(\sqrt[2]{4}):\mathbb{Q}]$. The irreducible polynomial of
+    $\sqrt[2]{4}$ over $\mathbb{Q}$ divides $x^4-2$. Now $x^4-2$ is
+    irreducible over $\mathbb{Q}$ by Gauss's Lemma since $\pm1$, $\pm2$ are
+    not roots of the polynomial. Therefore
+    $[\mathbb{Q}(\sqrt[2]{4}):\mathbb{Q}]=4$. Also,
+    $i\not\in\mathbb{Q}(\sqrt[2]{4})$, and the irreducible polynomial of
+    $i$ over $\mathbb{Q}$ is $x^2+1$, thus
+    $[\mathbb{Q}(\sqrt[2]{4},i):\mathbb{Q}(\sqrt[2]{4})]=2$ and
+    $[\mathbb{Q}(\sqrt[2]{4},i):\mathbb{Q}]=4\cdot2=8$.
+  \end{proof}
+
 \end{document}
