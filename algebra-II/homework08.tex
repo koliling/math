@@ -209,5 +209,17 @@
         & F &\\
       \end{tikzcd}
     \end{center}
+
+    For the converse, let $K\supseteq F$ be a finite extension with the
+    property that every irreducible polynomial in $F[x]$ that has a root in
+    $K$ splits completely in $K[x]$. Since the extension is finite,
+    $K=F(a_1,\ldots,a_n)$ for some $a_1,\ldots,a_n\in K$. For each
+    $i\in\{1,\ldots,n\}$, let $m_i(x)\in F[x]$ denote the minimal
+    polynomial of $a_i$ over $F$. Then by assumption, each $m_i(x)$ splits
+    completely in $K[x]$. Therefore $m(x):=m_1(x)\cdots
+    m_n(x)$ splits completely over $K$. Also, any field extension of $F$
+    that splits $m(x)$ completely must contain the roots $a_1,\ldots,a_n$,
+    and must therefore contain $F(a_1,\ldots,a_n)=K$. Thus $K$ is a
+    splitting field of $m(x)\in F[x]$ over $F$.
   \end{proof}
 \end{document}
