@@ -138,25 +138,21 @@
   $\mathbb{Q}$ for $x^6-4$.
 
   \begin{proof}
-    This polynomial has four distinct roots $\{\pm2^{-1/4}(1+i),
-    \pm2^{-1/4}(1-i)\}$. These roots lie in $\mathbb{Q}(2^{-1/4},i)$, thus
-    the splitting field must lie in this field extension. Also, any field
-    extension that contains the roots $2^{-1/4}(1+i)$ and $2^{-1/4}(1-i)$
-    must also contain $2^{-1/4}=(2^{-1/4}(1+i) +2^{-1/4}(1-i))/2$. Hence
-    such an extension must also contain $i=2^{-1/4}(1+i)/2^{-1/4}-1$.
-    Therefore the splitting field is exactly $\mathbb{Q}(2^{-1/4},i)$. \\
+    This polynomial has six distinct roots $\{\sqrt[3]{2}\omega^k:
+    k\in\{-2,-1,0,1,2,3\}\}$, where $\omega=e^{\pi/3}=1/2+\sqrt{3}i/2$.
+    These roots lie in $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)$, thus the
+    splitting field must lie in this field extension. Also, any field
+    extension that contains the roots $\sqrt[3]{2}$ and $\omega$
+    must also contain $\sqrt{3}i$, so the splitting field is
+    exactly $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)$. \\
 
-    To compute $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}]
-    =[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}(2^{-1/4})]
-    [\mathbb{Q}(2^{-1/4}):\mathbb{Q}]$, we first compute
-    $[\mathbb{Q}(2^{-1/4}):\mathbb{Q}]$. The irreducible
-    polynomial of $2^{-1/4}$ over $\mathbb{Q}$ divides $2x^4-1$. Now
-    $2x^4-1$ is irreducible over $\mathbb{Q}$ by Gauss's Lemma. Therefore
-    $[\mathbb{Q}(2^{-1/4}):\mathbb{Q}]=4$. Also,
-    $i\not\in\mathbb{Q}(2^{-1/4})$, and the irreducible polynomial of
-    $i$ over $\mathbb{Q}$ is $x^2+1$, thus
-    $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}(2^{-1/4})]=2$ and
-    $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}]=4\cdot2=8$.
+    Now the minimal polynomial of $\sqrt[3]{2}$ over $\mathbb{Q}$ is
+    $x^3-2$, therefore $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$.
+    Also, the minimal polynomial of $\sqrt{2}i$ over $\mathbb{Q}$ is
+    $x^2+3$, therefore $[\mathbb{Q}(\sqrt{2}i):\mathbb{Q}]=2$. Hence
+    $[\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i):\mathbb{Q}]$ must divide both 2 and
+    3, and yet be smaller than the product $2\times3=6$. Therefore
+    $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)=6$.
   \end{proof}
 
 \end{document}
