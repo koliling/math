@@ -38,7 +38,36 @@
   \begin{proof}
     The given polynomial has no roots in $\mathbb{Z}$ since neither 1 nor
     -1 is a root. Therefore from Gauss's lemma, the polynomial has no roots
-    in $\mathbb{Q}$. Therefore
+    in $\mathbb{Q}$. So since the polynomial has degree three and has no
+    linear roots, it is irreducible over $\mathbb{Q}$. Therefore
+    $[\mathbb{Q}(\alpha):\mathbb{Q}]=3$. Now if the regular 7-gon is
+    constructible, then $\alpha$ is constructible, yet
+    $[\mathbb{Q}(\alpha):\mathbb{Q}]$ is not a power of 2, a contradiction.
+  \end{proof}
+
+\it \textbf{DF 13.3.5:} Use the fact that $\alpha=2\cos(2\pi/5)$ satisfies
+  the equation $x^2+x-1=0$ to conclude that the regular 5-gon is
+  constructible by straightedge and compass.
+
+  \begin{proof}
+    Since $\alpha$ is a real root of a quadratic polynomial over $\mathbb{Q}$,
+    it can be expressed using a series of addition, multiplication,
+    division, and/or square roots of rationals. Since these operations are
+    constructible by a straightedge and compass, $\alpha$ is constructible.
+    Then by bisecting angles (which is also known to be constructible), we
+    can construct $\alpha/2=\cos(2\pi/5)$. \\
+
+    With a line of length $\cos(2\pi/5)$ constructed, we construct the
+    degree $2\pi/5$ as follows: draw a perpendicular line from one end of
+    the line upwards (perpendicular lines from a given line are known to be
+    constructible). Then setting the compass to a length of 1, mark the
+    point where the other end of the line of length $\cos(2\pi/5)$ meets
+    the perpendicular line. Then draw a line from this end of the line to
+    the marked point. The angle at the other end of the line will have
+    degree $2\pi/5$. \\
+
+    Repeating this process 5 times we can construct the symmetrical sides
+    of the 5 isosceles triangles that when put together, form a 5-gon.
   \end{proof}
 
 \end{document}
