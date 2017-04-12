@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage{tikz-cd}
 \usepackage[inline]{enumitem}
 \usepackage{color}
 \setlength{\parindent}{0mm} %So that we do not indent on new paragraphs
@@ -147,12 +148,66 @@
     exactly $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)$. \\
 
     Now the minimal polynomial of $\sqrt[3]{2}$ over $\mathbb{Q}$ is
-    $x^3-2$, therefore $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$.
-    Also, the minimal polynomial of $\sqrt{2}i$ over $\mathbb{Q}$ is
-    $x^2+3$, therefore $[\mathbb{Q}(\sqrt{2}i):\mathbb{Q}]=2$. Hence
-    $[\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i):\mathbb{Q}]$ must divide both 2 and
-    3, and yet be smaller than the product $2\times3=6$. Therefore
-    $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)=6$.
+    $x^3-2$, therefore $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$.  Also, the
+    minimal polynomial of $\sqrt{2}i$ over $\mathbb{Q}$ is $x^2+3$,
+    therefore $[\mathbb{Q}(\sqrt{2}i):\mathbb{Q}]=2$. Hence
+    $[\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i):\mathbb{Q}]$ must be a multiple of
+    both 2 and 3, and be not larger than the product $2\times3=6$.
+    Therefore $\mathbb{Q}(\sqrt[3]{2},\sqrt{3}i)=6$.
   \end{proof}
 
+\it \textbf{DF 13.4.5:} Let $K$ be a finite extension of $F$. Prove that
+  $K$ is a splitting field over $F$ if and only if every irreducible
+  polynomial in $F[x]$ that has a root in $K$ splits completely in $K[x]$.
+
+  \begin{proof}
+    Let $K$ be a splitting field over $F$ for some polynomial $f(x)\in
+    F[x]$. Then $K=F(a_1,\ldots,a_n)$, where $a_1,\ldots,a_n$ are the roots
+    of $f(x)$ in $K$. Let $p(x)\in F[x]$ be an irreducible polynomial with
+    a root $\alpha\in K$. Let $L\subseteq K$ be a splitting field over $K$
+    for $p(x)$. Note that $L$ exists from Theorem 25. Let $\beta\in L$ be
+    an arbitrary root of $p(x)$. We wish to show that $\beta$ lies in
+    $K$. \\
+
+    Consider the field extension $F\subseteq F(\alpha) \subseteq K
+    \subseteq K(\beta)$, as illustrated in the diagram below. Consider also
+    the field extension $F\subseteq F(\beta)$. Since $\alpha$ and $\beta$
+    are roots of a minimal polynomial $p(x)$ over $F$, $F(\alpha)$ will be
+    $F$-isomorphic to $F(\beta)$ from Theorem 8. Let $K'\supseteq F(\beta)$
+    be the splitting field over $F(\beta)$ for $f(x)$. Then
+    $K'=F(a_1,\ldots,a_n,\beta)$. Now $K$ is the splitting field over $F$
+    for $f(x)$, and is therefore also the splitting field over $F(\alpha)$
+    for $f(x)$. So we have $F(\alpha)\cong F(\beta)$, $K\supseteq
+    F(\alpha)$ and $K'\supseteq F(\beta)$ are splitting fields over
+    $F(\alpha)$ and $F(\beta)$ respectively over the same polynomial
+    $f(x)$. Therefore $K\cong K'$ from Theorem 27. Then since $K=
+    F(a_1,\ldots,a_n)\subseteq K(\beta)$ and $K'=
+    F(a_1,\ldots,a_n,\beta)\subseteq K(\beta)$, we have the field extension
+    \[F(a_1,\ldots,a_n) \subseteq F(a_1,\ldots,a_n,\beta) \subseteq
+    K(\beta).\]
+
+    And so
+    \begin{align*}
+      [K(\beta):F(a_1,\ldots,a_n)] &=[K(\beta):F(a_1,\ldots,a_n,\beta)]
+        [F(a_1,\ldots,a_n,\beta):F(a_1,\ldots,a_n)]\\
+      &=[K(\beta):F(a_1,\ldots,a_n)]
+        [F(a_1,\ldots,a_n,\beta):F(a_1,\ldots,a_n)].\\
+    \end{align*}
+
+    Cancelling the $[K(\beta):F(a_1,\ldots,a_n)]$ term on both sides gives
+    \[[F(a_1,\ldots,a_n,\beta):F(a_1,\ldots,a_n)]=1,\]
+    which implies $\beta\in F(a_1,\ldots,a_n)=1$, as required.
+
+    \begin{center}
+      \begin{tikzcd}[column sep=small]
+        & L \arrow[dash]{d} &\\
+        & K(\beta) \arrow[dash]{dl} \arrow[dash]{dr} &\\
+        K=F(a_1,\ldots,a_n) \arrow[dash]{d} \arrow[dash,dotted]{rr}{\cong}
+          && K'=F(a_1,\ldots,a_n,\beta) \arrow[dash]{d}\\
+        F(\alpha) \arrow[dash]{dr} \arrow[dash,dotted]{rr}{\cong} &&
+          F(\beta) \arrow[dash]{dl}\\
+        & F &\\
+      \end{tikzcd}
+    \end{center}
+  \end{proof}
 \end{document}
