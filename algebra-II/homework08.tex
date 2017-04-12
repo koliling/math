@@ -121,4 +121,29 @@
     $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}]=4\cdot2=8$.
   \end{proof}
 
+\it \textbf{DF 13.4.3:} Determine the splitting field and its degree over
+  $\mathbb{Q}$ for $x^4+x^2+1$.
+
+  \begin{proof}
+    This polynomial has four distinct roots $\{\pm2^{-1/4}(1+i),
+    \pm2^{-1/4}(1-i)\}$. These roots lie in $\mathbb{Q}(2^{-1/4},i)$, thus
+    the splitting field must lie in this field extension. Also, any field
+    extension that contains the roots $2^{-1/4}(1+i)$ and $2^{-1/4}(1-i)$
+    must also contain $2^{-1/4}=(2^{-1/4}(1+i) +2^{-1/4}(1-i))/2$. Hence
+    such an extension must also contain $i=2^{-1/4}(1+i)/2^{-1/4}-1$.
+    Therefore the splitting field is exactly $\mathbb{Q}(2^{-1/4},i)$. \\
+
+    To compute $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}]
+    =[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}(2^{-1/4})]
+    [\mathbb{Q}(2^{-1/4}):\mathbb{Q}]$, we first compute
+    $[\mathbb{Q}(2^{-1/4}):\mathbb{Q}]$. The irreducible
+    polynomial of $2^{-1/4}$ over $\mathbb{Q}$ divides $2x^4-1$. Now
+    $2x^4-1$ is irreducible over $\mathbb{Q}$ by Gauss's Lemma. Therefore
+    $[\mathbb{Q}(2^{-1/4}):\mathbb{Q}]=4$. Also,
+    $i\not\in\mathbb{Q}(2^{-1/4})$, and the irreducible polynomial of
+    $i$ over $\mathbb{Q}$ is $x^2+1$, thus
+    $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}(2^{-1/4})]=2$ and
+    $[\mathbb{Q}(2^{-1/4},i):\mathbb{Q}]=4\cdot2=8$.
+  \end{proof}
+
 \end{document}
