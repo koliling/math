@@ -274,4 +274,25 @@
     Since the derivative of $f(x)$ is -1, $f(x)$ will be relatively prime
     to its derivative, and is therefore separable from Proposition 33.
   \end{proof}
+
+\it \textbf{DF 13.5.7:} Suppose $K$ is a field of characteristic $p$ which
+  is not a perfect field: $K\neq K^p$. Prove there exist irreducible
+  inseparable polynomials over $K$. Conclude that there exist inseparable
+  finite extensions of $K$.
+
+  \begin{proof}
+    Let $a\in K$ be an element in $K$ that does not have a $p$-th root in
+    $K$. Such an element exists since $K\neq K^p$. Consider the polynomial
+    $f_a(x):= x^p-a$. Let $\alpha$ be a root of $f_a(x)$ in a splitting field
+    of $f_a(x)$. Then $\alpha$ will satisfy the polynomial
+    \[(x-\alpha)^p=x^p-\alpha^p=x^p-a,\]
+    where the second equality follows from Proposition 35. Therefore
+    $m_{\alpha,K}(x)$, the minimal polynomial of $\alpha$ over $K$, must
+    divide $(x-\alpha)^p$. Now $\alpha$ does not lie in $K$ since
+    $f_a(x)$ does not have roots in $K$ by our choice of $a$, therefore
+    $m_{\alpha,K}(x)$ must be of the form $(x-\alpha)^k$ for some $k$
+    between 2 and $p$. Therefore $m_{\alpha,K}(x)\in K[x]$ is an
+    irreducible and inseparable polynomial over $K$, and $K(\alpha)$ is an
+    inseparable finite extension of $K$.
+  \end{proof}
 \end{document}
