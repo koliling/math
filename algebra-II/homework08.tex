@@ -222,4 +222,36 @@
     and must therefore contain $F(a_1,\ldots,a_n)=K$. Thus $K$ is a
     splitting field of $m(x)\in F[x]$ over $F$.
   \end{proof}
+
+\it \textbf{DF 13.4.6:} Let $K_1$ and $K_2$ be finite extensions of $F$
+  contained in the field $K$, and assume both are splitting fields over
+  $F$.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that their composite $K_1K_2$ is a splitting field over
+      $F$. 
+
+      \begin{proof}
+        For $i\in\{1,2\}$, let $f_i(x)\in F[x]$ be the respective
+        polynomial that the extension $K_i$ is a split of. Let the roots of
+        $f_1(x)$ in $K_1$ be $a_1,\ldots,a_n$, and let the roots of
+        $f_2(x)$ in $K_2$ be $b_1,\ldots,b_m$. Then
+        $K_1=F(a_1,\ldots,a_n)$, and $K_2=F(b_1,\ldots,b_m)$. Then
+        $K_1K_2=F(a_1,\ldots,a_n,b_1,\ldots,b_m)$, so $K_1K_2$ is the
+        splitting field of $f_1(x)f_2(x)\in F[x]$ over $F$.
+      \end{proof}
+
+    \item Prove that $K_1\cap K_2$ is a splitting field over $F$.
+
+      \begin{proof}
+        Let $\alpha$ be an arbitrary element in $K_1\cap K_2$ and let
+        $m_{\alpha,F}(x)\in F[x]$ be its minimal polynomial over $F$. From
+        the previous question, it suffices to show that $m_{\alpha,F}(x)$
+        splits over $K_1\cap K_2$. From the previous question, since $K_1$
+        and $K_2$ are splitting fields, $m_{\alpha,F}(x)$ will split over
+        $K_1$ and $K_2$. Therefore all the roots of $m_{\alpha,F}(x)$ are
+        contained in $K_1\cap K_2$, which implies that $m_{\alpha,F}(x)$
+        also splits in $K_1\cap K_2$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
