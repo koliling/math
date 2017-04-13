@@ -130,7 +130,7 @@
     a_0,\ldots,a_{n-1}}\]
     lies strictly between the two given elements. \\
 
-    By a similar argument of considering multiples of periods, we can show
+    Also by a considering multiples of periods, we can show
     that given any finite number of incomparable elements from $P$, we can
     effectively construct a new element that is incomparable from all those
     elements: Like before, we can assume that the given $k$ elements
@@ -148,24 +148,34 @@
     $\varphi:\mathcal{R}\rightarrow\mathcal{P}$. We construct this map in
     stages, where we define $\varphi(s)$ at stage $s$, such that the
     subordering $(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$ is isomorphic
-    to its image $\varphi(\{0,\ldots,s\},\leq_P)\subset\mathcal{P}$. At
+    to its image $(\varphi(\{0,\ldots,s\}),\leq_P)\subset\mathcal{P}$. At
     stage 0, let $\varphi(0)$ be an arbitrary non-zero non-one element in
     $P$. At stage $s+1$, consider the subordering $\mathcal{R}_{s}
     :=(\{0,\ldots,s\},\leq_R)\subset\mathcal{R}$. Let
     $A=\{a_0,\ldots,a_{m-1}\}$ denote the set of direct ancestors of $s+1$
     from $\{0,\ldots,s\}$, and similarly let $D=\{d_0,\ldots,a_{n-1}\}$ be
-    the set of direct descendants of $s+1$ from the same set. If $A$ and
-    $D$ are non-empty, then map $s+1$ to any element that lies strictly
-    between $\varphi(a_0)\wedge\ldots\wedge\varphi(a_{m-1})$ and
-    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $A$ is empty,
-    map $s+1$ to any element that lies strictly between 0 and
-    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $D$ is empty,
-    map $s+1$ to any element that lies strictly between
-    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$ and 1. Finally, if both
-    $A$ and $D$ are empty, then $s+1$ must be incomparable with all
-    elements in $\{0,\ldots,s\}$, so map $s+1$ to an element that is
-    incomparable with $\varphi(0),\ldots,\varphi(s)$. Such an element
-    exists from the above argument.
+    the set of direct descendants of $s+1$ from the same set. \\
+
+    If $A$ and $D$ are non-empty, then map $s+1$ to any element that lies
+    strictly between $\varphi(a_0)\wedge\ldots\wedge\varphi(a_{m-1})$ and
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $A$ is empty, map
+    $s+1$ to any element that lies strictly between 0 and
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$. If only $D$ is empty, map
+    $s+1$ to any element that lies strictly between
+    $\varphi(d_0)\vee\ldots\vee\varphi(d_{n-1})$ and 1. Note that for these
+    three cases the image of $s+1$ exists from the density of the
+    $\mathcal{P}$. Finally, if both $A$ and $D$ are empty, then $s+1$ must
+    be incomparable with all elements in $\{0,\ldots,s\}$, so map $s+1$ to
+    an element that is incomparable with $\varphi(0),\ldots,\varphi(s)$.
+    Again the image of $s+1$ exists from the above argument, where we
+    showed that we can always find an element that is incomparable with any
+    finite set of elements. \\
+
+    By construction, $(\{0,\ldots,s+1\},\leq_R)\subset\mathcal{R}$ will be
+    isomorphic to its image
+    $(\varphi(\{0,\ldots,s+1\}),\leq_P)\subset\mathcal{P}$. Thus
+    $\mathcal{R}$ will be isomorphic to
+    $(\varphi(\omega),\leq_P)\subseteq\mathcal{P}$.
   \end{proof}
 
 \it \textbf{Soare 6.1.6:} Show that for a countable partially ordered set
