@@ -254,4 +254,24 @@
         also splits in $K_1\cap K_2$.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{DF 13.5.5:} For any prime $p$ and nonzero $a\in\mathbb{F}_p$
+  prove that $f(x):=x^p-x+a$ is irreducible and separable over $\mathbb{F}_p$.
+  [For the irreducibility: One approach --- prove first that if $\alpha$ is
+  a root then $\alpha+1$  is also a root. Another approach --- suppose it's
+  reducible and compute derivatives.]
+
+  \begin{proof}
+    The derivative of $f(x)$ is
+    \[D_x f(x) =px^{p-1}-1 =-1.\]
+    Assuming $f(x)$ is reducible, we can write $f(x)=g(x)h(x)$ where the
+    degrees of $g$ and $h$ are between 1 and $p-1$. Then taking
+    derivatives, we get
+    \[D_x f(x) =D_x g(x)h(x) =h(x)D_x g(x) +g(x)D_x h(x).\]
+    But at least one of $h(x)D_x g(x)$ or $g(x)D_x h(x)$ will have degree
+    greater or equal 1, a contradiction. \\
+
+    Since the derivative of $f(x)$ is -1, $f(x)$ will be relatively prime
+    to its derivative, and is therefore separable from Proposition 33.
+  \end{proof}
 \end{document}
