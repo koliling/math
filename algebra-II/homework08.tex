@@ -295,4 +295,19 @@
     irreducible and inseparable polynomial over $K$, and $K(\alpha)$ is an
     inseparable finite extension of $K$.
   \end{proof}
+
+\it \textbf{DF 13.5.11:} Suppose $K[x]$ is a polynomial ring over the field
+  $K$ and $F$ is a subfield of $K$. If $F$ is a perfect field and $f(x)\in
+  F[x]$ has no repeated irreducible factors in $F[x]$, prove that $f(x)$
+  has no repeated irreducible factors in $K[x]$.
+
+  \begin{proof}
+    We first show that $f(x)$ has no repeated roots: If $\alpha$ is a root
+    of $f(x)$, then $m_{\alpha,F}(x)$ divides $f(x)$, and is separable by
+    perfectness of $F$. Therefore $f(x)$ has no repeated roots since $f(x)$
+    has no repeated irreducible factors. \\
+
+    Now if $f(x)$ has repeated irreducible factors in $K[x]$, then $f(x)$
+    must have repeated roots, a contradiction.
+  \end{proof}
 \end{document}
