@@ -2,6 +2,7 @@
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
 \usepackage{stmaryrd} % For double square bracket [[]]
+\usepackage{bm} % For bold vectors
 \usepackage{color}
 \usepackage[inline]{enumitem}
 \usetikzlibrary{patterns}
@@ -80,7 +81,7 @@
     $\emptyset'$-question
     \[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
     \rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
-    \rho_{i_l}^s} \downarrow?\]
+    \rho_{i_l}^s}(|\sigma_j^s|+1) \downarrow?\]
     If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}$, and to
     be $\sigma_j^s$ concatenated by the first value in $\{0,1\}$ that is
     different from $\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}$, and set
@@ -99,10 +100,21 @@
   is countably universal if every countable partially ordered set is order
   isomorphic to a subordering of $\mathcal{P}$. Prove that there is a
   computable partial ordering $\leq_R$ of $\omega$ which is countably
-  universal.
+  universal. Hint: This can be done either by considering a computably
+  presented atomless Boolean algebra, or by a direct construction where at
+  stage $s+1$, given a finite set $P_s$ of elements in $\leq_R$, one
+  obtains $P_{s+1}$ by adding a new point for each possible order type over
+  $P_s$. A boolean algebra
+  $\mathcal{B}=(\{b_i\}_{i\in\omega};\leq,\vee,\wedge,')$ is computably
+  presented if there exist a computable relation $P(i,j)$ and computable
+  functions $f$, $g$, and $h$ such that $P(i,j)$ holes iff $b_i\leq b_j$,
+  and such that $b_{f(i,j)}=b_i\vee b_j$, $b_{g(i,j)}=b_i\wedge b_j$, and
+  $b_{h(i)}=b_i'$.
 
   \begin{proof}
-    Consider the Boolean algebra $\mathcal{P}=(P,\leq_P)$ where
+    We follow Soare's first hint of using a computably presented atomless
+    Boolean algebra. Consider the Boolean algebra $\mathcal{P}=(P,\leq_P)$
+    where
     \[P:= \{\overline{x}\in \{0,1\}^\omega: x\in \{0,1\}^{<\omega}\},\]
     where $\overline{x}$ is the infinite string in $\{0,1\}^\omega$ when we
     repeat $x$ infinitely, and where
@@ -180,9 +192,43 @@
 
 \it \textbf{Soare 6.1.6:} Show that for a countable partially ordered set
   $\mathcal{P}=(P,\leq_P)$ there is a 1:1 order-preserving map from $P$
-  into $\mathcal{D}(\leq\emptyset')$, the degrees $\leq\emptyset'$.
+  into $\bm{D}(\leq\emptyset')$, the degrees $\leq\emptyset'$. Hint:
+  By Exercise 6.1.5 we may assume $P=\omega$ and $\leq_P$ is a computable
+  relation. Let $\{A\}_{i\in\omega}$ be as in Exercise 6.1.4. Define
+  $f:\omega\rightarrow \bm{D}(\leq\emptyset')$ by
+  $f(i)=\bm{a}_i=\text{deg}(\oplus A_j:j\leq_P i)$. Show that if $i\leq_P
+  j$ then $\bm{a}_i\leq\bm{a}_j$ (by definition and the fact that $\leq_P$
+  is computable), and if $i\not\leq_P j$ then $\bm{a}_i\not\leq\bm{a}_j$
+  (by the computable independence of $\{A_i\}_{i\in\omega}$).
 
   \begin{proof}
+    We follow Soare's hint. By the previous exercise, any countable
+    partially ordered set $\mathcal{P}=(P,\leq_P)$ can be embedded in some
+    computable partial ordering. Thus it suffices to show that we can embed
+    a computable partial ordering into $\bm{D}(\leq\emptyset')$.
+    Equivalently, we assume that $P=\omega$ and $\leq_P$ is computable. \\
+
+    Let $\{A\}_{i\in\omega}$ be as in Exercise 6.1.4. Define
+    $f:\omega\rightarrow \bm{D}(\leq\emptyset')$ by
+    $f(i)=\bm{a}_i=\text{deg}(\oplus A_j:j\leq_P i)$. We first show that
+    each $f(i)\leq_T\emptyset'$: To decide if $(x,j)$ lies in $\bm{a}_i$,
+    we first check if $j\leq_P i$; this is decidable since $\leq_P$ is
+    computable. If $j\not\leq_P i$, then $(x,j)\not\in\bm{a}_i$. On the
+    other hand, if $j\leq_P i$, then we ask $\emptyset'$ if $x\in A_j$;
+    $\emptyset'$ can answer this question since $A_j\leq_T\emptyset'$.
+    Therefore $f(i)\leq_T\emptyset'$. \\
+
+    Next, we show that if $i\leq_P j$ then $\bm{a}_i\leq_T\bm{a}_j$: To
+    decide if $(x,k)$ lies in $\bm{a}_i$, we first check if $k\leq_P i$;
+    this is decidable since $\leq_P$ is computable. If $k\not\leq_P i$,
+    then $(x,k)\not\in\bm{a}_i$. On the other hand, if $k\not\leq_P i$,
+    then $(x,k)$ lies in $\bm{a}_i$ if and only if it also lies in
+    $\bm{a}_j$ by transitivity of $\leq_P$ and the fact that $i\leq_P j$.
+    Therefore $\bm{a}_j$ can decide if $(x,k)$ lies in $\bm{a}_i$. \\
+
+    Finally, we show that if $i\not\leq_P j$ then
+    $\bm{a}_i\not\leq_T\bm{a}_j$: Assume $i\not\leq_P j$. Then there must
+    be some $k\in\omega$ such that $k\leq_P i$ but $k\not\leq_P j$.
   \end{proof}
 
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
@@ -212,10 +258,9 @@
     Observe that this is a $\emptyset'$-question because we can
     effectively enumerate all finite extensions
     $\sigma\in\omega^{<\omega}$ of $g_s$, and for each of these extensions,
-    use $\emptyset'$ to check of it is consistent with $f$. If it is
+    use $\emptyset'$ to check if it is consistent with $f$. If it is
     consistent, we can use $\emptyset'$ again to check if
-    $\Phi^\sigma_s(s)$ converges. Formally, this question is a
-    $\Sigma_1$-question
+    $\Phi^\sigma_s(s)$ converges. Formally, this is a $\Sigma_1$-question
     \[(\exists \sigma,t)\; \left\{ g_s\prec\sigma \wedge (\forall
     x<|\sigma|)\; \left[ (\exists u\; f_u(x)\downarrow)
     \rightarrow\sigma(x)=f(x) \right]\; \wedge\;
