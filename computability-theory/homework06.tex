@@ -242,6 +242,63 @@
     So $i\leq_P j$ if and only if $\bm{a}_i\leq_T\bm{a}_j$ as required.
   \end{proof}
 
+\it \textbf{Soare 6.1.7:} Show that there are $2^{\aleph_0}$ mutually
+  incomparable degrees.
+
+  \begin{proof}
+    We follow Soare's hint and construct a tree $T\subseteq2^{<\omega}$ such
+    $|[T]|=2^{\aleph_0}$ and for every $f,g\in[T]$ with $f\neq g$, we have
+    $f|_Tg$. Let $T=\cup_eT_e$ where $T_{e+1}\supset T_e$ and $T_{e+1}$ is
+    defined by induction as follows. Let $T_0=\{\emptyset\}$, the tree with
+    the empty node as its only member. Given $T_e$ define $L_e$ to be the
+    leaves of tree $T_e$, namely
+    \[L_e =\{\sigma: \sigma\in T_e\; \text{and}\; (\forall \tau \succ
+    \sigma)\; [\tau\not\in T_e]\}.\]
+
+    Next define the successors to leaves
+    \[S_e =\{\sigma^\frown0: \sigma\in L_e\} \cup \{\sigma^\frown1:
+    \sigma\in L_e\}.\]
+
+    Suppose $S_e=\{\rho_i: i\leq2^{e+1}\}$. Fix $i,j\leq2^{e+1}$, $i\neq
+    j$. We find extensions $\sigma_i\succ\rho_i$, and $\sigma_j\succ\rho_j$
+    to satisfy the requirement
+    \[R_{\langle e,i,j\rangle}:\; (\forall f\succ \sigma_i) (\forall g\succ
+    \sigma_j)\; [\Phi_e^f\neq g\; \text{and}\; \Phi_e^g\neq f],\]
+    as follows: We ask the $\emptyset'$-question
+    \begin{center}
+      \textit{Does there exist an extension $\sigma$ of $\rho_i$ such that
+      $\Phi_e^{\sigma}(|\rho_j|)$ converges?}
+    \end{center}
+
+    Formally, this is a $\Sigma_1$-question 
+    \[(\exists \sigma,t,y)\;
+    [\Phi_{e,t}^\sigma (|\rho_j|)\downarrow=y\; \wedge\;
+    \sigma\succ\rho_i].\]
+
+    If such $\sigma,t,y$ exist, replace $\rho_i$ with $\sigma$ and $\rho_j$
+    with $\rho_j$ concatenated with the first element in $\{0,1\}$ that is
+    different from $y$. Then we know that for any extension $f\succ\rho_i$
+    and $g\succ\rho_j$, we will have $\Phi_e^f(|\rho_j|-1)\downarrow\neq
+    g(|\rho_j|-1)$. On the other hand, if no such $\sigma,t,y$ exist then
+    $\rho_i$ and $\rho_j$ remain as is. Then we know that for any extension
+    $f\succ\rho_i$ and $g\succ\rho_j$, we will have
+    $\Phi_e^f(|\rho_j|-1)\uparrow$, and therefore $\Phi_e^f(|\rho_j|-1)\neq
+    g(|\rho_j|-1)$. Next, we ask the question again but with the roles of
+    $i$ and $j$ swapped, replacing $\rho_i$ and $\rho_j$ with respective
+    appropriate extensions if necessary. Observe that the extensions will
+    ensure that the requirement $R_{\langle e,i,j\rangle}$ is satisfied.
+    We repeat the procedure of finding extensions $\sigma_i\succ\rho_i$,
+    and $\sigma_j\succ\rho_j$ for all $i,j\leq2^{e+1}$ with $i\neq j$. \\
+
+    We show that this construction ensures that for any $f,g\in[T]$ with
+    $f\neq g$, we have $f|_Tg$. By symmetrical argument it suffices to show
+    that $f\not\leq_T g$. Given $e\in\omega$, at the $e$-th stage of the
+    construction, requirement $R_{\langle e,i,j\rangle}$ will ensure that
+    that $f\neq\Phi_e^g$, where $i,j\in\omega$ are the indices for the
+    successors to the leaves that are initial segments of $f$ and $g$
+    respectively. 
+  \end{proof}
+
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
   total function $g$ extending $f$. So if $f(x)$ exists then $f(x)=g(x)$.
 
