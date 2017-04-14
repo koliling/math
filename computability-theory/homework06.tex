@@ -59,7 +59,11 @@
 
 \it \textbf{Soare 6.1.4:} Modify the proof of Theorem 6.1.1 to build an
   independent sequence $\{A_j\}_{j\in\omega}$ of sets each computable in
-  $\emptyset'$.
+  $\emptyset'$. Hint: Use a finite extension $\emptyset'$-computable
+  construction to build at stage $s$ strings $\{p_j^s\}_{s\in\omega}$ such
+  that if $A_j=\cup_s \rho_j^s$ then we meet for each $e$ and $i$ the
+  requirement
+  \[R_{\langle e,i\rangle} :A_i\neq \Phi_e^{A_j:j\neq i}.\]
 
   \begin{proof}
     We follow Soare's hint to construct the sequence. Fix any enumeration
@@ -81,7 +85,7 @@
     $\emptyset'$-question
     \[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
     \rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
-    \rho_{i_l}^s}(|\sigma_j^s|+1) \downarrow?\]
+    \rho_{i_l}^s}(|\sigma_j^s|) \downarrow?\]
     If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}$, and to
     be $\sigma_j^s$ concatenated by the first value in $\{0,1\}$ that is
     different from $\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}$, and set
@@ -227,8 +231,15 @@
     Therefore $\bm{a}_j$ can decide if $(x,k)$ lies in $\bm{a}_i$. \\
 
     Finally, we show that if $i\not\leq_P j$ then
-    $\bm{a}_i\not\leq_T\bm{a}_j$: Assume $i\not\leq_P j$. Then there must
-    be some $k\in\omega$ such that $k\leq_P i$ but $k\not\leq_P j$.
+    $\bm{a}_i\not\leq_T\bm{a}_j$: Assume $i\not\leq_P j$, but
+    $\bm{a}_i\leq_T\bm{a}_j$ by contradiction. Since $i\not\leq_P j$, there
+    must be some $k\in\omega$ such that $k\leq_P i$ but $k\not\leq_P j$.
+    Then since $k\leq_P i$, $A_k\leq_T\bm{a}_i$, which implies that
+    $A_k\leq_T\bm{a}_j$. Then since $k\not\leq_P j$, we have $\bm{a}_j\leq_T
+    \oplus\{A_s:s\neq k\}$. Hence $A_k\leq_T \oplus\{A_s:s\neq k\}$,
+    a contradiction. \\
+
+    So $i\leq_P j$ if and only if $\bm{a}_i\leq_T\bm{a}_j$ as required.
   \end{proof}
 
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
