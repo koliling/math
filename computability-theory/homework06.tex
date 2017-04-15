@@ -66,73 +66,65 @@
   \[R_{\langle e,i\rangle} :A_i\neq \Phi_e^{A_j:j\neq i}.\]
 
   \begin{proof}
-    Fix an enumeration $\{(e_s,i_s)\}_{s\in\omega}$ of of $\omega^2$. We
-    construct the sequence in stages $s$ so that for each $i\in\omega$,
-    that $A_i=\cup_{s\in\omega} A_{i}^s$, where $A_i^0=\emptyset$,
-    $A_i^s\in2^{<\omega}$, and $A_i^s\prec A_i^{s+1}$, and
-    $\sigma_j^0=\emptyset$. At stage $s$, we extend a finite number of
-    initial segments $A_i^s$'s to satisfy the restriction
+    We construct the sequence in stages $s$ so that for
+    each $i\in\omega$, that $A_i=\cup_{s\in\omega} A_{i}^s$, where
+    $A_i^0=\emptyset$, $A_i^s\in2^{<\omega}$, and $A_i^s\prec A_i^{s+1}$.
+    At stage $s=\langle e,i\rangle$, we extend a finite number of initial
+    segments $A_j^s$'s to satisfy the restriction
     \begin{equation}
-      R_{e_s,i_s}: A_{i_s} \neq \Phi_{e_s}^{\oplus_{j\neq i_s} A_j},
+      R_{e,i}: A_{i} \neq \Phi_{e}^{\oplus_{j\neq i} A_j},
       \label{eq:join}
     \end{equation}
-    and to preserve the initial segment of $\oplus_{j\neq i_s}A_j$ that is
-    involved in the computation to satisfy the restriction. To determine
-    which $A_i^s$ need to be extended in order to preserve the computation,
-    we fix any enumeration $\{(x_r,j_r)\}_{r\in\omega}$ of $\omega^2$ so
-    that we may consider $\oplus_j A_j$ as a function in $2^\omega$. \\
+    and to preserve the initial segment of $\oplus_{j\neq i}A_j$ that is
+    involved in the computation. \\
+
+    %To determine which $A_j^s$ need to be
+    %extended in order to preserve the computation, we fix any enumeration
+    %$\{(x_r,j_r)\}_{r\in\omega}$ of $\omega^2$ so that we may consider
+    %$\oplus_j A_j$ as a function in $2^\omega$. \\
 
     At stage 0, initialize $A_i^0=\emptyset$ for all $i\in\omega$. \\
 
-    At stage $s+1$, we want to satisfy the restriction $R_{e_s,i_s}$. Now
-    there are only a finite number indices $k_1,\ldots,k_n$ that are not
-    equal to $i_s$ and whose initial segment $A_{k_l}^s$ is non-empty. We
-    ask the $\emptyset'$-question
+    At stage $s+1=\langle e,i\rangle$, we want to satisfy restriction
+    $R_{e,i}$. Now there are only a finite number indices
+    $k_0,\ldots,k_{n-1}$ that are not equal to $i$ and whose initial
+    segment $A_{k_j}^s$ is non-empty. We ask the $\emptyset'$-question
     \begin{center}
-      \textit{Is there an extension $\sigma \succ A_{k_1}^s\oplus \ldots
-      \oplus A_{k_n}^s\in 2^{<\omega}$ that is consistent with each
-      $A_{k_m}^s$ and with $A_{i_s}=\emptyset$ such that $\Phi_{e_s}^\sigma
-      (|A_{i_s}^s|)$ converges?}
+      \textit{Is there an extension $\sigma \succ A_{k_0}^s\oplus \ldots
+      \oplus A_{k_{n-1}}^s\in 2^{<\omega}$ that is consistent with each
+      $A_{k_m}^s$ and with $A_{i}=\emptyset$ such that $\Phi_{e}^\sigma
+      (|A_{i}^s|)$ converges?}
     \end{center}
 
-    If no such $\sigma$ exists set $A_{i_s}^{s+1}=A_{i_s}^{s\frown}0$ (to
-    ensure that $A_{i_s}$ is total eventually), and
-    $A_{k_m}^{s+1}=A_{k_m}^{s}$ for each $m\in\{1,\ldots,n\}$. \\
+    If no such $\sigma$ exists, set $A_{i}^{s+1}=A_{i}^{s\frown}0$ (we use
+    a strict extension to ensure that $A_{i}$ is total eventually), and
+    set $A_{k_m}^{s+1}=A_{k_m}^{s}$ for each $m\in\{0,\ldots,n-1\}$. \\
 
-    On the other hand, if $\sigma$ exists, we want to extend both
-    $A_{i_s}^s$ and a finite number of $A_{j}^s\subseteq \sigma$ where
+    On the other hand, if $\sigma$ exists, we extend both
+    $A_{i}^s$ and a finite number of $A_{j}^s\subseteq \sigma$ where
     $j\neq i_s$ so that we can preserve the computation of
-    \[\Phi_{e_s}^\sigma (|A_{i_s}^s|) \downarrow \neq
-    A_{i_s}(|A_{i_s}^s|).\]
+    \[\Phi_{e}^\sigma (|A_{i}^s|) \downarrow \neq
+    A_{i}(|A_{i}^s|).\]
 
-    To preserve $A_{i_s}(|A_{i_s}^s|)$, set $A_{i_s}^{s+1}$ to be
-    $A_{i_s}^s$ concatenated by the first value in $\{0,1\}$ that is
-    different from $\Phi_{e_s}^\sigma (|A_{i_s}^s|)$. \\
+    To preserve $A_{i}(|A_{i}^s|)$, set $A_{i}^{s+1}$ to be
+    $A_{i}^s$ concatenated by the first value in $\{0,1\}$ that is
+    different from $\Phi_{e}^\sigma (|A_{i}^s|)$. \\
 
     To preserve $\sigma$ used in the computation of $\Phi_{e_s}^\sigma
-    (|A_{i_s}^s|)$, recall the enumeration $\{(x_r,j_r)\}_{r\in\omega}$ of
-    $\omega^2$ that we have fixed. Let $l_1,\ldots,l_u$ be the indices
-    different from $i_s$ such that $(x,l_v)$ appears in
-    $(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})$ for some
-    $x\in\omega$. Observe that $\{k_1,\ldots,k_n\}\subseteq
-    \{l_1,\ldots,l_u\}$ by construction. For each such index $l_v$, let
-    $x_v$ be the largest $x$-coordinate that appears with index $l_v$ in
-    $(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})$; i.e. let \[x_v
-    =\max \{x\in\omega: (x,l_v)\in
-    \{(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})\}\}.\] Then set
-    $A_{l_v}^{s+1}\in 2^{<\omega}$ to be the smallest (with respect to
-    lexicographical order) string of length $\max(x_v+1,|A_{l_v}^s|)$ that
-    is consistent with both $\sigma$ and with $A_{l_v}^s$; such string must
-    exist since $\sigma$ was chosen to be consistent with $A_{l_v}^s$.
+    (|A_{i_s}^s|)$, let $l_1,\ldots,l_m$ be the indices different from $i$
+    such that $\langle x,l_r\rangle <|\sigma|$ for some $x\in\omega$.
+    Observe that $\{k_1,\ldots,k_n\}\subseteq \{l_1,\ldots,l_m\}$ by
+    construction. For each such index $l_r$, let $x_r\in\omega$ be the
+    largest value such that $\langle x_r,l_r\rangle <|\sigma|$. Then set
+    $A_{l_r}^{s+1}\in 2^{<\omega}$ to be the smallest (with respect to
+    lexicographical order) string of length $\max(x_r+1,|A_{l_v}^s|)$ that
+    is consistent with both $\sigma$ and with $A_{l_r}^s$; such string must
+    exist since $\sigma$ was chosen to be consistent with $A_{l_r}^s$. \\
 
     Clearly this construction will satisfy restriction~(\ref{eq:join})
     for all $e,i\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
     in particular that $A_j\neq \Phi_e^{A_i}$ for all $i\neq j$ and
     $e\in\omega$. 
-
-    %\[(\exists t) (\exists \sigma_1 \succ A_{k_1}^s) \ldots (\exists
-    %\sigma_n \succ A_{k_n}^s) \Phi_{e_s,t}^{\oplus_{l=1}^n
-    %\sigma_{l}}(|A_{i_s}^s|) \downarrow?\]
 
     %We follow Soare's hint to construct the sequence. Fix any enumeration
     %of $\omega^2$ such that for any given $j\in\omega$, $\langle
@@ -379,13 +371,11 @@
         We follow Soare's hint. For each index $i\in\omega$, we construct
         $A_i$ in stages $s$ such that $A_i=\cup_{s\in\omega}A_i^s$ where
         $A_i^s\in2^{<\omega}$, $A_i^0=\emptyset$, and $A_i^s\prec
-        A_i^{s+1}$. Fix an enumeration of $\{(x_r,i_r)\}_{r\in\omega}$ of
-        $\omega^2$. Fix also an enumeration $\{\langle
-        e_r,i_r\rangle\}_{r\in\omega}$ of all $(e,i)$ pairs. For each
-        $\langle e,i\rangle$, we want to satisfy the restriction
-        \[R_{\langle e,i\rangle}: A_i\neq\Phi_e^{\oplus_{j\neq i}A_j},\]
-        giving higher priority to requirements $R_{\langle e,i\rangle}$
-        where $\langle e,i\rangle$ is enumerated earlier. \\
+        A_i^{s+1}$. Fix an enumeration of $\{(x_u,i_u)\}_{u\in\omega}$ of
+        $\omega^2$. For each $\langle e,i\rangle$, we want to satisfy the
+        restriction \[R_{\langle e,i\rangle}: A_i\neq\Phi_e^{\oplus_{j\neq
+        i}A_j},\] giving higher priority to requirements $R_{\langle
+        e,i\rangle}$ where $\langle e,i\rangle$ is enumerated earlier. \\
 
         To avoid conflicts, for each $\langle e,i\rangle$ we choose
         witnesses from amongst $w_{\langle e,i\rangle}:=\{\langle
