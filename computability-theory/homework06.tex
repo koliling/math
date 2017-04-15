@@ -66,38 +66,106 @@
   \[R_{\langle e,i\rangle} :A_i\neq \Phi_e^{A_j:j\neq i}.\]
 
   \begin{proof}
-    We follow Soare's hint to construct the sequence. Fix any enumeration
-    of $\omega^2$ such that for any given $j\in\omega$, $\langle
-    s,j\rangle$ always gets enumerated before $\langle s+1,j\rangle$. We
-    construct the sequence in stages $\langle s,j\rangle \in\omega^2$, so
-    that $A_j=\cup_{s\in\omega} \sigma_{j}^s$, where $\sigma_j^s\prec
-    \sigma_j^{s+1}$, and $\sigma_j^0=\emptyset$. At stage $\langle
-    s,j\rangle$, we extend $\sigma_j^s$ to become $\sigma_j^{s+1}$ to satisfy
-    the restriction
+    Fix an enumeration $\{(e_s,i_s)\}_{s\in\omega}$ of of $\omega^2$. We
+    construct the sequence in stages $s$ so that for each $i\in\omega$,
+    that $A_i=\cup_{s\in\omega} A_{i}^s$, where $A_i^0=\emptyset$,
+    $A_i^s\in2^{<\omega}$, and $A_i^s\prec A_i^{s+1}$, and
+    $\sigma_j^0=\emptyset$. At stage $s$, we extend a finite number of
+    initial segments $A_i^s$'s to satisfy the restriction
     \begin{equation}
-      R_{s,j}: A_j \neq \Phi_s^{\oplus_{i\neq j} A_i}.
+      R_{e_s,i_s}: A_{i_s} \neq \Phi_{e_s}^{\oplus_{j\neq i_s} A_j},
       \label{eq:join}
     \end{equation}
+    and to preserve the initial segment of $\oplus_{j\neq i_s}A_j$ that is
+    involved in the computation to satisfy the restriction. To determine
+    which $A_i^s$ need to be extended in order to preserve the computation,
+    we fix any enumeration $\{(x_r,j_r)\}_{r\in\omega}$ of $\omega^2$ so
+    that we may consider $\oplus_j A_j$ as a function in $2^\omega$. \\
 
-    More specifically, at stage $\langle s,j\rangle$, there are only a
-    finite number indices $i_1,\ldots,i_k$ that are not equal to $j$ and
-    whose initial segment $\sigma_{i_l}^s$ is non-empty. We ask the
-    $\emptyset'$-question
-    \[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
-    \rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
-    \rho_{i_l}^s}(|\sigma_j^s|) \downarrow?\]
-    If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}$, and to
-    be $\sigma_j^s$ concatenated by the first value in $\{0,1\}$ that is
-    different from $\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}$, and set
-    $\sigma_{i_l}^{s+1}=\rho_l$ for each $l\in\{1,\ldots,k\}$.
-    Otherwise set $\sigma_j^{s+1}=\sigma_j^{s\frown}0$ (to ensure that
-    $A_j$ is total eventually), and $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$.
-    \\
+    At stage 0, initialize $A_i^0=\emptyset$ for all $i\in\omega$. \\
+
+    At stage $s+1$, we want to satisfy the restriction $R_{e_s,i_s}$. Now
+    there are only a finite number indices $k_1,\ldots,k_n$ that are not
+    equal to $i_s$ and whose initial segment $A_{k_l}^s$ is non-empty. We
+    ask the $\emptyset'$-question
+    \begin{center}
+      \textit{Is there an extension $\sigma \succ A_{k_1}^s\oplus \ldots
+      \oplus A_{k_n}^s\in 2^{<\omega}$ that is consistent with each
+      $A_{k_m}^s$ and with $A_{i_s}=\emptyset$ such that $\Phi_{e_s}^\sigma
+      (|A_{i_s}^s|)$ converges?}
+    \end{center}
+
+    If no such $\sigma$ exists set $A_{i_s}^{s+1}=A_{i_s}^{s\frown}0$ (to
+    ensure that $A_{i_s}$ is total eventually), and
+    $A_{k_m}^{s+1}=A_{k_m}^{s}$ for each $m\in\{1,\ldots,n\}$. \\
+
+    On the other hand, if $\sigma$ exists, we want to extend both
+    $A_{i_s}^s$ and a finite number of $A_{j}^s\subseteq \sigma$ where
+    $j\neq i_s$ so that we can preserve the computation of
+    \[\Phi_{e_s}^\sigma (|A_{i_s}^s|) \downarrow \neq
+    A_{i_s}(|A_{i_s}^s|).\]
+
+    To preserve $A_{i_s}(|A_{i_s}^s|)$, set $A_{i_s}^{s+1}$ to be
+    $A_{i_s}^s$ concatenated by the first value in $\{0,1\}$ that is
+    different from $\Phi_{e_s}^\sigma (|A_{i_s}^s|)$. \\
+
+    To preserve $\sigma$ used in the computation of $\Phi_{e_s}^\sigma
+    (|A_{i_s}^s|)$, recall the enumeration $\{(x_r,j_r)\}_{r\in\omega}$ of
+    $\omega^2$ that we have fixed. Let $l_1,\ldots,l_u$ be the indices
+    different from $i_s$ such that $(x,l_v)$ appears in
+    $(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})$ for some
+    $x\in\omega$. Observe that $\{k_1,\ldots,k_n\}\subseteq
+    \{l_1,\ldots,l_u\}$ by construction. For each such index $l_v$, let
+    $x_v$ be the largest $x$-coordinate that appears with index $l_v$ in
+    $(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})$; i.e. let \[x_v
+    =\max \{x\in\omega: (x,l_v)\in
+    \{(x_0,j_0),\ldots,(x_{|\sigma|-1},j_{|\sigma|-1})\}\}.\] Then set
+    $A_{l_v}^{s+1}\in 2^{<\omega}$ to be the smallest (with respect to
+    lexicographical order) string of length $\max(x_v+1,|A_{l_v}^s|)$ that
+    is consistent with both $\sigma$ and with $A_{l_v}^s$; such string must
+    exist since $\sigma$ was chosen to be consistent with $A_{l_v}^s$.
 
     Clearly this construction will satisfy restriction~(\ref{eq:join})
-    for all $s,j\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
+    for all $e,i\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
     in particular that $A_j\neq \Phi_e^{A_i}$ for all $i\neq j$ and
     $e\in\omega$. 
+
+    %\[(\exists t) (\exists \sigma_1 \succ A_{k_1}^s) \ldots (\exists
+    %\sigma_n \succ A_{k_n}^s) \Phi_{e_s,t}^{\oplus_{l=1}^n
+    %\sigma_{l}}(|A_{i_s}^s|) \downarrow?\]
+
+    %We follow Soare's hint to construct the sequence. Fix any enumeration
+    %of $\omega^2$ such that for any given $j\in\omega$, $\langle
+    %s,j\rangle$ always gets enumerated before $\langle s+1,j\rangle$. We
+    %construct the sequence in stages $\langle s,j\rangle \in\omega^2$, so
+    %that $A_j=\cup_{s\in\omega} \sigma_{j}^s$, where $\sigma_j^s\prec
+    %\sigma_j^{s+1}$, and $\sigma_j^0=\emptyset$. At stage $\langle
+    %s,j\rangle$, we extend $\sigma_j^s$ to become $\sigma_j^{s+1}$ to satisfy
+    %the restriction
+    %\begin{equation}
+    %  R_{s,j}: A_j \neq \Phi_s^{\oplus_{i\neq j} A_i}.
+    %  \label{eq:join}
+    %\end{equation}
+
+    %More specifically, at stage $\langle s,j\rangle$, there are only a
+    %finite number indices $i_1,\ldots,i_k$ that are not equal to $j$ and
+    %whose initial segment $\sigma_{i_l}^s$ is non-empty. We ask the
+    %$\emptyset'$-question
+    %\[(\exists t) (\exists \rho_1 \succ \sigma_{i_1}^s) \ldots (\exists
+    %\rho_k \succ \sigma_{i_k}^s) \Phi_{s,t}^{\oplus_{l=1}^k
+    %\rho_{i_l}^s}(|\sigma_j^s|) \downarrow?\]
+    %If such $\rho_1,\ldots,\rho_k$ exist, then set $\sigma_j^{s+1}$, and to
+    %be $\sigma_j^s$ concatenated by the first value in $\{0,1\}$ that is
+    %different from $\Phi_{s,t}^{\oplus_{l=1}^k \rho_{i_l}^s}$, and set
+    %$\sigma_{i_l}^{s+1}=\rho_l$ for each $l\in\{1,\ldots,k\}$.
+    %Otherwise set $\sigma_j^{s+1}=\sigma_j^{s\frown}0$ (to ensure that
+    %$A_j$ is total eventually), and $\sigma_{i_l}^{s+1} =\sigma_{i_l}^{s}$.
+    %\\
+
+    %Clearly this construction will satisfy restriction~(\ref{eq:join})
+    %for all $s,j\in\omega$. Also, restriction~(\ref{eq:join}) will ensure
+    %in particular that $A_j\neq \Phi_e^{A_i}$ for all $i\neq j$ and
+    %$e\in\omega$. 
   \end{proof}
 
 \it \textbf{Soare 6.1.5:} A partially ordered set $\mathcal{P}=(P,\leq_P)$
@@ -298,6 +366,82 @@
     successors to the leaves that are initial segments of $f$ and $g$
     respectively. 
   \end{proof}
+
+\it \textbf{Soare 7.3.6:}
+  \begin{enumerate}[label={(\roman*)}]
+    \item Show that there is a u.c.e. sequence of c.e. sets
+      $\{A_i\}_{i\in\omega}$ such that for every $i$, $A_i\not\leq_T \oplus
+      \{A_j\}_{j\neq i}$. Hint: Modify the construction of the
+      Friedberg-Muchnik Theorem 7.3.1 to meet the requirements of
+      $R_{\langle e,i\rangle}$ of Exercise 6.1.4.
+
+      \begin{proof}
+        We follow Soare's hint. For each index $i\in\omega$, we construct
+        $A_i$ in stages $s$ such that $A_i=\cup_{s\in\omega}A_i^s$ where
+        $A_i^s\in2^{<\omega}$, $A_i^0=\emptyset$, and $A_i^s\prec
+        A_i^{s+1}$. Fix an enumeration of $\{(x_r,i_r)\}_{r\in\omega}$ of
+        $\omega^2$. Fix also an enumeration $\{\langle
+        e_r,i_r\rangle\}_{r\in\omega}$ of all $(e,i)$ pairs. For each
+        $\langle e,i\rangle$, we want to satisfy the restriction
+        \[R_{\langle e,i\rangle}: A_i\neq\Phi_e^{\oplus_{j\neq i}A_j},\]
+        giving higher priority to requirements $R_{\langle e,i\rangle}$
+        where $\langle e,i\rangle$ is enumerated earlier. \\
+
+        To avoid conflicts, for each $\langle e,i\rangle$ we choose
+        witnesses from amongst $w_{\langle e,i\rangle}:=\{\langle
+        e,i,x\rangle: x\in\omega\}$ to satisfy restriction $R_{\langle
+        e,i\rangle}$. Also, at a given stage $s\in\omega$ for each
+        $\langle e,i\rangle$, we define the restraint function $r(\langle
+        e,i\rangle,s)$ to prevent elements that are smaller than the
+        restraint from entering $A_i$. We reset $r(\langle
+        e,i\rangle,s+1)=0$ if $R_{\langle e,i\rangle}$ is injured at stage
+        $s+1$. On the other hand, $r(\langle e,i\rangle,s)=0$ indicates
+        that $R_{\langle e,i\rangle}$ has either never been satisfied, or
+        satisfied, injured, and never satisfied since then until now. \\
+
+        \textit{Stage} $s=0$: Initialize $r(\langle e,i\rangle,0)=0$ for all
+        $e,i\in\omega$. \\
+
+        \textit{Stage} $s+1$: Consider the requirements $R_{\langle
+        e_0,i_0\rangle}, \ldots, R_{\langle e_s,i_s\rangle}$ in that order.
+        For each requirement $R_{\langle e_t,i_t\rangle}$ that is not
+        satisfied, let $x\in w_{\langle e_t,i_t\rangle}$ be the first
+        witness that is greater than all the higher order restraints
+        \[r(\langle e_0,i_0\rangle,s), \ldots, r(\langle
+        e_{t},i_{t}\rangle,s)\] where $i_r=i_t$. Let $k_0,\ldots,k_{n-1}$
+        be the indices not equal to $i_t$ and whose associated string
+        $A_{k_m}^s$ is non-empty at this stage. In the enumeration of all
+        finite strings $2^{\omega}$, consider the first $s$ extensions of
+        each of the strings $A_{k_m}^s$. From these extensions check if
+        there are any $\sigma_{k_m}\succ A_{k_m}^s$ such that
+        \[\Phi_{e,s}^{\oplus_{0\leq r<n}\sigma_{k_r}}(x) \downarrow=0.\]
+        Let $R_{\langle e_t,i_t\rangle}$ be the requirement of highest
+        priority that is not satisfied and for which such extensions exist
+        that result in convergence. \\
+
+        \textit{Action}. If no such requirement $R_{\langle
+        e_t,i_t\rangle}$ exists, do nothing and go to the next stage.
+        Otherwise we say that $R_{\langle e_t,i_t\rangle}$ acts at stage
+        $s+1$, and we perform the following steps. \\
+
+        \textit{Step 1.} Enumerate $x$ into $A_{i_t}$. So
+        $A_{i_t}^{s+1}=A_{i_t}^s\cup\{\langle x,1\rangle\}$. \\
+
+        \textit{Step 2.} We want to update the restraint function
+        $r(\langle e_t,i_t\rangle,s+1)$. In the fixed enumeration
+        $\{\langle x_r,i_r\rangle\}_{r\in\omega}$ of $\omega^2$, let
+        $r\in\omega$ be the smallest index such that all $\langle
+        0,i_t\rangle, \ldots, \langle x,i_t\rangle$ has been enumerated.
+        Set
+        \[r(\langle e_t,i_t\rangle,s+1) =\max(y: \langle y,i_t\rangle
+        \in\{\langle 0,i_t\rangle, \ldots, \langle r,i_t\rangle\}).\]
+        This attempts to restraint $A_{i_t}$ in order to preserve the
+        computation $\Phi^{\oplus_{j\neq i_t}A_j}_{e_t}(x) \downarrow
+        =0\neq A_{i_t}(x)$, and also ensures that when values larger than
+        $x$ are enumerated into $A_{i_t}$ in the future, the join 
+        $\oplus_{u\neq j}A_u$ which involves joining $A_{i_t}$ will
+      \end{proof}
+  \end{enumerate}
 
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
   total function $g$ extending $f$. So if $f(x)$ exists then $f(x)=g(x)$.
