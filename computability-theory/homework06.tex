@@ -443,11 +443,31 @@
 
         \textit{Step 4.} Preserve the restraint functions for higher
         priority requirements - set $r(e',i',s+1)=r(e',i',s)$ for all
-        $\langle e',i'\rangle <\langle e,i\rangle$.
+        $\langle e',i'\rangle <\langle e,i\rangle$. \\
 
-        \textit{Verification - base case $R_0$:} We now verify that the
-        construction works. $\{A_i\}_{i\in\omega}$ is clearly u.c.e from
-        construction. We verify by induction on $\langle
+        \textbf{Verification:} We now verify that the construction works.
+        $\{A_i\}_{i\in\omega}$ is clearly u.c.e from construction. We first
+        show by induction on $n\in\omega$ that all
+        requirements $R_{n}$ are satisfied and injured
+        only a finite number of times. For the base case, $R_0$ is never
+        injured since requirements can only be injured when higher order
+        requirements are satisfied, and there are no requirements that are
+        of higher priority than $R_0$. Also, $R_0$ can only be satisfied at
+        most once, because once it is satisfied, then it will never be
+        injured and therefore never needs to be satisfied again. \\
+
+        For the inductive step $n$, assume that $R_0,\ldots,R_{n-1}$ are
+        all only injured and satisfied a finite number of times. Let
+        $s\in\omega$ be the first stage after which all the these
+        requirements have been injured and satisfied for the last time.
+        Then $R_n$ will never be injured after stage $s$ since the
+        requirements of higher priority are never injured after stage $s$.
+        Also, once $R_n$ is satisfied after stage $s$, it will never be
+        injured since the higher priority requirements are never injured.
+        Therefore $R_n$ will only be satisfied or injured a finte number of
+        times. \\
+
+        \textit{Base case:} Now we verify by induction on $\langle
         e,i\rangle\in\omega$ that all requirements $R_{\langle e,i\rangle}$
         are satisfied. For the base case $\langle e,i\rangle=0$, assume by
         contradiction that $A_i(x)=\Phi_e^{\oplus_{j\neq i} A_j}(x)$ for
@@ -458,11 +478,11 @@
         highest priority and the restraint functions ensure that the
         computations involved in satisfying it will always be preserved.
         Therefore, if $R_{\langle e,i\rangle}$ is not satisfied, it must
-        never have been satisfied. Then from construction, none of the
-        witnesses in $w_{e,i}$ was ever enumerated into $A_i$, so the at
-        every stage $s>0$, we would consider trying to satisfy $R_{\langle
-        e,i\rangle}$ using the same witness $x\in w_{e,i}$, and $x\not\in
-        A_i$. \\
+        never have been satisfied. Then from our choice of potential
+        witness, none of the witnesses in $w_{e,i}$ was ever enumerated
+        into $A_i$, so the at every stage $s>0$, we would consider trying
+        to satisfy $R_{\langle e,i\rangle}$ using the same witness $x\in
+        w_{e,i}$, and $x\not\in A_i$. \\
 
         Now since $\Phi_e^{\oplus_{j\neq i} A_j}(x)\downarrow$ by
         assumption, and $\{A_j\}_{j\in\omega}$ is u.c.e., there must be
@@ -470,18 +490,46 @@
         \[\oplus_{j\neq i} A_j^s \restriction s =\oplus_{j\neq i} A_j
         \restriction s,\]
         so that
-        \begin{equation*}
+        \begin{equation}
           \Phi_{e,s}^{\oplus_{j\neq i} A_j^s \restriction s}(x)
           =\Phi_e^{\oplus_{j\neq i} A_j}(x) \downarrow.
           \label{eq:sat}
-        \end{equation*}
+        \end{equation}
 
-        Now since $x$ was never enumerated into $A_i$, at stage $s$
+        Then since $x$ was never enumerated into $A_i$, at stage $s$
         $A_i^s(x)=0$, so from assumption equation~\eqref{eq:sat} also
         converges to 0 at stage $s$. Then since the $R_{\langle
         e,i\rangle}$ is of highest priority and was never satisfied, at
         stage $s$ we must have chosen to satisfy $R_{\langle
         e,i\rangle}$ and enumerated $x$ into $A_i$, a contradiction. \\
+
+        \textit{Inductive step:} Assume all higher priority requirements
+        $\{R_n\}_{n <\langle e,i\rangle}$ have been satisfied but
+        $A_i(x)=\Phi_e^{\oplus_{j\neq i} A_j}(x)$ for all $x\in\omega$ by
+        contradiction. By our earlier claim, all requirements are injured
+        and satisfied only a finite number of times, so wait for a stage
+        $s$ where all requirments $R_0,\ldots,R_{\langle e,i\rangle}$ have
+        been injured and satisfied for the last time. Then $R_{\langle
+        e,i\rangle}$ cannot be satisfied at stage $s$, and is never
+        satisfied after stage $s$. \\
+
+        Consider the potential witness that we has been considered for
+        $R_{\langle e,i\rangle}$ at stages greater than $s'$. Note that we
+        will always consider potential witnesses for $R_{\langle
+        e,i\rangle}$ because the higher prioity requirements that are not
+        satisfied at stage $s'$ will never be satisfied after stage $s'$.
+        Observe that since the restraints imposed by the higher priority
+        requirements never change after stage $s'$, the potential witness
+        $x\in w_{e,i}-A_i^{s'}$ that we consider will always be the same
+        one. Our argument from here will then be similar to the argument
+        for the base case - since $\Phi_e^{\oplus_{j\neq i} A_j}(x)$
+        converges by assumption, we wait for the first stage $s\geq s'$
+        where the sequences involved in the computation stabalizes. Since
+        $x\not\in A_i^{s'}$ and $x$ will never be enumerated into $A_i$
+        because $R_{\langle e,i\rangle}$ is never satisfied after stage
+        $s'$, we must have $\Phi_e^{\oplus_{j\neq i} A_j}(x)=A_i(x)=0$, and
+        $R_{\langle e,i\rangle}$ must have been chosen to be satisfied and
+        have $x$ enumerated into $A_i$ at stage $s$, a contradiction.
       \end{proof}
   \end{enumerate}
 
