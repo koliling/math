@@ -696,9 +696,9 @@
     \[D=\Phi_i^{W_e}\;\; \text{and}\;\; W_e=\Phi_j^D,\]
     thus $R_{\langle e,i,j\rangle}$ would not be satisfied. \\
 
-    Next, we show by induction on $n\in\omega$ that all requirements
-    $R_{n}$ are satisfied by the first clause and the second clause and
-    get injured only finitely many times. For the base case, $R_0$ is
+    Next, we show by induction on $n\in\omega$ that there are only a finite
+    number of times where $R_n$ can get injured, get acted by the first
+    clause, or get acted by the second clause. For the base case, $R_0$ is
     never injured since requirements can only be injured when higher order
     requirements are satisfied, and there are no requirements that are of
     higher priority than $R_0$. Also, $R_0$ can only be satisfied by either
@@ -718,43 +718,31 @@
     priority requirements are never satisfied again. Therefore $R_n$ will
     only be satisfied or injured a finte number of times. \\
 
-    \textit{Base case:} Next we verify by induction on $\langle
+    \textit{Base case:} We verify by induction on $\langle
     e,i,j\rangle\in\omega$ that all requirements $R_{\langle e,i,j\rangle}$
     are satisfied. For the base case $\langle e,i,j\rangle=0$, assume by
     contradiction that for all $x\in\omega$,
     \[D(x)=\Phi_i^{W_e}(x)\;\; \text{and}\;\; W_e(x)=\Phi_j^D(x).\]
 
-    We first show that $R_{\langle e,i,j\rangle}$ was never acted by the
-    second clause. From construction, if $R_{\langle e,i,j\rangle}$ acts
-    by the second clause at stage $s$, then $R_{\langle e,i,j\rangle}$ will
-    forever be satisfied by the second clause because $R_{\langle
-    e,i,j\rangle}$ has highest priority and the use function $v(e,i,j,s)$
-    preserves the computations involved in satisfying the second clause.
-    More precisely, when the second clause is acted on, we have
-    \[1=W_{e,s}(y) =\Phi_{j,s}^{D_s\restriction (v(e,i,j,s)+1)}(y)\] for
-    some $y\in\omega$ that is enumerated into both $A$ and $B$ at stage
-    $s+1$. But $D\restriction (v(e,i,j,s+1)+1) =D_{s+1}\restriction
-    (v(e,i,j,s+1)+1)$ since $v(e,i,j,s+1)$ prevents elements smaller than
-    it to be enumerated into $A$ or $B$ after stage $s+1$, thus
-    \[1=W_{e}(y) =\Phi_{j}^{D\restriction (v(e,i,j,s)+1)}(y),\] which
-    implies $R_{\langle e,i,j\rangle}$ is satisfied by the second clause
-    with witness $y\in A\cap B$. Therefore, if $R_{\langle e,i,j\rangle}$
-    is not satisfied, then $R_{\langle e,i,j\rangle}$ must have never been
-    acted by the second clause. \\
+    By earlier argument, $R_{\langle e,i,j\rangle}$ can only be acted on a
+    finite number of times. Wait for a stage after $R_{\langle
+    e,i,j\rangle}$ is acted on for the last time. Then there are three
+    possible cases - $R_{\langle e,i,j\rangle}$ was never acted on by any
+    clauses; the last time $R_{\langle e,i,j\rangle}$ was acted on was by
+    the first clause; or the last time $R_{\langle e,i,j\rangle}$ was acted
+    on was by the second clause. \\
 
-    It can only be that $R_{\langle e,i,j\rangle}$ was never acted by
-    either clauses throughout the construction, or that the requirement was
-    acted by the first clause exactly once and never acted by the second
-    clause. Assume it is the first case. Now $R_{\langle e,i,j\rangle}$ has
-    the highest priority, so it is never injured. Thus we must have always
-    chosen the same potential witness $x\in w_{e,i,j}$ for $R_{\langle
-    e,i,j\rangle}$ for all stages of the construction. Also, since the
-    requirement was never acted by the first clause, $x$ was never
-    enumerated into $A$ or $B$. Then since $\Phi_i^{W_e}(x)=D(x)=0$ by
-    assumption, at some large enough stage $s'\in\omega$, we must have
-    \[W_e\restriction (s'+1) =W_{e,s'}\restriction (s'+1)\;\; \text{and}\;\;
-    \Phi_{i}^{W_{e} \restriction (s'+1)}(x) =\Phi_{i,s'}^{W_{e,s'}
-    \restriction (s'+1)}(x)=0.\]
+    Assume $R_{\langle e,i,j\rangle}$ was never acted on by any clauses.
+    Now $R_{\langle e,i,j\rangle}$ has the highest priority, so it is never
+    injured. Thus we must have always chosen the same potential witness
+    $x\in w_{e,i,j}$ for $R_{\langle e,i,j\rangle}$ for all stages of the
+    construction. Also, since the requirement was never acted by the first
+    clause, $x$ was never enumerated into $A$ or $B$. Then since
+    $\Phi_i^{W_e}(x)=D(x)=0$ by assumption, at some large enough stage
+    $s'\in\omega$, we must have
+    \[W_e\restriction (s'+1) =W_{e,s'}\restriction (s'+1)\;\;
+    \text{and}\;\; \Phi_{i}^{W_{e} \restriction (s'+1)}(x)
+    =\Phi_{i,s'}^{W_{e,s'} \restriction (s'+1)}(x)=0.\]
 
     Similarly, since $W_e\restriction(s'+1) =\Phi_j^D\restriction(s'+1)$ by
     assumption, at some large enough stage $s\geq s'$, we must have
@@ -766,46 +754,52 @@
     satisfied such that $R_{\langle e,i,j\rangle}$ is acted by the first
     clause, a contradiction. \\
 
-    Finally, assume that $R_{\langle e,i,j\rangle}$ was acted by the first
-    clause exactly once but never acted by the second clause. Let $s$ be
-    the stage at which the requirement was acted by the first clause. Then
+    Next, assume that last time $R_{\langle e,i,j\rangle}$ was acted on was
+    by the first clause. Then $R_{\langle e,i,j\rangle}$ was never acted
+    by the second clause. Let $s$ be the stage at which the requirement was
+    acted by the first clause. Then
     \[0=D_s(x) =\Phi_{i,s}^{W_{e,s}\restriction (u+1)} (x)\;\;
     \text{and}\;\; 1=D(x)=D_{s+1}(x) \neq\Phi_{i,s}^{W_{e,s}\restriction
     (u+1)} (x)\]
     for some $u\leq s$. Yet, for all stages $t>s$, no new elements were
-    enumerated into $W_e\restriction (u+1)$, so the computation for
-    inequality in right clause above is preserved, i.e.
+    enumerated into $W_e\restriction (u+1)$ since the second clause never
+    acted on $R_{\langle e,i,j\rangle}$, so the computation for inequality
+    in right clause above is preserved, i.e.
     \[\Phi_{i,s}^{W_{e,s}\restriction (u+1)} (x)
     =\Phi_{i}^{W_{e}\restriction (u+1)} (x).\]
     Thus the right clause of $R_{\langle e,i,j\rangle}$ is not satisfied, a
     contradiction. \\
 
+    Finally, assume that last time $R_{\langle e,i,j\rangle}$ was acted on
+    was by the second clause. From construction, if $R_{\langle
+    e,i,j\rangle}$ acts by the second clause at stage $s$, then $R_{\langle
+    e,i,j\rangle}$ will forever be satisfied by the second clause because
+    $R_{\langle e,i,j\rangle}$ has highest priority and the use function
+    $v(e,i,j,s)$ preserves the computations involved in satisfying the
+    second clause.  More precisely, when the second clause is acted on, we
+    have \[1=W_{e,s}(y) =\Phi_{j,s}^{D_s\restriction (v(e,i,j,s)+1)}(y)\]
+    for some $y\in\omega$ that is enumerated into both $A$ and $B$ at stage
+    $s+1$. But $D\restriction (v(e,i,j,s+1)+1) =D_{s+1}\restriction
+    (v(e,i,j,s+1)+1)$ since $v(e,i,j,s+1)$ prevents elements smaller than
+    it to be enumerated into $A$ or $B$ after stage $s+1$, thus
+    \[1=W_{e}(y) =\Phi_{j}^{D\restriction (v(e,i,j,s)+1)}(y),\] which
+    implies $R_{\langle e,i,j\rangle}$ is satisfied by the second clause
+    with witness $y\in A\cap B$. Therefore, if $R_{\langle e,i,j\rangle}$
+    is not satisfied, then $R_{\langle e,i,j\rangle}$ must have never
+    been acted by the second clause. \\
+
     \textit{Inductive step:} Assume all higher priority requirements
-    $\{R_n\}_{n <\langle e,i\rangle}$ have been satisfied but $R_{\langle
+    $\{R_n\}_{n <\langle e,i,j\rangle}$ have been satisfied but $R_{\langle
     e,i,j\rangle}$ is not. By our earlier claim, all requirements are
     injured and acted on only a finite number of times, so wait for a
-    stage $s$ where all requirments $R_0,\ldots,R_{\langle e,i,j\rangle}$
+    stage $s$ where all requirements $R_0,\ldots,R_{\langle e,i,j\rangle}$
     have been injured and acted on for the last time. Then $R_{\langle
     e,i\rangle}$ cannot be satisfied at stage $s$, and is never satisfied
-    after stage $s$. \\
-
-    %Consider the potential witness that we has been considered for
-    %$R_{\langle e,i\rangle}$ at stages greater than $s'$. Note that we
-    %will always consider potential witnesses for $R_{\langle
-    %e,i\rangle}$ because the higher prioity requirements that are not
-    %satisfied at stage $s'$ will never be satisfied after stage $s'$.
-    %Observe that since the restraints imposed by the higher priority
-    %requirements never change after stage $s'$, the potential witness
-    %$x\in w_{e,i}-A_i^{s'}$ that we consider will always be the same
-    %one. Our argument from here will then be similar to the argument
-    %for the base case - since $\Phi_e^{\oplus_{j\neq i} A_j}(x)$
-    %converges by assumption, we wait for the first stage $s\geq s'$
-    %where the sequences involved in the computation stabalizes. Since
-    %$x\not\in A_i^{s'}$ and $x$ will never be enumerated into $A_i$
-    %because $R_{\langle e,i\rangle}$ is never satisfied after stage
-    %$s'$, we must have $\Phi_e^{\oplus_{j\neq i} A_j}(x)=A_i(x)=0$, and
-    %$R_{\langle e,i\rangle}$ must have been chosen to be satisfied and
-    %have $x$ enumerated into $A_i$ at stage $s$, a contradiction.
+    after stage $s$. Also, since the higher priority requirements are never
+    acted on again, the potential witness that we choose to satisfy
+    $R_{\langle e,i,j\rangle}$ will always be the same after stage $s$.
+    Therefore we can use the same argument for the base case to give a
+    contradiction if $R_{\langle e,i,j\rangle}$ is not satisfied. \\
   \end{proof}
 
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
