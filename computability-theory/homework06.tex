@@ -802,6 +802,52 @@
     contradiction if $R_{\langle e,i,j\rangle}$ is not satisfied. \\
   \end{proof}
 
+\it \textbf{Q2:} Prove that if $G$ is 1-generic, then $G$ is immune,
+  hyperimmune, and if $G=A_0\oplus A_1$, then $A_0$ and $A_1$ are pairwise
+  Turing incomparable.
+
+  \begin{proof}
+    To show $G$ is immune, let $Z\neq\emptyset$ be a c.e. set contained in
+    $G$. We show that $|Z|$ must be finite. Consider the set $V\subseteq
+    2^{<\omega}$ defined by
+    \[V:= \{\sigma: (\exists x\in Z)\; [\sigma(x)=0]\}.\]
+
+    This set is c.e. because $Z$ is c.e.: at any given stage $s$, we can
+    enumerate into $V$ all the strings in $2^{<s}$ satisfying $\sigma(x)=0$
+    for some $x$ amongst the first $s$ elements enumerated into $Z$. Now
+    since $G$ is generic, it must contain an initial segment $\sigma$
+    that is either contained in $V$ or whose extensions are never
+    contained in $V$. The former cannot be true since $Z\subseteq G$ and
+    $\sigma(x)=1$ for all $\sigma\prec G$ and $x\in Z$. So it must be
+    that all extensions of some $\sigma\prec G$ is not contained in $V$. In
+    this case, $Z$ cannot be infinite otherwise we can pick an element $x$
+    in $Z$ larger than $|\sigma|$, and extend $\sigma$ to an arbitrary
+    string $\tau\succ\sigma$ with $\tau(x)=0$; then $\tau$ is an extension
+    of $\sigma$ that lies in $V$, a contradiction. Therefore $G$ is immune.
+    \\
+
+    We use a similar approach to show $G$ is hyperimmune. Let $f(n)$ be a
+    total computable function such that $\{D_{f(n)}\}_{n\in\omega}$ is a
+    disjoint strong array. Consider the set $W\subseteq 2^{<\omega}$
+    defined by
+    \[W:= \{\sigma: (\exists n)(\forall x\in D_{f(n)})\;
+    [\sigma(x)=0]\}.\]
+
+    This set is c.e. because $Z$ is c.e.: at any given stage $s$, we can
+    enumerate into $W$ all the strings in $2^{<s}$ satisfying $\sigma(x)=0$
+    for some $x$ amongst the first $s$ elements enumerated into $Z$. Now
+    since $G$ is generic, it must contain an initial segment $\sigma$
+    that is either contained in $W$ or whose extensions are never
+    contained in $W$. The former cannot be true since $Z\subseteq G$ and
+    $\sigma(x)=1$ for all $\sigma\prec G$ and $x\in Z$. So it must be
+    that all extensions of some $\sigma\prec G$ is not contained in $W$. In
+    this case, $Z$ cannot be infinite otherwise we can pick an element $x$
+    in $Z$ larger than $|\sigma|$, and extend $\sigma$ to an arbitrary
+    string $\tau\succ\sigma$ with $\tau(x)=0$; then $\tau$ is an extension
+    of $\sigma$ that lies in $W$, a contradiction. Therefore $G$ is immune.
+    \\
+  \end{proof}
+
 \it \textbf{Q3:} Show that every partial computable function $f$ has a low
   total function $g$ extending $f$. So if $f(x)$ exists then $f(x)=g(x)$.
 
