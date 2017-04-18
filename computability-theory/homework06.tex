@@ -201,10 +201,10 @@
     a_0,\ldots,a_{n-1}}\]
     lies strictly between the two given elements. \\
 
-    Also by a considering multiples of periods, we can show
-    that given any finite number of incomparable elements from $P$, we can
-    effectively construct a new element that is incomparable from all those
-    elements: Like before, we can assume that the given $k$ elements
+    Also by a considering multiples of periods, we can show that given any
+    finite number of elements from $P$, we can effectively construct a new
+    element that is incomparable from all those elements: Like before, we
+    can assume that the given $k$ elements
     \[a_0=\overline{a_{0,0},\ldots,a_{0,n-1}},\; \ldots,\;
     a_{k-1}=\overline{a_{k-1,0},\ldots,a_{k-1,n-1}}\]
     have the same period $n$. For each element $a_i$, let $u_i$ be the
@@ -265,7 +265,7 @@
     partially ordered set $\mathcal{P}=(P,\leq_P)$ can be embedded in some
     computable partial ordering. Thus it suffices to show that we can embed
     a computable partial ordering into $\bm{D}(\leq\emptyset')$.
-    Equivalently, we assume that $P=\omega$ and $\leq_P$ is computable. \\
+    Therefore we can assume that $P=\omega$ and $\leq_P$ is computable. \\
 
     Let $\{A\}_{i\in\omega}$ be as in Exercise 6.1.4. Define
     $f:\omega\rightarrow \bm{D}(\leq\emptyset')$ by
@@ -803,6 +803,43 @@
     contradiction if $R_{\langle e,i,j\rangle}$ is not satisfied. \\
   \end{proof}
 
+\it \textbf{Soare 5.3.9:} Give a direct ``movable marker'' type
+  construction of an h-simple set. Hint: Modify the construction of the
+  canonical simple set in Theorem 5.2.5 with requirement $P_e$ of (5.1)
+  replaced by the requirement
+  \[\hat{P_e}: \{D_{\varphi_e(x)}\}_{x\in\omega}\; \text{a disjoint strong
+  array}\; \Rightarrow\; (\exists x)[D_{\varphi_e(x)} \subseteq A].\]
+
+  \begin{proof}
+    We follow Soare's hint. For every $e\in\omega$ we meet the requirement
+    $\hat{P_e}$. We construct the h-simple set $A$ in stages $s$, so that
+    $A=\cup_{s\in\omega} A_s$, where $A_s\subset\omega$, $A_0=\emptyset$,
+    and $A_s\subseteq A_{s+1}$. \\
+
+    \textit{Stage 0.} Initialize $A_0=\emptyset$. \\
+
+    \textit{Stage $s+1$.} Write
+    \[\overline{A_s}=\{a_0^s<a_1^s<\ldots\}.\]
+    Given $A_s$, choose the least $e\leq s$ that meets all these
+    conditions:
+
+    \begin{enumerate}[label={(\roman*)}]
+      \item There is some $t\leq s$ such that $\varphi_{e,s}(x)\downarrow$
+        for all $x<t$
+      \item $\{D_{\varphi_{e}(0)}, \ldots, D_{\varphi_{e}(t-1)}\}$ is a
+        disjoint strong array
+      \item For all $x<t$, $D_{\varphi_{e}(x)}\not\subseteq A_s$
+      \item For some $x<t$, all elements of $D_{\varphi_{e}(x)}$ are
+        greater than $a_e^s$.
+        \label{cond:marker}
+    \end{enumerate}
+
+    Choose the least such $e\leq s$, and for this $e$, choose the least
+    $x<t$ that satisfies condition~\ref{cond:marker}, and enumerate
+    all elements of $D_{\varphi_{e}(x)}$ in $A_{s+1}$. If there is no such
+    $e$, go to the next stage.
+  \end{proof}
+
 \it \textbf{Soare 5.3.14:} A set $S$ is introreducible if $S\leq_T T$ for
   every infinite set $T\subseteq S$. Let $A$ be an infinite c.c. set and
   $f$ a 1:1 computable function with range $A$. Let $a_s$ denote $f(s)$ and
@@ -814,15 +851,15 @@
     Let $T\subseteq\overline{D}$ be an arbitrary infinite subset of
     $\overline{D}$. Given $t\in\omega$, we can decide if $t$ lies in $T$
     using only $\overline{D}$, as follows. We ask $\overline{D}$ for the
-    smallest index $u\in\overline{D}$ such that $u>t$ and $a_u>a_t$. Such
-    $u$ must exist since $\overline{D}$ is infinite and since the $a_s$ are
-    distinct, therefore this question is recursive in $\overline{D}$.
-    Since $u\in\overline{D}$, all elements $a_u,a_{u+1},\ldots$ must be
-    greater than $a_{u-1}$, and therefore also greater than $a_{t-1}$. Thus
-    $t\in\overline{D}$ if and only if the elements
-    $a_t,a_{t+1},\ldots,a_{u-2}$ are also greater than $a_{t-1}$. Since
-    there are only a finite elements to check, and $f$ is recursive, we can
-    decide if $t$ lies in $\overline{D}$.
+    smallest index $u\in\overline{D}$ such that $u>t$ and
+    $a_{u-1}>a_{t-1}$. Such $u$ must exist since $\overline{D}$ is infinite
+    and since the $a_s$'s are distinct, therefore this question is
+    recursive in $\overline{D}$.  Since $u\in\overline{D}$, all elements
+    $a_u,a_{u+1},\ldots$ must be greater than $a_{u-1}$, and therefore also
+    greater than $a_{t-1}$. Thus $t\in\overline{D}$ if and only if the
+    elements $a_t,a_{t+1},\ldots,a_{u-2}$ are also greater than $a_{t-1}$.
+    Since there are only a finite elements to check, and $f$ is recursive,
+    we can decide if $t$ lies in $\overline{D}$.
   \end{proof}
 
 \it \textbf{Soare 5.4.5:} Prove that the following are equivalent for an
