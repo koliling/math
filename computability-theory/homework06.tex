@@ -532,6 +532,32 @@
         $R_{\langle e,i\rangle}$ must have been chosen to be acted and
         have $x$ enumerated into $A_i$ at stage $s$, a contradiction.
       \end{proof}
+
+    \item Show that any countable partially ordereed set can be embedded in
+      the c.e. degrees $(\bm{C},\leq_T)$ by an order-preserving map.
+      (See the hint for Exercise 6.1.6.)
+
+      \begin{proof}
+        Similar to Exercise 6.1.6, we may assume that the given partially
+        ordered set is of the form $\mathcal{P}=(\omega,\leq_P)$, where
+        $\leq_P$ is computable. Let $\{A\}_{i\in\omega}$ be the u.c.e.
+        sequence of c.e. sets constructed in the first part of this
+        question. Define the map $f:\omega\rightarrow \bm{C}$ by
+        $f(i)=\bm{a}_i=\text{deg}(\oplus A_j:j\leq_P i)$. The argument that
+        $i\leq_P j$ if and only if $\bm{a}_i\leq_T\bm{a}_j$ is the same as
+        for Exercise 6.1.6. Thus it remains to show that map $f$ is
+        well-defined, i.e. given any $i\in\omega$, $\bm{a}_i$ is c.e. \\
+
+        Let $i\in\omega$ be arbitrary, and $g(e)$ be a computable function
+        such that $A_e=W_{g(e)}$ for all $e\in\omega$. We show that there
+        is a $\Sigma_1$-formula that decides if a given $(x,j)$ lies in
+        $\bm{a}_i$. We first check if $j\leq_P i$; this is decidable since
+        $\leq_P$ is computable. If $j\not\leq_P i$, then
+        $(x,j)\not\in\bm{a}_i$. On the other hand, if $j\leq_P i$, then we
+        wait for $A_j$ to enumerate $x$. Formally, $(x,j)\in\bm{a}_i$ if
+        and only if $(x,j)$ satisfies the $\Sigma_1$-formula
+        \[j\leq_Pi\;\; \wedge\;\; (\exists s)\; [x\in W_{g(j),s}].\]
+      \end{proof}
   \end{enumerate}
 
 \it \textbf{Soare 7.3.7:} (Cooper-Epstein-Lachlan) Construct a pair of c.e.
@@ -570,7 +596,7 @@
     requirement $R_{\langle e,i,j\rangle}$. Also, at a given stage
     $s\in\omega$ and for each $e,i,j\in\omega$, we define use functions
     $u(e,i,j,s)$ and $v(e,i,j,s)$ to keep track of the length of $W_{e,s}$
-    and of $D_s=A_s-B_s$ respectively that has been used to act
+    and of $D_s=A_s-B_s$ respectively that has been used to act on
     requirement $R_{\langle e,i,j\rangle}$. The use function $v(e,i,j,s)$
     for $D_s$ is also used to preserve the computation involved in
     acting $R_{\langle e,i,j\rangle}$ - lower priority requirements are
