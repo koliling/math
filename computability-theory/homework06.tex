@@ -803,6 +803,28 @@
     contradiction if $R_{\langle e,i,j\rangle}$ is not satisfied. \\
   \end{proof}
 
+\it \textbf{Soare 5.3.14:} A set $S$ is introreducible if $S\leq_T T$ for
+  every infinite set $T\subseteq S$. Let $A$ be an infinite c.c. set and
+  $f$ a 1:1 computable function with range $A$. Let $a_s$ denote $f(s)$ and
+  $A_s=\{a_v:v\leq s\}$. Let
+  \[\overline{D} :=\{t: A\restriction a_t =A_t\restriction a_t\}.\]
+  Prove that $\overline{D}$ is introreducible.
+
+  \begin{proof}
+    Let $T\subseteq\overline{D}$ be an arbitrary infinite subset of
+    $\overline{D}$. Given $t\in\omega$, we can decide if $t$ lies in $T$
+    using only $\overline{D}$, as follows. We ask $\overline{D}$ for the
+    smallest index $u\in\overline{D}$ such that $u>t$ and $a_u>a_t$. Such
+    $u$ must exist since $\overline{D}$ is infinite and since the $a_s$ are
+    distinct, therefore this question is recursive in $\overline{D}$.
+    Since $u\in\overline{D}$, all elements $a_u,a_{u+1},\ldots$ must be
+    greater than $a_{u-1}$, and therefore also greater than $a_{t-1}$. Thus
+    $t\in\overline{D}$ if and only if the elements
+    $a_t,a_{t+1},\ldots,a_{u-2}$ are also greater than $a_{t-1}$. Since
+    there are only a finite elements to check, and $f$ is recursive, we can
+    decide if $t$ lies in $\overline{D}$.
+  \end{proof}
+
 \it \textbf{Soare 5.4.5:} Prove that the following are equivalent for an
   arbitrary set $A$:
 
