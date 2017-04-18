@@ -246,7 +246,12 @@
     isomorphic to its image
     $(\varphi(\{0,\ldots,s+1\}),\leq_P)\subset\mathcal{P}$. Thus
     $\mathcal{R}$ will be isomorphic to
-    $(\varphi(\omega),\leq_P)\subseteq\mathcal{P}$.
+    $(\varphi(\omega),\leq_P)\subseteq\mathcal{P}$. More specifically, if
+    $i|_R j$, then at stage $\max(i,j)$, the construction would map the
+    element that is enumerated later to an element that is $\leq_P$
+    incomparable with the image of the earlier element. On the other hand,
+    if $i\leq_R j$, then at stage $\max(i,j)$, the construction ensure that
+    $\varphi(i)\leq_P\varphi(j)$.
   \end{proof}
 
 \it \textbf{Soare 6.1.6:} Show that for a countable partially ordered set
