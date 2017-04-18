@@ -834,10 +834,48 @@
         \label{cond:marker}
     \end{enumerate}
 
-    Choose the least such $e\leq s$, and for this $e$, choose the least
-    $x<t$ that satisfies condition~\ref{cond:marker}, and enumerate
-    all elements of $D_{\varphi_{e}(x)}$ in $A_{s+1}$. If there is no such
-    $e$, go to the next stage.
+    Choose the least such $e\leq s$ satisfying all these conditions, and
+    for this $e$, choose the least $x<t$ that satisfies
+    condition~\ref{cond:marker}, and enumerate all elements of
+    $D_{\varphi_{e}(x)}$ in $A_{s+1}$. We say that requirement $\hat{P_e}$
+    acts at stage $s+1$. If there is no such $e$, go to the next stage. \\
+
+    \textbf{Verification}: $A$ is clearly c.e. from construction. We first
+    show that $|\overline{A}|$ is infinite. Let $n\in\omega$ be arbitrary.
+    We show that $|\overline{A}|>n$. Observe that each requirement
+    $\hat{P_e}$ can only act at most once, because once $\hat{P_e}$ has
+    acted, condition (iii) will never be satisfied again. So wait for the
+    first stage $s\in\omega$ such that all requirements
+    $\hat{P_0},\ldots,\hat{P_{n}}$ have acted, if they ever act. Then after
+    stage $s$, the only requirements that act must have index greater than
+    $n$. So by condition (iv), none of the elements
+    \[a_0^s<\ldots<a_n^s\]
+    will ever be enumerated into $A$, since these elements enter $A$ only
+    when a requirement of index lower than $n$ acts. In particular,
+    $\{a_0^s,\ldots,a_n^s\} \subset \overline{A}$, so $|\overline{A}|>n$.
+    \\
+
+    Next, we show that $\hat{P_e}$ is satisfied for all $e\in\omega$. Let
+    $e\in\omega$ be arbitrary. We can assume that
+    $\{D_{\varphi_e(x)}\}_{x\in\omega}$ is a disjoint strong array,
+    otherwise $\hat{P_e}$ is trivially satisfied. By earlier argument, we
+    can wait for the first stage $s\in\omega$ such that all requirements
+    $\hat{P_0},\ldots,\hat{P}_{e-1}$ have acted, if they ever act. We can
+    assume that $\hat{P_e}$ has not acted, otherwise this requirement would
+    be satisfied. Now from our choice of $s$, requirements with index
+    smaller than $e$ will never act after stage $s$, so elements
+    \[a_0^s<\ldots<a_e^s\] will never be enumerated into $A$. In
+    particular, at all stages $s'>s$, we will have $a_i^{s'}=a_i^s$ for all
+    $i\leq e$. Now since the strong array associated with $\varphi_e$ is
+    disjoint, there must exist some large enough $x>s$ such that all
+    elements of $D_{\varphi_e(x)}$ are greater than $a_e^s$. Then at some
+    large enough stage $t>x$, all elements
+    $\varphi_{e,t}(0),\ldots,\varphi_{e,t}(x)$ must have converged.
+    Therefore, at stage $t>s$, if $\hat{P}_e$ has not already acted, then
+    conditions (i) to (iv) would be satisfied. And since requirements of
+    lower index have already acted if they ever act, we would choose to
+    act on requirement $\hat{P}_e$ at stage $t$, and therefore satisfy
+    $\hat{P}_e$.
   \end{proof}
 
 \it \textbf{Soare 5.3.14:} A set $S$ is introreducible if $S\leq_T T$ for
@@ -854,12 +892,12 @@
     smallest index $u\in\overline{D}$ such that $u>t$ and
     $a_{u-1}>a_{t-1}$. Such $u$ must exist since $\overline{D}$ is infinite
     and since the $a_s$'s are distinct, therefore this question is
-    recursive in $\overline{D}$.  Since $u\in\overline{D}$, all elements
+    recursive in $\overline{D}$. Since $u\in\overline{D}$, all elements
     $a_u,a_{u+1},\ldots$ must be greater than $a_{u-1}$, and therefore also
-    greater than $a_{t-1}$. Thus $t\in\overline{D}$ if and only if the
-    elements $a_t,a_{t+1},\ldots,a_{u-2}$ are also greater than $a_{t-1}$.
-    Since there are only a finite elements to check, and $f$ is recursive,
-    we can decide if $t$ lies in $\overline{D}$.
+    greater than $a_{t-1}$. Thus $t\in T$ if and only if the elements
+    $a_t,a_{t+1},\ldots,a_{u-2}$ are also greater than $a_{t-1}$.  Since
+    there are only a finite elements to check, and $f$ is recursive, we can
+    decide if $t$ lies in $T$.
   \end{proof}
 
 \it \textbf{Soare 5.4.5:} Prove that the following are equivalent for an
