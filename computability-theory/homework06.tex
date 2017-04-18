@@ -803,6 +803,57 @@
     contradiction if $R_{\langle e,i,j\rangle}$ is not satisfied. \\
   \end{proof}
 
+\it \textbf{Soare 5.4.5:} Prove that the following are equivalent for an
+  arbitrary set $A$:
+
+  \begin{enumerate}[label={(\roman*)}]
+    \item $(\exists f\leq_T A)\; (\forall e)\; [W_e\neq W_{f(e)}]$,
+    \item $(\exists g\leq_T A)\; (\forall e)\; [\varphi_e\neq
+      \varphi_{g(e)}]$,
+    \item $(\exists h\leq_T A)\; (\forall e)\; [h(e)\neq \varphi_e(e)]$.
+  \end{enumerate}
+
+  \begin{proof}
+    (i) implies (ii) trivially with witness $f$ since
+    $\varphi_e=\varphi_{f(e)}$ implies $W_e=W_{f(e)}$. \\
+
+    (ii) $\Rightarrow$ (iii): Let $d(e)$ be the total recursive function
+    such that $\varphi_{d(e)} =\varphi_{\varphi_e(e)}$. Note that $d$
+    exists from SMN theorem. Consider the function $h=g\circ d$. Then for
+    all $e\in\omega$,
+    \[\varphi_{h(e)} =\varphi_{g(d(e))} \neq\varphi_{d(e)}
+    =\varphi_{\varphi_e(e)},\]
+    therefore $h(e)\neq\varphi_e(e)$. \\
+
+    (iii) $\Rightarrow$ (i): By SMN, there is a total recursive function
+    $q$ such that
+    \begin{align*}
+      \varphi_{q(e)}(y) :=
+      \begin{cases}
+        \mu x\; [\varphi_e(x)\downarrow] &\text{if}\; W_e\neq\emptyset,\\
+        \uparrow &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
+
+    Then by relativised SMN, there is a total function $f\leq_Th\leq_TA$
+    such that
+    \begin{align*}
+      \Phi_{f(e)}^A(y) :=
+      \begin{cases}
+        0 &\text{if}\; y=h(q(e)),\\
+        \uparrow &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
+
+    Then $W_{f(e)}=\{h(q(e))\}$ for all $e$. Now if $|W_e|\neq 1$, then
+    $W_e\neq W_{f(e)}$ since $|W_{f(e)}|=1$. So assume $|W_e|=1$, and write
+    $W_e=\{x\}$. Then by definition of $q(e)$, $\varphi_{q(e)}(y) =x$ for
+    all $y\in\omega$. In particular, $\varphi_{q(e)}(q(e)) =x$. But
+    $\varphi_{q(e)}(q(e))\neq h(q(e))$ by assumption of (iii), therefore
+    $h(q(e))\neq x$, which implies that
+    \[W_{f(e)}=\{h(q(e))\}\neq \{x\}=W_e.\]
+  \end{proof}
+
 \it \textbf{Q2:} Prove that if $G$ is 1-generic, then $G$ is immune,
   hyperimmune, and if $G=A_0\oplus A_1$, then $A_0$ and $A_1$ are pairwise
   Turing incomparable.
