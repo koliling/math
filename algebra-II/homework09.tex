@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,pgfplots,tikz}
+\usepackage{tikz-cd}
+\usepackage[inline]{enumitem}
+\usepackage{color}
+\setlength{\parindent}{0mm} %So that we do not indent on new paragraphs
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Graduate Algebra II: Homework 9}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\it \textbf{DF 13.6.3:} Prove that if a field contains the $n$-th roots of
+  unity for $n$ odd then it also contains the $2n$-th roots of unity.
+
+  \begin{proof}
+    We first show that for $n$ odd,
+    \[\mu_{2n} =\mu_n \cup \{-\xi:\xi\in\mu_n\}.\]
+    Clearly $\supseteq$ holds since $x^n=1$ implies $x^{2n}=1=(-x)^{2n}$.
+    For $\subseteq$, observe that if $x^n=1$, then $(-x)^n=-x^n\neq1$.
+    Therefore the right side of the equality has exactly $2n$ elements.
+    Then since $|\mu_{2n}|=2n$, the equality above holds. \\
+
+    Then since fields are closed under negation,
+    $\mathbb{Q}(\mu_n)=\mathbb{Q}(\mu_{2n})$ as required.
+  \end{proof}
+\end{document}
