@@ -180,4 +180,57 @@
         question.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{DF 13.6.9:} Suppose $A$ is an $n\times n$ matrix over
+  $\mathbb{C}$ for which $A^k=I$ for some integer $k\geq1$. Show that $A$
+  can be diagonalized. Show that the matrix $A=\begin{pmatrix} 1&\alpha\\
+  0&1\\ \end{pmatrix}$ where $\alpha$ is an element of a field of
+  characteristic $p$ satisfies $A^p=I$ and cannot be diagonalized if
+  $\alpha\neq0$.
+
+  \begin{proof}
+    Let $A$ be an $n\times n$ matrix over $\mathbb{C}$ for which $A^k=I$
+    for some integer $k\geq1$. Since this is a matrix over $\mathbb{C}$,
+    all the roots of its characteristic polynomial will be contained in
+    $\mathbb{C}$. Also, matrix $A$ satisfies the polynomial
+    $x^k-1=0$, which has distinct roots by Proposition 33, therefore the
+    minimal polynomial of $A$ must have distinct roots. Then from
+    Corollary 12.3.25, $A$ must be diagonalizable. \\
+
+    Let $A=\begin{pmatrix} 1&\alpha\\ 0&1\\ \end{pmatrix}$ over
+    $\mathbb{F}_p$ and where $\alpha$ is an element of a field of
+    characteristic $p$. By induction on $n$, we have
+    \[A^n =\begin{pmatrix} 1&n\alpha\\ 0&1\\ \end{pmatrix}.\]
+
+    Therefore $A^p=I$. Since $\alpha\neq0$, the matrix $B=A/\alpha$ is
+    well-defined, and is a Jordan block for the eigenvalue $1/\alpha$.
+    Then by uniqueness of the Jordan canonical form (Theorem 12.3.23),
+    $A$ is not diagonalizable.
+  \end{proof}
+
+\it \textbf{DF 13.6.10:} Let $\varphi$ denote the Frobenius map $x\mapsto
+  x^p$ on the finite field $\mathbb{F}_{p^n}$. Prove that $\varphi$ gives
+  an isomorphism of $\mathbb{F}_{p^n}$ to itself. A Prove that $\varphi^n$
+  is the identity map and that no lower power of $\varphi$ is the identity.
+
+  \begin{proof}
+    Clearly $\varphi$ preserves addition and multiplication from
+    Proposition 35, thus it is a ring homomorphism.
+    Recall that $\mathbb{F}_{p^n}^\times \cong\mathbb{Z}_{p^n-1}^+$.
+    Then $\varphi$ must be injective since homomorphism of fields are
+    injective. Then since $\mathbb{F}_{p^n}$ is finite, $\varphi$ must also
+    be surjective, therefore $\varphi$ is an automorphism. \\
+
+    $\varphi^n$ maps $x$ to $x^{p^n}$. Then since $\mathbb{F}_{p^n}^\times
+    \cong\mathbb{Z}_{p^n-1}^+$, all non-zero elements in $\mathbb{F}_{p^n}$
+    have multiplicative order $p^n-1$, therefore $\varphi$ is the identity
+    map. \\
+
+    Any lower power $m$ of $\varphi$ will map $x$ to $x^{p^n}$. Let
+    $a\in\mathbb{F}_{p^n}^\times$ be a generator. Then
+    $\varphi^m(a)=a^{p^m}$, which will equal to $a$ for the first time when
+    $p^m-1$ equals $p^n-1$ for the first time, since $a$ has multiplicative
+    order $p^n-1$. Therefore $n$ is the lowest such that $\varphi^n$ gives
+    the identity. 
+  \end{proof}
 \end{document}
