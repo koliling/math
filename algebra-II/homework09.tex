@@ -157,5 +157,27 @@
         must be distinct otherwise the roots would of $\Phi_l(x)$ would
         repeat.
       \end{proof}
+
+    \item In particular, prove that, viewed in $\mathbb{F}_p[x]$,
+      $\Phi_7(x) =x^6+x^5+\ldots+x+1$ is $(x-1)^6$ for $p=7$, a product of
+      distinct linear factors for $p\equiv1\mod 7$, a product of 3
+      irreducible quadratics for $p=6\mod7$, a product of 2 irreducible
+      cubics for $p=2,4\mod7$, and is irreducible for $p=3,5\mod7$.
+
+      \begin{proof}
+        Given that $l=7$, we first find the smallest $f\in\mathbb{N}$ such
+        that $p^f\equiv1\mod l$ for the given $p$'s:
+        \begin{align*}
+          1^1\equiv 1\mod7 \\
+          2^3\equiv 1\mod7 \\
+          3^6\equiv 1\mod7 \\
+          4^3\equiv 1\mod7 \\
+          5^6\equiv 1\mod7 \\
+          6^2\equiv 1\mod7 \\
+        \end{align*}
+
+        Therefore from part (c), we get the assertions given in the
+        question.
+      \end{proof}
   \end{enumerate}
 \end{document}
