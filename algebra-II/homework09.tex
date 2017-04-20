@@ -233,4 +233,29 @@
     order $p^n-1$. Therefore $n$ is the lowest such that $\varphi^n$ gives
     the identity. 
   \end{proof}
+
+\it \textbf{DF 13.6.11:} Let $\varphi$ denote the Frobenius map $x\mapsto
+  x^p$ on the finite field $\mathbb{F}_{p^n}$ as in the previous exercise.
+  Determine the rational canonical form over $\mathbb{F}_p$ for $\varphi$
+  considered as an $\mathbb{F}_p$-linear transformation of the
+  $n$-dimensional $\mathbb{F}_p$-vector space $\mathbb{F}_{p^n}$.
+
+  \begin{proof}
+    In the previous exercise, we showed that $\varphi$ satisfies the
+    polynomial $x^n-1=0$. We show that this is polynomial is also the
+    minimal polynomial $m_\varphi(x)$ of $\varphi$: Assume not. Then
+    $m_\varphi(x)$ has degree smaller than $n$, which implies that
+    all $p^n-1$ elements in $\mathbb{F}_{p^n}^\times$ satisfy a polynomial
+    smaller than $p^n$. But such a polynomial cannot has less than $p^n-1$
+    distinct roots, a contradiction. Therefore $m_\varphi(x)=x^n-1$. \\
+
+    Then $\varphi$ can has only one invariant factor $x^n-1$, thus its
+    rational canonical form is the $n\times n$ matrix
+    \[\begin{pmatrix}
+      0&0&\ldots&0&1\\
+      1&0&\ldots&0&0\\
+       & &\ldots& & \\
+      0&0&\ldots&1&0\\
+    \end{pmatrix}.\]
+  \end{proof}
 \end{document}
