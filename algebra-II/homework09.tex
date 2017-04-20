@@ -27,4 +27,45 @@
     Then since fields are closed under negation,
     $\mathbb{Q}(\mu_n)=\mathbb{Q}(\mu_{2n})$ as required.
   \end{proof}
+
+\it \textbf{DF 13.6.4:} Prove that if $n=p^km$ where $p$ is a prime and $m$
+  is relatively prime to $p$ then there are precisely $m$ distinct $n$-th
+  roots of unity over a field of characteristic $p$.
+
+  \begin{proof}
+    Over a field of characteristic $p$, by Proposition 35,
+    \[x^{p^km}-1 =(x^m-1)^{p^k},\]
+    so there are at most $m$ distinct $m$-th roots of unity. It suffices to
+    show that the roots of $x^m-1$ are distinct. Differentiating with
+    respect to $x$ gives $D_x(x^m-1)=mx^{m-1}$, which is non-zero since $p$
+    does not divide $m$. Therefore for $m>1$, $x^m-1$ and its derivative
+    are coprime, so the roots of $x^m-1$ are distinct by Proposition 33.
+  \end{proof}
+
+\it \textbf{DF 13.6.5:} Prove that there are only a finite number of roots
+  of unity in any finite extension $K$ of $\mathbb{Q}$.
+
+  \begin{proof}
+    If $\xi_n$ lies in $K$, then the degree $\varphi(n)$ of its cyclotomic
+    polynomial $\Phi_n(x)$ cannot be larger than $[K:\mathbb{Q}]$.
+    Therefore it suffices to that given any $m\in\mathbb{N}$, there can
+    only be a finite number of $m\in\mathbb{N}$ such that $\varphi(m)=n$.
+    \\
+
+    To that end, fix $m\in\mathbb{N}$. Let $p_1<\ldots<p_m$ be the
+    first $m$ primes. For each prime $p_i$, let $k_i\in\mathbb{N}$ be the
+    smallest positive integer such that $p_i^{k_i}-p_i^{k_i-1}>m$. Let $n$
+    be any positive integer greater than
+    \[N:=(p_1^{k_1}-p_1^{k_1-1}) \cdots (p_m^{k_m}-p_m^{k_m-1}).\]
+
+    Then either $n$ has a prime factor $p$ smaller than $p_m$ such that
+    $p^{k}|n$ for some $k>k_r-1$, or $n$ has at least one prime factor $q$
+    greater than $p_m$. In the former case, $p^k-p^{k-1}$ divides
+    $\varphi(n)$, so $\varphi$ will be greater than $m$. In the latter
+    case, the prime factor $q$ that is greater than $p_m$ must also be
+    greater than $m$, since $p_m>m$. But $q^k-q^{k-1}$ divides $\varphi(n)$
+    for some $k\geq1$, so $\varphi$ is also greater than $m$. Thus all
+    integers greater than $N$ will have Euler-totient value greater than
+    $m$.
+  \end{proof}
 \end{document}
