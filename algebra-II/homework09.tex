@@ -68,4 +68,21 @@
     integers greater than $N$ will have Euler-totient value greater than
     $m$.
   \end{proof}
+
+\it \textbf{DF 13.6.6:} Prove that for $n$ odd, $\Phi_{2n}(x)=\Phi_n(-x)$.
+  \begin{proof}
+    In Exercise 13.6.3, we proved that when $n$ is odd,
+    \[\mu_{2n} =\mu_n \cup \{-\xi:\xi\in\mu_n\}.\]
+
+    Therefore the $2n$-th roots of unity either satisfy $\Phi_n(x)$ or
+    $\Phi_n(-x)$. Note that $\Phi_n(-x)$ is a monic polynomial because
+    $\text{deg}(\Phi_n(x)) =\varphi(n)$ which is even because $n$ is odd.
+    Now since $\Phi_n(x)$ is irreducible over $\mathbb{Q}$, $\Phi_n(-x)$
+    must also be irreducible. Therefore $\Phi_{2n}(x)$ is either
+    $\Phi_n(x)$ or $\Phi_n(-x)$. Now the roots of $\Phi_n(x)$ cannot
+    contain the primitive $2n$-th root of unity since it contains exactly
+    the $n$-th roots of unity, therefore the primitive $2n$-th root of
+    unity must satisfy the other polynomial $\Phi_n(-x)$. Therefore
+    $\Phi_{2n}(x)=\Phi_n(x)$.
+  \end{proof}
 \end{document}
