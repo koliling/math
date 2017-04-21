@@ -20,9 +20,14 @@
     We first show that for $n$ odd,
     \[\mu_{2n} =\mu_n \cup \{-\zeta:\zeta\in\mu_n\}.\]
     Clearly $\supseteq$ holds since $x^n=1$ implies $x^{2n}=1=(-x)^{2n}$.
-    For $\subseteq$, observe that if $x^n=1$, then $(-x)^n=-x^n\neq1$.
-    Therefore the right side of the equality has exactly $2n$ elements.
-    Then since $|\mu_{2n}|=2n$, the equality above holds. \\
+    \\
+
+    For $\subseteq$, observe that $x^{2n}-1=(x^n-1)(x^n+1)$. Hence if $a$
+    is an $2n$-th root of unity, then it either satisfies $(x^n-1)$, or it
+    satisfies $(x^n+1)$. In the former case, $a$ would be an $n$-th root of
+    unity. In the latter case, $-a$ would satisfy $(x^n-1)$, so $-a$ is an
+    $n$-th root of unity, which implies that $a$ is the negation of some
+    $n$-th root of unity. \\
 
     Then since fields are closed under negation,
     $\mathbb{Q}(\mu_n)=\mathbb{Q}(\mu_{2n})$ as required.
@@ -258,4 +263,88 @@
       0&0&\ldots&1&0\\
     \end{pmatrix}.\]
   \end{proof}
+
+\it \textbf{DF 13.6.12:} Let $\varphi$ denote the Frobenius map $x\mapsto
+  x^p$ on the finite field $\mathbb{F}_{p^n}$ as in the previous exercise.
+  Determine the Jordan canonical form (over a field containing all the
+  eigenvalues) for $\varphi$ considered as an $\mathbb{F}_p$-linear
+  transformation of the $n$-dimensional $\mathbb{F}_p$-vector space
+  $\mathbb{F}_{p^n}$.
+
+  \begin{proof}
+    From the previous exercise, we showed that the invariant factor
+    of the transformation is is $x^n-1$. Write $n=mp^k$, where $(m,p)=1$.
+    Then from the proof of Exercise 13.6.4, $x^n-1=(x^m-1)^{p^k}$, and the
+    roots of $x^m-1$ are distinct. Therefore the invariant factor is
+    $x^n-1 =(x-a_1)^{p^k}\cdots(x-a_m)^{p^k}$, where $a_1,\ldots,a_m$ are
+    the $m$ distinct $n$-th roots of unity. So the transformation must have
+    $m$ elementary divisors each of multiplicity $p^k$. Thus the Jordan
+    canonical form of the transformation is composed of the $m$ respective
+    Jordan blocks.
+  \end{proof}
+
+\it \textbf{DF 14.1.4:} Prove that $\mathbb{Q}(\sqrt{2})$ and
+  $\mathbb{Q}(\sqrt{3})$ are not isomorphic.
+
+  \begin{proof}
+    Assume that $\sigma$ is an from $\mathbb{Q}(\sqrt{2})$ to
+    $\mathbb{Q}(\sqrt{3})$. Now all isomorphisms of fields of
+    characteristic 0 must fix $\mathbb{Q}$, therefore
+    \[2=\sigma(2) =\sigma((\sqrt{2})^2) =(\sigma(\sqrt{2}))^2.\]
+
+    But the solutions of $x^2=2$ are only $\pm\sqrt{2}$, therefore
+    $\sigma(\sqrt{2})$ must be $\pm\sqrt{2}$. However, $\pm\sqrt{2}$ does
+    not lie in $\mathbb{Q}(\sqrt{3})$: otherwise we can write
+    \[\pm\sqrt{2} =a\sqrt{3}+b\]
+    for some $a,b\in\mathbb{Q}$, then squaring on both sides and
+    rearranging give $\sqrt{3}\in\mathbb{Q}$, a contradiction.
+  \end{proof}
+
+\it \textbf{DF 14.1.4:} Determine the automorphisms of the extension
+  $\mathbb{Q}(\sqrt[4]{2})/\mathbb{Q}(\sqrt{2})$ explicitly.
+
+  \begin{proof}
+    $\mathbb{Q}(\sqrt[4]{2})$ is the splitting field of $x^2-\sqrt{2}$ over
+    $\mathbb{Q}(\sqrt{2})$. Therefore by Corollary 6, the extension is
+    Galois, so there are exactly 2 automorphisms of the extension. Then
+    from Proposition 2, the automorphisms must send $\sqrt[4]{2}$ to either
+    itself or its negation. So the two automorphisms are defined by their
+    image of  $\sqrt[4]{2}$ to either itself, which would give the identity
+    automorphism, or to its negation.
+  \end{proof}
+
+\it \textbf{DF 14.1.7:} This exercise determines
+  $\text{Aut}(\mathbb{R}/\mathbb{Q})$.
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that any $\sigma\in\text{Aut}(\mathbb{R}/\mathbb{Q})$ takes
+      squares to squares and takes positive reals to positive reals.
+      Conclude that $a<b$ implies that $\sigma a<\sigma b$ for every
+      $a,b\in\mathbb{R}$.
+
+      \begin{proof}
+        Given $r\in\mathbb{R}$, $\sigma(r^2)=(\sigma(r))^2$, therefore
+        automorphisms take squares to squares. So if $r>0$, then
+        \[\sigma(r)=\sigma((\sqrt{r})^2)=(\sigma(\sqrt{r}))^2>0.\]
+
+        In particular, if $a<b$, then $\sigma(b-a)>0$, then since
+        $\sigma(b-a)=\sigma(b)-\sigma(a)$, rearranging gives
+        $\sigma(a)<\sigma(b)$.
+      \end{proof}
+
+    \item Prove that $-\frac{1}{m}<a-b<\frac{1}{m}$ implies
+      $-\frac{1}{m}<\sigma a-\sigma b<\frac{1}{m}$ for every
+      positive integer $m$. Conclude that $\sigma$ is a continuous map on
+      $\mathbb{R}$.
+
+      \begin{proof}
+        The first assertion follows directly from part (a), since any
+        automorphism of fields of characteristic 0 must fix $\mathbb{Q}$.
+        To prove the second assertion from the first, fix any $\epsilon>0$,
+        and $a\in\mathbb{R}$. Let $m\in\mathbb{N}^+$ be such that
+        $1/m<\epsilon$. Then for all $b\in\mathbb{R}$ such that
+        $|a-b|<1/m$, the first assertion will give $|\sigma a-\sigma
+        b|<\epsilon$. Thus $\sigma$ is continuous.
+      \end{proof}
+  \end{enumerate}
 \end{document}
