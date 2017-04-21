@@ -346,5 +346,20 @@
         $|a-b|<1/m$, the first assertion will give $|\sigma a-\sigma
         b|<\epsilon$. Thus $\sigma$ is continuous.
       \end{proof}
+
+    \item Prove that any continuous map on $\mathbb{R}$ which is the
+      identity on $\mathbb{Q}$ is the identity map, hence
+      $\text{Aut}(\mathbb{R}/\mathbb{Q})=1$.
+
+      \begin{proof}
+        Let $r\in\mathbb{R}$. Then $r$ is the limit of an infinite series
+        of rational numbers
+        \[r =\lim_{n\rightarrow\infty} q_n.\]
+        
+        Then from continuity of $\sigma$,
+        \[\sigma r =\lim_{n\rightarrow\infty} \sigma q_n
+        =\lim_{n\rightarrow\infty} q_n =r,\]
+        as required.
+      \end{proof}
   \end{enumerate}
 \end{document}
