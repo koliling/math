@@ -362,4 +362,39 @@
         as required.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{DF 14.1.10:} Let $K$ be an extension of the field $F$. Let
+  $\varphi:K\rightarrow K'$ be an isomorphism of $K$ with a field $K'$
+  which maps $F$ to the subfield $F'$ of $K'$. Prove that the map $\psi$
+  defined by $\psi(\sigma) =\varphi\sigma\varphi^{-1}$ defines a group
+  isomorphism $\text{Aut}(K/F)\rightarrow\text{Aut}(K'/F')$. 
+
+  \begin{proof}
+    Let $\sigma,\tau\in\text{Aut}(K/F)$. Then
+    $\varphi(\sigma),\varphi(\tau) \in\text{Aut}(K'/F')$ since compositions
+    of isomorphisms are isomorphisms, and if $s\in F'$, then
+    $\sigma(\varphi^{-1}(s))=\varphi^{-1}(s)$, and
+    $\psi(\sigma)(s)=\varphi(\varphi^{-1}(s))=s$. Also,
+
+    \[\psi(\sigma\circ\tau) =\varphi\circ\sigma\circ\tau\varphi^{-1}
+    =\varphi\circ\sigma\circ\varphi^{-1}
+    \circ\varphi\circ\tau\circ\varphi^{-1} =\psi(\sigma)\circ\psi(\tau).\]
+    Thus $\psi$ is a group homomorphism from $\text{Aut}(K/F)$ to
+    $\text{Aut}(K'/F')$. \\
+
+    Next we show that $\psi$ is injective. If $\psi(\sigma)=\text{id}$,
+    then given $k\in K$, $\varphi(\sigma(\varphi^{-1}(\varphi(k))))
+    =\varphi(k)$ since $\varphi\circ\varphi^{-1}=\psi(\sigma) =\text{id}$.
+    Then composing with $\varphi^{-1}$ on both sides give
+    $\varphi^{-1}(\varphi(k)) =k=\sigma(\varphi^{-1}(\varphi(k)))
+    =\sigma(k)$, so $\sigma(k)=k$, implying $\sigma=\text{id}$ as required.
+    \\
+
+    Finally, we show by a similar argument that $\psi$ is surjective: Since
+    $\text{Im}(\psi) \subseteq\text{Aut}(K'/F')$,
+    $\varphi^{-1}\circ\tau\circ\varphi \in\text{Aut}(K/F)$. Also, since
+    $\psi(\varphi^{-1}\circ\tau\circ\varphi)
+    =\varphi\circ\varphi^{-1}\circ\tau\circ\varphi^{-1}\circ\varphi =\tau$,
+    we have $\tau\in\text{Im}(\psi)$, so $\psi$ is surjective.
+  \end{proof}
 \end{document}
