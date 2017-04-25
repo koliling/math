@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{stmaryrd} % For double square bracket [[]]
+\usepackage{bm} % For bold vectors
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Basic Logic II: Homework 7}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}
+  \item \it A set $A$ is REA iff $A=W^B\oplus A$ for some c.e. set $B$.
+    Show that every non-computable REA set is not-hyperimmune. It is enough
+    to show that there is a modulus $g\leq_TA$ such that every $h>g$
+    computes $A$.
+
+    \begin{proof}
+      Let $a\in\omega$ be the first element in $A$. Such an
+      element must exist since $A$ is non-computable. Then since
+      \[A =\{2x:x\in W^B\} \cup \{2x+1:x\in A\},\]
+      $a\in A$ would imply that $2a+1\in A$, which would in turn imply that
+      $2(2a+1)+1=4a+3\in A$, and so on. So we have a strictly ascending
+      infinite sequence of numbers
+      \[\{a <2a+1 <4a+3 <8a+7 <\ldots\} =\{2^xa+2^x-1: x\in\omega\}\]
+      that lie in $A$. Hence the computable function
+      $f:\omega\rightarrow\omega$ defined by $f(x)=2^xa+2^x-1$ would
+      computably bound $p_A(x)$, the principal function of $A$. Thus $A$
+      is not hyperimmune.
+    \end{proof}
+
+  \item \it Low-basis theorem.
+  \item \it Low-basis theorem.
+
+  \item \it Call $f$ diagonal non recursive (DNR) iff for all $e$,
+    $f(e)\neq\varphi_e(e)$. Show there is a $\Pi^0_1$ class of DNR
+    functions in Cantor Space. Show there is a low DNR function.
+
+  \item \it Show no 1-random is hyperimmune. (Again, think trees.)
+
+    \begin{proof}
+      Fix a universal Martin-Lof test
+      $\mathcal{A}_0\supset\mathcal{A}_1\supset\mathcal{A}_2\supset\ldots$,
+      where $\mathcal{A}_n\subseteq2^\omega$. Then $\mathcal{A}_n
+      =\llbracket A_n\rrbracket$ where $A_0,A_1,\ldots$ is a u.c.e.
+      sequence of subsets of $2^{<\omega}$, and
+      $\mu(\mathcal{A}_n)\leq2^{-n}$ for all $n\in\omega$. Let
+      $f\in2^\omega$ be 1-random real. We construct a disjoint strong array
+      $\{D_n\}_{n\in\omega}$ that witnesses the non-hyperimmunity of $f$.
+      We construct $D_n$ in stages $n$, defining $D_n$ at stage $n$. Each
+      $D_n$ we construct will be an interval, such that
+      $D_0=\{0,\ldots,a_0\}$ for some $a_0\in\omega$, and for each
+      $n\in\omega$, $D_{n+1}=\{a_n+1,\ldots,a_{n+1}\}$ for some
+      $a_{n+1}>a_n$. \\
+
+      At stage 0, let $k\in\omega$ be the first integer such that
+      $f\not\in \mathcal{A}_k$. Note that such $k$ must exist since $f$
+      passes the Martin-Lof test. Now the zero function $z\in2^\omega$ is
+      computable, so it fails the Martin-Lof test and should be contained
+      in $\mathcal{A}_k$. Equivalently, there must be an initial segment
+      $z\restriction a_0$ of $z$ that is contained in $A_k$, and the length
+      $a_0$ of this initial segment must be greater than $k$ since the
+      measure $\mu(\mathcal{A}_k)$ of $\mathcal{A}_k$ is smaller than
+      $2^{-k}$. We enumerate the strings of $A_k$ until we find the first
+      such an initial segment $z\restriction a_0$. Now this segment cannot be
+      an initial segment of $f$ since $f\not\in\mathcal{A}_k$, therefore
+      $f(x)=1$ for some $x<m$. Thus
+      $\{x:f(x)=1\}\cap\{0,\ldots,m-1\}\neq\emptyset$, so set
+      $D_0=\{0,\ldots,a_0\}$. \\
+
+      At stage $n+1$, we have $D_n=\{a_{n-1}+1,\ldots,a_n\}$ for some
+      $a_{n-1}<a_n\in\omega$. We work within $\mathcal{A}_{a_n+1}$.
+      Consider each string $\sigma\in2^{a_n}$ of length $a_n$. For each
+      such string $\sigma$, the function $z_\sigma\in2^\omega$ that extends
+      $\sigma$ with zeros (i.e. $z_\sigma\restriction|\sigma|=\sigma$ and
+      $z_\sigma(x)=0$ if $x\geq|\sigma|$) is computable, hence must have an
+      initial segment $\tau_\sigma$ contained in $A_{a_n+1}$. We enumerate
+      the strings of $A_{a_n+1}$ until we get all initial segments
+      $\tau_\sigma$ for each $\sigma$ in $2^{a_n}$. Now none of these
+      strings $\tau_\sigma$ can be an initial segment of $f$ since
+      $f\not\in\mathcal{A}_{a_n+1}$. Yet one of these strings
+      $\tau_{f\restriction a_n}$ has an initial segment of length $a_n$ is
+      the same as $f\restriction a_n$. But since $f$ does not extend
+      $\tau_{f\restriction a_n}$, $f(x)$ must equal 1 at some
+      $x\in\{a_n,\ldots,|\tau_{f\restriction a_n}|\}$. In particular, 
+      $\{x:f(x)=1\}\cap\{a_n+1,\ldots,a_{n+1}\} \neq\emptyset$, where
+      $a_{n+1}$ is defined as
+      \[a_{n+1} =\max\{|\tau_\sigma|: \sigma\in2^{a_n}\}.\]
+      So set $D_{n+1}=\{a_n+1,\ldots,a_{n+1}\}$. \\
+    \end{proof}
+\end{enumerate}
+\end{document}
