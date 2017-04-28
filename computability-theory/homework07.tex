@@ -43,7 +43,6 @@
     functions in Cantor Space. Show there is a low DNR function.
 
   \item \it Show no 1-random is hyperimmune. (Again, think trees.)
-
     \begin{proof}
       Fix a universal Martin-Lof test
       $\mathcal{A}_0\supset\mathcal{A}_1\supset\mathcal{A}_2\supset\ldots$,
@@ -93,6 +92,51 @@
       $a_{n+1}$ is defined as
       \[a_{n+1} =\max\{|\tau_\sigma|: \sigma\in2^{a_n}\}.\]
       So set $D_{n+1}=\{a_n+1,\ldots,a_{n+1}\}$. \\
+    \end{proof}
+
+  \item \it 6.
+
+  \item \it There are an infinite number of $\sigma$ such that
+    $K(\sigma)>|\sigma|+\log(|\sigma|)$.
+
+    \begin{proof}
+      Assume not. Then there exists some $n\in\omega$ such that all strings
+      $\sigma$ of length greater $n$ will satisfy
+      $K(\sigma)\leq|\sigma|+\log(|\sigma|)$. Let For each such string
+      $\sigma\in 2^{<\omega}$ with $|\sigma|>n$, let
+      $\tau_\sigma\in2^{<\omega}$ denote the string that witnesses the
+      value of $K(\sigma)$, i.e.
+      $|\tau_\sigma|=K(\sigma)$ and $\mathcal{U}(\tau_\sigma)=\sigma$, where
+      $\mathcal{U}$ is some fixed prefix-free universal Turing machine.
+      Then the set of all $\tau_\sigma$'s is prefix-free, so from
+      the Kraft inequality, $\sum_{|\sigma|>n} 2^{-|\tau_\sigma|} \leq 1$.
+      However $\tau_\sigma=K(\sigma) \leq |\sigma|+\log(|\sigma|)$, so
+      \begin{align*}
+        \sum_{|\sigma|>n} 2^{-|\tau_\sigma|} &=\sum_{|\sigma|>n}
+          2^{-K(\sigma)} \\
+        &=\sum_{\sigma\in 2^{<\omega}} 2^{-K(\sigma)} -\sum_{|\sigma|\leq
+          n} 2^{-K(\sigma)} \\
+        &\geq \sum_{\sigma\in 2^{<\omega}} 2^{-|\sigma|-\log(|\sigma|)}
+          -\sum_{|\sigma|\leq n} 2^{-K(\sigma)}\\
+        &=\sum_{\sigma\in 2^{<\omega}} \frac{1}{|\sigma|2^{|\sigma|}}
+          -\sum_{|\sigma|\leq n} 2^{-K(\sigma)}\\
+        &=\sum_{n\in\omega} \sum_{|\sigma|=n}
+          \frac{1}{|\sigma|2^{|\sigma|}} -\sum_{|\sigma|\leq n}
+          2^{-K(\sigma)}\\
+        &=\sum_{n\in\omega} \sum_{|\sigma|=n}
+          \frac{1}{n2^{n}} -\sum_{|\sigma|\leq n}
+          2^{-K(\sigma)}\\
+        &=\sum_{n\in\omega} \sum_{|\sigma|=n}
+          \frac{2^n}{n2^{n}} -\sum_{|\sigma|\leq n}
+          2^{-K(\sigma)}\\
+        &=\sum_{n\in\omega} \frac{1}{n} -\sum_{|\sigma|\leq n}
+          2^{-K(\sigma)}.\\
+      \end{align*}
+
+      Now the left term is the Harmonic series which diverges to $\infty$,
+      while the right term is a finite sum, therefore their difference is
+      $\infty$, contradicting $\sum_{|\sigma|>n} 2^{-|\tau_\sigma|} \leq
+      1$.
     \end{proof}
 \end{enumerate}
 \end{document}
