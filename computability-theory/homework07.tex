@@ -137,5 +137,41 @@
       $\infty$, contradicting $\sum_{|\sigma|>k} 2^{-|\tau_\sigma|} \leq
       1$.
     \end{proof}
+
+  \item \it (Demuth and Kucera) A 1-generic does not compute a DNR
+    function.
+
+    \begin{proof}
+      Let $A\subset\omega$ be a 1-generic. Fix arbitrary $e\in\omega$. We
+      want to show $\Phi^A_e(x)$ is not a DNR function. We can assume that
+      $\Phi^A_e(x)$ is total, because otherwise $\Phi^A_e(x)$ will not be
+      DNR by definition. Consider the c.e. set of strings
+      \[W :=\{\sigma\in2^{<\omega}:\; (\exists x)\;
+      \Phi_e^\sigma(x) \downarrow= \varphi_x(x)\}.\]
+      More precisely, $W$ is c.e. because its elements $\sigma$ are defined
+      by the $\Sigma_1$-formula
+      \[(\exists s,x,y)\; \Phi_{e,s}^\sigma(x) \downarrow=
+      \varphi_{x,s}(x)=y.\]
+
+      If an initial segment of $A$ lies in $W$, then $\Phi_A(x)$ will not
+      be DNR, and we would be done. So assume that no initial segment of
+      $A$ lies in $W$. Then by 1-genericity of $A$, there must be an
+      initial segment $\tau\prec A$ of $A$ such that every extension
+      $\sigma\succ\tau$ of this segment does not lie in
+      $W$. From this we construct a total-recursive DNR function $f$,
+      which would contradict the fact that DNR functions cannot be
+      recursive (because the index of a given total-recursive function
+      would witness that the function is not DNR). \\
+
+      To construct $f$, given arbitrary $x\in\omega$, we effectively
+      compute $f(x)$ as follows. Look for the first extension $\sigma$ of
+      $\tau$ such that $\Phi^\sigma_e(x)$ converges, and set $f(x)$ to be
+      the value that it converges to. Now such a $\sigma$ must exist
+      since $A$ extends $\tau$ and $\Phi^A_e$ is total by assumption.
+      Furthermore, such $\sigma$ will satisfy
+      $\Phi^\sigma_e(x)\neq\varphi_x(x)$ because $\sigma$ does not lie in
+      $W$. Since this procedure always terminates, $f$ is a total-recursive
+      DNR function, a contradiction.
+    \end{proof}
 \end{enumerate}
 \end{document}
