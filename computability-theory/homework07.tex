@@ -88,9 +88,46 @@
       would be a low 1-random real.
     \end{proof}
 
-  \item \it Call $f$ diagonal non recursive (DNR) iff for all $e$,
-    $f(e)\neq\varphi_e(e)$. Show there is a $\Pi^0_1$ class of DNR
-    functions in Cantor Space. Show there is a low DNR function.
+  \item \it Show there is a hyperimmune-free degree. Hint: you have to
+    prove a basis theorem like the low basis theorem. For each $\Phi^X_e$
+    first try to force divergence. If this cannot happen show $\Phi_e^X$ is
+    computably dominated for all $X\in[T_e]$.
+
+    \begin{proof}
+      We construct a series of trees $2^{<\omega}=T_0\supseteq T_1\supseteq
+      T_2\supseteq\ldots$, such that any path $f\in\cap_{e\in\omega}T_e$
+      has a hyperimmune-free degree. Given $T_e$, we try to construct
+      $T_{e+1}$ by finding the paths $f$ in $T_e$ such that $\Phi^f_e$ is
+      not total. This way $\Phi^f_e$ cannot be the characteristic function
+      of a hyperimmune set. If no such path can be found, we set $T_{e+1}$
+      to equal $T_e$, which will be computable. Then using the
+      computability of $T_{e+1}$ and the fact that $\Phi^f_e$ is total for
+      all paths $f$ in $T_{e+1}$, we will be able to computably dominate
+      $\Phi^X_e$ for any given path $X\in T_{e+1}$.  \\
+
+      Formally, given $T_e$, define $T_{e+1}\subseteq T_e$ as follows.
+      For each $n\in\omega$, define
+      \[U_{e,n} :=\{\sigma\in T_e:\;
+      \Phi_{e,|\sigma|}^\sigma(n)\uparrow\}.\]
+      Then $U_{e,n}$ is computable and closed under initial segments. Let
+      $n\in\omega$ be the first integer such that $U_{e,n}$ is infinite.
+      Note that $\emptyset''$ can determine if such $n$ exists, and find
+      the first one if it does. If no such $n$ exists, set $T_{e+1}=T_e$.
+      Otherwise set $T_{e+1}=U_{e,n}$. \\
+
+      Observe that by induction on $e$, each $T_e$ will be computable tree
+      since $U_{e,n}$ is computable for each $e,n\in\omega$. Also by
+      induction on $e$, each $T_e$ is infinite and computable, therefore by
+      Compactness theorem $T:=\cap_{e\in\omega}T_e$ will be infinite. Then
+      by Konig's lemma $T$ must contain a path. Fix any path $X$ in $T$. We
+      show that $X$ has a hyperimmune-free degree. \\
+
+      Fix an arbitrary $e\in\omega$. We show that $\Phi_e^X$ cannot be the
+      characteristic function of a hyperimmune set. Assume it is. Then
+      $\Phi_e^X$ is total, so $U_{e,n}$ must be finite for all
+      $n\in\omega$. Then $T_{e+1}=T_e$ by construction, which is
+      computable.
+    \end{proof}
 
   \item \it Show no 1-random is hyperimmune. (Again, think trees.)
     \begin{proof}
