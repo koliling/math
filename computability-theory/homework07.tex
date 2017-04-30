@@ -112,8 +112,10 @@
       Then $U_{e,n}$ is computable and closed under initial segments. Let
       $n\in\omega$ be the first integer such that $U_{e,n}$ is infinite.
       Note that $\emptyset''$ can determine if such $n$ exists, and find
-      the first one if it does. If no such $n$ exists, set $T_{e+1}=T_e$.
-      Otherwise set $T_{e+1}=U_{e,n}$. \\
+      the first one if it does. If no such $n$ exists, set $T_{e+1}=T_e$;
+      then for all paths $f$ in $T_{e+1}$, $\Phi^f_e$ will be total.
+      If $n$ exists, set $T_{e+1}=U_{e,n}$; then for all paths $f$ in
+      $T_{e+1}$, $\Phi^f_e$ will not converge at input $n$. \\
 
       Observe that by induction on $e$, each $T_e$ will be computable tree
       since $U_{e,n}$ is computable for each $e,n\in\omega$. Also by
@@ -126,7 +128,13 @@
       characteristic function of a hyperimmune set. Assume it is. Then
       $\Phi_e^X$ is total, so $U_{e,n}$ must be finite for all
       $n\in\omega$. Then $T_{e+1}=T_e$ by construction, which is
-      computable.
+      computable, and for every path $Y$ in $T_{e+1}$, $\Phi^Y_e$ is total.
+      We recursively construct a function $h$ such that for each path $Y\in
+      T_{e+1}$, $h$ computably dominates the set whose characteristic
+      function is $\Phi^Y_e$.  Then in particular $h$ will dominate the set
+      whose characteristic function is $\Phi^X_e$. \\
+
+      Set
     \end{proof}
 
   \item \it Show no 1-random is hyperimmune. (Again, think trees.)
