@@ -23,22 +23,21 @@
     hyperimmune set.
 
     \begin{proof}
-      Given $A$, we would be able to compute $W^B$ and $B$. From these
-      two subsets of $\omega$, we can compute the modulus $g\leq_T A$ of
-      $A$ as follows. Given arbitrary $x\in\omega$, find the smallest
+      Given $A$, we can compute $W^B$ and $B$. From these two subsets of
+      $\omega$, we can compute the modulus $g\leq_T A$ of $A$ as follows.
+      Given arbitrary $x\in\omega$, let $g(x)$ be the smallest integer
       $s\in\omega$ such that $B_s\restriction s$ can compute $A\restriction
-      x$. That is, let $s\geq \lceil x/2\rceil$ be the least integer such
-      that
-      \[B_s\restriction s =B\restriction s,\]
+      x$. That is, let $s\in\omega$ be the least integer such that
+      \[B_s\restriction \lceil x/2\rceil =B\restriction \lceil x/2\rceil,\]
       and
-      \[W^{B_s\restriction s}_{s}(y) =W^B\restriction(y)\]
-      for all $y\leq \lfloor x/2\rfloor$. \\
+      \[W^{B_s\restriction s}_{s} \restriction \lfloor x/2\rfloor
+      =W^B \restriction \lfloor x/2\rfloor.\]
 
       Then $g$ can compute $B$ and $W^B$, and therefore also $A$. So
       $g\equiv_T A$.  Now by construction, any function that dominates $g$
       will also compute $A$. Therefore $g$ cannot be computably dominated
       otherwise the computable function that dominates $g$ will also
-      compute $A$, making $A$ computable. Therefore $g$ is hyperimmune. \\
+      compute $A$, making $A$ computable. Thus $g$ is hyperimmune. \\
 
       However, $A$ is not hyperimmune, because its principle function can
       be computably dominated as follows. If $B$ is infinite, let $f(x)$ be
@@ -55,8 +54,39 @@
       increasing function that enumerates a subset of $A$. 
     \end{proof}
 
-  \item \it Low-basis theorem.
-  \item \it Low-basis theorem.
+  \item \it Call $f$ diagonal non-recursive (DNR) iff for all $e$,
+    $f(e)\neq\varphi_e(e)$. Show there is a $\Pi_1^0$ class of DNR
+    functions in Cantor space. Show there is a low DNR function.
+
+    \begin{proof}
+      Define the set of strings $T\subset2^{<\omega}$ such that $\sigma$
+      lies in $T$ if and only if
+      \[(\forall x<|\sigma|)\; [\varphi_{x,|\sigma|}(x)\downarrow
+      \Rightarrow \sigma(x) \neq\varphi_{x,|\sigma|}(x)].\]
+
+      Since this is a $\Delta_0$-formula, and $T$ is closed under initial
+      segments, $[T]$ will be a $\Pi_1^0$ class. Also, by definition, the
+      paths in $[T]$ are DNR functions. \\
+
+      We show that $[T]$ is non-empty by using $\emptyset'$ to construct a
+      function $f$ in $[T]$. Given arbitrary $x\in\omega$, ask $\emptyset'$
+      if $\varphi_x(x)$ converges; if it does, set $f(x)$ to the first
+      value in $\{0,1\}$ different from $\varphi_x(x)$, and if it
+      doesn't, set $f(x)$ to be 0. Then $f$ will be a DNR function in
+      $[T]$. \\
+
+      Since $[T]$ is a non-empty $\Pi_1^0$ class, by the low-basis theorem,
+      $[T]$ contains a low function $g$. Then $g$ would be a low DNR
+      function.
+    \end{proof}
+
+  \item \it Show there is a low 1-random real. (Think trees)
+    \begin{proof}
+      The class of paths outside a fixed universal Martin-Lof test is a
+      non-empty $\Pi_1^0$ class of 1-randoms (Corollary 11.2.2). Therefore
+      by the low-basis theorem, this class contains a low element, which
+      would be a low 1-random real.
+    \end{proof}
 
   \item \it Call $f$ diagonal non recursive (DNR) iff for all $e$,
     $f(e)\neq\varphi_e(e)$. Show there is a $\Pi^0_1$ class of DNR
@@ -114,7 +144,13 @@
       So set $D_{n+1}=\{a_n+1,\ldots,a_{n+1}\}$. \\
     \end{proof}
 
-  \item \it 6.
+  \item \it (Solovay) $R$ is 1-random if and only if for every computable
+    sequence of $\Sigma^0_1$-classes $\{\mathcal{V}_i\}_{i\in\omega}$ with
+    $\sum_i \mu(\mathcal{V}_i)<\infty$, $R$ is in only finitely many of the
+    sets $\mathcal{V}_i$.
+
+    \begin{proof}
+    \end{proof}
 
   \item \it There are an infinite number of $\sigma$ such that
     $K(\sigma)>|\sigma|+\log(|\sigma|)$.
@@ -183,7 +219,7 @@
       recursive (because the index of a given total-recursive function
       would witness that the function is not DNR). \\
 
-      To construct $f$, given arbitrary $x\in\omega$, we effectively
+      Given arbitrary $x\in\omega$, we effectively
       compute $f(x)$ as follows. Look for the first extension $\sigma$ of
       $\tau$ such that $\Phi^\sigma_e(x)$ converges, and set $f(x)$ to be
       the value that it converges to. Now such a $\sigma$ must exist
