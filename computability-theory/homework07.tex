@@ -16,23 +16,43 @@
 \maketitle
 
 \begin{enumerate}
-  \item \it A set $A$ is REA iff $A=W^B\oplus A$ for some c.e. set $B$.
-    Show that every non-computable REA set is not-hyperimmune. It is enough
-    to show that there is a modulus $g\leq_TA$ such that every $h>g$
-    computes $A$.
+  \item \it A set $A$ is REA iff $A=W^B\oplus B$ for some c.e. set $B$.
+    Show that every non-computable REA set has a hyperimmune (Turing
+    degree). It is enough to show that there is a modulus $g\leq_TA$ such
+    that every $h>g$ computes $A$. Show that every REA set is not a
+    hyperimmune set.
 
     \begin{proof}
-      Let $a\in\omega$ be the first element in $A$. Such an
-      element must exist since $A$ is non-computable. Then since
-      \[A =\{2x:x\in W^B\} \cup \{2x+1:x\in A\},\]
-      $a\in A$ would imply that $2a+1\in A$, which would in turn imply that
-      $2(2a+1)+1=4a+3\in A$, and so on. So we have a strictly ascending
-      infinite sequence of numbers
-      \[\{a <2a+1 <4a+3 <8a+7 <\ldots\} =\{2^xa+2^x-1: x\in\omega\}\]
-      that lie in $A$. Hence the computable function
-      $f:\omega\rightarrow\omega$ defined by $f(x)=2^xa+2^x-1$ would
-      computably bound $p_A(x)$, the principal function of $A$. Thus $A$
-      is not hyperimmune.
+      Given $A$, we would be able to compute $W^B$ and $B$. From these
+      two subsets of $\omega$, we can compute the modulus $g\leq_T A$ of
+      $A$ as follows. Given arbitrary $x\in\omega$, find the smallest
+      $s\in\omega$ such that $B_s\restriction s$ can compute $A\restriction
+      x$. That is, let $s\geq \lceil x/2\rceil$ be the least integer such
+      that
+      \[B_s\restriction s =B\restriction s,\]
+      and
+      \[W^{B_s\restriction s}_{s}(y) =W^B\restriction(y)\]
+      for all $y\leq \lfloor x/2\rfloor$. \\
+
+      Then $g$ can compute $B$ and $W^B$, and therefore also $A$. So
+      $g\equiv_T A$.  Now by construction, any function that dominates $g$
+      will also compute $A$. Therefore $g$ cannot be computably dominated
+      otherwise the computable function that dominates $g$ will also
+      compute $A$, making $A$ computable. Therefore $g$ is hyperimmune. \\
+
+      However, $A$ is not hyperimmune, because its principle function can
+      be computably dominated as follows. If $B$ is infinite, let $f(x)$ be
+      a total-recursive and strictly increasing function that enumerates a
+      subset of $B$; such a function can be defined recursively by letting
+      $f(0)$ be the first element of $B$ in the enumeration of $B$, and
+      letting $f(x+1)$ be the first element of $B$ that is greater than
+      $f(0),\ldots,f(x)$, using the same enumeration of $B$. Then the
+      function $2f(x)+1$ will computably dominate $A$. \\
+
+      On the other hand, if $B$ is finite, $W^B$ will be c.e., so
+      $A=W^B\oplus B$ will also be c.e., and we can use a similar argument
+      to computably dominate $A$ through constructing a computable strictly
+      increasing function that enumerates a subset of $A$. 
     \end{proof}
 
   \item \it Low-basis theorem.
@@ -148,7 +168,7 @@
       DNR by definition. Consider the c.e. set of strings
       \[W :=\{\sigma\in2^{<\omega}:\; (\exists x)\;
       \Phi_e^\sigma(x) \downarrow= \varphi_x(x)\}.\]
-      More precisely, $W$ is c.e. because its elements $\sigma$ are defined
+      More precisely, $W$ is c.e. because membership is defined
       by the $\Sigma_1$-formula
       \[(\exists s,x,y)\; \Phi_{e,s}^\sigma(x) \downarrow=
       \varphi_{x,s}(x)=y.\]
