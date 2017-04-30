@@ -95,15 +95,15 @@
 
     \begin{proof}
       We construct a series of trees $2^{<\omega}=T_0\supseteq T_1\supseteq
-      T_2\supseteq\ldots$, such that any path $f\in\cap_{e\in\omega}T_e$
-      has a hyperimmune-free degree. Given $T_e$, we try to construct
-      $T_{e+1}$ by finding the paths $f$ in $T_e$ such that $\Phi^f_e$ is
-      not total. This way $\Phi^f_e$ cannot be the characteristic function
-      of a hyperimmune set. If no such path can be found, we set $T_{e+1}$
-      to equal $T_e$, which will be computable. Then using the
-      computability of $T_{e+1}$ and the fact that $\Phi^f_e$ is total for
-      all paths $f$ in $T_{e+1}$, we will be able to computably dominate
-      $\Phi^X_e$ for any given path $X\in T_{e+1}$.  \\
+      T_2\supseteq\ldots$, such that any path $Y\in
+      T:=\cap_{e\in\omega}T_e$ has a hyperimmune-free degree. Given $T_e$,
+      we try to construct $T_{e+1}$ by finding the paths $Y$ in $T_e$ such
+      that $\Phi^Y_e$ is not total. This way $\Phi^Y_e$ cannot be the
+      principal function of a hyperimmune set. If no such path can be
+      found, we set $T_{e+1}$ to equal $T_e$, which will be computable.
+      Then using the computability of $T_{e+1}$ and the fact that
+      $\Phi^Y_e$ is total for all paths $Y$ in $T_{e+1}$, we will be able
+      to computably dominate all $\Phi^Y_e$. \\
 
       Formally, given $T_e$, define $T_{e+1}\subseteq T_e$ as follows.
       For each $n\in\omega$, define
@@ -113,28 +113,44 @@
       $n\in\omega$ be the first integer such that $U_{e,n}$ is infinite.
       Note that $\emptyset''$ can determine if such $n$ exists, and find
       the first one if it does. If no such $n$ exists, set $T_{e+1}=T_e$;
-      then for all paths $f$ in $T_{e+1}$, $\Phi^f_e$ will be total.
+      then for all paths $Y$ in $T_{e+1}$, $\Phi^Y_e$ will be total.
       If $n$ exists, set $T_{e+1}=U_{e,n}$; then for all paths $f$ in
-      $T_{e+1}$, $\Phi^f_e$ will not converge at input $n$. \\
+      $T_{e+1}$, $\Phi^Y_e$ will not converge at input $n$. \\
 
       Observe that by induction on $e$, each $T_e$ will be computable tree
       since $U_{e,n}$ is computable for each $e,n\in\omega$. Also by
       induction on $e$, each $T_e$ is infinite and computable, therefore by
-      Compactness theorem $T:=\cap_{e\in\omega}T_e$ will be infinite. Then
+      Compactness theorem $T=\cap_{e\in\omega}T_e$ will be infinite. Then
       by Konig's lemma $T$ must contain a path. Fix any path $X$ in $T$. We
       show that $X$ has a hyperimmune-free degree. \\
 
-      Fix an arbitrary $e\in\omega$. We show that $\Phi_e^X$ cannot be the
-      characteristic function of a hyperimmune set. Assume it is. Then
-      $\Phi_e^X$ is total, so $U_{e,n}$ must be finite for all
-      $n\in\omega$. Then $T_{e+1}=T_e$ by construction, which is
-      computable, and for every path $Y$ in $T_{e+1}$, $\Phi^Y_e$ is total.
-      We recursively construct a function $h$ such that for each path $Y\in
-      T_{e+1}$, $h$ computably dominates the set whose characteristic
-      function is $\Phi^Y_e$.  Then in particular $h$ will dominate the set
-      whose characteristic function is $\Phi^X_e$. \\
+      Fix an arbitrary $e\in\omega$. We want to show that if $\Phi_e^X$ is
+      the principal function of some set, then that set cannot be
+      hyperimmune. So assuming $\Phi_e^X$ is a principal function,
+      we construct a computable function that dominates
+      $\Phi_e^X$. As a principal function, $\Phi_e^X$ is total, so
+      $U_{e,n}$ must be finite for all $n\in\omega$. Then by our
+      construction, $T_{e+1}=T_e$, is computable, and for every path $Y$ in
+      $T_{e+1}$, $\Phi^Y_e$ is total. Treating each $\Phi^Y_e$ as a
+      principal function of some set, we recursively construct a function
+      $h$ that will computably dominate $\Phi^Y_e$ for all paths $Y$ in
+      $T_{e+1}$. Then in particular, $h$ will computably dominate
+      $\Phi^X_e$. \\
 
-      Set
+      Set $h(0)$ to be the first value that is larger than $\Phi^Y_e(0)$
+      for all paths $Y$ in $T_{e+1}$. Then, set $h(n+1)$ to be the first
+      value that is larger than $h(n)$ and $\Phi^Y_e(n)$ for all paths
+      $Y$ is $T_{e+1}$. Formally, to set $h(0)$, find the first
+      $k\in\omega$ such that all paths $\sigma$ of length $k$ in
+      $T_{e+1}$ satisfy $\Phi^\sigma_{e,|\sigma|}(0)\downarrow$. Such $k$
+      must exist since $U_{e,0}$ is finite. Then set
+      \[h(0) =1+\max_{\sigma\in 2^k\cap T_{e+1}} \Phi^\sigma_e(0).\]
+      Similarly, given $h(n)$, find the first $k\in\omega$ such that all
+      paths of length $k$ in $T_{e+1}$ satisfy
+      $\Phi^\sigma_{e,|\sigma|}(n+1)\downarrow$. Once again such $k$ exists
+      since $U_{e,n+1}$ is finite. Then set
+      \[h(n+1) =1+ \max \left(h(n), \max_{\sigma\in 2^k\cap T_{e+1}}
+      \Phi^\sigma_e(n+1) \right).\]
     \end{proof}
 
   \item \it Show no 1-random is hyperimmune. (Again, think trees.)
