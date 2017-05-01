@@ -213,7 +213,7 @@
     \begin{proof}
       The converse holds trivially since a Martin-Lof test is a computable
       sequence of $\Sigma_1^0$-class $\{\mathcal{V}_i\}_{i\in\omega}$ with
-      $\sum_i \mu(\mathcal{V}_i)<\infty$. \\
+      $\sum_i \mu(\mathcal{V}_i) \leq\sum_i 2^{-i} =2 <\infty$. \\
 
       Let $R$ be 1-random, and $\{\mathcal{V}_i\}_{i\in\omega}$ be a
       computable sequence of $\Sigma_1^0$-class with $\sum_i
@@ -332,6 +332,62 @@
       $\Phi^\sigma_e(x)\neq\varphi_x(x)$ because $\sigma$ does not lie in
       $W$. Since this procedure is effective and always terminates, $f$ is
       a total-recursive DNR function, a contradiction.
+    \end{proof}
+
+  \item \it (Scott and Tennenbaaun) A PA degree is not minimal. Hint: use
+    Theorem 10.3.3 and the right $\Pi_1^0$ class.
+
+    \begin{proof}
+      Let $\bm{d}$ be a PA degree, and fix a $\Pi_1^0$ class of 1-randoms.
+      Note that we can define this class as the set of paths that lie
+      outside a universal Martin-Lof test; this class exists from Corollary
+      11.2.2. Now this class must contain a path $R$ with degree less than
+      $\bm{d}$, from Theorem 10.3.3. Write $R=R^+\oplus R^-$. We use
+      1-randomness of $R$ to show that $R^+$ and $R^-$ are Turing
+      incomparable. Then $R^+$ and $R^-$ will have degrees that lie
+      strictly between $\emptyset'$ and $\bm{d}$. \\
+
+      Assume by contradiction that $R^+=\Phi^{R^-}_e$ for some
+      $e\in\omega$. We construct a Martin-Lof test
+      $\mathcal{M}_0\supseteq\mathcal{M}_1\supseteq\ldots$ that $R$ fails.
+      Given an arbitrary string $\sigma\in2^{<\omega}$ (or path
+      $f\in2^\omega$), let $\sigma^+,\sigma^-\in2^{<\omega}$
+      (or $f^+,f^-\in2^\omega$) denote the strings (or paths) such that
+      $\sigma=\sigma^+\oplus\sigma^-$ (or $f=f^+\oplus f^-$).
+      For each $i\in\omega$, let $\mathcal{M}_i$ be the $\Sigma_1^0$-class
+      of paths with an initial segment that witnesses $f^+=\Phi_e^{f^-}$
+      at the first $i$ bits. Formally, define
+      \[\mathcal{M}_i :=\{f\in2^\omega:\; (\exists \sigma\prec f)\;
+      R_i(\sigma)\},\]
+      where $R_i(\sigma)$ is the relation defined as
+      \begin{equation}
+        R_i(\sigma):= |\sigma|>2i\; \wedge\; \Phi_{e,|\sigma|}^{\sigma^+}
+        \restriction i = \sigma^-\restriction i.
+        \label{eqn:R}
+      \end{equation}
+
+      Then since $R_i(\sigma)$ is a $\Delta_0$-formula in $i$ and $\sigma$,
+      $\{\mathcal{M}_i\}_{i\in\omega}$ is a computable sequence of
+      $\Sigma_1^0$-classes. We show that the Lesbegue measure of each
+      $\mathcal{M}_i$ cannot exceed $2^{-i}$. Observe that for every
+      $\sigma$ that satisfies $R_i$, there will be at least $2^{i}-1$
+      strings of equal length that do not satisfy $R_i$ based on the second
+      subformula in equation~\eqref{eqn:R}; these are the strings $\tau$
+      where $\tau^-\restriction i$ differ from $\sigma^-\restriction i$.
+      So if $M_i\subset2^{<\omega}$ is a prefix-free set of strings that
+      generate $\mathcal{M}_i$, then we can use $M_i$ to
+      effectively construct a prefix-free set of strings that generate at
+      least part of $2^\omega-\mathcal{M}_i$; this set will have at least
+      $2^i-1$ more strings than $M_i$. Therefore
+      \[\mu(2^\omega-\mathcal{M}_i) \leq (2^i-1)\mu(\mathcal{M}_i).\]
+      Rearranging and using the fact that $1=\mu(2^\omega)
+      =\mu(2^\omega-\mathcal{M}_i) +\mu(\mathcal{M}_i)$, we get
+      $\mu(\mathcal{M}_i) \leq 2^{-i}$. Thus
+      $\{\mathcal{M}_i\}_{i\in\omega}$ is a Martin-Lof test. \\
+
+      Now $R$ clearly lies in all $\mathcal{M}_i$ since all sufficiently
+      long initial segments of $R$ satisfy equation~\eqref{eqn:R}. So $R$
+      fails the constructed Martin-Lof test, a contradiction.
     \end{proof}
 \end{enumerate}
 \end{document}
