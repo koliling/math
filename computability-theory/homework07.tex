@@ -27,7 +27,7 @@
       $\omega$, we can compute the modulus $g\leq_T A$ of $A$ as follows.
       Given arbitrary $x\in\omega$, let $g(x)$ be the smallest integer
       $s\in\omega$ such that $B_s\restriction s$ can compute $A\restriction
-      x$. That is, let $s\in\omega$ be the least integer such that
+      x$. That is, $s$ is the least integer such that
       \[B_s\restriction \lceil x/2\rceil =B\restriction \lceil x/2\rceil,\]
       and
       \[W^{B_s\restriction s}_{s} \restriction \lfloor x/2\rfloor
@@ -39,14 +39,14 @@
       otherwise the computable function that dominates $g$ will also
       compute $A$, making $A$ computable. Thus $g$ is hyperimmune. \\
 
-      However, $A$ is not hyperimmune, because its principle function can
+      However, $A$ is not hyperimmune, because its principal function can
       be computably dominated as follows. If $B$ is infinite, let $f(x)$ be
       a total-recursive and strictly increasing function that enumerates a
       subset of $B$; such a function can be defined recursively by letting
       $f(0)$ be the first element of $B$ in the enumeration of $B$, and
       letting $f(x+1)$ be the first element of $B$ that is greater than
-      $f(0),\ldots,f(x)$, using the same enumeration of $B$. Then the
-      function $2f(x)+1$ will computably dominate $A$. \\
+      $f(0),\ldots,f(x)$, using the same enumeration. Then the function
+      $2f(x)+1$ will computably dominate $A$. \\
 
       On the other hand, if $B$ is finite, $W^B$ will be c.e., so
       $A=W^B\oplus B$ will also be c.e., and we can use a similar argument
@@ -211,6 +211,49 @@
     sets $\mathcal{V}_i$.
 
     \begin{proof}
+      The converse holds trivially since a Martin-Lof test is a computable
+      sequence of $\Sigma_1^0$-class $\{\mathcal{V}_i\}_{i\in\omega}$ with
+      $\sum_i \mu(\mathcal{V}_i)<\infty$. \\
+
+      Let $R$ be 1-random, and $\{\mathcal{V}_i\}_{i\in\omega}$ be a
+      computable sequence of $\Sigma_1^0$-class with $\sum_i
+      \mu(\mathcal{V}_i)=s<\infty$. We effectively construct a Martin-Lof
+      test $\{\mathcal{M}_i\}_{i\in\omega}$ from
+      $\{\mathcal{V}_i\}_{i\in\omega}$ such that $R$ passing the Martin-Lof
+      test implies it can only be in finitely many $\mathcal{V}_i$. \\
+
+      For each $i\in\omega$, let $\mathcal{M}_i\subseteq2^\omega$ be the
+      set of paths that appear in more than $2^is$ of the $\mathcal{V}_j$'s.
+      Formally, define
+      \[\mathcal{M}_i :=\{f\in2^\omega:\; |\{j\in\omega:\;
+      f\in\mathcal{V}_j\}| >2^is\}.\]
+
+      Then $\{\mathcal{M}_i\}_{i\in\omega}$ is also a computable sequence
+      of $\Sigma_1^0$-class, because to enumerate the elements in
+      $\mathcal{M}_i$, we just need to enumerate the strings in the
+      $\mathcal{V}_j$'s and list those that appear in at least $2^is$ of
+      the $\mathcal{V}_j$'s. We show that the Lesbegue measure of each
+      $\mathcal{M}_i$ cannot exceed $2^{-i}$:
+      \begin{align*}
+        \mu(\mathcal{M}_i) &\leq \frac{1}{2^is}
+          \sum_{j\in\omega} \mu(\mathcal{M}_i\cap \mathcal{V}_j)
+          &\text{($\because$ each $f\in\mathcal{M}_i$
+          appears in more than $2^is$ $V_j$'s)}\\
+        &\leq \frac{1}{2^is} \sum_{j\in\omega} \mu(\mathcal{V}_j)
+          &(\because \mathcal{M}_i\cap\mathcal{V}_j \subseteq
+          \mathcal{V}_j)\\
+        &= \frac{1}{2^i}.\\
+      \end{align*}
+
+      Note that in the first inequality, the measure $\mu(\mathcal{M}_i\cap
+      \mathcal{V}_j)$ is well-defined since both $\mathcal{M}_i$ and
+      $\mathcal{V}_j$ are $\Sigma_1^0$-classes. So the
+      $\{\mathcal{M}_i\}_{i\in\omega}$ we have constructed is a Martin-Lof
+      test. Now since $R$ is ML-random, it can only be contained in
+      finitely many of the $\mathcal{M}_i$'s. Let $k\in\omega$ be the
+      smallest integer such that $\mathcal{M}_k$ does not contain $R$. Then
+      by definition of $\mathcal{M}_k$, $R$ can only be in at most $2^ks$
+      $\mathcal{V}_j$'s.
     \end{proof}
 
   \item \it There are an infinite number of $\sigma$ such that
