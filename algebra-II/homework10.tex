@@ -119,4 +119,38 @@
     \sigma(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i,\;
     \sigma(\zeta_p)=\zeta_p^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
   \end{proof}
+
+\it \textbf{DF 14.2.5:} Prove that the Galois group of $x^p-2$ for $p$ a
+  prime is isomorphic to the group of matrices $\begin{pmatrix} a&b\\ 0&1\\
+  \end{pmatrix}$, where $a,b\in\mathbb{F}_p$ and $a\neq0$.
+
+  \begin{proof}
+    In the previous problem we showed that the splitting field of $x^p-2$
+    over $\mathbb{Q}$ is $K:=\mathbb{Q}(\sqrt[p]{2},\zeta_p)$, where
+    $\zeta_p$ is a primitive $p$-th root of unity, and
+    $[K:\mathbb{Q}]=p(p-1)$. Also,
+    \[\text{Gal}(K/\mathbb{Q}) =\{\sigma_{i,j}\in\text{Aut}(K/\mathbb{Q}),\;
+    \sigma_{i,j}(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i,\;
+    \sigma_{i,j}(\zeta_p)=\zeta_p^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
+
+    Consider the map $\Psi:\text{Gal}(K/\mathbb{Q}) \rightarrow \left\{
+    \begin{pmatrix} a&b\\ 0&1\\ \end{pmatrix}: a,b\in\mathbb{F}_p, a\neq0
+    \right\}$ defined by $\Psi(\sigma_{i,j}) =\begin{pmatrix} j&i\\ 0&1\\
+    \end{pmatrix}$. If $\Psi$ is a group homomorphism, then it is
+    injective, since the $\ker(\Psi)$ clearly contains only the identity
+    map. Then since both domain and codomain of $\Psi$ have $p(p-1)$
+    elements, $\Psi$ must be an isomorphism if it is a homomorphism. \\
+
+    It remains to show that $\Psi$ is a group homomorphism. To that end,
+    \begin{align*}
+      \Psi(\sigma_{i_1,j_1}\circ\sigma_{i_2,j_2})
+        &=\Psi(\sigma_{i_2j_1+i_1,j_1j_2})\\
+      &=\begin{pmatrix} j_1j_2 &i_2j_1+i_1\\ 0&1\\ \end{pmatrix} \\
+      &=\begin{pmatrix} j_1 &i_1\\ 0&1\\ \end{pmatrix} \begin{pmatrix} j_2
+        &i_2\\ 0&1\\ \end{pmatrix}\\
+      &=\Psi(\sigma_{i_1,j_1}) \Psi(\sigma_{i_2,j_2}).\\
+    \end{align*}
+  \end{proof}
+
+\it \textbf{DF 14.2.6:}
 \end{document}
