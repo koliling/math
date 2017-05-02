@@ -142,6 +142,20 @@
     elements, $\Psi$ must be an isomorphism if it is a homomorphism. \\
 
     It remains to show that $\Psi$ is a group homomorphism. To that end,
+    first observe that
+    $\sigma_{i_1,j_1}\circ\sigma_{i_2,j_2} =\sigma_{i_2j_1+i_1,j_1j_2})$,
+    because
+    \[\sigma_{i_1,j_1} (\sigma_{i_2,j_2}(\sqrt[p]{2}))
+    =\sigma_{i_1,j_1}(\sqrt[p]{2}\zeta^{i_2})
+    =\sigma_{i_1,j_1}(\sqrt[p]{2}) \sigma_{i_1,j_1}(\zeta^{i_2})
+    =\sqrt[p]{2}\zeta^{i_1}\zeta^{i_2j_1}
+    =\sqrt[p]{2}\zeta^{i_2j_1+i_1},\]
+    and
+    \[\sigma_{i_1,j_1} (\sigma_{i_2,j_2}(\zeta))
+    =\sigma_{i_1,j_1}(\zeta^{j_2})
+    =\zeta^{j_1j_2}.\]
+
+    Therefore
     \begin{align*}
       \Psi(\sigma_{i_1,j_1}\circ\sigma_{i_2,j_2})
         &=\Psi(\sigma_{i_2j_1+i_1,j_1j_2})\\
@@ -152,5 +166,11 @@
     \end{align*}
   \end{proof}
 
-\it \textbf{DF 14.2.6:}
+\it \textbf{DF 14.2.6:} Let $K=\mathbb{Q}(\sqrt[8]{2},i)$ and let
+  $F_1=\mathbb{Q}(\sqrt{2})$, $F_3=\mathbb{Q}(\sqrt{-2})$. Prove that
+  $\text{Gal}(K/F_1)\simeq\mathbb{Z}_8$,
+  $\text{Gal}(K/F_2)\simeq D_8$, and $\text{Gal}(K/F_3)\simeq Q_8$.
+
+  \begin{proof}
+  \end{proof}
 \end{document}
