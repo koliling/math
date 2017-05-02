@@ -108,15 +108,15 @@
     $[K:\mathbb{Q}]=p(p-1)$. Therefore any automorphism of $K$ is fully
     defined by its image on $\sqrt[p]{2}$ and on $\zeta_p$. Now
     $m_{\sqrt[p]{2},\mathbb{Q}}(x)=x^p-2$, so $\sqrt[p]{2}$ has $p$
-    distinct conjugates $\{\sqrt[p]{2}\zeta^i:0\leq i<p\}$ over
-    $\mathbb{Q}$. Also, $\zeta_p$ has $p-1$ conjugates $\{\zeta^i:1\leq
+    distinct conjugates $\{\sqrt[p]{2}\zeta^i_p:0\leq i<p\}$ over
+    $\mathbb{Q}$. Also, $\zeta_p$ has $p-1$ conjugates $\{\zeta_p^i:1\leq
     i<p\}$ over $\mathbb{Q}$. Since automorphisms must map roots to their
     conjugates, there are at most $p(p-1)$ combinations that an
     automorphism can map $\sqrt[p]{2}$ and $\zeta_p$ to. Then since
     the Galois group has exactly $p(p-1)$ elements, the combinations must
     be exactly all the elements in the Galois group:
     \[\text{Gal}(K/\mathbb{Q}) =\{\sigma\in\text{Aut}(K/\mathbb{Q}),\;
-    \sigma(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i,\;
+    \sigma(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i_p,\;
     \sigma(\zeta_p)=\zeta_p^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
   \end{proof}
 
@@ -126,12 +126,12 @@
 
   \begin{proof}
     In the previous problem we showed that the splitting field of $x^p-2$
-    over $\mathbb{Q}$ is $K:=\mathbb{Q}(\sqrt[p]{2},\zeta_p)$, where
-    $\zeta_p$ is a primitive $p$-th root of unity, and
+    over $\mathbb{Q}$ is $K:=\mathbb{Q}(\sqrt[p]{2},\zeta)$, where
+    $\zeta$ is a primitive $p$-th root of unity, and
     $[K:\mathbb{Q}]=p(p-1)$. Also,
     \[\text{Gal}(K/\mathbb{Q}) =\{\sigma_{i,j}\in\text{Aut}(K/\mathbb{Q}),\;
     \sigma_{i,j}(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i,\;
-    \sigma_{i,j}(\zeta_p)=\zeta_p^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
+    \sigma_{i,j}(\zeta)=\zeta^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
 
     Consider the map $\Psi:\text{Gal}(K/\mathbb{Q}) \rightarrow \left\{
     \begin{pmatrix} a&b\\ 0&1\\ \end{pmatrix}: a,b\in\mathbb{F}_p, a\neq0
@@ -167,10 +167,81 @@
   \end{proof}
 
 \it \textbf{DF 14.2.6:} Let $K=\mathbb{Q}(\sqrt[8]{2},i)$ and let
-  $F_1=\mathbb{Q}(\sqrt{2})$, $F_3=\mathbb{Q}(\sqrt{-2})$. Prove that
-  $\text{Gal}(K/F_1)\simeq\mathbb{Z}_8$,
-  $\text{Gal}(K/F_2)\simeq D_8$, and $\text{Gal}(K/F_3)\simeq Q_8$.
+  $F_1=\mathbb{Q}(i)$, $F_2=\mathbb{Q}(\sqrt{2})$,
+  $F_3=\mathbb{Q}(\sqrt{-2})$. Prove that
+  $\text{Gal}(K/F_1)\simeq\mathbb{Z}_8$, $\text{Gal}(K/F_2)\simeq D_8$, and
+  $\text{Gal}(K/F_3)\simeq Q_8$.
 
   \begin{proof}
+    $K$ has been analyzed in an example in Section 14.2, which showed that
+    $[K:\mathbb{Q}]=16$, and the automorphisms in
+    $\text{Gal}(K/\mathbb{Q})$ are determined by their image on
+    $\sqrt[8]{2}$ and on $i$. Also, 
+    \[\text{Gal}(K/\mathbb{Q}) \simeq\langle \sigma,\tau:\;
+    \sigma^8=\tau^2=1, \sigma\tau=\tau\sigma^3\rangle,\]
+    where $\sigma$ fixes $i$ but sends $\sqrt[8]{2}$ to $\sqrt[8]{2}\zeta$,
+    where $\zeta$ is the primitive 8th root of unity, while $\tau$ fixes
+    $\sqrt[8]{2}$ but sends $i$ to $-i$. \\
+
+    Now $\tau$ does not fix $i$ but $\sigma$ does, and any subgroup larger
+    than $\langle\sigma\rangle$ will contain $\sigma^k\tau$ for some
+    $0<k<8$, which will not fix $i$. Therefore $\text{Gal}(K/F_1)
+    =\langle\sigma\rangle \simeq\mathbb{Z}_8$. \\
+
+    Next, observe that $\sigma^k\tau^j$ fixes $\sqrt{2}$ if and only if $k$
+    is even, because $\zeta^{4k}$ is even if and only if $k$ is even.
+    Therefore
+    \[\text{Gal}(K/F_2) \simeq\langle \sigma^2,\tau:\;
+    (\sigma^2)^4=\tau^2=1,\; \sigma^2\tau=\tau\sigma^6 \rangle \simeq
+    \langle \alpha,\tau:\; \alpha^4=\tau^2=1,\;
+    \alpha\tau=\tau\alpha^3\rangle \simeq D_8.\]
+
+    Finally, observe that $\sigma^k\tau^j$ fixes $\sqrt{-2}$ if and only if
+    $k\equiv j\mod2$, because
+    \[\sigma^k\tau^j(\sqrt{-2}) =\sigma^k\tau^j(i\sqrt[8]{2}^4)
+    =\sigma^k((-1)^ji\sqrt[8]{2}^4) =(-1)^ji\zeta^{4k}\sqrt[8]{2}^4,\]
+    which is $\sqrt{-2}$ if and only if $(-1)^j=\zeta^{4k}=1$ or when
+    $(-1)^j=\zeta^{4k}=-1$. Therefore
+    \begin{align*}
+      \text{Gal}(K/F_3) &\simeq \langle \sigma^2,\sigma\tau:
+        (\sigma\tau)^8=(\sigma^2)^4=1,
+        \sigma^2(\sigma\tau)\sigma^6=(\tau\sigma)^{-1},
+        (\sigma\tau)^4=(\sigma^2)^2\rangle \\
+      &\simeq \langle \alpha,\beta: \beta^8=\alpha^4=1,
+        \alpha\beta\alpha^3=\beta, \beta^2=\alpha^2\rangle \\
+      &\simeq Q_8.\\
+    \end{align*}
+  \end{proof}
+
+\it \textbf{DF 14.2.7:} Determine all the subfields of the splitting field
+  of $x^8-2$ which are Galois over $\mathbb{Q}$.
+
+  \begin{proof}
+    The splitting field is $K:=\mathbb{Q}(\theta,i)$, where
+    $\theta:=\sqrt[8]{2}$. We use the diagram of the subfields of $K$ that
+    is shown on Page 581. By Galois Theory, an intermediate field
+    $K\supseteq L\supseteq\mathbb{Q}$ is Galois over $\mathbb{Q}$ if and
+    only if it is the splitting field of a separable polynomial over
+    $\mathbb{Q}$. So the intermediate fields $\mathbb{Q}(\sqrt{2})$,
+    $\mathbb{Q}(i)$, $\mathbb{Q}(\sqrt{-2})$, $\mathbb{Q}(i,\sqrt{2})$ and
+    $\mathbb{Q}(i,\sqrt[4]{2})$ are Galois over
+    $\mathbb{Q}$ with witness $x^2-2$, $x^2+1$, $x^2+2$, $x^2+2$, and
+    $x^4+2$ respectively. \\
+
+    On the other hand, letting $\zeta$ denote the primitive 8th root of
+    unity, the intermediate fields $\mathbb{Q}(\theta)$,
+    $\mathbb{Q}(\zeta\theta)$, $\mathbb{Q}(\zeta^2\theta)$, and
+    $\mathbb{Q}(\zeta^3\theta)$ are not Galois over $\mathbb{Q}$, because
+    they are simple $\mathbb{Q}$-extensions of an element whose minimal
+    polynomial is $x^8-2$, and this polynomial does not split completely
+    over the intermediate fields. Likewise, $\mathbb{Q}(\sqrt[4]{2})$ and
+    $\mathbb{Q}(\sqrt[4]{2}i)$ are not Galois over $\mathbb{Q}$ with
+    minimal polynomial $x^4+2$ as witness. \\
+
+    Similarly, $\mathbb{Q}((1+i)\sqrt[4]{2})$ and
+    $\mathbb{Q}((1+i)\sqrt[4]{2})$ are not Galois over $\mathbb{Q}$ because
+    they are simple extensions of an element whose minimal polynomial is
+    $x^4+2$, which contains $\sqrt[4]{2}$ as a root, but this root is not
+    contained in either intermediate fields.
   \end{proof}
 \end{document}
