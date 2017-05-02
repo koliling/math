@@ -97,4 +97,26 @@
       \end{tabular}
     \end{table}
   \end{proof}
+
+\it \textbf{DF 14.2.4:} Let $p$ be a prime. Determine the elements of the
+  Galois group of $x^p-2$.
+
+  \begin{proof}
+    Following the example in Section 13.4, the splitting field of $x^p-2$
+    over $\mathbb{Q}$ is $K:=\mathbb{Q}(\sqrt[p]{2},\zeta_p)$, where
+    $\zeta_p$ is a primitive $p$-th root of unity, and
+    $[K:\mathbb{Q}]=p(p-1)$. Therefore any automorphism of $K$ is fully
+    defined by its image on $\sqrt[p]{2}$ and on $\zeta_p$. Now
+    $m_{\sqrt[p]{2},\mathbb{Q}}(x)=x^p-2$, so $\sqrt[p]{2}$ has $p$
+    distinct conjugates $\{\sqrt[p]{2}\zeta^i:0\leq i<p\}$ over
+    $\mathbb{Q}$. Also, $\zeta_p$ has $p-1$ conjugates $\{\zeta^i:1\leq
+    i<p\}$ over $\mathbb{Q}$. Since automorphisms must map roots to their
+    conjugates, there are at most $p(p-1)$ combinations that an
+    automorphism can map $\sqrt[p]{2}$ and $\zeta_p$ to. Then since
+    the Galois group has exactly $p(p-1)$ elements, the combinations must
+    be exactly all the elements in the Galois group:
+    \[\text{Gal}(K/\mathbb{Q}) =\{\sigma\in\text{Aut}(K/\mathbb{Q}),\;
+    \sigma(\sqrt[p]{2})=\sqrt[p]{2}\zeta^i,\;
+    \sigma(\zeta_p)=\zeta_p^j:\; 0\leq i<p,\; 1\leq j<p\}.\]
+  \end{proof}
 \end{document}
