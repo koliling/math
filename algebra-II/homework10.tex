@@ -253,7 +253,7 @@
     By Galois theory, the intermediate field field extension $K\supset
     E\supset F$ is Galois if and only if it is the fixed field of some
     normal subgroup $H$ of $\text{Gal}(K/F)$. Furthermore,
-    $\text{Gal}(E/F)\sim G/H$. Thus it suffices to prove that every group
+    $\text{Gal}(E/F)\simeq G/H$. Thus it suffices to prove that every group
     $G$ of order $p^n$ for some $n\geq1$ has normal subgroups of order $p$
     and of order $p^{n-1}$. \\
 
@@ -269,5 +269,29 @@
     hypothesis, $G/N$ has a normal subgroup of order $p^{n-1}$. Then by the
     fourth isomorphism theorem for groups, $G$ has a normal subgroup of
     order $p^n$ as required.
+  \end{proof}
+
+\it \textbf{DF 14.2.9:} Give an example of fields $\mathbb{Q}\subseteq
+  F_1\subseteq F_2\subseteq F_3$, $[F_3:\mathbb{Q}]=8$ and each field is
+  Galois over all its subfields with the exception that $F_2$ is not Galois
+  over $\mathbb{Q}$.
+
+  \begin{proof}
+    Consider $\mathbb{Q} \subset\mathbb{Q}(\sqrt{2})
+    \subset\mathbb{Q}(\sqrt[4]{2}) \subset\mathbb{Q}(\sqrt[4]{2},i)$.
+    Clearly $\mathbb{Q}(\sqrt{2})$ is Galois over $\mathbb{Q}$ and hence
+    also over all its subfields. \\
+
+    However, $\mathbb{Q}(\sqrt[4]{2})$ is not Galois over $\mathbb{Q}$
+    because the minimal polynomial of $\sqrt[4]{2}$ over $\mathbb{Q}$ is
+    $x^4-2$, which has root $\sqrt[4]{2}i$ that is not contained in
+    $\mathbb{Q}(\sqrt[4]{2})$. \\
+
+    Finally, $\mathbb{Q}(\sqrt[4]{2},i)$ is the splitting field extension
+    of $x^4+2$ over $\mathbb{Q}$, so it is Galois over $\mathbb{Q}$ and
+    hence also over all its subfields. Also,
+    \[[\mathbb{Q}(\sqrt[4]{2},i):\mathbb{Q}]
+    =[\mathbb{Q}(\sqrt[4]{2},i):\mathbb{Q}(\sqrt[4]{2})]
+    [\mathbb{Q}(\sqrt[4]{2}):\mathbb{Q}] =2\times4=8.\]
   \end{proof}
 \end{document}
