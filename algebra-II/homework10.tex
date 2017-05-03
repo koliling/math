@@ -13,6 +13,10 @@
 \date{\today}
 \maketitle
 
+\textbf{Note:} This homework was completed with a significant amount of help
+from Justin Miller, without which I would have taken a much longer time to
+solve all problems. \\\\
+
 \it \textbf{DF 14.2.3:} Determine the Galois group of
   $(x^2-2)(x^2-3)(x^2-5)$. Determine all the subfields of the splitting
   field of this polynomial.
@@ -321,5 +325,26 @@
     $\mathbb{2}_2^2$, both of which have non-trivial subgroups. Thus but
     Galois Theory, the fixed field of the non-trivial subgroups will be
     proper subfields.
+  \end{proof}
+
+\it \textbf{DF 14.2.12:} Determine the Galois group of the splitting field
+  over $\mathbb{Q}$ of $x^4-14x^2+9$.
+
+  \begin{proof}
+    $x^4-14x^2+9$ has four distinct roots $\pm\sqrt{7\pm2\sqrt{10}}$.
+    Observe that $\sqrt{7+2\sqrt{10}} \cdot\sqrt{7-2\sqrt{10}} =3$,
+    therefore the splitting field of the given polynomial is
+    $K:=\mathbb{Q}(\sqrt{7+2\sqrt{10}})$. Then
+    $[K:\mathbb{Q}]=4$ because $x^4-14x^2+9$
+    has no roots in $\mathbb{Q}$ and also cannot factor into quadratic
+    factors. Therefore $\text{Gal}(K/L)$ is either isomorphic to
+    $\mathbb{Z}_4$ or to $\mathbb{Z}_2^2$. Now since $x^4-14x^2+9$ is
+    irreducible with four distinct roots, for any distinct pair of roots,
+    there must be an automorphism in $\text{Gal}(K/\mathbb{Q})$ that sends
+    one root to the other. We check that the automorphism that sends
+    $\sqrt{7+2\sqrt{10}}$ to $-\sqrt{7+2\sqrt{10}}$ and the automorphism
+    that sends $\sqrt{7+2\sqrt{10}}$ to $\sqrt{7-2\sqrt{10}}$ both have
+    order two. Thus $\text{Gal}(K/L)$ must be isomorphic to
+    $\mathbb{Z}_2^2$.
   \end{proof}
 \end{document}
