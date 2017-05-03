@@ -13,9 +13,9 @@
 \date{\today}
 \maketitle
 
-\textbf{Note:} This homework was completed with a significant amount of help
-from Justin Miller, without which I would have taken a much longer time to
-solve all problems. \\\\
+\textbf{Note:} This homework was completed with a significant amount of
+  help from Justin Miller, without which I am unlikely to submit the
+  assignment even after I have graduated. \\\\
 
 \it \textbf{DF 14.2.3:} Determine the Galois group of
   $(x^2-2)(x^2-3)(x^2-5)$. Determine all the subfields of the splitting
@@ -347,4 +347,20 @@ solve all problems. \\\\
     order two. Thus $\text{Gal}(K/L)$ must be isomorphic to
     $\mathbb{Z}_2^2$.
   \end{proof}
+
+\it \textbf{DF 14.2.13:} Prove that if the Galois group of the splitting
+  field of a cubic over $\mathbb{Q}$ is the cyclic group of order 3 then
+  all of the roots of the cubic are real.
+
+  \begin{proof}
+    Let $K$ denote the splitting field of the cubic $f(x)$ over
+    $\mathbb{Q}$. Then $[K:\mathbb{Q}]=|\text{Gal}(K/\mathbb{Q})|=3$. Now
+    since $f$ is cubic, it has at least one real root $r\in\mathbb{R}$.
+    Then since $|\text{Gal}(K/\mathbb{Q})|=3$, $K$ must equal
+    $\mathbb{Q}(r)$, and $r$ cannot be rational. Yet as the splitting
+    field, $K$ must also include the remaining two roots, so those roots
+    must also be real.
+  \end{proof}
+
+\it \textbf{DF 14.2.14:}
 \end{document}
