@@ -14,8 +14,8 @@
 \maketitle
 
 \textbf{Note:} This homework was completed with a significant amount of
-  help from Justin Miller, without which I am unlikely to submit the
-  assignment even after I have graduated. \\\\
+  help from Justin Miller, without which I will take a much longer time to
+  complete the problems. \\\\
 
 \it \textbf{DF 14.2.3:} Determine the Galois group of
   $(x^2-2)(x^2-3)(x^2-5)$. Determine all the subfields of the splitting
@@ -245,7 +245,7 @@
     Similarly, $\mathbb{Q}((1+i)\sqrt[4]{2})$ and
     $\mathbb{Q}((1+i)\sqrt[4]{2})$ are not Galois over $\mathbb{Q}$ because
     they are simple extensions of an element whose minimal polynomial is
-    $x^4+2$, which contains $\sqrt[4]{2}$ as a root, but this root is not
+    $x^4+2$, which contains $\sqrt[4]{2}i$ as a root, but this root is not
     contained in either intermediate fields.
   \end{proof}
 
@@ -418,6 +418,62 @@
       $K_1K_2$ containing $F$.
 
       \begin{proof}
+        $K_1K_2$ is the splitting field of $x^4-2x^2-2$ since it contains
+        all its roots. So $K_1K_2$ is Galois over $\mathbb{Q}$, and is
+        therefore also Galois over the intermediate field $F$.
+        Now since $K_1\supseteq F$,
+        \[[K_1K_2:K_1] =[K_1(\alpha_2):K_1] \leq[F(\alpha_2):F]
+        =[K_2:F]=2.\]
+        Similarly, since $K_2\supseteq F$,
+        \[[K_1K_2:K_2] =[K_2(\alpha_1):K_2] \leq[F(\alpha_1):F]
+        =[K_1:F]=2.\]
+        But $K_1K_2$ is a proper extension of $K_1$ and $K_2$ since
+        $K_1\neq K_2$, therefore
+        \[[K_1K_2:K_1] =[K_1K_2:K_2] =2.\]
+        In particular, $[K_1K_2:F]=[K_1K_2:K_1][K_1:F]=2\times2=4$, so
+        $\text{Gal}(K_1K_2/F)$ is either $\mathbb{Z}_4$ or
+        $\mathbb{Z}_2^2$. Now since $K_1K_2$ is Galois over $F$, it must
+        also be Galois over the intermediate fields $K_1$ and $K_2$. Also
+        from Galois theory, the automorphisms that fix $K_1$ form a strict
+        subgroup of the automorphisms that fix $F$. Then
+        since $[K_1K_2:K_1]=2$, there must be an automorphism in
+        $\text{Gal}(K_1K_2:K_1)$ of order 2. Similarly since
+        $[K_1K_2:K_2]=2$, there must be an $\text{Gal}(K_1K_2:K_2)$ of
+        order 2; this automorphism must be distinct from the previous one
+        otherwise $\text{Gal}(K_1K_2:K_1) =\text{Gal}(K_1K_2:K_2)$, giving
+        $K_1=K_2$. Thus $\text{Gal}(K_1K_2:F)$ is a group of order 4 which
+        has two distinct automorphisms of order 2, so it must be isomorphic
+        to the Klein-four group. \\
+
+        Since $K_1K_2$ is the splitting field of $x^4-2x^2-2$ over $F$, its
+        Galois group over $F$ is completely determined by its action on the
+        $\alpha_i$'s. From earlier argument, $\text{Gal}(K_1K_2:F)$
+        contains an element of order 2 in $\text{Gal}(K_1K_2:K_1)$ and
+        another of order 2 in $\text{Gal}(K_1K_2:K_1)$. Now
+        $K_1K_2=K_1(\alpha_2)$, and $\alpha_2$ has minimal polynomial
+        $x^2-1+\sqrt{3}$ over $K_1$. Thus the non-trivial automorphism
+        $\sigma_1$ in $\text{Gal}(K_1K_2:K_1)$ maps $\alpha_1$ to
+        $\alpha_3$ and fixes $\alpha_2$ and $\alpha_4$, and has fixed field
+        $K_1$. \\
+
+        Swapping the roles of $K_1$ and $K_2$,
+        we have another non-trivial automophism $\sigma_2$ that maps
+        $\alpha_2$ to $\alpha_4$ and fixes $\alpha_1$ and $\alpha_3$,
+        giving fixed field $K_2$. \\
+
+        Then by the property of Klein-four groups, the last non-trivial
+        element $\sigma_3$ of $\text{Gal}(K_1K_2:F)$ is the composite of the
+        two previous automorphisms; this element would swap $\alpha_1$ with
+        $\alpha_3$ and swap $\alpha_2$ with $\alpha_4$. Observe that since
+        $\alpha_1\alpha_2=\sqrt{2}$, $\sigma$ would fix
+        $\sqrt{2}$. Then since
+        \[[K_1K_2:F(\sqrt{2})]=[F(\sqrt{2}):F]=2=|\sigma_3|,\]
+        the fixed field of $\sigma$ must be $F(\sqrt{2})$. \\
+
+        As a Klein-four group, the only non-trivial subgroups of
+        $\text{Gal}(K_1K_2/F)=\{1,\sigma_1,\sigma_2,\sigma_3\}$ are of the
+        form $\langle\sigma_i\rangle$. Their fixed subfields have been
+        determined in the previous paragraphs. 
       \end{proof}
   \end{enumerate}
 \end{document}
