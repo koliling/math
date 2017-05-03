@@ -294,4 +294,32 @@
     =[\mathbb{Q}(\sqrt[4]{2},i):\mathbb{Q}(\sqrt[4]{2})]
     [\mathbb{Q}(\sqrt[4]{2}):\mathbb{Q}] =2\times4=8.\]
   \end{proof}
+
+\it \textbf{DF 14.2.11:} Suppose $f(x)\in\mathbb{Z}[x]$ is an irreducible
+  quartic whose splitting field $L$ has Galois group $S_4$ over $\mathbb{Q}$.
+  Let $\theta$ be a root of $f(x)$ and set $K=\mathbb{Q}(\theta)$. Prove
+  that $K$ is an extension of $\mathbb{Q}$ of degree 4 which has no proper
+  subfields. Are there any Galois extensions of $\mathbb{Q}$ of degree 4
+  with no proper subfields?
+
+  \begin{proof}
+    $[K:\mathbb{Q}]=4$ follows directly from the degree of the minimal $f$
+    begin 4. If $K$ has a proper subfield $F\supsetneq\mathbb{Q}$, then
+    $[K:F]=[F:\mathbb{Q}]=2$ since $[K:\mathbb{Q}]=4$. Then
+    $[L:F]=|S_4|/2$, which implies from Galois theory that
+    $\text{Gal}(L/F)$ is a subgroup of $S_4$ of index 2. Now the only
+    subgroup of $S_4$ of index 2 is $A_4$, so $\text{Gal}(L/F)=A_4$. \\
+
+    Now to determine $\text{Gal}(L/K)$, observe that any permutation of
+    three roots not equal to $\theta$ is an automorphism since
+    $\text{Gal}(L/F)\simeq S_4$. Then since a permutation fixes $K$ if and
+    only if $\theta$ is fixed, $\text{Gal}(L/K)$ must be $S_3$.  So from
+    Galois theory, if $F$ exists, $S_3$ must be a subgroup of $A_4$, a
+    contradiction. \\
+
+    No. A group of order 4 is either isomorphic to $\mathbb{Z}_4$ or to
+    $\mathbb{2}_2^2$, both of which have non-trivial subgroups. Thus but
+    Galois Theory, the fixed field of the non-trivial subgroups will be
+    proper subfields.
+  \end{proof}
 \end{document}
