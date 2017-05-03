@@ -244,4 +244,30 @@
     $x^4+2$, which contains $\sqrt[4]{2}$ as a root, but this root is not
     contained in either intermediate fields.
   \end{proof}
+
+\it \textbf{DF 14.2.8:} Suppose $K$ is a Galois extension of $F$ and of
+  degree $p^n$ for some prime $p$ and some $n\geq1$. Show there are Galois
+  extensions of $F$ contained in $K$ of degrees $p$ and $p^{n-1}$.
+
+  \begin{proof}
+    By Galois theory, the intermediate field field extension $K\supset
+    E\supset F$ is Galois if and only if it is the fixed field of some
+    normal subgroup $H$ of $\text{Gal}(K/F)$. Furthermore,
+    $\text{Gal}(E/F)\sim G/H$. Thus it suffices to prove that every group
+    $G$ of order $p^n$ for some $n\geq1$ has normal subgroups of order $p$
+    and of order $p^{n-1}$. \\
+
+    For the first claim, recall that any group $G$ of order $p^n$ has a
+    nontrivial center $Z$. So $Z$ has order $p^k$ for some $1\leq k\leq n$.
+    Then $Z$ will contain an element $z$ of order $p$, and then $\langle
+    z\rangle$ will be a normal subgroup of $G$ order $p$. \\
+
+    We prove the second claim by induction on $n$. The base case $n=1$ is
+    trivially satisfied. Let $G$ be a group of order $p^{n+1}$. Then by
+    argument in the previous paragraph, $G$ has a normal subgroup $N$ of
+    order $p$. Then $G/N$ will be a group of order $p^n$, so from induction
+    hypothesis, $G/N$ has a normal subgroup of order $p^{n-1}$. Then by the
+    fourth isomorphism theorem for groups, $G$ has a normal subgroup of
+    order $p^n$ as required.
+  \end{proof}
 \end{document}
