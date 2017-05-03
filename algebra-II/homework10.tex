@@ -362,5 +362,21 @@
     must also be real.
   \end{proof}
 
-\it \textbf{DF 14.2.14:}
+\it \textbf{DF 14.2.14:} Show that $\mathbb{Q}(\sqrt{2+\sqrt{2}})$ is a
+  cyclic quartic field.
+
+  \begin{proof}
+    The minimal polynomial of $\sqrt{2+\sqrt{2}}$ is $x^4-4x^2+2$, which is
+    irreducible because it has no rational roots or quadratic factors.  The
+    four distinct roots of the polynomial are $\pm\sqrt{2\pm\sqrt{2}})$.
+    Then since $\sqrt{2}\in K:=\mathbb{Q}(\sqrt{2+\sqrt{2}})$ and
+    $\sqrt{2+\sqrt{2}} \cdot\sqrt{2-\sqrt{2}}=\sqrt{2}$, $K$ is the
+    splitting field of $x^4-4x^2+2$. Thus $K$ is Galois over $\mathbb{Q}$,
+    and has order 4. Now since $x^4-4x^2+2$ is irreducible with four
+    distinct roots, for any distinct pair of roots, there must be an
+    automorphism in $\text{Gal}(K/\mathbb{Q})$ that sends one root to the
+    other. We check that the automorphism that sends $\sqrt{2+\sqrt{2}}$ to
+    $\sqrt{2-\sqrt{2}}$ has order 4. Therefore $\text{Gal}(K/\mathbb{Q})$
+    is isomorphic to $\mathbb{Z}_4$.
+  \end{proof}
 \end{document}
