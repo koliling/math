@@ -379,4 +379,45 @@
     $\sqrt{2-\sqrt{2}}$ has order 4. Therefore $\text{Gal}(K/\mathbb{Q})$
     is isomorphic to $\mathbb{Z}_4$.
   \end{proof}
+
+\it \textbf{DF 14.2.16:}
+  \begin{enumerate}[label={(\alph*)}]
+    \item Prove that $x^4-2x^2-2$ is irreducible over $\mathbb{Q}$.
+      \begin{proof}
+        The polynomial is irreducible over $\mathbb{Z}$ with prime 2 as
+        witness. Thus it is also irreducible over $\mathbb{Q}$ by Gauss's
+        Lemma.
+      \end{proof}
+
+    \item Show the roots of this quartic are $\alpha_1=\sqrt{1+\sqrt{3}}$,
+      $\alpha_2=\sqrt{1-\sqrt{3}}$, $\alpha_3=-\sqrt{1+\sqrt{3}}$, and
+      $\alpha_4=-\sqrt{1-\sqrt{3}}$.
+
+      \begin{proof}
+        This is true by the quadratic formula.
+      \end{proof}
+
+    \item Let $K_1=\mathbb{Q}(\alpha_1)$ and $K_2=\mathbb{Q}(\alpha_2)$.
+      Show that $K_1\neq K_2$ and $K_1\cap K_2=\mathbb{Q}(\sqrt{3})=F$.
+
+      \begin{proof}
+        $\alpha_2$ is complex but $\alpha_1$ is real, so $K_1$ cannot be
+        equal to $K_2$. Clearly $\sqrt{3}$ is contained in both $K_1$ and
+        $K_2$. Then since both $K_1$ and $K_2$ have degree 4, any proper
+        subfield of either must have either degree 1 or 2. So since
+        $K_1\neq K_2$, their intersection must be a proper subfield. And
+        since their intersection contains a non-rational $\sqrt{3}$ which
+        has minimal polynomial of degree 2, the intersection
+        must have degree 2, and is exactly $\mathbb{Q}(\sqrt{3})$.
+      \end{proof}
+
+    \item Prove that $K_1$, $K_2$, and $K_1K_2$ are Galois over $F$ with
+      $\text{Gal}(K_1K_2/F)$ the Klein-four group. Write out the elements
+      of $\text{Gal}(K_1K_2/F)$ explicitly. Determine all the subgroups of
+      the Galois group and give their corresponding fixed subfields of
+      $K_1K_2$ containing $F$.
+
+      \begin{proof}
+      \end{proof}
+  \end{enumerate}
 \end{document}
