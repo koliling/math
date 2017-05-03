@@ -13,8 +13,8 @@
 \date{\today}
 \maketitle
 
-\textbf{Note:} This homework was completed with a significant amount of
-  help from Justin Miller, without which I will take a much longer time to
+\textbf{Note:} This homework was completed with significant
+  help from Justin Miller, without which I would have taken much longer to
   complete the problems. \\\\
 
 \it \textbf{DF 14.2.3:} Determine the Galois group of
@@ -474,6 +474,23 @@
         $\text{Gal}(K_1K_2/F)=\{1,\sigma_1,\sigma_2,\sigma_3\}$ are of the
         form $\langle\sigma_i\rangle$. Their fixed subfields have been
         determined in the previous paragraphs. 
+      \end{proof}
+
+    \item Prove that the splitting field of $x^4-2x^2-2$ over $\mathbb{Q}$
+      is of degree 8 with dihedral Galois group.
+
+      \begin{proof}
+        From the argument in the previous paragraph,
+        $[K_1K_2:\mathbb{Q}]=8$. Now $K_1$ is an intemediate subfield that
+        is not Galois over $\mathbb{Q}$, therefore
+        $\text{Gal}(K_1K_2/\mathbb{Q})$ cannot be abelian, otherwise all
+        subgroups would be normal subgroups and then every intermediate
+        subfield would be Galois over $\mathbb{Q}$ from the Galois Theory.
+        Thus $\text{Gal}(K_1K_2/\mathbb{Q})$ can only be $Q_8$ or $D_8$.
+        But from page 69, $Q_8$ has no subgroup isomorphic to the
+        Klein-four group, so from the previous part of this question
+        $\text{Gal}(K_1K_2/\mathbb{Q})$ cannot be $Q_8$, and can only be
+        $D_8$.
       \end{proof}
   \end{enumerate}
 \end{document}
