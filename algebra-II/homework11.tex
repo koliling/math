@@ -103,10 +103,9 @@
     $\mathbb{F}_p(\alpha)$ must contain $\mathbb{F}_{p^n}$. \\
 
     Now since extensions involving finite fields are always Galois and the
-    Galois group is always cyclic, there must be some
-    $\sigma\in\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$ that
-    generates $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$. This
-    $\sigma$ must map
+    Galois group is always cyclic,
+    $\sigma\in\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$ must
+    contain a generator $\sigma$. Then $\sigma$ must map
     $\alpha$ to $\alpha+a$ for some $a\in\mathbb{F}_{p^n}$, since
     $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$ is a subset of
     $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p})$. Then
@@ -116,14 +115,24 @@
     $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_p)$ are defined by their
     image on $\alpha$. Then since $\sigma$ generates
     $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$, this Galois group
-    must have order $p$. Therefore
-    $[\mathbb{F}_p(\alpha):\mathbb{F}_{p^n}]
+    must have order $p$, so $[\mathbb{F}_p(\alpha):\mathbb{F}_{p^n}]
     =|\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})|=p$. But
     $\mathbb{F}_p\subseteq\mathbb{F}_{p^n}\subseteq\mathbb{F}_p(\alpha)$,
     so $[\mathbb{F}_{p}(\alpha):\mathbb{F}_p]=p^n$ must equal
     $[\mathbb{F}_{p^n}:\mathbb{F}_p]
-    [\mathbb{F}_{p}(\alpha):\mathbb{F}_{p^n}]=np$. Yet $p^n$ rises much
-    faster than $np$, so unless $n=1$ or
-    $n=p=2$, we will not have $p^n=np$. \\
+    [\mathbb{F}_{p}(\alpha):\mathbb{F}_{p^n}]=np$. Yet $p^{n-1}$ rises much
+    faster than $n$, so unless $n=1$ or
+    $n=p=2$, we will have $p^n\gneq np$. More precisely, since $n\neq2$,
+    $p^{n-1}$ always exceeds $2^{n-1}$, which will always exceed $n$ if
+    $n>2$; thus $p^{n-1}\gneq n$ which implies $p^n\gneq np$. \\
+
+    For the case $n=1$, we have shown that $x^p-x+1$ is irreducible in
+    Problem 14.3.8. So consider the case $n=p=2$. The polynomial $x^4-x+1$
+    has no roots in $\mathbb{F}_2$, so if it is reducible, it must be a
+    product of two quadratic factors. Then we will be able to write
+    \[x^4-x+1 =(x^2+ax+1)(x^2+bx+1)\]
+    where $a,b\in\mathbb{F}_2$. Then comparing coefficients gives
+    $a=b$, $ab=0$, and $a+b=1$, a contradiction. Thus $x^4-x+1$ must be
+    irreducible.
   \end{proof}
 \end{document}
