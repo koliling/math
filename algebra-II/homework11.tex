@@ -214,4 +214,25 @@
     $a=b$, $ab=0$, and $a+b=1$, a contradiction. Thus $x^4-x+1$ must be
     irreducible.
   \end{proof}
+
+\it \textbf{DF 14.4.1:} Determine the Galois closure of the field
+  $\mathbb{Q}(\sqrt{1+\sqrt{2}})$ over $\mathbb{Q}$.
+
+  \begin{proof}
+    Denote $\alpha=\sqrt{1+\sqrt{2}}$. Then $\alpha$ satisfies the
+    polynomial $x^4-2x^2-1$, which has no linear factors over $\mathbb{Q}$
+    by Gauss's Lemma since $\pm1$ do not satisfy the polynomial. Also, the
+    polynomial has no quadratic factors over $\mathbb{Q}$, because writing
+    \[x^4-2x^2-1 =(x^2+ax+1)(x^2+bx-1)\]
+    for some $a,b\in\mathbb{Q}$ and comparing coefficients gives the
+    contradiction $a=-b$, $ab=-2$, and $a=b$. Therefore $x^4-2x^2-1$ is the
+    minimal polynomial $m_\alpha(x)$ of $\alpha$. Now $m_\alpha(x)$ has
+    four distinct roots $\pm\sqrt{1\pm\sqrt{2}}$, two of which are not
+    real. Observe that $\sqrt{1+\sqrt{2}} \cdot\sqrt{1-\sqrt{2}}=i$,
+    thus the Galois closure of the given field must contain $i$, and
+    $\mathbb{Q}(\sqrt{1+\sqrt{2}},i)$ will contain all roots of
+    $m_\alpha(x)$. Therefore $\mathbb{Q}(\sqrt{1+\sqrt{2}},i)$ is the
+    splitting field extension of $x^4-2x^2-1$, and the Galois closure
+    of the given field.
+  \end{proof}
 \end{document}
