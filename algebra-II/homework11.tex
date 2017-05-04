@@ -82,5 +82,48 @@
     \end{align*}
     where the last equality follows from the fact that $\mathbb{F}_{p^n}$
     is exactly all the elements that satisfy the polynomial $x^{p^n}-x$.
+    Therefore if $\alpha$ is a root of the given polynomial, then the $p^n$
+    distinct roots of the polynomial are exactly
+    $\{\alpha+a:a\in\mathbb{F}_{p^n}\}$. \\
+
+    Now assume by contradiction that the given polynomial is irreducible
+    but $n\neq1$, and either $n\neq p$ or $n\neq2$. Then
+    $[\mathbb{F}_p(\alpha):\mathbb{F}_p]=p^n$, therefore
+    $|\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_p)|=p^n$, since field
+    extensions of a finite field over another finite field are always
+    Galois. Then since $\mathbb{F}_p(\alpha)$ is a simple field extension
+    over $\mathbb{F}_p$, the automorphisms in
+    $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_p)$ are exactly those that
+    map $\alpha$ to the roots of the given polynomial that are contained in
+    $\mathbb{F}_p(\alpha)$. Thus in order for
+    $|\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_p)|$ to equal $p^n$,
+    $\mathbb{F}_p(\alpha)$ must contain all $p^n$ roots of the
+    given polynomial. Then since the $p^n$ roots are exactly
+    $\{\alpha+a:a\in\mathbb{F}_{p^n}\}$ as we have shown earlier,
+    $\mathbb{F}_p(\alpha)$ must contain $\mathbb{F}_{p^n}$. \\
+
+    Now since extensions involving finite fields are always Galois and the
+    Galois group is always cyclic, there must be some
+    $\sigma\in\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$ that
+    generates $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$. This
+    $\sigma$ must map
+    $\alpha$ to $\alpha+a$ for some $a\in\mathbb{F}_{p^n}$, since
+    $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$ is a subset of
+    $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p})$. Then
+    $\sigma^p(\alpha)=\alpha+pa=\alpha$ where the first equality follows
+    from $\sigma$ fixing $\mathbb{F}_{p^n}$. Thus $\sigma^p$ is the
+    identity because automorphisms in
+    $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_p)$ are defined by their
+    image on $\alpha$. Then since $\sigma$ generates
+    $\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})$, this Galois group
+    must have order $p$. Therefore
+    $[\mathbb{F}_p(\alpha):\mathbb{F}_{p^n}]
+    =|\text{Gal}(\mathbb{F}_p(\alpha)/\mathbb{F}_{p^n})|=p$. But
+    $\mathbb{F}_p\subseteq\mathbb{F}_{p^n}\subseteq\mathbb{F}_p(\alpha)$,
+    so $[\mathbb{F}_{p}(\alpha):\mathbb{F}_p]=p^n$ must equal
+    $[\mathbb{F}_{p^n}:\mathbb{F}_p]
+    [\mathbb{F}_{p}(\alpha):\mathbb{F}_{p^n}]=np$. Yet $p^n$ rises much
+    faster than $np$, so unless $n=1$ or
+    $n=p=2$, we will not have $p^n=np$. \\
   \end{proof}
 \end{document}
