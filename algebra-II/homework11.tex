@@ -13,6 +13,42 @@
 \date{\today}
 \maketitle
 
+\it \textbf{Q1:}
+  \begin{enumerate}[label={(\alph*)}]
+    \item Exhibit an explicit isomorphism between the splitting fields of
+      $x^3-x+1$ and $x^3-x-1$ over $\mathbb{F}_3$.
+
+      \begin{proof}
+        Observe that we can get the first polynomial from the second, and
+        also the second polynomial from the first by replacing $x$ with
+        $-x$ and taking negations. Therefore the splitting fields of both
+        polynomials are the same, so the identity map would be an
+        isomorphism between the fields.
+      \end{proof}
+
+    \item How many possible isomorphisms are there total between these two
+      splitting fields?
+
+      \begin{proof}
+        Since both splitting fields are equal, the isomorphisms are exactly
+        the automorphisms of the splitting field of one of the polynomials.
+        Observe that $x^3-x+1$ has no roots in $\mathbb{F}_3$, so its
+        splitting field must properly extend $\mathbb{F}_3$. Also observe
+        that if $\alpha$ is a root of the polynomial, then $\alpha+1$ is
+        also a root, since $(\alpha+1)^3-(\alpha+1)+1
+        =\alpha^3+1-\alpha-1+1=0$. Therefore the roots of the given
+        polynomial are exactly $\alpha,\alpha+1,\alpha+2$, which implies
+        that the splitting field is $\mathbb{F}_3(\alpha)$, which has degree
+        extension 3. \\
+
+        Now extensions involving finite fields are always Galois,
+        so $|\text{Aut}(\mathbb{F}_3(\alpha))|
+        =|\text{Gal}(\mathbb{F}_3(\alpha)/\mathbb{F}_3)|
+        =[\mathbb{F}_3(\alpha):\mathbb{F}_3] =3$, so there are three
+        possible isomorphisms.
+      \end{proof}
+  \end{enumerate}
+
 \it \textbf{DF 14.3.1:} Factor $x^8-x$ into irreducibles in $\mathbb{Z}[x]$
   and in $\mathbb{F}_2[x]$.
 
