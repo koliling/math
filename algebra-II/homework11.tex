@@ -268,23 +268,40 @@
         $M=L$, so $L$ is already Galois over $F$ and with degree of
         extension $[L:K][K:F]$ which is a power of $p$. \\
 
-        For the inductive step, assume $[M:L]>1$. Then $L/K$ is not Galois,
+        For the inductive step, assume $[M:L]>1$. Then $L/F$ is not Galois,
         so there must exist an automorphism $\sigma$ in $\text{Gal}(M/F)$
-        where $\sigma(L)\neq L$, otherwise $L/K$ would be Galois. Then
-        since $L/K$ is Galois, $\sigma(L)/\sigma(K)$ must also be Galois.
-        But $K/F$ is Galois, so $\sigma(K)=K$, so we have $\sigma(L)/K$ is
-        Galois. Then $\sigma(L)/K$ is Galois and $L/K$ is Galois, which
-        implies that $\sigma(L)L/K$ is Galois. Furthermore,
-        $[\sigma(L)L:K]$ must divide $[\sigma(L):K][L:K]$ from Corollary
-        20, therefore $\sigma(L)L$ is a $p$-extension of $K$.
-        Now $\sigma(L)L$ is contained in $M$ and contains $L$, thus $M$ is
-        the Galois closure of $\sigma(L)L$ over $F$. Also
-        $\sigma(L)L$ properly extends $L$ because $\sigma(L)\neq L$, so
-        $[M:\sigma(L)L]<[M:L]$. Thus we have a $p$-extension $\sigma(L)L$
-        of $K$ whose Galois closure $M$ over $F$ satisfies
-        $[M:\sigma(L)L]<[M:L]$, so by induction hypothesis $M/\sigma(L)L$
-        is a $p$-extension of $F$. Then $[M:L]
-        =[M:\sigma(L)L][\sigma(L)L:L]$ will also be a power of $p$.
+        where $\sigma(L)\neq L$ (** we outline the proof of this claim at
+        the bottom **). Note that the notation $\sigma(L)\neq L$ is
+        different from saying $\sigma$ does not fix $L$. Then since $L/K$ is
+        Galois, $\sigma(L)/\sigma(K)$ must also be Galois. But $K/F$ is
+        Galois, so $\sigma(K)=K$, so we have $\sigma(L)/K$ is Galois. Then
+        $\sigma(L)/K$ is Galois and $L/K$ is Galois, which implies that
+        $\sigma(L)L/K$ is Galois.  Furthermore, $[\sigma(L)L:K]$ must
+        divide $[\sigma(L):K][L:K]$ from Corollary 20, therefore
+        $\sigma(L)L$ is a $p$-extension of $K$.  Now $\sigma(L)L$ is
+        contained in $M$ and contains $L$, thus $M$ is the Galois closure
+        of $\sigma(L)L$ over $F$. Also $\sigma(L)L$ properly extends $L$
+        because $\sigma(L)\neq L$, so $[M:\sigma(L)L]<[M:L]$. Thus we have
+        a $p$-extension $\sigma(L)L$ of $K$ whose Galois closure $M$ over
+        $F$ satisfies $[M:\sigma(L)L]<[M:L]$, so by induction hypothesis
+        $M/\sigma(L)L$ is a $p$-extension of $F$. Then $[M:L]
+        =[M:\sigma(L)L][\sigma(L)L:L]$ will also be a power of $p$. \\\\
+
+        (** Proof of claim at **: In the proof of the Fundamental Theorem
+        of Galois Theory, the authors showed that any if $M\subseteq
+        L\subseteq F$ is a series of field extensions with $M/F$ Galois and
+        $\tau$ is an automorphism of $L$ that fixes $F$, then $\tau$ can
+        always be extended to an automorphism contained in
+        $\text{Gal}(M/F)$. So if $L/F$ is not Galois, then $L$ is not a
+        splitting field extension of $F$, so there must be some $\alpha$
+        contained in $L$ whose minimal polynomial has another root $\beta$
+        not in $L$. Then from Theorem 13.4.27, there will be isomorphism
+        $\tau$ between $F(\alpha)$ and $F(\beta)$ that fixes $F$ and sends
+        $\alpha$ to $\beta$. However since $M/F$ is Galois, $M$ contains
+        both $\alpha$ and $\beta$, so $\tau$ can be extended to an
+        automorphism $\sigma$ of $M$ that fixes $F$. $\sigma$ sends
+        $\alpha$ in $L$ to an element $\beta$ outside $L$, thus
+        $\sigma(L)\neq L$. **)
       \end{proof}
 
     \item Give an example to show that (a) need not hold if $[K:F]$ is a
@@ -335,5 +352,12 @@
     =z^p-x^p-f(x^p)^py^p$, therefore the extension
     $[\mathbb{F}_p(x^p,y^p,x+f(x^p)y): \mathbb{F}_p(x^p,y^p)]$ cannot be
     greater than $p$, a contradiction.
+  \end{proof}
+
+\it \textbf{DF 14.4.7:} Let $F\subseteq K\subseteq L$ and let $\theta\in L$
+  with $p(x)=m_{\theta,F}(x)$. Prove that $K\otimes_F F(\theta) \cong
+  K[x]/(p(x))$ as $K$-algebras.
+
+  \begin{proof}
   \end{proof}
 \end{document}
