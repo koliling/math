@@ -277,7 +277,7 @@
         implies that $\sigma(L)L/K$ is Galois. Furthermore,
         $[\sigma(L)L:K]$ must divide $[\sigma(L):K][L:K]$ from Corollary
         20, therefore $\sigma(L)L$ is a $p$-extension of $K$.
-        Now $\sigma(L)L$ is contained in $M$ and contains $1L$, thus $M$ is
+        Now $\sigma(L)L$ is contained in $M$ and contains $L$, thus $M$ is
         the Galois closure of $\sigma(L)L$ over $F$. Also
         $\sigma(L)L$ properly extends $L$ because $\sigma(L)\neq L$, so
         $[M:\sigma(L)L]<[M:L]$. Thus we have a $p$-extension $\sigma(L)L$
@@ -297,4 +297,43 @@
         extension 6, not a power of 3.
       \end{proof}
   \end{enumerate}
+
+\it \textbf{DF 14.4.6:} Prove that
+  $\mathbb{F}_p(x,y)/\mathbb{F}_p(x^p,y^p)$ is not a simple extension by
+  explicitly exhibiting an infinite number of intermediate subfields.
+
+  \begin{proof}
+    We first show that the given extension has degree $p^2$. Consider the
+    intermediate extension $\mathbb{F}_p(x,y^p)/\mathbb{F}_p(x^p,y^p)$.
+    This is a proper extension since $x$ is not contained in the smaller
+    subfield. Also, the extension has degree no greater than $p$ since
+    $z^p-x^p\in \mathbb{F}_p(x^p,y^p)[z]$ is a polynomial with root $x$.
+    Now $z^p-x^p=(z-x)^p$, so the minimal polynomial $m_x(z)$ of $x$ over
+    $\mathbb{F}_p(x^p,y^p)$ must be $(z-x)^k$ for some $k\leq p$. Yet if
+    $k<p$ then the coefficient of $z^0$ in $m_x(z)$ will be $x^k$ which
+    will not lie in $\mathbb{F}_p(x^p,y^p)$. Therefore $m_x(z)$ must be
+    $z^p-x^p$, thus $[\mathbb{F}_p(x,y^p):\mathbb{F}_p(x^p,y^p)]=p$. By a
+    similar argument, $[\mathbb{F}_p(x,y):\mathbb{F}_p(x,y^p)]=p$,
+    therefore $[\mathbb{F}_p(x,y):\mathbb{F}_p(x^p,y^p)]=p^2$. \\
+
+    Consider the set of intermediate subfields
+    \[\{\mathbb{F}_p(x^p,y^p,x+f(x^p)y):\; f(z)\in\mathbb{F}_p[z]\}.\]
+
+    We show that the intermediate subfields are distinct for distinct
+    $f(z),g(z)\in\mathbb{F}_p[z]$. Assume $\mathbb{F}_p(x^p,y^p,x+f(x^p)y)
+    =\mathbb{F}_p(x^p,y^p,x+g(x^p)y)$ for distinct
+    $f(z),g(z)\in\mathbb{F}_p[z]$. Then
+    \[(f(x^p)-g(x^p))y =(x+f(x^p)y) -(x+g(x^p)y)
+    \in\mathbb{F}_p(x^p,y^p,x+f(x^p)y),\]
+    which means $y$ and therefore $x$ also lies in
+    $\mathbb{F}_p(x^p,y^p,x+f(x^p)y)$. Therefore
+    $\mathbb{F}_p(x^p,y^p,x+f(x^p)y) =\mathbb{F}_p(x,y)$, which implies
+    \[[\mathbb{F}_p(x^p,y^p,x+f(x^p)y): \mathbb{F}_p(x^p,y^p)] =p^2.\]
+
+    However the minimal polynomial $m(z)\in \mathbb{F}_p(x^p,y^p)[z]$ of
+    $x+f(x^p)y$ over $\mathbb{F}_p(x^p,y^p)$ divides $z^p-(x+f(x^p)y)^p
+    =z^p-x^p-f(x^p)^py^p$, therefore the extension
+    $[\mathbb{F}_p(x^p,y^p,x+f(x^p)y): \mathbb{F}_p(x^p,y^p)]$ cannot be
+    greater than $p$, a contradiction.
+  \end{proof}
 \end{document}
