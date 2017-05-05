@@ -463,4 +463,49 @@
     F(\theta)$. Therefore the only nilpotent element in $K_1\otimes K_2$
     is the zero.
   \end{proof}
+
+\it \textbf{DF 14.4.9:} Suppose $K/F$ is Galois with Galois group $G$ and
+  $\theta$ is a primitive element for $K$, i.e. $K=F(\theta)$. For any
+  subgroup $H$ of $G$, let $f(x) =\prod_{\sigma\in H} (x-\sigma(\theta))$.
+  Show $f(x)\in E[x]$ where $E$ is the fixed field of $H$ in $K$, and that
+  $f(x)$ is the minimal polynomial for $\theta$ over $E$. Prove that the
+  coefficients of $f(x)$ generate $E$ over $F$ (these coefficients are the
+  `elementary symmetric functions' of the conjugates $\sigma(\theta)$ of
+  $\theta$ for $\sigma\in H$, cf. Section 6).
+
+  \begin{proof}
+    First observe that given any $\tau\in H$, $\tau$ will fix $f(x)$,
+    because
+    \[\tau(f(x)) =\tau\left( \prod_{\sigma\in H} (x-\sigma(\theta))\right)
+    =\prod_{\sigma\in H} (x-\tau\circ\sigma(\theta)) =\prod_{\sigma\in H}
+    (x-\sigma(\theta)) =f(x),\]
+    where the third equality follows because
+    \[\{\tau\circ\sigma: \sigma\in H\} =\tau(H) =H\]
+    since $H$ is a group. In particular, $\tau$ fixes every coefficient of
+    $f(x)$, implying that the coefficients of $f(x)$ lie in the fixed field
+    $E$ of $H$, and as a result $f(x)$ lies in $E[x]$. \\
+
+    Now $\theta$ is a root of $f(x)$ since $H$ contains the identity map.
+    Then since $f(x)$ lies in $E[x]$, the minimal polynomial for $\theta$
+    over $E$ must divide $f(x)$. But
+    \[\text{deg}(f(x)) =|H| =|\text{Gal}(K/E)| =[K:E]
+    =\text{deg}(m_{\theta,E}(x)),\]
+    where the third equality holds from Galois theory and the last equality
+    holds because $K=E(\theta)$ since $\theta$ is a primitive element for
+    $K$ over $F$ and $E\supseteq F$. Therefore the minimal polynomial for
+    $\theta$ over $E$ is exactly $f(x)$. \\
+
+    Clearly the coefficients of $f(x)$ lie in $E$ since $f(x)$ lies in
+    $E[x]$. Let the coefficients of $f(x)$ be $e_0,\ldots,e_n$, where
+    $n=\text{deg}(f(x))$. Then $e_i\in E$ and $e_n\neq0$. Consider the
+    series of field extensions
+    \[F \subseteq F(e_0,\ldots,e_n)\subseteq E \subseteq K.\]
+    Now $K=F(e_0,\ldots,e_n,\theta)$, and the minimal polynomial of
+    $\theta$ over $F(e_0,\ldots,e_n)$ must divide $f(x)$, therefore
+    \[[F(e_0,\ldots,e_n,\theta):F(e_0,\ldots,e_n)] =[K:F(e_0,\ldots,e_n)]
+    \leq \text{deg}(f(x))=n.\]
+    But since $[K:E]=n$ and $E$ contains $F(e_0,\ldots,e_n)$, we must have
+    \[[K:F(e_0,\ldots,e_n)]=[K:E]=n,\]
+    and in particular, $E=F(e_0,\ldots,e_n)$ as required.
+  \end{proof}
 \end{document}
