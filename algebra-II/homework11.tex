@@ -299,9 +299,10 @@
         $\tau$ between $F(\alpha)$ and $F(\beta)$ that fixes $F$ and sends
         $\alpha$ to $\beta$. However since $M/F$ is Galois, $M$ contains
         both $\alpha$ and $\beta$, so $\tau$ can be extended to an
-        automorphism $\sigma$ of $M$ that fixes $F$. $\sigma$ sends
-        $\alpha$ in $L$ to an element $\beta$ outside $L$, thus
-        $\sigma(L)\neq L$. **)
+        automorphism $\sigma$ of $M$ that fixes $F$; the full proof of this
+        involves induction on $[M:L]$ which is too tedious to flesh out in
+        full detail here. $\sigma$ sends $\alpha$ in $L$ to an element
+        $\beta$ outside $L$, thus $\sigma(L)\neq L$. **)
       \end{proof}
 
     \item Give an example to show that (a) need not hold if $[K:F]$ is a
@@ -365,7 +366,7 @@
     defined as
     \[\varphi(k,f(\theta)) =kf(x),\]
     where $f(x)\in F[x]$ has degree less than
-    $n=\text{deg}(m_{\theta,F}(x))$. Note that we can assume $f$ does not
+    $n:=\text{deg}(m_{\theta,F}(x))$. Note that we can assume $f$ does not
     have higher degree because $\{1,\theta,\ldots,\theta^{n-1}\}$ is a
     basis for $F\subseteq K$. It is routine to show that $\varphi$ is
     $F$-bilinear. Thus $\varphi$ induces an $F$-module homomorphism
@@ -424,5 +425,42 @@
     $k_{n-1}x^{n-1}+\ldots+k_1x+k_0 \in K[x]/(p(x))$ has preimage
     $k_{n-1}\otimes \theta^{n-1}+\ldots+k_1\otimes \theta+k_0\otimes 1 \in
     K\otimes_F F(\theta)$.
+  \end{proof}
+
+\it \textbf{DF 14.4.8:} Let $K_1$ and $K_2$ be two algebraic extensions of
+  a field $F$ contained in the field $L$ of characteristic zero. Prove that
+  the $F$-algebra $K_1\otimes_F K_2$ has no nonzero nilpotent elements.
+  [Use the preceeding exercise.]
+
+  \begin{proof}
+    $K_2$ has characteristic 0 and $[K_2:F]$ is finite, so by the primitive
+    element theorem $K_2=F(\theta)$ for some $\theta\in K_2$. Then by the
+    preceeding exercise $K_1\otimes_F K_2 =K_1\otimes_F F(\theta) \cong
+    K_1[x]/(m_{\theta,F}(x))$ as $K_1$-algebras, with isomorphism
+    $\Psi:K_1\otimes_F F(\theta) \rightarrow K_1[x]/(m_{\theta,F}(x))$
+    defined by $\Psi(k\otimes f(\theta)) =kf(x)$, where $f(x)\in F[x]$ has
+    degree less than $n:=\text{deg}(m_{\theta,F}(x))$. \\
+
+    Let $y:=\sum_{i=1}^m (k_i\otimes f_i(\theta)) \in K_1\otimes_F
+    F(\theta)$ be a nilpotent element, where $k_i\in K_1$ and $f_i(x)\in
+    F[x]$ have degree less than $n$. Then $y^r=0$ for some
+    $r\in\mathbb{N}$, so as an $K_1$-algebra, $\Phi(y^r)=0\in
+    K_1[x]/(m_{\theta,F}(x))$. Now
+    \[\Psi(y^r) =\Psi\left(\sum_{i=1}^m (k_i\otimes f_i(\theta)) \right)^r
+    =\left(\sum_{i=1}^m k_if_i(x) \right)^r =0\in
+    K_1[x]/(m_{\theta,F}(x))\]
+    implies that 
+    \[m_{\theta,F}(x) \left|\; \left(\sum_{i=1}^m k_if_i(x) \right)^r
+    \right..\]
+    But $m_{\theta,F}(x)$ doesn't have repeated roots since $F$ has
+    characteristic 0, so the above implies that
+    \[m_{\theta,F}(x) \left|\; \sum_{i=1}^m k_if_i(x) \right..\]
+
+    Yet $m_{\theta,F}(x)$ has degree $n$ while the right $\sum_{i=1}^m
+    k_if_i(x)$ has degree less than $n$, so $\sum_{i=1}^m k_if_i(x)$ must
+    equal 0. Now $\sum_{i=1}^m k_if_i(x)$ is the image of $y$ under the
+    isomorphism $\Psi$, thus $y$ must also equals 0 in $K_1\otimes_F
+    F(\theta)$. Therefore the only nilpotent element in $K_1\otimes K_2$
+    is the zero.
   \end{proof}
 \end{document}
