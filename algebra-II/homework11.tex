@@ -235,4 +235,56 @@
     splitting field extension of $x^4-2x^2-1$, and the Galois closure
     of the given field.
   \end{proof}
+
+\it \textbf{DF 14.4.3:} Let $F$ be a field contained in the ring of
+  $n\times n$ matrices over $\mathbb{Q}$. Prove that $[F:\mathbb{Q}]\leq
+  n$. (Note that, by Exercise 19 of Section 13.2, the ring of $n\times n$
+  matrices over $\mathbb{Q}$ does contain fields of degree $n$ over
+  $\mathbb{Q}$.)
+
+  \begin{proof}
+    Since $F$ is contained in the ring of $n\times n$ matrices over
+    $\mathbb{Q}$, $[F:\mathbb{Q}]$ is at most $n^2$. Then from the
+    primitive element theorem, $F$ is a simple extension, so we can write
+    $F=\mathbb{Q}(\alpha)$ for some $\alpha\in F$. Now the minimal
+    polynomial of the matrix representing $\alpha$ is the same as
+    $m_\alpha(x)$, the minimal polynomial of $\alpha$ over $\mathbb{Q}$.
+    Since the minimal polynomial of the matrix has degree not exceeding
+    $n$, therefore $[F:\mathbb{Q}] =\text{deg}(m_\alpha(x))\leq n$.
+  \end{proof}
+
+\it \textbf{DF 14.4.5:} Let $p$ be a prime and let $F$ be a field. Let $K$
+  be a Galois extension of $F$ whose Galois group is a $p$-group (i.e., the
+  degree $[K:F]$ is a power of $p$). Such an extension is called a
+  $p$-extension (note that $p$-extensions are Galois by definition).
+
+  \begin{enumerate}[label={(\alph*)}]
+    \item Let $L$ be a $p$-extension of $K$. Prove that the Galois closure
+      of $L$ over $F$ is a $p$-extension of $F$.
+
+      \begin{proof}
+        Let $M\supseteq L$ denote the Galois closure of $L$ over $F$. We
+        prove the assertion by induction on $[M:L]$. If $[M:L]=1$, then
+        $M=L$, so $L$ is already Galois over $F$ and with degree of
+        extension $[L:K][K:F]$ which is a power of $p$. \\
+
+        For the inductive step, assume $[M:L]>1$. Then $L/K$ is not Galois,
+        so there must exist an automorphism $\sigma$ in $\text{Gal}(M/F)$
+        where $\sigma(L)\neq L$, otherwise $L/K$ would be Galois. Then
+        since $L/K$ is Galois, $\sigma(L)/\sigma(K)$ must also be Galois.
+        But $K/F$ is Galois, so $\sigma(K)=K$, so we have $\sigma(L)/K$ is
+        Galois. Then $\sigma(L)/K$ is Galois and $L/K$ is Galois, which
+        implies that $\sigma(L)L/K$ is Galois. Furthermore,
+        $[\sigma(L)L:K]$ must divide $[\sigma(L):K][L:K]$ from Corollary
+        20, therefore $\sigma(L)L$ is a $p$-extension of $K$.
+        Now $\sigma(L)L$ is contained in $M$ and contains $L$, thus $M$ is
+        the Galois closure of $\sigma(L)L$ over $F$. Also
+        $\sigma(L)L$ properly extends $L$ because $\sigma(L)\neq L$, so
+        $[M:\sigma(L)L]<[M:L]$. Thus we have a $p$-extension $\sigma(L)L$
+        of $K$ whose Galois closure $M$ over $F$ satisfies
+        $[M:\sigma(L)L]<[M:L]$, so by induction hypothesis $M/\sigma(L)L$
+        is a $p$-extension of $F$. Then $[M:L]
+        =[M:\sigma(L)L][\sigma(L)L:L]$ will also be a power of $p$.
+      \end{proof}
+  \end{enumerate}
 \end{document}
