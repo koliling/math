@@ -288,8 +288,8 @@
         =[M:\sigma(L)L][\sigma(L)L:L]$ will also be a power of $p$. \\\\
 
         (** Proof of claim at **: In the proof of the Fundamental Theorem
-        of Galois Theory, the authors showed that any if $M\subseteq
-        L\subseteq F$ is a series of field extensions with $M/F$ Galois and
+        of Galois Theory, the authors showed that any if $M\supseteq
+        L\supseteq F$ is a series of field extensions with $M/F$ Galois and
         $\tau$ is an automorphism of $L$ that fixes $F$, then $\tau$ can
         always be extended to an automorphism contained in
         $\text{Gal}(M/F)$. So if $L/F$ is not Galois, then $L$ is not a
@@ -359,5 +359,68 @@
   K[x]/(p(x))$ as $K$-algebras.
 
   \begin{proof}
+    Consider the map $\varphi:K\times F(\theta) \rightarrow K[x]/(p(x))$
+    defined as
+    \[\varphi(k,f(\theta)) =kf(x),\]
+    where $f(x)\in F[x]$ has degree less than
+    $n=\text{deg}(m_{\theta,F}(x))$. Note that we can assume $f$ does not
+    have higher degree because $\{1,\theta,\ldots,\theta^{n-1}\}$ is a
+    basis for $F\subseteq K$. It is routine to show that $\varphi$ is
+    $F$-bilinear. Thus $\varphi$ induces an $F$-module homomorphism
+    $\Psi:K\otimes_F F(\theta) \rightarrow K[x]/(p(x))$ defined by
+    \[\Psi(k\otimes f(\theta)) =\varphi(k,f(\theta)) =kf(x).\]
+
+    Now this is a $K$-algebra homomorphism because given $k\in K$ and
+    $k_i\in K$ and $f_i(\theta)\in F(\theta)$ with $\text{deg}(f_i)<n$, we
+    have
+    \begin{align*}
+      \Psi\left( k\cdot \sum_i (k_i\otimes f_i(\theta)) \right)
+        &=\Psi\left( \sum_i (kk_i\otimes f_i(\theta)) \right) \\
+      &=\sum_i kk_if_i(\theta) \\
+      &=k\sum_i k_if_i(\theta) \\
+      &=k\Psi\left( \sum_i (k_i\otimes f_i(\theta)) \right). \\
+    \end{align*}
+
+    Next we show that $\Psi$ is injective. Given aribtrary $y\in K\otimes_F
+    F(\theta)$, we can write
+    \[y= \sum_{i=1}^m (k_i\otimes f_i(\theta))\]
+    for some $k_1,\ldots,k_m$ in $K$, and some polynomials
+    $f_1(x),\ldots,f_m(x)$ in $F[x]$ with degree less than $n$, where
+    $f_i(x)=a_{i,n-1}x^{n-1}+\ldots+a_{i,1}x+a_{i,0}$, with $a_{i,j}\in F$.
+    Observe that $y$ can be rearranged to be
+    \begin{align*}
+      y &:=\sum_{i=1}^m (k_i\otimes f_i(\theta))\\
+      &=\sum_{i=1}^m \left(k_i \otimes \left(\sum_{j=0}^{n-1}
+        a_{i,j}\theta^j\right) \right)\\
+      &=\sum_{j=0}^{n-1} \sum_{i=1}^m \left(k_i \otimes \left(
+        a_{i,j}\theta^j\right) \right)\\
+      &=\sum_{j=0}^{n-1} \sum_{i=1}^m (k_ia_{i,j} \otimes \theta^j)\\
+      &=\sum_{j=0}^{n-1} \left(\left(\sum_{i=1}^m k_ia_{i,j}\right)
+        \otimes \theta^j \right),\\
+    \end{align*}
+
+    so that
+    \begin{align*}
+      \Psi(y) &=\Psi\left( \sum_{j=0}^{n-1} \left(\left(\sum_{i=1}^m
+        k_ia_{i,j}\right) \otimes \theta^j \right)\right)\\
+      &=\sum_{j=0}^{n-1} \Psi \left(\left(\sum_{i=1}^m
+        k_ia_{i,j}\right) \otimes \theta^j \right)\\
+      &=\sum_{j=0}^{n-1} \left(\sum_{i=1}^m k_i a_{i,j}\right) x^j.\\
+    \end{align*}
+
+    Now if $y\in\ker(\Psi)$, then the above equates to $0\in K[x]/(p(x))$.
+    Yet the degree of $p(x)$ is less then $n$, therefore in the above
+    formular, each of the $n$ coefficients $\sum_{i=1}^m k_i a_{i,j}$ of
+    $x^j$ must equal to $0\in K$. Therefore
+    \[y =\sum_{j=0}^{n-1} \left(\left(\sum_{i=1}^m k_ia_{i,j}\right)
+        \otimes \theta^j \right)
+      =\sum_{j=0}^{n-1} \left(0 \otimes \theta^j \right)
+      =\sum_{j=0}^{n-1} 0 =0,\]
+    so $\ker(\Psi)$ is the zero set. \\
+
+    Finally, we show that $\Psi$ is surjective. This is trivial since every
+    $k_{n-1}x^{n-1}+\ldots+k_1x+k_0 \in K[x]/(p(x))$ has preimage
+    $k_{n-1}\otimes \theta^{n-1}+\ldots+k_1\otimes \theta+k_0\otimes 1 \in
+    K\otimes_F F(\theta)$.
   \end{proof}
 \end{document}
