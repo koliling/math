@@ -277,7 +277,7 @@
         implies that $\sigma(L)L/K$ is Galois. Furthermore,
         $[\sigma(L)L:K]$ must divide $[\sigma(L):K][L:K]$ from Corollary
         20, therefore $\sigma(L)L$ is a $p$-extension of $K$.
-        Now $\sigma(L)L$ is contained in $M$ and contains $L$, thus $M$ is
+        Now $\sigma(L)L$ is contained in $M$ and contains $1L$, thus $M$ is
         the Galois closure of $\sigma(L)L$ over $F$. Also
         $\sigma(L)L$ properly extends $L$ because $\sigma(L)\neq L$, so
         $[M:\sigma(L)L]<[M:L]$. Thus we have a $p$-extension $\sigma(L)L$
@@ -285,6 +285,16 @@
         $[M:\sigma(L)L]<[M:L]$, so by induction hypothesis $M/\sigma(L)L$
         is a $p$-extension of $F$. Then $[M:L]
         =[M:\sigma(L)L][\sigma(L)L:L]$ will also be a power of $p$.
+      \end{proof}
+
+    \item Give an example to show that (a) need not hold if $[K:F]$ is a
+      power of $p$ but $K/F$ is not Galois.
+
+      \begin{proof}
+        Consider $p=3$, $F=\mathbb{Q}$ and $K=L=\mathbb{Q}(\sqrt[3]{2})$.
+        Then the Galois closure of $\mathbb{Q}(\sqrt[3]{2})$ over
+        $\mathbb{Q}$ is $\mathbb{Q}(\sqrt[3]{2},i)$ which has degree
+        extension 6, not a power of 3.
       \end{proof}
   \end{enumerate}
 \end{document}
