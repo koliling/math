@@ -1,9 +1,9 @@
 .PHONY: main
 
 main:
-	pdflatex homework07.tex
-	pdflatex homework07.tex
-	pdflatex homework07.tex
+	pdflatex finals.tex
+	pdflatex finals.tex
+	pdflatex finals.tex
 
 clean:
 	rm *.aux
