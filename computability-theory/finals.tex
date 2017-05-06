@@ -61,4 +61,59 @@
     we can extract $Y$ as a set from $S$ as follows:
     \[Y =\{y\in S:\; (\exists x)\; \varphi(x,y,w)\}.\]
   \end{proof}
+
+\textbf{Kunen I.9.24:} \it Suppose that $x,y\in\text{WF}$. Then:
+  \begin{enumerate}
+    \item \it $\{x,y\}\in\text{WF}$ and $\text{rank}(\{x,y\})
+      =\max(\text{rank}(x), \text{rank}(y))+1$.
+
+      \begin{proof}
+        The first assertion follows from I.9.24.3 which says a set lies in
+        WF iff all its elements lie in WF. The second assertion follows
+        from I.9.24.4.
+      \end{proof}
+
+    \item \it $\langle x,y\rangle\in\text{WF}$ and $\text{rank}(\langle
+      x,y\rangle) =\max(\text{rank}(x), \text{rank}(y))+2$.
+
+      \begin{proof}
+        The first assertion follows from I.9.24.3 and the fact that both
+        $\{x\}$ and $\{x,y\}$ lie in WF from part (1) of this question.
+        The second assertion follows from I.9.24.4 and the fact that
+        $\text{rank}(\{x,y\}) =\max(\text{rank}(x), \text{rank}(y))+1$ as
+        shown in the first part of this question.
+      \end{proof}
+
+    \item \it If $\mathcal{P}(x)$ exists, then $\mathcal{P}(x)\in\text{WF}$
+      and $\text{rank}(\mathcal{P}(x)) =\text{rank}(x)+1$.
+
+      \begin{proof}
+        $x$ lies in WF, so each of its members must also lie in WF from
+        Lemma I.9.24.1. Then any subset of the $x$ also lies in WF from
+        Lemma I.9.24.3, therefore $\mathcal{P}(x)$ also lies in WF from the
+        same lemma. Since $x$ lies in $\mathcal{P}(x)$, the rank of
+        $\mathcal{P}(x)$ is at least $\text{rank}(x)+1$ from Lemma
+        I.9.24.4. Also from the same lemma, the rank of any subset of $x$
+        cannot exceed the rank of $x$. Therefore the rank of
+        $\mathcal{P}(x)$ cannot exceed $\text{rank}(x)+1$, and must equal
+        $\text{rank}(x)+1$.
+      \end{proof}
+
+    \item \it $\bigcup x\in\text{WF}$ and $\text{rank}(\bigcup x)
+      \leq\text{rank}(x)$.
+
+      \begin{proof}
+        The members of $\bigcup x$ are the members of members of $x$. Since
+        each member of $x$ is in WF from Lemma I.9.24.1, the members of
+        members of $x$ also lie in WF from the same lemma. Then from Lemma
+        I.9.24.3, $\bigcup x$ lies in WF. For the second assertion in the
+        question, assume by contradiction that $\text{rank}(\bigcup
+        x)>\text{rank}(x)$. Then from Lemma I.9.24.4, there must be a
+        member $y$ of $\bigcup x$ whose rank is at least the rank of $x$. But
+        then $y$ is a member $z$ of a member of $x$, so the rank of $z$ is
+        at least $\text{rank}(x)+1$ from Lemma I.9.24.4, and then from the
+        same lemma the rank of $x$ is at least $\text{rank}(x)+2$, a
+        contradiction.
+      \end{proof}
+  \end{enumerate}
 \end{document}
