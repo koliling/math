@@ -4,6 +4,7 @@
 \usepackage{stmaryrd} % For double square bracket [[]]
 \usepackage{bm} % For bold vectors
 \usepackage{color}
+\usepackage{cancel} % To use the cancel function
 \usepackage[inline]{enumitem}
 \usetikzlibrary{patterns}
 \setlength{\parindent}{0mm}
@@ -183,29 +184,53 @@
   Theorem I.9.11.
 
   \begin{proof}
-    Consider the example where $A=\text{ON}$, and $R$ functions almost like
-    a successor cardinal operator:
-    \[\beta R\alpha \Leftrightarrow \beta\leq\alpha^+.\]
-    Then $R$ is set-like on ON because
-    \[\text{pred}_{R,\text{ON}}(\alpha) =\{\beta: \beta\leq\alpha^+\}
-    =\alpha^++1\in\text{ON}.\]
-    However $R$ is not not well-founded on $A$ since every ordinal has an
-    ordinal larger than it. \\
+    Assume our universe $V$ contains two distinct sets $a$ and $b$ which
+    contain each other, i.e. $a=\{b\}$ and $b=\{a\}$. Let $R$ be the usual
+    containment relation $\in$, and let $A=\{a,b\}$. Then $\in$ is clearly
+    set-like since for any set $x$, $\text{pred}(x)$ is $x$ itself. However
+    $\in$ is not well-founded on $A$ since there is no $\in$-minimal
+    element in that set. \\
 
-    We define $G(\alpha,s)$ in a way that if the desired recursive function
-    $F(\alpha) =G(\alpha, F\restriction(\alpha\downarrow))$ exists, then it
-    would be computing the $R$-transitive closure of the input ordinal.
-    Intuitively, such $F$ cannot be defined on some large input ordinal
-    $\alpha$, because to compute $F(\alpha)$ we would need to keep
-    accessing cardinals that are larger than 
+    We define $G(x,s)$ such that if the associated recursive function
+    $F(x)$ exists, then $F(x)$ returns the set of $\in^*$-minimal elements
+    of the input set $x$. To that end, observe that such an $F(x)$ can be
+    defined recursively over $\{\langle y,F(y)\rangle: y\in x\}$ as
+    \[F(x) :=\{z|\; (\exists y) [y\in x \wedge z\in F(y)]\; \wedge\;
+    (\forall y',z')[y'\in x \wedge z'\in F(y') \rightarrow z'\not\in
+    z]\}.\]
+    %\[G(x,s) :=\underset{\langle y,z\rangle \in s}{R\text{-min}}\; z.\]
 
-    To
-    that end, recall that the usual recursive method of defining an
-    $R$-transitive-closure is
-    \[\text{trcl}_R(x) :=x \cup \bigcup_{yRx} \text{trcl}_R(y).\]
+    Thus, we define $G(x,s)$ to be
+    \[G(x,s) :=\{z|\;\; (\exists y,Z)(\langle y,Z\rangle \in s \wedge z\in
+    Z)\; \wedge\; [(\forall\; \langle y',Z'\rangle \in s)(\forall z'\in
+    Z')\; z'\not\in z]\}.\]
+    Since $G(x,s)$ is defined by a $\Delta_0$-formula, and is therefore
+    recursive. Also, it is well-defined as the only free variables in the
+    formula are the inputs $x$ and $s$.
 
-    Thus we define our $G$ function as 
-    \[G(\alpha,s) :=\alpha \cup \bigcup_{\langle \beta,\gamma\rangle \in s}
-    \gamma.\]
+    %Consider the example where $A=\text{ON}$, and $R$ functions almost like
+    %a successor cardinal operator:
+    %\[\beta R\alpha \Leftrightarrow \beta\leq\alpha^+.\]
+    %Then $R$ is set-like on ON because
+    %\[\text{pred}_{R,\text{ON}}(\alpha) =\{\beta: \beta\leq\alpha^+\}
+    %=\alpha^++1\in\text{ON}.\]
+    %However $R$ is not not well-founded on $A$ since every ordinal has an
+    %ordinal larger than it. \\
+
+    %We define $G(\alpha,s)$ in a way that if the desired recursive function
+    %$F(\alpha) =G(\alpha, F\restriction(\alpha\downarrow))$ exists, then it
+    %would be computing the $R$-transitive closure of the input ordinal.
+    %Intuitively, such $F$ cannot be defined on some large input ordinal
+    %$\alpha$, because to compute $F(\alpha)$ we would need to keep
+    %accessing cardinals that are larger than 
+
+    %To
+    %that end, recall that the usual recursive method of defining an
+    %$R$-transitive-closure is
+    %\[\text{trcl}_R(x) :=x \cup \bigcup_{yRx} \text{trcl}_R(y).\]
+
+    %Thus we define our $G$ function as 
+    %\[G(\alpha,s) :=\alpha \cup \bigcup_{\langle \beta,\gamma\rangle \in s}
+    %\gamma.\]
   \end{proof}
 \end{document}
