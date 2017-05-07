@@ -184,29 +184,76 @@
   Theorem I.9.11.
 
   \begin{proof}
-    Assume our universe $V$ contains two distinct sets $a$ and $b$ which
-    contain each other, i.e. $a=\{b\}$ and $b=\{a\}$. Let $R$ be the usual
-    containment relation $\in$, and let $A=\{a,b\}$. Then $\in$ is clearly
-    set-like since for any set $x$, $\text{pred}(x)$ is $x$ itself. However
-    $\in$ is not well-founded on $A$ since there is no $\in$-minimal
-    element in that set. \\
+    If the Axiom of Foundation does not hold, there must exist an infinite
+    chain of reverse-memberships:
+    \[a_0 \ni a_1 \ni a_2 \ni \ldots\]
+    Using the Axiom of Comprehension, we can assume that for each
+    $i\in\omega$, $a_{i+1}$ is the only element contained in $a_i$.  The
+    membership relation is trivially set-like but not well-founded in
+    $A:=\{a_i\}_{i\in\omega}$. Consider the rank function which can be
+    defined recursively as
+    \[\text{rank}(x) =\bigcup_{y\in x} S(\text{rank}(y)),\]
+    where $S$ denotes the successor function $S(x):=x\cup\{x\}$. \\
 
-    We define $G(x,s)$ such that if the associated recursive function
-    $F(x)$ exists, then $F(x)$ returns the set of $\in^*$-minimal elements
-    of the input set $x$. To that end, observe that such an $F(x)$ can be
-    defined recursively over $\{\langle y,F(y)\rangle: y\in x\}$ as
-    \[F(x) :=\{z|\; (\exists y) [y\in x \wedge z\in F(y)]\; \wedge\;
-    (\forall y',z')[y'\in x \wedge z'\in F(y') \rightarrow z'\not\in
-    z]\}.\]
-    %\[G(x,s) :=\underset{\langle y,z\rangle \in s}{R\text{-min}}\; z.\]
+    Then following the notation of Theorem I.9.11, in order to define the
+    rank function as
+    \[\text{rank}(x)=G(x,\text{rank}\restriction(x\downarrow)),\]
+    we need to define $G(x,s)$ as
+    \[G(x,s) =\bigcup_{\langle y,r\rangle\in s} S(r).\]
 
-    Thus, we define $G(x,s)$ to be
-    \[G(x,s) :=\{z|\;\; (\exists y,Z)(\langle y,Z\rangle \in s \wedge z\in
-    Z)\; \wedge\; [(\forall\; \langle y',Z'\rangle \in s)(\forall z'\in
-    Z')\; z'\not\in z]\}.\]
-    Since $G(x,s)$ is defined by a $\Delta_0$-formula, and is therefore
-    recursive. Also, it is well-defined as the only free variables in the
-    formula are the inputs $x$ and $s$.
+    Then $G(x,s)$ is clearly a 1-1 and well-defined function on the
+    universe. However, then rank of $a_0$ is not well-defined, because
+    \begin{align*}
+      \text{rank}(a_i) &=G(a_i, \text{rank}\restriction(a_i\downarrow))\\
+      &=G(a_i, \{\langle a_{i+1}, \text{rank}(a_{i+1})\rangle\})\\
+      &=S(\text{rank}(a_{i+1}))\}
+    \end{align*}
+
+    %Assume our universe $V$ contains two distinct sets $a$ and $b$ which
+    %contain each other, i.e. $a=\{b\}$ and $b=\{a\}$. Let $R$ be the usual
+    %containment relation $\in$, and let $A=\{a,b\}$. Then $\in$ is clearly
+    %set-like since for any set $x$, $\text{pred}(x)$ is $x$ itself. However
+    %$\in$ is not well-founded on $A$ since there is no $\in$-minimal
+    %element in that set. \\
+
+    %Following the notation of Theorem I.9.11, we define $G(x,s)$ such that
+    %if the associated recursive function $F(x)$ exists, then $F(x)$ returns
+    %the set of $\in^*$-minimal elements of the input set $x$. If designed
+    %properly, we can ensure $F$ runs into an infinite loop when it
+    %computes the $\in^*$-minimal elements of an element in $A$, because
+    %$\text{trcl}(a) =\text{trcl}(b) =\{a,b\}$ has no $\in$-minimal element.
+    %To that end, observe that the set of $\in^*$-minimal elements of a set
+    %$x$ can be defined recursively as the union of the $\in^*$-minimal
+    %elements of the members of $x$. Thus we have the recursive relation
+    %\[F(x) :=\bigcup_{y\in x} \left\{z\in F(y): \left(\forall z'\in
+    %\bigcup_{y'\in x}F(y')\right) z'\not\in z \right\}.\]
+    %%Formally, $F(x)$ can be defined recursively as a function over $\{F(y):
+    %%y\in x\}$:
+    %%\[F(x) :=\{z|\; (\exists y) [y\in x \wedge z\in F(y)]\; \wedge\;
+    %%(\forall y',z')[y'\in x \wedge z'\in F(y') \rightarrow z'\not\in
+    %%z]\}.\]
+    %%\[G(x,s) :=\underset{\langle y,z\rangle \in s}{R\text{-min}}\; z.\]
+
+    %Therefore, when $x\not\in A$, to get the desired $F(x)$ we define
+    %\[G(x,s) :=\bigcup_{\langle y,F\rangle\in s} \left\{z\in F:
+    %\left(\forall z'\in \bigcup_{\langle y',F'\rangle\in s}F'\right)
+    %z'\not\in z \right\}.\]
+
+    %When $x$ lies in $A$, to ensure that we run into an infinite loop when
+    %we compute $F(b)$, we set $G(a,s)=\{a\}$ for all $s$. Formally, define
+    %\begin{align*}
+    %  G(x,s) :=
+    %  \begin{cases*}
+    %    \{a\} &\text{if}\; x=a,\\
+    %    \{z|\;\; (\exists y,Z)(\langle y,Z\rangle \in s \wedge z\in
+    %    Z)\; \wedge\; [(\forall\; \langle y',Z'\rangle \in s)(\forall z'\in
+    %    Z')\; z'\not\in z]\} &\text{otherwise}.\\
+    %  \end{cases*}
+    %\end{align*}
+
+    %Since $G(x,s)$ is defined by $\Delta_0$-formulas, it is recursive.
+    %Also, it is well-defined as the only free variables in the formula are
+    %the inputs $x$ and $s$.
 
     %Consider the example where $A=\text{ON}$, and $R$ functions almost like
     %a successor cardinal operator:
