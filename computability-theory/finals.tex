@@ -183,12 +183,29 @@
   Theorem I.9.11.
 
   \begin{proof}
-    Consider the example where $A=\text{ON}$, and $R$ is the
-    reverse-successor relation $xRy \Leftrightarrow x=y+1$.
-    Then $R$ is set-like on ON but not well-founded since there is no
-    largest ordinal. Since $R$ is not well-founded on $A$, we can find an
-    infinite series of elements $\{a_i\}_{i\in\omega}$ in $A$ such that
-    $a_{i+1}Ra_i$. We define $G(x,s)$ such that the if the $F(x)$ in
-    Theorem I.9.11 exists, then it would return the
+    Consider the example where $A=\text{ON}$, and $R$ functions almost like
+    a successor cardinal operator:
+    \[\beta R\alpha \Leftrightarrow \beta\leq\alpha^+.\]
+    Then $R$ is set-like on ON because
+    \[\text{pred}_{R,\text{ON}}(\alpha) =\{\beta: \beta\leq\alpha^+\}
+    =\alpha^++1\in\text{ON}.\]
+    However $R$ is not not well-founded on $A$ since every ordinal has an
+    ordinal larger than it. \\
+
+    We define $G(\alpha,s)$ in a way that if the desired recursive function
+    $F(\alpha) =G(\alpha, F\restriction(\alpha\downarrow))$ exists, then it
+    would be computing the $R$-transitive closure of the input ordinal.
+    Intuitively, such $F$ cannot be defined on some large input ordinal
+    $\alpha$, because to compute $F(\alpha)$ we would need to keep
+    accessing cardinals that are larger than 
+
+    To
+    that end, recall that the usual recursive method of defining an
+    $R$-transitive-closure is
+    \[\text{trcl}_R(x) :=x \cup \bigcup_{yRx} \text{trcl}_R(y).\]
+
+    Thus we define our $G$ function as 
+    \[G(\alpha,s) :=\alpha \cup \bigcup_{\langle \beta,\gamma\rangle \in s}
+    \gamma.\]
   \end{proof}
 \end{document}
