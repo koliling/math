@@ -115,5 +115,66 @@
         same lemma the rank of $x$ is at least $\text{rank}(x)+2$, a
         contradiction.
       \end{proof}
+
+    \item \it $x\cup y\in\text{WF}$ and $\text{rank}(x\cup y)
+      =\max(\text{rank}(x), \text{rank}(y))$.
+
+      \begin{proof}
+        Each member of $x$ or of $y$ lie in WF from Lemma I.9.24.1,
+        therefore $x\cup y$ lies in WF from Lemma I.9.24.3. Then from Lemma
+        I.9.24.4, the rank of $x\cup y$ is at least the rank of $x$ and of
+        $y$ since $x\cup y$ is a superset of $x$ and $y$. Also, the rank
+        cannot exceed the rank of $x$ or the rank of $y$, because each
+        element of $x\cup y$ is contained in either $x$ or $y$. Therefore
+        $\text{rank}(x\cup y) =\max(\text{rank}(x), \text{rank}(y))$.
+      \end{proof}
+
+    \item \it $\text{trcl}(x)\in\text{WF}$ and $\text{rank}(\text{trcl}(x))
+      =\text{rank}(x)$.
+
+      \begin{proof}
+        We prove by transfinite induction on the rank of $x$. If $x$ has
+        rank 0, then from Lemma I.9.24.4 $x$ must be $\emptyset$, and the
+        assertion holds trivially. \\
+
+        For induction on successor ordinals, let $x\in\text{WF}$ with rank
+        $\alpha+1$ for some ordinal
+        $\alpha$. Then from Lemma I.9.24.4, all members of $x$ have rank
+        less than or equal $\alpha$, and there must be at least one member
+        $y$ of $x$ that has rank $\alpha$. Now
+        \begin{equation}
+          \text{trcl}(x) =x\cup\bigcup_{y\in x} \text{trcl}(y).
+          \label{eqn:trcl}
+        \end{equation}
+        For each $y\in x$,
+        since $\text{rank}(y)\leq\alpha$, by induction hypothesis
+        $\text{trcl}(y)$ lies in WF and has rank equal to the rank of $y$.
+        Also each $y\in x$ lies in WF from Lemma I.9.24.1. Therefore
+        from equation~\eqref{eqn:trcl} and Lemma I.9.24.1, all elements of
+        $\text{trcl}(x)$ lie in WF, so by Lemma I.9.24.3 $\text{trcl}(x)$
+        also lies in WF. Furthermore, since
+        $\text{rank}(\text{trcl}(y)) \leq\alpha$ for each $y\in x$, and
+        there exists a member of $x$ whose rank is $\alpha$, therefore from
+        from Lemma I.9.24.4 and equation~\eqref{eqn:trcl}, $\text{trcl}(x)$
+        has rank $\alpha+1=\text{rank}(x)$. \\
+
+        For induction on limit ordinals, let $x\in\text{WF}$ with rank
+        $\gamma$ where $\gamma$ is a limit ordinal. Then from Lemma
+        I.9.24.4, all members of $x$ have rank smaller than $\gamma$, and
+        for every ordinal $\alpha$ less than $\gamma$, there must exist a
+        member in $x$ with rank equal to $\alpha$. For each
+        $y\in x$, since $\text{rank}(y)\leq\gamma$, by induction
+        hypothesis $\text{trcl}(y)$ lies in WF and has rank less than
+        $\gamma$. Also each $y\in x$ lies in WF from Lemma I.9.24.1.
+        Therefore from equation~\eqref{eqn:trcl} and Lemma I.9.24.1, all
+        elements of $\text{trcl}(x)$ lie in WF, so by Lemma I.9.24.3
+        $\text{trcl}(x)$ also lies in WF. Furthermore, since
+        $\text{rank}(\text{trcl}(y)) \leq\gamma$ for each $y\in x$, and for
+        every ordinal less than $\gamma$
+        there exists a member of $x$ whose rank equals that ordinal,
+        therefore from from Lemma I.9.24.4 and equation~\eqref{eqn:trcl},
+        $\text{trcl}(x)$ has rank $\sup\{\alpha+1: \alpha<\gamma\}
+        =\gamma=\text{rank}(x)$. \\
+      \end{proof}
   \end{enumerate}
 \end{document}
