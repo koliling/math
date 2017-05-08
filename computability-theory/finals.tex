@@ -348,8 +348,39 @@
     Since $\gamma>\omega_1$ and the rank of any given ordinal is itself,
     $R(\gamma)$ must contain $\omega$ and $\omega_1$. Thus from the
     the Downward Lowenheim-Skolem-Tarski theorem, $R(\gamma)$ must contain
-    a countable elementary substructure $M\preceq R(\gamma)$ that contains
-    $\omega$ and $\omega_1$. As an elementary substructure, $M\equiv
-    R(\gamma)$. Let $A$ be the Mostowski collapse of $A$. Then
+    a countable elementary substructure $A\preceq R(\gamma)$ that contains
+    $\omega$ and $\omega_1$. As an elementary substructure, $A\equiv
+    R(\gamma)$. Let $M$ be the Mostowski collapse of $A$. \\
+    
+    We first show $M$ is transitive. Observe that $R(\gamma)$ is
+    well-founded since it is a subset of WF by definition, therefore $A$ is
+    also well-founded since it is a subset of $R(\gamma)$. Also, $\in$ is
+    trivially set-like on $A$. Thus from Lemma I.9.22, the $M$ is
+    transitive. \\
+
+    Also, because $A$ is well-founded, from Lemma I.9.35 we have $(a\in
+    b)^M \Leftrightarrow (a\in b)^A$. Therefore $M\equiv A$, which implies
+    $M\equiv R(\gamma)$. Next, observe that since each natural number is
+    constructed from a finite application of the Pairing axiom on the empty
+    set, and $A$ satisfies the Pairing axiom and Foundation, $A$ must
+    contain all the natural numbers. Then $\omega\cup\{\omega\}$ is a
+    transitive subset of $A$, and $A$ is well-founded, so from Lemma I.9.36
+    $\text{mos}_{A,\in}(\omega)=\omega$ in $M$. On the other hand,
+    $|\text{mos}_{A,\in}(\omega_1)|$ must be countable otherwise from
+    transitivity of $M$, all its elements will be in $M$, thus making $M$
+    uncountable. Furthermore, since $A$ is well-founded, the isomorphism
+    between $(A,\in)$ and $(M,\in)$ from Lemma I.9.35 will ensure that
+    $\omega_1$ remains transitive and well-founded after taking Mostowski's
+    collapse with respect to $A$. Therefore $\text{mos}_{A,\in}(\omega_1)$
+    is an ordinal. \\
+
+    Let $\alpha=\text{mos}_{A,\in}(\omega)=\omega$ and
+    $\beta=\text{mos}_{A,\in}(\omega_1)$. Then from the above argument,
+    $\beta$ is a countable ordinal, so $(\alpha\approx\beta)^{R(\gamma)}$
+    holds. However, within $M$, the isomorphism between $(A,\in)$ and
+    $(M,\in)$ from Lemma I.9.35 ensures that if there is no bijection
+    between $\omega$ and $\omega_1$ in $A$, then there is no bijection
+    between $\alpha$ and $\beta$ in $M$. Thus
+    $(\alpha\approx\beta)^{M}$ is false.
   \end{proof}
 \end{document}
