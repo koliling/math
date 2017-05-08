@@ -345,17 +345,18 @@
   is true.
 
   \begin{proof}
-    Since $\gamma>\omega_1$ and the rank of any given ordinal is itself,
-    $R(\gamma)$ must contain $\omega$ and $\omega_1$. Thus from the
-    the Downward Lowenheim-Skolem-Tarski theorem, $R(\gamma)$ must contain
-    a countable elementary substructure $A\preceq R(\gamma)$ that contains
-    $\omega$ and $\omega_1$. As an elementary substructure, $A\equiv
-    R(\gamma)$. Let $M$ be the Mostowski collapse of $A$. \\
-    
+    Since $\gamma>\omega_1$ and the rank of any given ordinal is itself and
+    ordinals are well-founded, $R(\gamma)$ must contain $\omega$ and
+    $\omega_1$. Thus from the the Downward Lowenheim-Skolem-Tarski theorem,
+    $R(\gamma)$ must contain a countable elementary substructure $A\preceq
+    R(\gamma)$ that contains $\omega$ and $\omega_1$. As an elementary
+    substructure, $A\equiv R(\gamma)$. Let $M$ be the Mostowski collapse of
+    $A$. \\
+
     We first show $M$ is transitive. Observe that $R(\gamma)$ is
     well-founded since it is a subset of WF by definition, therefore $A$ is
     also well-founded since it is a subset of $R(\gamma)$. Also, $\in$ is
-    trivially set-like on $A$. Thus from Lemma I.9.22, the $M$ is
+    trivially set-like on $A$. Thus from Lemma I.9.22, $M$ is
     transitive. \\
 
     Also, because $A$ is well-founded, from Lemma I.9.35 we have $(a\in
@@ -389,5 +390,35 @@
   $\gamma$.
 
   \begin{proof}
+    The fact that ``$R$ totally-orders $A$'' is absolute for $R(\gamma)$
+    follows from transitivity of $R(\gamma)$ and from the fact that the
+    given statement is $\Delta_0$ (Lemma II.4.2). Thus it suffices to prove
+    that the statement
+    \[\varphi(A,R) :=(\forall B\subseteq A)(\exists b\in B)(\forall b'\in
+    B) [b'\neq b\rightarrow \langle b,b'\rangle \in R]\]
+    is absolute for $R(\gamma)$. Let $R,A\in R(\gamma)$. Clearly if $R$ is
+    a well-ordering of $A$ in $V$, then it must be a well-ordering of $A$
+    in $R(\gamma)$, since $R(\gamma)$ is a subset of $V$. For the converse,
+    assume that $(R\; \text{well-orders}\; A)^{R(\gamma)}$. Let $B$ be an
+    arbitrary subset of $A$. We need to show that $R$ picks an $R$-minimal
+    element in $B$. From Exercise I.16.6, $B$ lies in $R(\gamma)$. In
+    particular, $(B\subseteq A)^{R(\gamma)}$, so since the remaining
+    sub-formula of $\varphi(A,R)$ is $(\exists b\in B)(\forall b'\in B)
+    [b'\neq b\rightarrow \langle b,b'\rangle \in R]$ which is $\Delta_0$
+    over variables $R$ and $B$, the subformula also holds in $R(\gamma)$
+    for the given subset $B$. Therefore $R$ picks a minimal element for $B$
+    in $R(\gamma)$. \\
+
+    The assertion in the question for well-foundedness is just a special
+    case of $R$ well-ordering $A$ but with $R$ representing the membership
+    relation. Therefore the formula representing ``$R$ is well-founded on
+    $A$'' is a conjunction of the formula for ``$R$ well-orders $A$'' and
+    the following formula
+    \[\phi(A,R):= (\forall a,a'\in A) [a\in a'\rightarrow \langle
+    a,a'\rangle \in R]\; \wedge\; (\forall \langle b,b'\rangle\in R) [b\in
+    A \wedge b'\in A \wedge b\in b'].\]
+    Since this is a $\Delta_0$ formula, and $R(\gamma)$ is transitive, the
+    formula is absolute for $R(\gamma)$. Thus ``$R$ is well-founded on
+    $A$'' is absolute for $R(\gamma)$.
   \end{proof}
 \end{document}
