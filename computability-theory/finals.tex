@@ -188,26 +188,57 @@
     chain of reverse-memberships:
     \[a_0 \ni a_1 \ni a_2 \ni \ldots\]
     Using the Axiom of Comprehension, we can assume that for each
-    $i\in\omega$, $a_{i+1}$ is the only element contained in $a_i$.  The
-    membership relation is trivially set-like but not well-founded in
+    $i\in\omega$, $a_{i+1}$ is the only element contained in $a_i$. Then
+    the membership relation is trivially set-like but not well-founded in
     $A:=\{a_i\}_{i\in\omega}$. Consider the rank function which can be
     defined recursively as
-    \[\text{rank}(x) =\bigcup_{y\in x} S(\text{rank}(y)),\]
-    where $S$ denotes the successor function $S(x):=x\cup\{x\}$. \\
+    \[\text{rank}(x) =\bigcup_{y\in x} \hat{S}(\text{rank}(y)),\]
+    where
+    \begin{align*}
+      \hat{S}(x) :=
+      \begin{cases}
+        x\cup\{x\} &\text{if}\; x\; \text{is an ordinal}\\
+        \emptyset &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
 
     Then following the notation of Theorem I.9.11, in order to define the
     rank function as
     \[\text{rank}(x)=G(x,\text{rank}\restriction(x\downarrow)),\]
     we need to define $G(x,s)$ as
-    \[G(x,s) =\bigcup_{\langle y,r\rangle\in s} S(r).\]
+    \[G(x,s) =\bigcup_{\langle y,r\rangle\in s} \hat{S}(r).\]
 
     Then $G(x,s)$ is clearly a 1-1 and well-defined function on the
-    universe. However, then rank of $a_0$ is not well-defined, because
+    universe. However, then rank of the $a_i$'s are not well-defined: It is
+    routine to prove by induction on $i\in\omega$ that for all
+    $n\in\omega$,
+    \[\text{rank}(a_i) =\hat{S}^n(\text{rank}(a_{i+n})).\]
+
+    Now if there is some $n\in\omega$ such that $\text{rank}(a_i)$ is an
+    ordinal for all $i\geq n$, then
+    \[\text{rank}(a_i) =S(\text{rank}(a_{i+1})) =\text{rank}(a_{i+1})+1,\]
+    which will give us an infinite decreasing chain of ordinals
+    \[\text{rank}(a_n) \ni\text{rank}(a_{n+1}) \ni\text{rank}(a_{n+2})
+    \ni\ldots\]
+    Then $\{\text{rank}(a_i)\}_{i\geq n} \subseteq\text{rank}(a_n)$ will
+    be a subset of ordinal $\text{rank}(a_n)$ that does not have an
+    $\in$-minimal element, contradicting well-ordering of ordinals. \\
+
+    Therefore there must be infinite $i\in\omega$ such that
+    $\text{rank}(a_i)$ is not an ordinal. Let $n,k\in\omega$ be natural
+    numbers such that $k>0$ and neither $\text{rank}(a_n)$ nor
+    $\text{rank}(a_{n+k})$ are ordinals. Then
     \begin{align*}
-      \text{rank}(a_i) &=G(a_i, \text{rank}\restriction(a_i\downarrow))\\
-      &=G(a_i, \{\langle a_{i+1}, \text{rank}(a_{i+1})\rangle\})\\
-      &=S(\text{rank}(a_{i+1}))\}
+      \emptyset &=\hat{S}(\text{rank}(a_{n})) &\text{since}\;
+        \text{rank}(a_n)\; \text{is not an ordinal}\\
+      &=\text{rank}(a_{n+1})\\
+      &=\hat{S}^{k}(\text{rank}(a_{n+k+1}))\\
+      &=\hat{S}^{k}(\hat{S}(\text{rank}(a_{n+k})))\\
+      &=\hat{S}^{k}(\emptyset) &\text{since}\; \text{rank}(a_{n+k})\;
+        \text{is not an ordinal}\\
+      &=k,\\
     \end{align*}
+    a contradiction.
 
     %Assume our universe $V$ contains two distinct sets $a$ and $b$ which
     %contain each other, i.e. $a=\{b\}$ and $b=\{a\}$. Let $R$ be the usual
