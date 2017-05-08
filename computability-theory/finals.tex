@@ -333,12 +333,23 @@
     $(b=\mathcal{P}(a))^{R(\gamma)}$. For $b=\mathcal{P}(a)$ to also hold
     in the universe, we need to show that every subset of $a$ in $V$ is
     also contained in $R(\gamma)$. Fix an arbitrary subset $c$ of $a$. Then
-    as a subset of $a$, the rank of $c$ cannot exceed the rank of $a$ by
-    Lemma I.9.24.4, therefore $c$ must be contained in $R(\gamma)$ since
-    $a$ is contained in $R(\gamma)$. \\
-
-    Note: Not sure why it is necessary for $\gamma$ to be a limit ordinal?
+    $\text{rank}(c)$ cannot exceed $\text{rank}(a)$ by Lemma I.9.24.4.
+    Also, $c$ is well-founded since it is a subset of a well-founded set
+    $a$. Therefore $c$ must be contained in $R(\gamma)$. \\
   \end{proof}
 
-\textbf{Kunen I.16.7:} \it (ZFC$^-$) Let $\gamma$
+\textbf{Kunen I.16.7:} \it (ZFC$^-$) Let $\gamma>\omega_1$ be a limit
+  ordinal. Prove that there is a countable transitive $M$ and ordinals
+  $\alpha,\beta\in M$ such that $M\equiv R(\gamma)$ and
+  $(\alpha\approx\beta)^M$ is false but $(\alpha\approx\beta)^{R(\gamma)}$
+  is true.
+
+  \begin{proof}
+    Since $\gamma>\omega_1$ and the rank of any given ordinal is itself,
+    $R(\gamma)$ must contain $\omega$ and $\omega_1$. Thus from the
+    the Downward Lowenheim-Skolem-Tarski theorem, $R(\gamma)$ must contain
+    a countable elementary substructure $M\preceq R(\gamma)$ that contains
+    $\omega$ and $\omega_1$. As an elementary substructure, $M\equiv
+    R(\gamma)$. Let $A$ be the Mostowski collapse of $A$. Then
+  \end{proof}
 \end{document}
