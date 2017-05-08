@@ -311,4 +311,34 @@
     %\[G(\alpha,s) :=\alpha \cup \bigcup_{\langle \beta,\gamma\rangle \in s}
     %\gamma.\]
   \end{proof}
+
+\textbf{Kunen I.9.54:} \it Prove the Cantor Normal Form Theorem: Each
+  ordinal $\alpha>0$ can be represented uniquely in the form:
+  \[\alpha =\omega^{\beta_1}\cdot n_1 +\ldots +\omega^{\beta_k}\cdot n_k,\]
+  where $k,n_1,\ldots,n_k\in\omega\setminus\{0\}$ and
+  $\alpha\geq\beta_1>\cdots>\beta_k$.
+
+  \begin{proof}
+  \end{proof}
+
+\textbf{Kunen I.16.6:} \it (ZF$^-$) Let $\text{pow}(x,y)$ be $\forall z
+  [z\in y \leftrightarrow z\subseteq x]$, asserting that $y$ is the power
+  set of $x$. Let $\gamma$ be a limit ordinal, with $a,b\in R(\gamma)$.
+  Prove that $R(\gamma) \models\text{pow}[a,b]$ iff $b=\mathcal{P}(a)$;
+  that is, $R(\gamma) \preceq_{\text{pow}} V$.
+
+  \begin{proof}
+    $b=\mathcal{P}(a) \Rightarrow R(\gamma) \models\text{pow}[a,b]$ holds
+    trivially since $R(\gamma)\subset V$. Assume
+    $(b=\mathcal{P}(a))^{R(\gamma)}$. For $b=\mathcal{P}(a)$ to also hold
+    in the universe, we need to show that every subset of $a$ in $V$ is
+    also contained in $R(\gamma)$. Fix an arbitrary subset $c$ of $a$. Then
+    as a subset of $a$, the rank of $c$ cannot exceed the rank of $a$ by
+    Lemma I.9.24.4, therefore $c$ must be contained in $R(\gamma)$ since
+    $a$ is contained in $R(\gamma)$. \\
+
+    Note: Not sure why it is necessary for $\gamma$ to be a limit ordinal?
+  \end{proof}
+
+\textbf{Kunen I.16.7:} \it (ZFC$^-$) Let $\gamma$
 \end{document}
