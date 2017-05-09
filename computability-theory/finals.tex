@@ -319,6 +319,51 @@
   $\alpha\geq\beta_1>\cdots>\beta_k$.
 
   \begin{proof}
+    We prove existence by transfinite induction on $\alpha$. The base case
+    $\alpha=1$ can be written as $\alpha=\omega^0\cdot1$. For the inductive
+    step, let $\alpha$ be an arbitrary ordinal. Then by the Logarithm rule
+    of ordinal arithmetic (Table I.1), there must be some greatest $\beta$
+    such that $\omega^\beta\leq\alpha$. Then by Division rule of oridnal
+    arithmetic (Table I.1), there must be unique $\delta>0$ and
+    $\rho<\omega^\beta\leq\alpha$ such that $\alpha=\omega^\beta\cdot\delta
+    +\rho$. Now $\delta$ must be finite, otherwise $\alpha\geq\omega^\beta
+    \cdot\delta \geq\omega^\beta\cdot\omega =\omega^{\beta+1}$,
+    contradicting minimality of $\beta$. Then if $\rho=0$, $\alpha$ would
+    be in Cantor Normal Form. So assume $\rho>0$. \\
+
+    Then $\rho<\alpha$, so by induction hypothesis $\rho$ has a Cantor
+    Normal Form 
+    \[\rho =\omega^{\beta_1}\cdot n_1 +\ldots +\omega^{\beta_n}\cdot n_k\]
+    for some $k,n_1,\ldots,n_k\in\omega\setminus\{0\}$ and
+    $\rho\geq\beta_1>\cdots>\beta_k$. But since $\rho<\omega^\beta$, we
+    have $\omega^{\beta_1}\leq\rho<\omega^\beta$ and therefore
+    $\beta>\beta_1$. So $\alpha$ will also have Cantor Normal Form 
+    \[\alpha =\omega^{\beta}\cdot \delta +\omega^{\beta_1}\cdot n_1 +\ldots
+    +\omega^{\beta_k}\cdot n_k.\]
+
+    Next we prove uniqueness of the Cantor Normal Form by transfinite
+    induction on $\alpha$. For $\alpha=1$, the form $\alpha=\omega^0\cdot1$
+    is clearly unique. For the inductive step, let
+    \[\alpha =\omega^{\beta_1}\cdot n_1 +\ldots +\omega^{\beta_k}\cdot
+    n_k =\omega^{\gamma_1}\cdot m_1 +\ldots +\omega^{\gamma_l}\cdot
+    m_l\]
+    be two Cantor Normal Forms for $\alpha$. Now observe that if
+    $\beta<\gamma$, then $\omega^\beta\cdot k<\omega^\gamma$ for all finite
+    $k$, because $\omega^\beta\cdot k<\omega^\beta\cdot\omega
+    <\leq\omega^\gamma$. Therefore if $\gamma_1>\beta_1$, then
+    $\alpha<\omega^{\gamma_1}$, a contradiction. By symmetrical argument,
+    $\beta_1\not>\gamma_1$, thus $\beta_1=\gamma_1$. Then from uniqueness
+    of quotient and remainder in the Division rule for ordinal arithmetic,
+    with dividend $\alpha$ and divisor $\omega^{\beta_1}=\omega^{\gamma_1}$,
+    the respective quotients $n_1$ and $m_1$ must be equal, and the
+    remainders $\omega^{\beta_2}\cdot n_2 +\ldots +\omega^{\beta_k}\cdot
+    n_k$ and $\omega^{\gamma_2}\cdot m_2 +\ldots +\omega^{\gamma_l}\cdot
+    m_l$ must also be equal, since both remainders are smaller than the
+    divisor. Then from induction hypothesis, the Cantor Normal Forms
+    $\omega^{\beta_2}\cdot n_2 +\ldots +\omega^{\beta_k}\cdot
+    n_k$ and $\omega^{\gamma_2}\cdot m_2 +\ldots +\omega^{\gamma_l}\cdot
+    m_l$ must also be identical, so the Cantor Normal Form of $\alpha$ is
+    unique.
   \end{proof}
 
 \textbf{Kunen I.16.6:} \it (ZF$^-$) Let $\text{pow}(x,y)$ be $\forall z
