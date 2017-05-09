@@ -374,7 +374,8 @@
 
   \begin{proof}
     $b=\mathcal{P}(a) \Rightarrow R(\gamma) \models\text{pow}[a,b]$ holds
-    trivially since $R(\gamma)\subset V$. Assume
+    trivially since $R(\gamma)\subset V$, and $R(\gamma)$ will contain all
+    elements of $b$ since $R(\gamma)$ is transitive. Assume
     $(b=\mathcal{P}(a))^{R(\gamma)}$. For $b=\mathcal{P}(a)$ to also hold
     in the universe, we need to show that every subset of $a$ in $V$ is
     also contained in $R(\gamma)$. Fix an arbitrary subset $c$ of $a$. Then
@@ -405,7 +406,8 @@
     transitive. \\
 
     Also, because $A$ is well-founded, from Lemma I.9.35 we have $(a\in
-    b)^M \Leftrightarrow (a\in b)^A$. Therefore $M\equiv A$, which implies
+    b)^M \Leftrightarrow (a\in b)^A$. Therefore from recursion on the
+    complexity of formulas, we have $M\equiv A$, which implies
     $M\equiv R(\gamma)$. Next, observe that since each natural number is
     constructed from a finite application of the Pairing axiom on the empty
     set, and $A$ satisfies the Pairing axiom and Foundation, $A$ must
@@ -495,17 +497,20 @@
     arithmetic, $\phi(x)$ would contradict Tarski's theorem on the
     undefinability of truth. \\ 
 
-    It remains to prove that $\rho(\text{Th}(HF)) =\omega+1$. From
-    Tarski's definability of truth, one can use recursion to define
-    rigorously the notion of $\mathfrak{A} \models\varphi$. Then since
-    $L(\omega+1)$ contains the natural numbers and is powerful enough to
-    perform arithmetic, by the Church-Turing thesis, there there must be a
-    formula $\theta(A,p)$ in the language of set theory such that given any
-    set $A\in L(\omega+1)$ and sentence $\varphi$,
-    \[A\models\varphi\; \Leftrightarrow\;
+    It remains to prove that $\rho(\text{Th}(HF)) =\omega+1$. From Tarski's
+    definability of truth, one can use recursion on the complexity of
+    formulas to define rigorously the notion of $\mathfrak{A}
+    \models\varphi$. Then since $L(\omega+1)$ contains the natural numbers
+    and is powerful enough to perform arithmetic, by the Church-Turing
+    thesis, there there must be a formula $\theta(A,n)$ in the language of
+    set theory such that given any set $A\in L(\omega+1)$ and sentence
+    $\varphi$,
+    \[L(\omega+1) \models \varphi^A\; \Leftrightarrow\;
     \theta(A,\ulcorner\varphi\urcorner).\]
-    Then since $L(\omega+1)$ contains $HF=L(\omega)$, we can define
-    $\text{Th}(HF)$ in $L(\omega+2)$ as
+    Such a $\theta$ recursively relativises the a given formula $\varphi$
+    with respect to a given set $A$ in $L(\omega+1)$. Then since
+    $L(\omega+1)$ contains $HF=L(\omega)$, we can define $\text{Th}(HF)$ in
+    $L(\omega+2)$ as
     \[\text{Th}(HF) =\{\varphi:
     \theta(L(\omega),\ulcorner\varphi\urcorner)\}.\]
     Note that we only need to consider sentences $\varphi$ because every
