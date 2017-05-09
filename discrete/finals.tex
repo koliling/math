@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{color}
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Discrete Mathematics: Finals}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\begin{enumerate}
+  \item \it
+
+  \item \it Let $T$ be a tree with $k$ edges.
+    \begin{enumerate}
+      \item Let $G$ be a graph with $n$ vertices and more than $(k-1)n$
+        edges. Show that $G$ contains $T$ as a subgraph.
+
+      \item Show that there are infinitely many $n$ for which there is a
+        graph $G$ with $n$ vertices and at least $(k-1)n/2$ edges for which
+        $G$ does not contain $T$ as a subgraph.
+
+        \begin{proof}
+          For each $n\in\mathbb{N}$ such that $k|n$, the graph consisting
+          of $n/k$ copies of $K_k$, the complete graph on $k$ vertices,
+          does not have $T$ as a subgraph, since there are not enough
+          vertices on each $K_k$. The number of edges in such a graph is
+          \[m =\binom{k}{2}\cdot\frac{n}{k} =(k-1)n/2.\]
+          Since there are infinite $n$ which are multiples of $k$, there
+          are infinite such $G$'s.
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
