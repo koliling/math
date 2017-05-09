@@ -421,4 +421,66 @@
     formula is absolute for $R(\gamma)$. Thus ``$R$ is well-founded on
     $A$'' is absolute for $R(\gamma)$.
   \end{proof}
+
+\textbf{Kunen II.4.8:} \it Prove that $\text{Th}(HF) \in R(\omega+1)
+  \setminus L(\omega+1)$, and $\rho(\text{Th}(HF)) =\omega+1$, while
+  $\text{rank}(\text{Th}(HF)) =\omega$.
+
+  \begin{proof}
+    First, observe that $L(n)$ is finite for each $n\in\omega$ because
+    $L(0)=\emptyset$ and each $L(n+1)$ is at most the powerset of $L(n)$.
+    In particular, each element of $L(\omega)$ is finite, therefore
+    $L(\omega)$ cannot contain the infinite set $\text{Th}(HF)$. Then since
+    $R(\omega)=L(\omega)$, $R(\omega)$ also cannot contain $\text{Th}(HF)$.
+    Thus the rank and the $L$-rank of $\text{Th}(HF)$ must be at least
+    $\omega$. \\
+
+    Then as a subset of $\omega$, $\text{Th}(HF)$ is well-founded, and has
+    rank not exceeding the rank of $\omega$, which is $\omega$. Therefore
+    $\text{rank}(\text{Th}(HF)) =\omega$. \\
+
+    Assume by contradiction that $\text{Th}(HF) \in L(\omega+1)$. Then
+    since $L(\omega+1) =\mathcal{D}(HF)$, $\text{Th}(HF)$ must be definable
+    in over $HF$. More precisely, there must be a formula $\phi(x)$ in the
+    language of set theory such that
+    \[\text{Th}(HF) =\{\varphi: \phi(\ulcorner\varphi\urcorner)\},\]
+    where $\ulcorner\varphi\urcorner$ is derived from a fixed recursive
+    coding of formulas in the language. But since $HF$ contains all the
+    natural numbers and is powerful enough to perform arithmetic,
+    $\phi(x)$ would contradict Tarski's theorem on the undefinability of
+    truth. \\ 
+
+    It remains to prove that $\rho(\text{Th}(HF)) =\omega+1$. \\
+
+    Next, observe that for each $n\in\omega$, $L(n+1)$ is exactly the
+    powerset of $L(n)$, because any finite subset of elements in $L(n)$ is
+    definable. Therefore we can recursively index each set in $L(\omega)$
+    by a tuple in $\omega^{<\omega}$, where the first coordinate represents
+    the $L$-rank of the set and the second coordinate represents the
+    indices of the members of the set. In short, there is a recursive
+    bijection between $\omega$ and the elements in $L(\omega)$.
+
+    Fix a recursive coding of the formulas in the language of set theory.
+    Since the language is countable, the set of proofs of
+
+    %Observe that the sets in $L(n)$ for each $n\in\omega$ are finite (by
+    %easy induction on $n\in\omega$). Also observe that the language of set
+    %theory is countable, and each set in $L(n)$ is obtained from smaller
+    %sets in $L(n-1)$ from enumerating formulas in the language. Therefore
+    %we can recursively enumerate all the elements in $L(\omega)$, indexing
+    %each element by the code of the formula that defined it and the finite
+    %set of codes of the sets of lower $L$-rank that were used to define the
+    %new element.
+
+    We first prove that $\text{rank}(\text{Th}(HF)) =\omega$. \\
+
+    Next we prove that $\rho(\text{Th}(HF))>\omega$. \\
+
+    Finally we prove that $\rho(\text{Th}(HF)) =\omega+1$. Fix a recursive
+    coding of formulas in the language of set theory. \\
+
+    The assertion that $\text{Th}(HF) \in R(\omega+1) \setminus
+    L(\omega+1)$ follows from $\rho(\text{Th}(HF)) =\omega+1$ and
+    $\text{rank}(\text{Th}(HF)) =\omega$.
+  \end{proof}
 \end{document}
