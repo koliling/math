@@ -441,27 +441,39 @@
 
     Assume by contradiction that $\text{Th}(HF) \in L(\omega+1)$. Then
     since $L(\omega+1) =\mathcal{D}(HF)$, $\text{Th}(HF)$ must be definable
-    in over $HF$. More precisely, there must be a formula $\phi(x)$ in the
+    over $HF$. More precisely, there must be a formula $\phi(x)$ in the
     language of set theory such that
     \[\text{Th}(HF) =\{\varphi: \phi(\ulcorner\varphi\urcorner)\},\]
     where $\ulcorner\varphi\urcorner$ is derived from a fixed recursive
-    coding of formulas in the language. But since $HF$ contains all the
-    natural numbers and is powerful enough to perform arithmetic,
-    $\phi(x)$ would contradict Tarski's theorem on the undefinability of
-    truth. \\ 
+    coding of formulas in the language of set theory. But since $HF$
+    contains all the natural numbers and is powerful enough to perform
+    arithmetic, $\phi(x)$ would contradict Tarski's theorem on the
+    undefinability of truth. \\ 
 
-    It remains to prove that $\rho(\text{Th}(HF)) =\omega+1$. \\
+    It remains to prove that $\rho(\text{Th}(HF)) =\omega+1$. From
+    Tarski's definability of truth, one can use recursion to define
+    rigorously the notion of $\mathfrak{A} \models\varphi$. Then since
+    $L(\omega+1)$ contains the natural numbers and is powerful enough to
+    perform arithmetic, by the Church-Turing thesis, there there must be a
+    formula $\theta(A,p)$ in the language of set theory such that given any
+    set $A\in L(\omega+1)$ and sentence $\varphi$,
+    \[A\models\varphi\; \Leftrightarrow\;
+    \theta(A,\ulcorner\varphi\urcorner).\]
+    Then since $L(\omega+1)$ contains $HF=L(\omega)$, we can define
+    $\text{Th}(HF)$ in $L(\omega+2)$ as
+    \[\text{Th}(HF) =\{\varphi:
+    \theta(L(\omega),\ulcorner\varphi\urcorner)\}.\]
+    Note that we only need to consider sentences $\varphi$ because every
+    element of $HF$ is definable in $HF$. Therefore $\rho(\text{Th}(HF))
+    =\omega+1$. \\
 
-    Next, observe that for each $n\in\omega$, $L(n+1)$ is exactly the
-    powerset of $L(n)$, because any finite subset of elements in $L(n)$ is
-    definable. Therefore we can recursively index each set in $L(\omega)$
-    by a tuple in $\omega^{<\omega}$, where the first coordinate represents
-    the $L$-rank of the set and the second coordinate represents the
-    indices of the members of the set. In short, there is a recursive
-    bijection between $\omega$ and the elements in $L(\omega)$.
-
-    Fix a recursive coding of the formulas in the language of set theory.
-    Since the language is countable, the set of proofs of
+    %Next, observe that for each $n\in\omega$, $L(n+1)$ is exactly the
+    %powerset of $L(n)$, because any finite subset of elements in $L(n)$ is
+    %definable. Therefore we can recursively index each set in $L(\omega)$
+    %by a tuple in $\omega^{<\omega}$, where the first coordinate represents
+    %the $L$-rank of the set and the second coordinate represents the
+    %indices of the members of the set. In short, there is a recursive
+    %bijection between $\omega$ and the elements in $L(\omega)$.
 
     %Observe that the sets in $L(n)$ for each $n\in\omega$ are finite (by
     %easy induction on $n\in\omega$). Also observe that the language of set
@@ -471,16 +483,5 @@
     %each element by the code of the formula that defined it and the finite
     %set of codes of the sets of lower $L$-rank that were used to define the
     %new element.
-
-    We first prove that $\text{rank}(\text{Th}(HF)) =\omega$. \\
-
-    Next we prove that $\rho(\text{Th}(HF))>\omega$. \\
-
-    Finally we prove that $\rho(\text{Th}(HF)) =\omega+1$. Fix a recursive
-    coding of formulas in the language of set theory. \\
-
-    The assertion that $\text{Th}(HF) \in R(\omega+1) \setminus
-    L(\omega+1)$ follows from $\rho(\text{Th}(HF)) =\omega+1$ and
-    $\text{rank}(\text{Th}(HF)) =\omega$.
   \end{proof}
 \end{document}
