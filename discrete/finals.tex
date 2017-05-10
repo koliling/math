@@ -63,8 +63,9 @@
           question, we equate it with equation~\eqref{eqn:count} and
           rearrange to get 
           \[\begin{array}{lrll}
-            &\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn +2m &\geq
-              \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
+            &t(G) &\geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
+            \Leftrightarrow &\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn
+              +2m &\geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
             \Leftrightarrow &\sum_{v\in V}\binom{d_v}{2} &\geq
               \frac{2m^2}{n} -m &\\
             \Leftrightarrow &\frac{1}{2}\sum_{v\in V}d_v^2
@@ -79,6 +80,47 @@
 
           Now the last line holds from the Cauchy-Schwarz inequality, so
           the proof is complete.
+        \end{proof}
+
+      \item \it Show that for large $n$, for every 2-colouring of the edges
+        of $K_n$ at least nearly a quarter of all triangles will be
+        monochromatic.
+
+        \begin{proof}
+          Observe that given a 2-colouring of the edges of $K_n$, the
+          number of monochromatic triangles is exactly $t(G)$, where $G$ is
+          the subgraph of $n$ vertices embedded in $K_n$, consisting of
+          exactly the edges coloured one of the colours. Thus, for a fixed
+          $n$, to get the minimal number of monochromatic triangles, we
+          find a lower bound for $t(G)$, where $G$ ranges over all possible
+          subgraphs of $K_n$. From the first part of this question, we have
+          a lower bound of $t(G)$ expressed in terms of $m$, the number of
+          edges in $G$. The bound is
+          \[t(G) \geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1),\]
+          which is quadratic in $m$, so by differentiating with respect
+          to $m$ and setting the derivative to 0, we know that the bound of
+          $t(G)$ is minimal when $m=n(n-1)/4$. Thus
+          \begin{align*}
+            t(G) &\geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1)\\
+            &\geq \binom{n}{3} +\frac{2(n(n-1)/4)^2}{n} -n(n-1)^2/4\\
+            &=\binom{n}{3} -\frac{1}{8}n(n-1)^2.\\
+          \end{align*}
+
+          Then
+          \begin{align*}
+            t(G)/\binom{n}{3} &\geq1 -\frac{\frac{1}{8}n(n-1)^2}
+              {\binom{n}{3}}\\
+            &=1 -\frac{\frac{1}{8}n(n-1)^2} {\frac{1}{6}n(n-1)(n-2)}\\
+            &=\frac{1}{4} -\frac{3}{4(n-2)},\\
+          \end{align*}
+          which tends to $1/4$ as $n$ tends to infinity. In particular,
+          given $\epsilon>0$, choose $n$ large enough such that
+          $\frac{3}{4(n-2)}<\epsilon$; or equivalently choose
+          $n>\frac{3}{4\epsilon}+2$. Then we will have
+          \begin{align*}
+            t(G)/\binom{n}{3} &\geq\frac{1}{4} -\epsilon\\
+          \end{align*}
+          as desired.
         \end{proof}
     \end{enumerate}
 
