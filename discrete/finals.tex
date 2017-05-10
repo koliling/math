@@ -14,7 +14,73 @@
 \maketitle
 
 \begin{enumerate}
-  \item \it
+  \item \it For a graph $G$ denote by $t(G)$ the sum of the number of
+    triangles in $G$ and the number of triangles in $\bar{G}$, the
+    complement of $G$. 
+
+    \begin{enumerate}
+      \item \it Show that if $G$ has $n$ vertices and $m$ edges then
+        \[t(G) \geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1).\]
+
+        \begin{proof}
+          We first prove that
+          \begin{equation}
+            t(G) =\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn +2m,
+            \label{eqn:count}
+          \end{equation}
+          where $V$ denotes the set of vertices in $G$ and $d_v$ denotes
+          the degree of a given vertex $v$ in $V$. We use a counting
+          argument to show that the number of each type of triangle is
+          counted an equal number of times on both sides of the equation.
+          Now there are four types of triangles in the clique $K_n$ that
+          contains $G$ - the first type has three edges in $G$, the second
+          type has exactly two edges in $G$, the third type has exactly one
+          edge in $G$, and the fourth type has no edge in $G$. $t(G)$
+          counts each of the first type and fourth type of triangles
+          exactly once, and doesn't count the other two types of triangles.
+          $\binom{n}{3}$ counts each type of triangle exactly once. The
+          counts of the remaining terms in equation~\eqref{eqn:count} is
+          summarized in the table below.
+
+          \begin{table}[ht]
+            \begin{center}
+              \begin{tabular}{c|ccccc}
+                no. $\Delta$ edges in $G$ &$t(G)$ &$\binom{n}{3}$
+                  &$\sum_v\binom{d_v}{2}$ &-$mn$ &$2m$ \\
+                \hline
+                3 &1 &1 &3 &-9 &6 \\
+                2 &0 &0 &1 &-6 &4 \\
+                1 &0 &0 &0 &-3 &2 \\
+                0 &1 &0 &0 &-0 &0 \\
+              \end{tabular}
+              \caption{The number of times each term in
+              equation~\eqref{eqn:count} counts each type of triangle}
+            \end{center}
+          \end{table}
+
+          Summing the counts on each side of equation~\eqref{eqn:count},
+          we get the desired formula. Then to get the inequality in the
+          question, we equate it with equation~\eqref{eqn:count} and
+          rearrange to get 
+          \[\begin{array}{lrll}
+            &\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn +2m &\geq
+              \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
+            \Leftrightarrow &\sum_{v\in V}\binom{d_v}{2} &\geq
+              \frac{2m^2}{n} -m &\\
+            \Leftrightarrow &\frac{1}{2}\sum_{v\in V}d_v^2
+              +\frac{1}{2}\sum_{v\in V}d_v &\geq \frac{2m^2}{n} -m
+              &\because \binom{d_v}{2}=d_v(d_v-1)/2\\
+            \Leftrightarrow &\sum_{v\in V}d_v^2 &\geq
+              \frac{(2m)^2}{n} &\because \sum_{v\in V}d_v=2m\\
+            \Leftrightarrow &\sum_{v\in V}d_v^2 &\geq
+              \frac{\left(\sum_{v\in V}d_v \right)^2}{n}. &\because
+              \sum_{v\in V}d_v=2m\\
+          \end{array}\]
+
+          Now the last line holds from the Cauchy-Schwarz inequality, so
+          the proof is complete.
+        \end{proof}
+    \end{enumerate}
 
   \item \it Let $T$ be a tree with $k$ edges.
     \begin{enumerate}
