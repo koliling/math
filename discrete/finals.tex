@@ -21,6 +21,58 @@
       \item Let $G$ be a graph with $n$ vertices and more than $(k-1)n$
         edges. Show that $G$ contains $T$ as a subgraph.
 
+        \begin{proof}
+          Following some part of the proof of the Theorem 57.3, we can
+          assume that each vertex of $G$ has at least $(k-1)$ edges, and
+          that $G$ is connected: Let $G$ with $n$ vertices and $m$ edges
+          that satisfy $m>(k-1)n$. Construct $G'$ from $G$ by iteratively
+          deleting vertices of degree at most $(k-1)$, as long as there are
+          such vertices. Suppose the resulting graph has $n'$ vertices and
+          $m'$ edges. Since no more than $(k-1)$ edges were deleted at each
+          iteration, we have
+          \[m' >(k-1)n-(k-1)(n-n') =(k-1)n'.\]
+          So $m'>0$, and therefore $n'>0$, and the resulting graph is not
+          empty, and satisfies the desired edge-to-vertex ratio. Thus we
+          may restrict ourself to considering the subgraph $G'$ of $G$.
+          Also, if the graph is not connected, the taking the densest
+          component would satisfy the desired edge-to-vertex ratio, and we
+          may restrict ourselves to considering that component. \\
+
+          We prove the assertion by induction on $k$. The case of $k=1$ is
+          trivial. Let $T$ be a tree with $k>1$ edges, $G$ a graph with $n$
+          vertices and more than $(k-1)n$ edges, and where each edge has
+          degree at least $(k-1)$. Note that $n\geq k+1$ because $T$ has
+          $k+1$ vertices. Now $T$ can be either a path $P_{k+1}$, a star
+          $S_{k+1}$, or neither. We consider the three cases separately. \\
+
+          \textit{Case $T=P_{k+1}$ is a path:} The result follows directly
+          from the proof of Theorem 57.3, which showed that every graph
+          with $n$ vertices and more than $(k-1)n/2$ edges embeds a path
+          with $k$ edges. \\
+
+          \textit{Case $T=S_{k+1}$ is a star:} $G$ has $n$ vertices but
+          at least $(k-1)n+1$ edges. So by the pigeonhole principle, $G$
+          must have a vertex with $k$ or more neighbors. Making this vertex
+          the center of the star, we can embed $S_{k+1}$ onto $G$. \\
+
+          \textit{Case $T$ is neither a path nor a star:} Let $v_0v_1\ldots
+          v_t$ be the longest path in $T$. Then $t\leq k-1$ since $T$ is
+          not a path. Now either $v_0$ or $v_t$ must be a leaf, otherwise
+          we can extend the path to a longer one. Assume without loss of
+          generality that $v_t$ is a leaf. Then by inductive hypothesis,
+          after removing leaf $v_t$ we can embed the resulting tree $T'$
+          into $G$, because $T'$ will have $k-1$ edges and
+          $m=(k-1)n>(k-2)n$ since $k>1$. For each $i\in\{1,\ldots,t-1\}$,
+          let $u_i$ denote the vertex in $G$ that $v_i$ is mapped to.
+          Now in $T$, the degree of $v_{t-1}$ cannot exceed $k-1$ because
+          $T$ is not the star $S_{k+1}$. Then since $u_{t-1}$ has
+          at least $k-1$ neighbors in $G$ by assumption, and there are only
+          $k$ vertices in $T'$, and trees cannot have cycles, it must be
+          that at least one of the neighbors of $u_{t-1}$ is is not an
+          image of any $v_i$ in $T'$. So mapping $v_t$ to this neighbor
+          will embed $T$ onto $G$. \\
+        \end{proof}
+
       \item Show that there are infinitely many $n$ for which there is a
         graph $G$ with $n$ vertices and at least $(k-1)n/2$ edges for which
         $G$ does not contain $T$ as a subgraph.
