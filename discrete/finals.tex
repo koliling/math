@@ -23,9 +23,10 @@
         \[t(G) \geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1).\]
 
         \begin{proof}
-          We first prove that
+          The inequality holds trivially for $n=1$ and $n=2$. Therefore we
+          can assume that $n\geq3$. We first prove that
           \begin{equation}
-            t(G) =\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn +2m,
+            t(G) =\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -\frac{1}{3}mn,
             \label{eqn:count}
           \end{equation}
           where $V$ denotes the set of vertices in $G$ and $d_v$ denotes
@@ -44,14 +45,14 @@
 
           \begin{table}[ht]
             \begin{center}
-              \begin{tabular}{c|ccccc}
+              \begin{tabular}{c|cccc}
                 no. $\Delta$ edges in $G$ &$t(G)$ &$\binom{n}{3}$
-                  &$\sum_v\binom{d_v}{2}$ &-$mn$ &$2m$ \\
+                  &$\sum_v\binom{d_v}{2}$ &$-\frac{1}{3}mn$\\
                 \hline
-                3 &1 &1 &3 &-9 &6 \\
-                2 &0 &0 &1 &-6 &4 \\
-                1 &0 &0 &0 &-3 &2 \\
-                0 &1 &0 &0 &-0 &0 \\
+                3 &1 &1 &3 &-3\\
+                2 &0 &0 &1 &-2\\
+                1 &0 &0 &0 &-1\\
+                0 &1 &0 &0 &-0\\
               \end{tabular}
               \caption{The number of times each term in
               equation~\eqref{eqn:count} counts each type of triangle}
@@ -59,27 +60,28 @@
           \end{table}
 
           Summing the counts on each side of equation~\eqref{eqn:count},
-          we get the desired formula. Then to get the inequality in the
-          question, we equate it with equation~\eqref{eqn:count} and
-          rearrange to get 
-          \[\begin{array}{lrll}
-            &t(G) &\geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
-            \Leftrightarrow &\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2} -mn
-              +2m &\geq \binom{n}{3} +\frac{2m^2}{n} -m(n-1) &\\
-            \Leftrightarrow &\sum_{v\in V}\binom{d_v}{2} &\geq
-              \frac{2m^2}{n} -m &\\
-            \Leftrightarrow &\frac{1}{2}\sum_{v\in V}d_v^2
-              +\frac{1}{2}\sum_{v\in V}d_v &\geq \frac{2m^2}{n} -m
-              &\because \binom{d_v}{2}=d_v(d_v-1)/2\\
-            \Leftrightarrow &\sum_{v\in V}d_v^2 &\geq
-              \frac{(2m)^2}{n} &\because \sum_{v\in V}d_v=2m\\
-            \Leftrightarrow &\sum_{v\in V}d_v^2 &\geq
-              \frac{\left(\sum_{v\in V}d_v \right)^2}{n}. &\because
-              \sum_{v\in V}d_v=2m\\
-          \end{array}\]
+          we get the proposed formula. Now observe
+          \begin{align*}
+            \sum_{v\in V} \binom{d_v}{2} &=\frac{1}{2}\sum_{v\in V}
+              d_v^2 -\frac{1}{2}\sum_{v\in V} d_v\\
+            &=\frac{1}{2}\sum_{v\in V} d_v^2 -m &\left(\because \sum_{v\in
+              V}d_v=2m\right)\\
+            &\geq\frac{\left(\sum_{v\in V}d_v \right)^2}{2n} -m &\text{(by
+              Cauchy-Schwarz inequality)}\\
+            &=\frac{2m^2}{n} -m. &\left(\because \sum_{v\in
+              V}d_v=2m\right)\\
+          \end{align*}
 
-          Now the last line holds from the Cauchy-Schwarz inequality, so
-          the proof is complete.
+          So substituting the above into equation~\eqref{eqn:count}, we get
+          \begin{align*}
+            t(G) &=\binom{n}{3} +\sum_{v\in V}\binom{d_v}{2}
+              -\frac{1}{3}mn\\
+            &\geq\binom{n}{3} +\frac{2m^2}{n} -m-\frac{1}{3}mn\\
+            &=\binom{n}{3} +\frac{2m^2}{n} -m(n-1)
+              +[m(n-1)-m-\frac{1}{3}mn]\\
+            &=\binom{n}{3} +\frac{2m^2}{n} -m(n-1) +\frac{2}{3}m(n-3)\\
+            &\geq\binom{n}{3} +\frac{2m^2}{n} -m(n-1). &(\because n\geq3)\\
+          \end{align*}
         \end{proof}
 
       \item \it Show that for large $n$, for every 2-colouring of the edges
