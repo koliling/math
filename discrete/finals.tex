@@ -257,22 +257,34 @@
           contradiction that $\mathcal{F}$ contains elements in both
           $\binom{[n]}{m}$ and $\binom{[n]}{m+1}$. Write
           \begin{align*}
-            \binom{[n]}{m} &=\{A_1,\ldots,A_k\} \cup
+            \binom{[n]}{m} &=\{A_1,\ldots,A_k\} \sqcup
               \{A_{k+1},\ldots,A_{\binom{n}{m}}\},\\
-            \binom{[n]}{m+1} &=\{B_1,\ldots,B_k\} \cup
+            \binom{[n]}{m+1} &=\{B_1,\ldots,B_k\} \sqcup
               \{B_{k+1},\ldots,B_{\binom{n}{m}}\},\\
-            \mathcal{F} &=\{A_1,\ldots,A_k\} \cup
+            \mathcal{F} &=\{A_1,\ldots,A_k\} \sqcup
               \{B_{k+1},\ldots,B_{\binom{n}{m}}\},\\
             \mathcal{A} &:=\{A_1,\ldots,A_k\},\\
-            \mathcal{A}' &:=\{A_{k+1},\ldots,A_{\binom{n}{m}}\},\\
             \mathcal{B} &:=\{B_1,\ldots,B_k\},\\
+            \mathcal{A}' &:=\{A_{k+1},\ldots,A_{\binom{n}{m}}\},\\
             \mathcal{B}' &:=\{B_{k+1},\ldots,B_{\binom{n}{m}}\}.\\
           \end{align*}
 
-          We show that each no set in $\mathcal{A}$ has a superset in
+          We claim that each no set in $\mathcal{A}$ has a superset in
           $\mathcal{B}'$, and also no set in $\mathcal{B}$ has a subset in
           $\mathcal{A}'$: The first assertion holds trivially since
-          $\mathcal{A}\cup\mathcal{B}'$ is an antichain.
+          $\mathcal{A}\cup\mathcal{B}'$ is an antichain. Furthermore, for
+          each set $A$ in $\mathcal{A}$, there are exactly $m+1$ supersets
+          of $A$ contained in $\mathcal{B}$. In particular, on average,
+          each $B$ in $\mathcal{B}$ is a superset to $m+1$ sets in
+          $\mathcal{A}$. Likewise, for each set $B\in\mathcal{B}$, there
+          are exactly $m+1$ subsets of $B$ contained in
+          $\mathcal{A}\cup\mathcal{A}'$. Assume by contradiction that some
+          $B$ in $\mathcal{B}'$ has a subset $A'$ in $\mathcal{A}'$. Then
+          since on average each set in $\mathcal{B}$ is a superset to $m+1$
+          sets in $\mathcal{A}$, yet this one $B$ has is superset to less
+          than $m+1$ sets in $\mathcal{A}$, there must be some other set in
+          $\mathcal{B}$ that is superset to more than $m+1$ sets in
+          $\mathcal{A}$, a contradiction. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
