@@ -387,13 +387,32 @@
 
           To tighten the bound, we follow Blokhui's proof [1]. Consider
           the set
-          \[\{f_i(x), x_i, 1: 1\leq i\leq m\}
+          \[\{f_i(x), x_j, 1: i\in[m], j\in[n]\}
           \subset\mathbb{R}[x_1,\ldots,x_n].\]
           We show that this set is also linearly independent, which would
           imply that
           \[m+n+1 \leq(n+1)(n+4)/2,\]
           which simplifies to $m\leq(n+1)(n+2)/2=\binom{n+2}{2}$ as
           required. \\
+
+          Let $\lambda_i,\kappa_j,\mu\in\mathbb{R}$ be constants such that
+          \begin{equation}
+            \sum_{i=1}^m \lambda_i f_i(x) +\sum_{j=1}^n \kappa_jx_j
+            +\mu=0.
+            \label{eqn:1}
+          \end{equation}
+
+          Substituting $x=v_i$ into equation~\eqref{eqn:1} gives
+          \begin{equation}
+            \lambda_ir^2s^2 +\sum_{j=1}^n \kappa_jv_{i,j} +\mu=0.
+            \label{eqn:2}
+          \end{equation}
+
+          Substituting $x=ce_i$ into equation~\eqref{eqn:1} gives
+          \begin{equation}
+            \sum_{i=1}^m \lambda_i f_i(x) +c\kappa_j +\mu=0.
+            \label{eqn:3}
+          \end{equation}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
