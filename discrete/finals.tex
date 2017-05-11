@@ -294,7 +294,19 @@
           $B_{k+1}$, using the above claim, until we get
           $C=C_m=\{b_1,\ldots,b_m\}$. At each stage $s<m$, $C_s$ will be
           contained in $\mathcal{A}$, and contain the elements
-          $\{b_1,\ldots,b_s\}$.
+          $\{b_1,\ldots,b_s\}$. At stage $s+1$, write
+          \[C_s=\{b_1,\ldots,b_s,a_{s+1},\ldots,a_m\} \in\mathcal{A}.\]
+          If $b_{s+1}$ lies in $C_s$, set $C_{s+1}=C_s$ and go to the next
+          stage. Otherwise $C_s\cup\{b_{s+1}\}$ lies in $\mathcal{B}$ by
+          the above claim since $C_s$ lies in $\mathcal{A}$. Let
+          $D_s\in\mathcal{B}$ be a set in $\mathcal{B}$ that contains
+          $C_s\cup\{b_{s+1}\}$, and write
+          \[D_s=\{b_1,\ldots,b_{s+1},d_{s+2},\ldots,d_{m+1}\}
+          \in\mathcal{B}.\]
+          Then let $C_{s+1}=\{b_1,\ldots,b_{s+1},d_{s+2},\ldots,d_{m}\}$;
+          this will be contained in $\mathcal{A}$ from the above claim and
+          contain $\{b_1,\ldots,b_{s+1}\}$ as required.
+          
         \end{proof}
     \end{enumerate}
 \end{enumerate}
