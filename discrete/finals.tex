@@ -228,23 +228,23 @@
           since $\mathcal{F}$ is an antichain. Then since $\mathcal{F}$ has
           $\binom{n}{m}$ sets, each chain must contain exactly one element
           in $\mathcal{F}$, and the intersection of $\mathcal{F}$ with any
-          chain cannot be empty. We show by permuting the elements in
+          chain cannot be empty. We show that by permuting the elements in
           $[n]$, we can get another symmetric chain decomposition of
-          $\mathcal{B}_n$ isomorphic to the first one, but contains a chain
-          that does not intersect $\mathcal{F}$, a contradiction. \\
+          $\mathcal{B}_n$ isomorphic to the first one, but which contains a
+          chain that does not intersect $\mathcal{F}$, a contradiction. \\
 
           Observe that there are $\binom{n}{m-1}$ subsets of $[n]$ with
-          $m-1$, which is fewer than the number of chains $\binom{n}{m}$ in
-          the decomposition $\binom{n}{m}$. So there must be at least one
+          $m-1$ elements, which is fewer than the number of chains in the
+          symmetric chain decomposition. So there must be at least one
           chain $\mathcal{C}$ in the decomposition that does not contain a
-          set with $m-1$ elements. Then since the decomposition is
-          symmetric, the sets in $\mathcal{C}$ can only have cardinality
-          larger than $m$, which is larger than the cardinality of $A$. By
-          applying an appropriate permutation of $[n]$ on the symmetric
-          chain decomposition, we can assume that the smallest set in
-          $\mathcal{C}$ contains $A$. But then $\mathcal{F}$ cannot contain
-          an element in $\mathcal{C}$ otherwise $\mathcal{F}$ will not be
-          an antichain. This completes the proof.
+          set with $m-1$ elements. Then by symmetry of the decomposition,
+          the sets in $\mathcal{C}$ can only have cardinality
+          larger than $m$, which is more than the number of elements in
+          $A$. By applying an appropriate permutation of $[n]$ on the
+          symmetric chain decomposition, we can assume that the smallest
+          set in $\mathcal{C}$ contains $A$. But then $\mathcal{F}$ cannot
+          contain an element in $\mathcal{C}$ otherwise $\mathcal{F}$ will
+          not be an antichain. This completes the proof.
         \end{proof}
 
       \item \it Show that in fact there are only two possibilities for
@@ -281,7 +281,7 @@
           $\mathcal{A}\cup\mathcal{A}'$. Assume by contradiction that some
           $B$ in $\mathcal{B}'$ has a subset $A'$ in $\mathcal{A}'$. Then
           since on average each set in $\mathcal{B}$ is a superset to $m+1$
-          sets in $\mathcal{A}$, yet this one $B$ has is superset to less
+          sets in $\mathcal{A}$, yet this one $B$ is superset to less
           than $m+1$ sets in $\mathcal{A}$, there must be some other set in
           $\mathcal{B}$ that is superset to more than $m+1$ sets in
           $\mathcal{A}$, a contradiction. \\
@@ -292,7 +292,7 @@
           set in $\mathcal{A}$. The idea of the construction is to
           gradually replace each element in $C_0$ with elements in
           $B_{k+1}$, using the above claim, until we get
-          $C=C_m=\{b_1,\ldots,b_m\}$. At each stage $s<m$, $C_s$ will be
+          $C=C_m=\{b_1,\ldots,b_m\}$. At each stage $s\leq m$, $C_s$ will be
           contained in $\mathcal{A}$, and contain the elements
           $\{b_1,\ldots,b_s\}$. At stage $s+1$, write
           \[C_s=\{b_1,\ldots,b_s,a_{s+1},\ldots,a_m\} \in\mathcal{A}.\]
