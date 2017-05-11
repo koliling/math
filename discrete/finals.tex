@@ -129,7 +129,7 @@
 
   \item \it Let $T$ be a tree with $k$ edges.
     \begin{enumerate}
-      \item Let $G$ be a graph with $n$ vertices and more than $(k-1)n$
+      \item \it Let $G$ be a graph with $n$ vertices and more than $(k-1)n$
         edges. Show that $G$ contains $T$ as a subgraph.
 
         \begin{proof}
@@ -184,7 +184,7 @@
           will embed $T$ onto $G$. \\
         \end{proof}
 
-      \item Show that there are infinitely many $n$ for which there is a
+      \item \it Show that there are infinitely many $n$ for which there is a
         graph $G$ with $n$ vertices and at least $(k-1)n/2$ edges for which
         $G$ does not contain $T$ as a subgraph.
 
@@ -196,6 +196,55 @@
           \[m =\binom{k}{2}\cdot\frac{n}{k} =(k-1)n/2.\]
           Since there are infinite $n$ which are multiples of $k$, there
           are infinite such $G$'s.
+        \end{proof}
+    \end{enumerate}
+
+  \item \it Let $n=2m+1$ be an odd integer (with $m\geq0$). Let
+    $\mathcal{F}$ be an antichain (Sperner family) on $\{1,\ldots,n\}$ of
+    largest possible size, that is, size $\binom{n}{[n/2]}$.
+
+    \begin{enumerate}
+      \item \it Show that $\mathcal{F}$ consists only of elements of size
+        $m$ or $m+1$.
+
+        \begin{proof}
+          Observe that if $\mathcal{F}$ is an antichain, then the
+          complement of $\mathcal{F}$, defined as the class of complements
+          of the sets in $\mathcal{F}$, will also be an antichain, because
+          given arbitrary $A,B\subseteq[n]$, $A\subseteq B$ if and only if
+          $\bar{B}\subseteq\bar{A}$. Therefore if $\mathcal{F}$ is an
+          antichain that contains a set with size greater than $m+1$, then
+          the complement of $\mathcal{F}$ will be an antichain that
+          contains a set with size smaller than $m$. Thus it suffices to
+          prove that no maximal antichain can contain a set of size smaller
+          than $m$. \\
+
+          Assume by contradiction that such a maximal antichain
+          $\mathcal{F}$ exists, and let $A\in\mathcal{F}$ be a set with
+          less than $m$ elements. Fix a symmetric chain decomposition of
+          $\mathcal{B}_n$ with $\binom{n}{m}$ chains. Note that such a
+          decomposition exists from Lemma 52.4. Now each chain in the
+          decomposition cannot contain more than one set from $\mathcal{F}$
+          since $\mathcal{F}$ is an antichain. Then since $\mathcal{F}$ has
+          $\binom{n}{m}$ sets, each chain must contain exactly one element
+          in $\mathcal{F}$, and the intersection of $\mathcal{F}$ with any
+          chain cannot be empty. We show by permuting the elements in
+          $[n]$, we can another symmetric chain decomposition of
+          $\mathcal{B}_n$ that is isomorphic to the first one, but contains
+          a chain that does not intersect $\mathcal{F}$, a contradiction.
+          \\
+
+          Observe that there are $\binom{n}{m-1}$ subsets of $[n]$ with
+          $m-1$, which is fewer than the number of chains $\binom{n}{m}$ in
+          the decomposition $\binom{n}{m}$. So there must be at least one
+          chain $\mathcal{C}$ in the decomposition that does not contain a
+          set with $m-1$ elements. Then since the decomposition is
+          symmetric, the sets in $\mathcal{C}$ can only have cardinality
+          larger than $m$, which is larger than the cardinality of $A$. By
+          finding an appropriate permutation of $[n]$, we can assume that
+          the smallest set in $C$ contains $A$. But then $\mathcal{F}$
+          cannot contain an element in $\mathcal{C}$ otherwise
+          $\mathcal{F}$ will not be an antichain. This completes the proof.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
