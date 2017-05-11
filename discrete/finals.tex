@@ -362,7 +362,20 @@
         $\mathbb{R}^n$ is $\binom{n+2}{2}$.
 
         \begin{proof}
+          We follow Blokhui's [1] proof to get the upper bound. Let
+          $\{v_1,\ldots,v_m\} \subset\mathbb{R}^n$ be a 2-distance set with
+          distance $r,s\in\mathbb{R}$. For each point $v_i$, we associate a
+          polynomial $f_i(x)$ in the $\mathbb{R}$-vector space
+          $\mathbb{R}[x_1,\ldots,x_n]$, defined by
+          \[f_i(x) :=(d(x,v_i)^2-r^2)(d(x,v_i)^2-s^2).\]
+
+          Observe that if $i\neq j$, then $f_i(v_j)=0$, otherwise
+          $f_i(v_i)=r^2s^2\neq0$. Therefore the $f_i(x)$'s are linearly
+          independent in $\mathbb{R}[x_1,\ldots,x_n]$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
+
+[1]: \it A new upper bound for the cardinality of 2-distance sets in
+Euclidean space. A. Blokhuis.
 \end{document}
