@@ -285,6 +285,16 @@
           than $m+1$ sets in $\mathcal{A}$, there must be some other set in
           $\mathcal{B}$ that is superset to more than $m+1$ sets in
           $\mathcal{A}$, a contradiction. \\
+
+          Using the above claim, we iteratively construct a set $C$ in
+          $\mathcal{A}$ that is contained in $B_{k+1}$, a contradiction:
+          Write $B_{k+1}=\{b_1,\ldots,b_{m+1}\}$. Let $C_0$ be an arbitrary
+          set in $\mathcal{A}$. The idea of the construction is to
+          gradually replace each element in $C_0$ with elements in
+          $B_{k+1}$, using the above claim, until we get
+          $C=C_m=\{b_1,\ldots,b_m\}$. At each stage $s<m$, $C_s$ will be
+          contained in $\mathcal{A}$, and contain the elements
+          $\{b_1,\ldots,b_s\}$.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
