@@ -246,6 +246,33 @@
           an element in $\mathcal{C}$ otherwise $\mathcal{F}$ will not be
           an antichain. This completes the proof.
         \end{proof}
+
+      \item \it Show that in fact there are only two possibilities for
+        $\mathcal{F}$: it is either the set of all subsets of
+        $\{1,\ldots,n\}$ of size $m$, or the set of all subsets
+        $\{1,\ldots,n\}$ of size $m+1$.
+
+        \begin{proof}
+          Let $\mathcal{F}$ be a maximal antichain, and assume by
+          contradiction that $\mathcal{F}$ contains elements in both
+          $\binom{[n]}{m}$ and $\binom{[n]}{m+1}$. Write
+          \begin{align*}
+            \binom{[n]}{m} &=\{A_1,\ldots,A_k\} \cup
+              \{A_{k+1},\ldots,A_{\binom{n}{m}}\},\\
+            \binom{[n]}{m+1} &=\{B_1,\ldots,B_k\} \cup
+              \{B_{k+1},\ldots,B_{\binom{n}{m}}\},\\
+            \mathcal{F} &=\{A_1,\ldots,A_k\} \cup
+              \{B_{k+1},\ldots,B_{\binom{n}{m}}\},\\
+            \mathcal{A} &:=\{A_1,\ldots,A_k\},\\
+            \mathcal{A}' &:=\{A_{k+1},\ldots,A_{\binom{n}{m}}\},\\
+            \mathcal{B} &:=\{B_1,\ldots,B_k\},\\
+            \mathcal{B}' &:=\{B_{k+1},\ldots,B_{\binom{n}{m}}\}.\\
+          \end{align*}
+
+          We show that each no set in $\mathcal{A}$ has a superset in
+          $\mathcal{B}'$, and also no set in $\mathcal{B}$ has a subset in
+          $\mathcal{A}'$:
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 \end{document}
