@@ -366,14 +366,14 @@
           with distance $r,s\in\mathbb{R}$. For each point $v_i$, we
           associate a polynomial $f_i(x)$ in the infinite-dimensional
           $\mathbb{R}$-vector space $\mathbb{R}[x_1,\ldots,x_n]$:
-          \[f_i(x) :=(d(x,v_i)^2-r^2)(d(x,v_i)^2-s^2).\]
+          \[f_i(x) :=\frac{1}{r^2s^2} (d(x,v_i)^2-r^2)(d(x,v_i)^2-s^2).\]
 
           Observe that if $i\neq j$, then $f_i(v_j)=0$, otherwise
-          $f_i(v_i)=r^2s^2\neq0$. Therefore the $f_i(x)$'s are linearly
+          $f_i(v_i)=1$. Therefore the $f_i(x)$'s are linearly
           independent in $\mathbb{R}[x_1,\ldots,x_n]$. Also, when we expand
           out each $f_i(x)$, we get
-          \[f_i(x) =\left(\sum_{k=1}^n (x_k-v_{i,k})^2 -r^2\right)
-          \left(\sum_{k=1}^n (x_k-v_{i,k})^2 -s^2\right),\]
+          \[f_i(x) =\frac{1}{r^2s^2} \left(\sum_{k=1}^n (x_k-v_{i,k})^2
+          -r^2\right) \left(\sum_{k=1}^n (x_k-v_{i,k})^2 -s^2\right),\]
           which is a polynomial with total degree of each monomial term at
           most 4. More specifically, the terms with degree 4 have are
           $\left(\sum_{k=1}^n x_k^2\right)^2$, and those with degree 3 have
@@ -404,15 +404,36 @@
 
           Substituting $x=v_i$ into equation~\eqref{eqn:1} gives
           \begin{equation}
-            \lambda_ir^2s^2 +\sum_{j=1}^n \kappa_jv_{i,j} +\mu=0.
+            \lambda_i +\sum_{j=1}^n \kappa_jv_{i,j} +\mu=0.
             \label{eqn:2}
           \end{equation}
 
           Substituting $x=ce_j$ into equation~\eqref{eqn:1} gives
           \begin{equation}
-            \sum_{i=1}^m \lambda_i (c^2-2cv_{i,j}+d(v_i,0)^2-r^2) +c\kappa_j +\mu=0.
+            \frac{1}{r^2s^2} \sum_{i=1}^m \lambda_i
+            (c^2-2cv_{i,j}+d(v_i,0)^2-r^2) (c^2-2cv_{i,j}+d(v_i,0)^2-s^2)
+            +c\kappa_j +\mu=0.
             \label{eqn:3}
           \end{equation}
+
+          Then comparing coefficients for $c^4$ and $c^3$ we get
+          \begin{equation}
+            \sum_{i=1}^m \lambda_i =\sum_{i=1}^m \lambda_iv_{i,j} =0
+            \label{eqn:4}
+          \end{equation}
+          for all $j\in[n]$.\\
+
+          Multiplying equation~\eqref{eqn:2} by
+          $\lambda_i$ and summing over all $i\in[m]$ gives
+          \begin{equation}
+            \sum_{i=1}^m \lambda_i^2 +\sum_{j=1}^n \kappa_j \sum_{i=1}^m
+            \lambda_iv_{i,j} +\mu\sum_{i=1}^m \lambda_i =0.
+            \label{eqn:5}
+          \end{equation}
+
+          Then equations~\eqref{eqn:4} and~\eqref{eqn:5} gives
+          $\lambda_i=0$ for all $i\in[n]$, from which we get $\kappa_j=0$
+          for all $j\in[n]$ and also $\mu=0$, which completes the proof.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
