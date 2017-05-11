@@ -362,16 +362,38 @@
         $\mathbb{R}^n$ is $\binom{n+2}{2}$.
 
         \begin{proof}
-          We follow Blokhui's [1] proof to get the upper bound. Let
-          $\{v_1,\ldots,v_m\} \subset\mathbb{R}^n$ be a 2-distance set with
-          distance $r,s\in\mathbb{R}$. For each point $v_i$, we associate a
-          polynomial $f_i(x)$ in the $\mathbb{R}$-vector space
-          $\mathbb{R}[x_1,\ldots,x_n]$, defined by
+          Let $\{v_1,\ldots,v_m\} \subset\mathbb{R}^n$ be a 2-distance set
+          with distance $r,s\in\mathbb{R}$. For each point $v_i$, we
+          associate a polynomial $f_i(x)$ in the infinite-dimensional
+          $\mathbb{R}$-vector space $\mathbb{R}[x_1,\ldots,x_n]$:
           \[f_i(x) :=(d(x,v_i)^2-r^2)(d(x,v_i)^2-s^2).\]
 
           Observe that if $i\neq j$, then $f_i(v_j)=0$, otherwise
           $f_i(v_i)=r^2s^2\neq0$. Therefore the $f_i(x)$'s are linearly
-          independent in $\mathbb{R}[x_1,\ldots,x_n]$.
+          independent in $\mathbb{R}[x_1,\ldots,x_n]$. Also, when we expand
+          out each $f_i(x)$, we get
+          \[f_i(x) =\left(\sum_{k=1}^n (x_k-v_{i,k})^2 -r^2\right)
+          \left(\sum_{k=1}^n (x_k-v_{i,k})^2 -s^2\right),\]
+          which is a polynomial with total degree of each monomial term at
+          most 4. More specifically, the terms with degree 4 have are
+          $\left(\sum_{k=1}^n x_k^2\right)^2$, and those with degree 3 have
+          the form $x_j\left(\sum_{k=1}^n x_k^2\right)$. Therefore
+          $f_i(x)$'s are a linear combination of
+          \[\left\{\left(\sum_{k=1}^n x_k^2\right)^2, x_j\left(\sum_{k=1}^n
+          x_k^2\right), x_ix_j, x_i, 1:\; i,j\in[n] \right\}.\]
+          This is a set of $1+n+n(n+1)/2+n+1 =(n+1)(n+4)/2$ linearly
+          independent functions, therefore $m$ cannot exceed
+          $(n+1)(n+4)/2$. \\
+
+          To tighten the bound, we follow Blokhui's proof [1]. Consider
+          the set
+          \[\{f_i(x), x_i, 1: 1\leq i\leq m\}
+          \subset\mathbb{R}[x_1,\ldots,x_n].\]
+          We show that this set is also linearly independent, which would
+          imply that
+          \[m+n+1 \leq(n+1)(n+4)/2,\]
+          which simplifies to $m\leq(n+1)(n+2)/2=\binom{n+2}{2}$ as
+          required. \\
         \end{proof}
     \end{enumerate}
 \end{enumerate}
