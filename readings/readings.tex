@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{stmaryrd} % For double square bracket [[]]
+\usepackage{bm} % For bold vectors
+\usepackage{color}
+\usepackage{cancel} % To use the cancel function
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{question}{Question}[subsection]
+
+\begin{document}
+\title{Logic Thoughts}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\section{Arithmetical Hierarchy}
+  \subsection{Computably Enumerable Degrees}
+    \begin{theorem}
+      There are non c.e. degrees below $\emptyset'$.
+    \end{theorem}
+    \begin{proof}
+      Cooper Epstein-Lachlan theorem.
+    \end{proof}
+
+    \begin{theorem}
+      There are no minimal c.e. degrees.
+    \end{theorem}
+    \begin{proof}
+      Sack's Density theorem.
+    \end{proof}
+
+    \begin{question}
+      Do all non-minimal degrees have infinite incomparable degrees below
+      them? How about just finite?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+  \subsection{Lattice $\mathcal{D}$}
+    \begin{question}
+      Given $A\leq_T B$, must there be a degree between them? I.e. Does
+      Sack's density theorem be generalized to degrees that are not
+      necessarily c.e.? How about infinite pairwise incomparable degrees
+      between $A$ and $B$?
+    \end{question}
+    \begin{proof}
+      Consider local and global degrees?
+    \end{proof}
+
+    \begin{question}
+      Given any non-recursive non-minimal degree, are there always infinite
+      pairwise incomparable degrees beneath it?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+    \begin{question}
+      Is $\mathcal{D}$ a lattice? In particular, do any two Turing degrees
+      have a greatest lower bound? How about distributivity?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+    \begin{question}
+      Does $\mathcal{D}_{\leq\emptyset'}$ have a maximal degree?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+  \subsection{Randoms and Generics}
+    \begin{question}
+      Is there any relation between 1-random sets and 1-generic sets? I
+      suspect all 1-generics are 1-random, but the converse isn't true? Is
+      there a result similar to one for hyperimmune degrees, which says
+      that the hyperimmune degrees are exactly those that are comparable
+      with $\emptyset'$?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+    \begin{question}
+      Is there a 1-random in every non-recursive degree? Is there a result
+      similar to one for hyperimmune degrees, which says that the
+      hyperimmune degrees are exactly those that are comparable with
+      $\emptyset'$?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+
+\section{Philosophy}
+  \subsection{Computability of Human Mind}
+    \begin{question}
+      What kind of ``computers'' are human brains? Can we ever figure out
+      the axioms of the universe? Or can we prove that we can never figure
+      out the axioms? Can we formulate these questions rigorously?
+    \end{question}
+    \begin{proof}
+    \end{proof}
+\end{document}
