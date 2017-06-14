@@ -15,7 +15,9 @@
 \newtheorem{lemma}{Lemma}[subsection]
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{question}{Question}[subsection]
-\newtheorem{goal}{Goal}[section]
+\newtheorem{goal}{Goal}[subsection]
+\newtheorem{remark}{Remark}[subsection]
+\newtheorem{corollary}{Corollary}[subsection]
 
 \begin{document}
 \title{Readings}
@@ -24,7 +26,6 @@
 \maketitle
 
 \section{Maximal Sets}
-\subsection{Maximal Sets}
   \begin{notation}
     Given $A,B\subseteq\omega$, write
     \begin{itemize}
@@ -77,6 +78,7 @@
   %  c.e. set that lies between $[M]$ and $[\omega]$ in $\mathcal{E}^*$.
   %\end{definition}
 
+\subsection{Maximal Sets}
   \begin{theorem}
     There exists a maximal set.
   \end{theorem}
@@ -150,5 +152,67 @@
     $a_q\not\in W_{e+1}$. But then the $(e+1)$-state of $a_p$ will be
     smaller than that of $a_q$, and we will enumerate $a_p$ into $A$, a
     contradiction.
+  \end{proof}
+
+\subsection{Degrees of Maximal Sets}
+  \begin{goal}
+    High degrees = maximal sets.
+    Specifically, every high degree contains a maximal set, and every
+    maximal set has a high degree. 
+  \end{goal}
+
+  \begin{remark}
+    The easy direction is to show that maximal sets have high degree. 
+  \end{remark}
+
+  \begin{lemma}
+    If $M$ is a maximal set then $p_{\overline{M}}$ is dominant.
+    \label{lemma:high-maximal}
+  \end{lemma}
+  \begin{proof}
+    Assume recursive function $p_{\overline{M}}$ is dominated by recursive
+    function $f$. We can assume $f$ is strictly increasing and majorizes
+    $p_{\overline{M}}$. Observe that
+    $p_{\overline{M}}(n)\in[n,f(n)-1]$. In particular, $[0,f(0)-1]$
+    contains an element of $\overline{M}$. Then $[f(0),f(f(0))-1]$ contains
+    an element of $\overline{M}$, and $[f(f(0)),f(f(f(0)))-1]$ contains an
+    element of $\overline{M}$, and so on. But these are disjoint intervals,
+    so by picking every other interval, we can choose enumerate an infinite
+    number of elements of $\overline{M}$, leaving an infinite number of
+    elements of $\overline{M}$. \\
+
+    Assume that $f$ does not dominate $p_{\overline{M}}$, but instead
+    crosses over it infinitely many times. Then there are infinite disjoint
+    intervals $(f(x),f(x+1)]$ that contain two or more elements of
+    $\overline{M}$. So by enumerating $M$ and searching for the first
+    element in each interval that is not in $M_s$, we can extend $M$ by
+    infinite elements, leaving infinite elements unenumerated.
+  \end{proof}
+
+  \begin{theorem}
+    \textit{(High Domination Theorem)} A set $A$ satisfies
+    $\emptyset''\leq_T A'$ if and only if it computes a dominant function.
+    \label{thm:high-domination}
+  \end{theorem}
+  \begin{proof}
+    Recall that $\text{Tot}\equiv_T \emptyset''$, so by the limit lemma
+    relativized to $A$, we have $\emptyset''\leq_T A'$ iff there is a
+    $A$-recursive binary function $g(x,s)$ such that $\lim_s g(x,s)
+    =\chi_{\text{Tot}}(x)$. \\
+
+    Assume $\emptyset''\leq_T A'$. We use $g$ to construct a dominant
+    function $f$. Given $e$ and stage $s$, let $t_s(e)$ be the first stage
+    $t>s$ such that either $g(e,t)=0$ or $\varphi_{e,t}\restriction
+    t\downarrow$. In other words, $t_s(e)$ be the first stage greater than
+    $s$ where either $\varphi_e$ is shown to be not total from $g$, or
+    shown to be total up to $t$.
+  \end{proof}
+
+  \begin{corollary}
+    Every maximal set has a high degree.
+  \end{corollary}
+  \begin{proof}
+    Follows directly from Theorem~\ref{thm:high-domination} and
+    Lemma~\ref{lemma:high-maximal}.
   \end{proof}
 \end{document}
