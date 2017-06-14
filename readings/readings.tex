@@ -10,8 +10,12 @@
 \setlength{\parindent}{0mm}
 \newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
 
+\newtheorem{notation}{Notation}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{question}{Question}[subsection]
+\newtheorem{goal}{Goal}[section]
 
 \begin{document}
 \title{Readings}
@@ -19,77 +23,115 @@
 \date{\today}
 \maketitle
 
-\section{Arithmetical Hierarchy}
-  \subsection{Computably Enumerable Degrees}
-    \begin{theorem}
-      There are non c.e. degrees below $\emptyset'$.
-    \end{theorem}
-    \begin{proof}
-      Cooper Epstein-Lachlan theorem.
-    \end{proof}
+\section{Maximal degrees}
+  \begin{notation}
+    Given $A,B\subseteq\omega$, write
+    \begin{itemize}
+      \item $A=*B$ iff $|A\Delta B|<\omega$, i.e. $A$ and $B$ are equal
+        except for a finite number of elements.
+      \item $A\subseteq^*B$ iff $|A-B|<\omega$, i.e., $B$ contains all but
+        a finite number of elements from $A$.
+    \end{itemize}
+  \end{notation}
 
-    \begin{theorem}
-      There are no minimal c.e. degrees.
-    \end{theorem}
-    \begin{proof}
-      Sack's Density theorem.
-    \end{proof}
+  \begin{definition}
+    A c.e. set $M\subset\omega$ is \textit{maximal} iff
+    $|M|=|\overline{M}|=\omega$, and given any c.e. set $N$, if
+    $M\subseteq^* N$, then either $N=^*M$ or $N=^*\omega$; i.e. there is no
+    c.e. set that lies between $M$ and $\omega$ up to a finite number of
+    elements.
+  \end{definition}
 
-    \begin{question}
-      Do all non-minimal degrees have infinite incomparable degrees below
-      them? How about just finite?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  \begin{definition}
+    A set $C$ is \textit{cohesive} if there is no r.e. set $W$ such that
+    both $W\cap C$ and $\overline{W}\cap C$ are infinite.
+  \end{definition}
 
-  \subsection{Lattice $\mathcal{D}$}
-    \begin{question}
-      Given $A\leq_T B$, must there be a degree between them? I.e. Does
-      Sack's density theorem be generalized to degrees that are not
-      necessarily c.e.? How about infinite pairwise incomparable degrees
-      between $A$ and $B$?
-    \end{question}
-    \begin{proof}
-      Consider local and global degrees?
-    \end{proof}
+  \begin{lemma}
+    A c.e. set is maximal if and only if its complement is cohesive.
+    \label{lemma:maximal-cohesive}
+  \end{lemma}
+  \begin{proof}
+    Chase definitions. If a c.e. set $M$ does not have a cohesive
+    complement, let $W$ be the witness of the non-cohesiveness of
+    $\overline{M}$. Then $M\cup W$ will witness the non-maximality of $M$.
+    Conversely, if $M$ is not maximal with witness $W$, then $W$ will also
+    witness the non-cohesiveness of $\overline{M}$.
+  \end{proof}
 
-    \begin{question}
-      Given any non-recursive non-minimal degree, are there always infinite
-      pairwise incomparable degrees beneath it?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  %\begin{definition}
+  %  $\mathcal{E}$ denotes the class of c.e. sets, partially ordered by
+  %  $\subseteq$.
+  %\end{definition}
 
-    \begin{question}
-      Is $\mathcal{D}$ a lattice? In particular, do any two Turing degrees
-      have a greatest lower bound? How about distributivity?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  %\begin{definition}
+  %  $\mathcal{E}^* =\langle \mathcal{E}/\sim, \subseteq^*\rangle$ denotes
+  %  the set of equivalence classes $\mathcal{E}/\sim$, where $A\sim B$ if
+  %  and only if $|A\Delta B|<\omega$. We partially order $\mathcal{E}^*$ by
+  %  $\subseteq^*$, where $[A]\subseteq^*[B]$ if and only if $|B-A|<\omega$.
+  %\end{definition}
 
-    \begin{question}
-      Does $\mathcal{D}_{\leq\emptyset'}$ have a maximal degree?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  %\begin{definition}
+  %  A c.e. set $M$ is \textit{maximal} if $[M]\neq[\omega]$ and there is no
+  %  c.e. set that lies between $[M]$ and $[\omega]$ in $\mathcal{E}^*$.
+  %\end{definition}
 
-  \subsection{Randoms and Generics}
-    \begin{question}
-      Is there any relation between 1-random sets and 1-generic sets? I
-      suspect all 1-generics are 1-random, but the converse isn't true? Is
-      there a result similar to one for hyperimmune degrees, which says
-      that the hyperimmune degrees are exactly those that are comparable
-      with $\emptyset'$?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  \begin{theorem}
+    There exists a maximal set.
+  \end{theorem}
 
-    \begin{question}
-      Is there a 1-random in every non-recursive degree? Is there a result
-      similar to one for hyperimmune degrees, which says that the
-      hyperimmune degrees are exactly those that are comparable with
-      $\emptyset'$?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  From Lemma~\ref{lemma:maximal-cohesive}, it suffices to construct a c.e.
+  set $A$ that satisfies requirements
+  \begin{equation}
+    |\overline{A}|=\omega,
+    \label{eqn:R}
+  \end{equation}
+  and
+  \begin{equation}
+    P_e: \overline{A} \subseteq^*\overline{W}_e\;\; \text{or}\;\;
+    \overline{A}\subseteq^* W_e.
+    \label{eqn:P_e}
+  \end{equation}
+
+  At stage $s$, write $\overline{A}_s =\{a_0^s<a_1^s<a_2^s\ldots\}$. Notice
+  that $a_i^0\leq a_i^1\leq a_i^2\leq\ldots$ while we enumerate elements
+  from $\overline{A}_s$ into $A_s$ at stage $s+1$. Hence to ensure that
+  $|\overline{A}|=\omega$, it suffices to show that $\lim_s a_n^s$ exists
+  for each $n\in\omega$.
+
+  \begin{notation}
+    Given $x\in\omega$, we say the $e$-state of $x$ at stage $s$ is
+    \[\sigma(e,x,s) =\{i\leq e: x\in W_{i,s}\} \in 2^{e+1}.\]
+    For example, the $e$-state 100 means $x\in W_{0,s}$ but $x\not\in
+    W_{1,s}$ and $x\not\in W_{2,s}$. Notice that there are only $2^{e+1}$
+    possible $e$-states.
+  \end{notation}
+
+  \begin{proof}
+    At stage 0, let $A_0=\emptyset$, so that $\overline{A}_0=\omega$. At
+    stage $s+1$, we consider which of $a_0^s<a_1^s<\ldots<a_s^s$ should be
+    enumerated into $A_{s+1}$. Our strategy is to maximize the $e$-state
+    corresponding to the highest priority requirement. Specifically, given
+    $e\leq s$, see if there is some $e<i\leq s$ such that the $e$-state of
+    $a_i^s$ is greater than the $e$-state of $a_e^s$. Let $e\leq s$ be the
+    smallest requirement where such $i$ exists. Enumerate
+    $a_e^s,\ldots,a_{i-1}^s$ into $A_s$.
+  \end{proof}
+
+  \begin{lemma}
+    $a_i:=\lim_s a_i^s$ exists.
+  \end{lemma}
+  \begin{proof}
+    Notice that $a_0^s$ increases at stage $s$ if and only if $0$-state of
+    $a_0^s$ increases in the next stage. But there are only $2^{0+1}=2$
+    possible $0$-states. So $a_0^s$ can only increase at most once. By
+    strong induction, after all $a_0,\ldots,a_{e-1}$ have stabilized, $a_e$
+    can only increase at most $2^{e+1}$ times before stabilizing also.
+  \end{proof}
+
+  \begin{lemma}
+    $P_0$ is satisfied.
+  \end{lemma}
+  \begin{proof}
+  \end{proof}
 \end{document}
