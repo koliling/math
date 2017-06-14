@@ -23,7 +23,8 @@
 \date{\today}
 \maketitle
 
-\section{Maximal degrees}
+\section{Maximal Sets}
+\subsection{Maximal Sets}
   \begin{notation}
     Given $A,B\subseteq\omega$, write
     \begin{itemize}
@@ -96,13 +97,14 @@
   At stage $s$, write $\overline{A}_s =\{a_0^s<a_1^s<a_2^s\ldots\}$. Notice
   that $a_i^0\leq a_i^1\leq a_i^2\leq\ldots$ while we enumerate elements
   from $\overline{A}_s$ into $A_s$ at stage $s+1$. Hence to ensure that
-  $|\overline{A}|=\omega$, it suffices to show that $\lim_s a_n^s$ exists
-  for each $n\in\omega$.
+  $|\overline{A}|=\omega$, it suffices to show that $a_n:=\lim_s a_n^s$
+  exists for each $n\in\omega$. Assuming all $a_n$ exist, we can write
+  $\overline{A}=\{a_0<a_1<\ldots\}$.
 
   \begin{notation}
     Given $x\in\omega$, we say the $e$-state of $x$ at stage $s$ is
     \[\sigma(e,x,s) =\{i\leq e: x\in W_{i,s}\} \in 2^{e+1}.\]
-    For example, the $e$-state 100 means $x\in W_{0,s}$ but $x\not\in
+    For example, $e$-state 100 means $x\in W_{0,s}$ but $x\not\in
     W_{1,s}$ and $x\not\in W_{2,s}$. Notice that there are only $2^{e+1}$
     possible $e$-states.
   \end{notation}
@@ -125,13 +127,28 @@
     Notice that $a_0^s$ increases at stage $s$ if and only if $0$-state of
     $a_0^s$ increases in the next stage. But there are only $2^{0+1}=2$
     possible $0$-states. So $a_0^s$ can only increase at most once. By
-    strong induction, after all $a_0,\ldots,a_{e-1}$ have stabilized, $a_e$
-    can only increase at most $2^{e+1}$ times before stabilizing also.
+    strong induction, after $a_0,\ldots,a_{e-1}$ have stabilized, $a_e$
+    can only increase at most $2^{e+1}$ times before stabilizing too.
   \end{proof}
 
   \begin{lemma}
-    $P_0$ is satisfied.
+    $P_e$ is satisfied.
   \end{lemma}
   \begin{proof}
+    Assume $P_0$ is not satisfied. Then there must be some
+    $a_i\in\overline{A}$ such that $a_i\in W_0$ but $a_{i+1}\not\in W_0$.
+    Wait till $a_0,\ldots,a_{i+1}$ have stabilized. Then
+    the $i$-state of $a_i$ will be smaller than the $i$-state of $a_{i+1}$
+    since $a_i\in W_0$ but $a_{i+1}\not\in W_0$. By our strategy, we will
+    enumerate $a_i$ into $A$, a contradiction. \\
+
+    Assume $P_0,\ldots,P_e$ are satisfied, but not $P_{e+1}$. Let
+    $a_n\in\overline{A}$ be the smallest element such that for all
+    $a_m>a_n$ and all $i\leq e$, the $i$-state of $a_m$ equals the
+    $i$-state of $a_n$. Wait till all $a_0,\ldots,a_n$ have stabilized.
+    Choose $a_p<a_q$ bigger than $a_n$ such that $a_p\in W_{e+1}$ but
+    $a_q\not\in W_{e+1}$. But then the $(e+1)$-state of $a_p$ will be
+    smaller than that of $a_q$, and we will enumerate $a_p$ into $A$, a
+    contradiction.
   \end{proof}
 \end{document}
