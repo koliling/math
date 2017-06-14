@@ -197,15 +197,26 @@
   \begin{proof}
     Recall that $\text{Tot}\equiv_T \emptyset''$, so by the limit lemma
     relativized to $A$, we have $\emptyset''\leq_T A'$ iff there is a
-    $A$-recursive binary function $g(x,s)$ such that $\lim_s g(x,s)
-    =\chi_{\text{Tot}}(x)$. \\
+    $A$-recursive binary function $g(e,s)$ such that $\lim_s g(e,s)
+    =\chi_{\text{Tot}}(e)$. \\
 
     Assume $\emptyset''\leq_T A'$. We use $g$ to construct a dominant
     function $f$. Given $e$ and stage $s$, let $t_s(e)$ be the first stage
     $t>s$ such that either $g(e,t)=0$ or $\varphi_{e,t}\restriction
     t\downarrow$. In other words, $t_s(e)$ be the first stage greater than
     $s$ where either $\varphi_e$ is shown to be not total from $g$, or
-    shown to be total up to $t$.
+    shown to be total up to $t$. Then setting $f(s)=\max\{t_s(e):e\leq s\}$
+    works. \\
+
+    For the converse, let $f(s)$ be a dominant function. Construct $g(e,s)$
+    as
+    \begin{align*}
+      g(e,s) :=
+      \begin{cases}
+        1 &\text{if}\; \varphi_{e,f(s)}\restriction s\downarrow,\\
+        0 &\text{otherwise}.
+      \end{cases}
+    \end{align*}
   \end{proof}
 
   \begin{corollary}
