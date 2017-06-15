@@ -37,8 +37,8 @@
   \end{notation}
 
   \begin{definition}
-    A c.e. set $M\subset\omega$ is \textit{maximal} iff
-    $|M|=|\overline{M}|=\omega$, and given any c.e. set $N$, if
+    A r.e. set $M\subset\omega$ is \textit{maximal} iff
+    $|M|=|\overline{M}|=\omega$, and given any r.e. set $N$, if
     $M\subseteq^* N$, then either $N=^*M$ or $N=^*\omega$; i.e. anything
     that lies between $M$ and $\omega$ must be almost equal to one of them.
   \end{definition}
@@ -49,11 +49,11 @@
   \end{definition}
 
   \begin{lemma}
-    A c.e. set is maximal if and only if its complement is cohesive.
+    A r.e. set is maximal if and only if its complement is cohesive.
     \label{lemma:maximal-cohesive}
   \end{lemma}
   \begin{proof}
-    Chase definitions. If a c.e. set $M$ does not have a cohesive
+    Chase definitions. If a r.e. set $M$ does not have a cohesive
     complement, let $W$ be the witness of the non-cohesiveness of
     $\overline{M}$. Then $M\cup W$ will witness the non-maximality of $M$.
     Conversely, if $M$ is not maximal with witness $W$, then $W$ will also
@@ -61,7 +61,7 @@
   \end{proof}
 
   %\begin{definition}
-  %  $\mathcal{E}$ denotes the class of c.e. sets, partially ordered by
+  %  $\mathcal{E}$ denotes the class of r.e. sets, partially ordered by
   %  $\subseteq$.
   %\end{definition}
 
@@ -73,8 +73,8 @@
   %\end{definition}
 
   %\begin{definition}
-  %  A c.e. set $M$ is \textit{maximal} if $[M]\neq[\omega]$ and there is no
-  %  c.e. set that lies between $[M]$ and $[\omega]$ in $\mathcal{E}^*$.
+  %  A r.e. set $M$ is \textit{maximal} if $[M]\neq[\omega]$ and there is no
+  %  r.e. set that lies between $[M]$ and $[\omega]$ in $\mathcal{E}^*$.
   %\end{definition}
 
 \subsection{Maximal Sets}
@@ -82,7 +82,7 @@
     There exists a maximal set.
   \end{theorem}
 
-  From Lemma~\ref{lemma:maximal-cohesive}, it suffices to construct a c.e.
+  From Lemma~\ref{lemma:maximal-cohesive}, it suffices to construct a r.e.
   set $A$ that satisfies requirements
   \begin{equation}
     |\overline{A}|=\omega,
@@ -155,9 +155,7 @@
 
 \subsection{Degrees of Maximal Sets}
   \begin{goal}
-    High degrees = maximal sets.
-    Specifically, every high degree contains a maximal set, and every
-    maximal set has a high degree. 
+    High degrees = degrees containing maximal sets.
   \end{goal}
 
   \begin{remark}
@@ -225,4 +223,11 @@
     Follows directly from Theorem~\ref{thm:high-domination} and
     Lemma~\ref{lemma:high-maximal}.
   \end{proof}
+
+  \begin{theorem}
+    Every high r.e. degree contains an r.e. set $D$ whose computation
+    function $c_{\overline{D}}$ is dominant, where $\overline{D}_s
+    =\{d_0^s<d_1^s<\ldots\}$, and $c_{\overline{D})(x) =(\mu
+    s)[d_x^s=d_x]$.
+  \end{theorem}
 \end{document}
