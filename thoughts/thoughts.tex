@@ -6,9 +6,10 @@
 \usepackage{color}
 \usepackage{cancel} % To use the cancel function
 \usepackage[inline]{enumitem}
+\usepackage{hyperref} % To use hyperlinks in URLs
 \usetikzlibrary{patterns}
 \setlength{\parindent}{0mm}
-\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\OPEN}[1]{\textcolor{red}{OPEN: #1}}
 
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{question}{Question}[subsection]
@@ -62,15 +63,33 @@
 
     \begin{question}
       Is $\mathcal{D}$ a lattice? In particular, do any two Turing degrees
-      have a greatest lower bound? How about distributivity?
+      have a greatest lower bound?
     \end{question}
     \begin{proof}
+      No. Clearly the join of two given degrees give their lub. But from
+      Klenne-Post-Spector (old Soare VI.C4.4), there are degrees with no
+      greatest lower bound.
+    \end{proof}
+
+    \begin{question}
+      What do we know about the minimal degree below $\emptyset'$
+      constructed in Soare 13.1.1? In particular, is it low? Does it have a
+      c.e. degree?
+    \end{question}
+    \begin{proof}
+      From Soare 13.7.1 every non-computable c.e. degree computes a minimal
+      degree. In particular, minimal degrees can be low.
     \end{proof}
 
     \begin{question}
       Does $\mathcal{D}_{\leq\emptyset'}$ have a maximal degree?
     \end{question}
     \begin{proof}
+      This is asking if $\emptyset'$ is a strong minimal cover of any
+      degree below it. We know there are degrees with strong minimal
+      covers, but we do not know if $\emptyset'$ is such a cover. Look up
+      Andrew Lewis \url{http://www.aemlewis.co.uk/pdf/SMCtssf.pdf} or
+      \url{https://projecteuclid.org/euclid.jsl/1183746187}.
     \end{proof}
 
   \subsection{Randoms and Generics}
