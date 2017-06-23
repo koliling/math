@@ -321,10 +321,56 @@
     [\sigma(e,a_i)=\sigma(e,a_j)]$.
   \end{lemma}
   \begin{proof}
-    Assume the lemma for $i<e$ and choose $n\geq e$ such that for all
-    $m>n$, $\sigma(e-1,a_m)=\sigma(a_n)=\sigma_0$, and stage $s_0$ such
-    that all $a_0,\ldots,a_n$ have stabilized. Assume by contradiction that
-    $R_e$ is not satisfied. We define a recursive $h(x)$ not dominated by
-    $c_{\overline{D}}(x)$ as follows.
+    Assume lemma true for $i<e$ but false for $e$. We define a recursive
+    $h(x)$ not dominated by $c_{\overline{D}}(x)$. Choose $n\in\omega$ and
+    stage $s_0\in\omega$ large enough such that
+    \begin{itemize}
+      \item $\forall i\geq n\; [\sigma(e-1,a_i) =\sigma(e-1,a_n)]$
+      \item $a_0,\ldots,a_n$ have stabilized by stage $s_0$
+    \end{itemize}
+
+    Then $\forall i\geq n$, $\sigma(e,a_m) =\sigma(e-1,a_n)^\frown0
+    =\sigma_0$ or $\sigma(e-1,a_n)^\frown1 =\sigma_1$. Then since
+    $|\overline{A}\cap W_e|=|\overline{A}\cap\overline{W}_e| =\omega$,
+    there are infinite $a_i$ with $e$-state $\sigma_0$ and infinite $a_i$
+    with $e$-state $\sigma_1$. \\
+
+    Thus each $a_i\not\in W_e$ will be attracted to some $x>a_i$ during
+    construction; the attractor may be some $a_j>a_i$ with $e$-state
+    $\sigma_1$, or some $x$ that is eventually enumerated into $A$. \\
+
+    So given arbitrary $x>a_n$, after stage $s_0$, one of the following
+    cases must happen:
+    \begin{enumerate}
+      \item $x$ is enumerated into $A$
+      \item $e$-state of $x$ is $\sigma_1$
+      \item $e$-state of $x$ is $\sigma_0$ and $x$ is attracted to some
+        larger element $y$ with $e$-state $\sigma_1$
+    \end{enumerate}
+
+    Define $h(x)$ to be the first stage where one of the above happens.
+    Since $|\overline{A}\cap\overline{W}_e|=\omega$, there are infinite
+    elements $a_i\in\overline{A}$ that belong to case 3 above. Assume that
+    once such $a_i$ is attracted to a larger element, it will forever be
+    attracted to a larger element, even if the larger element is enumerated
+    into $A$. \\
+
+    Now $D$ permits $a_i$ to be enumerated into $A$ if $a_0,\ldots,a_i$
+    stabilizes before $d_0,\ldots,d_{a_i}$ does. So since these $a_i$'s
+    were never permitted to enter $A$, and each $a_i$ is always attracted
+    to something larger, it must be that $d_0,\ldots,d_{a_i}$
+    stabilized before stage $h(a_i)$. Yet $c_{\overline{D}}$ dominates
+    $h(x)$, so for large enough $a_i$, $d_0,\ldots,d_{a_i}$ should
+    stabilize after $a_0,\ldots,a_i$, a contradiction. \\
+
+    Thus it suffices to prove that if $a_i\in\overline{A}$ falls under case
+    3 above for the first time, it will forever be attracted to a larger
+    element, even if the larger element is enumerated into $A$. There are
+    two possible cases. In the first case, the larger element is enumerated
+    into $A$ under step 1. Then $a_i$ must be attracted to the first
+    element that is brought forward after the enumeration. In the second
+    case, the larger element is enumerated into $A$ under step 2. Then
+    $a_i$ must be attracted to either the element before or after its
+    initial attractor. \\
   \end{proof}
 \end{document}
