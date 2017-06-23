@@ -242,6 +242,7 @@
     function $c_{\overline{D}}$ is dominant, where $\overline{D}_s
     =\{d_0^s<d_1^s<\ldots\}$, and $c_{\overline{D}}(x) =(\mu
     s)[d_x^s=d_x]$.
+    \label{thm:high-dominant}
   \end{theorem}
   \begin{proof}
     By High Domination Theorem~\ref{thm:high-domination}, if
@@ -264,5 +265,66 @@
     \underline{Verification.} From permitting and coding, we have
     $A\equiv_T D$. From step 1, $c_f(x) \leq c_{\overline{D}}(x)$. In
     particular, $c_{\overline{D}}$ is dominant.
+  \end{proof}
+
+  \begin{theorem}
+    Every high degree $\bm{d}$ contains a maximal set $A$.
+  \end{theorem}
+  \begin{proof}
+    Satisfy requirements
+    \[R_e: \overline{A} \subseteq^* \overline{W}_e\; \text{or}\;
+    \overline{A} \subseteq^* W_e.\]
+
+    Let $D\in\bm{d}$ be r.e. as in Theorem~\ref{thm:high-dominant}. Let
+    $D_0=\emptyset$. At stage $s$, if $a_i^s<a_j^s$ and $\sigma(i,a_i^s,s)
+    <\sigma(i,a_j^s,s)$, we say $a_i^s$ is attracted to $a_j^s$ for the
+    sake of requirement $R_i$. At stage $s+1$: \\
+
+    \textit{Step 1.} Choose least $i\leq s$ such that
+    $a_i^s$ is attracted to some larger $a_j^s$ for $R_i$, and
+    \[(\exists y\leq a_i^s)\; [d_y^{s+1} \neq d_y^s].\]
+    In the first condition, we maximise the $i$-state of the element of
+    highest priority to satisfy $R_i$, and in the second condition, $D$
+    permits elements of lower $i$-state to be enumerated into $A$, to
+    satisfy $A\leq_T D$. Choose the minimum $j>i$ such that $a_j^s$ gives
+    the highest $i$-state. Enumerate
+    \[a_i^s, a_{i+1}^s, \ldots, a_{j-1}^s, a_{j+1}^s, \ldots, a_s^s\]
+    into $A$. If there is no such $a_j^s$ do nothing. \\
+
+    \textit{Step 2.} (Code $D$ into $A$) Let
+    \[z =(\mu y) [d_y^{s+1} \neq d_y^s.\]
+    If some $x\leq a_{z+1}^s$ was enumerated into $A$ in Step 1 do nothing.
+    Otherwise enumerate whichever of $a_z^s$ and $a_{z+1}^s$ has the lower
+    $z$-state into $A$. By retaining the element of higher $z$-state, we
+    ensure that if some $x<a_z^s$ was attracted to one of $a_z^s$ or
+    $a_{z+1}^s$, then $x$ remains attracted to the element that remains in
+    $\overline{A}$ after step 2.
+  \end{proof}
+
+  \begin{lemma}
+    $a_i :=\lim_s a_i^s$ exists.
+  \end{lemma}
+  \begin{proof}
+    From finiteness of the number of $i$-states.
+  \end{proof}
+
+  \begin{lemma}
+    $A\equiv_T D$.
+  \end{lemma}
+  \begin{proof}
+    Step 2 ensures $D\leq_T A$, because if $a_{x+1}^s=a_{x+1}$, then
+    $d_x^s=d_x$. Second, $A\leq_T D$ from permitting.
+  \end{proof}
+
+  \begin{lemma}
+    $R_e$ is satisfied, and $\forall^{\text{a.e.}} i,j\;
+    [\sigma(e,a_i)=\sigma(e,a_j)]$.
+  \end{lemma}
+  \begin{proof}
+    Assume the lemma for $i<e$ and choose $n\geq e$ such that for all
+    $m>n$, $\sigma(e-1,a_m)=\sigma(a_n)=\sigma_0$, and stage $s_0$ such
+    that all $a_0,\ldots,a_n$ have stabilized. Assume by contradiction that
+    $R_e$ is not satisfied. We define a recursive $h(x)$ not dominated by
+    $c_{\overline{D}}(x)$ as follows.
   \end{proof}
 \end{document}
