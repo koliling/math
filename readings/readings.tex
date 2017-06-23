@@ -60,23 +60,6 @@
     witness the non-cohesiveness of $\overline{M}$.
   \end{proof}
 
-  %\begin{definition}
-  %  $\mathcal{E}$ denotes the class of r.e. sets, partially ordered by
-  %  $\subseteq$.
-  %\end{definition}
-
-  %\begin{definition}
-  %  $\mathcal{E}^* =\langle \mathcal{E}/\sim, \subseteq^*\rangle$ denotes
-  %  the set of equivalence classes $\mathcal{E}/\sim$, where $A\sim B$ if
-  %  and only if $|A\Delta B|<\omega$. We partially order $\mathcal{E}^*$ by
-  %  $\subseteq^*$, where $[A]\subseteq^*[B]$ if and only if $|B-A|<\omega$.
-  %\end{definition}
-
-  %\begin{definition}
-  %  A r.e. set $M$ is \textit{maximal} if $[M]\neq[\omega]$ and there is no
-  %  r.e. set that lies between $[M]$ and $[\omega]$ in $\mathcal{E}^*$.
-  %\end{definition}
-
 \subsection{Maximal Sets}
   \begin{theorem}
     There exists a maximal set.
@@ -155,7 +138,7 @@
 
 \subsection{Degrees of Maximal Sets}
   \begin{goal}
-    High degrees = degrees containing maximal sets.
+    $\bm{d}$ is high $\Leftrightarrow$ $\bm{d}$ contains maximal set
   \end{goal}
 
   \begin{remark}
@@ -224,6 +207,36 @@
     Lemma~\ref{lemma:high-maximal}.
   \end{proof}
 
+  \begin{remark}
+    Coding -- Given $B$, construct r.e. $A\; \prescript{}{T}{\geq}\; B$.
+  \end{remark}
+  Encode $B$ into $A$ in a recoverable way. E.g. if $B=\{b_0,b_1,\ldots\}$,
+  then at stage $s$ enumerate $a_{b_s}^s$ into $A$. Given $A$, to decide if
+  $b\in B$, simulate to stage $s$ where the first $b+1$ elements of $A$
+  have stabilized; then $b\in B \Leftrightarrow a_{b}^s\in A_s$.
+
+  \begin{remark}
+    Permitting -- Given r.e. $B \prescript{}{T}{\geq}\; \emptyset'$,
+    construct r.e. $A\leq_T B$.
+  \end{remark}
+  $x$ enters $A$ only if $B$ permits it. At stage $s$, to satisfy
+  requirement $R$, want to enumerate $n$ into $A$. $B$ permits $n$ to
+  enter only if the first $n$ elements of $B$ have not stabilized, i.e.
+  when we find a stage $t\geq s$ such that $B_{t+1}\restriction n \neq
+  B_t\restriction n$. \\
+
+  Then given $B$, to decide if $n\in A$, wait for stage $s$ where the first
+  $n$ elements of $B$ have stabilized; then $n\in A \Leftrightarrow n\in
+  A_s$. \\
+
+  We show that as long as requirement $R$ has infinitely many potential
+  witnesses $n$, eventually one of them will be permitted to enter $A$.
+  Assume otherwise. Then we will be able to compute $B$, as follows. To
+  decide if $n\in B$, simulate till stage $s$ where $R$ offers potential
+  witness $m>n$. Then since $m$ is never permitted to enter $A$,
+  $B\restriction m=B_s\restriction m$. Thus $n\in B \Leftrightarrow n\in
+  B_s$.
+
   \begin{theorem}
     Every high r.e. degree contains an r.e. set $D$ whose computation
     function $c_{\overline{D}}$ is dominant, where $\overline{D}_s
@@ -231,5 +244,25 @@
     s)[d_x^s=d_x]$.
   \end{theorem}
   \begin{proof}
+    By High Domination Theorem~\ref{thm:high-domination}, if
+    $\text{deg}(A)\in\bm{H}_1$, then $A$ computes a dominant function
+    $f=\Phi^A$. Let $c_f$ be modulus of $A$:
+    \[c_f(x) =(\mu s) [\Phi_s^{A_s}(x) =\Phi^A(x)].\]
+
+    Then $c_f\leq_T A$ by Modulus Lemma. Also, $c_f$ is dominant, because
+    if recursive $g\prescript{*}{}{>}\; c_f$, then recursive
+    $\Phi_{g(x)}^{A_{g(x)}}+1 \prescript{*}{}{>}\; f$. \\
+
+    Construct $\{D_s\}_{s\in\omega}$, with $D_0=\emptyset$. At stage $s+1$,
+    \\
+
+    \textit{Step 1.} (Permitting) If $\Phi_{s+1}^{A_{s+1}}(x)
+    \neq\Phi_{s}^{A_{s}}(x)$, enumerate $d_x^s$ into $D$. \\
+
+    \textit{Step 2.} (Coding) Enumerate $d_{a_s}^s$ into $D$. \\
+
+    \underline{Verification.} From permitting and coding, we have
+    $A\equiv_T D$. From step 1, $c_f(x) \leq c_{\overline{D}}(x)$. In
+    particular, $c_{\overline{D}}$ is dominant.
   \end{proof}
 \end{document}
