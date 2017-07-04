@@ -248,7 +248,8 @@
     By High Domination Theorem~\ref{thm:high-domination}, if
     $\text{deg}(A)\in\bm{H}_1$, then $A$ computes a dominant function
     $f=\Phi^A$. Let $c_f$ be modulus of $A$:
-    \[c_f(x) =(\mu s) [\Phi_s^{A_s}(x) =\Phi^A(x)].\]
+    \[c_f(x) =(\mu t) (\forall s\geq t)\; [\Phi_s^{A_s}(x)
+    =\Phi_t^{A_t}(x)].\]
 
     Then $c_f\leq_T A$ by Modulus Lemma. Also, $c_f$ is dominant, because
     if recursive $g\prescript{*}{}{>}\; c_f$, then recursive
@@ -373,4 +374,26 @@
     $a_i$ must be attracted to either the element before or after its
     initial attractor. \\
   \end{proof}
+
+\section{$\bm{PS}=\bm{NC}=\bm{ENC}$}
+  In this section we show that class of promptly simple degrees are exactly
+  the class of non-capable degrees.
+
+\subsection{Promptly Simple Sets}
+\begin{theorem}
+  \textbf{(Promptly Simple Degree Theorem)} Let $A$ be an r.e. set and
+  $\{A_s\}_{s\in\omega}$ a recursive enumeration of $A$. Then
+  $\text{deg}(A) \in\bm{PS}$ iff there is a recursive function $p(s)$ such
+  that for all $s$, $p(s)\geq s$, and for all $e$,
+  \begin{equation}
+    W_e\; \text{infinite}\; \Rightarrow (\exists x,s)\; [x\in
+    W_{e,\text{at}\; s}\; \wedge\; A_s\restriction x \neq
+    A_{p(s)}\restriction x]
+    \label{eqn:promptly-permit}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  ($\Leftarrow$) Let $B=\Phi^A$ be promptly simple with enumeration
+  $\{B_s\}_{s\in\omega}$ and recursive function $p(s)$.
+\end{proof}
 \end{document}
