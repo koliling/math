@@ -456,7 +456,7 @@
 
   \begin{recall}
     An r.e. set $A$ is effectively non-cappable (ENC) if the $C$ above can
-    be computed effectively, i.e. there exists a recursive functions
+    be computed effectively, i.e. there exist recursive functions
     $f(e)$, $g(e)$, $h(e)$ such that for all $e\in\omega$,
     \[\Phi_{f(e)} =\Phi_{g(e)}^A =\Phi_{h(e)}^{W_e},\]
     and if $W_e\prescript{}{T}{>}0$, then $\Phi_{f(e)}\prescript{}{T}{>}0$.
@@ -475,9 +475,9 @@
     $\text{PS} \subseteq \text{ENC} \subseteq \text{NC}$.
   \end{recall}
 
-  \begin{theorem}
+  \begin{goal}
     $\text{NC} \subseteq \text{PS}$.
-  \end{theorem}
+  \end{goal}
 
   \begin{corollary}
     $\text{PS}=\text{ENC}=\text{NC}$, and they all form strong filters in
@@ -485,7 +485,27 @@
   \end{corollary}
 
   \begin{proof}
-    We show every r.e. set $B$ either has a PS degree or is cappable with
-    witness $A$. We construct an r.e. $A$ such that the
+    Fix an arbitrary r.e. set $B$. We show $B$ either has a PS degree or is
+    cappable with witness $A$. We construct r.e. $A$ such that the either
+    $B$ is found to be PS, or $A$ satisfies for all $i,j\in\omega$ the
+    requirements
+    \begin{equation}
+      N_{\langle i,j\rangle}: \Phi_i^A=\Phi_j^B=f_{\langle i,j\rangle}
+      =\text{total function} \implies f_{\langle i,j\rangle}\; \text{is
+      recursive}
+      \label{eqn:cappable1}
+    \end{equation}
+  \end{proof}
+
+  \begin{lemma}
+    For $A$ above to satisfy \eqref{eqn:cappable1}, it suffices to show $A$
+    to satisfy for all $e\in\omega$,
+    \begin{equation}
+      N_e: \Phi_e^A=\Phi_e^B=f_e =\text{total function} \implies f_e\;
+      \text{is recursive}.
+      \label{eqn:cappable2}
+    \end{equation}
+  \end{lemma}
+  \begin{proof}
   \end{proof}
 \end{document}
