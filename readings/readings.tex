@@ -8,12 +8,13 @@
 \usepackage[inline]{enumitem}
 \usetikzlibrary{patterns}
 \setlength{\parindent}{0mm}
-\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\COMMENT}[1]{\textcolor{red}{#1}}
 
 \newtheorem{notation}{Notation}[subsection]
 \newtheorem{definition}{Definition}[subsection]
 \newtheorem{lemma}{Lemma}[subsection]
 \newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{recall}{Recall}[subsection]
 \newtheorem{question}{Question}[subsection]
 \newtheorem{goal}{Goal}[subsection]
 \newtheorem{remark}{Remark}[subsection]
@@ -379,21 +380,112 @@
   In this section we show that class of promptly simple degrees are exactly
   the class of non-capable degrees.
 
+\subsection{Infinite Injury Constructions}
+  Construct r.e. $A$ in stages $s$ s.t. $A=\cup_{s\in\omega} A_s$,
+  $A_s\subseteq A_{s+1}$. Satisfy requirements
+  \begin{itemize}
+    \item $N_e$: Restraints $r(e,s)$ prevent elements from being enumerated
+      into $A$ \\
+      \COMMENT{e.g. $\Phi_e^A\neq B$ for a fixed r.e. B. Preserve
+      computation once we find the first witness $x$ where
+      $\Phi_e^{A_s}(x)\neq B_s(x)$. Requirement is negative since it
+      prevents elements from being enumerated into $A$. Define $r(e,s)$ to
+      preserve computations up to and including first witness, if found:
+      \begin{align*}
+        l(e,s) &:=\mu(x\leq s) (\forall y<x)[\Phi_e^{A_s}(y) \downarrow\neq
+          B(y)]\\
+        r(e,s) &:=\max_{y\leq x} \{\text{use}(A_s;e,y,s)\}\\
+      \end{align*}
+      }
+
+    \item $P_e$: Enumerate element into $A$ \\
+      \COMMENT{e.g. $|W_e|=\omega \implies W_e\cap A\neq\emptyset$.
+      Requirement is positive since it adds elements into $A$.}
+  \end{itemize}
+
+  If each $P_e$ only adds finite elements into $A$ before it is satisfied
+  forever, then lower priority requirements $N_{e+1},N_{e+2}\ldots$ will be
+  injured at most finitely many times by higher priority requirements
+  $P_0,\ldots,P_e$.\\
+
+  However, if each positive requirement needs infinite elements to be
+  enumerated into $A$ before being satisfied, then negative requirements
+  $N_e$ may be injured infinitely often by higher priority positive
+  requirements $P_0,\ldots,P_{e-1}$.\\
+
+  Need to ensure that $N_e$ is still satisfied despite being injured
+  infinitely often.
+
 \subsection{Promptly Simple Sets}
-\begin{theorem}
-  \textbf{(Promptly Simple Degree Theorem)} Let $A$ be an r.e. set and
-  $\{A_s\}_{s\in\omega}$ a recursive enumeration of $A$. Then
-  $\text{deg}(A) \in\bm{PS}$ iff there is a recursive function $p(s)$ such
-  that for all $s$, $p(s)\geq s$, and for all $e$,
-  \begin{equation}
-    W_e\; \text{infinite}\; \Rightarrow (\exists x,s)\; [x\in
-    W_{e,\text{at}\; s}\; \wedge\; A_s\restriction x \neq
-    A_{p(s)}\restriction x]
-    \label{eqn:promptly-permit}
-  \end{equation}
-\end{theorem}
-\begin{proof}
-  ($\Leftarrow$) Let $B=\Phi^A$ be promptly simple with enumeration
-  $\{B_s\}_{s\in\omega}$ and recursive function $p(s)$.
-\end{proof}
+  \begin{theorem}
+    \textbf{(Promptly Simple Degree Theorem)} Let $A$ be an r.e. set and
+    $\{A_s\}_{s\in\omega}$ a recursive enumeration of $A$. Then
+    $\text{deg}(A) \in\bm{PS}$ iff there is a recursive function $p(s)$ such
+    that for all $s$, $p(s)\geq s$, and for all $e$,
+    \begin{equation}
+      W_e\; \text{infinite}\; \implies (\exists x,s)\; [x\in
+      W_{e,\text{at}\; s}\; \wedge\; A_s\restriction x \neq
+      A_{p(s)}\restriction x]
+      \label{eqn:promptly-permit}
+    \end{equation}
+  \end{theorem}
+  \begin{proof}
+    ($\Leftarrow$) Let $B=\Phi^A$ be promptly simple with enumeration
+    $\{B_s\}_{s\in\omega}$ and recursive function $p(s)$.
+  \end{proof}
+
+  \begin{recall}
+    An r.e. set $A$ has a PS degree if it is promptly permitting, i.e.
+    there exists a recursive $p(s)\geq s$ such that $\forall e\in\omega$,
+    \[|W_e|=\infty \implies (\exists x)(\exists s) [x\in W_{e, \text{at}\;
+    s}\; \text{and}\; A_s\restriction x \neq A_{p(s)}\restriction x].\]
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is cappable iff there exists an r.e. set
+    $B\prescript{}{T}{>}0$ such that the only r.e. set computable by $A$
+    and $B$ are the recursive sets.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is non-cappable (NC) if it is not cappable.
+    Equivalently, an r.e. set $A$ is NC iff given any r.e. set
+    $B\prescript{}{T}{>}0$, there exists an r.e. set $C\prescript{}{T}{>}0$
+    computable by $A$ and $B$.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is effectively non-cappable (ENC) if the $C$ above can
+    be computed effectively, i.e. there exists a recursive functions
+    $f(e)$, $g(e)$, $h(e)$ such that for all $e\in\omega$,
+    \[\Phi_{f(e)} =\Phi_{g(e)}^A =\Phi_{h(e)}^{W_e},\]
+    and if $W_e\prescript{}{T}{>}0$, then $\Phi_{f(e)}\prescript{}{T}{>}0$.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. degree is NC (ENC) iff it contains a non-cappable (effectively
+    non-cappable) set.
+  \end{recall}
+
+  \begin{recall}
+    $\text{ENC}$ forms a strong filter in $R$.
+  \end{recall}
+
+  \begin{recall}
+    $\text{PS} \subseteq \text{ENC} \subseteq \text{NC}$.
+  \end{recall}
+
+  \begin{theorem}
+    $\text{NC} \subseteq \text{PS}$.
+  \end{theorem}
+
+  \begin{corollary}
+    $\text{PS}=\text{ENC}=\text{NC}$, and they all form strong filters in
+    $R$.
+  \end{corollary}
+
+  \begin{proof}
+    We show every r.e. set $B$ either has a PS degree or is cappable with
+    witness $A$. We construct an r.e. $A$ such that the
+  \end{proof}
 \end{document}
