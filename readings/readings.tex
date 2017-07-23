@@ -490,7 +490,7 @@
     $B$ is found to be PS, or $A$ satisfies for all $i,j\in\omega$ the
     requirements
     \begin{equation}
-      N_{\langle i,j\rangle}: \Phi_i^A=\Phi_j^B=f_{\langle i,j\rangle}
+      N_{\langle i,j\rangle}: \Phi_i^A=\Phi_j^B :=f_{\langle i,j\rangle}
       =\text{total function} \implies f_{\langle i,j\rangle}\; \text{is
       recursive}
       \label{eqn:cappable1}
@@ -498,14 +498,26 @@
   \end{proof}
 
   \begin{lemma}
-    For $A$ above to satisfy \eqref{eqn:cappable1}, it suffices to show $A$
-    to satisfy for all $e\in\omega$,
+    For $A$ above to satisfy $N_{\langle i,j\rangle}$ for all
+    $i,j\in\omega$, it suffices to show $A$ satisfies for all
+    $e\in\omega$,
     \begin{equation}
-      N_e: \Phi_e^A=\Phi_e^B=f_e =\text{total function} \implies f_e\;
+      N_e': \Phi_e^A=\Phi_e^B:=f_e =\text{total function} \implies f_e\;
       \text{is recursive}.
       \label{eqn:cappable2}
     \end{equation}
   \end{lemma}
   \begin{proof}
+    Assume that $N_{\langle i,j\rangle}$ is not satisfied. If $A=B$, then
+    clearly $N_i'$ will not be satisfied. So assume $A\neq B$, and fix any
+    $n$ such that $A(n)\neq B(n)$. Consider the function
+    \begin{align*}
+      \Phi_e^X(x) :=
+      \begin{cases}
+        \Phi_i^X(x) &\text{if}\; X(n)=A(n),\\
+        \Phi_j^X(x) &\text{otherwise}.
+      \end{cases}
+    \end{align*}
+    Then $N_e'$ will not be satisfied.
   \end{proof}
 \end{document}
