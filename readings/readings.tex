@@ -4,6 +4,7 @@
 \usepackage{stmaryrd} % For double square bracket [[]]
 \usepackage{bm} % For bold vectors
 \usepackage{color}
+\usepackage{tcolorbox}
 \usepackage{cancel} % To use the cancel function
 \usepackage[inline]{enumitem}
 \usetikzlibrary{patterns}
@@ -521,9 +522,21 @@
     Then $N_e$ will not be satisfied.
   \end{proof}
 
-  \begin{proof}
+  \begin{notation}
     From Lemma~\ref{lemma:N}, we can replace requirements $N_{i,j}$ by
-    $N_e$. We construct r.e. $A$ such that for each $e\in\omega$, $A$
+    $N_e$. At a given stage $s$, define the length function as
+    \[l(e,s) :=\max\{x: \Phi_{e,s}^{A_s}\restriction x
+    \downarrow=\Phi_{e,s}^{B_s}\restriction x\},\]
+    and
+    \[m(e,s) :=\max_{t<s}\{l(e,t)\}.\]
+    
+    We say $s$ is an \textit{$e$-expansionary} stage if $l(e,s)>m(e,s)$.
+    Observe that if $\Phi^A_e=\Phi^B_e$, then there are infinitely many
+    $e$-expansionary stages.\\
+  \end{notation}
+
+  \begin{proof}
+    We construct r.e. $A$ such that for each $e\in\omega$, $A$
     either satisfies $N_e$, or $B$ lies in PS via a recursive function
     $p_e(s)$ and the set of requirements $\forall i\in\omega$
     \[P_{e,i}: |W_i|=\infty \implies (\exists x)(\exists s) [x\in
@@ -540,10 +553,43 @@
 
     \COMMENT{Observe that if there is some $e\in\omega$ such that $R_e$ is
     satisfied by the second clause, then $B\in\text{PS}$, and the remaining
-    requirements will not need to be satisfied.}\\
+    requirements need not be satisfied.}\\
 
-    \underline{Outline}\\
+    At the same time, to ensure $A\prescript{}{T}{>}\;0$, we make $A$
+    simple:
+    \[P_e: |W_e|=\infty \implies W_e\cap A\neq\emptyset.\]
+
+    \textbf{Outline}
+    \begin{tcolorbox}
+      \underline{Stage $s$}: Have $x\in W_{i,s}$ and $y\in\omega$ such that
+      \begin{equation}
+        \tag{$*$}
+        \Phi_{e,s}^{A_s}\restriction y \downarrow=
+        \Phi_{e,s}^{B_s}\restriction y,
+        \label{eqn:restraint}
+      \end{equation}
+      where use of above computation $<x$. Set
+      \[\Psi_{e,i}(y)=\Phi_{e,s}^{B_s}(y),\]
+      and set restraint $r(e,s)$ to protect
+      computation~\eqref{eqn:restraint}. If $|W_e\cap A|=\emptyset$ at this
+      stage, enumerate element from $W_e$ into $A$ if $r(e,s)$ and higher
+      priority restraints are respected.\\
+
+      \underline{Stage $s'>s$}: Have $y'>y$ such that
+      \begin{equation}
+        \Phi_{e,s'}^{A_{s'}}\restriction y' \downarrow=
+        \Phi_{e,s'}^{B_{s'}}\restriction y'.
+      \end{equation}
+      Set $p_e(s)=s'$, and remove restraint $r(e,s)$.
+    \end{tcolorbox}
+
+    \par
     At stage $s+1$, for each $e\leq s$, we find the first $i\leq s$ such
-    that $P_{e,i}$ is not yet satisfied, and for which there is some 
+    that $P_{e,i}$ is not yet satisfied, and for which there is some $x\in
+    W_{i,s}$ and $y\not\in\text{dom}(\Psi_{e,i})$ where $y<l(e,s)$ and
+    $\tilde{u}(B_s;e,y,s)<x$.
+
+    Also, define
+    \[\tilde{u}(B_s;e,y,s) :=\max_{y'\leq y}\{u(B_s;e,y',s)\}.\]
   \end{proof}
 \end{document}
