@@ -382,13 +382,13 @@
   the class of non-capable degrees.
 
 \subsection{Infinite Injury Constructions}
-  Construct r.e. $A$ in stages satisfying negative requirements $N_e$ and
-  positive requirements $P_e$.
+  Construct r.e. $A$ in stages satisfying
+  \[R_e: N_e\; \text{and}\; P_e.\]
   \begin{itemize}
     \item $N_e$: Restraint $r(e,s)$ prevent elements from being enumerated
       into $A$ to protect some computation. E.g.
       \[N_e: \Phi_e^A\neq \Phi_e^B\]
-      for some fixed r.e. B.
+      for given fixed r.e. B.
 
     \item $P_e$: Want to enumerate elements into $A$. Often there are
       infinite elements that can be enumerated to satisfy $P_e$. E.g.
@@ -400,9 +400,40 @@
   To satisfy $P_e$, need restraint $\tilde{r}(e,s)$ to fall often enough,
   so that enough elements have the opportunity to be enumerated into $A$.
   Challenge arises when $\lim_{s\in\omega}\tilde{r}(e,s)=\infty$.
-  In particular, if there are infinite elements that can be enumerated into
-  $A$ to satisfy $P_e$, suffices for
-  \[\liminf\]
+  Fortunately, suffices for
+  \begin{equation}
+    \liminf_{s\in\omega}\tilde{r}(e,s)<\infty.
+    \label{eqn:liminf}
+  \end{equation}
+
+  \underline{Construction technique for~\eqref{eqn:liminf}}\\
+  Assume
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
+  At stage $s$ where it is time for $R_e$ to act, the strategy $\sigma_e$
+  of $R_e$ differs depending on what $p$ is. ``Guess'' $p$
+  as
+  \[k=\liminf_{s\in\omega} \tilde{r}(e-1,s),\]
+  and play strategy $\sigma_e^k$. Prioritize strategies $\sigma_e^{k'}$
+  with lower $k'$ values - for each $k'>k$, destroy restraint
+  $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
+  \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
+  $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
+
+  \underline{Verification}\\
+  Since 
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p,\]
+  eventually strategies $\sigma_e^0,\ldots,\sigma_e^{p-1}$ will
+  stop playing. In particular, restraints
+  $r^0(e,s),\ldots,r^{p-1}(e,s)$ associated with these strategies
+  stop rising. After such a stage $s_0$, strategy $\sigma_e^{p}$ will
+  play infinitely often, and when it is played, restraints for lower
+  priority strategies are destroyed. When lower priority strategies are
+  played at stages $s$ where $\tilde{r}(e-1,s)>p$, construction
+  preserves restraints established by $\sigma_e^{p}$. Thus,
+  strategy $\sigma_e^{p}$ is played infinitely often and never
+  injured after a certain stage, so that
+  \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
+  \lim_{s'\in\omega} r^{p}(e,s')\} <\infty.\]
 
 \subsection{Promptly Simple Sets}
   \begin{theorem}
@@ -575,9 +606,10 @@
         \Phi_{e,s'}^{A_{s'}}\restriction y' \downarrow=
         \Phi_{e,s'}^{B_{s'}}\restriction y'.
       \end{equation}
-      \COMMENT{Such a stage $s'$ is called an $e$-expansionary stage, in
-      the sense that the number of witnesses for $\Phi_e^A=\Phi_e^B$
-      increases.} Set $p_e(s)=s'$, and set
+      \COMMENT{Such a stage $s'$ the initial segment witnessing
+      $\Phi_e^A=\Phi_e^B$ is the longest so far is called an
+      $e$-expansionary stage, in the sense that the number of witnesses for
+      $\Phi_e^A=\Phi_e^B$ increases.} Set $p_e(s)=s'$, and set
       \begin{equation}
         r(e,s)\; \text{protect computation~\eqref{eqn:restraint}}.
         \label{eqn:r}
