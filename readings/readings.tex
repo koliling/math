@@ -396,16 +396,19 @@
       \[|W_e|=\infty \implies W_e\cap A\neq\emptyset.\]
   \end{itemize}
 
-  Define
-  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
-  To satisfy $P_e$, need restraint $\tilde{r}(e,s)$ to fall often enough,
-  so that enough elements have the opportunity to be enumerated into $A$.
-  \COMMENT{Draw diagram.} Challenge arises when
-  $\lim_{s\in\omega}\tilde{r}(e,s)=\infty$. Observe, suffices for
+  To satisfy $P_e$, need higher priority restraints
+  $r(0,s),\ldots,r(e-1,s)$ to fall often enough, so that elements have
+  chance to be enumerated into $A$. Individually, each higher priority
+  restraint falls infinitely often, i.e.
+  \[\liminf_{s\in\omega} r(e,s)<\infty.\]
+  However, they may not fall at the same time to give
   \begin{equation}
-    \liminf_{s\in\omega}\tilde{r}(e,s)<\infty.
+    \liminf_{s\in\omega}\tilde{r}(e,s)<\infty,
     \label{eqn:liminf}
   \end{equation}
+  where
+  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
+  \COMMENT{Draw diagram.}\\
 
   \underline{Simultaneous Strategies Technique for~\eqref{eqn:liminf}}\\
   Assume
@@ -436,7 +439,10 @@
   strategy $\sigma_e^{p}$ is played infinitely often and never
   injured after a certain stage, so that
   \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
-  \lim_{s'\in\omega} r^{p}(e,s')\} <\infty.\]
+  \liminf_{s'\in\omega} r^{p}(e,s')\} <\infty,\]
+  where
+  \[\liminf_{s'\in\omega} r^{p}(e,s') <\infty\]
+  by assumption.
 
 \subsection{Promptly Simple Sets}
   \begin{theorem}
