@@ -377,11 +377,7 @@
     initial attractor. \\
   \end{proof}
 
-\section{$\bm{PS}=\bm{NC}=\bm{ENC}$}
-  In this section we show that class of promptly simple degrees are exactly
-  the class of non-capable degrees.
-
-\subsection{Infinite Injury Constructions}
+\section{Infinite Injury Constructions}
   \label{section:infinite-injury}
   Construct r.e. $A$ in stages satisfying
   \[R_e: N_e\; \text{and}\; P_e.\]
@@ -411,17 +407,18 @@
   \COMMENT{We need these higher priority restraints to fall at the same
   time often enough. Draw diagram.}\\
 
-  \underline{Simultaneous Strategies Technique for~\eqref{eqn:liminf}}\\
+  \underline{Construction Technique of Simultaneous Strategies
+  for~\eqref{eqn:liminf}}\\
   Assume
   \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
   At stage $s$ where it is time for $R_e$ to act, the strategy $\sigma_e$
   of $R_e$ differs depending on what $p$ is. ``Guess'' $p$
   as
-  \[k=\liminf_{s\in\omega} \tilde{r}(e-1,s),\]
-  and play strategy $\sigma_e^k$. Thus we simultaneously play 
+  \[k=\tilde{r}(e-1,s),\]
+  and play strategy $\sigma_e^k$. Simultaneously play 
   infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$ depending on what
-  $\tilde{r}(e-1,s)$ is. Prioritize strategies $\sigma_e^{k'}$
-  with lower $k'$ values - for each $k'>k$, destroy restraint
+  $\tilde{r}(e-1,s)$ is. Strategies $\sigma_e^{k'}$ with lower $k'$ values
+  have higher priority - for each $k'>k$, destroy restraint
   $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
   \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
   $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
@@ -444,6 +441,10 @@
   where
   \[\liminf_{s'\in\omega} r^{p}(e,s') <\infty\]
   by assumption.
+
+\section{$\bm{PS}=\bm{NC}=\bm{ENC}$}
+  In this section we show that class of promptly simple degrees are exactly
+  the class of non-capable degrees.
 
 \subsection{Promptly Simple Sets}
   \begin{theorem}
