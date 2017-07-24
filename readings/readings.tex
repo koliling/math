@@ -561,29 +561,77 @@
 
     \textbf{Outline}
     \begin{tcolorbox}
-      \underline{Stage $s$}: Have $x\in W_{i,s}$ and $y\in\omega$ such that
+      \underline{Stage $s$}: Have $x\in W_{i,s}$ and $y\in\omega$ s.t.
       \begin{equation}
-        \tag{$*$}
         \Phi_{e,s}^{A_s}\restriction y \downarrow=
         \Phi_{e,s}^{B_s}\restriction y,
         \label{eqn:restraint}
       \end{equation}
       where use of above computation $<x$. Set
-      \[\Psi_{e,i}(y)=\Phi_{e,s}^{B_s}(y),\]
-      and set restraint $r(e,s)$ to protect
-      computation~\eqref{eqn:restraint}. If $|W_e\cap A|=\emptyset$ at this
-      stage, enumerate element from $W_e$ into $A$ if $r(e,s)$ and higher
-      priority restraints are respected.\\
+      \begin{equation}
+        \Psi_{e,i}(y)=\Phi_{e,s}^{B_s}(y).
+        \label{eqn:Psi}
+      \end{equation}
+      Set restraint $r(e,s,i)=0$, and cancel lower priority restraints
+      $r(e,s,j)$ for all $j>i$. \COMMENT{We say we open the $R_{e,i}$-gap,
+      because there are no restraints to protect the
+      computation~\eqref{eqn:restraint}.}\\
+
+      If $|W_e\cap A|=\emptyset$ at this stage, enumerate element from
+      $W_e$ into $A$ if higher priority restraints
+      $r(e,s,0),\ldots,r(e,s,i-1)$, and $r(0,s),\ldots,r(e-1,s)$ are
+      respected, where
+      \[r(e',s):=\max_{j\in\omega}\{r(e',s,j)\}.\]
 
       \underline{Stage $s'>s$}: Have $y'>y$ such that
       \begin{equation}
         \Phi_{e,s'}^{A_{s'}}\restriction y' \downarrow=
         \Phi_{e,s'}^{B_{s'}}\restriction y'.
       \end{equation}
-      Set $p_e(s)=s'$, and remove restraint $r(e,s)$.
+      \COMMENT{Such a stage $s'$ is called an $e$-expansionary stage, in
+      the sense that the number of witnesses for $\Phi_e^A=\Phi_e^B$
+      increases.} Set $p_e(s)=s'$, and set
+      \begin{equation}
+        r(e,s)\; \text{protect computation~\eqref{eqn:restraint}}.
+        \label{eqn:r}
+      \end{equation}
+      \COMMENT{We say we close the $R_{e,i}$-gap because we no longer allow
+      elements to be enumerated into $A$ if they may injure
+      computation~\eqref{eqn:restraint}.}
     \end{tcolorbox}
 
-    \par
+    \textbf{Verification}
+    \begin{tcolorbox}
+      If there is some $e$ such that $R_e$ is satisfied by the second
+      clause $(\forall i)P_{e,i}$, then $B\in\text{PS}$ and we are done.
+      \COMMENT{Don't need to bother if other $R_{e'}$ are satisfied.} So
+      assume for all $e$ there exists $i$ such that $\neg P_{e,i}$. Let $i$
+      be the least such $i$. We show $N_e$ is satisfied. Specifically,
+      \[\Phi^A_e=\Phi^B_e=\Psi_{e,i} =\text{recursive}.\]
+
+      By assumption of $N_e$,
+      \[\Phi^A_e=\Phi^B_e.\]
+      Thus since $|W_i|=\infty$, the $R_{e,i}$-gap will be open and closed
+      infinitely often, and $p_e(s)$ will be a total recursive function.\\
+
+      To compute $\Phi^B_e(y)$, wait till higher priority requirements
+      stabilize. In particular, assuming
+      \[\liminf_s \max{r(0,s),\ldots,r(e-1,s)} <\infty,\]
+      consider only stages where the infinum occurs. Simulate to stage
+      $s$ where
+      \begin{equation}
+        \Phi_{e,s}^{A_s}\restriction y \downarrow=
+        \Phi_{e,s}^{B_s}\restriction y.
+      \end{equation}
+      Then the above computation cannot be injured when the $R_{e,i}$-gap
+      is open, otherwise we would have
+      \[B_s\restriction x \neq B_{p_e(s)}\restriction x,\]
+      contradicting $\neg P_{e,i}$. The computation also cannot be injured
+      after the gap is closed because the restraint $r(e,s,i)$ will protect
+      it forever since it is the highest priority restraint after higher
+      priority requirements have stabilized.
+    \end{tcolorbox}
+
     At stage $s+1$, for each $e\leq s$, we find the first $i\leq s$ such
     that $P_{e,i}$ is not yet satisfied, and for which there is some $x\in
     W_{i,s}$ and $y\not\in\text{dom}(\Psi_{e,i})$ where $y<l(e,s)$ and
