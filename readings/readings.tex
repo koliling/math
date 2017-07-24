@@ -407,14 +407,16 @@
     \label{eqn:liminf}
   \end{equation}
 
-  \underline{Construction technique for~\eqref{eqn:liminf}}\\
+  \underline{Simultaneous Strategies Technique for~\eqref{eqn:liminf}}\\
   Assume
   \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
   At stage $s$ where it is time for $R_e$ to act, the strategy $\sigma_e$
   of $R_e$ differs depending on what $p$ is. ``Guess'' $p$
   as
   \[k=\liminf_{s\in\omega} \tilde{r}(e-1,s),\]
-  and play strategy $\sigma_e^k$. Prioritize strategies $\sigma_e^{k'}$
+  and play strategy $\sigma_e^k$. Thus we simultaneously play 
+  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$ depending on what
+  $\tilde{r}(e-1,s)$ is. Prioritize strategies $\sigma_e^{k'}$
   with lower $k'$ values - for each $k'>k$, destroy restraint
   $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
   \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
