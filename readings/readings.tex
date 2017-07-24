@@ -621,7 +621,7 @@
       $e$-expansionary stage, in the sense that the number of witnesses for
       $\Phi_e^A=\Phi_e^B$ increases.} Set $p_e(s)=s'$, and set
       \begin{equation}
-        r(e,s)\; \text{protect computation~\eqref{eqn:restraint}}.
+        r(e,s,i)\; \text{to protect computation~\eqref{eqn:restraint}}.
         \label{eqn:r}
       \end{equation}
       \COMMENT{We say we close the $R_{e,i}$-gap because we no longer allow
@@ -648,10 +648,10 @@
       infinitely often, and $p_e(s)$ will be a total recursive function.\\
 
       To compute $\Phi^B_e(y)$, wait till higher priority requirements
-      stabilize. In particular, assuming
-      \[\liminf_s \max{r(0,s),\ldots,r(e-1,s)} <\infty,\]
-      consider only stages where the infinum occurs. Simulate to stage
-      $s$ where
+      stabilize. In particular, since
+      \[\liminf_s \max\{r(0,s),\ldots,r(e-1,s)\} <\infty,\]
+      consider only stages $s\in S$ where the infinum occurs. Simulate to
+      stage $s\in S$ where
       \begin{equation}
         \Phi_{e,s}^{A_s}\restriction y \downarrow=
         \Phi_{e,s}^{B_s}\restriction y.
