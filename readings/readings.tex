@@ -382,40 +382,27 @@
   the class of non-capable degrees.
 
 \subsection{Infinite Injury Constructions}
-  Construct r.e. $A$ in stages $s$ s.t. $A=\cup_{s\in\omega} A_s$,
-  $A_s\subseteq A_{s+1}$. Satisfy requirements
+  Construct r.e. $A$ in stages satisfying negative requirements $N_e$ and
+  positive requirements $P_e$.
   \begin{itemize}
-    \item $N_e$: Restraints $r(e,s)$ prevent elements from being enumerated
-      into $A$ \\
-      \COMMENT{e.g. $\Phi_e^A\neq B$ for a fixed r.e. B. Preserve
-      computation once we find the first witness $x$ where
-      $\Phi_e^{A_s}(x)\neq B_s(x)$. Requirement is negative since it
-      prevents elements from being enumerated into $A$. Define $r(e,s)$ to
-      preserve computations up to and including first witness, if found:
-      \begin{align*}
-        l(e,s) &:=\mu(x\leq s) (\forall y<x)[\Phi_e^{A_s}(y) \downarrow\neq
-          B(y)]\\
-        r(e,s) &:=\max_{y\leq x} \{\text{use}(A_s;e,y,s)\}\\
-      \end{align*}
-      }
+    \item $N_e$: Restraint $r(e,s)$ prevent elements from being enumerated
+      into $A$ to protect some computation. E.g.
+      \[N_e: \Phi_e^A\neq \Phi_e^B\]
+      for some fixed r.e. B.
 
-    \item $P_e$: Enumerate element into $A$ \\
-      \COMMENT{e.g. $|W_e|=\omega \implies W_e\cap A\neq\emptyset$.
-      Requirement is positive since it adds elements into $A$.}
+    \item $P_e$: Want to enumerate elements into $A$. Often there are
+      infinite elements that can be enumerated to satisfy $P_e$. E.g.
+      \[|W_e|=\infty \implies W_e\cap A\neq\emptyset.\]
   \end{itemize}
 
-  If each $P_e$ only adds finite elements into $A$ before it is satisfied
-  forever, then lower priority requirements $N_{e+1},N_{e+2}\ldots$ will be
-  injured at most finitely many times by higher priority requirements
-  $P_0,\ldots,P_e$.\\
-
-  However, if each positive requirement needs infinite elements to be
-  enumerated into $A$ before being satisfied, then negative requirements
-  $N_e$ may be injured infinitely often by higher priority positive
-  requirements $P_0,\ldots,P_{e-1}$.\\
-
-  Need to ensure that $N_e$ is still satisfied despite being injured
-  infinitely often.
+  Define
+  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
+  To satisfy $P_e$, need restraint $\tilde{r}(e,s)$ to fall often enough,
+  so that enough elements have the opportunity to be enumerated into $A$.
+  Challenge arises when $\lim_{s\in\omega}\tilde{r}(e,s)=\infty$.
+  In particular, if there are infinite elements that can be enumerated into
+  $A$ to satisfy $P_e$, suffices for
+  \[\liminf\]
 
 \subsection{Promptly Simple Sets}
   \begin{theorem}
