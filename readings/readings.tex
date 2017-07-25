@@ -399,31 +399,40 @@
   \[\liminf_{s\in\omega} r(e,s)<\infty.\]
   However, they may not fall at the same time to give
   \begin{equation}
-    \liminf_{s\in\omega}\tilde{r}(e,s)<\infty,
+    \liminf_{s\in\omega} \max\{r(0,s),\ldots,r(e-1,s)\} <\infty.
     \label{eqn:liminf}
   \end{equation}
-  where
-  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
-  \COMMENT{We need these higher priority restraints to fall at the same
-  time often enough. Draw diagram.}\\
+  \COMMENT{We want higher priority restraints to fall at the same
+  time infinitely often. Draw diagram.}\\
 
   \underline{Construction Technique of Simultaneous Strategies
   for~\eqref{eqn:liminf}}\\
-  Assume
+  Write
+  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
+  We have
   \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
-  At stage $s$ where it is time for $R_e$ to act, the strategy $\sigma_e$
-  of $R_e$ differs depending on what $p$ is. ``Guess'' $p$
-  as
+  We want
+  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
+
+  When it is time for $R_e$ to act, say at stage $s$, the strategy
+  $\sigma_e$ of $R_e$ differs depending on what $p$ is. ``Guess'' $p$ as
   \[k=\tilde{r}(e-1,s),\]
-  and play strategy $\sigma_e^k$. Simultaneously play 
-  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$ depending on what
-  $\tilde{r}(e-1,s)$ is. Strategies $\sigma_e^{k'}$ with lower $k'$ values
+  and play strategy $\sigma_e^k$. Thus, $R_e$ simultaneously plays
+  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$, playing strategy
+  $\sigma_e^{k'}$ at stages in
+  \[S_{k'} :=\{s\in\omega: \tilde{r}(e-1,s)=k'\}.\]
+
+  Strategies $\sigma_e^{k'}$ with lower $k'$ values
   have higher priority - for each $k'>k$, destroy restraint
   $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
   \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
   $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
 
   \underline{Verification}\\
+  Have
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
+  Want to show
+  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
   Since 
   \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p,\]
   eventually strategies $\sigma_e^0,\ldots,\sigma_e^{p-1}$ will
@@ -431,9 +440,9 @@
   $r^0(e,s),\ldots,r^{p-1}(e,s)$ associated with these strategies
   stop rising. After such a stage $s_0$, strategy $\sigma_e^{p}$ will
   play infinitely often, and when it is played, restraints for lower
-  priority strategies are destroyed. When lower priority strategies are
-  played at stages $s$ where $\tilde{r}(e-1,s)>p$, construction
-  preserves restraints established by $\sigma_e^{p}$. Thus,
+  priority strategies are destroyed. Yet when lower priority strategies are
+  played at stages $s$ where $\tilde{r}(e-1,s)>p$,
+  restraints established by $\sigma_e^{p}$ are not injured. Thus,
   strategy $\sigma_e^{p}$ is played infinitely often and never
   injured after a certain stage, so that
   \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
