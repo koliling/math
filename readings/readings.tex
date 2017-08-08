@@ -377,80 +377,6 @@
     initial attractor. \\
   \end{proof}
 
-\section{Infinite Injury Constructions}
-  \label{section:infinite-injury}
-  Construct r.e. $A$ in stages satisfying
-  \[R_e: N_e\; \text{and}\; P_e.\]
-  \begin{itemize}
-    \item $N_e$: Restraint $r(e,s)$ prevent elements from being enumerated
-      into $A$ to protect some computation. E.g.
-      \[N_e: \Phi_e^A\neq \Phi_e^B\]
-      for given fixed r.e. B.
-
-    \item $P_e$: Want to enumerate elements into $A$. Often there are
-      infinite elements that can be enumerated to satisfy $P_e$. E.g.
-      \[|W_e|=\infty \implies W_e\cap A\neq\emptyset.\]
-  \end{itemize}
-
-  To satisfy $P_e$, need higher priority restraints
-  $r(0,s),\ldots,r(e-1,s)$ to fall often enough, so that elements have
-  chance to be enumerated into $A$. Individually, each higher priority
-  restraint falls infinitely often, i.e.
-  \[\liminf_{s\in\omega} r(e,s)<\infty.\]
-  However, they may not fall at the same time to give
-  \begin{equation}
-    \liminf_{s\in\omega} \max\{r(0,s),\ldots,r(e-1,s)\} <\infty.
-    \label{eqn:liminf}
-  \end{equation}
-  \COMMENT{We want higher priority restraints to fall at the same
-  time infinitely often. Draw diagram.}\\
-
-  \underline{Construction Technique of Simultaneous Strategies
-  for~\eqref{eqn:liminf}}\\
-  Write
-  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
-  We have
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
-  We want
-  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
-
-  When it is time for $R_e$ to act, say at stage $s$, the strategy
-  $\sigma_e$ of $R_e$ differs depending on what $p$ is. ``Guess'' $p$ as
-  \[k=\tilde{r}(e-1,s),\]
-  and play strategy $\sigma_e^k$. Thus, $R_e$ simultaneously plays
-  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$, playing strategy
-  $\sigma_e^{k'}$ at stages in
-  \[S_{k'} :=\{s\in\omega: \tilde{r}(e-1,s)=k'\}.\]
-
-  Strategies $\sigma_e^{k'}$ with lower $k'$ values
-  have higher priority - for each $k'>k$, destroy restraint
-  $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
-  \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
-  $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
-
-  \underline{Verification}\\
-  Have
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
-  Want to show
-  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
-  Since 
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p,\]
-  eventually strategies $\sigma_e^0,\ldots,\sigma_e^{p-1}$ will
-  stop playing. In particular, restraints
-  $r^0(e,s),\ldots,r^{p-1}(e,s)$ associated with these strategies
-  stop rising. After such a stage $s_0$, strategy $\sigma_e^{p}$ will
-  play infinitely often, and when it is played, restraints for lower
-  priority strategies are destroyed. Yet when lower priority strategies are
-  played at stages $s$ where $\tilde{r}(e-1,s)>p$,
-  restraints established by $\sigma_e^{p}$ are not injured. Thus,
-  strategy $\sigma_e^{p}$ is played infinitely often and never
-  injured after a certain stage, so that
-  \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
-  \liminf_{s'\in\omega} r^{p}(e,s')\} <\infty,\]
-  where
-  \[\liminf_{s'\in\omega} r^{p}(e,s') <\infty\]
-  by assumption.
-
 \section{$\bm{PS}=\bm{NC}=\bm{ENC}$}
   In this section we show that class of promptly simple degrees are exactly
   the class of non-capable degrees.
@@ -674,14 +600,152 @@
       it forever since it is the highest priority restraint after higher
       priority requirements have stabilized.
     \end{tcolorbox}
-
-
-    At stage $s+1$, for each $e\leq s$, we find the first $i\leq s$ such
-    that $P_{e,i}$ is not yet satisfied, and for which there is some $x\in
-    W_{i,s}$ and $y\not\in\text{dom}(\Psi_{e,i})$ where $y<l(e,s)$ and
-    $\tilde{u}(B_s;e,y,s)<x$.
-
-    Also, define
-    \[\tilde{u}(B_s;e,y,s) :=\max_{y'\leq y}\{u(B_s;e,y',s)\}.\]
   \end{proof}
+
+\section{High Minimal Pair}
+  \begin{goal}
+    There exists a minimal pair of high r.e. degrees.
+  \end{goal}
+
+  We construct high r.e. sets $A$, $B$ whose degrees form a minimal pair.
+  For minimality, satisfy the usual negative requirements
+  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+  \text{recursive}.\]
+
+  For highness, we need the following lemma.
+  \begin{lemma}
+    There exists an r.e. set $C$ such that if r.e. set $A$ is a thick
+    subset of $C$, then $A$ is high.
+  \end{lemma}
+  \begin{proof}
+    Recall $\emptyset''\equiv_T\text{Tot}$. In
+    particular, $\emptyset''\leq_T\text{Tot}$, so exists recursive $f(e)$
+    s.t.
+    \[e\in\emptyset'' \Leftrightarrow f(e)\not\in\text{Tot}.\]
+    Consider recursive $g(e)$ defined as
+    \begin{align*}
+      \varphi_{g(e)}(x) :=
+      \begin{cases}
+        0, &\text{if}\; \varphi_e(0),\ldots,\varphi_e(x)\downarrow,\\
+        \uparrow, &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
+
+    Then
+    \begin{align*}
+      e\not\in\text{Tot} &\implies g(e)\in\text{Fin},\\
+      e\in\text{Tot} &\implies g(e)\in\text{Tot}.
+    \end{align*}
+
+    Let $h=g\circ f$. Then
+    \begin{align*}
+      e\in\emptyset'' &\implies h(e)\in\text{Fin},\\
+      e\not\in\emptyset'' &\implies h(e)\in\text{Tot}.
+    \end{align*}
+
+    Choose
+    \[C :=\{\langle x,e\rangle: x\in W_{h(e)}\}.\]
+    Then if $A$ is a thick subset of $C$,
+    \[e\in\emptyset'' \implies C^{[e]}\; \text{finite} \implies A^{[e]}\;
+    \text{finite} \implies \lim_x A(\langle x,e\rangle)=0,\]
+    and
+    \[e\not\in\emptyset'' \implies C^{[e]}=\omega \implies A^{[e]}\;
+    \text{cofinite} \implies \lim_x A(\langle x,e\rangle)=1.\]
+
+    Thus
+    \[\emptyset''\leq_T \lim_x A(\langle x,e\rangle) \leq_T A',\]
+    so $A$ is high.
+  \end{proof}
+
+\subsection{Tree Method for Infinite Injury Construction}
+  \label{section:infinite-injury}
+  Construct r.e. $A$ satisfying
+  \[R_e: N_e\; \text{and}\; P_e.\]
+  \begin{itemize}
+    \item $N_e$: Sets restraint $r(e,s)$ to prevent elements from being
+      enumerated into $A$ to protect computation.
+      \begin{align*}
+        N_e:& \;\Phi_e^A=\Phi_e^B=\text{total}\; \implies
+          \Phi_e^A\;\text{recursive}\\
+      \end{align*}
+
+    \item $P_e$: Enumerate elements into $A$. Often there are
+      infinite elements that can be enumerated to satisfy $P_e$.
+      \[P_e: A^{[e]} =^* C^{[e]}\; \text{for some fixed r.e.}\; C\]
+  \end{itemize}
+
+  Some $P_e$'s enumerate infinite elements into $A$. Need
+  higher priority restraints
+  \[R(e,s) := \max\{r(0,s),\ldots,r(e,s)\}\]
+  to fall simultaneously infinitely often to satisfy such $P_e$'s. I.e.
+  need
+  \begin{equation}
+    \liminf_{s\in\omega} R(e,s) <\infty.
+    \label{eqn:liminf}
+  \end{equation}
+  Use tree construction.
+
+  \begin{definition}
+    $\Lambda$ countable set with linear ordering $<_\Lambda$. Define
+    $T=\Lambda^{<\omega}$, and let $[T]$ be the set of infinite paths
+    through $T$. Lower cases Greek letters $\alpha,\beta,\gamma,\ldots$
+    range over $A^{<\omega}$, and $f$ and $g$ range over $\Lambda^\omega$.
+  \end{definition}
+
+  \begin{definition}
+    Let $\alpha$, $\beta\in T$. Define linear ordering $\alpha<\beta$
+    if either $\alpha \prec \beta$, or
+    \[(\exists \gamma \prec \alpha, \beta) (\exists a,b \in \Lambda)\;
+    [\gamma^\frown a \preceq\alpha\; \wedge\; \gamma^\frown b
+    \preceq\beta].\]
+  \end{definition}
+
+  In tree construction, each level in $T$ denotes a requirement,
+  and $\Lambda$ is the set of outcomes.
+
+  \underline{Construction Technique of Simultaneous Strategies
+  for~\eqref{eqn:liminf}}\\
+  Write
+  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
+  We have
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
+  We want
+  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
+
+  When it is time for $R_e$ to act, say at stage $s$, the strategy
+  $\sigma_e$ of $R_e$ differs depending on what $p$ is. ``Guess'' $p$ as
+  \[k=\tilde{r}(e-1,s),\]
+  and play strategy $\sigma_e^k$. Thus, $R_e$ simultaneously plays
+  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$, playing strategy
+  $\sigma_e^{k'}$ at stages in
+  \[S_{k'} :=\{s\in\omega: \tilde{r}(e-1,s)=k'\}.\]
+
+  Strategies $\sigma_e^{k'}$ with lower $k'$ values
+  have higher priority - for each $k'>k$, destroy restraint
+  $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
+  \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
+  $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
+
+  \underline{Verification}\\
+  Have
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
+  Want to show
+  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
+  Since 
+  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p,\]
+  eventually strategies $\sigma_e^0,\ldots,\sigma_e^{p-1}$ will
+  stop playing. In particular, restraints
+  $r^0(e,s),\ldots,r^{p-1}(e,s)$ associated with these strategies
+  stop rising. After such a stage $s_0$, strategy $\sigma_e^{p}$ will
+  play infinitely often, and when it is played, restraints for lower
+  priority strategies are destroyed. Yet when lower priority strategies are
+  played at stages $s$ where $\tilde{r}(e-1,s)>p$,
+  restraints established by $\sigma_e^{p}$ are not injured. Thus,
+  strategy $\sigma_e^{p}$ is played infinitely often and never
+  injured after a certain stage, so that
+  \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
+  \liminf_{s'\in\omega} r^{p}(e,s')\} <\infty,\]
+  where
+  \[\liminf_{s'\in\omega} r^{p}(e,s') <\infty\]
+  by assumption.
 \end{document}
