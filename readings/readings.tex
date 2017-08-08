@@ -614,6 +614,7 @@
 
   For highness, we need the following lemma.
   \begin{lemma}
+    \label{lem:high-req}
     There exists an r.e. set $C$ such that if r.e. set $A$ is a thick
     subset of $C$, then $A$ is high.
   \end{lemma}
@@ -656,6 +657,13 @@
     \[\emptyset''\leq_T \lim_x A(\langle x,e\rangle) \leq_T A',\]
     so $A$ is high.
   \end{proof}
+
+  Thus to construct high minimal pair $A$ and $B$, fix r.e. $C$ in
+  Lemma~\ref{lem:high-req}, and suffices to satisfy requirements
+  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+  \text{recursive},\]
+  \[P_e^A: A^{[e]} =* C^{[e]},\]
+  \[P_e^B: B^{[e]} =* C^{[e]}.\]
 
 \subsection{Tree Method for Infinite Injury Construction}
   \label{section:infinite-injury}
