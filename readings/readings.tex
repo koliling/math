@@ -612,7 +612,7 @@
   \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
   \text{recursive}.\]
 
-  For highness, we need the following lemma.
+  For highness, need the following lemma.
   \begin{lemma}
     \label{lem:high-req}
     There exists an r.e. set $C$ such that if r.e. set $A$ is a thick
@@ -644,7 +644,7 @@
       e\not\in\emptyset'' &\implies h(e)\in\text{Tot}.
     \end{align*}
 
-    Choose
+    Choose r.e.
     \[C :=\{\langle x,e\rangle: x\in W_{h(e)}\}.\]
     Then if $A$ is a thick subset of $C$,
     \[e\in\emptyset'' \implies C^{[e]}\; \text{finite} \implies A^{[e]}\;
@@ -662,28 +662,14 @@
   Lemma~\ref{lem:high-req}, and suffices to satisfy requirements
   \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
   \text{recursive},\]
-  \[P_e^A: A^{[e]} =* C^{[e]},\]
-  \[P_e^B: B^{[e]} =* C^{[e]}.\]
+  \[P_e^A: A^{[e]} =^* C^{[e]},\]
+  \[P_e^B: B^{[e]} =^* C^{[e]}.\]
 
 \subsection{Tree Method for Infinite Injury Construction}
   \label{section:infinite-injury}
-  Construct r.e. $A$ satisfying
-  \[R_e: N_e\; \text{and}\; P_e.\]
-  \begin{itemize}
-    \item $N_e$: Sets restraint $r(e,s)$ to prevent elements from being
-      enumerated into $A$ to protect computation.
-      \begin{align*}
-        N_e:& \;\Phi_e^A=\Phi_e^B=\text{total}\; \implies
-          \Phi_e^A\;\text{recursive}\\
-      \end{align*}
-
-    \item $P_e$: Enumerate elements into $A$. Often there are
-      infinite elements that can be enumerated to satisfy $P_e$.
-      \[P_e: A^{[e]} =^* C^{[e]}\; \text{for some fixed r.e.}\; C\]
-  \end{itemize}
-
-  Some $P_e$'s enumerate infinite elements into $A$. Need
-  higher priority restraints
+  Construct r.e. sets $A$, $B$ satisfying $N_e$ and $P_e$.  $N_e$ sets
+  restraints $r(e,s)$ to protect computation. Some $P_e$'s enumerate
+  infinite elements into $A$ and $B$. Need higher priority restraints
   \[R(e,s) := \max\{r(0,s),\ldots,r(e,s)\}\]
   to fall simultaneously infinitely often to satisfy such $P_e$'s. I.e.
   need
@@ -708,8 +694,48 @@
     \preceq\beta].\]
   \end{definition}
 
-  In tree construction, each level in $T$ denotes a requirement,
-  and $\Lambda$ is the set of outcomes.
+  In tree constructions, each level in $T$ represents a requirement, so
+  $\Lambda$ represents the set of outcomes of the requirements. Prioritize
+  requirements
+  \[N_0, P_0, N_1, P_1, N_2, P_2, \ldots.\]
+  Level $2e$ represents $N_e$ and level $2e+1$ represents $P_e$. Choose
+  $\Lambda=\omega$ and
+  \[T:= \{\alpha\in\omega^{<\omega}: (\forall e)[\alpha(2e+1)
+  \in\{0,1\}]\}.\]
+
+  At stage $s$, observe outcome of the first $2s$ requirements, and
+  represent the outcomes by $\delta_s\in T$ where
+  $|\delta_s|=2s$:
+  \begin{align*}
+    \delta_s(2e) &:=\text{guess for}\; \liminf_s r(e,s),\\
+    \delta_s(2e+1) &:=
+      \begin{cases}
+        0, &\text{if we think}\; |C^{[e]}|=\omega,\\
+        1, &\text{otherwise}\\
+      \end{cases}\\
+  \end{align*}
+  
+  Thus have a sequence of strings $\delta_s$ of increasing lengths. At the
+  end of construction, want ``true path'' $f\in[T]$ to be the $\liminf$ of
+  $\delta_s$, in the sense that $f$ is the left-most path that is visited
+  infinitely often: for all $n\in\omega$,
+  \[(\exists^\infty s)\; [f\restriction n \prec
+  \delta_s],\]
+  and
+  \[(\exists^{<\infty} s)\; [\delta_s < f\restriction n].\]
+
+  Equivalently, for all $n\in\omega$,
+  \[f(n) :=\liminf_s \delta_s(n).\]
+  Thus outcomes usually assigned such that if $a<_\Lambda b$ and we
+  observe outcome $b$ infinitely often, then outcome $a$ cannot be true. \\
+
+  To construct the r.e. sets, at stage $s$, observe the outcome
+  $\delta_s\in T$, and play the $\delta_s$-strategy. At each stage $s$,
+  associate with each string $\alpha\in T$ a restraint $r(\alpha,s)$.
+  When playing $\alpha$-strategy, respect all strategies $\beta$ to the
+  left of $\alpha$: Set 
+  \[r(\alpha,s) \geq \max\{r(\beta,s): \beta<\alpha\},\]
+  \[r(\beta,s+1)=0\; \text{if}\; \beta<\alpha.\]
 
   \underline{Construction Technique of Simultaneous Strategies
   for~\eqref{eqn:liminf}}\\
