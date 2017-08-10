@@ -795,7 +795,6 @@
       \item $(\forall e) [f(e) =r(e) :=\liminf_s r(e,s) <\infty]$
     \end{enumerate}
   \end{lemma}
-
   \begin{proof}
     We prove (i) and (ii) by simultaneously by induction. Assume statements
     are true for $n=0,\ldots e$. Choose $t_0\in\omega$ such that $\delta_s$
@@ -808,6 +807,26 @@
     Otherwise, there is a largest such stage $v$, so that $r(f\restriction
     e,s)=v$ for almost all $s$, then $r(e)=\max(k,v)$. In either cases, we
     have both (i) and (ii).
+  \end{proof}
+
+  \begin{lemma}
+    $(\forall e) [A^{[e]}=^*C^{[e]}=^*B^{[e]}]$.
+  \end{lemma}
+  \begin{proof}
+    We prove the stronger statement that
+    \[A^{[e]}\supseteq C^{[e]}-\{0,1,\ldots,r(e)\},\]
+    and similarly for $B^{[e]}$. Choose any $x\in C^{[e]}$ where $x>r(e)$.
+    Choose $s_0$ such that $x\in C_{s_0}$ and all $y<x$ contained in $A$ or
+    $B$ have already been enumerated into them. At stage $s>s_0$ where
+    $r(e,s)=r(e)$, $x$ will be enumerated into $A$ if not already done so.
+    Then at the stage after where $r(e,s)=r(e)$ again, $x$ will be
+    enumerated into $B$ if not already done so.
+  \end{proof}
+
+  \begin{lemma}
+    $(\forall e)[\Phi_e^A=\Phi_e^B=\text{total} \implies\text{recursive}]$.
+  \end{lemma}
+  \begin{proof}
   \end{proof}
 
 \subsection{Simultaneous Strategies Construction}
