@@ -1,0 +1,259 @@
+\section{High Minimal Pair}
+  \begin{goal}
+    There exists a minimal pair of high r.e. degrees.
+  \end{goal}
+
+  We construct high r.e. sets $A$, $B$ whose degrees form a minimal pair.
+  For minimality, satisfy the usual negative requirements
+  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+  \text{recursive}.\]
+
+  For highness, need the following lemma.
+  \begin{lemma}
+    \label{lem:high-req}
+    There exists an r.e. set $C$ such that if r.e. set $A$ is a thick
+    subset of $C$, then $A$ is high.
+  \end{lemma}
+  \begin{proof}
+    Recall $\emptyset''\equiv_T\text{Tot}$. In
+    particular, $\emptyset''\leq_T\text{Tot}$, so exists recursive $f(e)$
+    s.t.
+    \[e\in\emptyset'' \Leftrightarrow f(e)\not\in\text{Tot}.\]
+    Consider recursive $g(e)$ defined as
+    \begin{align*}
+      \varphi_{g(e)}(x) :=
+      \begin{cases}
+        0, &\text{if}\; \varphi_e(0),\ldots,\varphi_e(x)\downarrow,\\
+        \uparrow, &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
+
+    Then
+    \begin{align*}
+      e\not\in\text{Tot} &\implies g(e)\in\text{Fin},\\
+      e\in\text{Tot} &\implies g(e)\in\text{Tot}.
+    \end{align*}
+
+    Let $h=g\circ f$. Then
+    \begin{align*}
+      e\in\emptyset'' &\implies h(e)\in\text{Fin},\\
+      e\not\in\emptyset'' &\implies h(e)\in\text{Tot}.
+    \end{align*}
+
+    Choose r.e.
+    \[C :=\{\langle x,e\rangle: x\in W_{h(e)}\}.\]
+    Then if $A$ is a thick subset of $C$,
+    \[e\in\emptyset'' \implies C^{[e]}\; \text{finite} \implies A^{[e]}\;
+    \text{finite} \implies \lim_x A(\langle x,e\rangle)=0,\]
+    and
+    \[e\not\in\emptyset'' \implies C^{[e]}=\omega \implies A^{[e]}\;
+    \text{cofinite} \implies \lim_x A(\langle x,e\rangle)=1.\]
+
+    Thus
+    \[\emptyset''\leq_T \lim_x A(\langle x,e\rangle) \leq_T A',\]
+    so $A$ is high.
+  \end{proof}
+
+  Thus to construct high minimal pair $A$ and $B$, fix r.e. $C$ in
+  Lemma~\ref{lem:high-req}, and suffices to satisfy requirements
+  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+  \text{recursive},\]
+  \[P_e^A: A^{[e]} =^* C^{[e]},\]
+  \[P_e^B: B^{[e]} =^* C^{[e]}.\]
+
+\subsection{Tree Method for Infinite Injury Construction}
+  \label{section:infinite-injury}
+  Construct r.e. sets $A$, $B$ satisfying $N_e$ and $P_e$.  $N_e$ sets
+  restraints $r(e,s)$ to protect computation. Some $P_e$'s enumerate
+  infinite elements into $A$ and $B$. Need higher priority restraints
+  \[R(e,s) := \max\{r(0,s),\ldots,r(e,s)\}\]
+  to fall simultaneously infinitely often to satisfy such $P_e$'s. I.e.
+  need
+  \begin{equation}
+    \liminf_{s\in\omega} R(e,s) <\infty.
+    \label{eqn:liminf}
+  \end{equation}
+  Use tree construction.
+
+  \begin{definition}
+    $\Lambda$ countable set with linear ordering $<_\Lambda$. Define
+    $T=\Lambda^{<\omega}$, and let $[T]$ be the set of infinite paths
+    through $T$. Lower cases Greek letters $\alpha,\beta,\gamma,\ldots$
+    range over $A^{<\omega}$, and $f$ and $g$ range over $\Lambda^\omega$.
+  \end{definition}
+
+  \begin{definition}
+    Let $\alpha$, $\beta\in T$. Define linear ordering $\alpha<\beta$
+    if either $\alpha \prec \beta$, or
+    \[(\exists \gamma \prec \alpha, \beta) (\exists a,b \in \Lambda)\;
+    [\gamma^\frown a \preceq\alpha\; \wedge\; \gamma^\frown b
+    \preceq\beta].\]
+  \end{definition}
+
+  In tree constructions, each level in $T$ represents a requirement, so
+  $\Lambda$ represents the set of outcomes of the requirements. Prioritize
+  requirements
+  \[N_0, P_0, N_1, P_1, N_2, P_2, \ldots.\]
+  Level $e$ represents $N_e$. Choose $\Lambda=\omega$ and
+  $T=\omega^{<\omega}$. \\
+
+  At stage $s$, observe outcome $N_0,\ldots,N_s$, and represent the
+  outcomes by $\delta_s\in T$ where $|\delta_s|=s$:
+  \[\delta_s(e) :=\text{guess for}\; \liminf_s r(e,s) =r(e,s).\]
+  
+  Thus have a sequence of strings $\delta_s$ of increasing lengths. At the
+  end of construction, want ``true path'' $f\in[T]$ to be the $\liminf$ of
+  $\delta_s$, in the sense that $f$ is the left-most path that is visited
+  infinitely often: for all $n\in\omega$,
+  \[(\exists^\infty s)\; [f\restriction n \prec
+  \delta_s],\]
+  and
+  \[(\exists^{<\infty} s)\; [\delta_s < f\restriction n].\]
+
+  Equivalently, for all $n\in\omega$,
+  \[f(n) :=\liminf_s \delta_s(n).\]
+
+  To construct the r.e. sets, at stage $s$, observe the outcome
+  $\delta_s\in T$, and play the $\delta_s$-strategy. At stage $s$,
+  associate with each string $\alpha\in T$ a restraint $r(\alpha,s)$.
+  When playing $\alpha$-strategy, respect all strategies $\beta$ to the
+  left of $\alpha$:
+  \begin{itemize}
+    \item Ensure $r(\alpha,s) \geq \max\{r(\beta,s): \beta<\alpha\}$
+    \item $\forall\beta<\alpha$, reset $r(\beta,s+1)=0$.
+  \end{itemize}
+
+  The idea is that the strings to the right of the ``true path'' should not
+  have a lasting effect on the construction because every time the ``true
+  path'' is visited, we will destroy all restraints imposed by the paths on
+  the right. On the other hand, paths to the left of the ``true path'' can
+  only impose a finite restraint on the construction, since they are only
+  visited finitely often. \\
+
+  \begin{definition}
+    At stage $s$, we say $s$ is called an $\alpha$-stage if
+    $\alpha\preceq\delta_s$.
+  \end{definition}
+
+  \begin{definition}
+    Given $\alpha\in T$, denote
+    \[S^\alpha := \{s\in\omega: s\; \text{is an}\; \alpha\text{-stage}\}.\]
+  \end{definition}
+
+  \begin{definition}
+    Given $\alpha\in T$, define length function
+    \[l(\alpha,s) := \max\{x: (\forall y<x) [\Phi_{e,s}^{A_s}(y)
+      \downarrow =\Phi_{e,s}^{B_s}(y)]\}.\]
+    Define also
+    \[m(\alpha,s) := \max\{l(\alpha,t): t\leq s\; \text{and}\; t\in
+    S^{\alpha}\}.\]
+  \end{definition}
+
+  \begin{definition}
+    A stage $s$ is $\alpha$-expansionary if $s=0$, or if $s>0$, $s$ is an
+    $\alpha$-stage, and $l(\alpha,s)>m(\alpha,s-1)$.
+  \end{definition}
+
+  \textbf{Construction}
+  \begin{tcolorbox}
+    Stage 0: Set $A_0=B_0=\emptyset$, $r(\alpha,0)=0$ for all $\alpha\in
+    T$. \\
+
+    Stage $s+1$: Do for $e$ from 0 to $s$:
+    \begin{enumerate}
+      \item For each $\beta\leq \delta_s\restriction e$, define
+        \begin{align*}
+          r(\beta,s) =
+          \begin{cases}
+            0, &\text{if}\; \beta\preceq\alpha\; \text{and}\; s\;
+              \text{is}\; \beta\text{-expansionary},\\
+            \text{the greatest}\; \beta\text{-expansionary stage}\; t<s,
+              &\text{otherwise}.\\
+          \end{cases}
+        \end{align*}
+      \item Then define
+        \[\delta_s(e) =r(e,s) :=\max_{\beta\leq\alpha}\{r(\beta,s)\}.\]
+      \item Choose smallest $x=\langle y,e\rangle<s$, $x\in C_s^{[e]}$ such
+        that $x>r(e,s)=\delta_s(e)$ but $x$ has not been enumerated into
+        $A$ or $B$ yet. Enumerate $x$ into $A$ if $x\not\in A_s$, otherwise
+        enumerate $x$ into $B$. Note that at most one element enters $A$ or
+        $B$, which is necessary to satisfy $N_e$ in since we need to hold
+        one side of the computation.
+    \end{enumerate}
+  \end{tcolorbox}
+
+  \begin{lemma}
+    \textbf{True Path Lemma} There exists $f\in T$, called the \textit{true
+    path}, such that
+    \begin{enumerate}[label=(\roman*)]
+      \item $(\forall n) [f\restriction n =\liminf_s \delta_s\restriction
+        n]$
+      \item $(\forall e) [f(e) =r(e) :=\liminf_s r(e,s) <\infty]$
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    We prove (i) and (ii) by simultaneously by induction. Assume statements
+    are true for $n=0,\ldots e$. Choose $t_0\in\omega$ such that $\delta_s$
+    stops visiting the left of $f\restriction e$. Let $t_1\geq t_0$ be such
+    that $\delta_{t_1}$ is a $f\restriction e$-stage. Let
+    \[k :=\max\{r(\beta, t_1): \beta<f\restriction e\}.\]
+
+    If there are infinitely many $f\restriction e$-expansionary stages $s$,
+    then $r(f\restriction e,s)=0$ at each such $s$ such, so $f(e)=r(e)=k$.
+    Otherwise, there is a largest such stage $v$, so that $r(f\restriction
+    e,s)=v$ for almost all $s$, then $r(e)=\max(k,v)$. In either cases, we
+    have both (i) and (ii).
+  \end{proof}
+
+  \begin{lemma}
+    $(\forall e) [A^{[e]}=^*C^{[e]}=^*B^{[e]}]$.
+  \end{lemma}
+  \begin{proof}
+    We prove the stronger statement that
+    \[A^{[e]}\supseteq C^{[e]}-\{0,1,\ldots,r(e)\},\]
+    and similarly for $B^{[e]}$. Choose any $x\in C^{[e]}$ where $x>r(e)$.
+    Choose $s_0$ such that $x\in C_{s_0}$ and all $y<x$ contained in $A$ or
+    $B$ have already been enumerated into them. At stage $s>s_0$ where
+    $r(e,s)=r(e)$, $x$ will be enumerated into $A$ if not already done so.
+    Then at the stage after where $r(e,s)=r(e)$ again, $x$ will be
+    enumerated into $B$ if not already done so.
+  \end{proof}
+
+  \begin{lemma}
+    $(\forall e)[\Phi_e^A=\Phi_e^B=\text{total} \implies\text{recursive}]$.
+  \end{lemma}
+
+  \begin{notation}
+    Given an $A$-computation $\Phi_{e,s}^{A_s}(x)=y$ and $\alpha\in T$, we
+    say the computation is $\alpha$-correct at stage $s$ if in the use $u$ of
+    the above computation,
+    \[(\forall i<e)(\forall z\leq u) [z>\alpha(i) \wedge z\in \omega^{[i]}
+    \implies z\in A_s^{[i]}].\]
+    Similarly for $B$-computation but with $A$ replaced by $B$. \\
+
+    Observe that for a fixed $\alpha\geq f\restriction e$, if
+    $\Phi_e^A(x)=y$, then the $A$-computation will be $\alpha$-correct at
+    cofinite stages.
+  \end{notation}
+
+  \begin{proof}
+    Assume $\Phi_e^A=\Phi_e^B=\text{total}$. Write $\alpha:=f\restriction
+    e$. To compute $\Phi_e^A(x)$, wait for stage $s_0$ where higher
+    priority requirements stabilize, i.e.
+    \[(\forall s\geq s_0)\; \alpha\preceq\delta_s.\]
+
+    Now for each $y\leq x$, since $\Phi_e^A(y) \downarrow=\Phi_e^B(y)$,
+    these computations must be $\alpha$-correct at cofinite stages. So wait
+    for stage $s_1>s_0$, $s_1\in S^\alpha$ such that for all $y\leq x$,
+    \begin{itemize}
+      \item $\Phi_{e,s}^{A_s}(y) \downarrow=\Phi_{e,s}^{B_s}(y)$
+      \item The above computations are $\alpha$-correct.
+    \end{itemize}
+
+    Then since $r(e,s)\geq \alpha(e)$ for all $s\geq s_1$, no elements
+    below $\alpha(e)$ will be enumerated into $A$ or $B$ after stage $s_1$.
+    Also, since our construction will enumerate elements into only one of
+    $A$ or $B$ in the above computation at any stage and never both at the
+    same time, and we always protect one side of the computation, the
+    computation of $\Phi_e^A(x)$ at stage $s_1$ will be protected forever.
+  \end{proof}

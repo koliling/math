@@ -1,0 +1,349 @@
+\section{Maximal Sets}
+  \begin{notation}
+    Given $A,B\subseteq\omega$, write
+    \begin{itemize}
+      \item $A=^*B$ iff $|A\Delta B|<\omega$, i.e. $A$ and $B$ are equal
+        except for a finite number of elements.
+      \item $A\subseteq^*B$ iff $|A-B|<\omega$, i.e., $B$ contains almost
+        every element of $A$.
+    \end{itemize}
+  \end{notation}
+
+  \begin{definition}
+    A r.e. set $M\subset\omega$ is \textit{maximal} iff
+    $|M|=|\overline{M}|=\omega$, and given any r.e. set $N$, if
+    $M\subseteq^* N$, then either $N=^*M$ or $N=^*\omega$; i.e. anything
+    that lies between $M$ and $\omega$ must be almost equal to one of them.
+  \end{definition}
+
+  \begin{definition}
+    A set $C$ is \textit{cohesive} if there is no r.e. set $W$ such that
+    both $W\cap C$ and $\overline{W}\cap C$ are infinite.
+  \end{definition}
+
+  \begin{lemma}
+    A r.e. set is maximal if and only if its complement is cohesive.
+    \label{lemma:maximal-cohesive}
+  \end{lemma}
+  \begin{proof}
+    Chase definitions. If a r.e. set $M$ does not have a cohesive
+    complement, let $W$ be the witness of the non-cohesiveness of
+    $\overline{M}$. Then $M\cup W$ will witness the non-maximality of $M$.
+    Conversely, if $M$ is not maximal with witness $W$, then $W$ will also
+    witness the non-cohesiveness of $\overline{M}$.
+  \end{proof}
+
+\subsection{Maximal Sets}
+  \begin{theorem}
+    There exists a maximal set.
+  \end{theorem}
+
+  From Lemma~\ref{lemma:maximal-cohesive}, it suffices to construct a r.e.
+  set $A$ that satisfies requirements
+  \begin{equation}
+    |\overline{A}|=\omega,
+    \label{eqn:R}
+  \end{equation}
+  and
+  \begin{equation}
+    P_e: \overline{A} \subseteq^*\overline{W}_e\;\; \text{or}\;\;
+    \overline{A}\subseteq^* W_e.
+    \label{eqn:P_e}
+  \end{equation}
+
+  At stage $s$, write $\overline{A}_s =\{a_0^s<a_1^s<a_2^s\ldots\}$. Notice
+  that $a_i^0\leq a_i^1\leq a_i^2\leq\ldots$ while we enumerate elements
+  from $\overline{A}_s$ into $A_s$ at stage $s+1$. Hence to ensure that
+  $|\overline{A}|=\omega$, it suffices to show that $a_n:=\lim_s a_n^s$
+  exists for each $n\in\omega$. Assuming all $a_n$ exist, we can write
+  $\overline{A}=\{a_0<a_1<\ldots\}$.
+
+  \begin{notation}
+    Given $x\in\omega$, we say the $e$-state of $x$ at stage $s$ is
+    \[\sigma(e,x,s) =\{i\leq e: x\in W_{i,s}\} \in 2^{e+1}.\]
+    For example, $e$-state 100 means $x\in W_{0,s}$ but $x\not\in
+    W_{1,s}$ and $x\not\in W_{2,s}$. Notice that there are only $2^{e+1}$
+    possible $e$-states.
+  \end{notation}
+
+  \begin{proof}
+    At stage 0, let $A_0=\emptyset$, so that $\overline{A}_0=\omega$. At
+    stage $s+1$, we consider which of $a_0^s<a_1^s<\ldots<a_s^s$ should be
+    enumerated into $A_{s+1}$. Our strategy is to maximize the $e$-state
+    corresponding to the highest priority requirement. Specifically, given
+    $e\leq s$, see if there is some $e<i\leq s$ such that the $e$-state of
+    $a_i^s$ is greater than the $e$-state of $a_e^s$. Let $e\leq s$ be the
+    smallest requirement where such $i$ exists. Enumerate
+    $a_e^s,\ldots,a_{i-1}^s$ into $A_s$.
+  \end{proof}
+
+  \begin{lemma}
+    $a_i:=\lim_s a_i^s$ exists.
+  \end{lemma}
+  \begin{proof}
+    Notice that $a_0^s$ increases at stage $s$ if and only if $0$-state of
+    $a_0^s$ increases in the next stage. But there are only $2^{0+1}=2$
+    possible $0$-states. So $a_0^s$ can only increase at most once. By
+    strong induction, after $a_0,\ldots,a_{e-1}$ have stabilized, $a_e$
+    can only increase at most $2^{e+1}$ times before stabilizing too.
+  \end{proof}
+
+  \begin{lemma}
+    $P_e$ is satisfied.
+  \end{lemma}
+  \begin{proof}
+    Assume $P_0$ is not satisfied. Then there must be some
+    $a_i\in\overline{A}$ such that $a_i\in W_0$ but $a_{i+1}\not\in W_0$.
+    Wait till $a_0,\ldots,a_{i+1}$ have stabilized. Then
+    the $i$-state of $a_i$ will be smaller than the $i$-state of $a_{i+1}$
+    since $a_i\in W_0$ but $a_{i+1}\not\in W_0$. By our strategy, we will
+    enumerate $a_i$ into $A$, a contradiction. \\
+
+    Assume $P_0,\ldots,P_e$ are satisfied, but not $P_{e+1}$. Let
+    $a_n\in\overline{A}$ be the smallest element such that for all
+    $a_m>a_n$ and all $i\leq e$, the $i$-state of $a_m$ equals the
+    $i$-state of $a_n$. Wait till all $a_0,\ldots,a_n$ have stabilized.
+    Choose $a_p<a_q$ bigger than $a_n$ such that $a_p\in W_{e+1}$ but
+    $a_q\not\in W_{e+1}$. But then the $(e+1)$-state of $a_p$ will be
+    smaller than that of $a_q$, and we will enumerate $a_p$ into $A$, a
+    contradiction.
+  \end{proof}
+
+\subsection{Degrees of Maximal Sets}
+  \begin{goal}
+    $\bm{d}$ is high $\Leftrightarrow$ $\bm{d}$ contains maximal set
+  \end{goal}
+
+  \begin{remark}
+    The easy direction is to show that maximal sets have high degree. 
+  \end{remark}
+
+  \begin{lemma}
+    If $M$ is a maximal set then $p_{\overline{M}}$ is dominant.
+    \label{lemma:high-maximal}
+  \end{lemma}
+  \begin{proof}
+    Assume recursive function $p_{\overline{M}}$ is dominated by recursive
+    function $f$. We can assume $f$ is strictly increasing and majorizes
+    $p_{\overline{M}}$. Observe that
+    $p_{\overline{M}}(n)\in[n,f(n)-1]$. In particular, $[0,f(0)-1]$
+    contains an element of $\overline{M}$. Then $[f(0),f(f(0))-1]$ contains
+    an element of $\overline{M}$, and $[f(f(0)),f(f(f(0)))-1]$ contains an
+    element of $\overline{M}$, and so on. But these are disjoint intervals,
+    so by picking every other interval, we can choose enumerate an infinite
+    number of elements of $\overline{M}$, leaving an infinite number of
+    elements of $\overline{M}$. \\
+
+    Assume that $f$ does not dominate $p_{\overline{M}}$, but instead
+    crosses over it infinitely many times. Then there are infinite disjoint
+    intervals $(f(x),f(x+1)]$ that contain two or more elements of
+    $\overline{M}$. So by enumerating $M$ and searching for the first
+    element in each interval that is not in $M_s$, we can extend $M$ by
+    infinite elements, leaving infinite elements unenumerated.
+  \end{proof}
+
+  \begin{theorem}
+    \textit{(High Domination Theorem)} A set $A$ satisfies
+    $\emptyset''\leq_T A'$ if and only if it computes a dominant function.
+    \label{thm:high-domination}
+  \end{theorem}
+  \begin{proof}
+    Recall that $\text{Tot}\equiv_T \emptyset''$, so by the limit lemma
+    relativized to $A$, we have $\emptyset''\leq_T A'$ iff there is a
+    $A$-recursive binary function $g(e,s)$ such that $\lim_s g(e,s)
+    =\chi_{\text{Tot}}(e)$. \\
+
+    Assume $\emptyset''\leq_T A'$. We use $g$ to construct a dominant
+    function $f$. Given $e$ and stage $s$, let $t_s(e)$ be the first stage
+    $t>s$ such that either $g(e,t)=0$ or $\varphi_{e,t}\restriction
+    t\downarrow$. In other words, $t_s(e)$ be the first stage greater than
+    $s$ where either $\varphi_e$ is shown to be not total from $g$, or
+    shown to be total up to $t$. Then setting $f(s)=\max\{t_s(e):e\leq s\}$
+    works. \\
+
+    For the converse, let $f(s)$ be a dominant function. Construct $g(e,s)$
+    as
+    \begin{align*}
+      g(e,s) :=
+      \begin{cases}
+        1 &\text{if}\; \varphi_{e,f(s)}\restriction s\downarrow,\\
+        0 &\text{otherwise}.
+      \end{cases}
+    \end{align*}
+  \end{proof}
+
+  \begin{corollary}
+    Every maximal set has a high degree.
+  \end{corollary}
+  \begin{proof}
+    Follows directly from Theorem~\ref{thm:high-domination} and
+    Lemma~\ref{lemma:high-maximal}.
+  \end{proof}
+
+  \begin{remark}
+    Coding -- Given $B$, construct r.e. $A\; \prescript{}{T}{\geq}\; B$.
+  \end{remark}
+  Encode $B$ into $A$ in a recoverable way. E.g. if $B=\{b_0,b_1,\ldots\}$,
+  then at stage $s$ enumerate $a_{b_s}^s$ into $A$. Given $A$, to decide if
+  $b\in B$, simulate to stage $s$ where the first $b+1$ elements of $A$
+  have stabilized; then $b\in B \Leftrightarrow a_{b}^s\in A_s$.
+
+  \begin{remark}
+    Permitting -- Given r.e. $B \prescript{}{T}{\geq}\; \emptyset'$,
+    construct r.e. $A\leq_T B$.
+  \end{remark}
+  $x$ enters $A$ only if $B$ permits it. At stage $s$, to satisfy
+  requirement $R$, want to enumerate $n$ into $A$. $B$ permits $n$ to
+  enter only if the first $n$ elements of $B$ have not stabilized, i.e.
+  when we find a stage $t\geq s$ such that $B_{t+1}\restriction n \neq
+  B_t\restriction n$. \\
+
+  Then given $B$, to decide if $n\in A$, wait for stage $s$ where the first
+  $n$ elements of $B$ have stabilized; then $n\in A \Leftrightarrow n\in
+  A_s$. \\
+
+  We show that as long as requirement $R$ has infinitely many potential
+  witnesses $n$, eventually one of them will be permitted to enter $A$.
+  Assume otherwise. Then we will be able to compute $B$, as follows. To
+  decide if $n\in B$, simulate till stage $s$ where $R$ offers potential
+  witness $m>n$. Then since $m$ is never permitted to enter $A$,
+  $B\restriction m=B_s\restriction m$. Thus $n\in B \Leftrightarrow n\in
+  B_s$.
+
+  \begin{theorem}
+    Every high r.e. degree contains an r.e. set $D$ whose computation
+    function $c_{\overline{D}}$ is dominant, where $\overline{D}_s
+    =\{d_0^s<d_1^s<\ldots\}$, and $c_{\overline{D}}(x) =(\mu
+    s)[d_x^s=d_x]$.
+    \label{thm:high-dominant}
+  \end{theorem}
+  \begin{proof}
+    By High Domination Theorem~\ref{thm:high-domination}, if
+    $\text{deg}(A)\in\bm{H}_1$, then $A$ computes a dominant function
+    $f=\Phi^A$. Let $c_f$ be modulus of $A$:
+    \[c_f(x) =(\mu t) (\forall s\geq t)\; [\Phi_s^{A_s}(x)
+    =\Phi_t^{A_t}(x)].\]
+
+    Then $c_f\leq_T A$ by Modulus Lemma. Also, $c_f$ is dominant, because
+    if recursive $g\prescript{*}{}{>}\; c_f$, then recursive
+    $\Phi_{g(x)}^{A_{g(x)}}+1 \prescript{*}{}{>}\; f$. \\
+
+    Construct $\{D_s\}_{s\in\omega}$, with $D_0=\emptyset$. At stage $s+1$,
+    \\
+
+    \textit{Step 1.} (Permitting) If $\Phi_{s+1}^{A_{s+1}}(x)
+    \neq\Phi_{s}^{A_{s}}(x)$, enumerate $d_x^s$ into $D$. \\
+
+    \textit{Step 2.} (Coding) Enumerate $d_{a_s}^s$ into $D$. \\
+
+    \underline{Verification.} From permitting and coding, we have
+    $A\equiv_T D$. From step 1, $c_f(x) \leq c_{\overline{D}}(x)$. In
+    particular, $c_{\overline{D}}$ is dominant.
+  \end{proof}
+
+  \begin{theorem}
+    Every high degree $\bm{d}$ contains a maximal set $A$.
+  \end{theorem}
+  \begin{proof}
+    Satisfy requirements
+    \[R_e: \overline{A} \subseteq^* \overline{W}_e\; \text{or}\;
+    \overline{A} \subseteq^* W_e.\]
+
+    Let $D\in\bm{d}$ be r.e. as in Theorem~\ref{thm:high-dominant}. Let
+    $D_0=\emptyset$. At stage $s$, if $a_i^s<a_j^s$ and $\sigma(i,a_i^s,s)
+    <\sigma(i,a_j^s,s)$, we say $a_i^s$ is attracted to $a_j^s$ for the
+    sake of requirement $R_i$. At stage $s+1$: \\
+
+    \textit{Step 1.} Choose least $i\leq s$ such that
+    $a_i^s$ is attracted to some larger $a_j^s$ for $R_i$, and
+    \[(\exists y\leq a_i^s)\; [d_y^{s+1} \neq d_y^s].\]
+    In the first condition, we maximise the $i$-state of the element of
+    highest priority to satisfy $R_i$, and in the second condition, $D$
+    permits elements of lower $i$-state to be enumerated into $A$, to
+    satisfy $A\leq_T D$. Choose the minimum $j>i$ such that $a_j^s$ gives
+    the highest $i$-state. Enumerate
+    \[a_i^s, a_{i+1}^s, \ldots, a_{j-1}^s, a_{j+1}^s, \ldots, a_s^s\]
+    into $A$. If there is no such $a_j^s$ do nothing. \\
+
+    \textit{Step 2.} (Code $D$ into $A$) Let
+    \[z =(\mu y) [d_y^{s+1} \neq d_y^s].\]
+    If some $x\leq a_{z+1}^s$ was enumerated into $A$ in Step 1 do nothing.
+    Otherwise enumerate whichever of $a_z^s$ and $a_{z+1}^s$ has the lower
+    $z$-state into $A$. By retaining the element of higher $z$-state, we
+    ensure that if some $x<a_z^s$ was attracted to one of $a_z^s$ or
+    $a_{z+1}^s$, then $x$ remains attracted to the element that remains in
+    $\overline{A}$ after step 2.
+  \end{proof}
+
+  \begin{lemma}
+    $a_i :=\lim_s a_i^s$ exists.
+  \end{lemma}
+  \begin{proof}
+    From finiteness of the number of $i$-states.
+  \end{proof}
+
+  \begin{lemma}
+    $A\equiv_T D$.
+  \end{lemma}
+  \begin{proof}
+    Step 2 ensures $D\leq_T A$, because if $a_{x+1}^s=a_{x+1}$, then
+    $d_x^s=d_x$. Second, $A\leq_T D$ from permitting.
+  \end{proof}
+
+  \begin{lemma}
+    $R_e$ is satisfied, and $\forall^{\text{a.e.}} i,j\;
+    [\sigma(e,a_i)=\sigma(e,a_j)]$.
+  \end{lemma}
+  \begin{proof}
+    Assume lemma true for $i<e$ but false for $e$. We define a recursive
+    $h(x)$ not dominated by $c_{\overline{D}}(x)$. Choose $n\in\omega$ and
+    stage $s_0\in\omega$ large enough such that
+    \begin{itemize}
+      \item $\forall i\geq n\; [\sigma(e-1,a_i) =\sigma(e-1,a_n)]$
+      \item $a_0,\ldots,a_n$ have stabilized by stage $s_0$
+    \end{itemize}
+
+    Then $\forall i\geq n$, $\sigma(e,a_m) =\sigma(e-1,a_n)^\frown0
+    =\sigma_0$ or $\sigma(e-1,a_n)^\frown1 =\sigma_1$. Then since
+    $|\overline{A}\cap W_e|=|\overline{A}\cap\overline{W}_e| =\omega$,
+    there are infinite $a_i$ with $e$-state $\sigma_0$ and infinite $a_i$
+    with $e$-state $\sigma_1$. \\
+
+    Thus each $a_i\not\in W_e$ will be attracted to some $x>a_i$ during
+    construction; the attractor may be some $a_j>a_i$ with $e$-state
+    $\sigma_1$, or some $x$ that is eventually enumerated into $A$. \\
+
+    So given arbitrary $x>a_n$, after stage $s_0$, one of the following
+    cases must happen:
+    \begin{enumerate}
+      \item $x$ is enumerated into $A$
+      \item $e$-state of $x$ is $\sigma_1$
+      \item $e$-state of $x$ is $\sigma_0$ and $x$ is attracted to some
+        larger element $y$ with $e$-state $\sigma_1$
+    \end{enumerate}
+
+    Define $h(x)$ to be the first stage where one of the above happens.
+    Since $|\overline{A}\cap\overline{W}_e|=\omega$, there are infinite
+    elements $a_i\in\overline{A}$ that belong to case 3 above. Assume that
+    once such $a_i$ is attracted to a larger element, it will forever be
+    attracted to a larger element, even if the larger element is enumerated
+    into $A$. \\
+
+    Now $D$ permits $a_i$ to be enumerated into $A$ if $a_0,\ldots,a_i$
+    stabilizes before $d_0,\ldots,d_{a_i}$ does. So since these $a_i$'s
+    were never permitted to enter $A$, and each $a_i$ is always attracted
+    to something larger, it must be that $d_0,\ldots,d_{a_i}$
+    stabilized before stage $h(a_i)$. Yet $c_{\overline{D}}$ dominates
+    $h(x)$, so for large enough $a_i$, $d_0,\ldots,d_{a_i}$ should
+    stabilize after $a_0,\ldots,a_i$, a contradiction. \\
+
+    Thus it suffices to prove that if $a_i\in\overline{A}$ falls under case
+    3 above for the first time, it will forever be attracted to a larger
+    element, even if the larger element is enumerated into $A$. There are
+    two possible cases. In the first case, the larger element is enumerated
+    into $A$ under step 1. Then $a_i$ must be attracted to the first
+    element that is brought forward after the enumeration. In the second
+    case, the larger element is enumerated into $A$ under step 2. Then
+    $a_i$ must be attracted to either the element before or after its
+    initial attractor. \\
+  \end{proof}

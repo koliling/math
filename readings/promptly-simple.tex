@@ -1,0 +1,224 @@
+\section{$\bm{PS}=\bm{NC}=\bm{ENC}$}
+  In this section we show that class of promptly simple degrees are exactly
+  the class of non-capable degrees.
+
+\subsection{Promptly Simple Sets}
+  \begin{theorem}
+    \textbf{(Promptly Simple Degree Theorem)} Let $A$ be an r.e. set and
+    $\{A_s\}_{s\in\omega}$ a recursive enumeration of $A$. Then
+    $\text{deg}(A) \in\bm{PS}$ iff there is a recursive function $p(s)$ such
+    that for all $s$, $p(s)\geq s$, and for all $e$,
+    \begin{equation}
+      W_e\; \text{infinite}\; \implies (\exists x,s)\; [x\in
+      W_{e,\text{at}\; s}\; \wedge\; A_s\restriction x \neq
+      A_{p(s)}\restriction x]
+      \label{eqn:promptly-permit}
+    \end{equation}
+  \end{theorem}
+  \begin{proof}
+    ($\Leftarrow$) Let $B=\Phi^A$ be promptly simple with enumeration
+    $\{B_s\}_{s\in\omega}$ and recursive function $p(s)$.
+  \end{proof}
+
+  \begin{recall}
+    An r.e. set $A$ has a PS degree if it is promptly permitting, i.e.
+    there exists a recursive $p(s)\geq s$ such that $\forall e\in\omega$,
+    \[|W_e|=\infty \implies (\exists x)(\exists s) [x\in W_{e, \text{at}\;
+    s}\; \text{and}\; A_s\restriction x \neq A_{p(s)}\restriction x].\]
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is cappable iff there exists an r.e. set
+    $B\prescript{}{T}{>}0$ such that the only r.e. set computable by $A$
+    and $B$ are the recursive sets.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is non-cappable (NC) if it is not cappable.
+    Equivalently, an r.e. set $A$ is NC iff given any r.e. set
+    $B\prescript{}{T}{>}0$, there exists an r.e. set $C\prescript{}{T}{>}0$
+    computable by $A$ and $B$.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. set $A$ is effectively non-cappable (ENC) if the $C$ above can
+    be computed effectively, i.e. there exist recursive functions
+    $f(e)$, $g(e)$, $h(e)$ such that for all $e\in\omega$,
+    \[\Phi_{f(e)} =\Phi_{g(e)}^A =\Phi_{h(e)}^{W_e},\]
+    and if $W_e\prescript{}{T}{>}0$, then $\Phi_{f(e)}\prescript{}{T}{>}0$.
+  \end{recall}
+
+  \begin{recall}
+    An r.e. degree is NC (ENC) iff it contains a non-cappable (effectively
+    non-cappable) set.
+  \end{recall}
+
+  \begin{recall}
+    $\text{ENC}$ forms a strong filter in $R$.
+  \end{recall}
+
+  \begin{recall}
+    $\text{PS} \subseteq \text{ENC} \subseteq \text{NC}$.
+  \end{recall}
+
+  \begin{goal}
+    $\text{NC} \subseteq \text{PS}$.
+  \end{goal}
+
+  \begin{corollary}
+    $\text{PS}=\text{ENC}=\text{NC}$, and they all form strong filters in
+    $R$.
+  \end{corollary}
+
+  \begin{proof}
+    Fix an arbitrary r.e. set $B$. We show $B$ either has a PS degree or is
+    cappable with witness $A$. We construct r.e. $A$ such that the either
+    $B$ is found to be PS, or $A$ satisfies for all $i,j\in\omega$ the
+    requirements
+    \begin{equation}
+      N_{i,j}: \Phi_i^A=\Phi_j^B =\text{total function} \implies
+      \Phi_i^A\; \text{is recursive}
+      \label{eqn:cappable1}
+    \end{equation}
+  \end{proof}
+
+  \begin{lemma}
+    \label{lemma:N}
+    For $A$ above to satisfy $N_{i,j}$ for all
+    $i,j\in\omega$, it suffices to show $A$ satisfies for all
+    $e\in\omega$,
+    \begin{equation}
+      N_e: \Phi_e^A=\Phi_e^B =\text{total function} \implies \Phi_e^A\;
+      \text{is recursive}.
+      \label{eqn:cappable2}
+    \end{equation}
+  \end{lemma}
+  \begin{proof}
+    Assume that $N_{i,j}$ is not satisfied. If $A=B$, then
+    clearly $N_i$ will not be satisfied. So assume $A\neq B$, and fix any
+    $n$ such that $A(n)\neq B(n)$. Consider the function
+    \begin{align*}
+      \Phi_e^X(x) :=
+      \begin{cases}
+        \Phi_i^X(x) &\text{if}\; X(n)=A(n),\\
+        \Phi_j^X(x) &\text{otherwise}.
+      \end{cases}
+    \end{align*}
+    Then $N_e$ will not be satisfied.
+  \end{proof}
+
+  \begin{notation}
+    From Lemma~\ref{lemma:N}, we can replace requirements $N_{i,j}$ by
+    $N_e$. At a given stage $s$, define the length function as
+    \[l(e,s) :=\max\{x: \Phi_{e,s}^{A_s}\restriction x
+    \downarrow=\Phi_{e,s}^{B_s}\restriction x\},\]
+    and
+    \[m(e,s) :=\max_{t<s}\{l(e,t)\}.\]
+    
+    We say $s$ is an \textit{$e$-expansionary} stage if $l(e,s)>m(e,s)$.
+    Observe that if $\Phi^A_e=\Phi^B_e$, then there are infinitely many
+    $e$-expansionary stages.\\
+  \end{notation}
+
+  \begin{proof}
+    We construct r.e. $A$ such that for each $e\in\omega$, $A$
+    either satisfies $N_e$, or $B$ lies in PS via a recursive function
+    $p_e(s)$ and the set of requirements $\forall i\in\omega$
+    \[P_{e,i}: |W_i|=\infty \implies (\exists x)(\exists s) [x\in
+    W_{i,\; \text{at}\; s}\; \text{and}\; B_s\restriction x \neq B_{p_e(s)}
+    \restriction x].\]
+
+    Write
+    \[R_e: N_e\; \text{or}\; (\forall i)P_{e,i}.\]
+    We construct $A$ and $p_e$ that satisfy $R_e$ for all $e\in\omega$. At
+    the same time, we construct partial recursive function $\Psi_{e,i}$
+    such that should $R_e$ not fail the second clause,
+    $\Psi_{e,i}=\Phi_e^A=\Phi_e^B$ will be total recursive, where $i$ is
+    the first index that fails $P_{e,i}$.\\
+
+    \COMMENT{Observe that if there is some $e\in\omega$ such that $R_e$ is
+    satisfied by the second clause, then $B\in\text{PS}$, and the remaining
+    requirements need not be satisfied.}\\
+
+    At the same time, to ensure $A\prescript{}{T}{>}\;0$, we make $A$
+    simple:
+    \[P_e: |W_e|=\infty \implies W_e\cap A\neq\emptyset.\]
+
+    \textbf{Outline}
+    \begin{tcolorbox}
+      \underline{Stage $s$}: Have $x\in W_{i,s}$ and $y\in\omega$ s.t.
+      \begin{equation}
+        \Phi_{e,s}^{A_s}\restriction y \downarrow=
+        \Phi_{e,s}^{B_s}\restriction y,
+        \label{eqn:restraint}
+      \end{equation}
+      where use of above computation $<x$. Set
+      \begin{equation}
+        \Psi_{e,i}(y)=\Phi_{e,s}^{B_s}(y).
+        \label{eqn:Psi}
+      \end{equation}
+      Set restraint $r(e,s,i)=0$, and cancel lower priority restraints
+      $r(e,s,j)$ for all $j>i$. \COMMENT{We say we open the $R_{e,i}$-gap,
+      because there are no restraints to protect the
+      computation~\eqref{eqn:restraint}.}\\
+
+      If $|W_e\cap A|=\emptyset$ at this stage, enumerate element from
+      $W_e$ into $A$ if higher priority restraints
+      $r(e,s,0),\ldots,r(e,s,i-1)$, and $r(0,s),\ldots,r(e-1,s)$ are
+      respected, where
+      \[r(e',s):=\max_{j\in\omega}\{r(e',s,j)\}.\]
+
+      \underline{Stage $s'>s$}: Have $y'>y$ such that
+      \begin{equation}
+        \Phi_{e,s'}^{A_{s'}}\restriction y' \downarrow=
+        \Phi_{e,s'}^{B_{s'}}\restriction y'.
+      \end{equation}
+      \COMMENT{Such a stage $s'$ the initial segment witnessing
+      $\Phi_e^A=\Phi_e^B$ is the longest so far is called an
+      $e$-expansionary stage, in the sense that the number of witnesses for
+      $\Phi_e^A=\Phi_e^B$ increases.} Set $p_e(s)=s'$, and set
+      \begin{equation}
+        r(e,s,i)\; \text{to protect computation~\eqref{eqn:restraint}}.
+        \label{eqn:r}
+      \end{equation}
+      \COMMENT{We say we close the $R_{e,i}$-gap because we no longer allow
+      elements to be enumerated into $A$ if they may injure
+      computation~\eqref{eqn:restraint}.}
+    \end{tcolorbox}
+
+    Use ``simultaneous strategies'' technique for infinite-injury
+    construction (section~\ref{section:infinite-injury}) to ensure
+    \[\liminf_{s\in\omega} \tilde{r}(e,s) <\infty.\]
+
+    \textbf{Verification}
+    \begin{tcolorbox}
+      If there is some $e$ such that $R_e$ is satisfied by the second
+      clause $(\forall i)P_{e,i}$, then $B\in\text{PS}$ and we are done.
+      \COMMENT{Don't need to bother if other $R_{e'}$ are satisfied.} So
+      assume for all $e$ there exists $i$ such that $\neg P_{e,i}$. Let $i$
+      be the least such $i$. We show $N_e$ is satisfied. Specifically,
+      \[\Phi^A_e=\Phi^B_e=\Psi_{e,i} =\text{recursive}.\]
+
+      By assumption of $N_e$,
+      \[\Phi^A_e=\Phi^B_e.\]
+      Thus since $|W_i|=\infty$, the $R_{e,i}$-gap will be open and closed
+      infinitely often, and $p_e(s)$ will be a total recursive function.\\
+
+      To compute $\Phi^B_e(y)$, wait till higher priority requirements
+      stabilize. In particular, since
+      \[\liminf_s \max\{r(0,s),\ldots,r(e-1,s)\} <\infty,\]
+      consider only stages $s\in S$ where the infinum occurs. Simulate to
+      stage $s\in S$ where
+      \begin{equation}
+        \Phi_{e,s}^{A_s}\restriction y \downarrow=
+        \Phi_{e,s}^{B_s}\restriction y.
+      \end{equation}
+      Then the above computation cannot be injured when the $R_{e,i}$-gap
+      is open, otherwise we would have
+      \[B_s\restriction x \neq B_{p_e(s)}\restriction x,\]
+      contradicting $\neg P_{e,i}$. The computation also cannot be injured
+      after the gap is closed because the restraint $r(e,s,i)$ will protect
+      it forever since it is the highest priority restraint after higher
+      priority requirements have stabilized.
+    \end{tcolorbox}
+  \end{proof}
