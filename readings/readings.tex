@@ -826,51 +826,39 @@
   \begin{lemma}
     $(\forall e)[\Phi_e^A=\Phi_e^B=\text{total} \implies\text{recursive}]$.
   \end{lemma}
+
+  \begin{notation}
+    Given an $A$-computation $\Phi_{e,s}^{A_s}(x)=y$ and $\alpha\in T$, we
+    say the computation is $\alpha$-correct at stage $s$ if in the use $u$ of
+    the above computation,
+    \[(\forall i<e)(\forall z\leq u) [z>\alpha(i) \wedge z\in \omega^{[i]}
+    \implies z\in A_s^{[i]}].\]
+    Similarly for $B$-computation but with $A$ replaced by $B$. \\
+
+    Observe that for a fixed $\alpha\geq f\restriction e$, if
+    $\Phi_e^A(x)=y$, then the $A$-computation will be $\alpha$-correct at
+    cofinite stages.
+  \end{notation}
+
   \begin{proof}
+    Assume $\Phi_e^A=\Phi_e^B=\text{total}$. Write $\alpha:=f\restriction
+    e$. To compute $\Phi_e^A(x)$, wait for stage $s_0$ where higher
+    priority requirements stabilize, i.e.
+    \[(\forall s\geq s_0)\; \alpha\preceq\delta_s.\]
+
+    Now for each $y\leq x$, since $\Phi_e^A(y) \downarrow=\Phi_e^B(y)$,
+    these computations must be $\alpha$-correct at cofinite stages. So wait
+    for stage $s_1>s_0$, $s_1\in S^\alpha$ such that for all $y\leq x$,
+    \begin{itemize}
+      \item $\Phi_{e,s}^{A_s}(y) \downarrow=\Phi_{e,s}^{B_s}(y)$
+      \item The above computations are $\alpha$-correct.
+    \end{itemize}
+
+    Then since $r(e,s)\geq \alpha(e)$ for all $s\geq s_1$, no elements
+    below $\alpha(e)$ will be enumerated into $A$ or $B$ after stage $s_1$.
+    Also, since our construction will enumerate elements into only one of
+    $A$ or $B$ in the above computation at any stage and never both at the
+    same time, and we always protect one side of the computation, the
+    computation of $\Phi_e^A(x)$ at stage $s_1$ will be protected forever.
   \end{proof}
-
-\subsection{Simultaneous Strategies Construction}
-  Write
-  \[\tilde{r}(e,s) :=\max_{e'\leq e}\{r(e',s)\}.\]
-  We have
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
-  We want
-  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
-
-  When it is time for $R_e$ to act, say at stage $s$, the strategy
-  $\sigma_e$ of $R_e$ differs depending on what $p$ is. ``Guess'' $p$ as
-  \[k=\tilde{r}(e-1,s),\]
-  and play strategy $\sigma_e^k$. Thus, $R_e$ simultaneously plays
-  infinite strategies $\sigma_e^0,\sigma_e^1,\ldots$, playing strategy
-  $\sigma_e^{k'}$ at stages in
-  \[S_{k'} :=\{s\in\omega: \tilde{r}(e-1,s)=k'\}.\]
-
-  Strategies $\sigma_e^{k'}$ with lower $k'$ values
-  have higher priority - for each $k'>k$, destroy restraint
-  $r^{k'}(e,s)$ associated with strategy $\sigma_e^{k'}$.
-  \COMMENT{Destruction ensures that if $p$ is indeed $k$, then
-  $\tilde{r}(e,s)$ will fall whenever $\tilde{r}(e-1,s)=p$.}\\
-
-  \underline{Verification}\\
-  Have
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p<\infty.\]
-  Want to show
-  \[\liminf_{s\in\omega} \tilde{r}(e,s)<\infty.\]
-  Since 
-  \[\liminf_{s\in\omega} \tilde{r}(e-1,s) =p,\]
-  eventually strategies $\sigma_e^0,\ldots,\sigma_e^{p-1}$ will
-  stop playing. In particular, restraints
-  $r^0(e,s),\ldots,r^{p-1}(e,s)$ associated with these strategies
-  stop rising. After such a stage $s_0$, strategy $\sigma_e^{p}$ will
-  play infinitely often, and when it is played, restraints for lower
-  priority strategies are destroyed. Yet when lower priority strategies are
-  played at stages $s$ where $\tilde{r}(e-1,s)>p$,
-  restraints established by $\sigma_e^{p}$ are not injured. Thus,
-  strategy $\sigma_e^{p}$ is played infinitely often and never
-  injured after a certain stage, so that
-  \[\liminf_{s\in\omega} \tilde{r}(e,s) =\max\{p,
-  \liminf_{s'\in\omega} r^{p}(e,s')\} <\infty,\]
-  where
-  \[\liminf_{s'\in\omega} r^{p}(e,s') <\infty\]
-  by assumption.
 \end{document}
