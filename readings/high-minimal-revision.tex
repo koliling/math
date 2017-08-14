@@ -1,12 +1,79 @@
-\section{High Minimal Pair}
-  \begin{goal}
-    There exists a minimal pair of high r.e. degrees.
-  \end{goal}
+\section{Minimal Pair}
+  \begin{theorem}
+    There exists a minimal pair of r.e. sets.
+  \end{theorem}
 
-  We construct minimal pair of r.e. sets $A$, $B$ with high degrees.
-  For minimality, satisfy the usual negative requirements
-  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
-  \text{recursive}.\]
+  Construct r.e. $A$, $B$ satisfying
+  \begin{align*}
+    N_e: &\;\Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+      \text{recursive},\\
+    P_{2e}: &\;A\neq \varphi_e.\\
+    P_{2e+1}: &\;B\neq \varphi_e.\\
+  \end{align*}
+
+  Prioritize
+  \[N_0, P_0, N_1, P_1, \ldots.\]
+
+  Construct $A$, $B$ such that for each $e$,
+  \[r(e) :=\liminf_s r(e,s) <\omega,\]
+  and there are infinite stages where
+  \[r(0,s), \ldots, r(e,s)\]
+  simultaneously drop to respective $\liminf$ values $r(0), \ldots, r(e)$.
+  At stage $s$, ``guess'' the value of $r(e)$, for $e\leq s$, as $r(e,s)$.
+
+  \begin{definition}
+    $l(e,s) :=\max\{x: (\forall y<x) \Phi_{e,s}^{A_s}(y)
+    \downarrow=\Phi_{e,s}^{B_s}(y)\}$.
+  \end{definition}
+
+  \begin{definition}
+    \[m(e,s) := \max\{l(e,t): t\leq s\; \text{and guess of}\;
+    r(0),\ldots,r(s)\; \text{at stage}\; t\; \text{same as current
+    guess}\}.\]
+  \end{definition}
+
+  \begin{definition}
+    A stage $s$ is $e$-expansionary if
+    \[l(e,s) > m(e,s-1).\]
+  \end{definition}
+
+  \begin{proof}
+    Sketch of basic module for satisfying $N_e$: Hold one side of
+    computation $\Phi_e^A=\Phi_e^B$.\\
+
+    Stage $s+1$: For $e=0$ to $s$, set
+    \begin{align*}
+      r(e,s) :=
+      \begin{cases}
+        0, &\text{if}\; s\; \text{is $e$-expansionary},\\
+        1, &\text{otherwise}.\\
+      \end{cases}
+    \end{align*}
+
+    Find highest priority positive requirement not yet satisfied, say
+    $P_{2e}$ ($P_{2e+1}$), and for which we found
+    \[x > r(0,s),\ldots,r(e,s),\]
+    and that that when $x$ is enumerated into $A$ ($B$), requirement
+    $P_{2e}$ ($P_{2e+1}$) will be satisfied. Enumerate $x$ into $A$ ($B$).
+  \end{proof}
+
+  \begin{lemma}
+    For a given $e\in\omega$, $r(e):=\liminf_s r(e,s)$ exists, and there
+    are infinite stages where
+    \[r(0,s),\ldots,r(e,s)\]
+    fall simultaneously to their respective $\liminf$ values.
+  \end{lemma}
+  \begin{proof}
+    Wait till stage $s_0$ where $N_0,\ldots,N_{e-1}$ stabilizes, i.e.
+    \[(\forall s\geq s_0)(\forall e'<e)\; [r(e',s)\geq r(e')\.\]
+
+    Consider only stages $s>s_0$ where guess of $r(0),\ldots,r(e-1)$ are
+    correct. There are infinite such stages by inductive hypothesis. Across
+    these stages, if there are infinite $e$-expansionary stages, then
+    \[r(e) :=\liminf_s r(e,s)=0\]
+    by construction. Otherwise $r(e)$ will be the largest $e$-expansionary
+    stage.
+  \end{proof}
 
   For highness, need the following lemma.
   \begin{lemma}
