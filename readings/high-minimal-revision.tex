@@ -11,15 +11,9 @@
     P_{2e+1}: &\;B\neq \varphi_e.\\
   \end{align*}
 
-  Prioritize
-  \[N_0, P_0, N_1, P_1, \ldots.\]
-
-  Construct $A$, $B$ such that for each $e$,
-  \[r(e) :=\liminf_s r(e,s) <\omega,\]
-  and there are infinite stages where
-  \[r(0,s), \ldots, r(e,s)\]
-  simultaneously drop to respective $\liminf$ values $r(0), \ldots, r(e)$.
-  At stage $s$, ``guess'' the value of $r(e)$, for $e\leq s$, as $r(e,s)$.
+  Brief (at expense of accuracy) sketch of module for satisfying $N_e$:
+  Define $r(e,s)$ to hold one side of computation
+  \[\Phi_e^A(x) \downarrow=\Phi_e^B(x).\]
 
   \begin{definition}
     $l(e,s) :=\max\{x: (\forall y<x) \Phi_{e,s}^{A_s}(y)
@@ -27,120 +21,96 @@
   \end{definition}
 
   \begin{definition}
-    \[m(e,s) := \max\{l(e,t): t\leq s\; \text{and guess of}\;
-    r(0),\ldots,r(s)\; \text{at stage}\; t\; \text{same as current
-    guess}\}.\]
+    $m(e,s) := \max\{l(e,t): t\leq s\}$.
   \end{definition}
 
   \begin{definition}
-    A stage $s$ is $e$-expansionary if
-    \[l(e,s) > m(e,s-1).\]
+    Stage $s$ is $e$-expansionary if $l(e,s) > m(e,s-1)$.
   \end{definition}
 
-  \begin{proof}
-    Sketch of basic module for satisfying $N_e$: Hold one side of
-    computation $\Phi_e^A=\Phi_e^B$.\\
+  At $e$-expansionary stage $s$,
+  \[\Phi_{e,s}^{A_s} \restriction x \downarrow= \Phi_{e,s}^{B_s}
+  \restriction x\]
+  for the first time. Allow $P_e$ to destroy only one side of computation,
+  say $A$-computation. Now since $\Phi_e^A=\Phi_e^B$ by assumption of
+  $N_e$, eventually $\Phi_e^A(x)$ equals $\Phi_e^B(x)$ again. Then since we
+  protected the $B$-computation of stage $s$, $A$-computation
+  $\Phi_e^A(x)$ will eventually return to be the same as the
+  $B$-computation $\Phi_{e,s}^{B_s}(x)$. \\
 
-    Stage $s+1$: For $e=0$ to $s$, set
-    \begin{align*}
-      r(e,s) :=
-      \begin{cases}
-        0, &\text{if}\; s\; \text{is $e$-expansionary},\\
-        1, &\text{otherwise}.\\
-      \end{cases}
-    \end{align*}
+  Thus if $\Phi_e^A=\Phi_e^B$ is total, to compute $\Phi_e^A(x)$, wait till
+  the first time we see convergence 
+  \[\Phi_{e,s}^{A_s} \restriction (x+1) \downarrow= \Phi_{e,s}^{B_s}
+  \restriction (x+1);\]
+  then by above argument $\Phi_{e,s}^{A_s}(x)$ is the true value of
+  $\Phi_e^A(x)$. \\
 
-    Find highest priority positive requirement not yet satisfied, say
-    $P_{2e}$ ($P_{2e+1}$), and for which we found
-    \[x > r(0,s),\ldots,r(e,s),\]
-    and that that when $x$ is enumerated into $A$ ($B$), requirement
-    $P_{2e}$ ($P_{2e+1}$) will be satisfied. Enumerate $x$ into $A$ ($B$).
-  \end{proof}
+  To construct such $A$, $B$, at $e$-expansionary stages $s$, set
+  \[r(e,s) =0\]
+  to allow one side of the computation to be destroyed. At non
+  $e$-expansionary stages $s$, we know that one side of the computation has
+  been destroyed, so set
+  \[r(e,s) =\max\{t\leq s: t\; \text{is}\; e\text{-expansionary}\}\]
+  to preserve the other side of the computation.
 
-  \begin{lemma}
-    For a given $e\in\omega$, $r(e):=\liminf_s r(e,s)$ exists, and there
-    are infinite stages where
-    \[r(0,s),\ldots,r(e,s)\]
-    fall simultaneously to their respective $\liminf$ values.
-  \end{lemma}
-  \begin{proof}
-    Wait till stage $s_0$ where $N_0,\ldots,N_{e-1}$ stabilizes, i.e.
-    \[(\forall s\geq s_0)(\forall e'<e)\; [r(e',s)\geq r(e')\.\]
+\subsection{High Minimal Pair}
+  \begin{theorem}
+    There exists a minimal pair of r.e. sets with high degree.
+  \end{theorem}
 
-    Consider only stages $s>s_0$ where guess of $r(0),\ldots,r(e-1)$ are
-    correct. There are infinite such stages by inductive hypothesis. Across
-    these stages, if there are infinite $e$-expansionary stages, then
-    \[r(e) :=\liminf_s r(e,s)=0\]
-    by construction. Otherwise $r(e)$ will be the largest $e$-expansionary
-    stage.
-  \end{proof}
+  Recall that we fix some r.e. $C$ where
+  \begin{align*}
+    e\in\emptyset'' &\implies |C^{[e]}|<\omega,\\
+    e\not\in\emptyset'' &\implies C^{[e]}=\omega,\\
+  \end{align*}
+  and we construct r.e. $A$, $B$ satisfying
+  \begin{align*}
+    N_e: &\;\Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
+      \text{recursive},\\
+    P_e: &\;A^{[e]} \subseteq^* C^{[e]}\; \text{and}\; B^{[e]} \subseteq^*
+      C^{[e]}.\\
+  \end{align*}
 
-  \begin{lemma}
-    $P_e$ is satisfied.
-  \end{lemma}
-  \begin{proof}
-    Wait till stage $s_0$ where $N_0,\ldots,N_{e-1}$ stabilizes and
-    $P_0,\ldots,P_{e-1}$ have been satisfied. There are
-    infinite stages after where $r(0,s),\ldots,r(e,s)$ fall to their
-    respective $\liminf$ values.
-  \end{proof}
+  Prioritize
+  \[N_0, P_0, N_1, P_1, \ldots.\]
 
-  For highness, need the following lemma.
-  \begin{lemma}
-    \label{lem:high-req}
-    There exists an r.e. set $C$ such that if r.e. set $A$ is a thick
-    subset of $C$, then $A$ is high.
-  \end{lemma}
-  \begin{proof}
-    Recall $\emptyset''\equiv_T\text{Tot}$. In
-    particular, $\emptyset''\leq_T\text{Tot}$, so exists recursive $f(e)$
-    s.t.
-    \[e\in\emptyset'' \Leftrightarrow f(e)\not\in\text{Tot}.\]
-    Consider recursive $g(e)$ defined as
-    \begin{align*}
-      \varphi_{g(e)}(x) :=
-      \begin{cases}
-        0, &\text{if}\; \varphi_e(0),\ldots,\varphi_e(x)\downarrow,\\
-        \uparrow, &\text{otherwise}.\\
-      \end{cases}
-    \end{align*}
+  At stage $s$, have $\delta_s\in T$, $|\delta_s|=2s$, where $\delta_s$
+  `guesses' the true path $f\in[T]$, and where
+  \begin{enumerate}[label=(\roman*)]
+    \item $f(n) :=\liminf_s \delta_s(n) <\omega$ exists, being the
+      `left-most' path visited infinitely often
+    \item $f(2e)=r(e) :=\liminf_s r(e,s)$
+    \item $f(2e+1)=\begin{cases} 0, &\text{if}\; |C^{[e]}|=\omega,\\ 0,
+      &\text{otherwise}. \end{cases}$
+  \end{enumerate}
 
-    Then
-    \begin{align*}
-      e\not\in\text{Tot} &\implies g(e)\in\text{Fin},\\
-      e\in\text{Tot} &\implies g(e)\in\text{Tot}.
-    \end{align*}
+  \textbf{Construction}
+  \begin{tcolorbox}
+    At stage $s+1$, do for $e$ from 0 to $s$:
+    \begin{enumerate}
+      \item For each $\beta\leq \delta_s\restriction e$, define
+        \begin{align*}
+          r(\beta,s) =
+          \begin{cases}
+            0, &\text{if}\; \beta\preceq\alpha\; \text{and}\; s\;
+              \text{is}\; \beta\text{-expansionary},\\
+            \text{the greatest}\; \beta\text{-expansionary stage}\; t<s,
+              &\text{otherwise}.\\
+          \end{cases}
+        \end{align*}
+      \item Then define
+        \[\delta_s(e) =r(e,s) :=\max_{\beta\leq\alpha}\{r(\beta,s)\}.\]
+    \end{enumerate}
 
-    Let $h=g\circ f$. Then
-    \begin{align*}
-      e\in\emptyset'' &\implies h(e)\in\text{Fin},\\
-      e\not\in\emptyset'' &\implies h(e)\in\text{Tot}.
-    \end{align*}
+    Choose smallest $x=\langle y,e\rangle<s$, $x\in C_s^{[e]}$ such
+    that $x>r(e,s)=\delta_s(e)$ but $x$ has not been enumerated into
+    $A$ or $B$ yet. Enumerate $x$ into $A$ if $x\not\in A_s$, otherwise
+    enumerate $x$ into $B$. Note that at most one element enters $A$ or
+    $B$, which is necessary to satisfy $N_e$ since at most one of $A$ or
+    $B$ computation can be injured at one stage.
+  \end{tcolorbox}
 
-    Choose r.e.
-    \[C :=\{\langle x,e\rangle: x\in W_{h(e)}\}.\]
-    Then if $A$ is a thick subset of $C$,
-    \[e\in\emptyset'' \implies C^{[e]}\; \text{finite} \implies A^{[e]}\;
-    \text{finite} \implies \lim_x A(\langle x,e\rangle)=0,\]
-    and
-    \[e\not\in\emptyset'' \implies C^{[e]}=\omega \implies A^{[e]}\;
-    \text{cofinite} \implies \lim_x A(\langle x,e\rangle)=1.\]
-
-    Thus
-    \[\emptyset''\leq_T \lim_x A(\langle x,e\rangle) \leq_T A',\]
-    so $A$ is high.
-  \end{proof}
-
-  Thus to construct high minimal pair $A$ and $B$, fix r.e. $C$ in
-  Lemma~\ref{lem:high-req}, and suffices to satisfy requirements
-  \[N_e: \Phi_e^A=\Phi_e^B=\text{total} \implies \Phi_e^A\;
-  \text{recursive},\]
-  \[P_e^A: A^{[e]} =^* C^{[e]},\]
-  \[P_e^B: B^{[e]} =^* C^{[e]}.\]
-
-\subsection{Tree Method for Infinite Injury Construction}
-  \label{section:infinite-injury}
-  Construct r.e. sets $A$, $B$ satisfying $N_e$ and $P_e$.  $N_e$ sets
+  Construct r.e. sets $A$, $B$ satisfying $N_e$ and $P_e$. $N_e$ sets
   restraints $r(e,s)$ to protect computation. Some $P_e$'s enumerate
   infinite elements into $A$ and $B$. Need higher priority restraints
   \[r(0,s),\ldots,r(e,s)\]
