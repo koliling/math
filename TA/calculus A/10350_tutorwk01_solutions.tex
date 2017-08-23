@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{psfig}
+\usepackage{graphics}
+\usepackage{amsopn}
+\usepackage[dvips]{epsfig}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.2in}
+\setlength{\topmargin}{-.5in}
+\setlength{\marginparsep}{1in}
+\settowidth{\oddsidemargin}{1.5in}
+\setlength{\footskip}{.5in}
+\renewcommand{\thepage}{\hfill\arabic{page}}
+\newcommand{\pp}[1]{{\mathfrak #1}}
+\newcommand{\length}{\operatorname{length}}
+\newcommand{\spec}{\operatorname{Spec}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\annih}{\operatorname{annih}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ass}{\operatorname{Ass}}
+\newcommand{\A}{\operatorname{A}}
+\newcommand{\Z}{\operatorname{Z}}
+\newcommand{\cl}{\operatorname{Cl}}
+\newcommand{\rat}{\operatorname{Rat}}
+\newcommand{\K}{\operatorname{K_0}}
+\newcommand{\G}{\operatorname{G}}
+\newcommand{\R}{\operatorname{R}}
+\newcommand{\ext}{\operatorname{Ext}}
+\newcommand{\tor}{\operatorname{Tor}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ch}{\operatorname{ch}}
+
+\def\RR{{\mathbb R}}
+\def\NN{{\mathbb N}}
+\def\QQ{{\mathbb Q}}
+\def\CC{{\mathbb C}}
+\def\ZZ{{\mathbb Z}}
+\def\TT{{\mathbb T}}
+\def\mf{\mathfrak}
+\def\pf{{\noindent}\textsc{Proof:} }
+\def\epf{\hfill\text{$\blacksquare$}}
+\def\nd{{\noindent}}
+\def\supp{\mathrm{supp}}
+
+\begin{document}
+
+\noindent
+{\bf 10350 Tutorial Week 01 - Set 01}
+\hfill Name \underline{\hskip 2.5in}
+
+\vskip0.1in
+
+\hfill Section \underline{\hskip 1.57in}
+
+\bigskip
+
+\nd {\bf 1.} Let $f(x)=\dfrac{1}{x}$. Assuming that $h\neq 0$, find and simplify \quad$\dfrac{f(x+h)-f(x)}{h}$.
+
+\vskip .2in
+
+\begin{align*}
+\dfrac{f(x+h)-f(x)}{h} &= \dfrac{\dfrac{1}{x+h} - \dfrac{1}{x}}{h} \\
+&= \dfrac{1}{h} \left( \dfrac{x}{x(x+h)} - \dfrac{x+h}{x(x+h)} \right) \\
+&= \dfrac{1}{h} \left( \dfrac{-h}{x^2+xh} \right) \\
+&= \dfrac{-1}{x^2+xh} \text{ (accepted solution)}\\
+&= \dfrac{-1}{x(x+h)} \text{ (accepted solution)}
+\end{align*}
+
+\newpage
+
+\noindent
+{\bf 10350 Tutorial Week 01 - Set 02}
+\hfill Name \underline{\hskip 2.5in}
+
+\vskip0.1in
+
+\hfill Section \underline{\hskip 1.57in}
+
+\bigskip
+
+\nd {\bf 2.} Simplify the following expression as far as possible. Your answer should have no negative exponents:
+
+\bigskip
+
+\nd (a) 
+\begin{align*}
+\dfrac{y^4(x^3y^{-2})^2}{2x^{-1}}\overset{ }{=} \dfrac{1}{2}(y^4 x^6 y^{-4} x^1) = \dfrac{x^7}{2}
+\end{align*}
+\vspace{3in}
+
+\noindent
+(b) 
+\begin{align*}
+\dfrac{(x^2+4)^2 (3)-2x(x^2+4)(3x-5)}{(x^2+4)^4} &= \dfrac{3(x^2+4) - 2x(3x-5)}{(x^2+4)^3} \\
+&= \dfrac{3x^2+12-6x^2+10x}{(x^2+4)^3} \\
+&= \dfrac{-3x^2+10x+12}{(x^2+4)^3}
+\end{align*}
+
+\vskip3in
+
+\newpage
+
+\noindent
+{\bf 10350 Tutorial Week 01 - Set 03}
+\hfill Name \underline{\hskip 2.5in}
+
+\vskip0.1in
+
+\hfill Section \underline{\hskip 1.57in}
+
+\bigskip
+
+\nd {\bf 3.} Find ALL the zeroes of $f(x)=2x^2-x-3$ {\bf exactly}.
+
+$f(x) = 2x^2-x-3 = (2x-3)(x+1) \implies f(x)=0 \text{ when } x=\dfrac{3}{2}, -1$
+
+\vspace{2in}
+
+\nd {\bf 4.} Solve $4^{x-2}=8$. Be sure your answer is simplified.
+\begin{align*}
+ 4^{x-2} &= 8 \\
+(2^2)^{(x-2)}& = 2^3 \\
+ 2^{2x-4} &= 2^3 \\
+ 2x-4 &= 3 \\
+2x &= 7 \\
+ x&=\dfrac{7}{2}
+\end{align*}
+
+\vskip.5in
+
+\nd {\bf 5.} Find and simplify the expression $\dfrac{g(n+1)}{g(n)}$ if $g(n)=\dfrac{2^{n}x^{2n-1}}{n^3}$. 
+
+\begin{align*}
+\dfrac{g(n+1)}{g(n)} &= \dfrac{\dfrac{2^{n+1} x^{2(n+1)-1}}{(n+1)^3}}{\dfrac{2^n x^{2n-1}}{n^3}}\\
+&= \left( \dfrac{2^{n+1} x^{2(n+1)-1}}{(n+1)^3} \right) \left( \dfrac{n^3}{2^n x^{2n-1}} \right) \\
+&= \dfrac{2^{n+1}x^{2n+2-1}n^3}{(n+1)^3 2^n x^{2n-1}} \\
+&= \dfrac{2^{(n+1)-n} x^{2n+1-(2n-1)} n^3}{(n+1)^3} \\
+&= \dfrac{2x^2 n^3}{(n+1)^3}
+\end{align*}
+
+\end{document}
+
+\nd {\bf 5.} Find the dimensions of the rectangle whose
+perimeter is 10 feet and which is such that the square of the
+length of the diagonal is 13 square feet.
+
