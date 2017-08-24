@@ -1,9 +1,9 @@
 .PHONY: main
 
 main:
-	pdflatex Tutorial\ Information.tex
-	pdflatex Tutorial\ Information.tex
-	pdflatex Tutorial\ Information.tex
+	pdflatex policy.tex
+	pdflatex policy.tex
+	pdflatex policy.tex
 
 clean:
 	rm *.aux
