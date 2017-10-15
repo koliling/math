@@ -16,50 +16,25 @@
 \date{\today}
 \maketitle
 
-\textbf{Kunen I.9.6:} \it Derive the axioms of Infinity and Replacement
-  from (2) of Lemma I.9.5. Hint. For Infinity, let $A$ be the
-  (possibly proper) class of all natural numbers, and let $xRy$ iff
-  $x=y+1$.
+\textbf{Exercise 12:} \it Show that for local rings $R_0\sqsubseteq R$ we
+  have $\bm{m}_0=\bm{m}\cap R_0$.
 
   \begin{proof}
-    We follow the hint to derive Infinity. Let $A$ be the
-    possibly proper class of all natural numbers, and let $xRy$ iff
-    $x=y+1$. Formally, $A$ is the class of sets $n$ where $n$
-    is transitive, well-ordered by $\in$, and contains only elements that
-    are either the empty set or a successor. Also, relation $xRy$ is
-    defined by $x=S(y)$, where $S$ denotes the formula for successor. Then
-    $R$ is set-like on $A$, because every natural number $n$ has only one
-    successor $S(n)$ which is also a natural number. Therefore
-    $\text{pred}_{A,R}(n) =\{S(n)\}$, which is a set since $S(n)$ is a set
-    and singletons of sets are sets by the Pairing Axiom. Thus from Lemma
-    I.9.5 the transitive closure relation $R^*$ is also set-like. \\
+    We are assuming that $R_0$ is a subring of $R$. \\
 
-    Consider the transitive closure $B$ of $\emptyset$ in $A$. $B$ is a set
-    since $R^*$ is set-like. Also, $B$ will contain exactly all the natural
-    numbers, and is therefore a witness for the Axiom of Infinity. \\
+    $\bm{m}_0\subseteq\bm{m}\cap R_0$ follows by definition of
+    $R_0\sqsubseteq R$. For the reverse containment, since $R_0$ is local,
+    it suffices to show that $\bm{m}\cap R_0$ is an ideal of $R_0$, and
+    that $\bm{m}\cap R_0$ is not equal to $R_0$. To prove the second
+    claim, observe that $R_0$ cannot be contained in contain $\bm{m}$,
+    because as a subring of $R_0$, $R_0$ must contain the identity of $R$,
+    which does not lie in $\bm{m}$ since $\bm{m}$ is a non-trivial ideal of
+    $R$. Thus $\bm{m}\cap R_0\neq R_0$. \\ 
 
-    To derive Replacement, fix any set $X$ and formula $\varphi(x,y,w)$
-    such that for a fixed set $w$, given any $x\in X$ there is a unique set
-    $y$ such that $\varphi(x,y,w)$ holds. We want to show that the range of
-    $\varphi$, defined as $Y :=\{y: (\exists x\in X)\; \varphi(x,y,w)\}$,
-    is a set. We define a relation $R$ on the possibly proper class $X\cup
-    Y$ such that if $y\in Y$, then $xRy$ iff $x\in X$ and
-    $\neg\varphi(x,y,w)$. Otherwise if $x\in X$, then $yRx$ iff
-    $\varphi(x,y,w)$. \\
-
-    Now $R$ is set-like on $X\cup Y$, because if $y\in Y$, then
-    $\text{pred}_{X\cup Y,R}(y) =\{x\in X: \neg\varphi(x,y,w)\}$, which is
-    a set by the axiom of Comprehension since it is a subset of $X$ and can
-    be defined by the formula $\neg\varphi(x,y,w)$. Also, if $x\in X$,
-    then $\text{pred}_{X\cup Y,R}(x)=\{y\}$, where $y$ is the unique set
-    that $\varphi(x,y,w)$ holds; this will also be a set by the Pairing
-    axiom since $y$ is a set. Thus by Lemma I.9.5, the transitive closure
-    relation $R^*$ is also set-like. \\
-
-    Fix any $x\in X$, and consider its transitive closure
-    $S=\text{pred}_{X\cup Y,R^*}(x)$. Then $S$ is a set from Lemma I.9.5,
-    and $S$ is exactly $X\cup Y$ by definition. Then using Comprehension,
-    we can extract $Y$ as a set from $S$ as follows:
-    \[Y =\{y\in S:\; (\exists x)\; \varphi(x,y,w)\}.\]
+    To prove the first claim, observe that as rings, both $\bm{m}$
+    and $R_0$ are closed under subtraction. As an ideal of $R$, $\bm{m}$ is
+    closed under multiplication with elements of $R_0$. $R_0$ is also
+    clearly closed under multiplication with elements of $R_0$. Thus
+    $\bm{m}\cap R_0$ is an ideal of $R_0$.
   \end{proof}
 \end{document}
