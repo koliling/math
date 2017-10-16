@@ -37,4 +37,19 @@
     clearly closed under multiplication with elements of $R_0$. Thus
     $\bm{m}\cap R_0$ is an ideal of $R_0$.
   \end{proof}
+
+\textbf{Q5:} \it Let $R<K$ be domains and every $k\in K$ is integral over
+  $R$. If $K$ is a field, show that $R$ is a field as well.
+
+  \begin{proof}
+    Let $r\in R^*$. We want to show that $r^{-1}\in F$ also lies in $R$.
+    Since $r^{-1}$ is integral over $R$, there exists
+    $r_0,\ldots,r_{n-1}\in R$ such that
+    \[r^{-n}+r_{n-1}r^{-n+1} +\ldots +r_1r^{-1}+r_0=0.\]
+    Rearranging, we get
+    \[r(-r_0r^{n-1} -r_1r^{n-2} -\ldots -r_{n-2}r -r_{n-1}) = 1.\]
+    So
+    \[-r_0r^{n-1} -r_1r^{n-2} -\ldots -r_{n-2}r -r_{n-1} \in R\]
+    is the multiplicative inverse of $r$, and it lies in $R$, as required.
+  \end{proof}
 \end{document}
