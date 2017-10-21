@@ -40,7 +40,6 @@
 
 \textbf{Q5:} \it Let $R<K$ be domains and every $k\in K$ is integral over
   $R$. If $K$ is a field, show that $R$ is a field as well.
-
   \begin{proof}
     Let $r\in R^*$. We want to show that $r^{-1}\in F$ also lies in $R$.
     Since $r^{-1}$ is integral over $R$, there exists
@@ -51,5 +50,27 @@
     So
     \[-r_0r^{n-1} -r_1r^{n-2} -\ldots -r_{n-2}r -r_{n-1} \in R\]
     is the multiplicative inverse of $r$, and it lies in $R$, as required.
+  \end{proof}
+
+\textbf{Q7:} \it (Corollary 9.6) For a fixed prime $p$ the theory of
+  $p$-adically closed fields in the language $\mathcal{L}_v$ is complete
+  and model complete.
+
+  \begin{proof}
+    Since $T_p^c$ has QE in the expanded language $\mathcal{L}_p^c$
+    (Theorem 9.4), and therefore is model-complete with respect to
+    $\mathcal{L}_p^c$. Since no new axioms were added in the expanded
+    language, the models of $T_p^c$ in the original language are the same
+    as the models in the expanded one. Thus $T_p^c$ is model-complete. \\
+
+    To prove completeness, fix an arbitrary model $\mathcal{M}$ of $T_p^c$.
+    Then $\mathcal{M}$ must embed $\mathbb{Q}$ as a valued field with
+    $p$-adic valuation, and thus also embeds $\mathbb{Q}_p^h$, the
+    hensalization of $\mathbb{Q}$. So $\mathbb{Q}_p^h$ is a substructure of
+    $\mathcal{M}$, thus by model-completeness, is an elementary
+    substructure of $\mathcal{M}$. In particular, $\mathbb{Q}_p^h$ and
+    $\mathcal{M}$ are elementary equivalent.  Since $\mathcal{M}$ is an
+    arbitrary model of $T_p^c$, $T_p^c$ is the complete theory of
+    $\mathbb{Q}_p^h$.
   \end{proof}
 \end{document}
