@@ -109,15 +109,15 @@
     is zero for all indices after the first $n+d$ ones. Since there are
     only countably many balls of such form, any chain of balls must be
     countable. Observe further that given two balls $B_{\geq
-    n_0}(p^{d_0}(a_i))$ and $B_{\geq n_1}(p^{d_1}(b_i))$, the first ball
+    n_0}(p^{-d_0}(a_i))$ and $B_{\geq n_1}(p^{-d_1}(b_i))$, the first ball
     contains the second if and only $d_0=d_1$, $n_0\leq n_1$, and $a_i=b_i$
     for the first $n_0+d_0$ indices. \\
 
     Thus, given a chain $\mathcal{B}=\{B_i:i\in\omega\}$ of balls, we can
-    assume $B_i=B_{\geq n_i}(p^d(a_{i,j}))$, where $d\in\mathbb{Z}$ is
+    assume $B_i=B_{\geq n_i}(p^{-d}(a_{i,j}))$, where $d\in\mathbb{N}$ is
     fixed, $n_i\geq n_{i+1}$, $a_{i,j}=0$ for all $j\geq n_i+d$, and
     $a_{i,j}=a_{i+1,j}$ for the first $n_i+d$ indices. Then the element
-    $p^d(a_j)\in\mathbb{Q}_p$ where
+    $p^{-d}(a_j)\in\mathbb{Q}_p$ where
     \[a_j :=\lim_{i\in\omega} a_{i,j},\]
     will be contained in every ball in $\mathcal{B}$, which completes the
     proof.
