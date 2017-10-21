@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.6)  20 OCT 2017 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.6)  20 OCT 2017 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -640,15 +640,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--33
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--81
-
- []
-
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
+Underfull \hbox (badness 10000) in paragraph at lines 88--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
 
@@ -680,7 +680,7 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on midterm.pdf (2 pages, 161043 bytes).
+Output written on midterm.pdf (2 pages, 164831 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream
