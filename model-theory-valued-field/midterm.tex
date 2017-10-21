@@ -113,9 +113,9 @@
     contains the second if and only $d_0=d_1$, $n_0\leq n_1$, and $a_i=b_i$
     for the first $n_0+d_0$ indices. \\
 
-    Thus, given a chain of $\mathcal{B}=\{B_i:i\in\omega\}$, we can assume
-    $B_i=B_{\geq n_i}(p^d(a_{i,j}))$, where $d\in\mathbb{Z}$ is fixed,
-    $n_i\geq n_{i+1}$, $a_{i,j}=0$ for all $j\geq n_i+d$, and
+    Thus, given a chain $\mathcal{B}=\{B_i:i\in\omega\}$ of balls, we can
+    assume $B_i=B_{\geq n_i}(p^d(a_{i,j}))$, where $d\in\mathbb{Z}$ is
+    fixed, $n_i\geq n_{i+1}$, $a_{i,j}=0$ for all $j\geq n_i+d$, and
     $a_{i,j}=a_{i+1,j}$ for the first $n_i+d$ indices. Then the element
     $p^d(a_j)\in\mathbb{Q}_p$ where
     \[a_j :=\lim_{i\in\omega} a_{i,j},\]
@@ -129,10 +129,11 @@
 
   \begin{proof}
     Since $T_p^c$ has QE in the expanded language $\mathcal{L}_p^c$
-    (Theorem 9.4), and therefore is model-complete with respect to
+    (Theorem 9.4), it is model-complete with respect to
     $\mathcal{L}_p^c$. Since no new axioms were added in the expanded
     language, the models of $T_p^c$ in the original language are the same
-    as the models in the expanded one. Thus $T_p^c$ is model-complete. \\
+    as the models in the expanded one. Thus $T_p^c$ is also model-complete
+    in the original language. \\
 
     To prove completeness, fix an arbitrary model $\mathcal{M}$ of $T_p^c$.
     Then $\mathcal{M}$ must embed $\mathbb{Q}$ as a valued field with
