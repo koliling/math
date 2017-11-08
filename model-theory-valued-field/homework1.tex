@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,tikz,mathtools}
+\usepackage{stmaryrd} % For double square bracket [[]]
+\usepackage{bm} % For bold vectors
+\usepackage{color}
+\usepackage{cancel} % To use the cancel function
+\usepackage[inline]{enumitem}
+\usetikzlibrary{patterns}
+\setlength{\parindent}{0mm}
+\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+
+\begin{document}
+\title{Model Theory of Valued Fields: Homework}
+\author{Li Ling Ko\\ lko@nd.edu}
+\date{\today}
+\maketitle
+
+\it \textbf{Q1.} Find $J_X(T)$ for the variety defined by $xy=0$.
+\begin{proof}
+  Fix $m\in\mathbb{N}$. We want to find $\mathcal{L}_m(X)$. Let $\langle x,
+  y\rangle$ be in $X(\mathbb{C}^{2m})$. Write
+  \begin{align*}
+    x &=a_0+a_1t+\ldots+a_mt^m\\
+    y &=b_0+b_1t+\ldots+b_mt^m.\\
+  \end{align*}
+  Then
+  \begin{equation}
+    \label{main}
+    (a_0+a_1t+\ldots+a_mt^m) (b_0+b_1t+\ldots+b_mt^m)=0 \mod t^{m+1}.
+  \end{equation}
+
+  Observe that the solutions of the above formula can be split into $(m+2)$
+  disjoint cases -- in the first case, we consider the solutions when
+  $x=0$. Then $y$ can be any value in $\mathbb{C}^{m+1}$, so the space of
+  solutions is definably bijective to 
+  \[\mathbb{C}^{m+1} \equiv \mathbb{L}^{m+1}.\]
+
+  For the remaining $(m+1)$ cases, in the $i$-th case, where
+  $i\in\{0,\ldots,m\}$, we consider solutions of equation~\eqref{main} when
+  $i$ is the smallest power of $t$ where the coefficient $a_i$ of $t^i$ is
+  non-zero. The space of $x$'s of such form is
+  \[(\mathbb{C}-\{0\}) \times\mathbb{C}^{m-i} \equiv
+  \mathbb{L}^{m-i+1}-\mathbb{L}^{m-i}.\]
+
+  For each $x$ in this space, $y$ can be any formula in
+  $\mathbb{C}[t]/t^{m+1}$ as long as its lowest power of $t$ is greater or
+  equal to than $(m-i+1)$. Thus the space of $y$ for each such $x$ is of
+  the form
+  \[\mathbb{C}^{i} \equiv \mathbb{L}^{i}.\]
+  This gives a total space of
+  \[(\mathbb{L}^{m-i+1}-\mathbb{L}^{m-i}) \times\mathbb{L}^{i} \equiv
+  \mathbb{L}^{m+1}-\mathbb{L}^{m},\]
+  for each $i\in\{0,\ldots,m\}$. \\
+
+  Adding up the $(m+2)$ disjoint cases,
+  \begin{align*}
+    [\mathcal{L}_m(X)] &=\mathbb{L}^{m+1}
+      +(m+1)(\mathbb{L}^{m+1}-\mathbb{L}^{m})\\
+      &=(2\mathbb{L}-1)\mathbb{L}^m +(\mathbb{L}-1)m\mathbb{L}^m.\\
+  \end{align*}
+
+  Using the fact that $\displaystyle\sum_{m=0}^\infty T^m =\frac{1}{1-T}$
+  and $\displaystyle\sum_{m=0}^\infty mT^m =\frac{T}{(1-T)^2}$, we simplify
+  \begin{align*}
+    J_X(T) &:=\sum_{m=0}^\infty [\mathcal{L}_m(X)]T^m\\
+      &=\sum_{m=0}^\infty [(2\mathbb{L}-1)\mathbb{L}^m
+        +(\mathbb{L}-1)m\mathbb{L}^m] T^m\\
+      &=(2\mathbb{L}-1) \sum_{m=0}^\infty (\mathbb{L}T)^m +(\mathbb{L}-1)
+        \sum_{m=0}^\infty m(\mathbb{L}T)^m\\
+      &=\frac{2\mathbb{L}-1}{1-\mathbb{L}T}
+        +\frac{(\mathbb{L}-1)\mathbb{L}T}{(1-\mathbb{L}T)^2}\\
+      &=\frac{2\mathbb{L}-\mathbb{L}^2T-1}{(1-\mathbb{L}T)^2}.\\
+  \end{align*}
+\end{proof}
+
+\it \textbf{Q2.} Find $J_X(T)$ for the variety defined by $x^3=y^2$.
+\end{document}
