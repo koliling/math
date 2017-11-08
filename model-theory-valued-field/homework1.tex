@@ -16,7 +16,8 @@
 \date{\today}
 \maketitle
 
-\it \textbf{Q1.} Find $J_X(T)$ for the variety defined by $xy=0$.
+\it \textbf{Q1.} Find $J_X(T)$ for the variety defined by $xy=0$. (I
+worked with Justin Miller on this question)
 \begin{proof}
   Fix $m\in\mathbb{N}$. We want to find $\mathcal{L}_m(X)$. Let $\langle x,
   y\rangle$ be in $X(\mathbb{C}^{2m})$. Write
@@ -74,7 +75,42 @@
   \end{align*}
 \end{proof}
 
-\it \textbf{Q2.} Find $J_X(T)$ for the variety defined by $x^3=y^2$.
+\it \textbf{Q2.} Find $J_X(T)$ for the variety defined by $x^3=y^2$. (I
+received significant help from Greg, Kyle, Rachael, Nicolas, and Leo on
+this question)
 \begin{proof}
+  We attempt to find a recursive relation between $[\mathcal{L}_{m+1}(X)]$
+  and $[\mathcal{L}_{m}(X)]$. To get $[\mathcal{L}_{m+1}(X)]$ given
+  $[\mathcal{L}_{m}(X)]$, we shall apply a theorem of algebraic geometry,
+  which says that the space of $X(\mathbb{C}[t]/t^{m+1})$ is the space of
+  tangent bundles of $X(\mathbb{C}[t]/t^{m})$. \\
+
+  In the base case when $m=0$, $X(\mathbb{C}) \subseteq\mathbb{C}^2$
+  is the solutions of the equation
+  \[x_0^3=y_0^2.\]
+  Observe that the map $\mathbb{C}\rightarrow X$ given by $t\mapsto\langle
+  t^2,t^3\rangle$ is a definable bijection, therefore
+  \[[\mathcal{L}_0(X)] =[\mathcal{L}_0(\mathcal{C})] =\mathbb{L}.\]
+
+  To find $[\mathcal{L}_{1}(X)]$, the theorem says $X(\mathbb{C}[t]/t)
+  \subseteq\mathbb{C}^4$ is the space of tangent bundles of
+  $X(\mathbb{C})\subseteq\mathbb{C}^2$. Thus we differentiate the
+  equation $x_0^3=y_0^2$ and write $x_0'$ as $x_1$ and $y_0'$ as $y_1$, and
+  get $X(\mathbb{C}[t]/t) \subseteq\mathbb{C}^4$ as solutions of the
+  equations
+  \[x_0^3=y_0^2\;\;\; \text{and}\;\;\; 3x_0^2x_1=2y_0y_1.\]
+  The solutions can be split into two disjoint cases - in the first case,
+  consider when $x_0=0$; then $y_0=0$ and $y_1$ can be any value in
+  $\mathbb{C}$. So for each of the $\mathbb{C}$ possibilities of $x$, we
+  have $\mathbb{C}$ possibilities for $y$, giving a solution space
+  bijective to $\mathbb{L}^2$. In the second case, when $x_0\neq0$, there
+  are exactly two possibilities for $y_0$, and only one possibility for
+  $y_1$. So for each of the $(\mathbb{C}-1)\mathbb{C}$ possibilities of
+  $x$, we have $2$ possibilities for $y$, giving a solution space bijective
+  to $2(\mathbb{L}-1)\mathbb{L}$. Adding the disjoint spaces, we get
+  \[\mathcal{L}_1(X) =\mathbb{L}^2 +2(\mathbb{L}-1)\mathbb{L}
+  =3\mathbb{L}^2-2\mathbb{L}.\]
+
+  Don't know how to continue...
 \end{proof}
 \end{document}
