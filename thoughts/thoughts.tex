@@ -74,7 +74,7 @@
     \end{proof}
 
     \begin{theorem}
-      Make sense of fixed point, and Arslanov's completeness criteria.
+      Make sense of fixed-point, and Arslanov's completeness criteria.
     \end{theorem}
     \begin{proof}
       How do we interpret the proof of the fixed-point (recursion) theorem?
@@ -199,6 +199,20 @@
     \end{proof}
 
 \section{Reverse Math}
+  \subsection{Rich Sets}
+    \begin{question}
+      By Simpson all hyperarithmetical sets are rich, and by Soare a
+      poor set exists. Are there non-hyperarithmetical sets that are also
+      rich?
+    \end{question}
+    \begin{proof}
+      Yes. Consider the join $H\oplus P$ of a hyperarithmetical set $H$
+      with a poor set $P$. Given arbitrary $X$ that computes $H\oplus P$,
+      since $H$ is rich, it contains some subset $H_0\subset H$ that is
+      Turing equivalent to $X$. Then $H_0\oplus\emptyset$ witnesses the
+      richness of $H\oplus P$.
+    \end{proof}
+
   \subsection{Galvin-Prikry}
     \begin{question}
       Is Borel necessary for Galvin-Prikry to hold? In other words, is
@@ -206,6 +220,8 @@
       Galvin-Prikry?
     \end{question}
     \begin{proof}
+      Probably not. Silver's result improved Galvin-Prikry but only in a
+      special case. There is a book with these results.
     \end{proof}
 
 \section{Philosophy}
