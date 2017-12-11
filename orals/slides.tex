@@ -98,7 +98,7 @@ Lemma}
 
 \begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
-    \item Fix instance of WKL with only one path $f$, which is
+    \item Fix instance of WKL with only one solution $f$, which is
       not hyperarithmetic
     \item Fix instance \textbf{Q} of RT, assume by contradiction all
       its solutions compute $f$ 
@@ -108,6 +108,27 @@ Lemma}
       computably encodable.
     \item But being computably encodable is the same as being
       hyperarithmetic, $\rightarrow\leftarrow$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{WWKL $\lneq_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item WWKL $\leq_{\text{soc}}$ WKL trivial
+    \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
+      solution $f$, which is non-computable
+    \item Measure of set of oracles computing $f$ is null
+    \item Given arbitrary instance of WWKL, since set of solutions has
+      positive measure, there must be solutions that do not compute $f$ 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Possible backup slides}
+  \begin{itemize}
+    \item Measure of set of oracles computing a fixed non-recursive is
+      null
+    \item Prove Galvin-Prikry
+    \item HYP characterized by encodability
+    \item Prove Gandy-Harrington topology is Baire
   \end{itemize}
 \end{frame}
 \end{document}
