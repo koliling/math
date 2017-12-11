@@ -159,16 +159,67 @@ Lemma}
 
 \begin{frame}{Characterizing $\mathcal{C}\subseteq \omega^{\omega}$ with no
   $\Sigma_1^1$ subset}
-  \newtheorem{main}{Main Theorem}
 
-  \begin{main}<1->
+  \newtheorem{def-encodable}{Definition}
+  \begin{def-encodable}
+    $\mathcal{C}\subseteq \omega^{\omega}$ is $\Pi_1^0$-encodable if...
+  \end{def-encodable}
+
+  \newtheorem{main}{Main Theorem}
+  \begin{main}
     $\mathcal{C}\subseteq \omega^{\omega}$ compact.
 
-    $\mathcal{C}$ contains no non-empty $\Sigma_1^1$ subset
+    $\mathcal{C}$ contains non-empty $\Sigma_1^1$ subset
     $\leftrightarrow$
 
-    $\mathcal{C}$ is $\Pi_1^0$-encodable
+    $\mathcal{C}$ is $\Pi_1^0$-encodable.
   \end{main}
+\end{frame}
+
+\begin{frame}{Contains non-empty $\Sigma_1^1$ subset $\rightarrow$
+$\Pi_1^0$-encodable}
+  \newtheorem{main-easy}{Easy direction}
+  \begin{main-easy}
+    $\mathcal{C}\subseteq \omega^{\omega}$ compact.
+
+    $\mathcal{C}$ contains non-empty $\Sigma_1^1$ subset
+    $\rightarrow$
+
+    $\mathcal{C}$ is $\Pi_1^0$-encodable.
+  \end{main-easy}
+
+  \newtheorem{pf-easy}{Proof}
+  \begin{pf-easy}
+    Contain $\Sigma_1^1$ subset $\implies$ has modulus. Given arbitrary
+    $X\in[\omega]^\omega$, make $X$ sparse enough for principal function to
+    dominate modulus.
+  \end{pf-easy}
+\end{frame}
+
+\begin{frame}{$\Pi_1^0$-encodable $\rightarrow$ Contains non-empty
+$\Sigma_1^1$ subset}
+  \begin{itemize}
+    \item Fix compact $\mathcal{C}$ with no non-empty $\Sigma_1^1$ subset.
+      We want $G\in[\omega]^\omega$ such that no $X\in[G]^\omega$
+      can compute (in the $\Pi_1^{0,X}$ sense) a non-empty subset of
+      $\mathcal{C}$.
+
+    \item Fix enumeration of Turing functionals $\Gamma_s:\omega^{<\omega}
+      \rightarrow \omega^{<\omega}$.
+
+    \item Construct $G=\bigcap_{s\in\omega}G_s$, where
+      $\omega=G_0\supset G_1\supset\ldots$.
+      
+    \item At stage $s$, fix the first $s$ elements of $G$.
+    
+    \item Then remove enough elements beyond the first $s$ ones so that no
+      $X\in[G_s]^\omega$ can compute a non-empty subset of $\mathcal{C}$
+      via $\Gamma_s$.
+
+    \item Then $|G|=\omega$, and $G$ satisfies the desired property.
+
+    \item The hard part is proving such $G_{s+1}\in[G_s]^\omega$ exists.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Possible backup slides}
