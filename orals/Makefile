@@ -1,9 +1,14 @@
-.PHONY: main
+.PHONY: syllabus slides
 
-main:
-	pdflatex *.tex
-	pdflatex *.tex
-	pdflatex *.tex
+slides:
+	pdflatex slides.tex
+	pdflatex slides.tex
+	pdflatex slides.tex
+
+syllabus:
+	pdflatex syllabus.tex
+	pdflatex syllabus.tex
+	pdflatex syllabus.tex
 
 clean:
 	rm *.aux
