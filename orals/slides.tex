@@ -4,6 +4,7 @@
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes.misc}
 \usepackage{verbatim}
+\usetheme{Warsaw}
 
 \title{Ramsey's Theorem \\$\nRightarrow_{\text{soc}}$ Weak Weak Konig's
 Lemma}
@@ -60,7 +61,6 @@ Lemma}
 
 \begin{frame}{RT, KL, WKL, WWKL under $\leq_{\text{soc}}$}
   \begin{itemize}
-    \item KL ``stronger than'' RT
     \item Homogeneous ``independent from'' randomness
   \end{itemize}
 
@@ -73,7 +73,7 @@ Lemma}
       \draw[<->] (KL) -- (WKL);
       \draw[->] (KL) -- (RT);
       \draw[->] (WKL) -- (WWKL);
-      \draw [->,red,dashed] (RT) -- coordinate (m) (WWKL);
+      \draw [->,red] (RT) -- coordinate (m) (WWKL);
       \draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
     \end{tikzpicture}
   \end{center}
@@ -116,19 +116,74 @@ Lemma}
     \item WWKL $\leq_{\text{soc}}$ WKL trivial
     \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
       solution $f$, which is non-computable
-    \item Measure of set of oracles computing $f$ is null
+    \item Set of oracles computing $f$ has 0 measure
     \item Given arbitrary instance of WWKL, since set of solutions has
       positive measure, there must be solutions that do not compute $f$ 
   \end{itemize}
 \end{frame}
 
+\begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
+  \begin{itemize}
+    \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
+    \item Suffice to find $A\in[\omega]^\omega$ where set of oracles
+      computing infinite subsets of $A$ has 0 measure
+    \item Choose $A$ hyperimmune [Mileti]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Goal: WWKL $\nleq_{\text{soc}}$ RT}
+  \begin{itemize}
+    \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
+      has no non-empty $\Sigma_1^1$ subset
+    \item We prove such $T$ exists
+    \item Fix RT instance $c:[\omega]^n\rightarrow k$ and assume every
+      solution $H$ computes a path through $T$, i.e. $[T]$ has non-empty
+      $\Pi_1^{0,H}$ subset
+    \item Thus every $X\in[\omega]^\omega$ has a subset
+      $H\in[X]^\omega$ such that $[T]$ has non-empty $\Pi_1^{0,H}$ subset
+    \item We say that $T$ is $\Pi_1^0$-encodable
+    \item We will prove that being $\Pi_1^0$-encodable is equivalent to
+      containing non-empty $\Sigma_1^1$ subset, $\rightarrow\leftarrow$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{There exists $[T]$ with no $\Sigma_1^1$ subset, $\mu(T)>0$}
+  \begin{itemize}
+    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$
+    \item Then $\mu(T)>0$
+    \item $T$ has no non-empty $\Sigma_1^1$ subset because every
+      $\Sigma_1^1$ subset of $2^\omega$ contains an element recursive in
+      $O$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Characterizing $\Pi_1^0$-encodability}
+  \newtheorem{main}{Main Theorem}
+
+  \begin{main}<1->
+    $\mathcal{C}\subseteq \omega^{\omega}$ compact.
+
+    $\mathcal{C}$ is $\Pi_1^0$-encodable $\leftrightarrow$
+
+    $\mathcal{C}$ contains no non-empty $\Sigma_1^1$ subset
+  \end{main}
+\end{frame}
+
 \begin{frame}{Possible backup slides}
   \begin{itemize}
-    \item Measure of set of oracles computing a fixed non-recursive is
-      null
-    \item Prove Galvin-Prikry
+    \item Set of oracles computing a fixed non-recursive has 0 measure
+    \item Gandy-Harrington topology (relativized) is Baire
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\textcolor{red}{Possible backup slides (still reading)}}
+  \begin{itemize}
+    \item Every $\Sigma_1^1$ subset of $2^\omega$ contains an element
+      recursive in Kleene's $O$
+    \item If $A$ is hyperimmune, then set of oracles that compute
+      infinite subsets of $A$ has 0 measure [Mileti]
+    \item Galvin-Prikry
     \item HYP characterized by encodability
-    \item Prove Gandy-Harrington topology is Baire
   \end{itemize}
 \end{frame}
 \end{document}
