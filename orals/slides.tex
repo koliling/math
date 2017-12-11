@@ -222,6 +222,60 @@ $\Sigma_1^1$ subset}
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists}
+  \begin{itemize}
+    \item Fix $G_0\in[\omega]^\omega$, $n\in\omega$, compact
+      $\mathcal{C}\subseteq\omega^\omega$, Turing functional
+      $\Gamma:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
+
+    \item Want $G_1\in[G_0]^\omega$ such that $G_0\restriction
+      n=G_0\restriction n$, and no $X\in[G_1]^\omega$ computes a non-empty
+      subset of $\mathcal{C}$ via $\Gamma$.
+
+    \item If we do not require $G_0\restriction n=G_0\restriction n$, then
+      we can find $G_0$ with stronger property:
+  \end{itemize}
+
+  \newtheorem{L1}{Lemma 1}
+  \begin{L1}
+    Fix $G_0\in[\omega]^\omega$, compact
+    $\mathcal{C}\subseteq\omega^\omega$ with no non-empty
+    $\Sigma_1^{1,G_0}$ subset, Turing functional $\Gamma:\omega^{<\omega}
+    \rightarrow \omega^{<\omega}$, $t\in\omega$. Then there exists
+    $G_1\in[G_0]^\omega$ such that every $X\in[G_1]^\omega$ does not
+    compute a non-empty subset of $\mathcal{C}$ via $\Gamma$ in the
+    following sense:
+
+    \begin{itemize}
+      \item Either $\mathcal{C}\cap[\Gamma^X]=\emptyset$,
+      \item Or...
+    \end{itemize}
+  \end{L1}
+\end{frame}
+
+\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists (continued)}
+  \begin{itemize}
+      \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
+        $G_0\restriction n$
+
+      \item Apply Lemma 1 $m$ times, once for each $D_i$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lemma 1}
+  \begin{itemize}
+    \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
+      Galvin-Prikry
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\Sigma_1^1$-immunity basis theorem}
+  \begin{itemize}
+    \item Proving this theorem uses fact that relativized Gandy-Harrington
+      topoloty is Baire space
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Possible backup slides}
   \begin{itemize}
     \item Set of oracles computing a fixed non-recursive has 0 measure
