@@ -112,11 +112,12 @@
         \text{and}\;\;\; &\mu(\{X: X\; \text{computes an element in}\;
         [\bar{A}]^\omega\}) =0.\\
       \end{align*}
-    \item $A$ bi-hyperimmune works.
-    \item Consider 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
+    \item Choose 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
       \Leftrightarrow n\in A$.
-    \item Given any instance of WWKL, since the set of its solutions has
-      measure $>0$, some solution must fail to compute any solution of $c$.
+    \item Given any instance of WWKL, since the set of its paths has
+      measure $>0$, some path must fail to compute any infinite
+      homogeneous set of $c$. 
+    \item $A$ bi-hyperimmune works.
   \end{itemize}
 \end{frame}
 
@@ -128,14 +129,15 @@ element in}\; [A]^\omega\}) =0$}
 
   \textbf{Main idea:} Assume not. Then there are enough paths computing
   infinite subsets of $A$ such that we can effectively ask them to ``vote''
-  for when new elements of $A$ have appeared. This gives a recursive
-  function dominating $p_A$.\\
+  for when new elements of $A$ have appeared. Thus giving recursive
+  $f$ dominating $p_A$.\\
   \vspace{1em}
 
   Fix Turing functional $\Phi$. Write $\mathcal{C} :=\{X:
-  \Phi^X\in[A]^\omega\}$. Since the measure of a countable union of sets of
-  measure 0 is 0, and there are only countably many Turing functionals, it
-  suffices to show $\mu(\mathcal{C})=0$. Assume $\mu(\mathcal{C})=4m>0$.
+  \Phi^X\in[A]^\omega\}$. Note $\mathcal{C}$ is Borel and thus measurable.
+  Since the measure of a countable union of null sets is 0, and
+  there are only countably many Turing functionals, it suffices to show
+  $\mu(\mathcal{C})=0$. Assume $\mu(\mathcal{C})=4m>0$.
 \end{frame}
 
 \begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes an
@@ -164,8 +166,19 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
 
 \begin{frame}{Bi-Hyperimmune sets $A$ exist}
   \begin{itemize}
-    \item Using $\emptyset''$, fix enumeration $\phi_0,\phi_1,\ldots$ of
-      all total recursive and increasing functions
+    \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
+    \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive
+      functions.
+    \item At stage $n=0$, apply diagonal argument and choose
+      $p_A(0)=f_0(0)+1$ so that $p_A\not<f_0$. 
+    \item Then the first $p_A(0)$ elements of $\bar{A}$ are
+      $\{0,\ldots,p_A(0)-1\}$. To ensure $p_{\bar{A}}\not<f_0$, set the
+      next element of $\bar{A}$ to exceed that of $f_0$, i.e. put all
+      \[p_A(0),\ldots,f_0(p_A(0)+1)\]
+      into $A$, and $f_0(p_A(0)+1)+1$ into $\bar{A}$, so that
+      \[p_{\bar{A}}(p_A(0)+1) =f_0(p_A(0)+1)+1 >f_0(p_A(0)+1).\]
+    \item Repeat for stages $n>0$ so that $p_A(2n)$ witnesses
+      $p_A\not<f_{n}$ and $p_A(2n+1)$ witnesses $p_{\bar{A}}\not<f_{n}$.
   \end{itemize}
 \end{frame}
 
