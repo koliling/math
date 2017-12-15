@@ -21,16 +21,23 @@
   \begin{itemize}
     \item Define problem, solution
     \item Define $\leq_{\text{soc}}$ on WWKL, RT
+    \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
+    \item WKL $\leq_{\text{soc}}$ KL: From definition.
   \end{itemize}
 \end{frame}
 
-\note{
+\begin{frame}{KL $\leq_{\text{soc}}$ WKL}
+  Given KL instance \textbf{P}, at each level, code branches into WKL
+  instance \textbf{Q} using binary representation of branch number
+\end{frame}
+
+\begin{frame}{RT $\leq_{\text{soc}}$ WKL}
   \begin{itemize}
-    \item Mention other reductions
-    \item soc doesn't require the second problem to be computable from the
-      first one
+    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$
+    \item Define binary tree $T\subseteq 2^{<\omega}$ by $\sigma\in T$
+      iff $\{n:\sigma(n)=1\}$ is homogeneous
   \end{itemize}
-}
+\end{frame}
 
 \begin{frame}{Homogeneity ``independent from'' Randomness}
   Dependencies under $\leq_{\text{soc}}$
@@ -47,21 +54,4 @@
       %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
     \end{tikzpicture}
   \end{center}
-\end{frame}
-
-\begin{frame}{KL $\equiv_{\text{soc}}$ WKL}
-  \begin{itemize}
-    \item WKL $\leq_{\text{soc}}$ KL: From definition.
-    \item KL $\leq_{\text{soc}}$ WKL: Given KL instance \textbf{P}, at
-      each level, code branches into WKL instance \textbf{Q} using binary
-      representation of branch number
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{RT $\leq_{\text{soc}}$ WKL}
-  \begin{itemize}
-    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$
-    \item Define binary tree $T\subseteq 2^{<\omega}$ by $\sigma\in T$
-      iff $\{n:\sigma(n)=1\}$ is homogeneous
-  \end{itemize}
 \end{frame}

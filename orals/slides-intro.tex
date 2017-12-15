@@ -1,11 +1,47 @@
-\begin{frame}{WWKL $\lneq_{\text{soc}}$ WKL}
+\begin{frame}{WKL $\nleq_{\text{soc}}$ WWKL}
   \begin{itemize}
-    \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
-    \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
-      solution $f$, which is non-computable
-    \item \TODO{Set of oracles computing $f$ has 0 measure}
-    \item Given arbitrary instance of WWKL, since set of solutions has
-      positive measure, there must be solutions that do not compute $f$ 
+    \item Fix instance of WKL with only one path $A\in[\omega]^\omega$ where
+      \[\mu(\{X: X\; \text{computes element in}\; [A]^\omega\}) =0.\]
+    \item Given arbitrary instance of WWKL, since set of its paths has
+      measure $>0$, some path must fail to compute $A$ 
+    \item Any non-computable $A$ works
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$A>_T\emptyset \implies\mu(\{X: X\; \text{computes element
+in}\; [A]^\omega\}) =0$}
+  \textbf{Main idea:} Assume not. Then there are enough paths computing
+  $A$ such that we can effectively ask them to ``vote''
+  on when an element is in $A$. Thus giving recursive procedure to compute
+  $A$, $\Rightarrow\Leftarrow$.
+  \vspace{1em}
+
+  Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
+  \Phi^X=A\}$. Note $\mathcal{B}$ is Borel and thus measurable.
+  Since the measure of a countable union of null sets is 0, and
+  there are only countably many Turing functionals, it suffices to show
+  $\mu(\mathcal{B})=0$. Assume $\mu(\mathcal{B})=4m>0$.
+\end{frame}
+
+\begin{frame}{$A>_T\emptyset \implies\mu(\{X: X\; \text{computes element
+in}\; [A]^\omega\}) =0$}
+  \begin{itemize}
+    \item Approximate $\mathcal{B}$ by open cover
+      $\mathcal{O}\supseteq\mathcal{B}$ with
+      $\mu(\mathcal{O}-\mathcal{B})<m$.
+    \item Approximate $\mathcal{O}$ by basic open sets
+      $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
+      \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+    \item Fix effective enumeration of branches $\sigma$ in
+      $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
+    \item To decide if $n\in A$, wait till a measure of $2m$ of such
+      $\sigma$'s agree, and take their vote.
+    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
+      $\mathcal{B}$ tightly, such $\sigma$'s exist, and they all lie in
+      $\mathcal{B}$. Thus the group of ``true'' voters has measure
+      exceeding $2m$.
+    \item Also because of the tight approximation, the group of ``false''
+      voters has measure less than $2m$.
   \end{itemize}
 \end{frame}
 
@@ -23,7 +59,7 @@
     \item Given any instance of WWKL, since the set of its paths has
       measure $>0$, some path must fail to compute any infinite
       homogeneous set of $c$. 
-    \item Bi-hyperimmune sets $A$ work.
+    \item Any bi-hyperimmune set $A$ works.
   \end{itemize}
 \end{frame}
 
