@@ -39,9 +39,9 @@ in}\; [A]^\omega\}) =0$}
     \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
       $\mathcal{B}$ tightly, such $\sigma$'s exist, and they all lie in
       $\mathcal{B}$. Thus the group of ``true'' voters has measure
-      exceeding $2m$.
+      $>2m$.
     \item Also because of the tight approximation, the group of ``false''
-      voters has measure less than $2m$.
+      voters has measure $<2m$.
   \end{itemize}
 \end{frame}
 
@@ -96,9 +96,10 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
       $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
     \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
       finds an element via $\Phi$; let $f(0)$ be the largest element found.
-      Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{B}$
-      tightly, such $\sigma$'s exist, and more than a measure of $m$ of
-      them find infinite subsets of $A$ truthfully. Thus $f(0)\geq p_A(0)$.
+    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{B}$
+      tightly, such $\sigma$'s exist. Measure $>2m$ of them find infinite
+      subsets of $A$ truthfully, meausure $<2m$ of them may lie. Thus
+      $f(0)\geq p_A(0)$.
     \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
       finds an element exceeding $f(s)$; let $f(s+1)$ be the largest
       element found.
