@@ -130,7 +130,7 @@ element in}\; [A]^\omega\}) =0$}
   \textbf{Main idea:} Assume not. Then there are enough paths computing
   infinite subsets of $A$ such that we can effectively ask them to ``vote''
   for when new elements of $A$ have appeared. Thus giving recursive
-  $f$ dominating $p_A$.\\
+  $f$ that dominates $p_A$.\\
   \vspace{1em}
 
   Fix Turing functional $\Phi$. Write $\mathcal{C} :=\{X:
@@ -169,20 +169,27 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
     \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
     \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive
       functions.
-    \item At stage $n=0$, apply diagonal argument and choose
-      $p_A(0)=f_0(0)+1$ so that $p_A\not<f_0$. 
-    \item Then the first $p_A(0)$ elements of $\bar{A}$ are
-      $\{0,\ldots,p_A(0)-1\}$. To ensure $p_{\bar{A}}\not<f_0$, set the
-      next element of $\bar{A}$ to exceed that of $f_0$, i.e. put all
-      \[p_A(0),\ldots,f_0(p_A(0)+1)\]
-      into $A$, and $f_0(p_A(0)+1)+1$ into $\bar{A}$, so that
-      \[p_{\bar{A}}(p_A(0)+1) =f_0(p_A(0)+1)+1 >f_0(p_A(0)+1).\]
-    \item Repeat for stages $n>0$ so that $p_A(2n)$ witnesses
-      $p_A\not<f_{n}$ and $p_A(2n+1)$ witnesses $p_{\bar{A}}\not<f_{n}$.
+    \item At stage $n$, we have defined the first $i$th elements of $A$.
+    \item Put enough elements into $\bar{A}$ so that the $(i+1)$th element
+      of $A$ exceeds that of $f_n$.
+    \item Then we would have defined the first $j$th elements of $\bar{A}$.
+    \item Similarly, put enough elements into $A$ so that the $(j+1)$th
+      element of $\bar{A}$ exceeds that of $f_n$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Goal 1:WKL $\nleq_{\text{soc}}$ RT}
+\begin{frame}{Characterizing $\mathcal{C}\subseteq \omega^{\omega}$ with no
+$\Sigma_1^1$ subset}
+  For the remaining directions
+  \begin{itemize}
+    \item WKL $\nleq_{\text{soc}}$ RT
+    \item WWKL $\nleq_{\text{soc}}$ RT
+  \end{itemize}
+
+  we need the following characterization of
+\end{frame}
+
+\begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
     \item Fix instance of WKL with only one solution $f$, which is
       not hyperarithmetic
@@ -197,7 +204,7 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Goal 2: WWKL $\nleq_{\text{soc}}$ RT}
+\begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
     \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
       has no non-empty $\Sigma_1^1$ subset
