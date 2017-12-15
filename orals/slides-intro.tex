@@ -1,0 +1,156 @@
+\begin{frame}{Ramsey's Theorem ($\text{RT}$)}
+  \begin{itemize}
+    \item State $\text{RT}_k^n$
+    \item $\text{RT}$ is $(\forall n)\; \text{RT}_{<\infty}^n$
+  \end{itemize}
+
+  \begin{itemize}
+    \item Asserts existence of homogeneity
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Randomness}
+  \begin{itemize}
+    \item What is 1-random
+    \item Lebesgue Measure
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Strongly Omnisciently Computably Reducible
+  ($\leq_{\text{soc}}$)}
+  \begin{itemize}
+    \item Define problem, solution
+    \item Define $\leq_{\text{soc}}$ on WWKL, RT
+  \end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item Mention other reductions
+    \item soc doesn't require the second problem to be computable from the
+      first one
+  \end{itemize}
+}
+
+\begin{frame}{Homogeneity ``independent from'' Randomness}
+  Dependencies under $\leq_{\text{soc}}$
+  \vspace{2em}
+
+  \begin{center}
+    \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+      %\draw [->,red] (RT) -- coordinate (m) (WWKL);
+      %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{KL $\equiv_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item WKL $\leq_{\text{soc}}$ KL: From definition.
+    \item KL $\leq_{\text{soc}}$ WKL: Given KL instance \textbf{P}, at
+      each level, code branches into WKL instance \textbf{Q} using binary
+      representation of branch number
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{RT $\leq_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$
+    \item Define binary tree $T\subseteq 2^{<\omega}$ by $\sigma\in T$
+      iff $\{n:\sigma(n)=1\}$ is homogeneous
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{WWKL $\lneq_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
+    \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
+      solution $f$, which is non-computable
+    \item \TODO{Set of oracles computing $f$ has 0 measure}
+    \item Given arbitrary instance of WWKL, since set of solutions has
+      positive measure, there must be solutions that do not compute $f$ 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
+  \begin{itemize}
+    \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
+    \item Fix $A\in[\omega]^\omega$ where
+      \begin{align*}
+        &\mu(\{X: X\; \text{computes element in}\; [A]^\omega\}) =0,\\
+        \text{and}\;\;\; &\mu(\{X: X\; \text{computes element in}\;
+        [\bar{A}]^\omega\}) =0.\\
+      \end{align*}
+    \item Choose 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
+      \Leftrightarrow n\in A$.
+    \item Given any instance of WWKL, since the set of its paths has
+      measure $>0$, some path must fail to compute any infinite
+      homogeneous set of $c$. 
+    \item Bi-hyperimmune sets $A$ work.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes
+element in}\; [A]^\omega\}) =0$}
+  Hyperimmune sets $A$ are characterized as those whose principal
+  function $p_A$ is not dominated by any recursive $f$. \\
+  \vspace{1em}
+
+  Bi-Hyperimmune sets $A$ are those where $A$, $\bar{A}$ are hyperimmune.\\
+  \vspace{1em}
+
+  \textbf{Main idea:} Assume not. Then there are enough paths computing
+  infinite subsets of $A$ such that we can effectively ask them to ``vote''
+  for when new elements of $A$ have appeared. Thus giving recursive
+  $f$ that dominates $p_A$.\\
+  \vspace{1em}
+
+  Fix Turing functional $\Phi$. Write $\mathcal{C} :=\{X:
+  \Phi^X\in[A]^\omega\}$. Note $\mathcal{C}$ is Borel and thus measurable.
+  Since the measure of a countable union of null sets is 0, and
+  there are only countably many Turing functionals, it suffices to show
+  $\mu(\mathcal{C})=0$. Assume $\mu(\mathcal{C})=4m>0$.
+\end{frame}
+
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes
+element in}\; [A]^\omega\}) =0$ (cont.)}
+  \begin{itemize}
+    \item Approximate $\mathcal{C}$ by open cover
+      $\mathcal{O}\supseteq\mathcal{C}$ with
+      $\mu(\mathcal{O}-\mathcal{C})<m$.
+    \item Approximate $\mathcal{O}$ by basic open sets
+      $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
+      \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+    \item Fix effective enumeration of branches $\sigma$ in
+      $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
+    \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
+      finds an element via $\Phi$; let $f(0)$ be the largest element found.
+      Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{C}$
+      tightly, such $\sigma$'s exist, and more than a measure of $m$ of
+      them indeed lie in $\mathcal{C}$.
+    \item In particular, at least one of these $\sigma$'s really computes
+      an infinite subset of $A$, so $f(0)\geq p_A(0)$.
+    \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
+      finds an element exceeding $f(s)$; let $f(s+1)$ be the largest
+      element found.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bi-Hyperimmune sets $A$ exist}
+  \begin{itemize}
+    \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
+    \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive
+      functions.
+    \item At stage $n$, we have defined the first $i$th elements of $A$.
+    \item Put enough elements into $\bar{A}$ so that the $(i+1)$th element
+      of $A$ exceeds that of $f_n$.
+    \item Then we would have defined the first $j$th elements of $\bar{A}$.
+    \item Similarly, put enough elements into $A$ so that the $(j+1)$th
+      element of $\bar{A}$ exceeds that of $f_n$.
+  \end{itemize}
+\end{frame}

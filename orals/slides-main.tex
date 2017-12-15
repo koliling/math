@@ -1,0 +1,168 @@
+\begin{frame}{Characterizing $\Pi_1^0$-encodable
+$\mathcal{C}\subseteq\omega^\omega$}
+  \begin{thm}[Characterizing $\Pi_1^0$-encodable
+  $\mathcal{C}\subseteq\omega^\omega$]
+    $\mathcal{C}\subseteq \omega^{\omega}$ compact. Then
+    \[\mathcal{C}\; \text{is}\; \Pi_1^0\text{-encodable}\; \Leftrightarrow
+    \mathcal{C}\; \text{contains non-empty}\; \Sigma_1^1\; \text{subset}.\]
+  \end{thm}
+\end{frame}
+
+\begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
+  \begin{itemize}
+    \item Fix instance of WKL with only one solution $f$, which is
+      not hyperarithmetic
+    \item Fix instance \textbf{Q} of RT, assume by contradiction all
+      its solutions compute $f$ 
+    \item Given arbitrary $X\in[\omega]^\omega$, relativize \textbf{Q} to
+      $X$, there exists some homogeneous $Y\in[X]^\omega$
+    \item By assumption, $Y$ computes $f$. Since $X$ is arbitrary, $f$ is
+      computably encodable.
+    \item But being computably encodable is the same as being
+      hyperarithmetic, $\rightarrow\leftarrow$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
+  \begin{itemize}
+    \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
+      has no non-empty $\Sigma_1^1$ subset
+    \item We prove such $T$ exists
+    \item Fix RT instance $c:[\omega]^n\rightarrow k$ and assume every
+      solution $H$ computes a path through $T$, i.e. $[T]$ has non-empty
+      $\Pi_1^{0,H}$ subset
+    \item Thus every $X\in[\omega]^\omega$ has a subset
+      $H\in[X]^\omega$ such that $[T]$ has non-empty $\Pi_1^{0,H}$ subset
+    \item We say that $T$ is $\Pi_1^0$-encodable
+    \item We will prove that being $\Pi_1^0$-encodable is equivalent to
+      containing non-empty $\Sigma_1^1$ subset, $\rightarrow\leftarrow$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{There exists $[T]$ with no $\Sigma_1^1$ subset, $\mu(T)>0$}
+  \begin{itemize}
+    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$
+    \item Then $\mu(T)>0$
+    \item $T$ has no non-empty $\Sigma_1^1$ subset because every
+      $\Sigma_1^1$ subset of $2^\omega$ contains an element recursive in
+      $O$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Easy: Contains non-empty $\Sigma_1^1$ subset $\rightarrow$
+$\Pi_1^0$-encodable}
+  \newtheorem{main-easy}{Easy direction}
+  \begin{main-easy}
+    $\mathcal{C}\subseteq \omega^{\omega}$ compact.
+
+    $\mathcal{C}$ contains non-empty $\Sigma_1^1$ subset
+    $\rightarrow$
+
+    $\mathcal{C}$ is $\Pi_1^0$-encodable.
+  \end{main-easy}
+
+  \newtheorem{pf-easy}{Proof}
+  \begin{pf-easy}
+    Contain $\Sigma_1^1$ subset $\implies$ has modulus. Given arbitrary
+    $X\in[\omega]^\omega$, make $X$ sparse enough for principal function to
+    dominate modulus.
+  \end{pf-easy}
+\end{frame}
+
+\begin{frame}{Hard: $\Pi_1^0$-encodable $\rightarrow$ Contains
+non-empty $\Sigma_1^1$ subset}
+  \begin{itemize}
+    \item Fix compact $\mathcal{C}$ with no non-empty $\Sigma_1^1$ subset.
+      We want $G\in[\omega]^\omega$ such that no $X\in[G]^\omega$
+      can compute (in the $\Pi_1^{0,X}$ sense) a non-empty subset of
+      $\mathcal{C}$.
+
+    \item Fix enumeration of Turing functionals $\Gamma_s:\omega^{<\omega}
+      \rightarrow \omega^{<\omega}$.
+
+    \item Construct $G=\bigcap_{s\in\omega}G_s$, where
+      $\omega=G_0\supset G_1\supset\ldots$.
+      
+    \item At stage $s$, fix the first $s$ elements of $G$.
+    
+    \item Then remove enough elements beyond the first $s$ ones so that no
+      $X\in[G_s]^\omega$ can compute a non-empty subset of $\mathcal{C}$
+      via $\Gamma_s$.
+
+    \item Then $|G|=\omega$, and $G$ satisfies the desired property.
+
+    \item The hard part is proving such $G_{s+1}\in[G_s]^\omega$ exists.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists}
+  \begin{itemize}
+    \item Fix $G_0\in[\omega]^\omega$, $n\in\omega$, compact
+      $\mathcal{C}\subseteq\omega^\omega$, Turing functional
+      $\Gamma:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
+
+    \item Want $G_1\in[G_0]^\omega$ such that $G_1\restriction
+      n=G_0\restriction n$, and no $X\in[G_1]^\omega$ computes a non-empty
+      subset of $\mathcal{C}$ via $\Gamma$.
+
+    \item If we do not require $G_1\restriction n=G_0\restriction n$, then
+      we can find $G_1$ with stronger property:
+  \end{itemize}
+
+  \newtheorem{L1}{Lemma 1}
+  \begin{L1}
+    Fix $G_0\in[\omega]^\omega$, compact
+    $\mathcal{C}\subseteq\omega^\omega$ with no non-empty
+    $\Sigma_1^{1,G_0}$ subset, Turing functional $\Gamma:\omega^{<\omega}
+    \rightarrow \omega^{<\omega}$, $t\in\omega$. Then there exists
+    $G_1\in[G_0]^\omega$ such that every $X\in[G_1]^\omega$ does not
+    compute a non-empty subset of $\mathcal{C}$ via $\Gamma$ in the
+    sense:
+
+    \begin{itemize}
+      \item Either $\mathcal{C}\cap[\Gamma^X]=\emptyset$,
+      \item Or...
+    \end{itemize}
+  \end{L1}
+\end{frame}
+
+\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists (continued)}
+  \begin{itemize}
+      \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
+        $G_0\restriction n$
+
+      \item Apply Lemma 1 $m$ times, once for each $D_i$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lemma 1}
+  \begin{itemize}
+    \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
+      Galvin-Prikry
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\Sigma_1^1$-immunity basis theorem}
+  \begin{itemize}
+    \item Proving this theorem uses fact that relativized Gandy-Harrington
+      topoloty is Baire space
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Possible backup slides}
+  \begin{itemize}
+    \item Set of oracles computing a fixed non-recursive has 0 measure
+    \item Gandy-Harrington topology (relativized) is Baire
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\textcolor{red}{Possible backup slides (reading)}}
+  \begin{itemize}
+    \item Every $\Sigma_1^1$ subset of $2^\omega$ contains an element
+      recursive in Kleene's $O$
+    \item If $A$ is hyperimmune, then set of oracles that compute
+      infinite subsets of $A$ has 0 measure [Mileti]
+    \item Galvin-Prikry
+    \item Being encodable characterizes HYP
+  \end{itemize}
+\end{frame}
