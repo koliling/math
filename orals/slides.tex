@@ -6,29 +6,19 @@
 \usepackage{verbatim}
 \usetheme{Warsaw}
 
-\title{Ramsey's Theorem \\$\nRightarrow_{\text{soc}}$ Weak Weak Konig's
-Lemma}
+\title{Homogeneity is Independent from Randomness}
 \author{Li Ling Ko}
 \institute{University of Notre Dame}
 \date{22 January, 2018}
 \setbeamertemplate{footline}[frame number]
+\setbeamertemplate{theorems}[numbered]
+
+\newtheorem{thm}{Theorem}
+\newtheorem{pf}{Proof}
 
 \begin{document}
 \begin{frame}
   \titlepage
-\end{frame}
-
-\begin{frame}{Weak Weak Konig's Lemma (WWKL)}
-  \begin{itemize}
-    \item Konig's Lemma
-    \item Weak Konig's Lemma
-    \item Weak Weak Konig's Lemma
-    \item Define Lebesgue measure
-  \end{itemize}
-
-  \begin{itemize}
-    \item Asserts existence of randomness
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Ramsey's Theorem ($\text{RT}$)}
@@ -38,7 +28,14 @@ Lemma}
   \end{itemize}
 
   \begin{itemize}
-    \item Asserts existence of homogenuity
+    \item Asserts existence of homogeneity
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Randomness}
+  \begin{itemize}
+    \item What is 1-random
+    \item Lebesgue Measure
   \end{itemize}
 \end{frame}
 
@@ -46,8 +43,7 @@ Lemma}
   ($\leq_{\text{soc}}$)}
   \begin{itemize}
     \item Define problem, solution
-    \item Use WWKL/RT to illustrate
-    \item Define $\leq_{\text{soc}}$
+    \item Define $\leq_{\text{soc}}$ on WWKL, RT
   \end{itemize}
 \end{frame}
 
@@ -61,7 +57,7 @@ Lemma}
 
 \begin{frame}{RT, KL, WKL, WWKL under $\leq_{\text{soc}}$}
   \begin{itemize}
-    \item Homogeneous ``independent from'' randomness
+    \item Homogeneity ``independent from'' Randomness
   \end{itemize}
 
   \begin{center}
@@ -81,7 +77,7 @@ Lemma}
 
 \begin{frame}{KL $\equiv_{\text{soc}}$ WKL}
   \begin{itemize}
-    \item WKL $\leq_{\text{soc}}$ KL trivial
+    \item WKL $\leq_{\text{soc}}$ KL: From definition.
     \item KL $\leq_{\text{soc}}$ WKL: Given KL instance \textbf{P}, at
       each level, code branches into WKL instance \textbf{Q} using binary
       representation of branch number
@@ -96,7 +92,66 @@ Lemma}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
+\begin{frame}{WWKL $\lneq_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
+    \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
+      solution $f$, which is non-computable
+    \item Set of oracles computing $f$ has 0 measure
+    \item Given arbitrary instance of WWKL, since set of solutions has
+      positive measure, there must be solutions that do not compute $f$ 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
+  \begin{itemize}
+    \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
+    \item Fix $A\in[\omega]^\omega$ where
+      \begin{align*}
+        &\mu(\{X: X\; \text{computes some}\; B\in[A]^\omega\}) =0,\\
+        \text{and}\;\;\; &\mu(\{X: X\; \text{computes some}\;
+        B\in[\bar{A}]^\omega\}) =0.\\
+      \end{align*}
+    \item $A$ bi-hyperimmune works
+    \item Consider 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
+      \Leftrightarrow n\in A$.
+    \item Given any instance of WWKL, since the set of its solutions has
+      measure $>0$, some solution must fail to compute any solution of $c$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes some}\;
+B\in[A]^\omega\}) =0$}
+  \begin{itemize}
+    \item Hyperimmune sets $A$ are characterized as those whose principal
+      function $p_A$ is not dominated by any recursive $f$
+    \item Main idea: Assume not. Then there are enough paths computing
+      infinite subsets of $A$ that we can ask them to effectively ``vote''
+      for when a new element of $A$ has appeared. This gives a recursive
+      function that dominates $p_A$.
+    \item Write $\mathcal{A} :=\{X: X\; \text{computes some}\;
+      B\in[A]^\omega\}$, with $\mu(\mathcal{A})=4m>0$.
+    \item Fix open cover $\mathcal{O}\supseteq\mathcal{A}$ with
+      $\mu(\mathcal{O}-\mathcal{A})<m$.
+    \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes some}\;
+B\in[A]^\omega\}) =0$ continued}
+  \begin{itemize}
+    \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bi-Hyperimmune sets $A$ exist}
+  \begin{itemize}
+    \item Using $\emptyset''$, fix enumeration $\phi_0,\phi_1,\ldots$ of
+      all total recursive and increasing functions
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Goal 1:WKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
     \item Fix instance of WKL with only one solution $f$, which is
       not hyperarithmetic
@@ -111,27 +166,7 @@ Lemma}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{WWKL $\lneq_{\text{soc}}$ WKL}
-  \begin{itemize}
-    \item WWKL $\leq_{\text{soc}}$ WKL trivial
-    \item WKL $\nleq_{\text{soc}}$ WWKL: Fix instance of WKL with only one
-      solution $f$, which is non-computable
-    \item Set of oracles computing $f$ has 0 measure
-    \item Given arbitrary instance of WWKL, since set of solutions has
-      positive measure, there must be solutions that do not compute $f$ 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
-  \begin{itemize}
-    \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
-    \item Suffice to find $A\in[\omega]^\omega$ where set of oracles
-      computing infinite subsets of $A$ has 0 measure
-    \item Choose $A$ hyperimmune [Mileti]
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Goal: WWKL $\nleq_{\text{soc}}$ RT}
+\begin{frame}{Goal 2: WWKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
     \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
       has no non-empty $\Sigma_1^1$ subset
