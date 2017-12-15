@@ -117,7 +117,7 @@
     \item Given any instance of WWKL, since the set of its paths has
       measure $>0$, some path must fail to compute any infinite
       homogeneous set of $c$. 
-    \item $A$ bi-hyperimmune works.
+    \item Bi-hyperimmune sets $A$ work.
   \end{itemize}
 \end{frame}
 
@@ -125,6 +125,9 @@
 element in}\; [A]^\omega\}) =0$}
   Hyperimmune sets $A$ are characterized as those whose principal
   function $p_A$ is not dominated by any recursive $f$. \\
+  \vspace{1em}
+
+  Bi-Hyperimmune sets $A$ are those where $A$, $\bar{A}$ are hyperimmune.\\
   \vspace{1em}
 
   \textbf{Main idea:} Assume not. Then there are enough paths computing
@@ -186,7 +189,16 @@ $\Sigma_1^1$ subset}
     \item WWKL $\nleq_{\text{soc}}$ RT
   \end{itemize}
 
-  we need the following characterization of
+  we need the following definition and characterization:
+  %\begin{def}
+  %  $\mathcal{C}\subseteq \omega^{\omega}$ is $\Pi_1^0$-encodable if.
+  %\end{def}
+
+  \begin{thm}[Characterizing $\Pi_1^0$-encodability]
+    $\mathcal{C}\subseteq \omega^{\omega}$ compact. Then
+    \[\mathcal{C}\; \text{is}\; \Pi_1^0\text{-encodable}\; \Leftrightarrow
+    \mathcal{C}\; \text{contains non-empty}\; \Sigma_1^1\; \text{subset}.\]
+  \end{thm}
 \end{frame}
 
 \begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
@@ -228,25 +240,6 @@ $\Sigma_1^1$ subset}
       $\Sigma_1^1$ subset of $2^\omega$ contains an element recursive in
       $O$
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Characterizing $\mathcal{C}\subseteq \omega^{\omega}$ with no
-  $\Sigma_1^1$ subset}
-
-  \newtheorem{def-encodable}{Definition}
-  \begin{def-encodable}
-    $\mathcal{C}\subseteq \omega^{\omega}$ is $\Pi_1^0$-encodable if...
-  \end{def-encodable}
-
-  \newtheorem{main}{Main Theorem}
-  \begin{main}
-    $\mathcal{C}\subseteq \omega^{\omega}$ compact.
-
-    $\mathcal{C}$ contains non-empty $\Sigma_1^1$ subset
-    $\leftrightarrow$
-
-    $\mathcal{C}$ is $\Pi_1^0$-encodable.
-  \end{main}
 \end{frame}
 
 \begin{frame}{Easy: Contains non-empty $\Sigma_1^1$ subset $\rightarrow$
