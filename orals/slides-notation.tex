@@ -1,0 +1,67 @@
+\begin{frame}{Ramsey's Theorem ($\text{RT}$)}
+  \begin{itemize}
+    \item State $\text{RT}_k^n$
+    \item $\text{RT}$ is $(\forall n)\; \text{RT}_{<\infty}^n$
+  \end{itemize}
+
+  \begin{itemize}
+    \item Asserts existence of homogeneity
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Randomness}
+  \begin{itemize}
+    \item What is 1-random
+    \item Lebesgue Measure
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Strongly Omnisciently Computably Reducible
+  ($\leq_{\text{soc}}$)}
+  \begin{itemize}
+    \item Define problem, solution
+    \item Define $\leq_{\text{soc}}$ on WWKL, RT
+  \end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+    \item Mention other reductions
+    \item soc doesn't require the second problem to be computable from the
+      first one
+  \end{itemize}
+}
+
+\begin{frame}{Homogeneity ``independent from'' Randomness}
+  Dependencies under $\leq_{\text{soc}}$
+  \vspace{2em}
+
+  \begin{center}
+    \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+      %\draw [->,red] (RT) -- coordinate (m) (WWKL);
+      %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{KL $\equiv_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item WKL $\leq_{\text{soc}}$ KL: From definition.
+    \item KL $\leq_{\text{soc}}$ WKL: Given KL instance \textbf{P}, at
+      each level, code branches into WKL instance \textbf{Q} using binary
+      representation of branch number
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{RT $\leq_{\text{soc}}$ WKL}
+  \begin{itemize}
+    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$
+    \item Define binary tree $T\subseteq 2^{<\omega}$ by $\sigma\in T$
+      iff $\{n:\sigma(n)=1\}$ is homogeneous
+  \end{itemize}
+\end{frame}
