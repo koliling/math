@@ -65,15 +65,13 @@
 
   \begin{center}
     \begin{tikzpicture}[node distance=2.5cm,auto,thick,>=latex']
-      \node (KL) {KL};
-      \node (WKL) [right of=KL] {WKL};
-      \node (WWKL) [below of=WKL] {WWKL};
-      \node (RT) [below of=KL] {RT};
-      \draw[<->] (KL) -- (WKL);
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
       \draw[->] (KL) -- (RT);
-      \draw[->] (WKL) -- (WWKL);
-      \draw [->,red] (RT) -- coordinate (m) (WWKL);
-      \draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+      \draw[->] (KL) -- (WWKL);
+      %\draw [->,red] (RT) -- coordinate (m) (WWKL);
+      %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
     \end{tikzpicture}
   \end{center}
 \end{frame}
