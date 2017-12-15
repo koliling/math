@@ -68,5 +68,22 @@
 \end{frame}
 
 \begin{frame}{$A$ recursively-encodable $\Leftrightarrow$
-$\{A\}$ $\Pi_1^0$-encodable}
+$\{A\}$ is $\Pi_1^0$-encodable}
+  \begin{align*}
+    \;&A\subseteq\omega\; \text{recursively-encodable}\\
+    \Leftrightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
+      X)\; [Y\geq_T A]\\
+    \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq X)\;
+      [\{A\}\supseteq \{Y\}]\\
+    \Rightarrow\; &\{A\}\subseteq\omega^\omega\; \text{is}\;
+      \Pi_1^0\text{-encodable},\\
+    &\\
+    \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
+      X)(\exists T^Y,f^Y\leq_T Y)\\
+    &[\{A\}=[T^Y]\; \wedge\; (\forall n)\; [\max_{\sigma\in
+    T^Y\cap\omega^n}\{\sigma(n)\}<f(n)]]\\
+    \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
+      X)\; [Y\geq_T A]\\
+    \Rightarrow\; &A\subseteq\omega\; \text{recursively-encodable}.\\
+  \end{align*}
 \end{frame}
