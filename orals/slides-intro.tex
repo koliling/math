@@ -34,14 +34,14 @@ in}\; [A]^\omega\}) =0$}
       \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
     \item Fix effective enumeration of branches $\sigma$ in
       $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
-    \item To decide if $n\in A$, wait till a measure of $2m$ of such
+    \item To decide if $n\in A$, wait till a measure of $\geq2m$ of such
       $\sigma$'s agree, and take their vote.
     \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
       $\mathcal{B}$ tightly, such $\sigma$'s exist, and they all lie in
       $\mathcal{B}$. Thus
       \begin{align*}
         \mu(\text{``true'' voters})>2m,\\
-        \mu(\text{``false'' voters})<2m.\\
+        \mu(\text{``false'' voters})<2m.
       \end{align*}
   \end{itemize}
 \end{frame}
@@ -98,11 +98,14 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
     \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
       finds an element via $\Phi$; let $f(0)$ be the largest element found.
     \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{B}$
-      tightly, such $\sigma$'s exist. Measure $>2m$ of them find infinite
-      subsets of $A$ truthfully, meausure $<2m$ of them may lie. Thus
-      $f(0)\geq p_A(0)$.
+      tightly, such $\sigma$'s exist.
+      \begin{align*}
+        \mu(\text{``true'' voters})>2m,\\
+        \mu(\text{``false'' voters})<2m.
+      \end{align*}
+      Thus $f(0)\geq p_A(0)$.
     \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
-      finds an element exceeding $f(s)$; let $f(s+1)$ be the largest
+      finds an element $>f(s)$; let $f(s+1)$ be the largest
       element found.
   \end{itemize}
 \end{frame}

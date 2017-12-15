@@ -8,12 +8,12 @@
   we need the following definitions and characterizations:
   \vspace{1em}
 
-  \begin{define}[Recursive-Encodability]
+  \begin{define}[Recursive-Encodable $A\subseteq\omega$]
     $A\subseteq\omega$ is recursively-encodable if given any
     $X\in[\omega]^\omega$, some subset of $X$ computes $A$.
   \end{define}
 
-  \begin{define}[$\Pi_1^0$-encodability]
+  \begin{define}[$\Pi_1^0$-encodable $\mathcal{A}\subseteq\omega^\omega$]
     $\mathcal{A}\subseteq \omega^{\omega}$ is $\Pi_1^0$-encodable if
     \TODO{write out definition}.
   \end{define}
@@ -36,32 +36,37 @@
   \vspace{1em}
   From Main Theorem, suffices to show
   \begin{itemize}
-    \item $A$ is hyperarithmetic $\Leftrightarrow$ $\{A\}$ is $\Sigma_1^1$
+    \item $A\subseteq\omega$ is hyperarithmetic $\Leftrightarrow$
+      $\{A\}\subseteq\omega^\omega$ is $\Sigma_1^1$
     \item $A\subseteq\omega$ recursively-encodable $\Leftrightarrow$
-      $\{A\}$ is $\Pi_1^0$-encodable
+      $\{A\}\subseteq\omega^\omega$ is $\Pi_1^0$-encodable
   \end{itemize}
 \end{frame}
 
 \begin{frame}{$A$ hyperarithmetic $\Leftrightarrow$ $\{A\}$ is $\Sigma_1^1$}
   \begin{align*}
-    \;&A\; \text{hyperarithmetic}\\
+    \;&A\subseteq\omega\; \text{hyperarithmetic}\\
     \Rightarrow\; & A\in\Sigma_1^1\\
     \Rightarrow\; & A=\{n:(\exists f)(\forall s)\; [R(f\restriction s,n)]\}\\
-    \Rightarrow\; & \{A\}= \{X:(\exists f)(\forall s)(\forall n)\;
-      [n\in X \Leftrightarrow R(f\restriction s,n)]\}\\
-    \Rightarrow\; &\{A\}\; \text{is}\; \Sigma_1^1.\\
-  \end{align*}
-
-  \begin{align*}
-    \;&\{A\}\; \text{is}\; \Sigma_1^1\\
-    \Rightarrow\; & A\in\Sigma_1^1\\
-    \Rightarrow\; & A=\{n:(\exists f)(\forall s)\; [R(f\restriction s,n)]\}\\
-    \Rightarrow\; & \{A\}= \{X:(\exists f)(\forall s)(\forall n)\;
-      [n\in X \Leftrightarrow R(f\restriction s,n)]\}\\
-    \Rightarrow\; &\{A\}\; \text{is}\; \Sigma_1^1.\\
+    \Rightarrow\; & \{A\}= \{g:(\exists f)(\forall s)(\forall n)\\
+    &[R(f\restriction s,n) \rightarrow g(n)=1 \wedge \neg R(f\restriction s,n)
+      \rightarrow g(n)=0]\}\\
+    \Rightarrow\; &\{A\}\subseteq\omega^\omega\; \text{is}\; \Sigma_1^1.\\
+    &\\
+    \Rightarrow\; & \{A\}= \{g:(\exists f)(\forall s)\; [Q(f\restriction
+      s,g\restriction s)]\}\\
+    \Rightarrow\; &
+      \begin{cases}
+        A=\{n:(\exists g)(\exists f)(\forall s)\; [Q(f\restriction
+          s,g\restriction s) \leftrightarrow g(n)=1]\}\\
+        A=\{n:(\forall g)(\forall f)(\exists s)\; [\neg Q(f\restriction
+          s,g\restriction s) \rightarrow g(n)=0]\}
+      \end{cases}\\
+    \Rightarrow\; &A\in\Delta_1^1\\
+    \Leftrightarrow\; &A\subseteq\omega\; \text{hyperarithmetic}.\\
   \end{align*}
 \end{frame}
 
-\begin{frame}{$A\subseteq\omega$ recursively-encodable $\Leftrightarrow$
+\begin{frame}{$A$ recursively-encodable $\Leftrightarrow$
 $\{A\}$ $\Pi_1^0$-encodable}
 \end{frame}
