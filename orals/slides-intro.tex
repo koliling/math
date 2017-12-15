@@ -78,17 +78,15 @@ element in}\; [A]^\omega\}) =0$}
   $f$ that dominates $p_A$.\\
   \vspace{1em}
 
-  Fix Turing functional $\Phi$. Write $\mathcal{C} :=\{X:
-  \Phi^X\in[A]^\omega\}$. Note $\mathcal{C}$ is Borel and thus measurable.
-  Since the measure of a countable union of null sets is 0, and
-  there are only countably many Turing functionals, it suffices to show
-  $\mu(\mathcal{C})=0$. Assume $\mu(\mathcal{C})=4m>0$.
+  Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
+  \Phi^X\in[A]^\omega\}$. Suffices to show $\mu(\mathcal{B})=0$. Assume
+  $\mu(\mathcal{B})=4m>0$.
 \end{frame}
 
 \begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes
 element in}\; [A]^\omega\}) =0$ (cont.)}
   \begin{itemize}
-    \item Approximate $\mathcal{C}$ by open cover
+    \item Approximate $\mathcal{B}$ by open cover
       $\mathcal{O}\supseteq\mathcal{C}$ with
       $\mu(\mathcal{O}-\mathcal{C})<m$.
     \item Approximate $\mathcal{O}$ by basic open sets
@@ -98,11 +96,9 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
       $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
     \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
       finds an element via $\Phi$; let $f(0)$ be the largest element found.
-      Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{C}$
+      Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{B}$
       tightly, such $\sigma$'s exist, and more than a measure of $m$ of
-      them indeed lie in $\mathcal{C}$.
-    \item In particular, at least one of these $\sigma$'s really computes
-      an infinite subset of $A$, so $f(0)\geq p_A(0)$.
+      them find infinite subsets of $A$ truthfully. Thus $f(0)\geq p_A(0)$.
     \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
       finds an element exceeding $f(s)$; let $f(s+1)$ be the largest
       element found.
