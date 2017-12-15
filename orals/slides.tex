@@ -108,11 +108,11 @@
     \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
     \item Fix $A\in[\omega]^\omega$ where
       \begin{align*}
-        &\mu(\{X: X\; \text{computes some}\; B\in[A]^\omega\}) =0,\\
-        \text{and}\;\;\; &\mu(\{X: X\; \text{computes some}\;
-        B\in[\bar{A}]^\omega\}) =0.\\
+        &\mu(\{X: X\; \text{computes an element in}\; [A]^\omega\}) =0,\\
+        \text{and}\;\;\; &\mu(\{X: X\; \text{computes an element in}\;
+        [\bar{A}]^\omega\}) =0.\\
       \end{align*}
-    \item $A$ bi-hyperimmune works
+    \item $A$ bi-hyperimmune works.
     \item Consider 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
       \Leftrightarrow n\in A$.
     \item Given any instance of WWKL, since the set of its solutions has
@@ -120,27 +120,45 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes some}\;
-B\in[A]^\omega\}) =0$}
-  \begin{itemize}
-    \item Hyperimmune sets $A$ are characterized as those whose principal
-      function $p_A$ is not dominated by any recursive $f$
-    \item Main idea: Assume not. Then there are enough paths computing
-      infinite subsets of $A$ that we can ask them to effectively ``vote''
-      for when new elements of $A$ have appeared. This gives a recursive
-      function that dominates $p_A$.
-    \item Write $\mathcal{A} :=\{X: X\; \text{computes some}\;
-      B\in[A]^\omega\}$, with $\mu(\mathcal{A})=4m>0$.
-    \item Fix open cover $\mathcal{O}\supseteq\mathcal{A}$ with
-      $\mu(\mathcal{O}-\mathcal{A})<m$.
-    \item
-  \end{itemize}
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes an
+element in}\; [A]^\omega\}) =0$}
+  Hyperimmune sets $A$ are characterized as those whose principal
+  function $p_A$ is not dominated by any recursive $f$. \\
+  \vspace{1em}
+
+  \textbf{Main idea:} Assume not. Then there are enough paths computing
+  infinite subsets of $A$ such that we can effectively ask them to ``vote''
+  for when new elements of $A$ have appeared. This gives a recursive
+  function dominating $p_A$.\\
+  \vspace{1em}
+
+  Fix Turing functional $\Phi$. Write $\mathcal{C} :=\{X:
+  \Phi^X\in[A]^\omega\}$. Since the measure of a countable union of sets of
+  measure 0 is 0, and there are only countably many Turing functionals, it
+  suffices to show $\mu(\mathcal{C})=0$. Assume $\mu(\mathcal{C})=4m>0$.
 \end{frame}
 
-\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes some}\;
-B\in[A]^\omega\}) =0$ continued}
+\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes an
+element in}\; [A]^\omega\}) =0$ (cont.)}
   \begin{itemize}
-    \item
+    \item Approximate $\mathcal{C}$ by open cover
+      $\mathcal{O}\supseteq\mathcal{C}$ with
+      $\mu(\mathcal{O}-\mathcal{C})<m$.
+    \item Approximate $\mathcal{O}$ by basic open sets
+      $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
+      \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+    \item Fix effective enumeration of branches $\sigma$ in
+      $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
+    \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
+      finds an element via $\Phi$; let $f(0)$ be the largest element found.
+      Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{C}$
+      tightly, such $\sigma$'s exist, and more than a measure of $m$ of
+      them indeed lie in $\mathcal{C}$.
+    \item In particular, at least one of these $\sigma$'s really computes
+      an infinite subset of $A$, so $f(0)\geq p_A(0)$.
+    \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
+      finds an element exceeding $f(s)$; let $f(s+1)$ be the largest
+      element found.
   \end{itemize}
 \end{frame}
 
