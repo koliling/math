@@ -1,57 +1,23 @@
-\begin{frame}{Characterizing $\Pi_1^0$-encodable
-$\mathcal{C}\subseteq\omega^\omega$}
-  \begin{thm}[Characterizing $\Pi_1^0$-encodable
-  $\mathcal{C}\subseteq\omega^\omega$]
-    $\mathcal{C}\subseteq \omega^{\omega}$ compact. Then
-    \[\mathcal{C}\; \text{is}\; \Pi_1^0\text{-encodable}\; \Leftrightarrow
-    \mathcal{C}\; \text{contains non-empty}\; \Sigma_1^1\; \text{subset}.\]
-  \end{thm}
-\end{frame}
-
-\begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
+\begin{frame}{$\mathcal{A}$ contains $\Sigma_1^1$ subset ($\neq\emptyset$)
+$\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \begin{itemize}
-    \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
-      has no non-empty $\Sigma_1^1$ subset
-    \item We prove such $T$ exists
-    \item Fix RT instance $c:[\omega]^n\rightarrow k$ and assume every
-      solution $H$ computes a path through $T$, i.e. $[T]$ has non-empty
-      $\Pi_1^{0,H}$ subset
-    \item Thus every $X\in[\omega]^\omega$ has a subset
-      $H\in[X]^\omega$ such that $[T]$ has non-empty $\Pi_1^{0,H}$ subset
-    \item We say that $T$ is $\Pi_1^0$-encodable
-    \item We will prove that being $\Pi_1^0$-encodable is equivalent to
-      containing non-empty $\Sigma_1^1$ subset, $\rightarrow\leftarrow$
+    \item Fix $\mathcal{A}$ containing $\mathcal{B} =\{X: (\exists
+      Y)(\forall s)\; R(X,Y,s)\} \neq\emptyset$.
+    \item Fix $X\in\mathcal{B}$, $Y$ such that $(\forall s)\;R(X,Y,s)$.
+    \item Define $f(n)=\max(X(n),Y(n))$.
+    \item Observe that $f$ acts as $\Pi_1^0$-modulus of $\mathcal{A}$, in
+      the sense that if $g\geq f$, then $\mathcal{A}\supseteq[T]
+      \neq\emptyset$ for some $T\leq_T g$ whose nodes are bounded by $g$:
+    \item Given $g\geq f$, the set
+      \[\{X\leq g:(\forall s)(\exists \sigma\in 2^s, \sigma\leq g)(\forall
+      s'<s)\; R(X,\sigma,s')\}\]
+      contains $X$ and is a $\Pi_1^{0,g}$-subset contained in
+      $\mathcal{A}$.
+    \item Given arbitrary $X\in[\omega]^\omega$, remove enough elements to
+      get a sparse $Y\in[X]^\omega$ where $p_Y>f$.
+    \item Then $p_Y$ witnesses $\Pi_1^0$-encodability of $\mathcal{A}$ for
+      $X$.
   \end{itemize}
-\end{frame}
-
-\begin{frame}{There exists $[T]$ with no $\Sigma_1^1$ subset, $\mu(T)>0$}
-  \begin{itemize}
-    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$
-    \item Then $\mu(T)>0$
-    \item $T$ has no non-empty $\Sigma_1^1$ subset because every
-      $\Sigma_1^1$ subset of $2^\omega$ contains an element recursive in
-      $O$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Easy: Contains non-empty $\Sigma_1^1$ subset $\rightarrow$
-$\Pi_1^0$-encodable}
-  \newtheorem{main-easy}{Easy direction}
-  \begin{main-easy}
-    $\mathcal{C}\subseteq \omega^{\omega}$ compact.
-
-    $\mathcal{C}$ contains non-empty $\Sigma_1^1$ subset
-    $\rightarrow$
-
-    $\mathcal{C}$ is $\Pi_1^0$-encodable.
-  \end{main-easy}
-
-  \newtheorem{pf-easy}{Proof}
-  \begin{pf-easy}
-    Contain $\Sigma_1^1$ subset $\implies$ has modulus. Given arbitrary
-    $X\in[\omega]^\omega$, make $X$ sparse enough for principal function to
-    dominate modulus.
-  \end{pf-easy}
 \end{frame}
 
 \begin{frame}{Hard: $\Pi_1^0$-encodable $\rightarrow$ Contains
@@ -111,7 +77,7 @@ non-empty $\Sigma_1^1$ subset}
   \end{L1}
 \end{frame}
 
-\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists (continued)}
+\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists (cont.)}
   \begin{itemize}
       \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
         $G_0\restriction n$
@@ -134,20 +100,38 @@ non-empty $\Sigma_1^1$ subset}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Possible backup slides}
+\begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
-    \item Set of oracles computing a fixed non-recursive has 0 measure
-    \item Gandy-Harrington topology (relativized) is Baire
+    \item Fix $T\subseteq 2^{<\omega}$ with $\mu(T)>0$, $[T]$
+      has no non-empty $\Sigma_1^1$ subset
+    \item We prove such $T$ exists
+    \item Fix RT instance $c:[\omega]^n\rightarrow k$ and assume every
+      solution $H$ computes a path through $T$, i.e. $[T]$ has non-empty
+      $\Pi_1^{0,H}$ subset
+    \item Thus every $X\in[\omega]^\omega$ has a subset
+      $H\in[X]^\omega$ such that $[T]$ has non-empty $\Pi_1^{0,H}$ subset
+    \item We say that $T$ is $\Pi_1^0$-encodable
+    \item We will prove that being $\Pi_1^0$-encodable is equivalent to
+      containing non-empty $\Sigma_1^1$ subset, $\rightarrow\leftarrow$
   \end{itemize}
 \end{frame}
 
-\begin{frame}{\textcolor{red}{Possible backup slides (reading)}}
+\begin{frame}{There exists $[T]$ with no $\Sigma_1^1$ subset, $\mu(T)>0$}
   \begin{itemize}
+    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$
+    \item Then $\mu(T)>0$
+    \item $T$ has no non-empty $\Sigma_1^1$ subset because every
+      $\Sigma_1^1$ subset of $2^\omega$ contains an element recursive in
+      $O$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Extra slides}
+  \begin{itemize}
+    \item Set of oracles computing a fixed non-recursive has 0 measure
+    \item Gandy-Harrington topology (relativized) is Baire
     \item Every $\Sigma_1^1$ subset of $2^\omega$ contains an element
       recursive in Kleene's $O$
-    \item If $A$ is hyperimmune, then set of oracles that compute
-      infinite subsets of $A$ has 0 measure [Mileti]
     \item Galvin-Prikry
-    \item Being encodable characterizes HYP
   \end{itemize}
 \end{frame}

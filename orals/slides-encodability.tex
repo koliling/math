@@ -16,8 +16,7 @@
     every $X\in[\omega]^\omega$, there exists $Y\subseteq X$ and tree
     $T\leq_T Y$ such that
     \[\mathcal{A} \supseteq [T]\neq\emptyset,\]
-    and $(\forall\sigma\in T)(\forall n)\; [\sigma(n)<f(n)]$ for some
-    $f\leq_T Y$.
+    and some $f\leq_T Y$ bounds every branch in $T$.
   \end{define}
 \end{frame}
 
@@ -27,7 +26,8 @@
   $\mathcal{A}\subseteq\omega^\omega$]
     $\mathcal{A}\subseteq \omega^{\omega}$ compact. Then
     \[\mathcal{A}\; \text{is}\; \Pi_1^0\text{-encodable}\; \Leftrightarrow
-    \mathcal{A}\; \text{contains non-empty}\; \Sigma_1^1\; \text{subset}.\]
+    \mathcal{A}\; \text{contains}\; \Sigma_1^1\; \text{subset}\;
+    (\neq\emptyset).\]
   \end{main-thm*}
 
   \begin{coro*}[Characterizing Recursively-Encodable $A\subseteq\omega$]
@@ -76,7 +76,7 @@ $\{A\}$ is $\Pi_1^0$-encodable}
     \Leftrightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
       X)\; [Y\geq_T A]\\
     \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq X)\;
-      [\{A\}\supseteq \{Y\}]\\
+      [\{A\}=\{\Phi^Y\}]\\
     \Rightarrow\; &\{A\}\subseteq\omega^\omega\; \text{is}\;
       \Pi_1^0\text{-encodable},\\
     &\\
@@ -93,7 +93,7 @@ $\{A\}$ is $\Pi_1^0$-encodable}
   of $A(n)$.
   \vspace{0.5em}
 
-  Thus $Y$ computes $A$, making $A$ recursively encodable.
+  Thus $Y\geq_TA$, making $A$ recursively-encodable.
 \end{frame}
 
 \begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
@@ -107,6 +107,6 @@ $\{A\}$ is $\Pi_1^0$-encodable}
     \item By assumption, $Y$ computes $f$. Since $X$ is arbitrary, $f$ is
       recursively-encodable.
     \item But recursive-encodability is the same as being
-      hyperarithmetic, $\rightarrow\leftarrow$.
+      hyperarithmetic, $\Rightarrow\Leftarrow$.
   \end{itemize}
 \end{frame}
