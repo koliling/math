@@ -5,16 +5,15 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
       Y)(\forall s)\; R(X,Y,s)\} \neq\emptyset$.
     \item Fix $X\in\mathcal{B}$, $Y$ such that $(\forall s)\;R(X,Y,s)$.
     \item Define $f(n)=\max(X(n),Y(n))$.
-    \item Observe that $f$ acts as $\Pi_1^0$-modulus of $\mathcal{A}$, in
-      the sense that if $g\geq f$, then $\mathcal{A}\supseteq[T]
-      \neq\emptyset$ for some $T\leq_T g$ whose nodes are bounded by $g$:
-    \item Given $g\geq f$, the set
+    \item Then $f$ is a $\Pi_1^0$-modulus of $\mathcal{A}$, i.e. $f$ is
+      dominating enough that every $g\geq f$ computes a $g$-bounded tree
+      $T$ whose paths all lie in $\mathcal{A}$:
+    \item Given $g\geq f$, the $\Pi_1^{0,g}$-set of paths
       \[\{X\leq g:(\forall s)(\exists \sigma\in 2^s, \sigma\leq g)(\forall
       s'<s)\; R(X,\sigma,s')\}\]
-      contains $X$ and is a $\Pi_1^{0,g}$-subset contained in
-      $\mathcal{A}$.
+      is bounded by $g$, contains $X$, and is contained in $\mathcal{A}$.
     \item Given arbitrary $X\in[\omega]^\omega$, remove enough elements to
-      get a sparse $Y\in[X]^\omega$ where $p_Y>f$.
+      make a sparse $Y\in[X]^\omega$ with $p_Y>f$.
     \item Then $p_Y$ witnesses $\Pi_1^0$-encodability of $\mathcal{A}$ for
       $X$.
   \end{itemize}
@@ -25,39 +24,37 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
     \item Fix compact $\mathcal{A}$ with no $\Sigma_1^1$-subset
       ($\neq\emptyset$). Construct $X\in[\omega]^\omega$ such that for each
-      $Y\in[X]^\omega$, every $Y$-recursive tree ($\neq\emptyset$) contains
-      a path outside $\mathcal{A}$.
-
+      $Y\in[X]^\omega$, every $Y$-recursive tree (with paths)
+      contains a path outside $\mathcal{A}$.
     \item Fix enumeration of Turing functionals on trees
       $\Gamma_s:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
-
-    \item Construct $X=\bigcap_{s\in\omega}X_s$, where
-      $\omega=X_0\supset X_1\supset\ldots$, $X_{s+1}\restriction
-      s=X_s\restriction s$.
-
+    \item Construct $X=\bigcap_{s\in\omega}X_s$ with
+      \[\begin{array}{rlll}
+        \omega=X_0 &\supset X_1 &\supset X_2 &\supset\ldots,\\
+        X_0\restriction0 &\prec X_1\restriction1 &\prec X_2\restriction2
+          &\prec\ldots\\
+      \end{array}\]
     \item At stage $s$, remove enough elements beyond the first $s$
       elements of $X_s$ to get $X_{s+1}\in[X_s]^\omega$ such that for each
-      $Y\in[X_{s+1}]^\omega$, if $[\Gamma_s^Y]\neq\emptyset$ then it
+      $Y\in[X_{s+1}]^\omega$, $[\Gamma_s^Y]$ (if $\neq\emptyset$)
       contains a path outside $\mathcal{A}$.
-
-    \item Set $|X|=\omega$; this $X$ satisfies the desired property.
-
-    \item The hard part is proving such $X_{s+1}\in[X_s]^\omega$ exists.
+    \item $X=\bigcap_{s\in\omega}X_s$ works.
+    \item The hard part is proving each $X_{s+1}\in[X_s]^\omega$ exists.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Compute no path in $\mathcal{A}$ or same branch
+\begin{frame}{Compute no path in $\mathcal{A}$, Or same branch
 outside $\mathcal{A}$}
-  If we do not require $X_{s+1}\restriction s=X_s\restriction s$, we can
+  If we do not require $X_{s+1}\succ X_s\restriction s$, we can
   find $X_{s+1}\in[X_s]^\omega$ with stronger property:
 
-  \begin{lemma}[Compute no path in $\mathcal{A}$ or same branch
+  \begin{lemma}[Compute no path in $\mathcal{A}$, Or same branch
   outside $\mathcal{A}$]
   \label{lemma:all-outside-A}
-    Fix $X_0\in[\omega]^\omega$, compact
-    $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,X_0}$ subset
+    Fix $Z\in[\omega]^\omega$, compact
+    $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,Z}$ subset
     ($\neq\emptyset$), $\Gamma:\omega^{<\omega} \rightarrow
-    \omega^{<\omega}$. There exists $X\in[X_0]^\omega$ such that:
+    \omega^{<\omega}$. There exists $X\in[Z]^\omega$ such that:
 
     \begin{itemize}
       \item Either every $Y\in[X]^\omega$ computes only paths outside
@@ -72,15 +69,15 @@ outside $\mathcal{A}$}
 \begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
 contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
-    \item Want $X\in[Z]^\omega$ with $X\restriction s=Z\restriction s$
-      and such that for each $Y\in[X]^\omega$, if $[\Gamma^Y]\neq\emptyset$
-      then it contains a path outside $\mathcal{A}$.
+    \item Want $X\in[Z]^\omega$ with $X\succ Z\restriction s$
+      and such that for each $Y\in[X]^\omega$, $[\Gamma^Y]$ (if
+      $\neq\emptyset$) contains a path outside $\mathcal{A}$.
     \item List subsets of $Z\restriction s$: $\{D_0,\ldots,D_m\}$.
     \item Apply Lemma~\ref{lemma:all-outside-A} once for each $D_i$:
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Compute no path in $\mathcal{A}$ or same branch
+\begin{frame}{Compute no path in $\mathcal{A}$, Or same branch
   outside $\mathcal{A}$}
   \begin{itemize}
     \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
