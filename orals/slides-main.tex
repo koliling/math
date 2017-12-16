@@ -32,13 +32,13 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
       $\Gamma_s:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
 
     \item Construct $X=\bigcap_{s\in\omega}X_s$, where
-      $\omega=X_0\supset X_1\supset\ldots$.
+      $\omega=X_0\supset X_1\supset\ldots$, $X_{s+1}\restriction
+      s=X\restriction s$.
 
-    \item At stage $s$, fix the first $s$ elements of $X_s$. Remove enough
-      elements beyond the first $s$ elements of $X_s$ to get
-      $X_{s+1}\in[X_s]^\omega$ such that for each $Y\in[X_{s+1}]^\omega$,
-      if $[\Gamma_s^Y]\neq\emptyset$ then it contains a path outside
-      $\mathcal{A}$.
+    \item At stage $s$, remove enough elements beyond the first $s$
+      elements of $X_s$ to get $X_{s+1}\in[X_s]^\omega$ such that for each
+      $Y\in[X_{s+1}]^\omega$, if $[\Gamma_s^Y]\neq\emptyset$ then it
+      contains a path outside $\mathcal{A}$.
 
     \item Set $|X|=\omega$; this $X$ satisfies the desired property.
 
@@ -46,13 +46,13 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{$X\in[X_0]^\omega$ where each {$[X]^\omega$} compute
-path outside $\mathcal{A}$}
-  If we do not require $X_{s+1}\restriction n=X_s\restriction n$, we can
+\begin{frame}{Compute no path in $\mathcal{A}$ or all compute branch
+outside $\mathcal{A}$}
+  If we do not require $X_{s+1}\restriction s=X_s\restriction s$, we can
   find $X_{s+1}\in[X_s]^\omega$ with stronger property:
 
-  \begin{lemma}[{$X\in[X_0]^\omega$} where each {$[X]^\omega$} compute
-  elements outside $\mathcal{A}$]
+  \begin{lemma}[Compute no path in $\mathcal{A}$ or all compute branch
+  outside $\mathcal{A}$]
   \label{lemma:all-outside-A}
     Fix $X_0\in[\omega]^\omega$, compact
     $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,X_0}$ subset
@@ -62,8 +62,8 @@ path outside $\mathcal{A}$}
     \begin{itemize}
       \item Either every $Y\in[X]^\omega$ computes only paths outside
         $\mathcal{A}$ via $\Gamma$,
-      \item Or for every $n\in\omega$, some $\sigma\in\omega^n$ whose basic
-        open set $[\sigma]$ lies outside $\mathcal{A}$ is computed by all
+      \item Or for every $n\in\omega$, some $\sigma\in\omega^n$ with
+        $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every
         $Y\in[X]^\omega$ via $\Gamma$.
     \end{itemize}
   \end{lemma}
@@ -72,16 +72,17 @@ path outside $\mathcal{A}$}
 \begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
 contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
-      \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
-        $X_s\restriction s$
-
-      \item Apply Lemma~\ref{lemma:all-outside-A} $m$ times, once for
-        each $D_i$.
+    \item Want $X\in[X_0]^\omega$ with $X\restriction s=X_0\restriction s$
+      and such that for each $Y\in[X]^\omega$, if $[\Gamma^Y]\neq\emptyset$
+      then it contains a path outside $\mathcal{A}$.
+    \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of $X\restriction
+      s$.
+    \item Apply Lemma~\ref{lemma:all-outside-A} once for each $D_i$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Find $X\in[X_0]^\omega$ where all {$[X]^\omega$} compute
-elements outside $\mathcal{A}$}
+\begin{frame}{Compute no path in $\mathcal{A}$ or all compute branch
+  outside $\mathcal{A}$}
   \begin{itemize}
     \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
       Galvin-Prikry
