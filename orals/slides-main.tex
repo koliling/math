@@ -20,64 +20,54 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Hard: $\Pi_1^0$-encodable $\rightarrow$ Contains
-non-empty $\Sigma_1^1$ subset}
+\begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
+contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
-    \item Fix compact $\mathcal{C}$ with no non-empty $\Sigma_1^1$ subset.
-      We want $G\in[\omega]^\omega$ such that no $X\in[G]^\omega$
-      can compute (in the $\Pi_1^{0,X}$ sense) a non-empty subset of
-      $\mathcal{C}$.
+    \item Fix compact $\mathcal{A}$ with no $\Sigma_1^1$-subset
+      ($\neq\emptyset$). Want $X\in[\omega]^\omega$ where no
+      $Y\in[X]^\omega$ computes a $Y$-bounded $\Pi_1^{0,Y}$-subset
+      ($\neq\emptyset$) of $\mathcal{A}$.
 
-    \item Fix enumeration of Turing functionals $\Gamma_s:\omega^{<\omega}
-      \rightarrow \omega^{<\omega}$.
+    \item Fix enumeration of Turing functionals on trees
+      $\Gamma_s:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
 
-    \item Construct $G=\bigcap_{s\in\omega}G_s$, where
-      $\omega=G_0\supset G_1\supset\ldots$.
-      
-    \item At stage $s$, fix the first $s$ elements of $G$.
-    
-    \item Then remove enough elements beyond the first $s$ ones so that no
-      $X\in[G_s]^\omega$ can compute a non-empty subset of $\mathcal{C}$
+    \item Construct $X=\bigcap_{s\in\omega}X_s$, where
+      $\omega=X_0\supset X_1\supset\ldots$.
+
+    \item At stage $s$, fix the first $s$ elements of $X_s$. Remove enough
+      elements beyond the first $s$ elements of $X_s$ to get
+      $X_{s+1}\in[X_s]^\omega$ where no $Y\in[X_{s+1}]^\omega$ computes a
+      $Y$-bounded $\Pi_1^{0,Y}$-subset ($\neq\emptyset$) of $\mathcal{A}$
       via $\Gamma_s$.
 
-    \item Then $|G|=\omega$, and $G$ satisfies the desired property.
+    \item Set $|X|=\omega$; this $X$ satisfies the desired property.
 
-    \item The hard part is proving such $G_{s+1}\in[G_s]^\omega$ exists.
+    \item The hard part is proving such $X_{s+1}\in[X_s]^\omega$ exists.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists}
-  \begin{itemize}
-    \item Fix $G_0\in[\omega]^\omega$, $n\in\omega$, compact
-      $\mathcal{C}\subseteq\omega^\omega$, Turing functional
-      $\Gamma:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
+\begin{frame}{Desired $X_{s+1}\in[X_s]^\omega$ exists}
+  If we do not require $X_{s+1}\restriction n=X_s\restriction n$, we can
+  find $X_{s+1}\in[X_s]^\omega$ with stronger property:
 
-    \item Want $G_1\in[G_0]^\omega$ such that $G_1\restriction
-      n=G_0\restriction n$, and no $X\in[G_1]^\omega$ computes a non-empty
-      subset of $\mathcal{C}$ via $\Gamma$.
-
-    \item If we do not require $G_1\restriction n=G_0\restriction n$, then
-      we can find $G_1$ with stronger property:
-  \end{itemize}
-
-  \newtheorem{L1}{Lemma 1}
-  \begin{L1}
-    Fix $G_0\in[\omega]^\omega$, compact
-    $\mathcal{C}\subseteq\omega^\omega$ with no non-empty
-    $\Sigma_1^{1,G_0}$ subset, Turing functional $\Gamma:\omega^{<\omega}
-    \rightarrow \omega^{<\omega}$, $t\in\omega$. Then there exists
-    $G_1\in[G_0]^\omega$ such that every $X\in[G_1]^\omega$ does not
-    compute a non-empty subset of $\mathcal{C}$ via $\Gamma$ in the
-    sense:
+  \begin{lemma}
+    Fix $X_0\in[\omega]^\omega$, compact
+    $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,X_0}$ subset
+    ($\neq\emptyset$), $\Gamma:\omega^{<\omega} \rightarrow
+    \omega^{<\omega}$. There exists $X\in[X_0]^\omega$ where no
+    $Y\in[X]^\omega$ computes a $Y$-bounded $\Pi_1^{0,Y}$-subset
+    ($\neq\emptyset$) of $\mathcal{A}$ via $\Gamma$, in the sense that given
+    $n\in\omega$,
 
     \begin{itemize}
-      \item Either $\mathcal{C}\cap[\Gamma^X]=\emptyset$,
-      \item Or...
+      \item Either $\mathcal{A}\cap[\Gamma^Y]=\emptyset$ for all
+        $Y\in[X]^\omega$,
+      \item Or $\Gamma^Y$
     \end{itemize}
-  \end{L1}
+  \end{lemma}
 \end{frame}
 
-\begin{frame}{Desired $G_{s+1}\in[G_s]^\omega$ exists (cont.)}
+\begin{frame}{Desired $X_{s+1}\in[X_s]^\omega$ exists (cont.)}
   \begin{itemize}
       \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
         $G_0\restriction n$
