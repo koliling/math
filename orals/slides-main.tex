@@ -24,9 +24,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
     \item Fix compact $\mathcal{A}$ with no $\Sigma_1^1$-subset
-      ($\neq\emptyset$). Want $X\in[\omega]^\omega$ where no
-      $Y\in[X]^\omega$ computes a $Y$-bounded $\Pi_1^{0,Y}$-subset
-      ($\neq\emptyset$) of $\mathcal{A}$.
+      ($\neq\emptyset$). Construct $X\in[\omega]^\omega$ such that for each
+      $Y\in[X]^\omega$, every $Y$-recursive tree ($\neq\emptyset$) contains
+      a path outside $\mathcal{A}$.
 
     \item Fix enumeration of Turing functionals on trees
       $\Gamma_s:\omega^{<\omega} \rightarrow \omega^{<\omega}$.
@@ -36,9 +36,9 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
 
     \item At stage $s$, fix the first $s$ elements of $X_s$. Remove enough
       elements beyond the first $s$ elements of $X_s$ to get
-      $X_{s+1}\in[X_s]^\omega$ where no $Y\in[X_{s+1}]^\omega$ computes a
-      $Y$-bounded $\Pi_1^{0,Y}$-subset ($\neq\emptyset$) of $\mathcal{A}$
-      via $\Gamma_s$.
+      $X_{s+1}\in[X_s]^\omega$ such that for each $Y\in[X_{s+1}]^\omega$,
+      if $[\Gamma_s^Y]\neq\emptyset$ then it contains a path outside
+      $\mathcal{A}$.
 
     \item Set $|X|=\omega$; this $X$ satisfies the desired property.
 
@@ -46,37 +46,42 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Desired $X_{s+1}\in[X_s]^\omega$ exists}
+\begin{frame}{$X\in[X_0]^\omega$ where each {$[X]^\omega$} compute
+path outside $\mathcal{A}$}
   If we do not require $X_{s+1}\restriction n=X_s\restriction n$, we can
   find $X_{s+1}\in[X_s]^\omega$ with stronger property:
 
-  \begin{lemma}
+  \begin{lemma}[{$X\in[X_0]^\omega$} where each {$[X]^\omega$} compute
+  elements outside $\mathcal{A}$]
+  \label{lemma:all-outside-A}
     Fix $X_0\in[\omega]^\omega$, compact
     $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,X_0}$ subset
     ($\neq\emptyset$), $\Gamma:\omega^{<\omega} \rightarrow
-    \omega^{<\omega}$. There exists $X\in[X_0]^\omega$ where no
-    $Y\in[X]^\omega$ computes a $Y$-bounded $\Pi_1^{0,Y}$-subset
-    ($\neq\emptyset$) of $\mathcal{A}$ via $\Gamma$, in the sense that given
-    $n\in\omega$,
+    \omega^{<\omega}$. There exists $X\in[X_0]^\omega$ such that:
 
     \begin{itemize}
-      \item Either $\mathcal{A}\cap[\Gamma^Y]=\emptyset$ for all
-        $Y\in[X]^\omega$,
-      \item Or $\Gamma^Y$
+      \item Either every $Y\in[X]^\omega$ computes only paths outside
+        $\mathcal{A}$ via $\Gamma$,
+      \item Or for every $n\in\omega$, some $\sigma\in\omega^n$ whose basic
+        open set $[\sigma]$ lies outside $\mathcal{A}$ is computed by all
+        $Y\in[X]^\omega$ via $\Gamma$.
     \end{itemize}
   \end{lemma}
 \end{frame}
 
-\begin{frame}{Desired $X_{s+1}\in[X_s]^\omega$ exists (cont.)}
+\begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
+contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
       \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of
-        $G_0\restriction n$
+        $X_s\restriction s$
 
-      \item Apply Lemma 1 $m$ times, once for each $D_i$.
+      \item Apply Lemma~\ref{lemma:all-outside-A} $m$ times, once for
+        each $D_i$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Lemma 1}
+\begin{frame}{Find $X\in[X_0]^\omega$ where all {$[X]^\omega$} compute
+elements outside $\mathcal{A}$}
   \begin{itemize}
     \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
       Galvin-Prikry
