@@ -33,7 +33,7 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
 
     \item Construct $X=\bigcap_{s\in\omega}X_s$, where
       $\omega=X_0\supset X_1\supset\ldots$, $X_{s+1}\restriction
-      s=X\restriction s$.
+      s=X_s\restriction s$.
 
     \item At stage $s$, remove enough elements beyond the first $s$
       elements of $X_s$ to get $X_{s+1}\in[X_s]^\omega$ such that for each
@@ -72,12 +72,12 @@ outside $\mathcal{A}$}
 \begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
 contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
-    \item Want $X\in[X_0]^\omega$ with $X\restriction s=X_0\restriction s$
+    \item Want $X\in[Z]^\omega$ with $X\restriction s=Z\restriction s$
       and such that for each $Y\in[X]^\omega$, if $[\Gamma^Y]\neq\emptyset$
       then it contains a path outside $\mathcal{A}$.
-    \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of $X\restriction
+    \item Fix enumeration $\{D_0,\ldots,D_m\}$ of subsets of $Z\restriction
       s$.
-    \item Apply Lemma~\ref{lemma:all-outside-A} once for each $D_i$.
+    \item Apply Lemma~\ref{lemma:all-outside-A} once for each $D_i$:
   \end{itemize}
 \end{frame}
 
