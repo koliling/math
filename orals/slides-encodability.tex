@@ -57,10 +57,10 @@
       s,g\restriction s)]\}\\
     \Rightarrow\; &
       \begin{cases}
-        A=\{n:(\exists g)(\exists f)(\forall s)\; [Q(f\restriction
-          s,g\restriction s) \leftrightarrow g(n)=1]\}\\
-        A=\{n:(\forall g)(\forall f)(\exists s)\; [\neg Q(f\restriction
-          s,g\restriction s) \rightarrow g(n)=0]\}
+        A=\{n:(\exists g)\; [g(n)=1\; \wedge\; (\exists f)(\forall s)\;
+          Q(f\restriction s,g\restriction s)]\}\\
+        A=\{n:(\forall g)\; [g(n)=0\; \rightarrow\; (\forall f)(\exists s)\;
+          \neg Q(f\restriction s,g\restriction s)]\}\\
       \end{cases}\\
     \Rightarrow\; &A\in\Delta_1^1\\
     \Leftrightarrow\; &A\subseteq\omega\; \text{hyperarithmetic}.\\
@@ -79,11 +79,17 @@ $\{A\}$ is $\Pi_1^0$-encodable}
       \Pi_1^0\text{-encodable},\\
     &\\
     \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
-      X)(\exists T^Y,f^Y\leq_T Y)\\
-    &[\{A\}=[T^Y]\; \wedge\; (\forall n)\; [\max_{\sigma\in
-    T^Y\cap\omega^n}\{\sigma(n)\}<f(n)]]\\
-    \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
-      X)\; [Y\geq_T A]\\
-    \Rightarrow\; &A\subseteq\omega\; \text{recursively-encodable}.\\
+      X) [\{A\}=[R^Y]]
   \end{align*}
+  Given $A\restriction n$, to decide if $n\in A$, enumerate all paths
+  $\sigma\in2^{<\omega}$ extending $A\restriction n$ and check if
+  $R^Y(\sigma)$. Since $A$ is the unique path in $[R^Y]$, by weak Konig's
+  lemma, eventually exactly one of $[(A\restriction n)^\frown 0]$ or
+  $[(A\restriction n)^\frown 1]$ will be covered by a finite set of basic
+  open covers $[\sigma_0]\cup\ldots\cup[\sigma_m]$, and for each $i\leq m$,
+  $\neg R(\sigma_i)$. Then the other $[(A\restriction n)^\frown j]$ will
+  give the correct value of $A(n)$.
+  \vspace{0.5em}
+
+  Thus $Y$ computes $A$, and $A$ is recursively encodable.
 \end{frame}
