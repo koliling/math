@@ -143,53 +143,66 @@ machines)}
 \end{frame}
 
 \begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
-  For successful iteration, we strengthen Lemma~\ref{lemma:fixed-machine}
-  by two conditions:
-  \newtheorem*{lemma-strengthened*}{Lemma \ref{lemma:fixed-machine}':}
-  \begin{lemma-strengthened*}[Strengthened Lemma \ref{lemma:fixed-machine}]
-    \label{lemma:fixed-machine-strengthened}
+  To iterate successfully, we strengthen Lemma~\ref{lemma:fixed-machine}
+  twice:
+  \newtheorem*{lemma-strengthened1*}{Lemma \ref{lemma:fixed-machine}':}
+  \begin{lemma-strengthened1*}[$\Sigma_1^{1,X}$-sets compute no path in
+  $\mathcal{A}$]
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix $s\in\omega$, Turing functional $\Gamma$. Then
+    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
     there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
-    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore,\\
+    (via $\Gamma$) no path in $\mathcal{A}$.\\
     \vspace{0.5em}
-    \textbf{Condition 1:} $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
-    ($\neq\emptyset$), and\\
-    \textbf{Condition 2:} $X$ preserves $Z\restriction s$.
-  \end{lemma-strengthened*}
+    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
+    ($\neq\emptyset$).
+  \end{lemma-strengthened1*}
 
-  \vspace{1em}
-  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened only by
-  the first condition, we can immediately satisfy the second one as
-  follows: Apply the partially-strengthened lemma using the Turing
-  functional that adds $Z\restriction s$ to the input before sending it to
-  $\Gamma$.
+  \vspace{0.5em}
+  \newtheorem*{lemma-strengthened2*}{Lemma \ref{lemma:fixed-machine}'':}
+  \begin{lemma-strengthened2*}[$X$ preserves given initial-segment of $Z$]
+    Given any $s\in\omega$, require the $X$ in
+    Lemma~\ref{lemma:fixed-machine}' to preserves $Z\restriction s$.
+  \end{lemma-strengthened2*}
+
+  \vspace{0.5em}
+  Lemma~\ref{lemma:fixed-machine}'' can be directly proven from
+  Lemma~\ref{lemma:fixed-machine}' by iterating the latter across all
+  subsets of $Z\restriction s$.
 \end{frame}
 
-\begin{frame}{$X\subseteq Z$ that preserves initial segment of $Z$}
-  Apply the partially-strengthened lemma with input $Z$ and $\Gamma'$,
-  where the latter is defined by
-  \[\Gamma'(Y) =\Gamma(Y\cup Z\restriction s).\]
-  The lemma gives us $X\in[Z]^\omega$ whose subsets compute (via
-  $\Gamma'$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
-  $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+\begin{frame}{$X\subseteq Z$ that preserves $Z\restriction s$}
+  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
+  partially-strengthened lemma across $d_i$'s to get decreasing subsets
+  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
 
-  \vspace{1em}
-  To see that this $X$ works, fix arbitrary $Y\in[X]^\omega$. Then
-  $Y\restriction i=d_i$ for some $i<m$.
+  At stage $i$, Lemma~\ref{lemma:fixed-machine}' is applied with inputs
+  $X_i$ and $\Gamma_i$ defined by
+  \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
-  %List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
-  %partially-strengthened lemma across $d_i$'s to get decreasing subsets
-  %\[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m,\]
+  giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
+  $\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$).
 
-  %then choose $X=X_m\cup Z\restriction s$. At stage $i<m$, the lemma is
-  %applied with inputs $X_i$ and $\Gamma_i$ defined by
-  %\[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
+  \vspace{0.5em}
+  Choose $X=X_m\cup Z\restriction s$. To see that this $X$ works, first
+  observe that since $X$ almost equals $X_m$, $\mathcal{A}$ will
+  contain no $\Sigma_1^{1,X}$-set since it contains no
+  $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\in[X]^\omega$. Then
+  $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
+  $Y$ compute no path in $\mathcal{A}$ via $\Gamma_i$. Since $Y\supset
+  d_i$, the same is ensured via $\Gamma$.
 
-  %giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
-  %$\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
-  %$\Sigma_1^{1,X_i}$-set ($\neq\emptyset$). To see that this $X$ works, fix
-  %arbitrary $Y\in[X]^\omega$. Then $Y\restriction i=d_i$ for some $i<m$.
+  %Apply the partially-strengthened lemma with input $Z$ and $\Gamma'$,
+  %where the latter is defined by
+  %\[\Gamma'(Y) =\Gamma(Y\cup Z\restriction s).\]
+  %The lemma gives us $X'\in[Z]^\omega$ whose subsets compute (via
+  %$\Gamma'$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  %$\Sigma_1^{1,X}$-set ($\neq\emptyset$). Choose $X=X'\cup Z\restriction
+  %s$.
+
+  %\vspace{1em}
+  %To see that this $X$ works, fix arbitrary $Y\in[X]^\omega$. Then
+  %$Y\restriction i=d_i$ for some $i<m$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
