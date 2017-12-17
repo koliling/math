@@ -26,15 +26,15 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     compute only trees with no path in $\mathcal{A}$.
   \end{main-thm*}
 
-  The proof idea follows from Galvin-Prikry.\\
-  Fix Turing machine $\Gamma$, node $\sigma$.
+  The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
+  $\sigma$.
   \begin{Fact}[Galvin-Prikry]
-    Given $Z\in[\omega]^\omega$, there exists $X\in[Z]^\omega$ such that
-    one of these holds:\\
-    \begin{itemize}
-      \item All subsets of $X$ compute $\sigma$ (via $\Gamma$)
-      \item All subsets of $X$ do not compute $\sigma$ (via $\Gamma$)
-    \end{itemize}
+    Given $Z\in[\omega]^\omega$, there exists solution $X\in[Z]^\omega$
+    where one of these holds:\\
+    \textbf{Positive solution:} All subsets of $X$ compute $\sigma$
+    (via $\Gamma$)\\
+    \textbf{Negative solution:} All subsets of $X$ do not compute $\sigma$
+    (via $\Gamma$)
   \end{Fact}
   \textbf{Proof sketch of GP:} The class of subsets of $Z$ that
   compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
@@ -42,7 +42,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$}
-  \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
+  \textbf{Proof idea:} Want $X$ whose subsets compute no path in 
   $\mathcal{A}$. Fix machine. Then given any node $\sigma$, GP finds
   solution $X$ whose subsets either all compute $\sigma$ ($X$ is positive
   solution), or all do not compute $\sigma$ ($X$ is negative solution).
@@ -73,10 +73,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 machine)}
   \begin{lemma}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix Turing $\Gamma:2^{<\omega}
-    \rightarrow \omega^{<\omega}$. Then there exists $X\in[Z]^\omega$ such
-    that every subset of $X$ computes only paths outside $\mathcal{A}$ (via
-    $\Gamma$).
+    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
+    $X\in[Z]^\omega$ such that every subset of $X$ computes (via $\Gamma$)
+    no path in $\mathcal{A}$.
 
     %\vspace{0.5em}
     %\textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
@@ -88,26 +87,35 @@ machine)}
     %contains a path (if any) outside $\mathcal{A}$.
   \end{lemma}
 
-  \vspace{1em}
-  Observe that by finite use principle, given $\sigma$, the class
-  $\mathcal{P}_{\sigma}$ of positive solutions $X\in[Z]^\omega$ whose
-  subsets all compute $\sigma$ is $\Sigma_1^{1,Z}$:
+  \vspace{0.5em}
+  \textbf{Case 0:} For every $n$, GP has positive solutions for some
+  $\sigma_n\in\omega^n\cap\mathcal{A}$. Observe that by finite use, given
+  $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive solutions
+  $X\in[Z]^\omega$ is $\Sigma_1^{1,Z}$:
   \begin{align*}
     \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
       \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
     =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
-      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}.\\
+      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
+      \in\Sigma_1^{1,Z}.
   \end{align*}
+  Then by compactness of $\mathcal{A}$, the $\Sigma_1^{1,Z}$-set
+  \[\{f:(\forall \sigma\prec f)\; \mathcal{P}_\sigma \neq \emptyset\}\]
+  is non-empty and contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
 machine)}
-  \textbf{Case 1:} For some $n$, $\mathcal{P}_\sigma=\emptyset$ for every
+  \textbf{Case 1:} For some $n$, GP has only negative solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
-  finitely branching. Let $\sigma_0,\ldots,\sigma_m$ be the nodes in
-  $\mathcal{A}$ at level $n$. Iterate GP across $\sigma_i$ to get
+  finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
+  nodes in $\mathcal{A}$ at level $n$.  Iterate GP across $\sigma_i$ to get
+  decreasing sequence of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
-  where
+  where $X_{i+1}\in[X_i]^\omega$ is a negative solution by GP under
+  inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no positive
+  solutions for each $\sigma_i$ under $Z$, giving also no
+  positive solutions under $X_i\subseteq Z$. This $X$ works.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
