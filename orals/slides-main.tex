@@ -34,7 +34,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     \item Ignore trees computed from subsets,
   \end{itemize}
   we can even find a $\Sigma_1^1$-subset of such $X$'s from any given
-  $\Sigma_1^1$-set.
+  $\Sigma_1^1$-set, based only on the compactness of $\mathcal{A}$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
@@ -65,14 +65,14 @@ $\mathcal{A}$ via fixed machine}
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-immunity basis theorem}
-  We want $X$ whose trees avoid $\mathcal{A}$ regardless of the machine
-  used to compute the tree. The previous claim gives us enough $X$'s that
-  work for a fixed machine to guarantee the existence one that works for
+  We want $X$ whose computed trees avoid $\mathcal{A}$ regardless of the
+  machine used in the computation. The previous claim gives us enough $X$'s
+  that work for each machine to guarantee that some $X$ works for
   all machines.
 
   \vspace{1em}
   \begin{thm}[$\Sigma_1^1$-immunity basis]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a path (if
+    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-set contains a path (if
     any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-set
     $\mathcal{B}\neq\emptyset$. Then $\mathcal{B}$ contains some $X$ such
     that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
@@ -93,7 +93,7 @@ $\mathcal{A}$ via fixed machine}
   Every step in the proof can be directly relativized to arbitary $Z$.
   \vspace{0.5em}
   \begin{thm}[$\Sigma_1^{1,Z}$-immunity basis]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
+    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
     (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1,Z}$-set
     $\mathcal{B}\neq\emptyset$. Then $\mathcal{B}$ contains some $X$ such
     that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
@@ -104,26 +104,41 @@ $\mathcal{A}$ via fixed machine}
   We want not just the trees computed by $X$, but also the trees computed
   by its subsets to avoid lying in $\mathcal{A}$. By fixing the machine
   used in the computations, we can avoid $\mathcal{A}$ in the stronger
-  sense: either all paths computed by these subsets lie outside
-  $\mathcal{A}$, or all trees computed share arbitrarily long branches
-  that lie outside $\mathcal{A}$.
+  sense: either no path computed by these subsets lie in $\mathcal{A}$, or
+  all trees computed share arbitrarily long branches that lie outside
+  $\mathcal{A}$.
 \end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$, Or same node
+\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
 outside $\mathcal{A}$}
   \begin{lemma}
-    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
+    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
     (if any) outside $\mathcal{A}$. Fix Turing $\Gamma:2^{<\omega}
-    \rightarrow \omega^{<\omega}$. Then there exists $X\in[Z]^\omega$ such
-    that one of these cases hold:
+    \rightarrow \omega^{<\omega}$. Then given $n\in\omega$, there exists
+    $X\in[Z]^\omega$ such that one of these hold:
 
-    \textbf{Case 1:} Every subset of $X$ computes only paths outside
-    $\mathcal{A}$ (via $\Gamma$)
+    \vspace{0.5em}
+    \textbf{Case 1:} Every subset of $X$ computes no path in $\mathcal{A}$
+    (via $\Gamma$)
 
-    \textbf{Case 2:} For every $n\in\omega$, some $\sigma\in\omega^n$ with
+    \vspace{0.5em}
+    \textbf{Case 2:} Some $\sigma\in\omega^n$ with
     $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every subset of $X$
     (via $\Gamma$).
+
+    \vspace{0.5em}
+    Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,Y}$-set
+    contains a path (if any) outside $\mathcal{A}$.
   \end{lemma}
+\end{frame}
+
+\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
+outside $\mathcal{A}$}
+  \[\mathcal{Q}_{\sigma} :=\{X\in[Z]^\omega: \text{All finite subsets
+  of}\; X\; \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
+  \in\Sigma_1^{1,Z}.\]
+  \textbf{Case 1:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
+  $\sigma\in\omega^n$.
 \end{frame}
 
 \begin{frame}{All $\Sigma_1^1$-set compute path outside $\mathcal{A}$
