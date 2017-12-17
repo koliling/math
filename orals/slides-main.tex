@@ -142,7 +142,36 @@ outside $\mathcal{A}$}
   \end{align*}
 
   \textbf{Case 1:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
-  $\sigma\in\omega^n$.
+  $\sigma\in\omega^n$. Since $\mathcal{A}$ is compact, it is finitely
+  branching. Let $\sigma_0,\ldots,\sigma_m\in\omega^n$ be its branches at
+  level $n$.
+
+  $\mathcal{A}$ is finitely branching. Find one level where no
+  $X\in[Z]^\omega$
+\end{frame}
+
+\begin{frame}{Subsets all compute $\sigma$ or all avoid $\sigma$}
+  Fix Turing machine $\Gamma$, node $\sigma$.
+  \begin{fact}[Galvin-Prikry]
+    There exists an infinite subset $X$ such that one of these holds:
+    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via
+    $\Gamma$)\\
+    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
+    $\Gamma$)
+  \end{fact}
+
+  \textbf{Proof idea:} The class of infinite sets that compute $\sigma$
+  forms an open set in $2^\omega$. Being open provides enough ``structure''
+  for homogeneity in some areas.
+
+  \begin{coro}[Relativized Galvin-Prikry]
+    Given $Z\in[\omega]^\omega$, there exists $X\in[Z]^\omega$ such that
+    one of these holds:\\
+    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via $\Gamma$)\\
+    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
+    $\Gamma$)
+  \end{coro}
+  Code each $X\in[Z]^\omega$ as a set in $[\omega]^\omega$.
 \end{frame}
 
 \begin{frame}{All $\Sigma_1^1$-set compute path outside $\mathcal{A}$
