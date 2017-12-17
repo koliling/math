@@ -32,41 +32,41 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \begin{Fact}[Galvin-Prikry]
     Given $Z\in[\omega]^\omega$, there exists $X\in[Z]^\omega$ such that
     one of these holds:\\
-    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via $\Gamma$)\\
-    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
-    $\Gamma$)
+    \begin{itemize}
+      \item All subsets of $X$ compute $\sigma$ (via $\Gamma$)
+      \item All subsets of $X$ do not compute $\sigma$ (via $\Gamma$)
+    \end{itemize}
   \end{Fact}
-  \textbf{Proof sketch of Galvin-Prikry:} The class of subsets of $Z$ that
+  \textbf{Proof sketch of GP:} The class of subsets of $Z$ that
   compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
 
-\begin{frame}[shrink=3]{Subsets compute paths outside $\mathcal{A}$}
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
   \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
-  $\mathcal{A}$. Fix machine. Then given any node, Galvin-Prikry finds
-  an $X$ whose subsets compute trees that either all contain that node, or
-  all avoid that node. This gives two possible cases:
+  $\mathcal{A}$. Fix machine. Then given any node, GP finds an $X$ whose
+  subsets compute trees that either all contain that node ($X$ is positive
+  solution), or all avoid it ($X$ is negative solution). Exhaust cases:
 
   \vspace{1em}
-  \textbf{Case 0:} There are arbitrarily long nodes in $\mathcal{A}$ with
-  $X$ whose subsets all compute the node. Then by compactness of
-  $\mathcal{A}$, these nodes induce a non-empty $\Sigma_1^1$-set contained
-  in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+  \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
+  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes induce a
+  non-empty $\Sigma_1^1$-set contained in $\mathcal{A}$,
+  $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
-  \textbf{Case 1:} Some node outside $\mathcal{A}$ is computed by all
-  subsets of some $X$.
+  \textbf{Case 1:} GP only has negative solutions for all nodes in
+  $\mathcal{A}$ of a particular length. Iterate GP across each such node to
+  get $X$ where all these nodes are avoided. Such $X$ will work. Note there
+  are only finitely many nodes to avoid since $\mathcal{A}$ is compact.
 
-  \vspace{0.5em}
-  \textbf{Case 2:} There is a level where every node in $\mathcal{A}$ has
-  an $X$ avoiding it. Iterate Galvin-Prikry across each such node to get
-  $X$ that avoids all of them. Note there are only finite nodes to avoid
-  since $\mathcal{A}$ is compact.
+  %\vspace{0.5em}
+  %\textbf{Case 1:} GP answers positively for some node outside $X$.
 
   \vspace{1em}
-  Thus we have $X$ that works if its subsets uses a fixed machine for
-  computations. To find an $X$ works across all machines, we iterate across
-  them, finding decreasing subsets of $X$, take intersection.
+  Thus GP gives us $X$ that works for a fixed machine. To find an $X$ that
+  works across all machines, iterate across them, constructing
+  decreasing subsets of $X$, then take intersection.
 \end{frame}
 
 \begin{frame}{Subsets compute paths outside $\mathcal{A}$ (fixed
