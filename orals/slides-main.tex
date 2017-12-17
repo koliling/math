@@ -236,24 +236,31 @@ preserves $Z\restriction s$}
   computes no path in $\mathcal{A}$ via $\Gamma_i$. $\blacksquare$
 \end{frame}
 
-\begin{frame}{$X\subseteq Z$ where $\Sigma_1^{1,X}$-sets compute no path in
-$\mathcal{A}$}
+\begin{frame}{$X\subseteq Z$ where $\mathcal{A}$ contains no
+$\Sigma_1^{1,X}$-set}
   \begin{lemma-strengthened1*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
     there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
-    (via $\Gamma$) no path in $\mathcal{A}$.\\
-    \vspace{0.5em}
-    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
-    ($\neq\emptyset$).
+    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore, $\mathcal{A}$
+    contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
   \end{lemma-strengthened1*}
 
-  For $\mathcal{A}$ to contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$),
-  we choose $X$ from the original Lemma~\ref{lemma:fixed-machine} with the
-  desired property. Recall in the proof of Lemma~\ref{lemma:fixed-machine},
-  the $X$ found lies in $\mathcal{N}_{\sigma_0}\cap
-  \ldots\cap\mathcal{N}_{\sigma_m}$,
-  where $\mathcal{N}_{\sigma_i}\in\Sigma_1^{1,X_i}$ and $X_0=Z$.
+  \vspace{0.5em}
+  For $\mathcal{A}$ to contain no $\Sigma_1^{1,X}$-set, we choose $X$ from
+  Lemma~\ref{lemma:fixed-machine} with this property. Recall
+  in the proof of the lemma, the $X$ found lies in
+  $\mathcal{N}_{\sigma_0}\cap \ldots\cap\mathcal{N}_{\sigma_m}$,
+  where $\mathcal{N}_{\sigma_i}$ is a $\Sigma_1^{1,X_i}$-set and $X_0=Z$.
+  By iterating the following theorem $m$-times, it suffices to show
+
+  \vspace{0.5em}
+  \begin{thm}[Relativized $\Sigma_1^{1}$-immunity basis]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
+    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
+    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+  \end{thm}
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
@@ -318,36 +325,6 @@ $\mathcal{A}$ via fixed machine}
     that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
     $\mathcal{A}$.
   \end{thm}
-
-  \vspace{1em}
-  We want not just the trees computed by $X$, but also the trees computed
-  by its subsets to avoid lying in $\mathcal{A}$. By fixing the machine
-  used in the computations, we can avoid $\mathcal{A}$ in the stronger
-  sense: either no path computed by these subsets lie in $\mathcal{A}$, or
-  all trees compute a same node outside $\mathcal{A}$.
-\end{frame}
-
-\begin{frame}{Compute no path in $\mathcal{A}$, Or same node outside
-$\mathcal{A}$}
-  If we do not require $X_{s+1}$ to share a given initial segment with
-  $X_s$, we can find $X_{s+1}\in[X_s]^\omega$ with stronger property:
-
-  \begin{lemma}[Compute no path in $\mathcal{A}$, Or same node outside
-  $\mathcal{A}$]
-  \label{lemma:all-outside-A}
-    Fix $Z\in[\omega]^\omega$, compact
-    $\mathcal{A}\subseteq\omega^\omega$ with no $\Sigma_1^{1,Z}$ subset
-    ($\neq\emptyset$), $\Gamma:2^{<\omega} \rightarrow
-    \omega^{<\omega}$. There exists $X\in[Z]^\omega$ such that:
-
-    \begin{itemize}
-      \item Either every $Y\in[X]^\omega$ computes only paths outside
-        $\mathcal{A}$ (via $\Gamma$),
-      \item Or for every $n\in\omega$, some $\sigma\in\omega^n$ with
-        $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every
-        $Y\in[X]^\omega$ via $\Gamma$.
-    \end{itemize}
-  \end{lemma}
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
