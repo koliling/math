@@ -134,7 +134,7 @@ machines)}
   $X=\bigcap_{s\in\omega}X_s$.
 
   \vspace{1em}
-  The difficulty is if we iterate with the current version of
+  The problem is if we iterate with the current version of
   Lemma~\ref{lemma:fixed-machine}, we may not end up with an infinite $X$.
   To ensure infiniteness, at stage $s$ of the iteration, we want to choose
   the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the first
@@ -170,7 +170,8 @@ machines)}
   subsets of $Z\restriction s$.
 \end{frame}
 
-\begin{frame}{$X\subseteq Z$ that preserves $Z\restriction s$}
+\begin{frame}{Lemma~\ref{lemma:fixed-machine}'': $X\subseteq Z$ that
+preserves $Z\restriction s$}
   List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
   partially-strengthened lemma across $d_i$'s to get decreasing subsets
   \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
@@ -203,6 +204,26 @@ machines)}
   %\vspace{1em}
   %To see that this $X$ works, fix arbitrary $Y\in[X]^\omega$. Then
   %$Y\restriction i=d_i$ for some $i<m$.
+\end{frame}
+
+\begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
+  Iterating Lemma~\ref{lemma:fixed-machine}'' across all machines
+  $\Gamma_0,\Gamma_1,\ldots$, we prove:
+  \begin{main-thm*}[Harder direction]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
+    ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
+    compute no path in $\mathcal{A}$.
+  \end{main-thm*}
+
+  Construct decreasing subsets of $X$'s from
+  Lemma~\ref{lemma:fixed-machine}''
+  \[\omega= X_0\supseteq X_1\supseteq\ldots,\]
+  where at stage $s$, the lemma is applied with inputs $X_s$ and machine
+  $\Gamma_s$, and we require $X_{s+1}$ to preserve the first $s$-elements
+  of $X_s$. Take $X=\bigcap_{s\in\omega}X_s$; this is infinite by
+  construction. Given $Y\in[X]^\omega$ and arbitary $\Gamma_i$, stage $i$
+  of the construction ensures that since $Y\in[X_i]^\omega$, $Y$ does
+  computes no path in $\mathcal{A}$ via $\Gamma_i$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
@@ -274,32 +295,6 @@ $\mathcal{A}$ via fixed machine}
   used in the computations, we can avoid $\mathcal{A}$ in the stronger
   sense: either no path computed by these subsets lie in $\mathcal{A}$, or
   all trees compute a same node outside $\mathcal{A}$.
-\end{frame}
-
-\begin{frame}{All $\Sigma_1^1$-set compute path outside $\mathcal{A}$
-$\Rightarrow$\\ $(\exists X)$ {[All subsets compute path outside
-$\mathcal{A}$]}}
-  \begin{itemize}
-    \item Fix compact $\mathcal{A}$ with no $\Sigma_1^1$-subset
-      ($\neq\emptyset$). Want $X\in[\omega]^\omega$ such that for each
-      $Y\in[X]^\omega$, every $Y$-recursive tree contains a path (if any)
-      outside $\mathcal{A}$.
-    \item Enumerate Turing functionals on trees
-      $\Gamma_s:2^{<\omega} \rightarrow \omega^{<\omega}$. Iteratively
-      find $X_{s+1}\in[X_s]^\omega$ that works for each $\Gamma_s$:
-    \item Construct $X=\bigcap_{s\in\omega}X_s$ with
-      \[\begin{array}{rlll}
-        \omega=X_0 &\supset X_1 &\supset X_2 &\supset\ldots,\\
-        p_{X_0}\restriction0 &\prec p_{X_1}\restriction1 &\prec
-          p_{X_2}\restriction2 &\prec\ldots\\
-      \end{array}\]
-    \item At stage $s$, remove enough elements beyond the first $s$
-      elements of $X_s$ to get $X_{s+1}\in[X_s]^\omega$ such that for each
-      $Y\in[X_{s+1}]^\omega$, $[\Gamma_s^Y]$
-      contains a path (if any) outside $\mathcal{A}$.
-    \item $X=\bigcap_{s\in\omega}X_s$ works.
-    \item The hard part is proving each $X_{s+1}\in[X_s]^\omega$ exists.
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Compute no path in $\mathcal{A}$, Or same node outside
