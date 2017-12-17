@@ -66,12 +66,14 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \vspace{1em}
   Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
   $\mathcal{A}$. To find $X$ that works across all machines, iterate across
-  them, constructing decreasing subsets of $X$, then take intersection.
+  the machines, constructing decreasing subsets of $X$, then take
+  intersection.
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
 machine)}
   \begin{lemma}
+    \label{lemma:fixed-machine}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
     $X\in[Z]^\omega$ such that every subset of $X$ computes (via $\Gamma$)
@@ -111,12 +113,31 @@ machine)}
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
   finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
   nodes in $\mathcal{A}$ at level $n$.  Iterate GP across $\sigma_i$ to get
-  decreasing sequence of negative solutions
+  decreasing subsets of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
   where $X_{i+1}\in[X_i]^\omega$ is a negative solution by GP under
   inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no positive
   solutions for each $\sigma_i$ under $Z$, giving also no
-  positive solutions under $X_i\subseteq Z$. This $X$ works.
+  positive solutions under $X_i\subseteq Z$. $X=X_m$ works.
+\end{frame}
+
+\begin{frame}{Subsets compute no path in $\mathcal{A}$ (all
+machines)}
+  For a fixed machine, Lemma~\ref{lemma:fixed-machine} gives $X$ whose
+  subsets compute no paths in $\mathcal{A}$. To find $X$ that works across
+  all machines, first fix an enumeration of all machines
+  $\Gamma_0,\Gamma_1,\ldots$. Then, apply Lemma~\ref{lemma:fixed-machine}
+  across them to construct decreasing subsets of $X$
+  \[Z= X_0\supseteq X_1\supseteq \ldots,\]
+  where $X_s$ works for the first $s$ machines. Then take
+  $X=\bigcap_{s\in\omega}X_s$.
+
+  \vspace{1em}
+  However, if we iterate Lemma~\ref{lemma:fixed-machine} naively, we may
+  not end up with an infinite $X$. To ensure infiniteness, at stage $s$ of
+  the iteration, we choose the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$
+  preserves the same first $s$-elements as $X_s$. We strengthen
+  Lemma~\ref{lemma:fixed-machine} to ensure that such $X_{s+1}$ exists.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
