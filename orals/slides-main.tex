@@ -91,9 +91,9 @@ machine)}
 
   \vspace{0.5em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long
-  $\sigma\in\mathcal{A}$. Observe that by finite use
-  principle, given $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive
-  solutions $X\in[Z]^\omega$ is $\Sigma_1^{1,Z}$:
+  $\sigma\in\mathcal{A}$. Observe that by finite use principle, given
+  $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive solutions is
+  $\Sigma_1^{1,Z}$:
   \begin{align*}
     \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
       \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
@@ -101,7 +101,7 @@ machine)}
       \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
       \in\Sigma_1^{1,Z}.
   \end{align*}
-  By compactness of $\mathcal{A}$, this set of arbitrarily long $\sigma$'s
+  By compactness of $\mathcal{A}$, the set of arbitrarily long $\sigma$'s
   must contain a path in $\mathcal{A}$. Then $\{f:(\forall \sigma\prec f)\;
   [\mathcal{P}_\sigma \neq \emptyset]\}$ is a non-empty
   $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
@@ -134,12 +134,12 @@ machines)}
   $X=\bigcap_{s\in\omega}X_s$.
 
   \vspace{1em}
-  However, if we iterate the current version of
+  The difficulty is if we iterate with the current version of
   Lemma~\ref{lemma:fixed-machine}, we may not end up with an infinite $X$.
-  To ensure infiniteness, at stage $s$ of the iteration, we choose
-  the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the same first
+  To ensure infiniteness, at stage $s$ of the iteration, we want to choose
+  the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the first
   $s$-elements of $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} to
-  ensure that such $X_{s+1}$ exists.
+  ensure that such initial-segment-preserving $X_{s+1}$ exists.
 \end{frame}
 
 \begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
@@ -176,7 +176,7 @@ machines)}
   giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
   $\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
   $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$). To see that this $X$ works, fix
-  arbitrary $Y\in[X]^\omega$.
+  arbitrary $Y\in[X]^\omega$. Then $Y\restriction i=d_i$ for some $i<m$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
