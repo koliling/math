@@ -28,14 +28,14 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
   $\sigma$.
-  \begin{Fact}[Galvin-Prikry]
-    Given $Z\in[\omega]^\omega$, there exists solution $X\in[Z]^\omega$
+  \begin{fact}[Galvin-Prikry]
+    $Z\in[\omega]^\omega$. There exists solution $X\in[Z]^\omega$
     where one of these holds:\\
     \textbf{Positive solution:} All subsets of $X$ compute $\sigma$
     (via $\Gamma$)\\
     \textbf{Negative solution:} All subsets of $X$ do not compute $\sigma$
     (via $\Gamma$)
-  \end{Fact}
+  \end{fact}
   \textbf{Proof sketch of GP:} The class of subsets of $Z$ that
   compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
   open provides enough ``structure'' for regions of homogeneity to exist.
@@ -112,9 +112,10 @@ machine)}
   \textbf{Case 1:} For some $n$, GP has only negative solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
   finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
-  nodes in $\mathcal{A}$ at level $n$.  Iterate GP across $\sigma_i$ to get
+  nodes in $\omega^n\cap\mathcal{A}$. Iterate GP across $\sigma_i$ to get
   decreasing subsets of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
+
   where $X_{i+1}\in[X_i]^\omega$ is a negative solution by GP under
   inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no positive
   solutions for each $\sigma_i$ under $Z$, giving also no
@@ -134,11 +135,59 @@ machines)}
 
   \vspace{1em}
   However, if we iterate the current version of
-  Lemma~\ref{lemma:fixed-machine}, we may end up with an $X$ that is
-  finite. To ensure infiniteness, at stage $s$ of the iteration, we choose
+  Lemma~\ref{lemma:fixed-machine}, we may not end up with an infinite $X$.
+  To ensure infiniteness, at stage $s$ of the iteration, we choose
   the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the same first
-  $s$-elements as $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} to
+  $s$-elements of $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} to
   ensure that such $X_{s+1}$ exists.
+\end{frame}
+
+\begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
+contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
+  \begin{itemize}
+    \item Want $X\in[Z]^\omega$ such that every $Y\in[X]^\omega$ computes
+      paths (if any) outside $\mathcal{A}$ (via $\Gamma$). Furthermore,
+      want $X\succ Z\restriction s$.
+    \item Applying Lemma~\ref{lemma:all-outside-A} directly,
+      the $Y$'s considered may not include those that contain elements of
+      $Z\restriction s$, if the $X$ found by the Lemma doesn't contain
+      them.
+    \item Thus iterate Lemma~\ref{lemma:all-outside-A} on each subset
+      $d_0,\ldots,d_m$ of $Z\restriction s$:
+      \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m=X\]
+    \item At stage $i<m$, apply Lemma~\ref{lemma:all-outside-A} with $X_i$,
+      and $\Gamma^i$ defined by the Turing functional that sends $Y$ to
+      $\Gamma^{Y\cup d_i}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Preserve initial segment}
+  \newtheorem*{lemma-preserve*}{Lemma \ref{lemma:fixed-machine}'}
+  \begin{lemma-preserve*}[Strengthened Lemma \ref{lemma:fixed-machine}]
+    \label{lemma:fixed-machine-preserve}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix $s\in\omega$, Turing functional $\Gamma$. Then
+    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
+    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore, $X\restriction
+    s=Z\restriction s$.
+  \end{lemma-preserve*}
+
+  \vspace{0.5em}
+  \textbf{Case 0:} GP has positive solutions for arbitrarily long
+  $\sigma\in\mathcal{A}$. Observe that by finite use
+  principle, given $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive
+  solutions $X\in[Z]^\omega$ is $\Sigma_1^{1,Z}$:
+  \begin{align*}
+    \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
+      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
+    =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
+      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
+      \in\Sigma_1^{1,Z}.
+  \end{align*}
+  By compactness of $\mathcal{A}$, this set of arbitrarily long $\sigma$'s
+  must contain a path in $\mathcal{A}$. Then $\{f:(\forall \sigma\prec f)\;
+  [\mathcal{P}_\sigma \neq \emptyset]\}$ is a non-empty
+  $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
@@ -259,25 +308,6 @@ $\mathcal{A}$}
         $Y\in[X]^\omega$ via $\Gamma$.
     \end{itemize}
   \end{lemma}
-\end{frame}
-
-\begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
-contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
-  \begin{itemize}
-    \item Want $X\in[Z]^\omega$ such that every $Y\in[X]^\omega$ computes
-      paths (if any) outside $\mathcal{A}$ (via $\Gamma$). Furthermore,
-      want $X\succ Z\restriction s$.
-    \item Applying Lemma~\ref{lemma:all-outside-A} directly,
-      the $Y$'s considered may not include those that contain elements of
-      $Z\restriction s$, if the $X$ found by the Lemma doesn't contain
-      them.
-    \item Thus iterate Lemma~\ref{lemma:all-outside-A} on each subset
-      $d_0,\ldots,d_m$ of $Z\restriction s$:
-      \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m=X\]
-    \item At stage $i<m$, apply Lemma~\ref{lemma:all-outside-A} with $X_i$,
-      and $\Gamma^i$ defined by the Turing functional that sends $Y$ to
-      $\Gamma^{Y\cup d_i}$.
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
