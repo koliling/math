@@ -15,7 +15,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     \item Given arbitrary $X\in[\omega]^\omega$, remove enough elements to
       make a sparse $Y\in[X]^\omega$ with $p_Y>f$.
     \item Then $p_Y$ witnesses $\Pi_1^0$-encodability of $\mathcal{A}$ for
-      $X$.
+      $X$. $\blacksquare$
   \end{itemize}
 \end{frame}
 
@@ -70,8 +70,8 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   intersection.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
-machine)}
+\begin{frame}{Lemma~\ref{lemma:fixed-machine}: Subsets compute no path in
+$\mathcal{A}$ (fixed machine)}
   \begin{lemma}
     \label{lemma:fixed-machine}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
@@ -107,8 +107,8 @@ machine)}
   $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
-machine)}
+\begin{frame}{Lemma~\ref{lemma:fixed-machine}: Subsets compute no path in
+$\mathcal{A}$ (fixed machine)}
   \textbf{Case 1:} For some $n$, GP has only negative solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
   finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
@@ -119,7 +119,18 @@ machine)}
   where $X_{i+1}\in[X_i]^\omega$ is a negative solution by GP under
   inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no positive
   solutions for each $\sigma_i$ under $Z$, giving also no
-  positive solutions under $X_i\subseteq Z$. $X=X_m$ works.
+  positive solutions under $X_i\subseteq Z$. $X=X_m$ works. $\blacksquare$
+
+  \vspace{0.5em}
+  Observe that the $X_{i+1}$ constructed at stage $i$ lies in the
+  $\Sigma_1^{1,X_i}$-set of negative GP solutions of $X_i$:
+  \[\mathcal{N}_{\sigma_i}:= \{X\in[X_i]^\omega: \text{No subsets of}\; X\;
+  \text{computes}\; \sigma\; (\text{via}\; \Gamma)\}
+  \in\Sigma_1^{1,X_i}.\]
+  So $X \in\mathcal{N}_{\sigma_0}\cap\ldots\cap\mathcal{N}_{\sigma_m}$,
+  where $\mathcal{N}_{\sigma_i}\in\Sigma_1^{1,X_i}$. We need this
+  information later when we strengthen Lemma~\ref{lemma:fixed-machine}
+  later.
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all
@@ -146,8 +157,7 @@ machines)}
   To iterate successfully, we strengthen Lemma~\ref{lemma:fixed-machine}
   twice:
   \newtheorem*{lemma-strengthened1*}{Lemma \ref{lemma:fixed-machine}':}
-  \begin{lemma-strengthened1*}[$\Sigma_1^{1,X}$-sets compute no path in
-  $\mathcal{A}$]
+  \begin{lemma-strengthened1*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
     there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
@@ -159,7 +169,7 @@ machines)}
 
   \vspace{0.5em}
   \newtheorem*{lemma-strengthened2*}{Lemma \ref{lemma:fixed-machine}'':}
-  \begin{lemma-strengthened2*}[$X$ preserves given initial-segment of $Z$]
+  \begin{lemma-strengthened2*}
     Given any $s\in\omega$, require the $X$ in
     Lemma~\ref{lemma:fixed-machine}' to preserves $Z\restriction s$.
   \end{lemma-strengthened2*}
@@ -191,7 +201,7 @@ preserves $Z\restriction s$}
   $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\in[X]^\omega$. Then
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
   $Y$ compute no path in $\mathcal{A}$ via $\Gamma_i$. Since $Y\supset
-  d_i$, the same is ensured via $\Gamma$.
+  d_i$, the same is ensured via $\Gamma$. $\blacksquare$
 
   %Apply the partially-strengthened lemma with input $Z$ and $\Gamma'$,
   %where the latter is defined by
@@ -223,7 +233,27 @@ preserves $Z\restriction s$}
   of $X_s$. Take $X=\bigcap_{s\in\omega}X_s$; this is infinite by
   construction. Given $Y\in[X]^\omega$ and arbitary $\Gamma_i$, stage $i$
   of the construction ensures that since $Y\in[X_i]^\omega$, $Y$ does
-  computes no path in $\mathcal{A}$ via $\Gamma_i$.
+  computes no path in $\mathcal{A}$ via $\Gamma_i$. $\blacksquare$
+\end{frame}
+
+\begin{frame}{$X\subseteq Z$ where $\Sigma_1^{1,X}$-sets compute no path in
+$\mathcal{A}$}
+  \begin{lemma-strengthened1*}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
+    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
+    (via $\Gamma$) no path in $\mathcal{A}$.\\
+    \vspace{0.5em}
+    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
+    ($\neq\emptyset$).
+  \end{lemma-strengthened1*}
+
+  For $\mathcal{A}$ to contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$),
+  we choose $X$ from the original Lemma~\ref{lemma:fixed-machine} with the
+  desired property. Recall in the proof of Lemma~\ref{lemma:fixed-machine},
+  the $X$ found lies in $\mathcal{N}_{\sigma_0}\cap
+  \ldots\cap\mathcal{N}_{\sigma_m}$,
+  where $\mathcal{N}_{\sigma_i}\in\Sigma_1^{1,X_i}$ and $X_0=Z$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
