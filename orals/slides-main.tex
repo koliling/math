@@ -50,9 +50,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 
   \vspace{1em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
-  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes induce a
-  non-empty $\Sigma_1^1$-set contained in $\mathcal{A}$,
-  $\Rightarrow\Leftarrow$.
+  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
+  a path in $\mathcal{A}$, giving us a non-empty $\Sigma_1^1$-set contained
+  in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
   \textbf{Case 1:} GP only has negative solutions for all nodes in
@@ -159,24 +159,37 @@ machines)}
   \end{lemma-strengthened*}
 
   \vspace{1em}
-  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened by the
-  first condition, we can satisfy the second one by iterating the
-  partially-strengthened lemma across the subsets of $Z\restriction s$.
+  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened only by
+  the first condition, we can immediately satisfy the second one as
+  follows: Apply the partially-strengthened lemma using the Turing
+  functional that adds $Z\restriction s$ to the input before sending it to
+  $\Gamma$.
 \end{frame}
 
-\begin{frame}{$X\subseteq Z$ that preserves $Z\restriction s$}
-  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
-  partially-strengthened lemma across $d_i$ to get decreasing subsets
-  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m,\]
+\begin{frame}{$X\subseteq Z$ that preserves initial segment of $Z$}
+  Apply the partially-strengthened lemma with input $Z$ and $\Gamma'$,
+  where the latter is defined by
+  \[\Gamma'(Y) =\Gamma(Y\cup Z\restriction s).\]
+  The lemma gives us $X\in[Z]^\omega$ whose subsets compute (via
+  $\Gamma'$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
 
-  then choose $X=X_m\cup Z\restriction s$. At stage $i<m$, the lemma is
-  applied with inputs $X_i$ and $\Gamma_i$ defined by
-  \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
+  \vspace{1em}
+  To see that this $X$ works, fix arbitrary $Y\in[X]^\omega$. Then
+  $Y\restriction i=d_i$ for some $i<m$.
 
-  giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
-  $\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
-  $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$). To see that this $X$ works, fix
-  arbitrary $Y\in[X]^\omega$. Then $Y\restriction i=d_i$ for some $i<m$.
+  %List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
+  %partially-strengthened lemma across $d_i$'s to get decreasing subsets
+  %\[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m,\]
+
+  %then choose $X=X_m\cup Z\restriction s$. At stage $i<m$, the lemma is
+  %applied with inputs $X_i$ and $\Gamma_i$ defined by
+  %\[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
+
+  %giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
+  %$\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  %$\Sigma_1^{1,X_i}$-set ($\neq\emptyset$). To see that this $X$ works, fix
+  %arbitrary $Y\in[X]^\omega$. Then $Y\restriction i=d_i$ for some $i<m$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
