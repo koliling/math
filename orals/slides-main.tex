@@ -58,11 +58,10 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   subsets of some $X$.
 
   \vspace{0.5em}
-  \textbf{Case 2:} There is a level where for each node of that level in
-  $\mathcal{A}$, some $X$ avoids the node. Apply Galvin-Prikry iteratively
-  over each such node to get $X$ that avoids all of them. Note that we
-  only need to avoid a finite number of nodes by compactness of
-  $\mathcal{A}$.
+  \textbf{Case 2:} There is a level where every node in $\mathcal{A}$ has
+  an $X$ avoiding it. Iterate Galvin-Prikry across each such node to get
+  $X$ that avoids all of them. Note there are only finite nodes to avoid by
+  compactness of $\mathcal{A}$.
 
   \vspace{1em}
   Thus we have $X$ that works if its subsets uses a fixed machine for
@@ -70,8 +69,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   them, finding decreasing subsets of $X$, then take intersection.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
-outside $\mathcal{A}$}
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
   \begin{lemma}
     $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
     (if any) outside $\mathcal{A}$. Fix Turing $\Gamma:2^{<\omega}
