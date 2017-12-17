@@ -23,7 +23,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \begin{main-thm*}[Harder direction]
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
-    compute only trees with no path in $\mathcal{A}$.
+    compute no path in $\mathcal{A}$.
   \end{main-thm*}
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
@@ -126,18 +126,19 @@ machines)}
   For a fixed machine, Lemma~\ref{lemma:fixed-machine} gives $X$ whose
   subsets compute no paths in $\mathcal{A}$. To find $X$ that works across
   all machines, first fix an enumeration of all machines
-  $\Gamma_0,\Gamma_1,\ldots$. Then, apply Lemma~\ref{lemma:fixed-machine}
+  $\Gamma_0,\Gamma_1,\ldots$. Then, iterate Lemma~\ref{lemma:fixed-machine}
   across them to construct decreasing subsets of $X$
   \[Z= X_0\supseteq X_1\supseteq \ldots,\]
   where $X_s$ works for the first $s$ machines. Then take
   $X=\bigcap_{s\in\omega}X_s$.
 
   \vspace{1em}
-  However, if we iterate Lemma~\ref{lemma:fixed-machine} naively, we may
-  not end up with an infinite $X$. To ensure infiniteness, at stage $s$ of
-  the iteration, we choose the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$
-  preserves the same first $s$-elements as $X_s$. We strengthen
-  Lemma~\ref{lemma:fixed-machine} to ensure that such $X_{s+1}$ exists.
+  However, if we iterate the current version of
+  Lemma~\ref{lemma:fixed-machine}, we may end up with an $X$ that is
+  finite. To ensure infiniteness, at stage $s$ of the iteration, we choose
+  the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the same first
+  $s$-elements as $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} to
+  ensure that such $X_{s+1}$ exists.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
