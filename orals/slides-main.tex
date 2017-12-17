@@ -19,12 +19,11 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
+\begin{frame}{Subsets compute no path in $\mathcal{A}$}
   \begin{main-thm*}[Harder direction]
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
-    ($\neq\emptyset$). Then there exists infinite set $X$ such that every
-    tree computed by any of its subset contains a path (if any) outside
-    $\mathcal{A}$.
+    ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
+    compute only trees with no path in $\mathcal{A}$.
   \end{main-thm*}
 
   The proof idea follows from Galvin-Prikry.\\
@@ -42,11 +41,12 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
+\begin{frame}{Subsets compute no path in $\mathcal{A}$}
   \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
-  $\mathcal{A}$. Fix machine. Then given any node, GP finds an $X$ whose
-  subsets compute trees that either all contain that node ($X$ is positive
-  solution), or all avoid it ($X$ is negative solution). Exhaust cases:
+  $\mathcal{A}$. Fix machine. Then given any node $\sigma$, GP finds
+  solution $X$ whose subsets either all compute $\sigma$ ($X$ is positive
+  solution), or all do not compute $\sigma$ ($X$ is negative solution).
+  Exhaust cases:
 
   \vspace{1em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
@@ -57,58 +57,57 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \vspace{0.5em}
   \textbf{Case 1:} GP only has negative solutions for all nodes in
   $\mathcal{A}$ of a particular length. Iterate GP across each such node to
-  get $X$ where all these nodes are avoided. Such $X$ will work. Note there
-  are only finitely many nodes to avoid since $\mathcal{A}$ is compact.
+  get $X$ where all these nodes are avoided. Note there are only finitely
+  many nodes to avoid since $\mathcal{A}$ is compact.
 
   %\vspace{0.5em}
   %\textbf{Case 1:} GP answers positively for some node outside $X$.
 
   \vspace{1em}
-  Thus GP gives us $X$ that works for a fixed machine. To find an $X$ that
-  works across all machines, iterate across them, constructing
-  decreasing subsets of $X$, then take intersection.
+  Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
+  $\mathcal{A}$. To find $X$ that works across all machines, iterate across
+  them, constructing decreasing subsets of $X$, then take intersection.
 \end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$ (fixed
-$\Gamma$)}
+\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
+machine)}
   \begin{lemma}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix Turing $\Gamma:2^{<\omega}
-    \rightarrow \omega^{<\omega}$. Then one of these hold:
+    \rightarrow \omega^{<\omega}$. Then there exists $X\in[Z]^\omega$ such
+    that every subset of $X$ computes only paths outside $\mathcal{A}$ (via
+    $\Gamma$).
 
-    \vspace{0.5em}
-    \textbf{Case 1:} There is $X\in[Z]^\omega$ such that every subset of
-    $X$ computes only paths outside $\mathcal{A}$ (via $\Gamma$).
-
-    \vspace{0.5em}
-    \textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
-    such that some $\sigma\in\omega^n$ outside $\mathcal{A}$ is computed by
-    every subset of $X$ (via $\Gamma$).
+    %\vspace{0.5em}
+    %\textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
+    %such that some $\sigma\in\omega^n$ outside $\mathcal{A}$ is computed by
+    %every subset of $X$ (via $\Gamma$).
 
     %\vspace{0.5em}
     %Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,X}$-set
     %contains a path (if any) outside $\mathcal{A}$.
   \end{lemma}
-\end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$ (fixed
-$\Gamma$)}
-  Observe that the class $\mathcal{Q}_{\sigma}$ of $X\in[Z]^\omega$ whose
-  subsets all compute a given $\sigma$ is $\Sigma_1^{1,Z}$:
+  \vspace{1em}
+  Observe that by finite use principle, given $\sigma$, the class
+  $\mathcal{P}_{\sigma}$ of positive solutions $X\in[Z]^\omega$ whose
+  subsets all compute $\sigma$ is $\Sigma_1^{1,Z}$:
   \begin{align*}
-    \mathcal{Q}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
+    \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
       \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
     =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
       \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}.\\
   \end{align*}
+\end{frame}
 
-  \textbf{Case 2:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
-  $\sigma\in\omega^n$. Since $\mathcal{A}$ is compact, it is finitely
-  branching. Let $\sigma_0,\ldots,\sigma_m\in\omega^n$ be its branches at
-  level $n$.
-
-  $\mathcal{A}$ is finitely branching. Find one level where no
-  $X\in[Z]^\omega$
+\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed
+machine)}
+  \textbf{Case 1:} For some $n$, $\mathcal{P}_\sigma=\emptyset$ for every
+  $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
+  finitely branching. Let $\sigma_0,\ldots,\sigma_m$ be the nodes in
+  $\mathcal{A}$ at level $n$. Iterate GP across $\sigma_i$ to get
+  \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
+  where
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
