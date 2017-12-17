@@ -19,7 +19,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Subsets compute trees avoiding $\mathcal{A}$}
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
   \begin{main-thm*}[Harder direction]
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ such that every
@@ -41,22 +41,42 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
 
-\begin{frame}{Subsets compute trees avoiding $\mathcal{A}$}
-  \textbf{Proof idea of main theorem:} Want $X$ whose subsets compute trees
-  avoiding $\mathcal{A}$. By Galvin-Prikry, given any node in
-  $\mathcal{A}$, we can always find $X$ whose subsets compute trees that
-  either all contain that node, or all avoid that node. The former cannot
-  be true for every initial segment of a path in $\mathcal{A}$, otherwise
-  by compactness of $\mathcal{A}$, the path will induce a $\Sigma_1^1$-set
-  contained in $\mathcal{A}$.
+\begin{frame}[shrink=10]{Subsets compute paths outside $\mathcal{A}$}
+  \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
+  $\mathcal{A}$. For a fixed machine, given any node, Galvin-Prikry finds
+  an $X$ whose subsets compute trees that either all contain that node, or
+  all avoid that node. This gives us two cases:
 
   \vspace{1em}
-  If we strengthen the assumptions:
-  \begin{itemize}
-    \item Fix machine
-    \item Ignore trees computed from subsets,
-  \end{itemize}
-  the assertion follows from Galvin-Prikry.
+  \textbf{Case 0:} There are arbitrarily long nodes in $\mathcal{A}$ with
+  $X$ whose subsets all compute the node. Then by compactness of
+  $\mathcal{A}$, these nodes induce a non-empty $\Sigma_1^1$-set contained
+  in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+
+  \vspace{0.5em}
+  \textbf{Case 1:} Some node outside $\mathcal{A}$ is computed by all
+  subsets of some $X$.
+
+  \vspace{0.5em}
+  \textbf{Case 2:} There is a level where for each node of that level in
+  $\mathcal{A}$, some $X$ avoids the node. Apply Galvin-Prikry iteratively
+  over each such node to get $X$ that avoids all of them. Note that we
+  only need to avoid a finite number of nodes by compactness of
+  $\mathcal{A}$.
+
+  \vspace{1em}
+  Thus we have $X$ that works if its subsets are only allowed to use a
+  fixed machine for computations. To find an $X$ works across all machines,
+  we iterate the procedure across all machines, finding decreasing subsets
+  of $X$. The intersection of these $X$'s work.
+
+  %\vspace{1em}
+  %If we strengthen the assumptions:
+  %\begin{itemize}
+  %  \item Fix machine
+  %  \item Ignore trees computed from subsets,
+  %\end{itemize}
+  %the assertion follows from Galvin-Prikry.
 
   %\vspace{1em}
   %If we strengthen the assumptions:
