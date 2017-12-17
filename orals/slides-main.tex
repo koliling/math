@@ -29,13 +29,13 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 
   If we strengthen the assumptions:
   \begin{itemize}
-    \item Fix Turing machine $P$
+    \item Fix machine
     \item Ignore trees computed from subsets,
   \end{itemize}
   we can even find a $\Sigma_1^1$-subset of such $X$'s from any given
   $\Sigma_1^1$-set.
 
-  \begin{claim}[$\Sigma_1^1$-subset computing paths outside $\mathcal{A}$
+  \begin{claim}[$\Sigma_1^1$-subset compute paths outside $\mathcal{A}$
   via fixed machine]
     $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a
     path (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-predicate
@@ -46,7 +46,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{claim}
 \end{frame}
 
-\begin{frame}{$\Sigma_1^1$-subset computing paths outside
+\begin{frame}{$\Sigma_1^1$-subset compute paths outside
 $\mathcal{A}$ via fixed machine}
   \textbf{Case 1}: For every $X\in\mathcal{B}_0$,
   $\{Y:P(X,Y)\}\subseteq\mathcal{A}$. Then $\bigcup_{X\in\mathcal{B}_0}
@@ -60,15 +60,8 @@ $\mathcal{A}$ via fixed machine}
   =\emptyset$. Then this $\Sigma_1^1$-subset of $\mathcal{B}_0$ works:
   \[\mathcal{B}:= \{X\in\mathcal{B}_0: (\exists Y\succ\sigma)\; P(X,Y)\}\]
 
-  Every step of this proof can be relativized to arbitrary $Z$:
-  \begin{claim}[Relativized to $Z$]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a
-    path (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1,Z}$-predicate
-    $P^Z(X,Y)$, and $\Sigma_1^{1,Z}$-set $\mathcal{B}_0\neq\emptyset$. Then
-    $\mathcal{B}_0$ has a $\Sigma_1^{1,Z}$-subset $\mathcal{B}\neq\emptyset$
-    such that for every $X\in\mathcal{B}$, $\{Y:P^Z(X,Y)\}$ contains a path
-    outside $\mathcal{A}$.
-  \end{claim}
+  Note that every step of this proof can be directly relativized to
+  arbitrary $Z$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-immunity basis theorem}
@@ -83,10 +76,10 @@ $\mathcal{A}$ via fixed machine}
     $\mathcal{A}$.
   \end{thm}
 
-  \textbf{Idea:} The set of $X$'s from each Turing predicate is so dense
-  (from previous claim) that they each contain a common $X$.
+  \textbf{Idea:} The set of $X$'s from each predicate is so dense
+  (from previous claim) that they contain a common $X$.
 
-  \vspace{0.5em}
+  \vspace{1em}
   For each $\Sigma_1^1$-predicate $P$, let $\mathcal{U}_P$ be the union of
   all the $\Sigma_1^1$-sets where every $X$ in the set gives a path outside
   $\mathcal{A}$ via $P$. From previous claim, $\mathcal{U}_P$ is dense
@@ -96,12 +89,37 @@ $\mathcal{A}$ via fixed machine}
   $X\in\bigcap_P\mathcal{U}_P$ works.
 \end{frame}
 
-\begin{frame}{Compute no path in $\mathcal{A}$, Or same node outside
-$\mathcal{A}$}
-  \begin{itemize}
-    \item Proving Lemma 1 uses $\Sigma_1^1$-immunity basis theorem and
-      Galvin-Prikry
-  \end{itemize}
+\begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem}
+  Every step in the proof can be directly relativized to arbitary $Z$.
+  \begin{thm}[$\Sigma_1^{1,Z}$-immunity basis]
+    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
+    (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1,Z}$-set
+    $\mathcal{B}\neq\emptyset$. Then $\mathcal{B}$ contains some $X$ such
+    that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
+    $\mathcal{A}$.
+  \end{thm}
+
+  \vspace{2em}
+  We can make a similar conclusion even after accounting for paths computed
+  by subsets if we fix the Turing machine and allow ourselves to choose any
+  infinite $X$.
+\end{frame}
+
+\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
+outside $\mathcal{A}$}
+  \begin{lemma}
+    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
+    (if any) outside $\mathcal{A}$. Fix Turing $\Gamma:2^{<\omega}
+    \rightarrow \omega^{<\omega}$. Then there exists $X\in[Z]^\omega$ such
+    that one of these cases hold:
+
+    \textbf{Case 1:} Every subset of $X$ computes only paths outside
+    $\mathcal{A}$ (via $\Gamma$)
+
+    \textbf{Case 2:} For every $n\in\omega$, some $\sigma\in\omega^n$ with
+    $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every subset of $X$
+    (via $\Gamma$).
+  \end{lemma}
 \end{frame}
 
 \begin{frame}{All $\Sigma_1^1$-set compute path outside $\mathcal{A}$
