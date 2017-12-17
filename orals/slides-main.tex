@@ -113,29 +113,34 @@ outside $\mathcal{A}$}
   \begin{lemma}
     $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
     (if any) outside $\mathcal{A}$. Fix Turing $\Gamma:2^{<\omega}
-    \rightarrow \omega^{<\omega}$. Then given $n\in\omega$, there exists
-    $X\in[Z]^\omega$ such that one of these hold:
+    \rightarrow \omega^{<\omega}$. Then one of these hold:
 
     \vspace{0.5em}
-    \textbf{Case 1:} Every subset of $X$ computes no path in $\mathcal{A}$
-    (via $\Gamma$)
+    \textbf{Case 1:} There is $X\in[Z]^\omega$ such that every subset of
+    $X$ computes no path in $\mathcal{A}$ (via $\Gamma$).
 
     \vspace{0.5em}
-    \textbf{Case 2:} Some $\sigma\in\omega^n$ with
+    \textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
+    such that some $\sigma\in\omega^n$ with
     $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every subset of $X$
     (via $\Gamma$).
 
     \vspace{0.5em}
-    Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,Y}$-set
+    Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,X}$-set
     contains a path (if any) outside $\mathcal{A}$.
   \end{lemma}
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
 outside $\mathcal{A}$}
-  \[\mathcal{Q}_{\sigma} :=\{X\in[Z]^\omega: \text{All finite subsets
-  of}\; X\; \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
-  \in\Sigma_1^{1,Z}.\]
+  \begin{align*}
+    \mathcal{Q}_{\sigma} &:=\{X\in[Z]^\omega: \text{All finite subsets
+      of}\; X\; \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
+      \in\Sigma_1^{1,Z}\\
+    &:=\{X\in[Z]^\omega: \text{All subsets of}\; X\; \text{compute}\;
+      \sigma\; (\text{via}\; \Gamma)\}.\\
+  \end{align*}
+
   \textbf{Case 1:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
   $\sigma\in\omega^n$.
 \end{frame}
