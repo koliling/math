@@ -45,7 +45,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
   $\mathcal{A}$. Fix machine. Then given any node, Galvin-Prikry finds
   an $X$ whose subsets compute trees that either all contain that node, or
-  all avoid that node. This gives us two cases:
+  all avoid that node. This gives two possible cases:
 
   \vspace{1em}
   \textbf{Case 0:} There are arbitrarily long nodes in $\mathcal{A}$ with
@@ -69,39 +69,40 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   them, finding decreasing subsets of $X$, take intersection.
 \end{frame}
 
-\begin{frame}{Subsets compute paths outside $\mathcal{A}$}
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$ (fixed
+$\Gamma$)}
   \begin{lemma}
-    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
-    (if any) outside $\mathcal{A}$. Fix Turing $\Gamma:2^{<\omega}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix Turing $\Gamma:2^{<\omega}
     \rightarrow \omega^{<\omega}$. Then one of these hold:
 
     \vspace{0.5em}
     \textbf{Case 1:} There is $X\in[Z]^\omega$ such that every subset of
-    $X$ computes no path in $\mathcal{A}$ (via $\Gamma$).
+    $X$ computes only paths outside $\mathcal{A}$ (via $\Gamma$).
 
     \vspace{0.5em}
     \textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
-    such that some $\sigma\in\omega^n$ with
-    $[\sigma]\cap\mathcal{A}=\emptyset$ is computed by every subset of $X$
-    (via $\Gamma$).
+    such that some $\sigma\in\omega^n$ outside $\mathcal{A}$ is computed by
+    every subset of $X$ (via $\Gamma$).
 
-    \vspace{0.5em}
-    Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,X}$-set
-    contains a path (if any) outside $\mathcal{A}$.
+    %\vspace{0.5em}
+    %Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,X}$-set
+    %contains a path (if any) outside $\mathcal{A}$.
   \end{lemma}
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
-outside $\mathcal{A}$}
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$ (fixed
+$\Gamma$)}
+  Observe that the class $\mathcal{Q}_{\sigma}$ of $X\in[Z]^\omega$ whose
+  subsets all compute a given $\sigma$ is $\Sigma_1^{1,Z}$:
   \begin{align*}
-    \mathcal{Q}_{\sigma} &:=\{X\in[Z]^\omega: \text{All finite subsets
-      of}\; X\; \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
-      \in\Sigma_1^{1,Z}\\
-    &:=\{X\in[Z]^\omega: \text{All subsets of}\; X\; \text{compute}\;
-      \sigma\; (\text{via}\; \Gamma)\}.\\
+    \mathcal{Q}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
+      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
+    =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
+      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}.\\
   \end{align*}
 
-  \textbf{Case 1:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
+  \textbf{Case 2:} For some $n$, $\mathcal{Q}_\sigma=\emptyset$ for every
   $\sigma\in\omega^n$. Since $\mathcal{A}$ is compact, it is finitely
   branching. Let $\sigma_0,\ldots,\sigma_m\in\omega^n$ be its branches at
   level $n$.
