@@ -41,7 +41,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
 
-\begin{frame}[shrink=5]{Subsets compute paths outside $\mathcal{A}$}
+\begin{frame}[shrink=3]{Subsets compute paths outside $\mathcal{A}$}
   \textbf{Proof idea:} Want $X$ whose subsets compute paths outside
   $\mathcal{A}$. Fix machine. Then given any node, Galvin-Prikry finds
   an $X$ whose subsets compute trees that either all contain that node, or
@@ -60,13 +60,13 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \vspace{0.5em}
   \textbf{Case 2:} There is a level where every node in $\mathcal{A}$ has
   an $X$ avoiding it. Iterate Galvin-Prikry across each such node to get
-  $X$ that avoids all of them. Note there are only finite nodes to avoid by
-  compactness of $\mathcal{A}$.
+  $X$ that avoids all of them. Note there are only finite nodes to avoid
+  since $\mathcal{A}$ is compact.
 
   \vspace{1em}
   Thus we have $X$ that works if its subsets uses a fixed machine for
   computations. To find an $X$ works across all machines, we iterate across
-  them, finding decreasing subsets of $X$, then take intersection.
+  them, finding decreasing subsets of $X$, take intersection.
 \end{frame}
 
 \begin{frame}{Subsets compute paths outside $\mathcal{A}$}
