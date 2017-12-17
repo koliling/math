@@ -142,6 +142,28 @@ machines)}
   ensure that such $X_{s+1}$ exists.
 \end{frame}
 
+\begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
+  To iterate Lemma~\ref{lemma:fixed-machine} successfully, we strengthen it
+  by two conditions:
+  \newtheorem*{lemma-strengthened*}{Lemma \ref{lemma:fixed-machine}':}
+  \begin{lemma-strengthened*}[Strengthened Lemma \ref{lemma:fixed-machine}]
+    \label{lemma:fixed-machine-strengthened}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix $s\in\omega$, Turing functional $\Gamma$. Then
+    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
+    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore,\\
+    \vspace{0.5em}
+    \textbf{Condition 1:} $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
+    ($\neq\emptyset$), and\\
+    \textbf{Condition 2:} $X\restriction s\succ Z\restriction s$.
+  \end{lemma-strengthened*}
+
+  \vspace{1em}
+  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened by
+  condition 1, we can satisfy condition 2 by iterating the
+  partially-strengthened lemma finitely many times.
+\end{frame}
+
 \begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
 contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
   \begin{itemize}
@@ -162,15 +184,6 @@ contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
 \end{frame}
 
 \begin{frame}{Preserve initial segment}
-  \newtheorem*{lemma-preserve*}{Lemma \ref{lemma:fixed-machine}'}
-  \begin{lemma-preserve*}[Strengthened Lemma \ref{lemma:fixed-machine}]
-    \label{lemma:fixed-machine-preserve}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix $s\in\omega$, Turing functional $\Gamma$. Then
-    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
-    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore, $X\restriction
-    s=Z\restriction s$.
-  \end{lemma-preserve*}
 
   \vspace{0.5em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long
