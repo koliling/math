@@ -19,13 +19,36 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Hard direction of main theorem}
-  \begin{main-thm*}
-    $\mathcal{A}$ compact, every $\Sigma_1^1$-subset contains a path
-    (if any) outside $\mathcal{A}$. Then there exists $X\in[\omega]^\omega$
-    such that every tree computed from any subset contains a path (if any)
-    outside $\mathcal{A}$.
+\begin{frame}{Subsets compute trees avoiding $\mathcal{A}$}
+  \begin{main-thm*}[Harder direction]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
+    ($\neq\emptyset$). Then there exists infinite set $X$ such that every
+    tree computed by any of its subset contains a path (if any) outside
+    $\mathcal{A}$.
   \end{main-thm*}
+
+  The proof idea follows from Galvin-Prikry.\\
+  Fix Turing machine $\Gamma$, node $\sigma$.
+  \begin{Fact}[Galvin-Prikry]
+    Given $Z\in[\omega]^\omega$, there exists $X\in[Z]^\omega$ such that
+    one of these holds:\\
+    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via $\Gamma$)\\
+    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
+    $\Gamma$)
+  \end{Fact}
+  \textbf{Proof sketch of Galvin-Prikry:} The class of subsets of $Z$ that
+  compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
+  open provides enough ``structure'' for regions of homogeneity to exist.
+\end{frame}
+
+\begin{frame}{Subsets compute trees avoiding $\mathcal{A}$}
+  \textbf{Proof idea of main theorem:} Want $X$ whose subsets compute trees
+  avoiding $\mathcal{A}$. By Galvin-Prikry, given any node in
+  $\mathcal{A}$, we can always find $X$ whose subsets compute trees that
+  either all contain that node, or all avoid that node. The former cannot
+  be true for every initial segment of a path in $\mathcal{A}$, otherwise
+  by compactness of $\mathcal{A}$, the path will induce a $\Sigma_1^1$-set
+  contained in $\mathcal{A}$.
 
   \vspace{1em}
   If we strengthen the assumptions:
@@ -33,8 +56,16 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     \item Fix machine
     \item Ignore trees computed from subsets,
   \end{itemize}
-  we can even find a $\Sigma_1^1$-subset of such $X$'s from any given
-  $\Sigma_1^1$-set, based only on the compactness of $\mathcal{A}$.
+  the assertion follows from Galvin-Prikry.
+
+  %\vspace{1em}
+  %If we strengthen the assumptions:
+  %\begin{itemize}
+  %  \item Fix machine
+  %  \item Ignore trees computed from subsets,
+  %\end{itemize}
+  %we can even find a $\Sigma_1^1$-subset of such $X$'s from any given
+  %$\Sigma_1^1$-set, based only on the compactness of $\mathcal{A}$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
@@ -148,30 +179,6 @@ outside $\mathcal{A}$}
 
   $\mathcal{A}$ is finitely branching. Find one level where no
   $X\in[Z]^\omega$
-\end{frame}
-
-\begin{frame}{Subsets all compute $\sigma$ or all avoid $\sigma$}
-  Fix Turing machine $\Gamma$, node $\sigma$.
-  \begin{fact}[Galvin-Prikry]
-    There exists an infinite subset $X$ such that one of these holds:
-    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via
-    $\Gamma$)\\
-    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
-    $\Gamma$)
-  \end{fact}
-
-  \textbf{Proof idea:} The class of infinite sets that compute $\sigma$
-  forms an open set in $2^\omega$. Being open provides enough ``structure''
-  for homogeneity in some areas.
-
-  \begin{coro}[Relativized Galvin-Prikry]
-    Given $Z\in[\omega]^\omega$, there exists $X\in[Z]^\omega$ such that
-    one of these holds:\\
-    \textbf{Case 1:} All subsets of $X$ compute $\sigma$ (via $\Gamma$)\\
-    \textbf{Case 2:} All subsets of $X$ do not compute $\sigma$ (via
-    $\Gamma$)
-  \end{coro}
-  Code each $X\in[Z]^\omega$ as a set in $[\omega]^\omega$.
 \end{frame}
 
 \begin{frame}{All $\Sigma_1^1$-set compute path outside $\mathcal{A}$
