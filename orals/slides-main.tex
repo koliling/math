@@ -66,7 +66,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \vspace{1em}
   Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
   $\mathcal{A}$. To find $X$ that works across all machines, iterate across
-  the machines, constructing decreasing subsets of $X$, then take
+  the machines, constructing decreasing subsets of such $X$, then take
   intersection.
 \end{frame}
 
@@ -128,7 +128,7 @@ machines)}
   subsets compute no paths in $\mathcal{A}$. To find $X$ that works across
   all machines, first fix an enumeration of all machines
   $\Gamma_0,\Gamma_1,\ldots$. Then, iterate Lemma~\ref{lemma:fixed-machine}
-  across them to construct decreasing subsets of $X$
+  across them to construct decreasing subsets of such $X$
   \[Z= X_0\supseteq X_1\supseteq \ldots,\]
   where $X_s$ works for the first $s$ machines. Then take
   $X=\bigcap_{s\in\omega}X_s$.
@@ -143,7 +143,7 @@ machines)}
 \end{frame}
 
 \begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
-  To iterate Lemma~\ref{lemma:fixed-machine} successfully, we strengthen it
+  For successful iteration, we strengthen Lemma~\ref{lemma:fixed-machine}
   by two conditions:
   \newtheorem*{lemma-strengthened*}{Lemma \ref{lemma:fixed-machine}':}
   \begin{lemma-strengthened*}[Strengthened Lemma \ref{lemma:fixed-machine}]
@@ -155,52 +155,28 @@ machines)}
     \vspace{0.5em}
     \textbf{Condition 1:} $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
     ($\neq\emptyset$), and\\
-    \textbf{Condition 2:} $X\restriction s\succ Z\restriction s$.
+    \textbf{Condition 2:} $X$ preserves $Z\restriction s$.
   \end{lemma-strengthened*}
 
   \vspace{1em}
-  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened by
-  condition 1, we can satisfy condition 2 by iterating the
-  partially-strengthened lemma finitely many times.
+  Assuming Lemma~\ref{lemma:fixed-machine} has been strengthened by the
+  first condition, we can satisfy the second one by iterating the
+  partially-strengthened lemma across the subsets of $Z\restriction s$.
 \end{frame}
 
-\begin{frame}{$\mathcal{A}$ $\Pi_1^0$-encodable $\Rightarrow \mathcal{A}$
-contains $\Sigma_1^1$ subset ($\neq\emptyset$)}
-  \begin{itemize}
-    \item Want $X\in[Z]^\omega$ such that every $Y\in[X]^\omega$ computes
-      paths (if any) outside $\mathcal{A}$ (via $\Gamma$). Furthermore,
-      want $X\succ Z\restriction s$.
-    \item Applying Lemma~\ref{lemma:all-outside-A} directly,
-      the $Y$'s considered may not include those that contain elements of
-      $Z\restriction s$, if the $X$ found by the Lemma doesn't contain
-      them.
-    \item Thus iterate Lemma~\ref{lemma:all-outside-A} on each subset
-      $d_0,\ldots,d_m$ of $Z\restriction s$:
-      \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m=X\]
-    \item At stage $i<m$, apply Lemma~\ref{lemma:all-outside-A} with $X_i$,
-      and $\Gamma^i$ defined by the Turing functional that sends $Y$ to
-      $\Gamma^{Y\cup d_i}$.
-  \end{itemize}
-\end{frame}
+\begin{frame}{$X\subseteq Z$ that preserves $Z\restriction s$}
+  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
+  partially-strengthened lemma across $d_i$ to get decreasing subsets
+  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m,\]
 
-\begin{frame}{Preserve initial segment}
+  then choose $X=X_m\cup Z\restriction s$. At stage $i<m$, the lemma is
+  applied with inputs $X_i$ and $\Gamma_i$ defined by
+  \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
-  \vspace{0.5em}
-  \textbf{Case 0:} GP has positive solutions for arbitrarily long
-  $\sigma\in\mathcal{A}$. Observe that by finite use
-  principle, given $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive
-  solutions $X\in[Z]^\omega$ is $\Sigma_1^{1,Z}$:
-  \begin{align*}
-    \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
-      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
-    =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
-      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
-      \in\Sigma_1^{1,Z}.
-  \end{align*}
-  By compactness of $\mathcal{A}$, this set of arbitrarily long $\sigma$'s
-  must contain a path in $\mathcal{A}$. Then $\{f:(\forall \sigma\prec f)\;
-  [\mathcal{P}_\sigma \neq \emptyset]\}$ is a non-empty
-  $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+  giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
+  $\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$). To see that this $X$ works, fix
+  arbitrary $Y\in[X]^\omega$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
