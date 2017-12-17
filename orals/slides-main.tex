@@ -27,6 +27,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     outside $\mathcal{A}$.
   \end{main-thm*}
 
+  \vspace{1em}
   If we strengthen the assumptions:
   \begin{itemize}
     \item Fix machine
@@ -34,26 +35,25 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \end{itemize}
   we can even find a $\Sigma_1^1$-subset of such $X$'s from any given
   $\Sigma_1^1$-set.
-
-  \begin{claim}[$\Sigma_1^1$-subset compute paths outside $\mathcal{A}$
-  via fixed machine]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a
-    path (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-predicate
-    $P(X,Y)$, and $\Sigma_1^{1}$-set $\mathcal{B}_0\neq\emptyset$. Then
-    $\mathcal{B}_0$ has a $\Sigma_1^{1}$-subset $\mathcal{B}\neq\emptyset$
-    such that for every $X\in\mathcal{B}$, $\{Y:P(X,Y)\}$ contains a path
-    outside $\mathcal{A}$.
-  \end{claim}
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-subset compute paths outside
 $\mathcal{A}$ via fixed machine}
+  \begin{claim}
+    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a path (if
+    any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
+    $\Sigma_1^{1}$-set $\mathcal{B}_0\neq\emptyset$. Then $\mathcal{B}_0$
+    has a $\Sigma_1^{1}$-subset $\mathcal{B}\neq\emptyset$ such that for
+    every $X\in\mathcal{B}$, $\{Y:P(X,Y)\}$ contains a path outside
+    $\mathcal{A}$.
+  \end{claim}
+
   \textbf{Case 1}: For every $X\in\mathcal{B}_0$,
   $\{Y:P(X,Y)\}\subseteq\mathcal{A}$. Then $\bigcup_{X\in\mathcal{B}_0}
   \{Y:P(X,Y)\}$ will be a $\Sigma_1^1$-subset of $\mathcal{A}$,
   $\Rightarrow\Leftarrow$.
 
-  \vspace{1em}
+  \vspace{0.5em}
   \textbf{Case 2}: For some $X_0\in\mathcal{B}_0$, $\{Y:P(X_0,Y)\}$
   contains a path $Y_0\not\in\mathcal{A}$. By compactness of $\mathcal{A}$,
   $Y_0$ has an initial segment $\sigma$ with $[\sigma]\cap\mathcal{A}
@@ -65,9 +65,12 @@ $\mathcal{A}$ via fixed machine}
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-immunity basis theorem}
-  If we want $X$'s that works for all Turing predicates not just a fixed
-  one, we can only guarantee the existence of one such $X$.
+  We want $X$ whose trees avoid $\mathcal{A}$ regardless of the machine
+  used to compute the tree. The previous claim gives us enough $X$'s that
+  work for a fixed machine to guarantee the existence one that works for
+  all machines.
 
+  \vspace{1em}
   \begin{thm}[$\Sigma_1^1$-immunity basis]
     $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a path (if
     any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-set
@@ -75,9 +78,6 @@ $\mathcal{A}$ via fixed machine}
     that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
     $\mathcal{A}$.
   \end{thm}
-
-  \textbf{Idea:} The set of $X$'s from each predicate is so dense
-  (from previous claim) that they contain a common $X$.
 
   \vspace{1em}
   For each $\Sigma_1^1$-predicate $P$, let $\mathcal{U}_P$ be the union of
@@ -91,6 +91,7 @@ $\mathcal{A}$ via fixed machine}
 
 \begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem}
   Every step in the proof can be directly relativized to arbitary $Z$.
+  \vspace{0.5em}
   \begin{thm}[$\Sigma_1^{1,Z}$-immunity basis]
     $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
     (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1,Z}$-set
@@ -99,13 +100,16 @@ $\mathcal{A}$ via fixed machine}
     $\mathcal{A}$.
   \end{thm}
 
-  \vspace{2em}
-  We can make a similar conclusion even after accounting for paths computed
-  by subsets if we fix the Turing machine and allow ourselves to choose any
-  infinite $X$.
+  \vspace{1em}
+  We want not just the trees computed by $X$, but also the trees computed
+  by its subsets to avoid lying in $\mathcal{A}$. By fixing the machine
+  used in the computations, we can avoid $\mathcal{A}$ in the stronger
+  sense: either all paths computed by these subsets lie outside
+  $\mathcal{A}$, or all trees computed share arbitrarily long branches
+  that lie outside $\mathcal{A}$.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$, Or same node
+\begin{frame}{Subsets compute paths outside $\mathcal{A}$, Or same node
 outside $\mathcal{A}$}
   \begin{lemma}
     $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-subset contains a path
