@@ -1,3 +1,28 @@
+\begin{frame}{Notations}
+  \begin{itemize}
+    \item $\omega=\mathbb{N}$, $a,b,\ldots\in\omega$,
+      $A,B,\ldots\subseteq\omega$, $\sigma,\tau\in\omega^{<\omega}$,
+      $\mathcal{A},\mathcal{B},\ldots\subseteq\omega^\omega$.
+    \item Trees $T$ are subsets of $\omega^{<\omega}$ closed under initial
+      segments; i.e. $\sigma^{\frown}n\in T \rightarrow \sigma\in T$.
+    \item Paths are functions $f:\omega\rightarrow\omega$. A tree contains
+      a path $f$ iff $T$ contains every initial segment $f\restriction n$
+      of $f$.
+    \item $[T] :=\{f:f\; \text{is a path on}\; T\}$.
+    \item Turing functionals on trees are partial-recursive functionals
+      $\Gamma:2^{<\omega}\rightarrow\omega^{<\omega}$ where
+      $\tau\in\Gamma^{\sigma^\frown n} \rightarrow
+      \tau\in\Gamma^{\sigma}$. $\Gamma$ can be extended naturally to
+      $\Gamma:2^\omega\rightarrow\omega^{\omega}$.
+    \item Given set $A$ and cardinal $\kappa$, $[A]^\kappa
+      :=\{B\subseteq A: |B|=\kappa\}$.
+    \item Given $A\in[\omega]^\omega$, can think of $A$ as its characteristic
+      function $c_A:\omega\rightarrow\{0,1\}$, or as their principal
+      function $p_A:\omega\rightarrow\omega$ which is a strictly increasing
+      function enumerating $A$.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Ramsey's Theorem ($\text{RT}$)}
   \begin{itemize}
     \item State $\text{RT}_k^n$
