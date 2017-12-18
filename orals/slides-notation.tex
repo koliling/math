@@ -60,16 +60,27 @@
 \end{frame}
 
 \begin{frame}{KL $\leq_{\text{soc}}$ WKL}
-  Given KL instance \textbf{P}, at each level, code branches into WKL
-  instance \textbf{Q} using binary representation of branch number
+  Given a KL instance with at least one path $f:\omega\rightarrow\omega$,
+  code this path in $\omega^\omega$ as a path $g$ in $2^\omega$ in a
+  recoverable manner.
+
+  \vspace{2em}
+  For example, if $f$ is $2,9,3,\ldots$, we can code $f$ as the binary
+  sequence $g$ which starts with $2$ ones followed by a zero, then $9$ ones
+  followed by a zero, then $3$ ones followed by a zero, and so on.
+
+  \vspace{2em}
+  Consider the WKL instance that has $g$ as the only path. Then every
+  path of this instance computes a path in the KL instance.
 \end{frame}
 
 \begin{frame}{RT $\leq_{\text{soc}}$ WKL}
   \begin{itemize}
-    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$.
-    \item Define binary tree $T\subseteq 2^{<\omega}$ by
+    \item Fix an RT instance $c:[\omega]^n\rightarrow k$.
+    \item Define the WKL instance $T\subseteq 2^{<\omega}$ by
       \[\sigma\in T \Leftrightarrow \{n:\sigma(n)=1\}\; \text{is
-      homogeneous}.\]
+      $c$-homogeneous}.\]
+    \item Then every path in 
   \end{itemize}
 \end{frame}
 
