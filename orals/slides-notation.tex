@@ -17,10 +17,10 @@
       $\Gamma:2^\omega\rightarrow\omega^{\omega}$.
     \item Given set $A$ and cardinal $\kappa$, $[A]^\kappa
       :=\{B\subseteq A: |B|=\kappa\}$.
-    \item Given $A\in[\omega]^\omega$, can think of $A$ as its characteristic
-      function $c_A:\omega\rightarrow\{0,1\}$, or as their principal
-      function $p_A:\omega\rightarrow\omega$ which is a strictly increasing
-      function enumerating $A$.
+    \item Given $A\in[\omega]^\omega$, we sometimes refer to $A$ by its
+      characteristic function $c_A:\omega\rightarrow\{0,1\}$, or by its
+      principal function $p_A:\omega\rightarrow\omega$, which is the
+      strictly increasing function listing the elements of $A$.
   \end{itemize}
 \end{frame}
 
@@ -33,9 +33,8 @@
 
   \vspace{1em}
   \begin{thm*}[Ramsey's Theorem]
-    Fix $n,k\leq1$. $\text{RT}_k^n$ is the statement\\
-    ``Every $k$-coloring $c:[\omega]^n\rightarrow k$ has an infinite
-    $c$-homogeneous set.''\\
+    Fix $n,k\leq1$. $\text{RT}_k^n$ is the statement that every $k$-coloring
+    $c:[\omega]^n\rightarrow k$ has an infinite $c$-homogeneous set.\\
     RT is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
   \end{thm*}
 
@@ -48,11 +47,12 @@
   by a descending series of sub-trees $T\subseteq2^{<\omega}$, because
   these trees reveal information on the sequences caught by all of them. A
   series of trees is eligible to judge for randomness only if it shrinks
-  fast enough for the set of paths caught in all of them to be ``sparse'';
-  if too many paths are caught the information on them is not useful.
+  fast enough for the set of paths caught by all of them to be ``sparse'',
+  because if too many paths are caught, the information on the paths is no
+  longer useful.
 
   \vspace{1em}
-  One way of formalizing the notion of a tree that is not sparse is:
+  One way of formalizing the notion of a non-sparse tree is:
   \begin{define*}
     A (measurable) binary tree $T\subseteq2^{<\omega}$ has positive measure
     if
@@ -123,13 +123,13 @@
   \end{define*}
 
   \vspace{1em}
-  Similarly, RT is a problem; its instances are the collection of colorings
-  $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the solutions
-  for each $c$ are the class of $c$-homogeneous paths.
+  For example, RT is a problem; its instances are the collections of
+  colorings $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the
+  solutions of each $c$ are the class of $c$-homogeneous paths.
 
   \vspace{1em}
-  For instance, WWKL is a problem; its instances are the collection of
-  binary trees with positive measure, the solutions of each instance is the
+  Similarly, WWKL is a problem; its instances are the collections of binary
+  trees with positive measure, and the solutions of each instance is the
   class of paths in the tree.
 \end{frame}
 
@@ -172,8 +172,8 @@
   in a recoverable manner.
 
   \vspace{1em}
-  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the binary
-  sequence $110$ $1111111110$ $1110\ldots$.
+  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the path
+  $110$ $1111111110$ $1110\ldots$.
 
   \vspace{1em}
   Similarly, any solution of an RT instance can be seen as an infinite

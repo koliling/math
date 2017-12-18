@@ -10,12 +10,11 @@
 \end{frame}
 
 \begin{frame}{Class of sets computing non-recursive is null}
-  \textbf{Main idea:} Assume not. Then there are enough paths computing
-  $A$ such that we can effectively ask them to ``vote''
-  on when an element is in $A$. Thus effectively computing
-  $A$, $\Rightarrow\Leftarrow$.
-  \vspace{1em}
+  \textbf{Proof idea:} Assume not. Then there are enough paths computing
+  $A$ such that we can effectively ask them to ``vote'' on when an element
+  is in $A$. Thus computing $A$, $\Rightarrow\Leftarrow$.
 
+  \vspace{1em}
   Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
   \Phi^X=A\}$. Note $\mathcal{B}$ is Borel and thus measurable.
   Since the measure of a countable union of null sets is 0, and
@@ -72,7 +71,7 @@
   Bi-Hyperimmune sets $A$ are those where $A$, $\bar{A}$ are hyperimmune.\\
   \vspace{1em}
 
-  \textbf{Main idea:} Assume not. Then there are enough paths computing
+  \textbf{Proof idea:} Assume not. Then there are enough paths computing
   infinite subsets of $A$ such that we can effectively ask them to ``vote''
   for when new elements of $A$ have appeared. Thus effectively dominating
   $p_A$, $\Rightarrow\Leftarrow$.\\
@@ -86,8 +85,8 @@
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
   \begin{itemize}
     \item Approximate $\mathcal{B}$ by open cover
-      $\mathcal{O}\supseteq\mathcal{C}$ with
-      $\mu(\mathcal{O}-\mathcal{C})<m$.
+      $\mathcal{O}\supseteq\mathcal{B}$ with
+      $\mu(\mathcal{O}-\mathcal{B})<m$.
     \item Approximate $\mathcal{O}$ by basic open sets
       $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
       \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
@@ -95,8 +94,8 @@
       $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
     \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
       finds an element via $\Phi$; let $f(0)$ be the largest element found.
-    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate $\mathcal{B}$
-      tightly, such $\sigma$'s exist.
+    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
+      $\mathcal{B}$ tightly, such $\sigma$'s exist.
       \begin{align*}
         \mu(\text{``true'' voters})>2m,\\
         \mu(\text{``false'' voters})<2m.
@@ -113,11 +112,15 @@
     \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
     \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive
       functions.
-    \item At stage $n$, we have defined the first $i$th elements of $A$.
+    \item At stage $n$, let $i$ be the number of elements in $A$ and
+      $\bar{A}$ that has been defined so far.
     \item Put enough elements into $\bar{A}$ till the $(i+1)$th element
-      of $A$ exceeds that of $f_n$.
-    \item Then we would have defined the first $j$th elements of $\bar{A}$.
-    \item Similarly, put enough elements into $A$ till the $(j+1)$th
-      element of $\bar{A}$ exceeds that of $f_n$. $\blacksquare$
+      of $A$ exceeds that of $f_n$, then put the next element into $A$.
+    \item Repeat this step but with the rolse of $A$ and $\bar{A}$
+      reversed: Letting $j$ be the number of elements that has been defined
+      after the previous step, put enough elements into $A$ till the
+      $(j+1)$th element of $\bar{A}$ exceeds that of $f_n$, then put the
+      next element into $\bar{A}$.
+    \item Go to stage $n+1$. $\blacksquare$
   \end{itemize}
 \end{frame}

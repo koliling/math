@@ -36,7 +36,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
     \textbf{Negative solution:} All subsets of $X$ do not compute $\sigma$
     (via $\Gamma$)
   \end{fact}
-  \textbf{Proof sketch of GP:} The class of subsets of $Z$ that
+  \textbf{Proof idea of GP:} The class of subsets of $Z$ that
   compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
@@ -55,13 +55,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
-  \textbf{Case 1:} GP only has negative solutions for all nodes in
+  \textbf{Case 1:} GP only has negative solutions for each node in
   $\mathcal{A}$ of a particular length. Iterate GP across each such node to
-  get $X$ where all these nodes are avoided. Note there are only finitely
-  many nodes to avoid since $\mathcal{A}$ is compact.
-
-  %\vspace{0.5em}
-  %\textbf{Case 1:} GP answers positively for some node outside $X$.
+  get a solution that is negative for all of them.
 
   \vspace{1em}
   Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
@@ -133,7 +129,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
   For a fixed machine, Lemma~\ref{lemma:fixed-machine} gives $X$ whose
   subsets compute no paths in $\mathcal{A}$. To find $X$ that works across
-  all machines, first fix an enumeration of all machines
+  all machines, first fix an enumeration of machines
   $\Gamma_0,\Gamma_1,\ldots$. Then, iterate Lemma~\ref{lemma:fixed-machine}
   across them to construct decreasing subsets of such $X$
   \[Z= X_0\supseteq X_1\supseteq \ldots,\]
@@ -292,7 +288,7 @@ $\Sigma_1^{1,X}$-set}
   The immunity basis theorem asks for an $X$ whose $\Sigma_1^1$-trees do
   not lie in $\mathcal{A}$ regardless of the machine used in the
   computation. The previous claim gives us enough $X$'s that work for any
-  given $\Sigma_1^1$-machine to guarantee that some $X$ works for all
+  given $\Sigma_1^1$-machine to guarantee that some $X$ works across all
   machines.
 
   \vspace{1em}
@@ -316,7 +312,7 @@ $\Sigma_1^{1,X}$-set}
 \begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem (relativized)}
   Every step in the proof can be directly relativized to arbitary $Z$ since
   the relativized Gandy-Harrington topology is Baire, and the proof of the
-  claim used in the theorem can also be directly relativized.
+  claim used in the theorem is also relativizable.
 
   \vspace{0.5em}
   \begin{immunity*}[Relativized]
