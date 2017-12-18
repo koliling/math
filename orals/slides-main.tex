@@ -43,10 +43,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 
 \begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
   \textbf{Proof idea:} Want $X$ whose subsets compute no path in 
-  $\mathcal{A}$. Fix machine. Then given any node $\sigma$, GP finds
-  solution $X$ whose subsets either all compute $\sigma$ ($X$ is positive
-  solution), or all do not compute $\sigma$ ($X$ is negative solution).
-  Exhaust cases:
+  $\mathcal{A}$. First fix machine. Now given any node $\sigma$, GP can
+  find positive solution $X$ (all subsets compute $\sigma$) or negative
+  solution $X$ (all subsets do not compute $\sigma$). Exhaust cases:
 
   \vspace{1em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
