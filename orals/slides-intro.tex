@@ -1,16 +1,15 @@
 \begin{frame}{WKL $\nleq_{\text{soc}}$ WWKL}
   \begin{itemize}
     \item Fix instance of WKL with only one path $A\in[\omega]^\omega$, and
-      where
-      \[\mu(\{X: X\; \text{computes element in}\; [A]^\omega\}) =0.\]
+      where the class of paths computing $A$ has 0 measure.
     \item Given arbitrary instance of WWKL, since set of its paths has
-      measure $>0$, some path must fail to compute $A$.
-    \item Any non-computable $A$ works. $\blacksquare$
+      positive measure, some path must fail to compute $A$.
+    \item Any non-recursive $A$ works, as we show next.
+      $\blacksquare$
   \end{itemize}
 \end{frame}
 
-\begin{frame}{$A>_T\emptyset \implies\mu(\{X: X\; \text{computes element
-in}\; [A]^\omega\}) =0$}
+\begin{frame}{Class of sets computing non-recursive is null}
   \textbf{Main idea:} Assume not. Then there are enough paths computing
   $A$ such that we can effectively ask them to ``vote''
   on when an element is in $A$. Thus effectively computing
@@ -24,8 +23,7 @@ in}\; [A]^\omega\}) =0$}
   $\mu(\mathcal{B})=0$. Assume $\mu(\mathcal{B})=4m>0$.
 \end{frame}
 
-\begin{frame}{$A>_T\emptyset \implies\mu(\{X: X\; \text{computes element
-in}\; [A]^\omega\}) =0$}
+\begin{frame}{Class of sets computing non-recursive is null}
   \begin{itemize}
     \item Approximate $\mathcal{B}$ by open cover
       $\mathcal{O}\supseteq\mathcal{B}$ with
@@ -61,12 +59,12 @@ in}\; [A]^\omega\}) =0$}
     \item Given any instance of WWKL, since the set of its paths has
       measure $>0$, some path must fail to compute any infinite
       homogeneous set of $c$. 
-    \item Any bi-hyperimmune set $A$ works. $\blacksquare$
+    \item Any bi-hyperimmune set $A$ works, as we show next.
+    $\blacksquare$
   \end{itemize}
 \end{frame}
 
-\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes
-element in}\; [A]^\omega\}) =0$}
+\begin{frame}{Class of sets computing subsets of hyperimmune is null}
   Hyperimmune sets $A$ are characterized as those whose principal
   function $p_A$ is not dominated by any recursive $f$. \\
   \vspace{1em}
@@ -85,8 +83,7 @@ element in}\; [A]^\omega\}) =0$}
   $\mu(\mathcal{B})=4m>0$.
 \end{frame}
 
-\begin{frame}{$A$ Hyperimmune $\implies \mu(\{X: X\; \text{computes
-element in}\; [A]^\omega\}) =0$ (cont.)}
+\begin{frame}{Class of sets computing subsets of hyperimmune is null}
   \begin{itemize}
     \item Approximate $\mathcal{B}$ by open cover
       $\mathcal{O}\supseteq\mathcal{C}$ with
@@ -111,7 +108,7 @@ element in}\; [A]^\omega\}) =0$ (cont.)}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Bi-Hyperimmune sets $A$ exist}
+\begin{frame}{Constructing bi-hyperimmunes}
   \begin{itemize}
     \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
     \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive

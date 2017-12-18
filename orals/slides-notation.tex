@@ -24,14 +24,22 @@
 \end{frame}
 
 \begin{frame}{Ramsey's Theorem ($\text{RT}$)}
-  \begin{itemize}
-    \item State $\text{RT}_k^n$
-    \item $\text{RT}$ is $(\forall n)\; \text{RT}_{<\infty}^n$
-  \end{itemize}
+  \begin{define*}[$c$-homogeneous]
+    Given $k$-coloring $c:[\omega]^n\rightarrow k$, a subset
+    $A\subseteq\omega$ is $c$-homogeneous if every $n$-tuple over $A$ is
+    given the same color by $c$.
+  \end{define*}
 
-  \begin{itemize}
-    \item Asserts existence of homogeneity
-  \end{itemize}
+  \vspace{1em}
+  \begin{define*}[Ramsey's Theorem]
+    Fix $n,k\leq1$. $\text{RT}_k^n$ is the statement\\
+    ``Every $k$-coloring $c:[\omega]^n\rightarrow k$ has an infinite
+    $c$-homogeneous set.''\\
+    RT is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
+  \end{define*}
+
+  \vspace{1em}
+  RT asserts homogeneity exists.
 \end{frame}
 
 \begin{frame}{Randomness}
@@ -58,9 +66,10 @@
 
 \begin{frame}{RT $\leq_{\text{soc}}$ WKL}
   \begin{itemize}
-    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$
-    \item Define binary tree $T\subseteq 2^{<\omega}$ by $\sigma\in T$
-      iff $\{n:\sigma(n)=1\}$ is homogeneous
+    \item Fix $k$-coloring $c:[\omega]^n\rightarrow k$.
+    \item Define binary tree $T\subseteq 2^{<\omega}$ by
+      \[\sigma\in T \Leftrightarrow \{n:\sigma(n)=1\}\; \text{is
+      homogeneous}.\]
   \end{itemize}
 \end{frame}
 
