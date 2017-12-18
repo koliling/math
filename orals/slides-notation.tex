@@ -87,9 +87,9 @@
 
   \vspace{2em}
   Konig's Lemma claims more, asserting that paths for non-binary
-  trees also exist as long as they are finitely branching: 
+  trees also exist if they are finitely branching: 
   \begin{thm*}[Konig's Lemma]
-    Every finitely-branching tree contains a path.
+    Every finitely-branching tree with infinite nodes contains a path.
   \end{thm*}
 \end{frame}
 
@@ -98,10 +98,7 @@
   stronger. Intuitively, WKL is stronger than WWKL, because a binary tree
   of positive measure has infinite nodes, so if all binary trees with
   infinite nodes have a path, then all binary trees with positive measure
-  have one too.
-
-  \vspace{0.5em}
-  A more interesting question is
+  have one too. A more interesting question is
   \newtheorem*{question*}{Question}
   \begin{question*}
     Which notion is stronger, homogeneity or randomness?
@@ -118,8 +115,30 @@
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
 ($\leq_{\text{soc}}$)}
+  We formalize the notion of strength between problems.
+  \begin{define*}[Problem, instance, solution]
+    A mathematical \textbf{problem} is a collection of \textbf{instances},
+    with a collection of \textbf{solutions} for each instance.
+  \end{define*}
+  Similarly, RT is a problem; its instances are the collection of colorings
+  $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the solutions
+  for each $c$ are the class of $c$-homogeneous paths.
+
+  \vspace{0.5em}
+  For instance, WWKL is a problem; its instances are the collection of
+  binary trees with positive measure, the solutions of each instance is the
+  class of paths in the tree.
+
+  \begin{define*}[Strongly Omnisciently Computably Reducible]
+    Problem \textbf{P} is \textbf{soc}-reducible to problem \textbf{Q} if
+    for every \textbf{P}-instance \textit{I}, there is a
+    \textbf{Q}-instance \textit{J} such that every solution to \textit{J}
+    computes a solution to \textit{I}.
+  \end{define*}
+\end{frame}
+
+\begin{frame}
   \begin{itemize}
-    \item Define problem, solution
     \item Define $\leq_{\text{soc}}$ on WWKL, RT
     \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
     \item WKL $\leq_{\text{soc}}$ KL: From definition.
