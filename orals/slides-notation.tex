@@ -143,8 +143,21 @@
     to \textit{I}.
   \end{define*}
 
-  WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL
-  Follows from definition.
+  $\leq_{\text{soc}}$ successfully captures this expected relation:
+  \begin{center}
+    WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL.
+  \end{center}
+
+  \vspace{0.5em}
+  \textbf{WWKL $\leq_{\text{soc}}$ WKL:} Given a binary tree with
+  positive measure, this tree has infinite branches and is therefore an
+  instance of WKL. The desired relation follows from definition of
+  $\leq_{\text{soc}}$.
+
+  \vspace{0.5em}
+  \textbf{WKL $\leq_{\text{soc}}$ KL:} Given a binary tree with infinite
+  branches, this tree is finitely-branching and therefore an instance of
+  WKL. The desired relation follows from definition of $\leq_{\text{soc}}$.
 \end{frame}
 
 \begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
@@ -160,8 +173,7 @@
 
   \vspace{1em}
   For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the binary
-  sequence $g$ which starts with $2$ ones followed by a zero, then $9$ ones
-  followed by a zero, then $3$ ones followed by a zero, and so on.
+  sequence $110$ $1111111110$ $1110\ldots$.
 
   \vspace{1em}
   Similarly, any solution of an RT instance can be considered as an
