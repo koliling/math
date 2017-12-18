@@ -171,7 +171,7 @@ machines)}
   \newtheorem*{lemma-strengthened2*}{Lemma \ref{lemma:fixed-machine}'':}
   \begin{lemma-strengthened2*}
     Given any $s\in\omega$, require the $X$ in
-    Lemma~\ref{lemma:fixed-machine}' to preserves $Z\restriction s$.
+    Lemma~\ref{lemma:fixed-machine}' to preserve $Z\restriction s$.
   \end{lemma-strengthened2*}
 
   \vspace{0.5em}
@@ -255,55 +255,57 @@ $\Sigma_1^{1,X}$-set}
   By iterating the following theorem $m$-times, it suffices to show
 
   \vspace{0.5em}
-  \begin{thm}[Relativized $\Sigma_1^{1}$-immunity basis]
+  \newtheorem*{immunity*}{$\Sigma_1^{1}$-immunity basis theorem}
+  \begin{immunity*}[Relativized]
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
     $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
     that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
-  \end{thm}
+  \end{immunity*}
 \end{frame}
 
-\begin{frame}{$\Sigma_1^1$-subset compute paths outside
-$\mathcal{A}$ via fixed machine}
+\begin{frame}{$\Sigma_1^1$-immunity basis theorem (fixed machine)}
+  By restricting computations to a fixed machine, we can even find a
+  $\Sigma_1^1$-subset of such $X$'s from any given $\Sigma_1^1$-set.
   \begin{claim}
-    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-subset contains a path (if
-    any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
-    $\Sigma_1^{1}$-set $\mathcal{B}_0\neq\emptyset$. Then $\mathcal{B}_0$
-    has a $\Sigma_1^{1}$-subset $\mathcal{B}\neq\emptyset$ such that for
-    every $X\in\mathcal{B}$, $\{Y:P(X,Y)\}$ contains a path outside
-    $\mathcal{A}$.
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
+    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
+    $\Sigma_1^{1}$-set $\mathcal{N}_0\neq\emptyset$. Then $\mathcal{N}_0$
+    has a $\Sigma_1^{1}$-subset $\mathcal{N}\neq\emptyset$ such that for
+    every $X\in\mathcal{N}$, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
+    ($\neq\emptyset$) via $P$.
   \end{claim}
 
-  \textbf{Case 1}: For every $X\in\mathcal{B}_0$,
-  $\{Y:P(X,Y)\}\subseteq\mathcal{A}$. Then $\bigcup_{X\in\mathcal{B}_0}
+  \textbf{Case 1}: For every $X\in\mathcal{N}_0$,
+  $\{Y:P(X,Y)\}\subseteq\mathcal{A}$. Then $\bigcup_{X\in\mathcal{N}_0}
   \{Y:P(X,Y)\}$ will be a $\Sigma_1^1$-subset of $\mathcal{A}$,
   $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
-  \textbf{Case 2}: For some $X_0\in\mathcal{B}_0$, $\{Y:P(X_0,Y)\}$
-  contains a path $Y_0\not\in\mathcal{A}$. By compactness of $\mathcal{A}$,
-  $Y_0$ has an initial segment $\sigma$ with $[\sigma]\cap\mathcal{A}
-  =\emptyset$. This $\Sigma_1^1$-subset of $\mathcal{B}_0$ works:
-  \[\mathcal{B}:= \{X\in\mathcal{B}_0: (\exists Y\succ\sigma)\; P(X,Y)\}\]
+  \textbf{Case 2}: For some $X_0\in\mathcal{N}_0$, $\{Y:P(X_0,Y)\}$
+  contains a path $Y_0$ outside $\mathcal{A}$. By compactness of
+  $\mathcal{A}$, $Y_0$ has an initial segment $\sigma$ outside
+  $\mathcal{A}$. This $\Sigma_1^1$-subset of $\mathcal{N}_0$ works:
+  \[\mathcal{N}:= \{X\in\mathcal{N}_0: (\exists Y\succ\sigma)\; P(X,Y)\}.\;
+  \blacksquare\]
 
-  Note that every step of this proof can be directly relativized to
-  arbitrary $Z$.
+  Note that every step of this proof can be relativized to arbitrary $Z$.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^1$-immunity basis theorem}
-  We want $X$ whose computed trees avoid $\mathcal{A}$ regardless of the
-  machine used in the computation. The previous claim gives us enough $X$'s
-  that work for each machine to guarantee that some $X$ works for
-  all machines.
+  The immunity basis theorem asks for an $X$ whose $\Sigma_1^1$-trees do
+  not lie in $\mathcal{A}$ regardless of the machine used in the
+  computation. The previous claim gives us enough $X$'s that work for any
+  given $\Sigma_1^1$-machine to guarantee that some $X$ works for all
+  machines.
 
   \vspace{1em}
-  \begin{thm}[$\Sigma_1^1$-immunity basis]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1}$-set contains a path (if
-    any) outside $\mathcal{A}$. Fix $\Sigma_1^{1}$-set
-    $\mathcal{B}\neq\emptyset$. Then $\mathcal{B}$ contains some $X$ such
-    that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
-    $\mathcal{A}$.
-  \end{thm}
+  \begin{immunity*}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
+    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
+    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
+    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+  \end{immunity*}
 
   \vspace{1em}
   For each $\Sigma_1^1$-predicate $P$, let $\mathcal{U}_P$ be the union of
@@ -312,19 +314,21 @@ $\mathcal{A}$ via fixed machine}
   (under Gandy-Harrington topology where basic open sets are
   $\Sigma_1^1$-sets). Since this topology is Baire,
   $\bigcap_P\mathcal{U}_P$ is is non-empty. Any
-  $X\in\bigcap_P\mathcal{U}_P$ works.
+  $X\in\bigcap_P\mathcal{U}_P$ works. $\blacksquare$
 \end{frame}
 
-\begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem}
-  Every step in the proof can be directly relativized to arbitary $Z$.
+\begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem (relativized)}
+  Every step in the proof can be directly relativized to arbitary $Z$ since
+  the relativized Gandy-Harrington topology is Baire, and the proof of the
+  claim used can also be directly relativized.
+
   \vspace{0.5em}
-  \begin{thm}[$\Sigma_1^{1,Z}$-immunity basis]
-    $\mathcal{A}$ compact, every $\Sigma_1^{1,Z}$-set contains a path
-    (if any) outside $\mathcal{A}$. Fix $\Sigma_1^{1,Z}$-set
-    $\mathcal{B}\neq\emptyset$. Then $\mathcal{B}$ contains some $X$ such
-    that every $\Sigma_1^{1,X}$-set contains a path (if any) outside
-    $\mathcal{A}$.
-  \end{thm}
+  \begin{immunity*}[Relativized]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
+    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
+    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+  \end{immunity*}
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
