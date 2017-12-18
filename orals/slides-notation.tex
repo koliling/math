@@ -8,7 +8,8 @@
     \item Paths are functions $f:\omega\rightarrow\omega$. A tree contains
       a path $f$ iff $T$ contains every initial segment $f\restriction n$
       of $f$.
-    \item $[T] :=\{f:f\; \text{is a path on}\; T\}$.
+    \item $[T] :=\{f:f\; \text{is a path in}\; T\}$, $[\sigma]:=\{f:f\;
+      \text{is a path containing}\; \sigma\}$.
     \item Turing functionals on trees are partial-recursive functionals
       $\Gamma:2^{<\omega}\rightarrow\omega^{<\omega}$ where
       $\tau\in\Gamma^{\sigma^\frown n} \rightarrow
@@ -31,22 +32,65 @@
   \end{define*}
 
   \vspace{1em}
-  \begin{define*}[Ramsey's Theorem]
+  \begin{thm*}[Ramsey's Theorem]
     Fix $n,k\leq1$. $\text{RT}_k^n$ is the statement\\
     ``Every $k$-coloring $c:[\omega]^n\rightarrow k$ has an infinite
     $c$-homogeneous set.''\\
     RT is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
-  \end{define*}
+  \end{thm*}
 
   \vspace{1em}
   RT asserts homogeneity exists.
 \end{frame}
 
 \begin{frame}{Randomness}
-  \begin{itemize}
-    \item What is 1-random
-    \item Lebesgue Measure
-  \end{itemize}
+  Intuitively, a path $f\in2^\omega$ is random if it cannot be ``caught''
+  by a descending series of sub-trees $T\subseteq2^{<\omega}$, because
+  these trees reveal information on the sequences caught by all of them. A
+  series of trees is eligible to judge for randomness only if it shrinks
+  fast enough for the set of paths caught in all of them to be ``sparse'';
+  if too many paths are caught the information on them is not useful.
+
+  \vspace{1em}
+  One way of formalizing the notion of a tree that is not sparse is:
+  \begin{define*}
+    A (measurable) binary tree $T\subseteq2^{<\omega}$ has positive measure
+    if
+    \[\lim_s \frac{|\{\sigma\in T: |\sigma|=s\}|}{2^s} >0.\]
+  \end{define*}
+\end{frame}
+
+\begin{frame}{WWKL asserts Randomness}
+  A series of sub-trees $T_0\subseteq T_1\subseteq\ldots$ is eligible to
+  test for randomness if the limit of their measures is 0. Since there are
+  only countably many Turing machines that can give randomness tests,
+  and the class of non-randoms from each test has measure 0, and the
+  measure of a countable union of (measurable) classes of measure 0 is
+  still 0, the class of non-randoms has measure 0.
+
+  \vspace{2em}
+  Thus if a (measurable) tree has positive measure, it must contain a
+  random. Weak Weak Konig's Lemma (WWKL) asserts that at least one of its
+  solutions is random by stating
+  \begin{thm*}[Weak Weak Konig's Lemma]
+    Every binary tree with positive measure contains a path.
+  \end{thm*}
+\end{frame}
+
+\begin{frame}{WWKL, WKL, KL}
+  The solutions of an instance of Weak Konig's Lemma (WKL), however, may
+  all be non-randoms, because WKL instances allow for binary trees with
+  measure 0, by stating
+  \begin{thm*}[Weak Konig's Lemma]
+    Every binary tree with infinite nodes contains a path.
+  \end{thm*}
+
+  \vspace{2em}
+  Konig's Lemma is an even stronger statement, asserting solutions even for
+  non-binary trees as long as they are finitely branching: 
+  \begin{thm*}[Weak Konig's Lemma]
+    Every finitely-branching tree contains a path.
+  \end{thm*}
 \end{frame}
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
@@ -60,10 +104,10 @@
 \end{frame}
 
 \begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
-  Under $\leq_{\text{soc}}$, WKL is very powerful. Given any KL or RT
+  WKL is powerful under $\leq_{\text{soc}}$. Given any KL or RT
   problem, fix one of its solutions, and choose the WKL instance whose only
-  path codes that solution. By definition of $\leq_{\text{soc}}$, the
-  original problem reduces to this WKL instance.
+  path codes that solution as an path in $2^\omega$. By definition of
+  $\leq_{\text{soc}}$, the original problem reduces to this WKL instance.
 
   \vspace{1em}
   For example, given a KL instance, fix one of its solutions
