@@ -43,15 +43,16 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 
 \begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
   \textbf{Proof idea:} Want $X$ whose subsets compute no path in 
-  $\mathcal{A}$. First fix machine. Now given any node $\sigma$, GP can
-  find positive solution $X$ (all subsets compute $\sigma$) or negative
-  solution $X$ (all subsets do not compute $\sigma$). Exhaust cases:
+  $\mathcal{A}$. First fix machine. Now given node $\sigma$, GP will
+  find positive solutions $X$ (all subsets compute $\sigma$), and/or
+  negative solutions $X$ (all subsets do not compute $\sigma$). Exhaust
+  cases:
 
   \vspace{1em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
   $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
-  a path in $\mathcal{A}$, giving us a non-empty $\Sigma_1^1$-set contained
-  in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+  a path in $\mathcal{A}$, from which we can define a non-empty
+  $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
   \textbf{Case 1:} GP only has negative solutions for all nodes in
@@ -65,8 +66,7 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   \vspace{1em}
   Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
   $\mathcal{A}$. To find $X$ that works across all machines, iterate across
-  the machines, constructing decreasing subsets of such $X$, then take
-  intersection.
+  them, constructing decreasing subsets of $X$, then take intersection.
 \end{frame}
 
 \begin{frame}{Lemma~\ref{lemma:fixed-machine}: Subsets compute no path in
