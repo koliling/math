@@ -59,29 +59,26 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{KL $\leq_{\text{soc}}$ WKL}
-  Given a KL instance with at least one path $f:\omega\rightarrow\omega$,
-  code this path in $\omega^\omega$ as a path $g$ in $2^\omega$ in a
-  recoverable manner.
+\begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
+  Under $\leq_{\text{soc}}$, WKL is very powerful. Given any problem, fix
+  one of its solutions, and choose the WKL instance whose only path codes
+  that solution. Then by definition, this WKL instance witnesses the
+  reduction.
 
-  \vspace{2em}
-  For example, if $f$ is $2,9,3,\ldots$, we can code $f$ as the binary
+  \vspace{1em}
+  For example, given a KL instance, fix one of its solutions
+  $f:\omega\rightarrow\omega$, code this solution as a path $g\in2^\omega$
+  in a recoverable manner.
+
+  \vspace{1em}
+  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the binary
   sequence $g$ which starts with $2$ ones followed by a zero, then $9$ ones
   followed by a zero, then $3$ ones followed by a zero, and so on.
 
-  \vspace{2em}
-  Consider the WKL instance that has $g$ as the only path. Then every
-  path of this instance computes a path in the KL instance.
-\end{frame}
-
-\begin{frame}{RT $\leq_{\text{soc}}$ WKL}
-  \begin{itemize}
-    \item Fix an RT instance $c:[\omega]^n\rightarrow k$.
-    \item Define the WKL instance $T\subseteq 2^{<\omega}$ by
-      \[\sigma\in T \Leftrightarrow \{n:\sigma(n)=1\}\; \text{is
-      $c$-homogeneous}.\]
-    \item Then every path in 
-  \end{itemize}
+  \vspace{1em}
+  Similarly, any solution of an RT instance can be considered as an
+  infinite subset of $\omega$. We can use its characteristic function as a
+  path in $2^\omega$.
 \end{frame}
 
 \begin{frame}{Homogeneity ``independent from'' Randomness}
