@@ -113,36 +113,38 @@
   stronger.
 \end{frame}
 
-\begin{frame}{Strongly Omnisciently Computably Reducible
-($\leq_{\text{soc}}$)}
-  We formalize the notion of strength between problems.
+\begin{frame}{Problem, Instance, Solution}
+  We formalize the notion of problems and the strength between them.
+
+  \vspace{1em}
   \begin{define*}[Problem, instance, solution]
     A mathematical \textbf{problem} is a collection of \textbf{instances},
     with a collection of \textbf{solutions} for each instance.
   \end{define*}
+
+  \vspace{1em}
   Similarly, RT is a problem; its instances are the collection of colorings
   $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the solutions
   for each $c$ are the class of $c$-homogeneous paths.
 
-  \vspace{0.5em}
+  \vspace{1em}
   For instance, WWKL is a problem; its instances are the collection of
   binary trees with positive measure, the solutions of each instance is the
   class of paths in the tree.
-
-  \begin{define*}[Strongly Omnisciently Computably Reducible]
-    Problem \textbf{P} is \textbf{soc}-reducible to problem \textbf{Q} if
-    for every \textbf{P}-instance \textit{I}, there is a
-    \textbf{Q}-instance \textit{J} such that every solution to \textit{J}
-    computes a solution to \textit{I}.
-  \end{define*}
 \end{frame}
 
-\begin{frame}
-  \begin{itemize}
-    \item Define $\leq_{\text{soc}}$ on WWKL, RT
-    \item WWKL $\leq_{\text{soc}}$ WKL: From definition.
-    \item WKL $\leq_{\text{soc}}$ KL: From definition.
-  \end{itemize}
+\begin{frame}{Strongly Omnisciently Computably Reducible
+($\leq_{\text{soc}}$)}
+  \begin{define*}[Strongly Omnisciently Computably Reducible]
+    Problem \textbf{P} is \textit{soc}-reducible to problem \textbf{Q}
+    (written \textbf{P} $\leq_{\text{soc}}$ \textbf{Q}) if for every
+    \textbf{P}-instance \textit{I}, there is a \textbf{Q}-instance
+    \textit{J} such that every solution to \textit{J} computes a solution
+    to \textit{I}.
+  \end{define*}
+
+  WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL
+  Follows from definition.
 \end{frame}
 
 \begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
