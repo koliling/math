@@ -49,10 +49,10 @@
   sequences caught by all of them. A descending sequence is eligible to judge
   for randomness only if the trees shrink fast enough for the class of paths
   caught by all of them to be ``sparse'', because if too many paths are
-  caught, the information on the paths is no longer useful.
+  caught, the information on the paths is not useful.
 
   \vspace{1em}
-  One way of formalizing the notion of a non-sparse tree is:
+  One way of formalizing the notion of a Sparseness of a tree is:
   \begin{define*}
     A (measurable) binary tree $T\subseteq2^{<\omega}$ has positive measure
     if
@@ -61,7 +61,7 @@
 \end{frame}
 
 \begin{frame}{WWKL asserts Randomness}
-  A series of sub-trees $T_0\subseteq T_1\subseteq\ldots$ is eligible to
+  A series of trees $T_0\supseteq T_1\supseteq\ldots$ is eligible to
   test for randomness if the limit of their measures is 0. Since there are
   only countably many Turing machines that can give randomness tests,
   and the class of non-randoms from each test has measure 0, and the
@@ -79,15 +79,14 @@
 
 \begin{frame}{WWKL, WKL, KL}
   The paths of an instance of Weak Konig's Lemma (WKL), however, may
-  all be non-randoms, because WKL instances allow for binary trees with
-  measure 0, by stating
+  all be non-randoms, because WKL includes also binary trees with measure
+  0:
   \begin{thm*}[Weak Konig's Lemma]
     Every binary tree with infinite nodes contains a path.
   \end{thm*}
 
   \vspace{2em}
-  Konig's Lemma claims more, asserting that paths for non-binary
-  trees also exist if they are finitely branching: 
+  Konig's Lemma includes even trees that are not binary:
   \begin{thm*}[Konig's Lemma]
     Every finitely-branching tree with infinite nodes contains a path.
   \end{thm*}
@@ -97,15 +96,15 @@
   A natural question to ask is which of the statements RT, KL, WKL, WWKL is
   stronger. Intuitively, WKL is stronger than WWKL, because a binary tree
   of positive measure has infinite nodes, so if all binary trees with
-  infinite nodes have a path, then all binary trees with positive measure
-  have one too. A more interesting question is
+  infinite nodes have a path, then those with positive measure must
+  have one too. A question that is harder to answer is:
   \newtheorem*{question*}{Question}
   \begin{question*}
     Which notion is stronger, homogeneity or randomness?
   \end{question*}
   If a given a path is homogeneous, does that say anything about how random
-  it is? Likewise, if a given path is random, can we use it to find
-  homogeneous paths?
+  it is? Likewise, if a given path is random, will it necessarily provide
+  information on finding homogeneous paths?
 
   \vspace{0.5em}
   Since the notions of homogeneity and randomness are captured by RT and
