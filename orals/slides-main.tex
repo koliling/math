@@ -42,9 +42,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
 \end{frame}
 
 \begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
-  \textbf{Proof idea:} Want $X$ whose subsets compute no path in 
-  $\mathcal{A}$. First fix machine. Now given node $\sigma$, GP will
-  find positive solutions $X$ (all subsets compute $\sigma$), and/or
+  \textbf{Proof idea of main theorem:} Want $X$ whose subsets compute no
+  path in $\mathcal{A}$. First fix machine. Now given node $\sigma$, GP
+  will find positive solutions $X$ (all subsets compute $\sigma$), and/or
   negative solutions $X$ (all subsets do not compute $\sigma$). Exhaust
   cases:
 
@@ -60,9 +60,9 @@ $\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
   get a solution that is negative for all of them.
 
   \vspace{1em}
-  Thus for fixed machine, GP gives us $X$ whose subsets compute no paths in
-  $\mathcal{A}$. To find $X$ that works across all machines, iterate across
-  them, constructing decreasing subsets of $X$, then take intersection.
+  Thus for fixed machine, GP gives $X$ whose subsets compute no paths in
+  $\mathcal{A}$. For $X$ to work across all machines, iterate across them,
+  constructing decreasing subsets of $X$, then take intersection.
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed machine)}
@@ -350,14 +350,5 @@ $\Sigma_1^1$-subset}
     \item $T$ has no non-empty $\Sigma_1^1$-subset because every
       $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
       $\blacksquare$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Possible additional slides}
-  \begin{itemize}
-    \item Prove Gandy-Harrington topology (relativized) is Baire
-    \item Prove every $\Sigma_1^1$-subset of $2^\omega$ contains an
-      $O$-recursive
-    \item Prove Galvin-Prikry for open sets
   \end{itemize}
 \end{frame}
