@@ -1,29 +1,8 @@
-\begin{frame}{$\mathcal{A}$ contains $\Sigma_1^1$-subset
-$\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
-  \begin{itemize}
-    \item Fix $\mathcal{A}$ containing $\mathcal{B} =\{X: (\exists
-      Y)(\forall s)\; R(X,Y,s)\} \neq\emptyset$.
-    \item Fix $X\in\mathcal{B}$, $Y$ such that $(\forall s)\;R(X,Y,s)$.
-    \item Define $f(n)=\max(X(n),Y(n))$.
-    \item Then $f$ is a $\Pi_1^0$-modulus of $\mathcal{A}$, i.e. $f$ is
-      dominating enough that every $g\geq f$ computes a $g$-bounded tree
-      $T$ whose paths all lie in $\mathcal{A}$:
-    \item Given $g\geq f$, the $\Pi_1^{0,g}$-set of paths
-      \[\{X\leq g:(\forall s)(\exists \sigma\in 2^s, \sigma\leq g)(\forall
-      s'<s)\; R(X,\sigma,s')\}\]
-      is bounded by $g$, contains $X$, and is contained in $\mathcal{A}$.
-    \item Given arbitrary $X\in[\omega]^\omega$, remove enough elements to
-      make a sparse $Y\in[X]^\omega$ with $p_Y>f$.
-    \item Then $p_Y$ witnesses $\Pi_1^0$-encodability of $\mathcal{A}$ for
-      $X$. $\blacksquare$
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
-  \begin{main-thm*}[Harder direction]
+  \begin{main-thm*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
-    ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
-    compute no path in $\mathcal{A}$.
+    ($\neq\emptyset$). Then there exists infinite set $X$ where none of
+    its subsets can compute a tree containing any path in $\mathcal{A}$.
   \end{main-thm*}
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
@@ -210,7 +189,7 @@ preserves $Z\restriction s$}
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
   Iterating Lemma~\ref{lemma:fixed-machine}'' across all machines
   $\Gamma_0,\Gamma_1,\ldots$, we prove:
-  \begin{main-thm*}[Harder direction]
+  \begin{main-thm*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
     compute no path in $\mathcal{A}$.
@@ -335,7 +314,7 @@ $\Sigma_1^{1,X}$-set}
       By assumption, every element in $[X]^\omega$ computes a path in $T$.
     \item Thus every infinite set $Z$ has an infinite subset $X$ whose
       infinite subsets compute a path in $T$.
-    \item By the harder direction of the main theorem, $[T]$ must contain a
+    \item By the main theorem, $[T]$ must contain a
       non-empty $\Sigma_1^1$-subset, $\Rightarrow\Leftarrow$.
       $\blacksquare$
     \item It remains to prove such $T$ exists.

@@ -1,3 +1,185 @@
+\begin{frame}{WKL $\nleq_{\text{soc}}$ WWKL}
+  \begin{itemize}
+    \item Fix instance of WKL with only one path $A\in[\omega]^\omega$, and
+      where the class of paths computing $A$ has 0 measure.
+    \item Given arbitrary instance of WWKL, since set of its paths has
+      positive measure, some path must fail to compute $A$.
+    \item Any non-recursive $A$ works, as we show next.
+      $\blacksquare$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Class of sets computing non-recursive is null}
+  \textbf{Proof idea:} Assume not. Then there are enough paths computing
+  $A$ such that we can effectively ask them to ``vote'' on when an element
+  is in $A$. Thus computing $A$, $\Rightarrow\Leftarrow$.
+
+  \vspace{1em}
+  Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
+  \Phi^X=A\}$. Note $\mathcal{B}$ is Borel and thus measurable.
+  Since the measure of a countable union of null sets is 0, and
+  there are only countably many Turing functionals, it suffices to show
+  $\mu(\mathcal{B})=0$. Assume $\mu(\mathcal{B})=4m>0$.
+\end{frame}
+
+\begin{frame}{Class of sets computing non-recursive is null}
+  \begin{itemize}
+    \item Approximate $\mathcal{B}$ by open cover
+      $\mathcal{O}\supseteq\mathcal{B}$ with
+      $\mu(\mathcal{O}-\mathcal{B})<m$.
+    \item Approximate $\mathcal{O}$ by basic open sets
+      $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
+      \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+    \item Fix effective enumeration of branches $\sigma$ in
+      $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
+    \item To decide if $n\in A$, wait till a measure of $\geq2m$ of such
+      $\sigma$'s agree, then use their vote.
+    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
+      $\mathcal{B}$ tightly, such $\sigma$'s exist, and they all lie in
+      $\mathcal{B}$. Thus
+      \begin{align*}
+        \mu(\text{``true'' voters})>2m,\\
+        \mu(\text{``false'' voters})<2m. &\;\blacksquare
+      \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Recursive-Encodability, $\Pi_1^0$-Encodability}
+  It remains to prove WKL, WWKL $\nleq_{\text{soc}}$ RT.
+
+  \begin{define}[Recursive-Encodable $A\subseteq\omega$]
+    $A\subseteq\omega$ is recursively-encodable if given any
+    $X\in[\omega]^\omega$, some subset of $X$ computes $A$.
+  \end{define}
+
+  \begin{define}[$\Pi_1^0$-encodable $\mathcal{A}\subseteq\omega^\omega$]
+    $\mathcal{A}\subseteq \omega^{\omega}$ is $\Pi_1^0$-encodable if for
+    every $X\in[\omega]^\omega$, there exists $Y\subseteq X$ and tree
+    $T\leq_T Y$ such that
+    \[\mathcal{A} \supseteq [T]\neq\emptyset,\]
+    and some $f\leq_T Y$ bounds every branch in $T$.
+  \end{define}
+\end{frame}
+
+\begin{frame}{Characterizing Encodability}
+  \begin{main-thm*}
+    $\mathcal{A}\subseteq\omega^{\omega}$ compact, contains no
+    $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
+    $X$ whose subsets compute no path in $\mathcal{A}$.
+  \end{main-thm*}
+
+  \begin{coro*}[Characterizing Recursively-Encodable $A\subseteq\omega$]
+    $A\subseteq\omega$ recursively-encodable $\Rightarrow$ $A$ is
+    hyperarithmetic.
+  \end{coro*}
+
+  \vspace{1em}
+  From Main Theorem, suffices to show
+  \begin{itemize}
+    \item $A\subseteq\omega$ is hyperarithmetic $\Leftrightarrow$
+      $\{A\}\subseteq\omega^\omega$ is $\Sigma_1^1$
+    \item $A\subseteq\omega$ recursively-encodable $\Leftrightarrow$
+      $\{A\}\subseteq\omega^\omega$ is $\Pi_1^0$-encodable
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\{A\}$ is $\Sigma_1^1$ $\Rightarrow$ $A$ hyperarithmetic}
+  \begin{align*}
+    &\{A\}\subseteq\omega^\omega\; \text{is}\; \Sigma_1^1\\
+    \Rightarrow\; & \{A\}= \{g:(\exists f)(\forall s)\; [Q(f\restriction
+      s,g\restriction s)]\}\\
+    \Rightarrow\; &
+      \begin{cases}
+        A=\{n:(\exists g)\; [g(n)=1\; \wedge\; (\exists f)(\forall s)\;
+          Q(f\restriction s,g\restriction s)]\}\\
+        A=\{n:(\forall g)\; [g(n)=0\; \rightarrow\; (\forall f)(\exists s)\;
+          \neg Q(f\restriction s,g\restriction s)]\}\\
+      \end{cases}\\
+    \Rightarrow\; &A\in\Delta_1^1\\
+    \Leftrightarrow\; &A\subseteq\omega\; \text{hyperarithmetic}.\;
+    \blacksquare\\
+  \end{align*}
+\end{frame}
+
+\begin{frame}{$A$ recursively-encodable $\Rightarrow$
+$\{A\}$ is $\Pi_1^0$-encodable}
+  \begin{align*}
+    \;&A\subseteq\omega\; \text{recursively-encodable}\\
+    \Leftrightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq
+      X)\; [Y\geq_T A]\\
+    \Rightarrow\; & (\forall X\in[\omega]^\omega)(\exists Y\subseteq X)\;
+      [\{A\}=\{\Phi^Y\}]\\
+    \Rightarrow\; &\{A\}\subseteq\omega^\omega\; \text{is}\;
+      \Pi_1^0\text{-encodable}.\; \blacksquare\\
+  \end{align*}
+\end{frame}
+
+\begin{frame}{WKL $\nleq_{\text{soc}}$ RT}
+  \begin{itemize}
+    \item Fix instance of WKL with only one path $f$, and that path is
+      not hyperarithmetic.
+    \item Fix instance $c$ of RT, assume by contradiction all
+      its solutions compute $f$.
+    \item Given arbitrary $X\in[\omega]^\omega$, relativize $c$ to
+      $X$ to get $c$-homogeneous $Y\in[X]^\omega$.
+    \item By assumption, $Y$ computes $f$. Since $X$ is arbitrary, $f$ is
+      recursively-encodable.
+    \item But recursive-encodability is the same as being
+      hyperarithmetic, $\Rightarrow\Leftarrow$. $\blacksquare$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$A$ hyperarithmetic $\Rightarrow$ $\{A\}$ is $\Sigma_1^1$}
+  \begin{align*}
+    \;&A\subseteq\omega\; \text{hyperarithmetic}\\
+    \Rightarrow\; & A\in\Sigma_1^1\\
+    \Rightarrow\; & A=\{n:(\exists f)(\forall s)\; [R(f\restriction s,n)]\}\\
+    \Rightarrow\; & \{A\}= \{g:(\exists f)(\forall s)(\forall n)\\
+    &[R(f\restriction s,n) \rightarrow g(n)=1 \wedge \neg R(f\restriction s,n)
+      \rightarrow g(n)=0]\}\\
+    \Rightarrow\; &\{A\}\subseteq\omega^\omega\; \text{is}\; \Sigma_1^1.\;
+    \blacksquare\\
+  \end{align*}
+\end{frame}
+
+\begin{frame}{$A$ recursively-encodable $\Leftarrow$
+$\{A\}$ is $\Pi_1^0$-encodable}
+  Assume
+  \[(\forall X\in[\omega]^\omega)(\exists Y\subseteq X) [\{A\}=[R^Y]].\]
+  Given $A\restriction n$, to decide if $n\in A$, enumerate all nodes
+  $\sigma\in2^{<\omega}$ extending $A\restriction n$ and check if
+  $R^Y(\sigma)$. Since $A$ is the unique path in $[R^Y]$, by weak Konig's
+  lemma, eventually exactly one of $[(A\restriction n)^\frown 0]$ or
+  $[(A\restriction n)^\frown 1]$ will be covered by a finite set of basic
+  open covers $[\sigma_0]\cup\ldots\cup[\sigma_m]$ with $\neg R(\sigma_i)$.
+  Then the other $[(A\restriction n)^\frown j]$ gives the correct value
+  of $A(n)$.
+  \vspace{0.5em}
+
+  Thus $Y\geq_TA$, making $A$ recursively-encodable. $\blacksquare$
+\end{frame}
+
+\begin{frame}{$\mathcal{A}$ contains $\Sigma_1^1$-subset
+$\Rightarrow$ $\mathcal{A}$ $\Pi_1^0$-encodable}
+  \begin{itemize}
+    \item Fix $\mathcal{A}$ containing $\mathcal{B} =\{X: (\exists
+      Y)(\forall s)\; R(X,Y,s)\} \neq\emptyset$.
+    \item Fix $X\in\mathcal{B}$, $Y$ such that $(\forall s)\;R(X,Y,s)$.
+    \item Define $f(n)=\max(X(n),Y(n))$.
+    \item Then $f$ is a $\Pi_1^0$-modulus of $\mathcal{A}$, i.e. $f$ is
+      dominating enough that every $g\geq f$ computes a $g$-bounded tree
+      $T$ whose paths all lie in $\mathcal{A}$:
+    \item Given $g\geq f$, the $\Pi_1^{0,g}$-set of paths
+      \[\{X\leq g:(\forall s)(\exists \sigma\in 2^s, \sigma\leq g)(\forall
+      s'<s)\; R(X,\sigma,s')\}\]
+      is bounded by $g$, contains $X$, and is contained in $\mathcal{A}$.
+    \item Given arbitrary $X\in[\omega]^\omega$, remove enough elements to
+      make a sparse $Y\in[X]^\omega$ with $p_Y>f$.
+    \item Then $p_Y$ witnesses $\Pi_1^0$-encodability of $\mathcal{A}$ for
+      $X$. $\blacksquare$
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Possible additional slides}
   \begin{itemize}
     \item Prove Gandy-Harrington topology (relativized) is Baire
