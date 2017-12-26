@@ -1,8 +1,8 @@
-\begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
+\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
   \begin{main-thm*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ where none of
-    its subsets can compute a tree containing any path in $\mathcal{A}$.
+    its subsets can compute a tree that contains a path in $\mathcal{A}$.
   \end{main-thm*}
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
@@ -20,12 +20,12 @@
   open provides enough ``structure'' for regions of homogeneity to exist.
 \end{frame}
 
-\begin{frame}{Main theorem: Subsets compute no path in $\mathcal{A}$}
+\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
   \textbf{Proof idea of main theorem:} Want $X$ whose subsets compute no
   path in $\mathcal{A}$. First fix machine. Now given node $\sigma$, GP
-  will find positive solutions $X$ (all subsets compute $\sigma$), and/or
-  negative solutions $X$ (all subsets do not compute $\sigma$). Exhaust
-  cases:
+  will find positive solutions $X$ (all its subsets compute $\sigma$),
+  and/or negative solutions $X$ (all its subsets do not compute $\sigma$).
+  Exhaust cases:
 
   \vspace{1em}
   \textbf{Case 0:} GP has positive solutions for arbitrarily long nodes in
@@ -40,26 +40,18 @@
 
   \vspace{1em}
   Thus for fixed machine, GP gives $X$ whose subsets compute no paths in
-  $\mathcal{A}$. For $X$ to work across all machines, iterate across them,
+  $\mathcal{A}$. To work across all machines, iterate across them,
   constructing decreasing subsets of $X$, then take intersection.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed machine)}
-  \begin{lemma}
+\begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
+in $\mathcal{A}$}
+  \begin{lemma}[Fixed machine]
     \label{lemma:fixed-machine}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
-    $X\in[Z]^\omega$ such that every subset of $X$ computes (via $\Gamma$)
-    no path in $\mathcal{A}$.
-
-    %\vspace{0.5em}
-    %\textbf{Case 2:} For each $n\in\omega$, there exists $X\in[Z]^\omega$
-    %such that some $\sigma\in\omega^n$ outside $\mathcal{A}$ is computed by
-    %every subset of $X$ (via $\Gamma$).
-
-    %\vspace{0.5em}
-    %Furthermore, $X$ can be chosen such that every $\Sigma_1^{1,X}$-set
-    %contains a path (if any) outside $\mathcal{A}$.
+    infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
+    tree that contains a path in $\mathcal{A}$.
   \end{lemma}
 
   \vspace{0.5em}
@@ -80,7 +72,8 @@
   $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$ (fixed machine)}
+\begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
+in $\mathcal{A}$}
   \textbf{Case 1:} For some $n$, GP has only negative solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
   finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
@@ -104,23 +97,32 @@
   information later to strengthen Lemma~\ref{lemma:fixed-machine}.
 \end{frame}
 
-\begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
-  For a fixed machine, Lemma~\ref{lemma:fixed-machine} gives $X$ whose
-  subsets compute no paths in $\mathcal{A}$. To find $X$ that works across
-  all machines, first fix an enumeration of machines
-  $\Gamma_0,\Gamma_1,\ldots$. Then, iterate Lemma~\ref{lemma:fixed-machine}
-  across them to construct decreasing subsets of such $X$
+\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
+  Lemma~\ref{lemma:fixed-machine} finds an $X$ whose subsets cannot compute
+  any path in $\mathcal{A}$, but only if a fixed machine is used for
+  computations. To find $X$ that works across all machines
+  $\Gamma_0,\Gamma_1,\ldots$, iterate the lemma across them to construct
+  decreasing subsets
   \[Z= X_0\supseteq X_1\supseteq \ldots,\]
   where $X_s$ works for the first $s$ machines. Then take
   $X=\bigcap_{s\in\omega}X_s$.
 
   \vspace{1em}
-  The problem is if we iterate with the current version of
+  At stage $s$, apply lemma with input $X_s$ to find
+  $X_{s+1}\in[X_s]^\omega$ such that subsets of $X_{s+1}$ cannot compute
+  any path in $\mathcal{A}$. However, for case 0 of the proof to work, we
+  need the class of positive solutions $\mathcal{P}_\sigma$ to be
+  $\Sigma_1^{1,X_s}$.
+\end{frame}
+
+\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
+  The problem is, if we iterate with the current version of
   Lemma~\ref{lemma:fixed-machine}, we may not end up with an infinite $X$.
   To ensure infiniteness, at stage $s$ of the iteration, we want to choose
   the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the first
-  $s$-elements of $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} to
-  ensure that such segment-preserving $X_{s+1}$ exists.
+  $s$-elements of $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} by
+  requiring that the $X\in[Z]^\omega$ found preserves arbitrary initial
+  segments of $Z$.
 \end{frame}
 
 \begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
@@ -172,18 +174,6 @@ preserves $Z\restriction s$}
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
   $Y$ compute no path in $\mathcal{A}$ via $\Gamma_i$. Since $Y\supset
   d_i$, the same is ensured via $\Gamma$. $\blacksquare$
-
-  %Apply the partially-strengthened lemma with input $Z$ and $\Gamma'$,
-  %where the latter is defined by
-  %\[\Gamma'(Y) =\Gamma(Y\cup Z\restriction s).\]
-  %The lemma gives us $X'\in[Z]^\omega$ whose subsets compute (via
-  %$\Gamma'$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
-  %$\Sigma_1^{1,X}$-set ($\neq\emptyset$). Choose $X=X'\cup Z\restriction
-  %s$.
-
-  %\vspace{1em}
-  %To see that this $X$ works, fix arbitrary $Y\in[X]^\omega$. Then
-  %$Y\restriction i=d_i$ for some $i<m$.
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
