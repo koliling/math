@@ -110,9 +110,37 @@ in $\mathcal{A}$}
   \vspace{1em}
   At stage $s$, apply lemma with input $X_s$ to find
   $X_{s+1}\in[X_s]^\omega$ such that subsets of $X_{s+1}$ cannot compute
-  any path in $\mathcal{A}$. However, for case 0 of the proof to work, we
-  need the class of positive solutions $\mathcal{P}_\sigma$ to be
-  $\Sigma_1^{1,X_s}$.
+  (via $\Gamma_s$) any path in $\mathcal{A}$. However, for the proof to
+  work again, we need $\mathcal{A}$ to contain no
+  $\Sigma_1^{1,X_s}$-subsets. Thus the lemma must be relativized such that
+  we choose an $X$ where $\mathcal{A}$ contains no
+  $\Sigma_1^{1,X}$-subsets.
+\end{frame}
+
+\begin{frame}{$\Sigma_1^1$-immunity basis theorem}
+  The immunity basis theorem asks for an $X$ whose $\Sigma_1^1$-trees do
+  not lie in $\mathcal{A}$ regardless of the machine used in the
+  computation. The previous claim gives us enough $X$'s that work for any
+  given $\Sigma_1^1$-machine to guarantee that some $X$ works across all
+  machines.
+
+  \vspace{1em}
+  \newtheorem*{immunity*}{$\Sigma_1^{1}$-immunity basis theorem}
+  \begin{immunity*}
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
+    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
+    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
+    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+  \end{immunity*}
+
+  \vspace{1em}
+  For each $\Sigma_1^1$-predicate $P$, let $\mathcal{U}_P$ be the union of
+  all the $\Sigma_1^1$-sets where every $X$ in the set gives a path outside
+  $\mathcal{A}$ via $P$. From previous claim, $\mathcal{U}_P$ is dense
+  (under Gandy-Harrington topology where basic open sets are
+  $\Sigma_1^1$-sets). Since this topology is Baire,
+  $\bigcap_P\mathcal{U}_P$ is is non-empty. Any
+  $X\in\bigcap_P\mathcal{U}_P$ works. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
@@ -215,7 +243,6 @@ $\Sigma_1^{1,X}$-set}
   By iterating the following theorem $m$-times, it suffices to show
 
   \vspace{0.5em}
-  \newtheorem*{immunity*}{$\Sigma_1^{1}$-immunity basis theorem}
   \begin{immunity*}[Relativized]
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
@@ -250,31 +277,6 @@ $\Sigma_1^{1,X}$-set}
   \blacksquare\]
 
   Note that every step of this proof can be relativized to arbitrary $Z$.
-\end{frame}
-
-\begin{frame}{$\Sigma_1^1$-immunity basis theorem}
-  The immunity basis theorem asks for an $X$ whose $\Sigma_1^1$-trees do
-  not lie in $\mathcal{A}$ regardless of the machine used in the
-  computation. The previous claim gives us enough $X$'s that work for any
-  given $\Sigma_1^1$-machine to guarantee that some $X$ works across all
-  machines.
-
-  \vspace{1em}
-  \begin{immunity*}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
-    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
-    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
-    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
-  \end{immunity*}
-
-  \vspace{1em}
-  For each $\Sigma_1^1$-predicate $P$, let $\mathcal{U}_P$ be the union of
-  all the $\Sigma_1^1$-sets where every $X$ in the set gives a path outside
-  $\mathcal{A}$ via $P$. From previous claim, $\mathcal{U}_P$ is dense
-  (under Gandy-Harrington topology where basic open sets are
-  $\Sigma_1^1$-sets). Since this topology is Baire,
-  $\bigcap_P\mathcal{U}_P$ is is non-empty. Any
-  $X\in\bigcap_P\mathcal{U}_P$ works. $\blacksquare$
 \end{frame}
 
 \begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem (relativized)}
