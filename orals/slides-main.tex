@@ -8,14 +8,14 @@
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
   $\tau$.
-  \begin{fact}[Galvin-Prikry]
+  \begin{fact*}[Galvin-Prikry]
     $Z\in[\omega]^\omega$. There exists solution $X\in[Z]^\omega$
     where one of these holds:\\
     \textbf{$\Sigma$-solution:} All subsets of $X$ compute (via $\Gamma$)
     $\tau$ \\
     \textbf{$\Pi$-solution:} All subsets of $X$ do not compute (via
     $\Gamma$) $\tau$
-  \end{fact}
+  \end{fact*}
   \textbf{Proof idea of GP:} The class of subsets of $Z$ that
   compute $\tau$ can be coded to form an open set in $2^\omega$. Being
   open provides enough ``structure'' for regions of homogeneity to exist.
@@ -244,6 +244,17 @@ in $\mathcal{A}$}
   computes no path in $\mathcal{A}$ via $\Gamma_i$. $\blacksquare$
 \end{frame}
 
+\begin{frame}{$[T]$ with positive measure, containing no
+$\Sigma_1^1$-subset}
+  \begin{itemize}
+    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$.
+    \item Then $\mu([T])>0$.
+    \item $T$ has no non-empty $\Sigma_1^1$-subset because every
+      $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
+      $\blacksquare$
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
   \begin{itemize}
     \item Fix tree $T\subset 2^{<\omega}$ such that
@@ -259,18 +270,6 @@ in $\mathcal{A}$}
       infinite subsets compute a path in $T$.
     \item By the main theorem, $[T]$ must contain a
       non-empty $\Sigma_1^1$-subset, $\Rightarrow\Leftarrow$.
-      $\blacksquare$
-    \item It remains to prove such $T$ exists.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{$[T]$ with positive measure, containing no
-$\Sigma_1^1$-subset}
-  \begin{itemize}
-    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$.
-    \item Then $\mu([T])>0$.
-    \item $T$ has no non-empty $\Sigma_1^1$-subset because every
-      $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
       $\blacksquare$
   \end{itemize}
 \end{frame}
