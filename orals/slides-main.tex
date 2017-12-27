@@ -31,7 +31,7 @@
   \vspace{1em}
   \textbf{Case 0:} GP has $\Sigma$-solutions for arbitrarily long nodes in
   $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
-  a path in $\mathcal{A}$, from which we can define a non-empty
+  a path in $\mathcal{A}$, from which one can define a non-empty
   $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
@@ -47,13 +47,14 @@
 
 \begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
 in $\mathcal{A}$}
-  \begin{lemma}[Fixed machine]
+  \newtheorem*{main-lemma*}{Main Lemma}
+  \begin{main-lemma*}
     \label{lemma:fixed-machine}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
     infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
     tree that contains a path in $\mathcal{A}$.
-  \end{lemma}
+  \end{main-lemma*}
 
   \vspace{0.5em}
   \textbf{Case 0:} GP has $\Sigma$-solutions for arbitrarily long
@@ -77,7 +78,7 @@ in $\mathcal{A}$}
 in $\mathcal{A}$}
   \textbf{Case 1:} For some $n$, GP has only $\Pi$-solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
-  finitely branching, and we can write $\sigma_0,\ldots,\sigma_m$ for the
+  finitely branching. Write $\sigma_0,\ldots,\sigma_m$ for the
   nodes in $\omega^n\cap\mathcal{A}$. Iterate GP across $\sigma_i$ to get
   decreasing subsets of $\Pi$-solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
@@ -89,30 +90,30 @@ in $\mathcal{A}$}
 \end{frame}
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  Lemma~\ref{lemma:fixed-machine} finds $X$ that works for a fixed
-  machine. We iterate the lemma across all machines to find $X$ that
-  works across them. For the lemma to work at each iteration, it needs
+  The main lemma finds $X$ that works for a fixed
+  machine. Iterate the lemma across all machines to find $X$ that
+  works across them. For the iteration to succeed, the lemma needs
   to be relativized to choose an $X$ where $\mathcal{A}$ contains no
   $\Sigma_1^{1,X}$-subset.
 
   \vspace{0.5em}
-  Recall in the proof of Lemma~\ref{lemma:fixed-machine} that $X$ was
+  Recall in the proof of the main lemma that $X$ was
   chosen as the intersection of finitely descending subsets
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
   where $X_{i+1}$ lies in this $\Sigma_1^{1,X_i}$-set of $\Pi$-solutions
   from GP:
   \[\{X\in[X_i]^\omega: \text{No subset of}\; X\; \text{computes}\;
   \sigma\; (\text{via}\; \Gamma)\} \in\Sigma_1^{1,X_i}.\]
-  We show that since $\mathcal{A}$ contains no $\Sigma_1^{1,X_i}$-subset,
-  given arbitrary $\Sigma_1^{1,X_i}$-set, we can always find some $X_{i+1}$
-  from it that is weak enough for $\mathcal{A}$ to also contain no
-  $\Sigma_1^{1,X_{i+1}}$-subset.
+  It can be shown that since $\mathcal{A}$ contains no
+  $\Sigma_1^{1,X_i}$-subset, given arbitrary $\Sigma_1^{1,X_i}$-set, one
+  can always find some $X_{i+1}$ from it that is weak enough such that
+  $\mathcal{A}$ also contains no $\Sigma_1^{1,X_{i+1}}$-subset.
 \end{frame}
 
-\begin{frame}{$\Sigma_1^1$-immunity basis theorem (fixed machine)}
-  In fact, if we fix the machine for computations, we even find a
-  $\Sigma_1^{1,X_i}$-subset of such $X_{i+1}$'s:
-  \newtheorem*{immunity*}{$\Sigma_1^{1}$-immunity basis theorem}
+\begin{frame}{$\Sigma_1^{1,X_i}$-immunity basis theorem (fixed machine)}
+  In fact, fixing the machine for computations, one can even find a
+  $\Sigma_1^{1,X_i}$-subset of such weak $X_{i+1}$'s:
+  \newtheorem*{immunity*}{$\Sigma_1^{1,X_i}$-immunity basis theorem}
   \begin{immunity*}[Fixed machine]
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,X_i}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1,X_i}$-predicate $P(X,Y)$,
@@ -137,12 +138,12 @@ in $\mathcal{A}$}
   \blacksquare\]
 \end{frame}
 
-\begin{frame}{$\Sigma_1^1$-immunity basis theorem}
+\begin{frame}{$\Sigma_1^{1,X_i}$-immunity basis theorem}
   The previous theorem finds a $\Sigma_1^{1,X_i}$-subset of $X_{i+1}$'s
-  that are weak enough for $\mathcal{A}$ to avoid them, when a fixed
-  machine is used in the computations. To generalize across all machines,
-  we iterate the theorem across them and take intersection. The previous
-  theorem gives us enough $X_{i+1}$'s to ensure non-empty intersection.
+  that are weak enough for $\mathcal{A}$ to avoid them, for a fixed
+  machine. To generalize across all machines, iterate the theorem across
+  them and take intersection. The previous theorem gives enough
+  $X_{i+1}$'s from each machine to ensure non-empty intersection.
 
   \vspace{1em}
   \begin{immunity*}
@@ -163,50 +164,51 @@ in $\mathcal{A}$}
 \end{frame}
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  The problem is, if we iterate with the current version of
-  Lemma~\ref{lemma:fixed-machine}, we may not end up with an infinite $X$.
-  To ensure infiniteness, at stage $s$ of the iteration, we want to choose
-  the $X_{s+1}\in[X_s]^\omega$ where $X_{s+1}$ preserves the first
-  $s$-elements of $X_s$. We strengthen Lemma~\ref{lemma:fixed-machine} by
-  requiring that the $X\in[Z]^\omega$ found preserves arbitrary initial
-  segments of $Z$.
-\end{frame}
-
-\begin{frame}{Strengthening Lemma~\ref{lemma:fixed-machine}}
-  To iterate successfully, we strengthen Lemma~\ref{lemma:fixed-machine}
-  twice:
-  \newtheorem*{lemma-strengthened1*}{Lemma \ref{lemma:fixed-machine}':}
-  \begin{lemma-strengthened1*}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
-    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
-    (via $\Gamma$) no path in $\mathcal{A}$.\\
+  Apply the immunity basis theorem to relativize the main lemma.
+  \begin{main-lemma*}[Relativized]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
+    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
+    infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
+    tree that contains a path in $\mathcal{A}$.\\
     \vspace{0.5em}
-    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set
+    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
     ($\neq\emptyset$).
-  \end{lemma-strengthened1*}
+  \end{main-lemma*}
 
-  \vspace{0.5em}
-  \newtheorem*{lemma-strengthened2*}{Lemma \ref{lemma:fixed-machine}'':}
-  \begin{lemma-strengthened2*}
-    Given any $s\in\omega$, require the $X$ in
-    Lemma~\ref{lemma:fixed-machine}' to preserve $Z\restriction s$.
-  \end{lemma-strengthened2*}
-
-  \vspace{0.5em}
-  Lemma~\ref{lemma:fixed-machine}'' can be directly proven from
-  Lemma~\ref{lemma:fixed-machine}' by iterating the latter across all
-  subsets of $Z\restriction s$.
+  To get the main theorem, iterate the relativized lemma across all
+  machines $\Gamma_0,\Gamma_1,\ldots$ to get descending subsets
+  \[\omega=X_0\supseteq X_1\supseteq\ldots,\]
+  where $X_s$ works for the first $s$-machines, then take intersection
+  $X=\bigcap_{i\in\omega} X_i$. The problem is $X$ may end up finite. To
+  ensure infiniteness, at stage $s$, choose $X_{s+1}\subseteq X_s$ from the
+  main lemma that preserves the first $s$-elements of $X_s$. Thus the lemma
+  must be strengthened to preserve arbitrary initial segments of $Z$.
 \end{frame}
 
-\begin{frame}{Lemma~\ref{lemma:fixed-machine}'': $X\subseteq Z$ that
-preserves $Z\restriction s$}
-  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
-  partially-strengthened lemma across $d_i$'s to get decreasing subsets
-  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
+\begin{frame}{Preserving initial segment}
+  \begin{main-lemma*}[Relativized, preserves initial-segment]
+    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
+    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
+    infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
+    tree that contains a path in $\mathcal{A}$.\\
+    \vspace{0.5em}
+    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
+    ($\neq\emptyset$).\\
+    \vspace{0.5em}
+    Finally, given $s\in\omega$, $X$ can be chosen to preserve
+    $Z\restriction s$.
+  \end{main-lemma*}
 
-  At stage $i$, Lemma~\ref{lemma:fixed-machine}' is applied with inputs
-  $X_i$ and $\Gamma_i$ defined by
+  \vspace{0.5em}
+  Segment-preservation can be obtained by iterating the relativized lemma
+  across all subsets of the segment $Z\restriction s$. List these subsets
+  as $d_0,\ldots,d_m$. Iterate across them to get decreasing subsets
+  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
+\end{frame}
+
+\begin{frame}{Preserving initial segment}
+  At stage $i$, apply the relativized lemma with inputs $X_i$ and
+  $\Gamma_i$ defined by
   \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
   giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
@@ -241,47 +243,6 @@ preserves $Z\restriction s$}
   construction. Given $Y\in[X]^\omega$ and arbitary $\Gamma_i$, stage $i$
   of the construction ensures that since $Y\in[X_i]^\omega$, $Y$ does
   computes no path in $\mathcal{A}$ via $\Gamma_i$. $\blacksquare$
-\end{frame}
-
-\begin{frame}{$X\subseteq Z$ where $\mathcal{A}$ contains no
-$\Sigma_1^{1,X}$-set}
-  \begin{lemma-strengthened1*}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then
-    there exists $X\in[Z]^\omega$ such that every subset of $X$ computes
-    (via $\Gamma$) no path in $\mathcal{A}$. Furthermore, $\mathcal{A}$
-    contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
-  \end{lemma-strengthened1*}
-
-  \vspace{0.5em}
-  For $\mathcal{A}$ to contain no $\Sigma_1^{1,X}$-set, we choose $X$ from
-  Lemma~\ref{lemma:fixed-machine} with this property. Recall
-  in the proof of the lemma, the $X$ found lies in
-  $\mathcal{N}_{\sigma_0}\cap \ldots\cap\mathcal{N}_{\sigma_m}$,
-  where $\mathcal{N}_{\sigma_i}$ is a $\Sigma_1^{1,X_i}$-set and $X_0=Z$.
-  By iterating the following theorem $m$-times, it suffices to show
-
-  \vspace{0.5em}
-  \begin{immunity*}[Relativized]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
-    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
-    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
-  \end{immunity*}
-\end{frame}
-
-\begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem (relativized)}
-  Every step in the proof can be directly relativized to arbitary $Z$ since
-  the relativized Gandy-Harrington topology is Baire, and the proof of the
-  claim used in the theorem is also relativizable.
-
-  \vspace{0.5em}
-  \begin{immunity*}[Relativized]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
-    ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
-    $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
-    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
-  \end{immunity*}
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
