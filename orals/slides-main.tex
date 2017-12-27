@@ -226,16 +226,15 @@ in $\mathcal{A}$}
 \end{frame}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
-  Iterating Lemma~\ref{lemma:fixed-machine}'' across all machines
-  $\Gamma_0,\Gamma_1,\ldots$, we prove:
+  Iterating the relativized and segment-preserving main lemma across all
+  machines, $\Gamma_0,\Gamma_1,\ldots$, we finally prove the main theorem:
   \begin{main-thm*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
     compute no path in $\mathcal{A}$.
   \end{main-thm*}
 
-  Construct decreasing subsets of $X$'s from
-  Lemma~\ref{lemma:fixed-machine}''
+  Construct decreasing subsets of $X$'s from the main lemma
   \[\omega= X_0\supseteq X_1\supseteq\ldots,\]
   where at stage $s$, the lemma is applied with inputs $X_s$ and machine
   $\Gamma_s$, and we require $X_{s+1}$ to preserve the first $s$-elements
