@@ -22,16 +22,18 @@
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
   \begin{thm}
-    Given a hyperimmune set, the class of sets that can compute an
-    infinite subsets null.
+    \label{thm:bihyper-null}
+    Given a hyperimmune set $A$, the class of sets that can compute an
+    infinite subset of $A$ is null.
   \end{thm}
 
+  \vspace{1em}
   \textbf{Proof idea:} Assume not. Then there are enough paths computing
   infinite subsets of $A$ such that we can effectively ask them to ``vote''
-  for intervals that contain new elements of $A$. Thus effectively
-  dominating $p_A$, $\Rightarrow\Leftarrow$.\\
-  \vspace{1em}
+  for when new elements of $A$ must have appeared,
+  $\Rightarrow\Leftarrow$.\\
 
+  \vspace{1em}
   \textbf{Pf:} Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
   \Phi^X\in[A]^\omega\}$. Suffices to show $\mu(\mathcal{B})=0$. Assume
   $\mu(\mathcal{B})=4m>0$.
@@ -63,19 +65,19 @@
 \end{frame}
 
 \begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
-  \begin{itemize}
-    \item $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL
-    \item Fix $A\in[\omega]^\omega$ where
-      \begin{align*}
-        &\mu(\{X: X\; \text{computes element in}\; [A]^\omega\}) =0,\\
-        \text{and}\;\;\; &\mu(\{X: X\; \text{computes element in}\;
-        [\bar{A}]^\omega\}) =0.\\
-      \end{align*}
-    \item Choose 2-coloring $c:\omega\rightarrow\{0,1\}$, $c(n)=0
-      \Leftrightarrow n\in A$.
-    \item Given any instance of WWKL, since the set of its paths has
-      measure $>0$, some path must fail to compute any infinite
-      homogeneous set of $c$. 
-    $\blacksquare$
-  \end{itemize}
+  \begin{thm}
+    RT $\nleq_{\text{soc}}$ WWKL.
+  \end{thm}
+
+  \vspace{1em}
+  \textbf{Pf:} The stronger statement $\text{RT}_2^1$ $\nleq_{\text{soc}}$
+  WWKL holds. Let $c:\omega\rightarrow\{0,1\}$ be a 2-coloring of the graph
+  of a bi-hyperimmune $A$, that is,
+  \[c(n)=0 \Leftrightarrow n\in A.\]
+  
+  From Theorem~\ref{thm:bihyper-null}, the class of sets computing an
+  infinite subset of $A$ or of $\bar{A}$ is null, thus the class of
+  $c$-homogeneous sets is null. Therefore given arbitrary tree
+  $T\subseteq\omega^{<\omega}$ of positive measure, some path must fail to
+  compute any $c$-homogeneous set. $\blacksquare$
 \end{frame}
