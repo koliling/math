@@ -115,7 +115,7 @@
   $\mathcal{C}$ for which GP has positive-solutions.
 \end{frame}
 
-\begin{frame}{Set whose subsets avoid computing $\mathcal{C}$}
+\begin{frame}{Set whose subsets avoid computing $\mathcal{C}$ (cont.)}
   \textbf{Case 2:} For some $n$, every branch in $\mathcal{C}$ of length
   $n$ has only negative GP-solutions. Note that there are only fintely many
   such branches $\sigma_0,\ldots,\sigma_m$ since $\mathcal{C}$ is compact.
@@ -136,78 +136,29 @@
   in $\mathcal{A}$, $\Rightarrow\Leftarrow$. $\blacksquare$
 \end{frame}
 
-\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  \textbf{Proof idea of main theorem:} Want $X$ whose subsets cannot
-  compute paths in $\mathcal{A}$. First fix machine. Given node
-  $\tau$, GP will find positive-solutions $X$ (all its subsets compute
-  $\tau$), and/or negative-solutions $X$ (all its subsets do not compute
-  $\tau$). Three cases:
-
-  \vspace{1em}
-  \textbf{Case 0:} GP has positive-solutions for arbitrarily long nodes in
-  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
-  a path in $\mathcal{A}$, from which one can define a non-empty
-  $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
-
-  \vspace{0.5em}
-  \textbf{Case 1:} GP has positive-solutions for some node outside
-  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
-  a path in $\mathcal{A}$, from which one can define a non-empty
-  $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
-\end{frame}
-
-\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  \textbf{Case 2:} GP only has negative-solutions for each node in
-  $\mathcal{A}$ of a particular length. Iterate GP across each such node to
-  get a solution that is negative for all of them.
-
-  \vspace{1em}
-  Thus for fixed machine, GP gives $X$ whose subsets compute no paths in
-  $\mathcal{A}$. To work across all machines, iterate across them,
-  constructing decreasing subsets of $X$, then take intersection. $\square$
-\end{frame}
-
-\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  The main lemma finds $X$ that works for a fixed
-  machine. Iterate the lemma across all machines to find $X$ that
-  works across them. For the iteration to succeed, the lemma needs
-  to be relativized to choose an $X$ where $\mathcal{A}$ contains no
-  $\Sigma_1^{1,X}$-subset.
-
-  \vspace{0.5em}
-  Recall in the proof of the main lemma that $X$ was
-  chosen as the intersection of finitely descending subsets
-  \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
-  where $X_{i+1}$ lies in this $\Sigma_1^{1,X_i}$-set of negative-solutions
-  from GP:
-  \[\{X\in[X_i]^\omega: \text{No subset of}\; X\; \text{computes}\;
-  \sigma\; (\text{via}\; \Gamma)\} \in\Sigma_1^{1,X_i}.\]
-  It can be shown that since $\mathcal{A}$ contains no
-  $\Sigma_1^{1,X_i}$-subset, given arbitrary $\Sigma_1^{1,X_i}$-set, one
-  can always find some $X_{i+1}$ from it that is weak enough such that
-  $\mathcal{A}$ also contains no $\Sigma_1^{1,X_{i+1}}$-subset.
-\end{frame}
-
-\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
-  Apply the immunity basis theorem to relativize the main lemma.
+\begin{frame}{Set whose subsets avoid computing $\mathcal{C}$ (relativized)}
   \begin{lemma}[Relativized]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
-    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
-    infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
-    tree that contains some paths in $\mathcal{A}$.\\
+    $\mathcal{C}$ compact, contains no $\Sigma_1^{1,Z}$-subset
+    ($\neq\emptyset$), and $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$
+    a Turing functional on trees. Then one of these holds:\\
     \vspace{0.5em}
-    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
-    ($\neq\emptyset$).
+    \textbf{Case 1:} For every $n\in\omega$, there exists infinite set
+    $X\subseteq Z$ and $\sigma\in\omega^n$ outside $\mathcal{C}$ such that
+    every tree computed (via $\Gamma$) by a subset of $X$ contains
+    $\sigma$.\\
+    \vspace{0.5em}
+    \textbf{Case 2:} There exists infinite set $X\subseteq Z$ such that
+    none of its subsets can compute (via $\Gamma$) a tree containing paths
+    in $\mathcal{C}$.\\
+    \vspace{0.5em}
+    Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
+    $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).
   \end{lemma}
 
-  To get the main theorem, iterate the relativized lemma across all
-  machines $\Gamma_0,\Gamma_1,\ldots$ to get descending subsets
-  \[\omega=X_0\supseteq X_1\supseteq\ldots,\]
-  where $X_s$ works for the first $s$-machines, then take intersection
-  $X=\bigcap_{i\in\omega} X_i$. The problem is $X$ may end up finite. To
-  ensure infiniteness, at stage $s$, choose $X_{s+1}\subseteq X_s$ from the
-  main lemma that preserves the first $s$-elements of $X_s$. Thus the lemma
-  must be strengthened to preserve arbitrary initial segments of $Z$.
+  \textbf{Pf:} In the proof, $X$ was chosen from a $\Sigma_1^{1,Z}$-set.
+  The relativized immunity-basis theorem asserts that every such set
+  contains an element $X$ where $\mathcal{C}$ contains no
+  $\sigma_1^{1,X}$-set. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Preserving initial segment}
