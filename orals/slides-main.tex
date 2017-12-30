@@ -81,6 +81,8 @@
     Given infinite set $Z\subseteq\omega$, node $\tau\in\omega^{<\omega}$,
     and Turing functional $\Gamma:2^\omega\rightarrow\omega$, there exists
     an infinite subset $X\subseteq Z$ where one of these holds:\\
+
+    \vspace{1em}
     \textbf{Positive-solution:} All subsets of $X$ compute (via $\Gamma$)
     $\tau$ \\
     \textbf{Negative-solution:} All subsets of $X$ do not compute (via
@@ -159,46 +161,54 @@
   \textbf{Pf:} In the proof, $X$ was chosen from a $\Sigma_1^{1,Z}$-set.
   The relativized immunity-basis theorem asserts that every such set
   contains an element $X$ where $\mathcal{C}$ contains no
-  $\sigma_1^{1,X}$-set. $\blacksquare$
+  $\Sigma_1^{1,X}$-set. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Preserving initial segment}
   \begin{lemma}[Relativized, preserves initial-segment]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
-    ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
-    infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
-    tree that contains some paths in $\mathcal{A}$.\\
+    $\mathcal{C}$ compact, contains no $\Sigma_1^{1,Z}$-subset
+    ($\neq\emptyset$), and $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$
+    a Turing functional on trees. Then one of these holds:\\
     \vspace{0.5em}
-    Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
-    ($\neq\emptyset$).\\
+    \textbf{Case 1:} For every $n\in\omega$, there exists infinite set
+    $X\subseteq Z$ and $\sigma\in\omega^n$ outside $\mathcal{C}$ such that
+    every tree computed (via $\Gamma$) by a subset of $X$ contains
+    $\sigma$.\\
     \vspace{0.5em}
+    \textbf{Case 2:} There exists infinite set $X\subseteq Z$ such that
+    none of its subsets can compute (via $\Gamma$) a tree containing paths
+    in $\mathcal{C}$.\\
+    \vspace{0.5em}
+    Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
+    $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).\\
     Finally, given $s\in\omega$, $X$ can be chosen to preserve
     $Z\restriction s$.
   \end{lemma}
 
   \vspace{0.5em}
-  Segment-preservation can be obtained by iterating the relativized lemma
-  across all subsets of the segment $Z\restriction s$. List these subsets
-  as $d_0,\ldots,d_m$. Iterate across them to get decreasing subsets
-  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
+  \textbf{Pf:} The idea is to iterate the relativized lemma
+  across all subsets of the segment $Z\restriction s$.
 \end{frame}
 
-\begin{frame}{Preserving initial segment}
-  At stage $i$, apply the relativized lemma with inputs $X_i$ and
+\begin{frame}{Preserving initial segment (cont.)}
+  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
+  relativized lemma across them to get decreasing subsets
+  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
+  At stage $i$, apply relativized lemma with inputs $X_i$, and
   $\Gamma_i$ defined by
   \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
   giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
-  $\Gamma_i$) no path in $\mathcal{A}$, and where $\mathcal{A}$ contains no
+  $\Gamma_i$) no path in $\mathcal{C}$, and where $\mathcal{C}$ contains no
   $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$).
 
   \vspace{0.5em}
   Choose $X=X_m\cup Z\restriction s$. To see that this $X$ works, first
-  observe that since $X$ almost equals $X_m$, $\mathcal{A}$ will
+  observe that since $X$ almost equals $X_m$, $\mathcal{C}$ will
   contain no $\Sigma_1^{1,X}$-set since it contains no
   $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\in[X]^\omega$. Then
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
-  $Y$ compute no path in $\mathcal{A}$ via $\Gamma_i$. Since $Y\supset
+  $Y$ compute no path in $\mathcal{C}$ via $\Gamma_i$. Since $Y\supset
   d_i$, the same is ensured via $\Gamma$. $\blacksquare$
 \end{frame}
 
