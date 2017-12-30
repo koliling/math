@@ -1,10 +1,9 @@
 \begin{frame}{Bi-Hyperimmune sets}
   \begin{define}[Hyperimmune, Bi-hyperimmune]
-    $A\subseteq\omega$ is \textit{hyperimmune} if its principal function
-    $p_A$ cannot be dominated by any total recursive function. That is,
-    there is no effective way of knowing when a new element of $A$ has
-    appeared. $A$ is \textit{bi-hyperimmune} if both $A$ and $\bar{A}$ are
-    hyperimmune.
+    $A\subseteq\omega$ is \textbf{hyperimmune} if there is no effective way
+    of knowing when new elements of $A$ have appeared.  Formally, no
+    recursive function dominates $p_A$, the principal function of $A$. $A$
+    is \textbf{bi-hyperimmune} if both $A$ and $\bar{A}$ are hyperimmune.
   \end{define}
 
   \begin{thm}
@@ -64,7 +63,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{RT $\nleq_{\text{soc}}$ WWKL}
+\begin{frame}{$\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL}
   \begin{thm}
     $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL.
   \end{thm}
@@ -79,8 +78,14 @@
   $c$-homogeneous sets is null. Therefore given arbitrary tree
   $T\subseteq\omega^{<\omega}$ of positive measure, some path must fail to
   compute any $c$-homogeneous set. $\blacksquare$
+\end{frame}
 
+\begin{frame}{RT $\nleq_{\text{soc}}$ WKL, WWKL}
   \begin{coro}
     RT $\nleq_{\text{soc}}$ WWKL.
+  \end{coro}
+
+  \begin{coro}
+    RT $\nleq_{\text{soc}}$ WKL.
   \end{coro}
 \end{frame}
