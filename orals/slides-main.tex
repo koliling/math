@@ -61,13 +61,13 @@ in $\mathcal{A}$}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
     infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
-    tree that contains a path in $\mathcal{A}$.
+    tree that contains some paths in $\mathcal{A}$.
   \end{main-lemma*}
 
   \vspace{0.5em}
-  \textbf{Case 0:} GP has $\Sigma$-solutions for arbitrarily long
+  \textbf{Case 0:} GP has positive-solutions for arbitrarily long
   $\sigma\in\mathcal{A}$. Observe that by finite use principle, given
-  $\sigma$, the class $\mathcal{P}_{\sigma}$ of $\Sigma$-solutions is
+  $\sigma$, the class $\mathcal{P}_{\sigma}$ of positive-solutions is
   $\Sigma_1^{1,Z}$:
   \begin{align*}
     \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
@@ -84,17 +84,17 @@ in $\mathcal{A}$}
 
 \begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
 in $\mathcal{A}$}
-  \textbf{Case 1:} For some $n$, GP has only $\Pi$-solutions for every
+  \textbf{Case 1:} For some $n$, GP has only negative-solutions for every
   $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
   finitely branching. Write $\sigma_0,\ldots,\sigma_m$ for the
   nodes in $\omega^n\cap\mathcal{A}$. Iterate GP across $\sigma_i$ to get
-  decreasing subsets of $\Pi$-solutions
+  decreasing subsets of negative-solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
 
   where $X_{i+1}\in[X_i]^\omega$ is a $\Pi$-solution by GP under
   inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no
-  $\Sigma$-solutions for each $\sigma_i$ under $Z$, giving also no
-  $\Sigma$-solutions under $X_i\subseteq Z$. $X=X_m$ works. $\blacksquare$
+  positive-solutions for each $\sigma_i$ under $Z$, giving also no
+  positive-solutions under $X_i\subseteq Z$. $X=X_m$ works. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
@@ -108,7 +108,7 @@ in $\mathcal{A}$}
   Recall in the proof of the main lemma that $X$ was
   chosen as the intersection of finitely descending subsets
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
-  where $X_{i+1}$ lies in this $\Sigma_1^{1,X_i}$-set of $\Pi$-solutions
+  where $X_{i+1}$ lies in this $\Sigma_1^{1,X_i}$-set of negative-solutions
   from GP:
   \[\{X\in[X_i]^\omega: \text{No subset of}\; X\; \text{computes}\;
   \sigma\; (\text{via}\; \Gamma)\} \in\Sigma_1^{1,X_i}.\]
@@ -177,7 +177,7 @@ in $\mathcal{A}$}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
     infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
-    tree that contains a path in $\mathcal{A}$.\\
+    tree that contains some paths in $\mathcal{A}$.\\
     \vspace{0.5em}
     Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
     ($\neq\emptyset$).
@@ -198,7 +198,7 @@ in $\mathcal{A}$}
     $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$). Fix Turing functional $\Gamma$. Then there exists
     infinite set $X$ where none of its subsets can compute (via $\Gamma$) a
-    tree that contains a path in $\mathcal{A}$.\\
+    tree that contains some paths in $\mathcal{A}$.\\
     \vspace{0.5em}
     Furthermore, $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-subset
     ($\neq\emptyset$).\\
@@ -235,7 +235,7 @@ in $\mathcal{A}$}
 
 \begin{frame}{Subsets compute no path in $\mathcal{A}$ (all machines)}
   Iterating the relativized and segment-preserving main lemma across all
-  machines, $\Gamma_0,\Gamma_1,\ldots$, we finally prove the main theorem:
+  machines, $\Gamma_0,\Gamma_1,\ldots$, we finally get
   \begin{main-thm*}
     $\mathcal{A}$ compact, contains no $\Sigma_1^1$-subset
     ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
@@ -257,20 +257,20 @@ in $\mathcal{A}$}
     \label{fact:sigma-contains-O-recursive}
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
-  \textbf{Proof idea:} Since Kleene's $O$ is $\Sigma_1^1$-complete, given a 
+  \textbf{Proof idea:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
   $\Sigma_1^1$-set of $2^\omega$, it can iteratively pick the first branch
   that has a path, thereby computing the ``left-most'' path of the set.
+  $\square$
 
+  \vspace{1em}
   \begin{thm}
     There is a tree $T\subset2^{<\omega}$ such that $[T]\subset
     2^\omega$ is compact, has positive measure, and contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$).
   \end{thm}
-
-  \vspace{0.5em}
-  Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms relativized to
-  Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and has positive
-  measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms
+  relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and
+  has positive measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
   Fact~\ref{fact:sigma-contains-O-recursive}. $\blacksquare$
 \end{frame}
 
