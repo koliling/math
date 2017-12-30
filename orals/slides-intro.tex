@@ -1,19 +1,24 @@
-\begin{frame}{Constructing bi-hyperimmunes}
-  \begin{itemize}
-    \item Want $A$ where $p_A,p_{\bar{A}}\not<f$ for all recursive $f$.
-    \item Fix $\emptyset''$-enumeration $f_0,f_1,\ldots$ of all recursive
-      functions.
-    \item At stage $n$, let $i$ be the number of elements in $A$ and
-      $\bar{A}$ that has been defined so far.
-    \item Put enough elements into $\bar{A}$ till the $(i+1)$th element
-      of $A$ exceeds that of $f_n$, then put the next element into $A$.
-    \item Repeat this step but with the rolse of $A$ and $\bar{A}$
-      reversed: Letting $j$ be the number of elements that has been defined
-      after the previous step, put enough elements into $A$ till the
-      $(j+1)$th element of $\bar{A}$ exceeds that of $f_n$, then put the
-      next element into $\bar{A}$.
-    \item Go to stage $n+1$. $\blacksquare$
-  \end{itemize}
+\begin{frame}{Bi-Hyperimmune sets}
+  \begin{define}[Hyperimmune, Bi-hyperimmune]
+    $A\subseteq\omega$ is \textit{hyperimmune} if its principal function
+    $p_A$ cannot be dominated by any total recursive function. $A$ is
+    \textit{bi-hyperimmune} if both $A$ and $\bar{A}$ are hyperimmune.
+  \end{define}
+
+  \begin{thm}
+    Bi-hyperimmune sets exist.
+  \end{thm}
+
+  \textbf{Pf:} Enumerate recursive functions $f_0,f_1,\ldots$. At stage
+  $s$, put enough elements into $A$, then into $\bar{A}$ to ensure $f_s$
+  does not dominate their principal functions:
+
+  \vspace{1em}
+  At stage $s$, let $i$ be the number of elements in $A$ and $\bar{A}$ that
+  has been defined so far. Put enough elements into $\bar{A}$ till the
+  $(i+1)$th element of $A$ exceeds that of $f_s$, then put the next element
+  into $A$. Repeat with the roles of $A$ and $\bar{A}$ reversed.
+  $\blacksquare$
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
