@@ -1,25 +1,25 @@
 \begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (fixed machine)}
   \begin{lemma}[$\Sigma_1^{1}$-immunity basis, fixed machine]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
+    $\mathcal{C}$ compact, contains no $\Sigma_1^{1}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
     $\Sigma_1^{1}$-set $\mathcal{B}_0\neq\emptyset$. Then
     $\mathcal{B}_0$ has a $\Sigma_1^{1}$-subset
     $\mathcal{B}\neq\emptyset$ such that for every $X\in\mathcal{B}$,
-    $\mathcal{A}$ does not contain the $\Sigma_1^{1,X}$-set
+    $\mathcal{C}$ does not contain the $\Sigma_1^{1,X}$-set
     $\{Y:P(X,Y)\}$ (if $\neq\emptyset$).
   \end{lemma}
 
   \vspace{1em}
   \textbf{Pf:} \underline{Case 1}: For every $X\in\mathcal{B}_0$,
-  $\{Y:P(X,Y)\}\subseteq\mathcal{A}$. Then $\bigcup_{X\in\mathcal{B}_0}
-  \{Y:P(X,Y)\}$ will be a $\Sigma_1^{1}$-subset of $\mathcal{A}$,
+  $\{Y:P(X,Y)\}\subseteq\mathcal{C}$. Then $\bigcup_{X\in\mathcal{B}_0}
+  \{Y:P(X,Y)\}$ will be a $\Sigma_1^{1}$-subset of $\mathcal{C}$,
   $\Rightarrow\Leftarrow$.
 
   \vspace{1em}
   \underline{Case 2}: For some $X_0\in\mathcal{B}_0$, $\{Y:P(X_0,Y)\}$
-  contains a path $Y_0$ outside $\mathcal{A}$. By compactness of
-  $\mathcal{A}$, $Y_0$ has an initial segment $\sigma$ outside
-  $\mathcal{A}$. This $\Sigma_1^{1}$-subset of $\mathcal{B}_0$ works:
+  contains a path $Y_0$ outside $\mathcal{C}$. By compactness of
+  $\mathcal{C}$, $Y_0$ has an initial segment $\sigma$ outside
+  $\mathcal{C}$. This $\Sigma_1^{1}$-subset of $\mathcal{B}_0$ works:
   \[\mathcal{B}:= \{X\in\mathcal{B}_0: (\exists Y\succ\sigma)\; P(X,Y)\}.\;
   \blacksquare\]
 \end{frame}
@@ -53,14 +53,14 @@
 
 \begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem}
   \begin{thm}[$\Sigma_1^{1}$-immunity basis]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1}$-set
+    $\mathcal{C}$ compact, contains no $\Sigma_1^{1}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
     $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
-    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+    that $\mathcal{C}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
   \end{thm}
   \textbf{Pf:} For each $\Sigma_1^{1}$-predicate $P$, let $\mathcal{U}_P$
   be the union of all the $\Sigma_1^{1}$-sets where every $X$ in the set
-  gives a path outside $\mathcal{A}$ via $P$. From previous lemma,
+  gives a path outside $\mathcal{C}$ via $P$. From previous lemma,
   $\mathcal{U}_P$ is dense under Gandy-Harrington topology. This topology
   is Baire, so $\bigcap_P\mathcal{U}_P$ is non-empty. Any
   $X\in\bigcap_P\mathcal{U}_P$ works. $\blacksquare$
@@ -68,10 +68,10 @@
   \vspace{1em}
   Relativizing every step in the proof, we get
   \begin{coro}[$\Sigma_1^{1,Z}$-immunity basis]
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-set
+    $\mathcal{C}$ compact, contains no $\Sigma_1^{1,Z}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1,Z}$-set
     $\mathcal{N}\neq\emptyset$. Then $\mathcal{N}$ contains some $X$ such
-    that $\mathcal{A}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
+    that $\mathcal{C}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
   \end{coro}
 \end{frame}
 
