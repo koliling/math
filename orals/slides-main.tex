@@ -2,8 +2,8 @@
   \begin{main-thm*}
     $\mathcal{A}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
-    $X$ where none of its subsets can compute a tree that contains a path
-    in $\mathcal{A}$.
+    $X$ where none of its subsets can compute a tree that contains some
+    paths in $\mathcal{A}$.
   \end{main-thm*}
 
   The proof hinges on Galvin-Prikry. Fix Turing machine $\Gamma$, node
@@ -11,9 +11,9 @@
   \begin{fact*}[Galvin-Prikry]
     $Z\in[\omega]^\omega$. There exists solution $X\in[Z]^\omega$
     where one of these holds:\\
-    \textbf{$\Sigma$-solution:} All subsets of $X$ compute (via $\Gamma$)
+    \textbf{Positive-solution:} All subsets of $X$ compute (via $\Gamma$)
     $\tau$ \\
-    \textbf{$\Pi$-solution:} All subsets of $X$ do not compute (via
+    \textbf{Negative-solution:} All subsets of $X$ do not compute (via
     $\Gamma$) $\tau$
   \end{fact*}
   \textbf{Proof idea of GP:} The class of subsets of $Z$ that
@@ -24,19 +24,26 @@
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
   \textbf{Proof idea of main theorem:} Want $X$ whose subsets cannot
-  compute path in $\mathcal{A}$. First fix machine. Given node
-  $\tau$, GP will find $\Sigma$-solutions $X$ (all its subsets compute
-  $\tau$), and/or $\Pi$-solutions $X$ (all its subsets do not compute
-  $\tau$). Exhaust cases:
+  compute paths in $\mathcal{A}$. First fix machine. Given node
+  $\tau$, GP will find positive-solutions $X$ (all its subsets compute
+  $\tau$), and/or negative-solutions $X$ (all its subsets do not compute
+  $\tau$). Three cases:
 
   \vspace{1em}
-  \textbf{Case 0:} GP has $\Sigma$-solutions for arbitrarily long nodes in
+  \textbf{Case 0:} GP has positive-solutions for arbitrarily long nodes in
   $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
   a path in $\mathcal{A}$, from which one can define a non-empty
   $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 
   \vspace{0.5em}
-  \textbf{Case 1:} GP only has $\Pi$-solutions for each node in
+  \textbf{Case 1:} GP has positive-solutions for some node outside
+  $\mathcal{A}$. Then by compactness of $\mathcal{A}$, these nodes contain
+  a path in $\mathcal{A}$, from which one can define a non-empty
+  $\Sigma_1^1$-subset of $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+\end{frame}
+
+\begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
+  \textbf{Case 2:} GP only has negative-solutions for each node in
   $\mathcal{A}$ of a particular length. Iterate GP across each such node to
   get a solution that is negative for all of them.
 
@@ -261,20 +268,22 @@ $\Sigma_1^1$-subset}
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
-  \begin{itemize}
-    \item Fix tree $T\subset 2^{<\omega}$ such that
-      $[T]\subset 2^\omega$ is compact, has positive measure, and
-      contains no $\Sigma_1^1$-subset ($\neq\emptyset$).
-    \item Assuming such $T$ exists, fix RT instance
-      $c:[\omega]^n\rightarrow k$ and assume every $c$-homogeneous set
-      computes a path in $T$.
-    \item Now given arbitrary infinite set $Z$, relativizing $c$ with
-      respect to $Z$ gives us a $c$-homogeneous set $X\in[Z]^\omega$.
-      By assumption, every element in $[X]^\omega$ computes a path in $T$.
-    \item Thus every infinite set $Z$ has an infinite subset $X$ whose
-      infinite subsets compute a path in $T$.
-    \item By the main theorem, $[T]$ must contain a
-      non-empty $\Sigma_1^1$-subset, $\Rightarrow\Leftarrow$.
-      $\blacksquare$
-  \end{itemize}
+  \begin{theorem}
+    WWKL $\nleq_{\text{soc}}$ RT.
+  \end{theorem}
+
+  Consider the tree $T\subset2^{<\omega}$ which is a set of Martin-Lof
+  randoms relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is
+  compact, has positive measure, and contains no $\Sigma_1^1$-subset
+  ($\neq\emptyset$). Let $c:[\omega]^n\rightarrow k$ be an arbitrary
+  $k$-coloring.
+  
+  \vspace{1em}
+  From the main theorem, there is an infinte set $X$ such that none of its
+  subsets can compute a tree with some paths in $[T]$. In particular, none
+  of its subsets can compute a path in $[T]$. Relativize the
+  colouring $c$ with respect to $X$ to get an infinite subset $Y\subseteq
+  X$ that is $c$-homogeneous. So $Y$ is a $c$-homogeneous set that cannot
+  compute a tree any path in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$
+  RT. $\blacksquare$
 \end{frame}
