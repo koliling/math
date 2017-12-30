@@ -254,17 +254,22 @@ in $\mathcal{A}$}
 
 \begin{frame}{$[T]$ with positive measure, containing no
 $\Sigma_1^1$-subset}
+  \begin{fact}
+    \label{fact:sigma-contains-O-recursive}
+    Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
+  \end{fact}
+
   \begin{thm}
-    There exists a tree $T$
+    There is a tree $T\subset2^{<\omega}$ such that $[T]\subset
+    2^\omega$ is compact, has positive measure, and contains no
+    $\Sigma_1^1$-subset ($\neq\emptyset$).
   \end{thm}
 
-  \begin{itemize}
-    \item Let $T$ be set of Martin-Lof randoms relativized to Kleene's $O$.
-    \item Then $\mu([T])>0$.
-    \item $T$ has no non-empty $\Sigma_1^1$-subset because every
-      $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
-      $\blacksquare$
-  \end{itemize}
+  \vspace{1em}
+  Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms relativized to
+  Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and has positive
+  measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
+  Fact~\ref{fact:sigma-contains-O-recursive}. $\blacksquare$
 \end{frame}
 
 \begin{frame}{WWKL $\nleq_{\text{soc}}$ RT}
