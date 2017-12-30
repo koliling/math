@@ -252,12 +252,14 @@ in $\mathcal{A}$}
   computes no path in $\mathcal{A}$ via $\Gamma_i$. $\blacksquare$
 \end{frame}
 
-\begin{frame}{$[T]$ with positive measure, containing no
-$\Sigma_1^1$-subset}
+\begin{frame}{There exists a non-null tree containing no $\Sigma_1^1$-subset}
   \begin{fact}
     \label{fact:sigma-contains-O-recursive}
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
+  \textbf{Proof idea:} Since Kleene's $O$ is $\Sigma_1^1$-complete, given a 
+  $\Sigma_1^1$-set of $2^\omega$, it can iteratively pick the first branch
+  that has a path, thereby computing the ``left-most'' branch of the set.
 
   \begin{thm}
     There is a tree $T\subset2^{<\omega}$ such that $[T]\subset
@@ -265,7 +267,7 @@ $\Sigma_1^1$-subset}
     $\Sigma_1^1$-subset ($\neq\emptyset$).
   \end{thm}
 
-  \vspace{1em}
+  \vspace{0.5em}
   Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms relativized to
   Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and has positive
   measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
