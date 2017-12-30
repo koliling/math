@@ -93,55 +93,47 @@
   $\square$
 \end{frame}
 
-\begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
-in $\mathcal{A}$}
+\begin{frame}{Set whose subsets avoid computing $\mathcal{C}$}
   \begin{lemma}
-    $\mathcal{A}$ compact, contains no $\Sigma_1^{1,Z}$-subset
-    ($\neq\emptyset$), and $\Gamma:2^{\omega}\rightarrow
-    \omega^{<\omega}$ a Turing functional on trees. Then one of the
-    following holds:\\
+    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
+    $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$), and
+    $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
+    trees. Then one of the following holds:\\
     \vspace{0.5em}
-    \textbf{Case 1:} There exists infinite set $X\subseteq Z$ such that
+    \textbf{Case 1:} For every $n\in\omega$, there exists infinite set
+    $X\subseteq Z$ and $\sigma\in\omega^n$ outside $\mathcal{C}$ such that
+    every tree computed (via $\Gamma$) by a subset of $X$ contains
+    $\sigma$.\\
+    \vspace{0.5em}
+    \textbf{Case 2:} There exists infinite set $X\subseteq Z$ such that
     none of its subsets can compute (via $\Gamma$) a tree containing paths
-    in $\mathcal{A}$, or\\
-    \vspace{0.5em}
-    \textbf{Case 2:} For every $n\in\omega$, there exists
-    $\sigma\in\omega^n$ outside $\mathcal{A}$ and infinite set $X\subseteq
-    Z$ and such that every tree computed (via $\Gamma$) by any of its
-    subsets contains $\sigma$.
+    in $\mathcal{C}$.
   \end{lemma}
 
-  \vspace{0.5em}
-  \textbf{Pf:} \underline{Case 0:} GP has positive-solutions for
-  arbitrarily long $\sigma\in\mathcal{A}$. Observe that by finite use
-  principle, given $\sigma$, the class $\mathcal{P}_{\sigma}$ of
-  positive-solutions is $\Sigma_1^{1,Z}$:
-  \begin{align*}
-    \mathcal{P}_{\sigma}:= &\{X\in[Z]^\omega: \text{All subsets of}\; X\;
-      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}\\
-    =&\{X\in[Z]^\omega: \text{All finite subsets of}\; X\;
-      \text{compute}\; \sigma\; (\text{via}\; \Gamma)\}
-      \in\Sigma_1^{1,Z}.
-  \end{align*}
-  By compactness of $\mathcal{A}$, the set of arbitrarily long $\sigma$'s
-  must contain a path in $\mathcal{A}$. Then $\{f:(\forall \sigma\prec f)\;
-  [\mathcal{P}_\sigma \neq \emptyset]\}$ is a non-empty
-  $\Sigma_1^{1,Z}$-set contained in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
+  \vspace{1em}
+  \textbf{Pf:} \textbf{Case 1:} There are arbitrarily long branches outside
+  $\mathcal{C}$ for which GP has positive-solutions.
 \end{frame}
 
-\begin{frame}{Subsets cannot compute (via $\Gamma$) trees containing path
-in $\mathcal{A}$}
-  \textbf{Case 1:} For some $n$, GP has only negative-solutions for every
-  $\sigma\in\omega^n\cap\mathcal{A}$. Since $\mathcal{A}$ is compact, it is
-  finitely branching. Write $\sigma_0,\ldots,\sigma_m$ for the
-  nodes in $\omega^n\cap\mathcal{A}$. Iterate GP across $\sigma_i$ to get
-  decreasing subsets of negative-solutions
+\begin{frame}{Set whose subsets avoid computing $\mathcal{C}$}
+  \textbf{Case 2:} For some $n$, every branch in $\mathcal{C}$ of length
+  $n$ has only negative GP-solutions. Note that there are only fintely many
+  such branches $\sigma_0,\ldots,\sigma_m$ since $\mathcal{C}$ is compact.
+  Iterate GP across them to get decreasing subsets of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
+  where $X_{i+1}\in[X_i]^\omega$ is a negative-solution by GP under inputs
+  $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no positive-solutions
+  for each $\sigma_i$ under $Z$, giving also no positive-solutions under
+  $X_i\subseteq Z$.
 
-  where $X_{i+1}\in[X_i]^\omega$ is a negative-solution by GP under
-  inputs $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP has no
-  positive-solutions for each $\sigma_i$ under $Z$, giving also no
-  positive-solutions under $X_i\subseteq Z$. $X=X_m$ works. $\blacksquare$
+  \vspace{0.5em}
+  \textbf{Case 0:} Every sufficiently long branch with positive
+  GP-solutions lies in $\mathcal{C}$, and $\mathcal{C}$ has arbitrarily
+  long branches with positive GP-solutions. Now by compactness of
+  $\mathcal{A}$, the set of arbitrarily long branches contains a path
+  in $\mathcal{A}$. Then \[\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
+  positive GP-solutions}]\}\] is a non-empty $\Sigma_1^{1,Z}$-set contained
+  in $\mathcal{A}$, $\Rightarrow\Leftarrow$. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Subsets cannot compute trees containing path in $\mathcal{A}$}
