@@ -1,8 +1,10 @@
 \begin{frame}{Bi-Hyperimmune sets}
   \begin{define}[Hyperimmune, Bi-hyperimmune]
     $A\subseteq\omega$ is \textit{hyperimmune} if its principal function
-    $p_A$ cannot be dominated by any total recursive function. $A$ is
-    \textit{bi-hyperimmune} if both $A$ and $\bar{A}$ are hyperimmune.
+    $p_A$ cannot be dominated by any total recursive function. That is,
+    there is no effective way of knowing when a new element of $A$ has
+    appeared. $A$ is \textit{bi-hyperimmune} if both $A$ and $\bar{A}$ are
+    hyperimmune.
   \end{define}
 
   \begin{thm}
@@ -10,32 +12,27 @@
   \end{thm}
 
   \textbf{Pf:} Enumerate recursive functions $f_0,f_1,\ldots$. At stage
-  $s$, put enough elements into $A$, then into $\bar{A}$ to ensure $f_s$
-  does not dominate their principal functions:
-
-  \vspace{1em}
-  At stage $s$, let $i$ be the number of elements in $A$ and $\bar{A}$ that
-  has been defined so far. Put enough elements into $\bar{A}$ till the
-  $(i+1)$th element of $A$ exceeds that of $f_s$, then put the next element
-  into $A$. Repeat with roles of $A$ and $\bar{A}$ reversed.
+  $s$, let $i$ be the number of elements in $A$ and $\bar{A}$ that has been
+  defined so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th
+  element of $A$ exceeds that of $f_s$, then put the next element into $A$.
+  This ensures that $f_s$ cannot tell when the $(i+1)$-th element of $A$
+  has appeared. Repeat with roles of $A$ and $\bar{A}$ reversed.
   $\blacksquare$
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
-  Hyperimmune sets $A$ are characterized as those whose principal
-  function $p_A$ is not dominated by any recursive $f$. \\
-  \vspace{1em}
-
-  Bi-Hyperimmune sets $A$ are those where $A$, $\bar{A}$ are hyperimmune.\\
-  \vspace{1em}
+  \begin{thm}
+    Given a hyperimmune set, the class of sets that can compute an
+    infinite subsets null.
+  \end{thm}
 
   \textbf{Proof idea:} Assume not. Then there are enough paths computing
   infinite subsets of $A$ such that we can effectively ask them to ``vote''
-  for when new elements of $A$ have appeared. Thus effectively dominating
-  $p_A$, $\Rightarrow\Leftarrow$.\\
+  for intervals that contain new elements of $A$. Thus effectively
+  dominating $p_A$, $\Rightarrow\Leftarrow$.\\
   \vspace{1em}
 
-  Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
+  \textbf{Pf:} Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
   \Phi^X\in[A]^\omega\}$. Suffices to show $\mu(\mathcal{B})=0$. Assume
   $\mu(\mathcal{B})=4m>0$.
 \end{frame}
@@ -79,7 +76,6 @@
     \item Given any instance of WWKL, since the set of its paths has
       measure $>0$, some path must fail to compute any infinite
       homogeneous set of $c$. 
-    \item Any bi-hyperimmune set $A$ works, as we show next.
     $\blacksquare$
   \end{itemize}
 \end{frame}
