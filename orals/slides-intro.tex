@@ -1,22 +1,21 @@
 \begin{frame}{Bi-Hyperimmune sets}
   \begin{define}[Hyperimmune, Bi-hyperimmune]
-    $A\subseteq\omega$ is \textbf{hyperimmune} if there is no effective way
-    of knowing when new elements of $A$ have appeared.  Formally, no
-    recursive function dominates $p_A$, the principal function of $A$. $A$
-    is \textbf{bi-hyperimmune} if both $A$ and $\bar{A}$ are hyperimmune.
+    $A\subseteq\omega$ is \textbf{hyperimmune} if there is no recursive set
+    such that for every $n\in\omega$, the $n$-th element of $B$ is larger
+    than the $n$-element of $A$. $A$ is \textbf{bi-hyperimmune} if both $A$
+    and $\bar{A}$ are hyperimmune.
   \end{define}
 
   \begin{thm}
     Bi-hyperimmune sets exist.
   \end{thm}
 
-  \textbf{Pf:} Enumerate recursive functions $f_0,f_1,\ldots$. At stage
-  $s$, let $i$ be the number of elements in $A$ and $\bar{A}$ that has been
-  defined so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th
-  element of $A$ exceeds that of $f_s$, then put the next element into $A$.
-  This ensures that $f_s$ cannot tell when the $(i+1)$-th element of $A$
-  has appeared. Repeat with roles of $A$ and $\bar{A}$ reversed.
-  $\blacksquare$
+  \vspace{0.5em}
+  \textbf{Pf:} Enumerate recursive sets $B_0,B_1,\ldots$. At stage $s$, let
+  $i$ be the number of elements in $A$ and $\bar{A}$ that has been defined
+  so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th element of
+  $A$ exceeds that of $B_s$, then put the next element into $A$. Repeat
+  with roles of $A$ and $\bar{A}$ reversed. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
@@ -27,10 +26,10 @@
   \end{thm}
 
   \vspace{1em}
-  \textbf{Pf:} The idea is, assuming by contradiction the measure is
-  positive, then there are enough paths computing subsets of $A$ that we
-  can effectively get them to ``vote'' for when new elements of $A$
-  have appeared, contradicting hyperimmunity of $A$.
+  \textbf{Pf:} The idea is, if the measure is positive, there will be
+  enough paths computing subsets of $A$ that one can effectively get them
+  to ``vote'' for when new elements of $A$ have appeared, contradicting
+  hyperimmunity of $A$.
 
   \vspace{1em}
   Since there are only countably many Turing functionals, and the union of
@@ -46,8 +45,8 @@
   $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
   $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ so
   that $\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m$.
-  Then the approximation $[\sigma_0]\cup\ldots\cup[\sigma_n]$ of the class
-  of paths computing infinite subsets of $A$ is so tight that
+  Then $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximates of the class
+  of paths computing infinite subsets of $A$ so tightly that
   \begin{align*}
     &\mu(\text{``true'' infinite subset-computers in }
     [\sigma_0]\cup\ldots\cup[\sigma_n])>2m,\\
