@@ -41,26 +41,26 @@
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
-  Assume by contradiction $\mu(\mathcal{B})=4m>0$.  Tightly approximate
-  $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ with
+  Assume by contradiction $\mu(\mathcal{B})=4m>0$. Tightly approximate
+  $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ so that
   $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
-  $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
-  \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+  $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ so
+  that $\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m$.
+  Then the approximation $[\sigma_0]\cup\ldots\cup[\sigma_n]$ of the class
+  of paths computing infinite subsets of $A$ is tight enough that
+  \begin{align*}
+    &\mu(\text{``true'' infinite subset-computers in }
+    [\sigma_0]\cup\ldots\cup[\sigma_n])>2m,\\
+    &\mu(\text{``false'' infinite subset-computers in }
+    [\sigma_0]\cup\ldots\cup[\sigma_n])<2m.
+  \end{align*}
 
   Assume the $(s-1)$-th element of $A$ has been found to be below $k$. To
   find an interval in which the $s$-th element of $A$ falls below,
   enumerate the branches $\sigma$ in $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
   Wait till a measure of $2m$ of them vote to have found (via
   $\Gamma$) an element larger than $k$. The $s$-th element of
-  $A$ must be below the largest element found: Because
-  $[\sigma_0]\cup\ldots\cup[\sigma_n]$ tightly approximates the class of
-  paths computing infinite subsets of $A$,
-  \begin{align*}
-    &\mu(\text{``true'' infinite subset-computers in }
-    [\sigma_0]\cup\ldots\cup[\sigma_n])>2m,\\
-    &\mu(\text{``false'' infinite subset-computers in }
-    [\sigma_0]\cup\ldots\cup[\sigma_n])<2m. \blacksquare
-  \end{align*}
+  $A$ must be below the largest element found.
 \end{frame}
 
 \begin{frame}{$\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL}
