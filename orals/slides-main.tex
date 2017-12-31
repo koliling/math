@@ -189,15 +189,15 @@
 
   \vspace{0.5em}
   \textbf{Pf:} The idea is to iterate the relativized lemma
-  across all subsets of the segment $Z\restriction s$.
+  across all subsets of the segment $Z\restriction s$. Iteration is
+  possible after relativization.
 \end{frame}
 
 \begin{frame}{Preserving initial segment (cont.)}
   List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
-  relativized lemma across them to get decreasing subsets
+  lemma across them to get decreasing subsets
   \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
-  At stage $i$, apply relativized lemma with inputs $X_i$, and
-  $\Gamma_i$ defined by
+  At stage $i$, apply lemma with inputs $X_i$, and $\Gamma_i$ defined by
   \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
   giving $X_{i+1}\in[X_i]^\omega$ whose subsets compute (via
@@ -221,18 +221,17 @@
     cannot compute any element in $\mathcal{C}$.
   \end{main-thm*}
 
-  \textbf{Pf:} The main lemma worked for fixed machine $\Gamma$. Iterate
-  the lemma across all machines $\Gamma_0,\Gamma_1,\ldots$ to construct
-  decreasing subsets of $X$'s
+  \textbf{Pf:} The main lemma worked for fixed functional $\Gamma$. Iterate
+  it across all functionals $\Gamma_0,\Gamma_1,\ldots$ to construct decreasing
+  subsets of $X$'s
   \[\omega= X_0\supseteq X_1\supseteq\ldots,\]
-  where at stage $s$, the lemma is applied with inputs $s$, $X_s$ and machine
+  where at stage $s$, the lemma is applied with inputs $s$, $X_s$ and
   $\Gamma_s$, and $X_{s+1}$ preserves the first $s$-elements of $X_s$. Take
-  $X=\bigcap_{s\in\omega}X_s$; this is infinite from
-  segment-preservation. Then given $i\in\omega$ and $Y\subseteq X$, either
-  $[\Gamma_i^Y] \cap \mathcal{C} =\emptyset$, or $\Gamma_i^T$ contains
-  arbitrarily long branches outside $\mathcal{C}$. In particular, $Y$
-  cannot compute any element in $\mathcal{C}$ via $\Gamma_i$.
-  $\blacksquare$
+  $X=\bigcap_{s\in\omega}X_s$; this is infinite from segment-preservation.
+  Then given $i\in\omega$ and $Y\subseteq X$, either $[\Gamma_i^Y] \cap
+  \mathcal{C} =\emptyset$, or $\Gamma_i^T$ contains arbitrarily long
+  branches outside $\mathcal{C}$. In particular, $Y$ cannot compute any
+  element in $\mathcal{C}$ via $\Gamma_i$. $\blacksquare$
 \end{frame}
 
 \begin{frame}{There exists a non-null tree with no $\Sigma_1^1$-subset}
