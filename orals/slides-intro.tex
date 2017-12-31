@@ -27,39 +27,38 @@
   \end{thm}
 
   \vspace{1em}
-  \textbf{Proof idea:} Assume not. Then there are enough paths computing
-  subsets of $A$ that we can effectively get the paths to ``vote'' for when
-  new elements of $A$ have appeared, $\Rightarrow\Leftarrow$. $\square$\\
+  \textbf{Pf:} The idea is, assuming by contradiction the measure is
+  positive, then there are enough paths computing subsets of $A$ that we
+  can effectively get them to ``vote'' for when new elements of $A$
+  have appeared, contradicting hyperimmunity of $A$.
 
   \vspace{1em}
-  \textbf{Pf:} Fix Turing functional $\Phi$. Write $\mathcal{B} :=\{X:
-  \Phi^X\in[A]^\omega\}$. Suffices to show $\mu(\mathcal{B})=0$. Assume
-  $\mu(\mathcal{B})=4m>0$.
+  Since there are only countably many Turing functionals, and the union of
+  countably many null sets is null, it suffices to show $\{X:
+  \Gamma^X\in[A]^\omega\}$ is null, where
+  $\Gamma:2^\omega\rightarrow2^\omega$ is a fixed Turing functional.
+  Write $\mathcal{B} :=\{X: \Gamma^X\in[A]^\omega\}$.
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
-  \begin{itemize}
-    \item Approximate $\mathcal{B}$ by open cover
-      $\mathcal{O}\supseteq\mathcal{B}$ with
-      $\mu(\mathcal{O}-\mathcal{B})<m$.
-    \item Approximate $\mathcal{O}$ by basic open sets
-      $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
-      \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
-    \item Fix effective enumeration of branches $\sigma$ in
-      $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
-    \item At stage $s=0$, wait till a measure of $2m$ of such $\sigma$'s
-      finds an element via $\Phi$; let $f(0)$ be the largest element found.
-    \item Since $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximate
-      $\mathcal{B}$ tightly, such $\sigma$'s exist.
-      \begin{align*}
-        \mu(\text{``true'' voters})>2m,\\
-        \mu(\text{``false'' voters})<2m.
-      \end{align*}
-      Thus $f(0)\geq p_A(0)$.
-    \item At stage $s+1$, wait till a measure of $2m$ of $\sigma$'s
-      finds an element $>f(s)$; let $f(s+1)$ be the largest
-      element found. $\blacksquare$
-  \end{itemize}
+  Assume by contradiction $\mu(\mathcal{B})=4m>0$.  Tightly approximate
+  $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ with
+  $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
+  $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ with
+  \[\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m.\]
+
+  Assume the $(s-1)$-th element of $A$ has been found to be below $k$. To
+  find an interval in which the $s$-th element of $A$ falls below,
+  enumerate the branches $\sigma$ in $[\sigma_0]\cup\ldots\cup[\sigma_n]$.
+  Wait till a measure of $2m$ of them vote to have found (via
+  $\Gamma$) an element larger than $k$. The $s$-th element of
+  $A$ must be below the largest element found: Because
+  $[\sigma_0]\cup\ldots\cup[\sigma_n]$ tightly approximates the class of
+  paths computing infinite subsets of $A$,
+  \begin{align*}
+    &\mu(\text{``true'' infinite subset-computers})>2m,\\
+    &\mu(\text{``false'' infinite subset-computers})<2m. \blacksquare
+  \end{align*}
 \end{frame}
 
 \begin{frame}{$\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL}
