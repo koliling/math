@@ -1,9 +1,11 @@
 \begin{frame}{Bi-Hyperimmune sets}
-  \begin{define}[Hyperimmune, Bi-hyperimmune]
+  \begin{define}[Hyperimmune]
     $A\subseteq\omega$ is \textbf{hyperimmune} if there is no recursive set
-    $B$ such that for every $n\in\omega$, the $n$-th element of $B$ is
-    larger than the $n$-element of $A$. $A$ is \textbf{bi-hyperimmune} if
-    both $A$ and $\bar{A}$ are hyperimmune.
+    $B$ such that $B(n)>A(n)$ for every $n\in\omega$.
+  \end{define}
+
+  \begin{define}[Bi-hyperimmune]
+    $A$ is \textbf{bi-hyperimmune} if both $A$ and $\bar{A}$ are hyperimmune.
   \end{define}
 
   \begin{thm}
@@ -14,8 +16,8 @@
   \textbf{Pf:} Enumerate recursive sets $B_0,B_1,\ldots$. At stage $s$, let
   $i$ be the number of elements in $A$ and $\bar{A}$ that has been defined
   so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th element of
-  $A$ exceeds that of $B_s$, then put the next element into $A$. Repeat
-  with roles of $A$ and $\bar{A}$ reversed. $\blacksquare$
+  $A$ exceeds that of $B_s$. Repeat with roles of $A$ and $\bar{A}$
+  reversed. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
