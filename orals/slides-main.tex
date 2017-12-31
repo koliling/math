@@ -98,15 +98,15 @@
   \newtheorem*{main-lemma*}{Main Lemma}
   \begin{main-lemma*}[Monin, Patey, 2016]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
-    $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$), and
-    $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ is a Turing functional
-    on trees. Then there is an infinite $X\subseteq Z$ whose subsets are
-    unable to compute (via $\Gamma$) any path of $\mathcal{C}$.
+    $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
+    $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional
+    on trees. Then there is an infinite $X\subseteq Z$ whose subsets cannot
+    compute (via $\Gamma$) any path in $\mathcal{C}$.
   \end{main-lemma*}
 
   \vspace{0.5em}
   \textbf{Pf:} \textbf{Case 0:} There is a branch outside
-  $\mathcal{C}$ for which has a positive GP-solution $X$. This $X$ works.
+  $\mathcal{C}$ which has a positive GP-solution $X$. This $X$ works.
 
   \vspace{0.5em}
   \textbf{Case 1:} Every branch outside $\mathcal{C}$ has only negative
@@ -125,15 +125,15 @@
   such branches $\sigma_0,\ldots,\sigma_m$ since $\mathcal{C}$ is compact.
   Iterate GP across them to get decreasing subsets of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
-  where $X_{i+1}\in[X_i]^\omega$ is a negative GP-solution under inputs
+  where $X_{i+1}\subseteq X_i$ is a negative GP-solution under inputs
   $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP gives no positive
   solutions for each $\sigma_i$ under $Z$, giving also no positive
   solutions under $X_i\subseteq Z$.
   
   \vspace{1em}
-  Take $X=X_m$. Then every subset of $X$ cannot compute any branch in
-  $\mathcal{C}$ of length exceeding $n$, and in particular cannot compute
-  any path in $\mathcal{C}$. $\blacksquare$
+  Take $X=X_m$. Then every subset of $X$ cannot compute (via $\Gamma$) any
+  branch in $\mathcal{C}$ of length exceeding $n$, and in particular,
+  cannot compute any path in $\mathcal{C}$. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$
@@ -142,7 +142,7 @@
     $\mathcal{C}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$), and $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$
     a Turing functional on trees. Then there is an infinite $X\subseteq Z$
-    whose subsets are unable to compute (via $\Gamma$) any path of
+    whose subsets cannot compute (via $\Gamma$) any path in
     $\mathcal{C}$.\\
     \vspace{0.5em}
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
@@ -161,7 +161,7 @@
     $\mathcal{C}$ compact, contains no $\Sigma_1^{1,Z}$-subset
     ($\neq\emptyset$), and $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$
     a Turing functional on trees. Then there is an infinite $X\subseteq Z$
-    whose subsets are unable to compute (via $\Gamma$) any element of
+    whose subsets cannot compute (via $\Gamma$) any path in
     $\mathcal{C}$.\\
     \vspace{0.5em}
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
@@ -192,7 +192,7 @@
   Choose $X=X_m\cup Z\restriction s$. To see that this $X$ works, first
   observe that since $X$ almost equals $X_m$, $\mathcal{C}$ will
   contain no $\Sigma_1^{1,X}$-set since it contains no
-  $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\in[X]^\omega$. Then
+  $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\subseteq X$. Then
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
   $Y$ compute no path in $\mathcal{C}$ via $\Gamma_i$. Since $Y\supset
   d_i$, the same is ensured via $\Gamma$. $\blacksquare$
@@ -200,9 +200,9 @@
 
 \begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$}
   \begin{main-thm*}[Monin, Patey, 2016]
-    $\mathcal{C}$ compact, contains no $\Sigma_1^1$-subset
-    ($\neq\emptyset$). Then there exists infinite set $X$ whose subsets
-    cannot compute any path of $\mathcal{C}$.
+    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
+    $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
+    $X$ whose subsets cannot compute any path in $\mathcal{C}$.
   \end{main-thm*}
 
   \vspace{1em}
