@@ -1,19 +1,68 @@
-\begin{frame}{Ramsey's Theorem ($\text{RT}$)}
+\begin{frame}{Ramsey's Theorem asserts Homogeneity}
   \begin{define*}[$c$-homogeneous]
     Given $k$-coloring $c:[\omega]^n\rightarrow k$, a subset
-    $A\subseteq\omega$ is $c$-homogeneous if every $n$-tuple over $A$ is
-    given the same color by $c$.
+    $A\subseteq\omega$ is \textbf{$c$-homogeneous} if every $n$-tuple over
+    $A$ is given the same color by $c$.
   \end{define*}
 
-  \vspace{1em}
-  \begin{thm*}[Ramsey's Theorem]
-    Fix $n,k\leq1$. $\text{RT}_k^n$ is the statement that every $k$-coloring
-    $c:[\omega]^n\rightarrow k$ has an infinite $c$-homogeneous set.\\
-    RT is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
+  \vspace{0.5em}
+  \begin{thm*}[Ramsey's]
+    Fix $n,k\leq1$. \textbf{$\text{RT}_k^n$} is the statement that every
+    $k$-coloring $c:[\omega]^n\rightarrow k$ has an infinite
+    $c$-homogeneous set.\\
+    \vspace{0.5em}
+    \textbf{RT} is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
   \end{thm*}
+  \textbf{Proof sketch:} $\text{RT}_2^1$ holds since in any 2-coloring of
+  $\omega$, one of the colors gives an infinite set. Induct on $n$ to get
+  $\text{RT}_2^n$. Then inductively group colors together to get
+  $\text{RT}_k^n$ from $\text{RT}_2^n$. $\square$
 
-  \vspace{1em}
-  RT asserts homogeneity exists.
+  \vspace{0.5em}
+  \textbf{RT asserts homogeneity.}
+\end{frame}
+
+\begin{frame}{Lebesgue measure}
+  \begin{define*}[Outer, inner measure]
+    Given $\mathcal{A}\subseteq2^\omega$, the \textbf{outer measure} of
+    $\mathcal{A}$ is
+    \[\mu^*(\mathcal{A}):= \inf\{2^{-|\sigma_0|}+\ldots+2^{-|\sigma_n|}:
+    [\sigma_0]\cup\ldots\cup[\sigma_n] \supseteq \mathcal{A}\}.\]
+    The \textbf{inner measure} of $\mathcal{A}$ is $\mu_*(\mathcal{A}):=
+    1-\mu^*(\bar{\mathcal{A}})$.
+  \end{define*}
+  \textbf{E.g.} $\mu^*([\sigma]) =\mu_*([\sigma]) =2^{-|\sigma|}$.
+
+  \vspace{0.5em}
+  \begin{define*}[Lesbegue measure, null]
+    $\mathcal{A}\subseteq2^\omega$ is \textbf{Lebesgue measurable} if its
+    outer and inner measures are equal. Then we say the \textbf{measure} of
+    $\mathcal{A}$ is
+    \[\mu(\mathcal{A}) =\mu^*(\mathcal{A}) =\mu_*(\mathcal{A}).\]
+    A set is \textbf{null} if its measure is 0.
+  \end{define*}
+\end{frame}
+
+\begin{frame}{Lebesgue measurable}
+  \begin{fact*}[Lesbegue measurable]
+    $\mathcal{A}\subseteq2^\omega$ is \textbf{Lebesgue measurable} if and
+    only if it is a $G_\delta$-set (countable union of open sets) modulo a
+    null set. In particular, open sets and closed sets are measurable.
+  \end{fact*}
+
+  \begin{define*}
+    1-random
+  \end{define*}
+
+  \begin{itemize}
+    \item Tree = Effectively closed set
+    \item Use notion
+    \item Random not in any null set
+    \item Effective 1-random caught in any effectively closed set
+    \item Effective $\Pi_1^0$-class
+    \item Effective null sets
+    \item WWKL asserts 1-randoms exist
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Randomness}
