@@ -1,12 +1,12 @@
-\begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (fixed machine)}
-  \begin{lemma*}[$\Sigma_1^{1}$-immunity basis, fixed machine]
+\begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (fixed predicate)}
+  \begin{lemma*}[$\Sigma_1^{1}$-immunity basis, fixed predicate]
     $\mathcal{C}$ compact, contains no $\Sigma_1^{1}$-set
     ($\neq\emptyset$). Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
     $\Sigma_1^{1}$-set $\mathcal{D}_0\neq\emptyset$. Then
     $\mathcal{D}_0$ has a $\Sigma_1^{1}$-subset
     $\mathcal{D}\neq\emptyset$ such that for every $X\in\mathcal{D}$,
     $\mathcal{C}$ does not contain the $\Sigma_1^{1,X}$-set
-    $\{Y:P(X,Y)\}$ (if $\neq\emptyset$).
+    $\{Y:P(X,Y)\}$.
   \end{lemma*}
 
   \vspace{1em}
@@ -106,7 +106,8 @@
 
   \vspace{0.5em}
   \textbf{Pf:} \textbf{Case 0:} There is a branch outside
-  $\mathcal{C}$ which has a positive GP-solution $X$. This $X$ works.
+  $\mathcal{C}$ which has a positive GP-solution $X$. This $X$ works since
+  all its subsets compute (via $\Gamma$) a branch outside $\mathcal{C}$.
 
   \vspace{0.5em}
   \textbf{Case 1:} Every branch outside $\mathcal{C}$ has only negative

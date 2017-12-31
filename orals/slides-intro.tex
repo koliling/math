@@ -1,7 +1,7 @@
 \begin{frame}{Bi-Hyperimmune sets}
   \begin{define}[Hyperimmune]
-    $A\subseteq\omega$ is \textbf{hyperimmune} if there is no recursive set
-    $B$ such that $B(n)>A(n)$ for every $n\in\omega$.
+    $A\subseteq\omega$ is \textbf{hyperimmune} if there is no recursive
+    function $f$ such that $f(n)>A(n)$ for every $n\in\omega$.
   \end{define}
 
   \begin{define}[Bi-hyperimmune]
@@ -13,10 +13,10 @@
   \end{thm}
 
   \vspace{0.5em}
-  \textbf{Pf:} Enumerate recursive sets $B_0,B_1,\ldots$. At stage $s$, let
-  $i$ be the number of elements in $A$ and $\bar{A}$ that has been defined
-  so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th element of
-  $A$ exceeds that of $B_s$. Repeat with roles of $A$ and $\bar{A}$
+  \textbf{Pf:} Enumerate recursive functions $f_0,f_1,\ldots$. At stage
+  $s$, let $i$ be the number of elements in $A$ and $\bar{A}$ that has been
+  defined so far. Put enough elements into $\bar{A}$ till the $(i+1)$-th
+  element of $A$ exceeds $f_s(i+1)$. Repeat with roles of $A$ and $\bar{A}$
   reversed. $\blacksquare$
 \end{frame}
 
@@ -38,17 +38,17 @@
   countably many null sets is null, it suffices to show $\{X:
   \Gamma^X\in[A]^\omega\}$ is null, where
   $\Gamma:2^\omega\rightarrow2^\omega$ is a fixed Turing functional.
-  Write $\mathcal{B} :=\{X: \Gamma^X\in[A]^\omega\}$.
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
+  Write $\mathcal{B} :=\{X: \Gamma^X\in[A]^\omega\}$.
   Assume by contradiction $\mu(\mathcal{B})=4m>0$. Tightly approximate
   $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ so that
   $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
   $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ so
   that $\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m$.
   Then $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximates of the class
-  of paths computing infinite subsets of $A$ so tightly that
+  of paths computing infinite subsets of $A$ tightly enough that
   \begin{align*}
     &\mu(\text{``true'' infinite subset-computers in }
     [\sigma_0]\cup\ldots\cup[\sigma_n])>2m,\\
