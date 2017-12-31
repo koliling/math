@@ -276,3 +276,21 @@
   any path in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
   $\blacksquare$
 \end{frame}
+
+\begin{frame}{Homogeneity ``independent from'' Randomness}
+  \begin{coro}
+    WKL $\nleq_{\text{soc}}$ RT.
+  \end{coro}
+  \textbf{Pf:} Follows from transitivity of $\leq_\text{soc}$,
+  WWKL $\leq_{soc}$ WKL, and WWKL $\nleq_{\text{soc}}$ RT. $\blacksquare$
+
+  \begin{center}
+    \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
