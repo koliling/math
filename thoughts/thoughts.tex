@@ -64,6 +64,25 @@
 
   \subsection{Lattice $\mathcal{D}$}
     \begin{question}
+      Where are the PA reals? Do the class of PA reals have measure 1?
+    \end{question}
+    \begin{proof}
+      They are probably everywhere. Intuitively you can $\emptyset'$-encode
+      any infinite set into some PA real, so it seems likely that the class
+      of PA reals have measure 1. Given arbitrary real $A\in2^\omega$, the
+      $\emptyset'$-encoding of $A$ into a PA real $P\in2^\omega$ can be
+      performed as follows. Since PA reals are incomplete, every such real
+      has infinite initial segments for which can branch both ways and
+      still get PA reals. At stage $s$, let $\emptyset'$ decide when the
+      first extension which branches both ways occur. Take the left branch
+      iff $A(s)=0$. \\
+
+      By construction, $A$ is $(\emptyset'\oplus P)$-recursive. In
+      particular, the PA reals cannot be covered by any real $X$, for this
+      would imply that all reals are covered by $X\oplus\emptyset'$.
+    \end{proof}
+
+    \begin{question}
       What is the motivation for defining simple sets? How about
       1-generics, or maximal sets?
     \end{question}
