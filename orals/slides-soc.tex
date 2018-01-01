@@ -1,4 +1,9 @@
 \begin{frame}{Ramsey's Theorem asserts Homogeneity}
+  \begin{notation*}
+    Given $A\subseteq\omega$ and cardinal $\kappa$,
+    $[A]^\kappa :=\{B\subseteq A:|B|=\kappa\}$.
+  \end{notation*}
+
   \begin{define*}[$c$-homogeneous]
     Given $k$-coloring $c:[\omega]^n\rightarrow k$, a subset
     $A\subseteq\omega$ is \textbf{$c$-homogeneous} if every $n$-tuple over
@@ -7,11 +12,9 @@
 
   \vspace{0.5em}
   \begin{thm*}[Ramsey's]
-    Fix $n,k\leq1$. \textbf{$\text{RT}_k^n$} is the statement that every
-    $k$-coloring $c:[\omega]^n\rightarrow k$ has an infinite
-    $c$-homogeneous set.\\
-    \vspace{0.5em}
-    \textbf{RT} is the statement $(\forall n)(\forall k)\; \text{RT}_k^n$.
+    \textbf{$\text{RT}_k^n$} states that every $k$-coloring
+    $c:[\omega]^n\rightarrow k$ has an infinite $c$-homogeneous set.
+    \textbf{RT} states $(\forall n)(\forall k)\; \text{RT}_k^n$.
   \end{thm*}
   \textbf{Proof sketch:} $\text{RT}_2^1$ holds since in any 2-coloring of
   $\omega$, one of the colors gives an infinite set. Induct on $n$ to get
@@ -49,19 +52,23 @@
 
 \begin{frame}{1-random}
   \begin{notation*}
-    The set of \textbf{reals} $A\in\omega^\omega$ contained in a
-    \textbf{tree} $T\subseteq\omega^{<\omega}$ is denoted by $\llbracket
-    T\rrbracket:= \{A\in\omega^\omega: (\exists n)\; [A\restriction n \in
-    T]\}$.
+    Given a set of initial segments $A\subseteq\omega^{<\omega}$, denote
+    $\llbracket A\rrbracket:= \{X\in\omega^\omega: (\exists n)\;
+    [X\restriction n \in T]\}$.\\
+    \vspace{0.5em}
+    $T\subseteq\omega^{<\omega}$ is a \textbf{tree} if it is closed under
+    initial segments. Denote $[T]:= \{X\in\omega^\omega: (\forall n)\;
+    [X\restriction n \in T]\}$.
   \end{notation*}
 
   \begin{define*}
-    An effective enumeration of recursive trees $T_0,T_1,\ldots \subseteq
-    2^{<\omega}$ is a \textbf{Martin-Lof test} of randomness if
-    $\mu(\llbracket T_n\rrbracket) \leq 2^{-n}$ for all $n\in\omega$.\\
+    An effective enumeration of recursive sets
+    $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is a \textbf{Martin-Lof test} of
+    randomness if $\mu(\llbracket A_n\rrbracket) \leq 2^{-n}$ for all
+    $n\in\omega$.\\
     \vspace{0.5em}
-    A real $A\in2^\omega$ passes this test iff $A\not\in
-    \bigcap_{n\in\omega} \llbracket T_n\rrbracket$.
+    A real $A\in2^\omega$ passes this test iff $X\not\in
+    \bigcap_{n\in\omega} \llbracket A_n\rrbracket$.
   \end{define*}
 
   \begin{define*}
@@ -90,8 +97,8 @@
     contains a real.
   \end{thm*}
   \begin{fact}
-    $T\subseteq2^{<\omega}$ is null iff the set of reals with infinitely
-    many initial segments contained in $T$ is null.
+    A binary tree $T\subseteq2^{<\omega}$ is null iff
+    $[T]\subseteq2^\omega$ is null.
   \end{fact}
   \begin{coro}
     If a binary tree has positive measure, it contains a 1-random.
