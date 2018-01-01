@@ -26,10 +26,12 @@
   \begin{define*}[Outer, inner measure]
     The \textbf{outer measure} of $\mathcal{A}\subseteq2^\omega$ is
     \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega} 2^{-|\sigma_n|}:
-    \mathcal{A}\subseteq \bigcup_{n\in\omega} [\sigma_n]\right\}.\]
+    \mathcal{A}\subseteq \bigcup_{n\in\omega}
+    \llbracket\sigma_n\rrbracket\right\}.\]
     Its \textbf{inner measure} is $\mu_*(\mathcal{A}):=
     1-\mu^*(\bar{\mathcal{A}})$.\\
-    E.g. $\mu^*([\sigma]) =\mu_*([\sigma]) =2^{-|\sigma|}$.
+    E.g. $\mu^*(\llbracket\sigma\rrbracket)
+    =\mu_*(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$.
   \end{define*}
 
   \begin{define*}[Lesbegue measure, null]
@@ -40,26 +42,23 @@
     $\mu(\mathcal{A})=0$.
   \end{define*}
   \begin{fact*}[Measurable]
-    $\mathcal{A}\subseteq2^\omega$ is \textbf{measurable} iff it is
+    $\mathcal{A}\subseteq2^\omega$ is measurable iff it is
     $G_\delta$ (countable intersection of open sets) modulo a null. E.g.
     open sets, closed sets are measurable.
   \end{fact*}
 \end{frame}
 
-\begin{frame}{Trees, reals}
-
+\begin{frame}{1-random}
   \begin{notation*}[Tree, real]
     The set of \textbf{reals} $A\in\omega^\omega$ contained in a
     \textbf{tree} $T\subseteq\omega^{<\omega}$ is denoted by $\llbracket
     T\rrbracket:= \{A\in\omega^\omega: (\exists n)\; [A\restriction n \in
     T]\}$.
   \end{notation*}
-\end{frame}
 
-\begin{frame}{1-random}
   \begin{define*}[Martin-Lof test of randomness]
     An effective enumeration of recursive trees $T_0,T_1,\ldots \subseteq
-    2^{<\omega}$ is a \textbf{Martin-Lof test of randomness} if
+    2^{<\omega}$ is a \textbf{Martin-Lof test} if
     $\mu(\llbracket T_n\rrbracket) \leq 2^{-n}$ for all $n\in\omega$.\\
     \vspace{0.5em}
     A real $A\in2^\omega$ passes this test of randomness iff $A\not\in

@@ -45,19 +45,25 @@
   Assume by contradiction $\mu(\mathcal{B})=4m>0$. Tightly approximate
   $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ so that
   $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
-  $\mathcal{O}$ by $[\sigma_0],\ldots,[\sigma_n] \subseteq\mathcal{O}$ so
-  that $\mu(\mathcal{O}-([\sigma_0]\cup\ldots\cup[\sigma_n])) <m$.
-  Then $[\sigma_0]\cup\ldots\cup[\sigma_n]$ approximates of the class
+  $\mathcal{O}$ by $\llbracket\sigma_0\rrbracket,
+  \ldots,\llbracket\sigma_n\rrbracket \subseteq\mathcal{O}$ so
+  that $\mu(\mathcal{O}-(\llbracket\sigma_0\rrbracket \cup\ldots
+  \cup\llbracket\sigma_n\rrbracket)) <m$.
+  Then $\llbracket\sigma_0\rrbracket \cup\ldots\cup
+  \llbracket\sigma_n\rrbracket$ approximates of the class
   of reals computing infinite subsets of $A$ tightly enough that
   \begin{align*}
     &\mu(\text{``true'' infinite subset-computers in }
-    [\sigma_0]\cup\ldots\cup[\sigma_n])>2m,\\
+    \llbracket\sigma_0\rrbracket \cup\ldots\cup
+    \llbracket\sigma_n\rrbracket)>2m,\\
     &\mu(\text{``false'' infinite subset-computers in }
-    [\sigma_0]\cup\ldots\cup[\sigma_n])<2m.
+    \llbracket\sigma_0\rrbracket \cup\ldots\cup
+    \llbracket\sigma_n\rrbracket)<2m.
   \end{align*}
 
   Assume the $(s-1)$-th element of $A$ has been found to be below $k$.
-  Enumerate the branches in $[\sigma_0]\cup\ldots\cup[\sigma_n]$.  Wait
+  Enumerate the branches in $\llbracket\sigma_0\rrbracket \cup\ldots\cup
+  \llbracket\sigma_n\rrbracket$.  Wait
   till a measure of $2m$ of them claim to have found an element larger than
   $k$. Then one of these branches must be a true infinite-subset computer,
   so the $s$-th element of $A$ must be below the largest element found.
