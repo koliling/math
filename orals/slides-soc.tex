@@ -69,51 +69,36 @@
   \end{define*}
 \end{frame}
 
-\begin{frame}
-  \begin{itemize}
-    \item Tree = Effectively closed set
-    \item Use notion
-    \item Random not in any null set
-    \item Effective 1-random caught in any effectively closed set
-    \item Effective $\Pi_1^0$-class
-    \item Effective null sets
-    \item WWKL asserts 1-randoms exist
-  \end{itemize}
-\end{frame}
+\begin{frame}{Set of non 1-randoms is null}
+  \begin{fact*}
+    The set of reals that is not 1-random is null.
+  \end{fact*}
 
-\begin{frame}{Randomness}
-  Intuitively, a real $f\in2^\omega$ is random if it cannot be ``caught''
-  by any descending enumeration of trees $2^{<\omega}\supseteq T_0\supseteq
-  T_1\supseteq \ldots$, because such trees would reveal information on the
-  sequences caught by all of them. A descending sequence is eligible to judge
-  for randomness only if the trees shrink fast enough for the class of reals
-  caught by all of them to be ``sparse'', because if too many reals are
-  caught, the information on the reals is not useful.
-
-  \vspace{1em}
-  One way of formalizing the notion of a sparseness of a tree is:
-  \begin{define*}
-    A (measurable) binary tree $T\subseteq2^{<\omega}$ has positive measure
-    if
-    \[\lim_s \frac{|\{\sigma\in T: |\sigma|=s\}|}{2^s} >0.\]
-  \end{define*}
+  \vspace{2em}
+  \textbf{Proof sketch:} There are only countably many Turing machines, so
+  there can only be countably many Martin-Lof tests. The set of reals that
+  fail a test is null since the trees in a test descend quickly. The union
+  of a countable set of null sets is still null, thus the set of reals that
+  fail some Martin-Lof test is null. $\square$
 \end{frame}
 
 \begin{frame}{WWKL asserts Randomness}
-  A series of trees $T_0\supseteq T_1\supseteq\ldots$ is eligible to
-  test for randomness if their limit is null. Since there are
-  only countably many Turing machines that can give randomness tests,
-  and the class of non-randoms from each test is null, and
-  a countable union of null sets is still null, the class of non-randoms
-  is null.
-
-  \vspace{2em}
-  Thus if a (measurable) tree has positive measure, it must contain a
-  random. Weak Weak Konig's Lemma (WWKL) asserts that at least one of its
-  reals is random by stating
   \begin{thm*}[Weak Weak Konig's Lemma]
-    Every binary tree with positive measure contains a real.
+    If $T\subseteq 2^{<\omega}$ with positive measure i.e.
+    \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n} >0,\]
+    it contains a real.
   \end{thm*}
+  \begin{fact*}
+    $T\subseteq2^{<\omega}$ has positive measure if and only if the set of
+    reals with infinitely many initial segments contained in $T$ has
+    positive measure.
+  \end{fact*}
+
+  \begin{coro*}
+    If a binary tree has positive measure, it contains a 1-random.
+  \end{coro*}
+
+  \textbf{WWKL asserts randomness.}
 \end{frame}
 
 \begin{frame}{WWKL, WKL, KL}
