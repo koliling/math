@@ -84,9 +84,9 @@
 
 \begin{frame}{WWKL asserts Randomness}
   \begin{thm*}[Weak Weak Konig's Lemma]
-    If $T\subseteq 2^{<\omega}$ with positive measure i.e.
+    Every binary tree $T\subseteq 2^{<\omega}$ with positive measure i.e.
     \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n} >0,\]
-    it contains a real.
+    contains a real.
   \end{thm*}
   \begin{fact*}
     $T\subseteq2^{<\omega}$ has positive measure if and only if the set of
@@ -102,55 +102,55 @@
 \end{frame}
 
 \begin{frame}{WWKL, WKL, KL}
-  The reals of a WKL problem however, may all be non-randoms, because WKL
-  includes also binary trees which are null:
   \begin{thm*}[Weak Konig's Lemma]
-    Every binary tree with infinite nodes contains a real.
+    Every binary tree $T\subseteq2^{<\omega}$ with infinite nodes contains
+    a real.
   \end{thm*}
 
-  \vspace{2em}
-  Konig's Lemma includes even trees that are not binary:
   \begin{thm*}[Konig's Lemma]
-    Every finitely-branching tree with infinite nodes contains a real.
+    Every finitely-branching tree $T\subseteq\omega^{<\omega}$ with
+    infinite nodes contains a real.
   \end{thm*}
+  \textbf{Proof:} Construct real by iteratively choosing the branch with
+  infinite nodes extending it. $\blacksquare$
+
+  \vspace{2em}
+  WKL follows from KL since binary trees are finitely branching.\\
+  \vspace{1em}
+  WWKL follows from WKL since trees with positive measure have infinite
+  branches.
 \end{frame}
 
 \begin{frame}{Homogeneity versus Randomness}
-  A natural question to ask is which of the statements RT, KL, WKL, WWKL is
-  stronger. Intuitively, WKL is stronger than WWKL, because a binary tree
-  of positive measure has infinite nodes, so if all binary trees with
-  infinite nodes have a real, then those with positive measure must
-  have one too. A question that is harder to answer is:
   \newtheorem*{question*}{Question}
   \begin{question*}
     Which notion is stronger, homogeneity or randomness?
   \end{question*}
-  If a given a real is homogeneous, does that say anything about how random
-  it is? Likewise, if a given real is random, will it necessarily provide
-  information on finding homogeneous reals?
 
-  \vspace{0.5em}
-  Since the notions of homogeneity and randomness are captured by RT and
-  WWKL respectively, we are essentially asking which of RT and WWKL is
-  stronger.
+  \vspace{2em}
+  Does knowing the homogeneity of a real tell us anything about its
+  randomness, and vice versa?
+
+  \vspace{2em}
+  Since RT asserts homogeneity and WWKL asserts randomness, we are asking
+  which of RT and WWKL is stronger.
 \end{frame}
 
 \begin{frame}{Problem, Instance, Solution}
-  \vspace{1em}
   \begin{define*}
     A mathematical \textbf{problem} is a collection of \textbf{instances},
     with a collection of \textbf{solutions} for each instance.
   \end{define*}
 
-  \vspace{1em}
-  \textbf{E.g. 1:} RT is a problem; its instances are the collections of
+  \vspace{2em}
+  \textbf{E.g:} RT is a problem; its instances are the collections of
   colorings $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the
   solutions of each $c$ are the class of $c$-homogeneous reals.
 
-  \vspace{1em}
-  \textbf{E.g. 2:} WWKL is a problem; its instances are the collections of
-  binary trees with positive measure, and the solutions of each instance is
-  the class of reals in the tree.
+  \vspace{2em}
+  \textbf{E.g:} WWKL is a problem; its instances are the collections of
+  binary trees with positive measure, and the solutions of each such tree
+  is the set of reals in the tree.
 \end{frame}
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
@@ -163,48 +163,18 @@
     to \textit{I}.
   \end{define*}
 
-  $\leq_{\text{soc}}$ successfully captures this expected relation:
-  \begin{center}
-    WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL.
-  \end{center}
-
-  \vspace{0.5em}
-  \textbf{WWKL $\leq_{\text{soc}}$ WKL:} Given a binary tree with
-  positive measure, this tree has infinite branches and is therefore an
-  instance of WKL. The desired relation follows from definition of
-  $\leq_{\text{soc}}$.
-
-  \vspace{0.5em}
-  \textbf{WKL $\leq_{\text{soc}}$ KL:} Given a binary tree with infinite
-  branches, this tree is finitely-branching and therefore an instance of
-  WKL. The desired relation follows from definition of $\leq_{\text{soc}}$.
-\end{frame}
-
-\begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
-  WKL is powerful under $\leq_{\text{soc}}$. Given any KL or RT
-  instance, fix one of its solutions, and choose the WKL instance whose only
-  real codes that solution as an real in $2^\omega$. By definition of
-  $\leq_{\text{soc}}$, the given instance reduces to this WKL instance.
-
-  \vspace{1em}
-  For example, given a KL instance, fix one of its solutions
-  $f:\omega\rightarrow\omega$, code this solution as a real in $2^\omega$
-  in a recoverable manner.
-
-  \vspace{1em}
-  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the real
-  $110$ $1111111110$ $1110\ldots$.
-
-  \vspace{1em}
-  Similarly, any solution of an RT instance can be seen as an infinite
-  subset of $\omega$. Its characteristic function will be a real in
-  $2^\omega$.
-\end{frame}
-
-\begin{frame}{Homogeneity ``independent from'' Randomness}
-  Dependencies under $\leq_{\text{soc}}$
   \vspace{2em}
+  \textbf{E.g:} WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL follows
+  from definition.
 
+  \vspace{2em}
+  \textbf{E.g:} KL, RT $\leq_{\text{soc}}$ WKL.
+\end{frame}
+
+\begin{frame}{Goal: Homogeneity ``independent from'' Randomness}
+  Dependencies under $\leq_{\text{soc}}$
+
+  \vspace{2em}
   \begin{center}
     \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
       \node (KL) {KL$\leftrightarrow$WKL};
