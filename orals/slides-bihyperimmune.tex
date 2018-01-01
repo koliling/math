@@ -37,37 +37,35 @@
   Since there are only countably many Turing functionals, and the union of
   countably many null sets is null, it suffices to show $\{X:
   \Gamma^X\in[A]^\omega\}$ is null, where
-  $\Gamma:2^\omega\rightarrow2^\omega$ is a fixed Turing functional.
+  $\Gamma:2^\omega\rightarrow2^\omega$ is an arbitrary Turing functional.
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
   Write $\mathcal{B} :=\{X: \Gamma^X\in[A]^\omega\}$.
   Assume by contradiction $\mu(\mathcal{B})=4m>0$. Tightly approximate
-  $\mathcal{B}$ by open cover $\mathcal{O}\supseteq\mathcal{B}$ so that
-  $\mu(\mathcal{O}-\mathcal{B})<m$, then again tightly approximate
-  $\mathcal{O}$ by $\llbracket\sigma_0\rrbracket,
-  \ldots,\llbracket\sigma_n\rrbracket \subseteq\mathcal{O}$ so
-  that $\mu(\mathcal{O}-(\llbracket\sigma_0\rrbracket \cup\ldots
+  $\mathcal{B}$ by open cover $\mathcal{U}\supseteq\mathcal{B}$ so that
+  $\mu(\mathcal{U}-\mathcal{B})<m$, then again tightly approximate
+  $\mathcal{U}$ by $\llbracket\sigma_0\rrbracket,
+  \ldots,\llbracket\sigma_n\rrbracket \subseteq\mathcal{U}$ so
+  that $\mu(\mathcal{U}-(\llbracket\sigma_0\rrbracket \cup\ldots
   \cup\llbracket\sigma_n\rrbracket)) <m$.
   Then $\llbracket\sigma_0\rrbracket \cup\ldots\cup
   \llbracket\sigma_n\rrbracket$ approximates of the class
   of reals computing infinite subsets of $A$ tightly enough that
   \begin{align*}
-    &\mu(\text{``true'' infinite subset-computers in }
-    \llbracket\sigma_0\rrbracket \cup\ldots\cup
-    \llbracket\sigma_n\rrbracket)>2m,\\
-    &\mu(\text{``false'' infinite subset-computers in }
-    \llbracket\sigma_0\rrbracket \cup\ldots\cup
-    \llbracket\sigma_n\rrbracket)<2m.
+    \mu(\{X\in\llbracket\sigma_0\rrbracket \cup\ldots\cup
+    \llbracket\sigma_n\rrbracket: \Gamma^X\in[A]^\omega\}) &>2m,\\
+    \mu(\{X\in\llbracket\sigma_0\rrbracket \cup\ldots\cup
+    \llbracket\sigma_n\rrbracket: \Gamma^X\not\in[A]^\omega\}) &<2m.
   \end{align*}
 
   Assume the $(s-1)$-th element of $A$ has been found to be below $k$.
   Enumerate the branches in $\llbracket\sigma_0\rrbracket \cup\ldots\cup
   \llbracket\sigma_n\rrbracket$.  Wait
   till a measure of $2m$ of them claim to have found an element larger than
-  $k$. Then one of these branches must be a true infinite-subset computer,
-  so the $s$-th element of $A$ must be below the largest element found.
-  $\blacksquare$
+  $k$. Then one of these branches truly computes an infinite subset of
+  $A$, so the $s$-th element of $A$ must be below the largest element
+  found. $\blacksquare$
 \end{frame}
 
 \begin{frame}{$\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL}
