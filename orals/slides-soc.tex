@@ -24,36 +24,54 @@
 
 \begin{frame}{Lebesgue measure}
   \begin{define*}[Outer, inner measure]
-    Given $\mathcal{A}\subseteq2^\omega$, the \textbf{outer measure} of
-    $\mathcal{A}$ is
-    \[\mu^*(\mathcal{A}):= \inf\{2^{-|\sigma_0|}+\ldots+2^{-|\sigma_n|}:
-    [\sigma_0]\cup\ldots\cup[\sigma_n] \supseteq \mathcal{A}\}.\]
-    The \textbf{inner measure} of $\mathcal{A}$ is $\mu_*(\mathcal{A}):=
-    1-\mu^*(\bar{\mathcal{A}})$.
+    The \textbf{outer measure} of $\mathcal{A}\subseteq2^\omega$ is
+    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega} 2^{-|\sigma_n|}:
+    \mathcal{A}\subseteq \bigcup_{n\in\omega} [\sigma_n]\right\}.\]
+    Its \textbf{inner measure} is $\mu_*(\mathcal{A}):=
+    1-\mu^*(\bar{\mathcal{A}})$.\\
+    E.g. $\mu^*([\sigma]) =\mu_*([\sigma]) =2^{-|\sigma|}$.
   \end{define*}
-  \textbf{E.g.} $\mu^*([\sigma]) =\mu_*([\sigma]) =2^{-|\sigma|}$.
 
-  \vspace{0.5em}
   \begin{define*}[Lesbegue measure, null]
-    $\mathcal{A}\subseteq2^\omega$ is \textbf{Lebesgue measurable} if its
-    outer and inner measures are equal. Then we say the \textbf{measure} of
-    $\mathcal{A}$ is
-    \[\mu(\mathcal{A}) =\mu^*(\mathcal{A}) =\mu_*(\mathcal{A}).\]
-    A set is \textbf{null} if its measure is 0.
+    $\mathcal{A}\subseteq2^\omega$ is \textbf{measurable} iff
+    $\mu^*(\mathcal{A}) =\mu_*(\mathcal{A})$.  Then we say its
+    \textbf{measure} is $\mu(\mathcal{A}) =\mu^*(\mathcal{A})
+    =\mu_*(\mathcal{A})$. $\mathcal{A}$ is \textbf{null} iff
+    $\mu(\mathcal{A})=0$.
+  \end{define*}
+  \begin{fact*}[Measurable]
+    $\mathcal{A}\subseteq2^\omega$ is \textbf{measurable} iff it is
+    $G_\delta$ (countable intersection of open sets) modulo a null. E.g.
+    open sets, closed sets are measurable.
+  \end{fact*}
+\end{frame}
+
+\begin{frame}{Trees, reals}
+
+  \begin{notation*}[Tree, real]
+    The set of \textbf{reals} $A\in\omega^\omega$ contained in a
+    \textbf{tree} $T\subseteq\omega^{<\omega}$ is denoted by $\llbracket
+    T\rrbracket:= \{A\in\omega^\omega: (\exists n)\; [A\restriction n \in
+    T]\}$.
+  \end{notation*}
+\end{frame}
+
+\begin{frame}{1-random}
+  \begin{define*}[Martin-Lof test of randomness]
+    An effective enumeration of recursive trees $T_0,T_1,\ldots \subseteq
+    2^{<\omega}$ is a \textbf{Martin-Lof test of randomness} if
+    $\mu(\llbracket T_n\rrbracket) \leq 2^{-n}$ for all $n\in\omega$.\\
+    \vspace{0.5em}
+    A real $A\in2^\omega$ passes this test of randomness iff $A\not\in
+    \bigcup_{n\in\omega} \llbracket T_n\rrbracket$.
+  \end{define*}
+
+  \begin{define*}[1-random]
+    $A\in2^\omega$ is \textbf{1-random} if it passes every Martin-Lof test.
   \end{define*}
 \end{frame}
 
-\begin{frame}{Lebesgue measurable}
-  \begin{fact*}[Lesbegue measurable]
-    $\mathcal{A}\subseteq2^\omega$ is \textbf{Lebesgue measurable} if and
-    only if it is a $G_\delta$-set (countable union of open sets) modulo a
-    null set. In particular, open sets and closed sets are measurable.
-  \end{fact*}
-
-  \begin{define*}
-    1-random
-  \end{define*}
-
+\begin{frame}
   \begin{itemize}
     \item Tree = Effectively closed set
     \item Use notion
@@ -66,13 +84,13 @@
 \end{frame}
 
 \begin{frame}{Randomness}
-  Intuitively, a path $f\in2^\omega$ is random if it cannot be ``caught''
+  Intuitively, a real $f\in2^\omega$ is random if it cannot be ``caught''
   by any descending enumeration of trees $2^{<\omega}\supseteq T_0\supseteq
   T_1\supseteq \ldots$, because such trees would reveal information on the
   sequences caught by all of them. A descending sequence is eligible to judge
-  for randomness only if the trees shrink fast enough for the class of paths
-  caught by all of them to be ``sparse'', because if too many paths are
-  caught, the information on the paths is not useful.
+  for randomness only if the trees shrink fast enough for the class of reals
+  caught by all of them to be ``sparse'', because if too many reals are
+  caught, the information on the reals is not useful.
 
   \vspace{1em}
   One way of formalizing the notion of a sparseness of a tree is:
@@ -94,9 +112,9 @@
   \vspace{2em}
   Thus if a (measurable) tree has positive measure, it must contain a
   random. Weak Weak Konig's Lemma (WWKL) asserts that at least one of its
-  paths is random by stating
+  reals is random by stating
   \begin{thm*}[Weak Weak Konig's Lemma]
-    Every binary tree with positive measure contains a path.
+    Every binary tree with positive measure contains a real.
   \end{thm*}
 \end{frame}
 
@@ -104,13 +122,13 @@
   The reals of a WKL problem however, may all be non-randoms, because WKL
   includes also binary trees which are null:
   \begin{thm*}[Weak Konig's Lemma]
-    Every binary tree with infinite nodes contains a path.
+    Every binary tree with infinite nodes contains a real.
   \end{thm*}
 
   \vspace{2em}
   Konig's Lemma includes even trees that are not binary:
   \begin{thm*}[Konig's Lemma]
-    Every finitely-branching tree with infinite nodes contains a path.
+    Every finitely-branching tree with infinite nodes contains a real.
   \end{thm*}
 \end{frame}
 
@@ -118,15 +136,15 @@
   A natural question to ask is which of the statements RT, KL, WKL, WWKL is
   stronger. Intuitively, WKL is stronger than WWKL, because a binary tree
   of positive measure has infinite nodes, so if all binary trees with
-  infinite nodes have a path, then those with positive measure must
+  infinite nodes have a real, then those with positive measure must
   have one too. A question that is harder to answer is:
   \newtheorem*{question*}{Question}
   \begin{question*}
     Which notion is stronger, homogeneity or randomness?
   \end{question*}
-  If a given a path is homogeneous, does that say anything about how random
-  it is? Likewise, if a given path is random, will it necessarily provide
-  information on finding homogeneous paths?
+  If a given a real is homogeneous, does that say anything about how random
+  it is? Likewise, if a given real is random, will it necessarily provide
+  information on finding homogeneous reals?
 
   \vspace{0.5em}
   Since the notions of homogeneity and randomness are captured by RT and
@@ -144,12 +162,12 @@
   \vspace{1em}
   \textbf{E.g. 1:} RT is a problem; its instances are the collections of
   colorings $c:[\omega]^n\rightarrow k$ for every $n,k\in\omega$, and the
-  solutions of each $c$ are the class of $c$-homogeneous paths.
+  solutions of each $c$ are the class of $c$-homogeneous reals.
 
   \vspace{1em}
   \textbf{E.g. 2:} WWKL is a problem; its instances are the collections of
   binary trees with positive measure, and the solutions of each instance is
-  the class of paths in the tree.
+  the class of reals in the tree.
 \end{frame}
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
@@ -182,21 +200,21 @@
 \begin{frame}{KL, RT $\leq_{\text{soc}}$ WKL}
   WKL is powerful under $\leq_{\text{soc}}$. Given any KL or RT
   instance, fix one of its solutions, and choose the WKL instance whose only
-  path codes that solution as an path in $2^\omega$. By definition of
+  real codes that solution as an real in $2^\omega$. By definition of
   $\leq_{\text{soc}}$, the given instance reduces to this WKL instance.
 
   \vspace{1em}
   For example, given a KL instance, fix one of its solutions
-  $f:\omega\rightarrow\omega$, code this solution as a path in $2^\omega$
+  $f:\omega\rightarrow\omega$, code this solution as a real in $2^\omega$
   in a recoverable manner.
 
   \vspace{1em}
-  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the path
+  For instance, if $f$ is $2,9,3,\ldots$, we can code $f$ as the real
   $110$ $1111111110$ $1110\ldots$.
 
   \vspace{1em}
   Similarly, any solution of an RT instance can be seen as an infinite
-  subset of $\omega$. Its characteristic function will be a path in
+  subset of $\omega$. Its characteristic function will be a real in
   $2^\omega$.
 \end{frame}
 

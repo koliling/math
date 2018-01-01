@@ -17,7 +17,7 @@
 
   \vspace{1em}
   \underline{Case 2}: For some $X_0\in\mathcal{D}_0$, $\{Y:P(X_0,Y)\}$
-  contains a path $Y_0$ outside $\mathcal{C}$. By compactness of
+  contains a real $Y_0$ outside $\mathcal{C}$. By compactness of
   $\mathcal{C}$, $Y_0$ has an initial segment $\sigma$ outside
   $\mathcal{C}$. This $\Sigma_1^{1}$-subset of $\mathcal{D}_0$ works:
   \[\mathcal{D}:= \{X\in\mathcal{D}_0: (\exists Y\succ\sigma)\; P(X,Y)\}.\;
@@ -40,7 +40,7 @@
   
   \vspace{1em}
   At stage $n$, $[f\restriction n]\cap\mathcal{U} \neq\emptyset$, witnessed
-  by an extension of $g\restriction n$. Now the class of paths in
+  by an extension of $g\restriction n$. Now the class of reals in
   $[f\restriction n]$ that lie in $\mathcal{U}$ by a witness extending
   $g\restriction n$ is an open set, so it intersects
   $\mathcal{D}_0\cap\ldots\cap\mathcal{D}_{n+1}$. Thus one can choose
@@ -58,7 +58,7 @@
   \end{thm*}
   \textbf{Pf:} For each $\Sigma_1^{1}$-predicate $P$, let $\mathcal{U}_P$
   be the union of all the $\Sigma_1^{1}$-sets where every $X$ in the set
-  gives a path outside $\mathcal{C}$ via $P$. From previous lemma,
+  gives a real outside $\mathcal{C}$ via $P$. From previous lemma,
   $\mathcal{U}_P$ is dense under Gandy-Harrington topology. This topology
   is Baire, so $\bigcap_P\mathcal{U}_P$ is non-empty. Any
   $X\in\bigcap_P\mathcal{U}_P$ works. $\blacksquare$
@@ -94,14 +94,14 @@
   $\square$
 \end{frame}
 
-\begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$}
+\begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$}
   \newtheorem*{main-lemma*}{Main Lemma}
   \begin{main-lemma*}[Monin, Patey, 2016]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
     $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
     trees. Then there is an infinite $X\subseteq Z$ whose subsets cannot
-    compute (via $\Gamma$) any path in $\mathcal{C}$.
+    compute (via $\Gamma$) any real in $\mathcal{C}$.
   \end{main-lemma*}
 
   \vspace{0.5em}
@@ -113,13 +113,13 @@
   \textbf{Case 1:} Every branch outside $\mathcal{C}$ has only negative
   GP-solutions, and $\mathcal{C}$ has arbitrarily long branches with
   positive GP-solutions. By compactness of $\mathcal{A}$, this set of
-  branches contains a path in $\mathcal{A}$. Then
+  branches contains a real in $\mathcal{A}$. Then
   \[\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
   positive GP-solutions}]\}\] is a non-empty $\Sigma_1^{1,Z}$-set contained
   in $\mathcal{A}$, $\Rightarrow\Leftarrow$.
 \end{frame}
 
-\begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$
+\begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$
 (cont.)}
   \textbf{Case 2:} For some $n$, every branch in $\mathcal{C}$ of length
   $n$ has only negative GP-solutions. Note that there are only fintely many
@@ -134,17 +134,17 @@
   \vspace{1em}
   Take $X=X_m$. Then every subset of $X$ cannot compute (via $\Gamma$) any
   branch in $\mathcal{C}$ of length exceeding $n$, and in particular,
-  cannot compute any path in $\mathcal{C}$. $\blacksquare$
+  cannot compute any real in $\mathcal{C}$. $\blacksquare$
 \end{frame}
 
-\begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$
+\begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$
 (relativized)}
   \begin{main-lemma*}[Relativized]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
     $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
     trees. Then there is an infinite $X\subseteq Z$ whose subsets cannot
-    compute (via $\Gamma$) any path in $\mathcal{C}$.\\
+    compute (via $\Gamma$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
     $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).
@@ -163,7 +163,7 @@
     $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
     $\Gamma:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
     trees. Then there is an infinite $X\subseteq Z$ whose subsets cannot
-    compute (via $\Gamma$) any path in $\mathcal{C}$.\\
+    compute (via $\Gamma$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
     $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).\\
@@ -186,7 +186,7 @@
   \[\Gamma_i(Y) =\Gamma(Y\cup d_i),\]
 
   giving $X_{i+1}\subseteq X_i$ whose subsets cannot compute (via
-  $\Gamma_i$) paths of $\mathcal{C}$, and where $\mathcal{C}$ contains no
+  $\Gamma_i$) reals of $\mathcal{C}$, and where $\mathcal{C}$ contains no
   $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$).
 
   \vspace{0.5em}
@@ -195,15 +195,15 @@
   contain no $\Sigma_1^{1,X}$-set since it contains no
   $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\subseteq X$. Then
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
-  $Y$ compute no path in $\mathcal{C}$ via $\Gamma_i$. Since $Y\supset
+  $Y$ compute no real in $\mathcal{C}$ via $\Gamma_i$. Since $Y\supset
   d_i$, the same is ensured via $\Gamma$. $\blacksquare$
 \end{frame}
 
-\begin{frame}{Set whose subsets cannot compute paths in $\mathcal{C}$}
+\begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$}
   \begin{main-thm*}[Monin, Patey, 2016]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
-    $X$ whose subsets cannot compute any path in $\mathcal{C}$.
+    $X$ whose subsets cannot compute any real in $\mathcal{C}$.
   \end{main-thm*}
 
   \vspace{1em}
@@ -224,7 +224,7 @@
   \end{fact}
   \textbf{Proof idea:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
   $\Sigma_1^1$-set of $2^\omega$, it can iteratively pick the first branch
-  that has a path, thereby computing the ``left-most'' path of the set.
+  that has a real, thereby computing the ``left-most'' real of the set.
   $\square$
 
   \vspace{1em}
@@ -252,10 +252,10 @@
   
   \vspace{1em}
   From the main theorem, there is an infinte set $X$ such that none of its
-  subsets can compute any path in $[T]$. Relativize the colouring $c$ with
+  subsets can compute any real in $[T]$. Relativize the colouring $c$ with
   respect to $X$ to get an infinite subset $Y\subseteq X$ that is
   $c$-homogeneous. So $Y$ is a $c$-homogeneous set that cannot compute
-  any path in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
+  any real in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
   $\blacksquare$
 \end{frame}
 
