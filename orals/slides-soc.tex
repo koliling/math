@@ -24,14 +24,13 @@
 
 \begin{frame}{Lebesgue measure}
   \begin{define*}[Outer, inner measure]
-    The \textbf{outer measure} of $\mathcal{A}\subseteq2^\omega$ is
-    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega} 2^{-|\sigma_n|}:
-    \mathcal{A}\subseteq \bigcup_{n\in\omega}
-    \llbracket\sigma_n\rrbracket\right\}.\]
+    $\mu(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$. The \textbf{outer
+    measure} of $\mathcal{A}\subseteq2^\omega$ is
+    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
+    \mu(\llbracket\sigma_n\rrbracket): \mathcal{A}\subseteq
+    \bigcup_{n\in\omega} \llbracket\sigma_n\rrbracket\right\}.\]
     Its \textbf{inner measure} is $\mu_*(\mathcal{A}):=
-    1-\mu^*(\bar{\mathcal{A}})$.\\
-    E.g. $\mu^*(\llbracket\sigma\rrbracket)
-    =\mu_*(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$.
+    1-\mu^*(\bar{\mathcal{A}})$.
   \end{define*}
 
   \begin{define*}[Lesbegue measure, null]
