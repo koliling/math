@@ -23,7 +23,7 @@
 \end{frame}
 
 \begin{frame}{Lebesgue measure}
-  \begin{define*}[Outer, inner measure]
+  \begin{define*}
     $\mu(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$. The \textbf{outer
     measure} of $\mathcal{A}\subseteq2^\omega$ is
     \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
@@ -33,7 +33,7 @@
     1-\mu^*(\bar{\mathcal{A}})$.
   \end{define*}
 
-  \begin{define*}[Lesbegue measure, null]
+  \begin{define*}
     $\mathcal{A}\subseteq2^\omega$ is \textbf{measurable} iff
     $\mu^*(\mathcal{A}) =\mu_*(\mathcal{A})$.  Then we say its
     \textbf{measure} is $\mu(\mathcal{A}) =\mu^*(\mathcal{A})
@@ -48,24 +48,25 @@
 \end{frame}
 
 \begin{frame}{1-random}
-  \begin{notation*}[Tree, real]
+  \begin{notation*}
     The set of \textbf{reals} $A\in\omega^\omega$ contained in a
     \textbf{tree} $T\subseteq\omega^{<\omega}$ is denoted by $\llbracket
     T\rrbracket:= \{A\in\omega^\omega: (\exists n)\; [A\restriction n \in
     T]\}$.
   \end{notation*}
 
-  \begin{define*}[Martin-Lof test of randomness]
+  \begin{define*}
     An effective enumeration of recursive trees $T_0,T_1,\ldots \subseteq
-    2^{<\omega}$ is a \textbf{Martin-Lof test} if
+    2^{<\omega}$ is a \textbf{Martin-Lof test} of randomness if
     $\mu(\llbracket T_n\rrbracket) \leq 2^{-n}$ for all $n\in\omega$.\\
     \vspace{0.5em}
-    A real $A\in2^\omega$ passes this test of randomness iff $A\not\in
+    A real $A\in2^\omega$ passes this randomness test iff $A\not\in
     \bigcup_{n\in\omega} \llbracket T_n\rrbracket$.
   \end{define*}
 
-  \begin{define*}[1-random]
-    $A\in2^\omega$ is \textbf{1-random} if it passes every Martin-Lof test.
+  \begin{define*}
+    $A\in2^\omega$ is \textbf{1-random} iff it passes every Martin-Lof
+    test.
   \end{define*}
 \end{frame}
 
@@ -88,14 +89,13 @@
     \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n} >0,\]
     contains a real.
   \end{thm*}
-  \begin{fact*}
+  \begin{fact}
     $T\subseteq2^{<\omega}$ is null if and only if the set of reals with
     infinitely many initial segments contained in $T$ is null.
-  \end{fact*}
-
-  \begin{coro*}
+  \end{fact}
+  \begin{coro}
     If a binary tree has positive measure, it contains a 1-random.
-  \end{coro*}
+  \end{coro}
 
   \textbf{WWKL asserts randomness.}
 \end{frame}
@@ -154,8 +154,8 @@
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
 ($\leq_{\text{soc}}$)}
-  \begin{define*}[Strongly Omnisciently Computably Reducible]
-    Problem \textbf{P} is \textit{soc}-reducible to problem \textbf{Q}
+  \begin{define*}
+    Problem \textbf{P} is \textbf{soc}-reducible to problem \textbf{Q}
     (written \textbf{P} $\leq_{\text{soc}}$ \textbf{Q}) if for every
     \textbf{P}-instance \textit{I}, there is a \textbf{Q}-instance
     \textit{J} such that every solution to \textit{J} computes a solution
