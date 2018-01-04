@@ -83,7 +83,7 @@
   compute any $c$-homogeneous set. $\blacksquare$
 \end{frame}
 
-\begin{frame}{RT $\nleq_{\text{soc}}$ WKL $\nleq_{\text{soc}}$ WWKL}
+\begin{frame}{Homogeneity is not weaker than Randomness}
   \begin{coro}[RT $\nleq_{\text{soc}}$ WWKL]
     $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
   \end{coro}
@@ -99,7 +99,7 @@
       \node (RT) [below left of=KL] {RT};
       \draw[->] (KL) -- (RT);
       \draw[->] (KL) -- (WWKL);
-      \draw [->,red] (RT) -- coordinate (m) (WWKL);
+      \draw [<-,red] (RT) -- coordinate (m) (WWKL);
       \draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
     \end{tikzpicture}
   \end{center}
