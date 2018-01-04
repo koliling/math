@@ -83,18 +83,24 @@
   compute any $c$-homogeneous set. $\blacksquare$
 \end{frame}
 
-\begin{frame}{RT $\nleq_{\text{soc}}$ WKL, WKL $\nleq_{\text{soc}}$ WWKL}
-  \begin{coro}
-    \label{coro:rt-wwkl}
-    RT $\nleq_{\text{soc}}$ WWKL.
+\begin{frame}{RT $\nleq_{\text{soc}}$ WKL $\nleq_{\text{soc}}$ WWKL}
+  \begin{coro}[RT $\nleq_{\text{soc}}$ WWKL]
+    $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
   \end{coro}
-  \textbf{Pf:} Follows from $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL.
-  $\blacksquare$
+  \begin{coro}[WKL $\nleq_{\text{soc}}$ WWKL]
+    RT $\leq_{soc}$ WKL, RT $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
+  \end{coro}
 
-  \vspace{2em}
-  \begin{coro}
-    WKL $\nleq_{\text{soc}}$ WWKL.
-  \end{coro}
-  \textbf{Pf:} Follows from transitivity of $\leq_\text{soc}$,
-  RT $\leq_{soc}$ WKL, and RT $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
+  \vspace{1em}
+  \begin{center}
+    \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+      \draw [->,red] (RT) -- coordinate (m) (WWKL);
+      \draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+    \end{tikzpicture}
+  \end{center}
 \end{frame}

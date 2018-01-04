@@ -244,28 +244,28 @@
     WWKL $\nleq_{\text{soc}}$ RT.
   \end{theorem}
 
-  Consider the tree $T\subset2^{<\omega}$ which is a set of Martin-Lof
+  \vspace{1em}
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof
   randoms relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is
   compact, has positive measure, and contains no $\Sigma_1^1$-subset
   ($\neq\emptyset$). Let $c:[\omega]^n\rightarrow k$ be an arbitrary
   $k$-coloring.
   
   \vspace{1em}
-  From the main theorem, there is an infinte set $X$ such that none of its
-  subsets can compute any real in $[T]$. Relativize the colouring $c$ with
+  From main theorem, there is an infinte set $X$ such that none of its
+  subsets can compute a real in $[T]$. Relativize the colouring $c$ with
   respect to $X$ to get an infinite subset $Y\subseteq X$ that is
-  $c$-homogeneous. So $Y$ is a $c$-homogeneous set that cannot compute
+  $c$-homogeneous. Then $Y$ is a $c$-homogeneous set that cannot compute
   any real in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
   $\blacksquare$
 \end{frame}
 
 \begin{frame}{Homogeneity ``independent from'' Randomness}
-  \begin{coro}
-    WKL $\nleq_{\text{soc}}$ RT.
+  \begin{coro}[WKL $\nleq_{\text{soc}}$ RT]
+    WWKL $\leq_{soc}$ WKL, WWKL $\nleq_{\text{soc}}$ RT. $\blacksquare$
   \end{coro}
-  \textbf{Pf:} Follows from transitivity of $\leq_\text{soc}$,
-  WWKL $\leq_{soc}$ WKL, and WWKL $\nleq_{\text{soc}}$ RT. $\blacksquare$
 
+  \vspace{2em}
   \begin{center}
     \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
       \node (KL) {KL$\leftrightarrow$WKL};
@@ -273,6 +273,8 @@
       \node (RT) [below left of=KL] {RT};
       \draw[->] (KL) -- (RT);
       \draw[->] (KL) -- (WWKL);
+      %\draw [<-,red] (RT) -- coordinate (m) (WWKL);
+      %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
     \end{tikzpicture}
   \end{center}
 \end{frame}
