@@ -1,4 +1,4 @@
-.PHONY: syllabus slides
+.PHONY: syllabus revision slides
 
 slides:
 	pdflatex slides.tex
@@ -9,6 +9,11 @@ syllabus:
 	pdflatex syllabus.tex
 	pdflatex syllabus.tex
 	pdflatex syllabus.tex
+
+revision:
+	pdflatex revision.tex
+	pdflatex revision.tex
+	pdflatex revision.tex
 
 clean:
 	rm *.aux
