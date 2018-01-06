@@ -1,0 +1,47 @@
+Deciphering proof of Godel’s second incompleteness theorem Godel’s
+second incompleteness theorem seem to be appear as a by-product of the
+methods used to formalize derivability. Given any sentence $\sigma$, let
+Dr($\sigma$) abbreviate the sentence that says ``$\sigma$ is derivable''.
+To formalize derivability, some of the natural questions to ask are:
+\begin{itemize}
+  \item If PA derives $\sigma$, then does it derive Dr($\sigma$)?
+  \item If PA derives Dr($\sigma$), then does it derive Dr(Dr($\sigma$))?
+  \item If PA derives Dr($\sigma_0\rightarrow\sigma_1$) and
+    Dr($\sigma_0$), then does it derive Dr($\sigma_1$)?
+\end{itemize}
+
+The answer to these three questions turn out to be yes. The three rules
+are called derivability conditions, and are used to formalize
+derivability.\\
+
+Godel’s second incompleteness theorem is proved by applying the
+derivability conditions on the sentence $\theta$ constructed in proving
+the fixed point lemma. Recall that $\theta$ says ``I am not
+derivable''. In technical terms, PA derives the sentence
+``$\theta\leftrightarrow\not\text{Dr}(\theta)$''.\\
+
+Let Con(PA) abbreviate the sentence that says PA is consistent. More
+precisely, Con(PA) is defined as $\not$Dr(0=1).\\
+
+Our final goal is to show that PA cannot derive Con(PA). We prove this
+by applying the derivability conditions on $\theta$.\\
+
+First, by applying the first derivability condition, we get $\theta$ is
+inconsistent: $\theta$ implies $\not\text{Dr}(\theta)$ from choice of
+$\theta$, yet also implies $\text{Dr}(\theta)$ from the first
+condition.\\
+
+Hence PA derives ``$\theta\rightarrow0=1$'', and by applying the third
+derivability condition on this sentence, we get PA derives
+``$\text{Dr}(\theta)\rightarrow\text{Dr}(0=1)$'',
+which is equivalent to ``Con(PA)$\rightarrow\not\text{Dr}(\theta)$''.
+Since $\not\text{Dr}(\theta)$ is the same as $\theta$ from our choice
+of $\theta$, and $\theta$ is inconsistent from earlier argument, we
+finally get ``Con(PA)$\rightarrow0=1$'', as desired.\\
+
+We can interpret the above proof of the second incompleteness theorem
+as a formalization of the following argument: Recall that the first
+incompleteness theorem says that if PA is consistent then it cannot
+prove $\theta$. But not proving $\theta$ is the same as proving theta,
+from the definition of theta. Hence if we show that PA is consistent
+then we get a contradiction. 

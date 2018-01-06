@@ -22,265 +22,29 @@
 
 \section{Arithmetical Hierarchy}
   \subsection{Computably Enumerable Degrees}
-    \begin{theorem}
-      What is the history behind simple sets?
-    \end{theorem}
-    \begin{proof}
-      Perhaps simple sets came about when people tried to construct
-      r.e. sets that are non-computable. 
-    \end{proof}
-
-    \begin{question}
-      Must the cap of every pair of r.e. degrees, if it exist, also be an
-      r.e. degree?
-    \end{question}
-    \begin{proof}
-    \end{proof}
-
-    \begin{theorem}
-      There are non c.e. degrees below $\emptyset'$.
-    \end{theorem}
-    \begin{proof}
-      Cooper Epstein-Lachlan theorem. Also, the 1-generics, from new Soare
-      E6.3.5iii, and the fact that there exists 1-generics below
-      $\emptyset'$. Finally, the 1-randoms too. By the Low Basis theorem,
-      applied to the universal Martin-Lof tree, there must be a 1-random
-      that is low. And 1-randoms cannot be c.e.
-    \end{proof}
-
-    \begin{theorem}
-      There are no minimal c.e. degrees.
-    \end{theorem}
-    \begin{proof}
-      Sack's Density theorem.
-    \end{proof}
-
-    \begin{question}
-      Do all non-minimal degrees have infinite incomparable degrees below
-      them? How about just finite?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+    \input{ce-degrees.tex}
 
   \subsection{Lattice $\mathcal{D}$}
-    \begin{question}
-      Where are the PA reals? Do the class of PA reals have measure 1?
-    \end{question}
-    \begin{proof}
-      They are probably everywhere. Intuitively you can $\emptyset'$-encode
-      any infinite set into some PA real, so it seems likely that the class
-      of PA reals have measure 1. Given arbitrary real $A\in2^\omega$, the
-      $\emptyset'$-encoding of $A$ into a PA real $P\in2^\omega$ can be
-      performed as follows. Since PA reals are incomplete, every such real
-      has infinite initial segments for which can branch both ways and
-      still get PA reals. At stage $s$, let $\emptyset'$ decide when the
-      first extension which branches both ways occur. Take the left branch
-      iff $A(s)=0$. \\
+    \input{lattice.tex}
 
-      By construction, $A$ is $(\emptyset'\oplus P)$-recursive. In
-      particular, the PA reals cannot be covered by any real $X$, for this
-      would imply that all reals are covered by $X\oplus\emptyset'$.\\
+  \subsection{Randoms}
+    \input{randomness.tex}
 
-      Furthermore, from new Soare Theorem 10.3.3.iii, the PA degrees are
-      exactly those that compute a 2-valued d.n.c. function. Since
-      $\emptyset'$ computes a d.n.c. function, every degree above
-      $\emptyset'$ contains a PA real. So PA reals are everywhere. Though
-      it is not clear the class of them must have measure 1.
-    \end{proof}
-
-    \begin{question}
-      If $\emptyset' \leq_T A\leq_T \emptyset'\oplus B$, does this imply
-      that $B\geq_T\emptyset'$?
-    \end{question}
-    \begin{proof}
-    \end{proof}
-
-    \begin{question}
-      What is the motivation for defining simple sets? How about
-      1-generics, or maximal sets?
-    \end{question}
-    \begin{proof}
-      Simple sets were defined to answer Post's question, which asks if
-      there exists a non-computable set below the jump. Perhaps 1-generics
-      were defined to construct sets through forcing the jump.
-    \end{proof}
-
-    \begin{theorem}
-      Make sense of fixed-point, and Arslanov's completeness criteria.
-    \end{theorem}
-    \begin{proof}
-      How do we interpret the proof of the fixed-point (recursion) theorem?
-      The theorem says given a recursive $f(e)$, there exists a function
-      indexed $n\in\omega$ such that $\varphi_n=\varphi_{f(n)}$.\\
-
-      The fixed-point theorem was proved because people failed to
-      diagonalize out of the partial-recursives. So assume by contradiction
-      we have a recursive $f$ with no fixed-point. We use shall $f$ to
-      construct a partial-recursive $g$ which diagonalizes out of all the
-      partial-recursives, i.e. $g(e)\neq\varphi_e(e)$ for all
-      $e\in\omega$.\\
-
-      Now $f$ has no fixed-point, so $\varphi_x\neq\varphi_{f(x)}$ for all
-      $x\in\omega$. In particular, $\varphi_{\varphi_e(e)} \neq
-      \varphi_{f(\varphi_e(e))}$ for all $e\in\omega$. Thus set $g(e)$ to
-      be an index of $\varphi_{f(\varphi_e(e))}$; this index must be
-      different from $\varphi_e(e)$. Also SMN-theorem gives us an effective
-      way of computing $g(e)$ since $f$ is partial-recursive. Thus $g$
-      diagonalizes out of the partial-recursives, yet it is
-      partial-recursive, a contradiction.\\
-
-      The second way of interpreting the proof of the fixed-point theorem
-      is as follows. The fixed-point $n$ that we find shall say
-      \begin{center}
-        \textit{``I am the $f$ of myself.''}
-      \end{center}
-
-      This makes sense since we want $\varphi_n$ to equal in some sense to
-      ``the $f$ of itself'' $\varphi_{f(n)}$. A function indexed by $e$ may
-      refer to itself using the function indexed $\varphi_e(e)$. So we are
-      looking for a function indexed $n=\varphi_v(v)$ for some $v$ such
-      that
-      $\varphi_v(v)=f(\varphi_v(v))$, i.e.
-      \[\varphi_n :=\varphi_{\varphi_v(v)} =\varphi_{f(\varphi_v(v))}.\]
-
-      So we consider the function indexed $v$ given by
-      \[\varphi_v(e) :=f(\varphi_e(e)),\]
-      and let $n=\varphi_v(v)$. Then we have
-      \[\varphi_{f(n)} =\varphi_{f(\varphi_v(v))} =\varphi_{\varphi_v(v)}
-      =\varphi_n\]
-      as desired. Thus completes the general idea of the proof of the
-      recursion theorem. \\
-
-      Using the recursion theorem, we can define functions `recursively' in
-      the sense that we can define a desired $g(x)$ in terms of itself. Say
-      we want $g(x)$ defined recursively as
-      \[g(x)=h(g(x),x)\]
-      for some recursive $h(x,y)$. To prove that such $g(x)$ exists,
-      define recursive $g'(e)$ such that
-      \[\varphi_{g'(e)}(x) :=h(\varphi_e(x),x).\]
-
-      Apply recursion theorem to get $n\in\omega$ such that
-      \[\varphi_n(x) =\varphi_{g'(n)}(x) =h(\varphi_n(x),x).\]
-      Such $\varphi_n(x)$ is the $g(x)$ we are looking for.
-    \end{proof}
-
-    \begin{theorem}
-      There exists a degree incomparable with $\emptyset'$.
-    \end{theorem}
-    \begin{proof}
-      From the paragraph after Soare's D5.6.1, the hyperimmune-free degrees
-      are exactly those that are incomparable with $\emptyset'$. Also
-      recall that a set is hyperimmune if and only if it is not computably
-      dominated. The construction of Soare T9.5.1 gives a noncomputable set
-      with a hyperimmune-free degree. \\
-
-      Alternatively, from new Soare E6.3.5iii, 1-generics cannot compute
-      $\emptyset'$. Then from E6.3.4, a nonlow 1-generic cannot be computed
-      by $\emptyset'$. Therefore nonlow 1-generics are imcomparable with
-      $\emptyset'$.
-    \end{proof}
-
-    \begin{question}
-      Given $A\leq_T B$, must there be a degree between them? I.e. Does
-      Sack's density theorem be generalized to degrees that are not
-      necessarily c.e.? How about infinite pairwise incomparable degrees
-      between $A$ and $B$?
-    \end{question}
-    \begin{proof}
-      Consider local and global degrees?
-    \end{proof}
-
-    \begin{question}
-      Given any non-recursive non-minimal degree, are there always infinite
-      pairwise incomparable degrees beneath it?
-    \end{question}
-    \begin{proof}
-    \end{proof}
-
-    \begin{question}
-      Is $\mathcal{D}$ a lattice? In particular, do any two Turing degrees
-      have a greatest lower bound?
-    \end{question}
-    \begin{proof}
-      No. Clearly the join of two given degrees give their lub. But from
-      Klenne-Post-Spector (old Soare VI.C4.4), there are degrees with no
-      greatest lower bound.
-    \end{proof}
-
-    \begin{question}
-      What do we know about the minimal degree below $\emptyset'$
-      constructed in Soare 13.1.1? In particular, is it low? Does it have a
-      c.e. degree?
-    \end{question}
-    \begin{proof}
-      From Soare 13.7.1 every non-computable c.e. degree computes a minimal
-      degree. In particular, minimal degrees can be low.
-    \end{proof}
-
-    \begin{question}
-      Does $\mathcal{D}_{\leq\emptyset'}$ have a maximal degree?
-    \end{question}
-    \begin{proof}
-      \OPEN{This is asking if $\emptyset'$ is a strong minimal cover of any
-      degree below it. We know there are degrees with strong minimal
-      covers, but we do not know if $\emptyset'$ is such a cover. Look up
-      Andrew Lewis \url{http://www.aemlewis.co.uk/pdf/SMCtssf.pdf} or
-      \url{https://projecteuclid.org/euclid.jsl/1183746187}.}
-    \end{proof}
-
-  \subsection{Randoms and Generics}
-    \begin{question}
-      Is there any relation between 1-random sets and 1-generic sets? I
-      suspect all 1-generics are 1-random, but the converse isn't true? Is
-      there a result similar to one for hyperimmune degrees, which says
-      that the hyperimmune degrees are exactly those that are comparable
-      with $\emptyset'$?
-    \end{question}
-    \begin{proof}
-    \end{proof}
-
-    \begin{question}
-      Is there a 1-random in every non-recursive degree? Is there a result
-      similar to one for hyperimmune degrees, which says that the
-      hyperimmune degrees are exactly those that are comparable with
-      $\emptyset'$?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+  \subsection{Generics}
+    \input{generics.tex}
 
 \section{Reverse Math}
   \subsection{Rich Sets}
-    \begin{question}
-      By Simpson all hyperarithmetical sets are rich, and by Soare a
-      poor set exists. Are there non-hyperarithmetical sets that are also
-      rich?
-    \end{question}
-    \begin{proof}
-      Yes. Consider the join $H\oplus P$ of a hyperarithmetical set $H$
-      with a poor set $P$. Given arbitrary $X$ that computes $H\oplus P$,
-      since $H$ is rich, it contains some subset $H_0\subset H$ that is
-      Turing equivalent to $X$. Then $H_0\oplus\emptyset$ witnesses the
-      richness of $H\oplus P$.
-    \end{proof}
+    \input{rich.tex}
 
   \subsection{Galvin-Prikry}
-    \begin{question}
-      Is Borel necessary for Galvin-Prikry to hold? In other words, is
-      there a weaker condition that will ensure we observe the structure of
-      Galvin-Prikry?
-    \end{question}
-    \begin{proof}
-      Probably not. Silver's result improved Galvin-Prikry but only in a
-      special case. There is a book with these results.
-    \end{proof}
+    \input{galvin-prikry.tex}
+
+\section{Set Theory}
+  \subsection{Godel's Second Incompleteness}
+    \input{godel-second.tex}
 
 \section{Philosophy}
   \subsection{Computability of Human Mind}
-    \begin{question}
-      What kind of ``computers'' are human brains? Can we ever figure out
-      the axioms of the universe? Or can we prove that we can never figure
-      out the axioms? Can we formulate these questions rigorously?
-    \end{question}
-    \begin{proof}
-    \end{proof}
+    \input{philosophy}
 \end{document}
