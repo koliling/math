@@ -1,0 +1,66 @@
+\begin{question}
+  What exactly is forcing?
+\end{question}
+\begin{proof}
+  Forcing is a technique of creating ZFC models from an existing countable
+  transitive model by appending to the model a new element and other elements
+  that are constructible from the new element. Forcing says that as long as
+  the new element satisfies certain loose conditions, the extended model will
+  satisfy ZFC.\\
+
+  Model extension is analogous to extending an existing field $R$ with an
+  object $x$ to get an extended field $R(x)$. To ensure $R(x)$ is still a
+  field, $R(x)$ must also include constructible elements such $x+1$,
+  $(x+1)/x^3$, and so on. Extending a model of ZFC however is not as easy
+  as extending a model of fields. The difficulty is due to the infinite
+  number of axioms to satisfy - we may un-satisfy a previously satisfied
+  axiom after adding a new element. Hence, forcing was developed to ensure
+  that the extended model preserves ZFC.\\
+
+  There are two ways to understand forcing. The first way is by following
+  Cohen's thoughts when he developed forcing: To create an extension model
+  from an existing countable transitive model $M$, Cohen adds to $M$ a
+  subset $G$ of a set $P\in M$ to get another countable transitive model
+  $M[G]$. Forcing says that $P$ and $G$ only need satisfy very loose
+  conditions to ensure that $M[G]$ is also a model of ZFC. \\
+
+  So how do we define $M[G]$ given $M$ and $G$?
+  $M[G]$ should extend $M$, include $G$, and also include all sets that are
+  constructible from $G$. Is there a natural definition of $M[G]$ that
+  would satisfy all these conditions? From Bell's argument mentioned
+  earlier, we cannot define $M[G]$ as the class of elements constructible
+  from $M$ and $G$, because this class may not satisfy ZFC. Hence Cohen
+  explored a new way of defining $M[G]$, through exploiting $M$'s existing
+  ZFC ``structure'', where any set $A\in M$ is associated with a class of
+  ZFC extensions of $A$ which are $A$'s union sets, pairing sets,
+  comprehension sets, replacement sets, and powerset. Similarly, $M[G]$
+  should include $G$ and all its ZFC extensions. Hence, to define $M[G]$,
+  Cohen first designed a function from $M$ to $M[G]$ that preserves the ZFC
+  functions of union, pairing, comprehension, and replacement. More
+  precisely, this function $f$ maps the union of $A$ to the union of
+  $f(A)$, the pairing of $A$ and $B$ to the pairing of $f(A)$ and $f(B)$,
+  and so on. Since $f$ preserves ZFC functions, if it also includes $G$ and
+  all elements of $M$ in its range, then its range is likely to be a model
+  of ZFC.  Hence, Cohen set $M[G]$ to be the range of $f$, and proved that
+  $M[G]$ would be a ZFC extension of $M$.\\
+
+  To preserve ZFC functions, it is natural to design the function $f$
+  recursively, as follows:
+  \begin{itemize}
+    \item Map $\emptyset$ to $\emptyset$
+    \item Map $\{s_0,s_1,\ldots\}$ to $\{f(g(s_0)),f(g(s_1)),\ldots)\}$
+  \end{itemize}
+
+  The question left unanswered is how should we define function $g$ such
+  that $f$ contains $G$ and all of $M$ in its range and preserves all ZFC
+  functions. To satisfy these two conditions, Cohen set $g$ to be defined
+  only on ordered pairs $\langle a,b\rangle$ where $b\in G$, and mapped
+  $\langle a,b\rangle$ to $a$. Cohen easily verified that this definition
+  satisfies the first condition but only partially satisfies the second.
+  Specifically, $f$ may not preserve more complex ZFC functions such as the
+  power function. Hence, Cohen searched for additional constraints on $G$
+  that will resolve this issue. The constraints turned out to very loose,
+  yet tedious to verify how they helped $f$ preserve the power function.
+  Very roughly speaking, in order for $f$ to preserve the power function,
+  we need to find for any set $s\in M$
+\end{proof}

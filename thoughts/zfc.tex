@@ -1,0 +1,32 @@
+\begin{question}
+  Why can't we extend a model of ZFC easily?
+\end{question}
+\begin{proof}
+  To extend a model of fields, we can simply append an element and all other
+  constructible elements to the original model and still get a model of
+  Fields. For example, we can extend to $R$ an object $x$ and other
+  elements such as $x+1$, $(x+6)/x^4$, etc to get a larger field $R(x)$.\\
+
+  Can we do the same for ZFC? Intuitively, if we started out with a countable
+  model, it seems like we can. We can enumerate all the axioms of ZFC and
+  elements in the model and add elements for as long as they are missing,
+  repeating the entire process omega number of times. Since the axioms of ZFC
+  are always asking for the existence of sets instead of the non-existence of
+  them, at first glance we will not be negating any previously satisfied
+  axioms on a given set. For example, ZFC asks for the existence of pairings,
+  unions, powersets, comprehension, and replacement sets, and never speaks of
+  the non-existence of sets. Hence, by repeatedly adding sets, it seems we
+  should be getting closer and closer to satisfying the whole of ZFC. Upon
+  closer inspection however, by adding new sets, we might unintentionally
+  negate previously satisfied axioms. For example, after ensuring a set has a
+  powerset, we might add new subset of the set from comprehension, which
+  would negate the previously satisfied powerset.\\
+
+  Hence, extending a model of ZFC is not as straightforward as it seems. In
+  fact, Cohen confirms that appending any set and all sets constructible from
+  it does not necessarily give a model of ZFC. He explains that we could
+  intentionally choose a set that contains information on the size of the
+  original model, such that by appending this set, we get a self-referential
+  paradox (Set Theory and the Continuum Hypothesis, Paul J. Cohen, Page 111,
+  Addison-Wesley, 1966).
+\end{proof}
