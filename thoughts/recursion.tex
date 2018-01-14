@@ -68,34 +68,36 @@
   A\times B$, i.e.
   \[x\in W_e \Leftrightarrow \alpha_e(x)\in A \wedge \beta_e(x)\in B.\]
 
-  Define $G_e:=\beta_e^{-1}(B)$. Note that $G_e$ is c.e. since $B$ is. Let
-  $D_e\subseteq G_e$ define the ``encoding'' of $H$ in $G_e$, in the sense
-  that $D_e$ contains exactly the $H$-th elements of $G_e$, i.e.
-  enumerating $G_e = x_0,x_1,\ldots$, define
+  Define $G_e:=\beta_e^{-1}(B)$. Now $G_e$ is c.e. since $B$ is, so let
+  $x_0,x_1,\ldots$ be an enumeration of its elements. Then let
+  $D_e\subseteq G_e$ be the ``encoding'' of $H$ in $G_e$, in the sense that
+  $D_e$ contains exactly the $H$-th elements of $G_e$, i.e.
   \[D_e :=\{x_h\in G_e: h\in H\}.\]
 
-  Assuming $G_e$ is infinite, the recursive function sending $h$ to
-  $x_h$ will witness $H\leq_1G_e$. Now the indices for $\alpha_e$,
-  $\beta_e$, $G_e$, and $D_e$ can be obtained uniformly in $e$ since
-  $H\leq_m A\times B$. Thus by the fixed-point lemma, $D_e=W_e$ for some
-  $e\in\omega$. Then the recursive function sending $h$ to $\alpha_e(x_h)$
-  witnesses $H\leq_1 G_e\leq_m A$.\\
+  Now the indices for $\alpha_e$, $\beta_e$, $G_e$, and $D_e$ can be
+  obtained uniformly in $e$ since $H\leq_m A\times B$. Thus by the
+  fixed-point lemma, $D_e=W_e$ for some $e\in\omega$. Then the recursive
+  function sending $h$ to $\alpha_e(x_h)$ witnesses $H\leq_m A$. But this
+  strategy of constructing $D_e$ as the set of $H$-th elements of $G_e$
+  will not work if $G_e$ is finite, because we will not be able to pick out
+  its $H$-th elements.\\
 
-  Thus the strategy of constructing $D_e$ as the set of $H$-th elements of
-  $G_e$ will give $H\leq_m A$, but that is provided $G_e$ has infinite
-  elements. To account for the situation where $G_e$ is finite, we
-  simultaneously play a second strategy that will gives us $H\leq_m B$: At
-  stages when $H$ enumerates a new element $h$ but $G_e$ doesn't yet have
-  a $h$-th element to put into $D_e$, we put $h$ into $D_e$ instead.
-  This way, should $G_e$ turn out to be finite, then $W_e=D_e=^*H$, where
-  the first equality follows from the fixed-point lemma. 
-  \\
+  To prepare for such a situation, we simultaneously play a second strategy
+  that will gives us $H\leq_m B$: At stages when $H$ enumerates a new
+  element $h$ but $G_e$ doesn't yet have a $h$-th element to put into
+  $D_e$, we put instead $h$ into $D_e$. This way, should $G_e$ turn out to
+  be finite, then $W_e=D_e=^*H$, where the first equality follows from the
+  fixed-point lemma. Then since $G_e:=\beta_e^{-1}(B)$ is finite,
+  $G_e\cap \alpha_e^{-1}(\bar{A})$ is also finite. So modulo a finite
+  number of elements, $\beta_e$ will witness $H=^*W_e\leq_m B$.\\
 
   To ensure that the second strategy of putting $h$ into $D_e$ will not
-  mess up the first strategy of allowing only the $h$-th element of $G_e$
-  into $D_e$ if $h\in H$, we make sure that when we are constructing $G_e$,
-  we reserve the position as the $h$-th element for $h$ only, i.e. make
-  sure $h=x_h$.\\
+  mess up the first strategy of allowing the $h$-th element of $G_e$ into
+  $D_e$ only if $h\in H$, we make sure that when we are constructing $G_e$,
+  the position of its $h$-th element is reserved for $h$ only, i.e. make
+  sure $h=x_h$. So eventually when $G_e$ has grown up to containing
+  $x_{h-1}$, we do not put new elements into $G_e$ unless the new element
+  is $h$.\\
 
   We construct $G_e$ and $D_e$ with the above described properties. Start
   with $G_{e,0}=D_{e,0}=\emptyset$, and fix an enumeration $h_0,h_1,\ldots$
