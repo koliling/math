@@ -1,71 +1,71 @@
+%\begin{theorem}
+%  Make sense of fixed-point, and Arslanov's completeness criteria.
+%\end{theorem}
+%\begin{proof}
+%  How do we interpret the proof of the fixed-point (recursion) theorem?
+%  The theorem says given a recursive $f(e)$, there exists a function
+%  indexed $n\in\omega$ such that $\varphi_n=\varphi_{f(n)}$.\\
+%
+%  The fixed-point theorem was proved because people failed to
+%  diagonalize out of the partial-recursives. So assume by contradiction
+%  we have a recursive $f$ with no fixed-point. We use shall $f$ to
+%  construct a partial-recursive $g$ which diagonalizes out of all the
+%  partial-recursives, i.e. $g(e)\neq\varphi_e(e)$ for all
+%  $e\in\omega$.\\
+%
+%  Now $f$ has no fixed-point, so $\varphi_x\neq\varphi_{f(x)}$ for all
+%  $x\in\omega$. In particular, $\varphi_{\varphi_e(e)} \neq
+%  \varphi_{f(\varphi_e(e))}$ for all $e\in\omega$. Thus set $g(e)$ to
+%  be an index of $\varphi_{f(\varphi_e(e))}$; this index must be
+%  different from $\varphi_e(e)$. Also SMN-theorem gives us an effective
+%  way of computing $g(e)$ since $f$ is partial-recursive. Thus $g$
+%  diagonalizes out of the partial-recursives, yet it is
+%  partial-recursive, a contradiction.\\
+%
+%  The second way of interpreting the proof of the fixed-point theorem
+%  is as follows. The fixed-point $n$ that we find shall say
+%  \begin{center}
+%    \textit{``I am the $f$ of myself.''}
+%  \end{center}
+%
+%  This makes sense since we want $\varphi_n$ to equal in some sense to
+%  ``the $f$ of itself'' $\varphi_{f(n)}$. A function indexed by $e$ may
+%  refer to itself using the function indexed $\varphi_e(e)$. So we are
+%  looking for a function indexed $n=\varphi_v(v)$ for some $v$ such
+%  that
+%  $\varphi_v(v)=f(\varphi_v(v))$, i.e.
+%  \[\varphi_n :=\varphi_{\varphi_v(v)} =\varphi_{f(\varphi_v(v))}.\]
+%
+%  So we consider the function indexed $v$ given by
+%  \[\varphi_v(e) :=f(\varphi_e(e)),\]
+%  and let $n=\varphi_v(v)$. Then we have
+%  \[\varphi_{f(n)} =\varphi_{f(\varphi_v(v))} =\varphi_{\varphi_v(v)}
+%  =\varphi_n\]
+%  as desired. Thus completes the general idea of the proof of the
+%  recursion theorem. \\
+%
+%  Using the recursion theorem, we can define functions `recursively' in
+%  the sense that we can define a desired $g(x)$ in terms of itself. Say
+%  we want $g(x)$ defined recursively as
+%  \[g(x)=h(g(x),x)\]
+%  for some recursive $h(x,y)$. To prove that such $g(x)$ exists,
+%  define recursive $g'(e)$ such that
+%  \[\varphi_{g'(e)}(x) :=h(\varphi_e(x),x).\]
+%
+%  Apply recursion theorem to get $n\in\omega$ such that
+%  \[\varphi_n(x) =\varphi_{g'(n)}(x) =h(\varphi_n(x),x).\]
+%  Such $\varphi_n(x)$ is the $g(x)$ we are looking for.
+%\end{proof}
+
 \begin{theorem}
-  Make sense of fixed-point, and Arslanov's completeness criteria.
+  (Lachlan) If the halting set $H:=\{\langle e,x\rangle: x\in W_e\}$ is
+  many-one-reducible to $A\times B$, where $B$ is a c.e. set, then it is
+  also many-one-reducible to either $A$ or to $B$.
 \end{theorem}
 \begin{proof}
-  How do we interpret the proof of the fixed-point (recursion) theorem?
-  The theorem says given a recursive $f(e)$, there exists a function
-  indexed $n\in\omega$ such that $\varphi_n=\varphi_{f(n)}$.\\
-
-  The fixed-point theorem was proved because people failed to
-  diagonalize out of the partial-recursives. So assume by contradiction
-  we have a recursive $f$ with no fixed-point. We use shall $f$ to
-  construct a partial-recursive $g$ which diagonalizes out of all the
-  partial-recursives, i.e. $g(e)\neq\varphi_e(e)$ for all
-  $e\in\omega$.\\
-
-  Now $f$ has no fixed-point, so $\varphi_x\neq\varphi_{f(x)}$ for all
-  $x\in\omega$. In particular, $\varphi_{\varphi_e(e)} \neq
-  \varphi_{f(\varphi_e(e))}$ for all $e\in\omega$. Thus set $g(e)$ to
-  be an index of $\varphi_{f(\varphi_e(e))}$; this index must be
-  different from $\varphi_e(e)$. Also SMN-theorem gives us an effective
-  way of computing $g(e)$ since $f$ is partial-recursive. Thus $g$
-  diagonalizes out of the partial-recursives, yet it is
-  partial-recursive, a contradiction.\\
-
-  The second way of interpreting the proof of the fixed-point theorem
-  is as follows. The fixed-point $n$ that we find shall say
-  \begin{center}
-    \textit{``I am the $f$ of myself.''}
-  \end{center}
-
-  This makes sense since we want $\varphi_n$ to equal in some sense to
-  ``the $f$ of itself'' $\varphi_{f(n)}$. A function indexed by $e$ may
-  refer to itself using the function indexed $\varphi_e(e)$. So we are
-  looking for a function indexed $n=\varphi_v(v)$ for some $v$ such
-  that
-  $\varphi_v(v)=f(\varphi_v(v))$, i.e.
-  \[\varphi_n :=\varphi_{\varphi_v(v)} =\varphi_{f(\varphi_v(v))}.\]
-
-  So we consider the function indexed $v$ given by
-  \[\varphi_v(e) :=f(\varphi_e(e)),\]
-  and let $n=\varphi_v(v)$. Then we have
-  \[\varphi_{f(n)} =\varphi_{f(\varphi_v(v))} =\varphi_{\varphi_v(v)}
-  =\varphi_n\]
-  as desired. Thus completes the general idea of the proof of the
-  recursion theorem. \\
-
-  Using the recursion theorem, we can define functions `recursively' in
-  the sense that we can define a desired $g(x)$ in terms of itself. Say
-  we want $g(x)$ defined recursively as
-  \[g(x)=h(g(x),x)\]
-  for some recursive $h(x,y)$. To prove that such $g(x)$ exists,
-  define recursive $g'(e)$ such that
-  \[\varphi_{g'(e)}(x) :=h(\varphi_e(x),x).\]
-
-  Apply recursion theorem to get $n\in\omega$ such that
-  \[\varphi_n(x) =\varphi_{g'(n)}(x) =h(\varphi_n(x),x).\]
-  Such $\varphi_n(x)$ is the $g(x)$ we are looking for.
-\end{proof}
-
-\begin{theorem}
-  (Lachlan) If the halting set $H$ is many-one-reducible to $A\times B$,
-  where $B$ is a c.e. set, then it is also many-one-reducible to either $A$
-  or to $B$.
-\end{theorem}
-\begin{proof}
-  Let $\alpha_e:\omega \rightarrow\omega$ and $\beta_e:\omega
-  \rightarrow\omega$ be recursive functions witnessing $W_e\leq_m H\leq_m
-  A\times B$, i.e.
+  For each $e\in\omega$, let $\alpha_e:\omega \rightarrow\omega$ and
+  $\beta_e:\omega \rightarrow\omega$ be recursive functions witnessing
+  $W_e\leq_m H\leq_m A\times B$, i.e.
   \[x\in W_e \Leftrightarrow \alpha_e(x)\in A \wedge \beta_e(x)\in B.\]
 
   Define $G_e:=\beta_e^{-1}(B)$. Now $G_e$ is c.e. since $B$ is, so let
@@ -84,7 +84,7 @@
 
   To prepare for such a situation, we simultaneously play a second strategy
   that will gives us $H\leq_m B$: At stages when $H$ enumerates a new
-  element $h$ but $G_e$ doesn't yet have a $h$-th element to put into
+  element $h$ but $G_e$ doesn't have a $h$-th element to be put into
   $D_e$, we put instead $h$ into $D_e$. This way, should $G_e$ turn out to
   be finite, then $W_e=D_e=^*H$, where the first equality follows from the
   fixed-point lemma. Then since $G_e:=\beta_e^{-1}(B)$ is finite,
@@ -92,32 +92,43 @@
   number of elements, $\beta_e$ will witness $H=^*W_e\leq_m B$.\\
 
   To ensure that the second strategy of putting $h$ into $D_e$ will not
-  destroy the first strategy of allowing the $h$-th element of $G_e$ into
-  $D_e$ only if $h\in H$, we make sure that when we are constructing $G_e$,
-  the position of its $h$-th element is reserved for $h$ only, so that
-  $x_h=h$: When $G_e$ has grown up to containing $x_{h-1}$, we do not put
-  new elements into $G_e$ unless the new element is $h$.\\
+  destroy the first strategy of $x_h\in D_e \Leftrightarrow h\in H$, we
+  make sure that when we are constructing $G_e$, and $h$ entered $D_e$ from
+  the second strategy, the position of its $h$-th element is reserved for
+  $h$ only, so that $x_h=h$: When $G_e$ has grown up to containing
+  $x_{h-1}$, we do not put new elements into $G_e$ unless the new element
+  is $h$. In addition, we also check that for each $h\in H$, if $x_h$
+  already exists in $G_e$, we put it into $D_e$.\\
 
   We construct $G_e$ and $D_e$ with the above described properties. Start
-  with $G_{e,0}=D_{e,0}=\emptyset$, and fix an enumeration $h_0,h_1,\ldots$
-  of $H$. To ensure the second strategy does not destroy the first, we also
-  maintain a list of indices $I_s=\emptyset\subseteq H_s$ to keep track of
-  the $h$-values that we have put into $D_e$ by the second strategy.\\
+  with $G_{e,0}=D_{e,0}=\emptyset$, and fix an one-to-one enumeration
+  $h_0,h_1,\ldots$ of $H$. To ensure the second strategy does not destroy
+  the first, we also maintain a list of indices $I_s=\emptyset\subseteq
+  H_s$ to keep track of the $h$-values that we have put into $D_e$ by the
+  second strategy.\\
 
   At stage $s+1$, we want to put the $h_s$-th element of $G_e$ into $D_e$.
-  Writing $G_{e,s}=x_0,\ldots,x_{n-1}$, if $|G_{e,s}|>h_s$, we play the
-  first stragety of setting $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$.  However
-  if $|G_{e,s}|\leq h_s$, we play the second strategy and set $D_{e,s+1}
+  Writing $G_{e,s}=x_0,\ldots,x_{n-1}$, if $n>h_s$, we play the first
+  strategy of setting $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$. However if
+  $|G_{e,s}|\leq h_s$, we play the second strategy and set $D_{e,s+1}
   =D_{e,s} \cup \{h_s\}$.\\
 
-  Now we consider defining $x_{n}$ in a way that ensures the second
-  stragety does not destroy the first. Let $I=D_{e,s+1} \cap
-  (H_s-G_{e,s})$, which are the set of $h$-values that have been put into
-  $D_e$ by the second strategy, but for which we have not yet seen $x_h=h$.
-  Let $C$ be the set of elements that has been enumerated into
-  $\beta_e^{-1}(B)$ so far, and which have not entered $G_e$ yet. If $n\in
-  I$, and $n$ lies in $C$, set $G_{e,s+1}=G_{e,s}\cup\{n\}$. If $n\in I$,
-  but $n\not\in C$, set $G_{e,s+1}=G_{e,s}$. If $n\not\in I$ and $C-I$ is
-  non-empty, pick the first element in the set and put it into $G_e$.
-  Finally if $n\not\in I$ and $C-I=\emptyset$, set $G_{e,s+1}=G_{e,s}$.
+  Now we define $x_{n}$ in a way that ensures the second strategy does not
+  destroy the first. If $n\in H_s$ and $n$ has entered $D_e$ earlier by the
+  second strategy, and $n$ has not been enumerated into $G_e$, we need to
+  ensure $x_n=n$. So if $n$ has been enumerated into $\beta_e^{-1}(B)$, put
+  enumerate it into $G_e$. Otherwise do nothing and go to the next stage.
+  On the other hand, if $n$ entered $D_e$ by the second strategy but $n$
+  was also previously enumerated into $G_e$, 
+  
+  
+  Let $I:=D_{e,s+1} \cap (H_s-G_{e,s})$, which are the
+  set of $h$-values that have been put into $D_e$ by the second strategy,
+  but for which we have not yet ensured $x_h=h$. Let $C$ be the set of
+  elements that has been enumerated into $\beta_e^{-1}(B)$ so far, and
+  which have not yet entered $G_e$. If $n\in I$, and $n$ lies in $C$, set
+  $G_{e,s+1}=G_{e,s}\cup\{n\}$. If $n\in I$, but $n\not\in C$, set
+  $G_{e,s+1}=G_{e,s}$. If $n\not\in I$ and $C-I$ is non-empty, pick the
+  first element in the set and put it into $G_e$.  Finally if $n\not\in I$
+  and $C-I=\emptyset$, set $G_{e,s+1}=G_{e,s}$.
 \end{proof}
