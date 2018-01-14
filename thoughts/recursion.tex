@@ -79,5 +79,30 @@
   $\beta_e$, $G_e$, and $D_e$ can be obtained uniformly in $e$ since
   $H\leq_m A\times B$. Thus by the fixed-point lemma, $D_e=W_e$ for some
   $e\in\omega$. Then the recursive function sending $h$ to $\alpha_e(x_h)$
-  will witness $H\leq_1 G_e\leq_m A$.
+  witnesses $H\leq_1 G_e\leq_m A$.\\
+
+  Thus the strategy of constructing $D_e$ as the set of $H$-th elements of
+  $G_e$ will give $H\leq_m A$, but that is provided $G_e$ has infinite
+  elements. To account for the situation where $G_e$ is finite, we
+  simultaneously play a second strategy that will gives us $H\leq_m B$: At
+  stages when $H$ enumerates a new element $h$ but $G_e$ doesn't yet have
+  a $h$-th element to put into $D_e$, we put $h$ into $D_e$ instead.
+  This way, should $G_e$ turn out to be finite, then $W_e=D_e=^*H$, where
+  the first equality follows from the fixed-point lemma. 
+  \\
+
+  To ensure that the second strategy of putting $h$ into $D_e$ will not
+  mess up the first strategy of allowing only the $h$-th element of $G_e$
+  into $D_e$ if $h\in H$, we make sure that when we are constructing $G_e$,
+  we reserve the position as the $h$-th element for $h$ only, i.e. make
+  sure $h=x_h$.\\
+
+  We construct $G_e$ and $D_e$ with the above described properties. Start
+  with $G_{e,0}=D_{e,0}=\emptyset$, and fix an enumeration $h_0,h_1,\ldots$
+  of $H$. At stage $s+1$, we want to put the $h_s$-th element of $G_e$
+  into $D_e$. So writing $G_{e,s}=x_0,\ldots,x_n$, if $|G_{e,s}|>h_s$, set
+  $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$. However if $|G_{e,s}|\leq h_s$, we
+  play the second strategy and set $D_{e,s+1} =D_{e,s} \cup \{h_s\}$.\\
+
+  Now we put new elements
 \end{proof}
