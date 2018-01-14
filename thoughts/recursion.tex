@@ -97,7 +97,10 @@
   the second strategy, we set $x_h=h$: When $G_e$ has grown up to
   containing $x_{h-1}$, we do not put new elements into $G_e$ unless it is
   $h$. In addition, we also need to check that for each $h\in H$, if $x_h$
-  already exists in $G_e$, we put it into $D_e$.\\
+  already exists in $G_e$, we put it into $D_e$. Note that we will since
+  $D_e=W_e\subseteq\beta_e^{-1}(B)$ and $h\in D_e$, eventually $h$ will be
+  enumerated into $G_e=\beta_e^{-1}(B)$, so we will not need to wait
+  forever for $x_h=h$. \\
 
   Thus in the construction, apart from keeping track of $G_e$ and $D_e$, we
   also maintain a list $I$ containing the $h$-values that entered $D_e$ by
