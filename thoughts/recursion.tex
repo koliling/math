@@ -92,19 +92,32 @@
   number of elements, $\beta_e$ will witness $H=^*W_e\leq_m B$.\\
 
   To ensure that the second strategy of putting $h$ into $D_e$ will not
-  mess up the first strategy of allowing the $h$-th element of $G_e$ into
+  destroy the first strategy of allowing the $h$-th element of $G_e$ into
   $D_e$ only if $h\in H$, we make sure that when we are constructing $G_e$,
-  the position of its $h$-th element is reserved for $h$ only, i.e. want
-  $x_h=h$. So eventually when $G_e$ has grown up to containing $x_{h-1}$,
-  we do not put new elements into $G_e$ unless the new element is $h$.\\
+  the position of its $h$-th element is reserved for $h$ only, so that
+  $x_h=h$: When $G_e$ has grown up to containing $x_{h-1}$, we do not put
+  new elements into $G_e$ unless the new element is $h$.\\
 
   We construct $G_e$ and $D_e$ with the above described properties. Start
   with $G_{e,0}=D_{e,0}=\emptyset$, and fix an enumeration $h_0,h_1,\ldots$
-  of $H$. At stage $s+1$, we want to put the $h_s$-th element of $G_e$ into
-  $D_e$. So writing $G_{e,s}=x_0,\ldots,x_n$, if $|G_{e,s}|>h_s$, we play
-  the first stragety of setting $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$.
-  However if $|G_{e,s}|\leq h_s$, we play the second strategy and set
-  $D_{e,s+1} =D_{e,s} \cup \{h_s\}$.\\
+  of $H$. To ensure the second strategy does not destroy the first, we also
+  maintain a list of indices $I_s=\emptyset\subseteq H_s$ to keep track of
+  the $h$-values that we have put into $D_e$ by the second strategy.\\
 
-  Now we consider how to 
+  At stage $s+1$, we want to put the $h_s$-th element of $G_e$ into $D_e$.
+  Writing $G_{e,s}=x_0,\ldots,x_{n-1}$, if $|G_{e,s}|>h_s$, we play the
+  first stragety of setting $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$.  However
+  if $|G_{e,s}|\leq h_s$, we play the second strategy and set $D_{e,s+1}
+  =D_{e,s} \cup \{h_s\}$.\\
+
+  Now we consider defining $x_{n}$ in a way that ensures the second
+  stragety does not destroy the first. Let $I=D_{e,s+1} \cap
+  (H_s-G_{e,s})$, which are the set of $h$-values that have been put into
+  $D_e$ by the second strategy, but for which we have not yet seen $x_h=h$.
+  Let $C$ be the set of elements that has been enumerated into
+  $\beta_e^{-1}(B)$ so far, and which have not entered $G_e$ yet. If $n\in
+  I$, and $n$ lies in $C$, set $G_{e,s+1}=G_{e,s}\cup\{n\}$. If $n\in I$,
+  but $n\not\in C$, set $G_{e,s+1}=G_{e,s}$. If $n\not\in I$ and $C-I$ is
+  non-empty, pick the first element in the set and put it into $G_e$.
+  Finally if $n\not\in I$ and $C-I=\emptyset$, set $G_{e,s+1}=G_{e,s}$.
 \end{proof}
