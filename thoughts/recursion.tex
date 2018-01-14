@@ -94,17 +94,17 @@
   To ensure that the second strategy of putting $h$ into $D_e$ will not
   mess up the first strategy of allowing the $h$-th element of $G_e$ into
   $D_e$ only if $h\in H$, we make sure that when we are constructing $G_e$,
-  the position of its $h$-th element is reserved for $h$ only, i.e. make
-  sure $h=x_h$. So eventually when $G_e$ has grown up to containing
-  $x_{h-1}$, we do not put new elements into $G_e$ unless the new element
-  is $h$.\\
+  the position of its $h$-th element is reserved for $h$ only, i.e. want
+  $x_h=h$. So eventually when $G_e$ has grown up to containing $x_{h-1}$,
+  we do not put new elements into $G_e$ unless the new element is $h$.\\
 
   We construct $G_e$ and $D_e$ with the above described properties. Start
   with $G_{e,0}=D_{e,0}=\emptyset$, and fix an enumeration $h_0,h_1,\ldots$
-  of $H$. At stage $s+1$, we want to put the $h_s$-th element of $G_e$
-  into $D_e$. So writing $G_{e,s}=x_0,\ldots,x_n$, if $|G_{e,s}|>h_s$, set
-  $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$. However if $|G_{e,s}|\leq h_s$, we
-  play the second strategy and set $D_{e,s+1} =D_{e,s} \cup \{h_s\}$.\\
+  of $H$. At stage $s+1$, we want to put the $h_s$-th element of $G_e$ into
+  $D_e$. So writing $G_{e,s}=x_0,\ldots,x_n$, if $|G_{e,s}|>h_s$, we play
+  the first stragety of setting $D_{e,s+1} =D_{e,s} \cup \{x_{h_s}\}$.
+  However if $|G_{e,s}|\leq h_s$, we play the second strategy and set
+  $D_{e,s+1} =D_{e,s} \cup \{h_s\}$.\\
 
-  Now we put new elements
+  Now we consider how to 
 \end{proof}
