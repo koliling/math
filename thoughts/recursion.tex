@@ -1,61 +1,61 @@
-%\begin{theorem}
-%  Make sense of fixed-point, and Arslanov's completeness criteria.
-%\end{theorem}
-%\begin{proof}
-%  How do we interpret the proof of the fixed-point (recursion) theorem?
-%  The theorem says given a recursive $f(e)$, there exists a function
-%  indexed $n\in\omega$ such that $\varphi_n=\varphi_{f(n)}$.\\
-%
-%  The fixed-point theorem was proved because people failed to
-%  diagonalize out of the partial-recursives. So assume by contradiction
-%  we have a recursive $f$ with no fixed-point. We use shall $f$ to
-%  construct a partial-recursive $g$ which diagonalizes out of all the
-%  partial-recursives, i.e. $g(e)\neq\varphi_e(e)$ for all
-%  $e\in\omega$.\\
-%
-%  Now $f$ has no fixed-point, so $\varphi_x\neq\varphi_{f(x)}$ for all
-%  $x\in\omega$. In particular, $\varphi_{\varphi_e(e)} \neq
-%  \varphi_{f(\varphi_e(e))}$ for all $e\in\omega$. Thus set $g(e)$ to
-%  be an index of $\varphi_{f(\varphi_e(e))}$; this index must be
-%  different from $\varphi_e(e)$. Also SMN-theorem gives us an effective
-%  way of computing $g(e)$ since $f$ is partial-recursive. Thus $g$
-%  diagonalizes out of the partial-recursives, yet it is
-%  partial-recursive, a contradiction.\\
-%
-%  The second way of interpreting the proof of the fixed-point theorem
-%  is as follows. The fixed-point $n$ that we find shall say
-%  \begin{center}
-%    \textit{``I am the $f$ of myself.''}
-%  \end{center}
-%
-%  This makes sense since we want $\varphi_n$ to equal in some sense to
-%  ``the $f$ of itself'' $\varphi_{f(n)}$. A function indexed by $e$ may
-%  refer to itself using the function indexed $\varphi_e(e)$. So we are
-%  looking for a function indexed $n=\varphi_v(v)$ for some $v$ such
-%  that
-%  $\varphi_v(v)=f(\varphi_v(v))$, i.e.
-%  \[\varphi_n :=\varphi_{\varphi_v(v)} =\varphi_{f(\varphi_v(v))}.\]
-%
-%  So we consider the function indexed $v$ given by
-%  \[\varphi_v(e) :=f(\varphi_e(e)),\]
-%  and let $n=\varphi_v(v)$. Then we have
-%  \[\varphi_{f(n)} =\varphi_{f(\varphi_v(v))} =\varphi_{\varphi_v(v)}
-%  =\varphi_n\]
-%  as desired. Thus completes the general idea of the proof of the
-%  recursion theorem. \\
-%
-%  Using the recursion theorem, we can define functions `recursively' in
-%  the sense that we can define a desired $g(x)$ in terms of itself. Say
-%  we want $g(x)$ defined recursively as
-%  \[g(x)=h(g(x),x)\]
-%  for some recursive $h(x,y)$. To prove that such $g(x)$ exists,
-%  define recursive $g'(e)$ such that
-%  \[\varphi_{g'(e)}(x) :=h(\varphi_e(x),x).\]
-%
-%  Apply recursion theorem to get $n\in\omega$ such that
-%  \[\varphi_n(x) =\varphi_{g'(n)}(x) =h(\varphi_n(x),x).\]
-%  Such $\varphi_n(x)$ is the $g(x)$ we are looking for.
-%\end{proof}
+\begin{theorem}
+  Make sense of fixed-point, and Arslanov's completeness criteria.
+\end{theorem}
+\begin{proof}
+  How do we interpret the proof of the fixed-point (recursion) theorem?
+  The theorem says given a recursive $f(e)$, there exists a function
+  indexed $n\in\omega$ such that $\varphi_n=\varphi_{f(n)}$.\\
+
+  The fixed-point theorem was proved because people failed to
+  diagonalize out of the partial-recursives. So assume by contradiction
+  we have a recursive $f$ with no fixed-point. We use shall $f$ to
+  construct a partial-recursive $g$ which diagonalizes out of all the
+  partial-recursives, i.e. $g(e)\neq\varphi_e(e)$ for all
+  $e\in\omega$.\\
+
+  Now $f$ has no fixed-point, so $\varphi_x\neq\varphi_{f(x)}$ for all
+  $x\in\omega$. In particular, $\varphi_{\varphi_e(e)} \neq
+  \varphi_{f(\varphi_e(e))}$ for all $e\in\omega$. Thus set $g(e)$ to
+  be an index of $\varphi_{f(\varphi_e(e))}$; this index must be
+  different from $\varphi_e(e)$. Also SMN-theorem gives us an effective
+  way of computing $g(e)$ since $f$ is partial-recursive. Thus $g$
+  diagonalizes out of the partial-recursives, yet it is
+  partial-recursive, a contradiction.\\
+
+  The second way of interpreting the proof of the fixed-point theorem
+  is as follows. The fixed-point $n$ that we find shall say
+  \begin{center}
+    \textit{``I am the $f$ of myself.''}
+  \end{center}
+
+  This makes sense since we want $\varphi_n$ to equal in some sense to
+  ``the $f$ of itself'' $\varphi_{f(n)}$. A function indexed by $e$ may
+  refer to itself using the function indexed $\varphi_e(e)$. So we are
+  looking for a function indexed $n=\varphi_v(v)$ for some $v$ such
+  that
+  $\varphi_v(v)=f(\varphi_v(v))$, i.e.
+  \[\varphi_n :=\varphi_{\varphi_v(v)} =\varphi_{f(\varphi_v(v))}.\]
+
+  So we consider the function indexed $v$ given by
+  \[\varphi_v(e) :=f(\varphi_e(e)),\]
+  and let $n=\varphi_v(v)$. Then we have
+  \[\varphi_{f(n)} =\varphi_{f(\varphi_v(v))} =\varphi_{\varphi_v(v)}
+  =\varphi_n\]
+  as desired. Thus completes the general idea of the proof of the
+  recursion theorem. \\
+
+  Using the recursion theorem, we can define functions `recursively' in
+  the sense that we can define a desired $g(x)$ in terms of itself. Say
+  we want $g(x)$ defined recursively as
+  \[g(x)=h(g(x),x)\]
+  for some recursive $h(x,y)$. To prove that such $g(x)$ exists,
+  define recursive $g'(e)$ such that
+  \[\varphi_{g'(e)}(x) :=h(\varphi_e(x),x).\]
+
+  Apply recursion theorem to get $n\in\omega$ such that
+  \[\varphi_n(x) =\varphi_{g'(n)}(x) =h(\varphi_n(x),x).\]
+  Such $\varphi_n(x)$ is the $g(x)$ we are looking for.
+\end{proof}
 
 \begin{theorem}
   (Lachlan) If the halting set $H:=\{\langle e,x\rangle: x\in W_e\}$ is
@@ -99,7 +99,7 @@
   $h$. In addition, we also need to check that for each $h\in H$, if $x_h$
   already exists in $G_e$, we put it into $D_e$. Note that we will since
   $D_e=W_e\subseteq\beta_e^{-1}(B)$ and $h\in D_e$, eventually $h$ will be
-  enumerated into $G_e=\beta_e^{-1}(B)$, so we will not need to wait
+  enumerated into $\beta_e^{-1}(B)=G_e$, so we will not need to wait
   forever for $x_h=h$. \\
 
   Thus in the construction, apart from keeping track of $G_e$ and $D_e$, we
