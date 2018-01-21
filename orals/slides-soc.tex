@@ -15,10 +15,6 @@
     $c:[\omega]^n\rightarrow k$ has an infinite $c$-homogeneous set.
     \textbf{RT} states $(\forall n)(\forall k)\; \text{RT}_k^n$.
   \end{thm*}
-  \textbf{Proof sketch:} $\text{RT}_2^1$ holds since in any 2-coloring of
-  $\omega$, one of the colors gives an infinite set. Induct on $n$ to get
-  $\text{RT}_2^n$. Then inductively group colors together to get
-  $\text{RT}_k^n$ from $\text{RT}_2^n$. $\square$
 
   \vspace{0.5em}
   \textbf{RT asserts homogeneity.}
@@ -52,11 +48,11 @@
 \begin{frame}{1-random}
   \begin{notation*}
     Given a set of initial segments $A\subseteq\omega^{<\omega}$, denote
-    $\llbracket A\rrbracket:= \{X\in\omega^\omega: (\exists n)\;
-    [X\restriction n \in T]\}$.\\
+    $\llbracket A\rrbracket:= \{X\in2^\omega: (\exists n)\;
+    [X\restriction n \in A]\}$.\\
     \vspace{0.5em}
     $T\subseteq\omega^{<\omega}$ is a \textbf{tree} if it is closed under
-    initial segments. Denote $[T]:= \{X\in\omega^\omega: (\forall n)\;
+    initial segments. Denote $[T]:= \{X\in2^\omega: (\forall n)\;
     [X\restriction n \in T]\}$.
   \end{notation*}
 
@@ -84,9 +80,9 @@
   \vspace{2em}
   \textbf{Proof sketch:} There are only countably many Turing machines, so
   there can only be countably many Martin-Lof tests. The set of reals that
-  fail a test is null since the trees in a test descend quickly. The union
-  of a countable set of null sets is still null, thus the set of reals that
-  fail some Martin-Lof test is null. $\square$
+  fail a test is null since the trees in a test get sparse quickly. The
+  union of a countable set of null sets is still null, thus the set of
+  reals that fail some Martin-Lof test is null. $\square$
 \end{frame}
 
 \begin{frame}{WWKL asserts Randomness}
@@ -96,8 +92,8 @@
     contains a real.
   \end{thm*}
   \begin{fact}
-    A binary tree $T\subseteq2^{<\omega}$ is null iff
-    $[T]\subseteq2^\omega$ is null.
+    A binary tree $T\subseteq2^{<\omega}$ has positive measure iff
+    $[T]\subseteq2^\omega$ is non-null.
   \end{fact}
   \begin{coro}
     If a binary tree has positive measure, it contains a 1-random.
@@ -116,14 +112,12 @@
     Every finitely-branching tree $T\subseteq\omega^{<\omega}$ with
     infinite nodes contains a real.
   \end{thm*}
-  \textbf{Pf:} Construct real by iteratively choosing the branch with
-  infinite nodes extending it. $\blacksquare$
 
-  \begin{observe*}[KL $\Rightarrow$ WLK]
+  \begin{observe*}[KL $\Rightarrow$ WKL]
     Binary trees are finitely branching. $\blacksquare$
   \end{observe*}
 
-  \begin{observe*}[WKL $\Rightarrow$ WWLK]
+  \begin{observe*}[WKL $\Rightarrow$ WWKL]
     Trees with positive measure have infinite branches. $\blacksquare$
   \end{observe*}
 \end{frame}
@@ -135,8 +129,12 @@
   \end{question*}
 
   \vspace{2em}
-  Does knowing the homogeneity of a real tell us anything about its
-  randomness, and vice versa?
+  Given a class of 1-randoms, is there a $c$-coloring where every
+  $c$-homogeneous set computes some 1-randoms in the class?
+
+  \vspace{2em}
+  Similarly, given a $c$-coloring, is there a class of 1-randoms where
+  every element computes some $c$-homogeneous set?
 
   \vspace{2em}
   Since RT asserts homogeneity and WWKL asserts randomness, we are asking
@@ -155,7 +153,7 @@
     $c$-homogeneous reals.
   \end{example*}
 
-  \begin{example*}[WWLK is a problem]
+  \begin{example*}[WWKL is a problem]
     Instances are collections of binary trees with positive measure,
     and the solutions of each such tree is the set of reals in the tree.
   \end{example*}
@@ -175,6 +173,20 @@
     From definition. $\blacksquare$
   \end{observe*}
 
+  \begin{center}
+    \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
+      \node (RT) {RT};
+      \node (WWKL) [right of=RT] {WWKL};
+      \node (sol-WWKL) [below of=WWKL] {WWKL};
+      \node (sol-RT) [below of=RT] {RT};
+      \draw[->] (RT) -- (WWKL);
+      \draw[->] (WWKL) -- (sol-WWKL);
+      \draw[->] (sol-WWKL) -- (sol-RT);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Goal: Homogeneity ``independent from'' Randomness}
   \begin{observe*}[WWKL $\leq_{\text{soc}}$ WKL $\leq_{\text{soc}}$ KL]
     From definition. $\blacksquare$
   \end{observe*}
@@ -183,12 +195,7 @@
     Fix a solution of the KL/RT problem. Choose WKL instance with only
     one path, which is an encoding of that solution. $\blacksquare$
   \end{observe*}
-\end{frame}
 
-\begin{frame}{Goal: Homogeneity ``independent from'' Randomness}
-  Dependencies under $\leq_{\text{soc}}$
-
-  \vspace{2em}
   \begin{center}
     \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
       \node (KL) {KL$\leftrightarrow$WKL};
