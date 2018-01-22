@@ -93,7 +93,7 @@
   \end{thm*}
   \begin{fact}
     A binary tree $T\subseteq2^{<\omega}$ has positive measure iff
-    $[T]\subseteq2^\omega$ is non-null.
+    $[T]\subseteq2^\omega$ is not null.
   \end{fact}
   \begin{coro}
     If a binary tree has positive measure, it contains a 1-random.
@@ -175,13 +175,13 @@
 
   \begin{center}
     \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
-      \node (RT) {RT};
-      \node (WWKL) [right of=RT] {WWKL};
-      \node (sol-WWKL) [below of=WWKL] {WWKL};
-      \node (sol-RT) [below of=RT] {RT};
-      \draw[->] (RT) -- (WWKL);
-      \draw[->] (WWKL) -- (sol-WWKL);
-      \draw[->] (sol-WWKL) -- (sol-RT);
+      \node (I) {I};
+      \node (J) [right of=I] {J};
+      \node (sol-J) [below of=J] {sol J};
+      \node (sol-I) [below of=I] {sol I};
+      \draw[->] (I) -- (J);
+      \draw[->] (J) -- (sol-J);
+      \draw[->] (sol-J) -- node[above]{computes} (sol-I);
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -192,7 +192,7 @@
   \end{observe*}
 
   \begin{observe*}[KL, RT $\leq_{\text{soc}}$ WKL]
-    Fix a solution of the KL/RT problem. Choose WKL instance with only
+    Pick a solution of the KL/RT problem. Choose WKL instance with only
     one path, which is an encoding of that solution. $\blacksquare$
   \end{observe*}
 
