@@ -1,0 +1,61 @@
+\begin{frame}{There exists a non-null tree with no $\Sigma_1^1$-subset}
+  \begin{fact}
+    \label{fact:sigma-contains-O-recursive}
+    Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
+  \end{fact}
+  \textbf{Proof sketch:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
+  $\Sigma_1^1$-set of $2^\omega$, it can iteratively pick the first branch
+  that has a real, thereby computing the ``left-most'' real of the set.
+  $\square$
+
+  \vspace{1em}
+  \begin{thm}
+    There is a tree $T\subset2^{<\omega}$ such that $[T]\subset
+    2^\omega$ is compact, has positive measure, and contains no
+    $\Sigma_1^1$-subset ($\neq\emptyset$).
+  \end{thm}
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms
+  relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and
+  has positive measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
+  Fact~\ref{fact:sigma-contains-O-recursive}. $\blacksquare$
+\end{frame}
+
+\begin{frame}{Homogeneity does not imply Randomness}
+  \begin{theorem}
+    WWKL $\nleq_{\text{soc}}$ RT.
+  \end{theorem}
+
+  \vspace{1em}
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof
+  randoms relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is
+  compact, has positive measure, and contains no $\Sigma_1^1$-subset
+  ($\neq\emptyset$). Let $c:[\omega]^n\rightarrow k$ be an arbitrary
+  $k$-coloring.
+  
+  \vspace{1em}
+  From main theorem, there is an infinte set $X$ such that none of its
+  subsets can compute a real in $[T]$. Relativize the colouring $c$ with
+  respect to $X$ to get an infinite subset $Y\subseteq X$ that is
+  $c$-homogeneous. Then $Y$ is a $c$-homogeneous set that cannot compute
+  any real in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
+  $\blacksquare$
+\end{frame}
+
+\begin{frame}{Homogeneity ``independent from'' Randomness}
+  \begin{coro}[WKL $\nleq_{\text{soc}}$ RT]
+    WWKL $\leq_{soc}$ WKL, WWKL $\nleq_{\text{soc}}$ RT. $\blacksquare$
+  \end{coro}
+
+  \vspace{2em}
+  \begin{center}
+    \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+      %\draw [<-,red] (RT) -- coordinate (m) (WWKL);
+      %\draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
