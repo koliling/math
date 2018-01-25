@@ -1,12 +1,11 @@
 \begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (fixed predicate)}
   \begin{lemma*}[$\Sigma_1^{1}$-immunity basis, fixed predicate]
-    $\mathcal{C}$ compact, contains no $\Sigma_1^{1}$-set
-    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-predicate $P(X,Y)$,
-    $\Sigma_1^{1}$-set $\mathcal{D}_0\neq\emptyset$. Then
-    $\mathcal{D}_0$ has a $\Sigma_1^{1}$-subset
-    $\mathcal{D}\neq\emptyset$ such that for every $X\in\mathcal{D}$,
-    $\mathcal{C}$ does not contain the $\Sigma_1^{1,X}$-set
-    $\{Y:P(X,Y)\}$.
+    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no non-empty
+    $\Sigma_1^{1}$-set. Fix $\Sigma_1^{1}$-predicate $P(X,Y)$ and non-empty
+    $\Sigma_1^{1}$-set. Then $\mathcal{D}_0$ has a non-empty
+    $\Sigma_1^{1}$-subset $\mathcal{D}$ such that for every
+    $X\in\mathcal{D}$, $\mathcal{C}$ does not contain the
+    $\Sigma_1^{1,X}$-set $\{Y:P(X,Y)\}$.
   \end{lemma*}
 
   \vspace{1em}
@@ -51,8 +50,8 @@
 
 \begin{frame}{$\Sigma_1^{1,Z}$-immunity basis theorem}
   \begin{thm*}[$\Sigma_1^{1}$-immunity basis]
-    $\mathcal{C}$ compact, contains no $\Sigma_1^{1}$-set
-    ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
+    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
+    $\Sigma_1^{1}$-set ($\neq\emptyset$). Fix $\Sigma_1^{1}$-set
     $\mathcal{D}\neq\emptyset$. Then $\mathcal{D}$ contains some $X$ such
     that $\mathcal{C}$ contains no $\Sigma_1^{1,X}$-set ($\neq\emptyset$).
   \end{thm*}
@@ -72,24 +71,4 @@
   \end{coro*}
   \textbf{Pf:} Directly relativize every step in the proof.
   $\blacksquare$
-\end{frame}
-
-\begin{frame}{Galvin-Prikry}
-  \begin{fact*}[Galvin-Prikry]
-    Given infinite set $Z\subseteq\omega$, node $\sigma\in\omega^{<\omega}$,
-    and Turing functional $\Gamma:2^\omega\rightarrow\omega$, there exists
-    an infinite subset $X\subseteq Z$ where one of these holds:\\
-
-    \vspace{1em}
-    \textbf{Positive-solution:} All subsets of $X$ compute (via $\Gamma$)
-    $\sigma$ \\
-    \textbf{Negative-solution:} All subsets of $X$ do not compute (via
-    $\Gamma$) $\sigma$
-  \end{fact*}
-
-  \vspace{1em}
-  \textbf{Proof sketch:} The class of subsets of $Z$ that
-  compute $\sigma$ can be coded to form an open set in $2^\omega$. Being
-  open provides enough ``structure'' for regions of homogeneity to exist.
-  $\square$
 \end{frame}

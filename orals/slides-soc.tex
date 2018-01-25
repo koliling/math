@@ -164,9 +164,9 @@
   \begin{define*}
     Problem \textbf{P} is \textbf{soc}-reducible to problem \textbf{Q}
     (written \textbf{P} $\leq_{\text{soc}}$ \textbf{Q}) if for every
-    \textbf{P}-instance \textit{I}, there is a \textbf{Q}-instance
-    \textit{J} such that every solution to \textit{J} computes a solution
-    to \textit{I}.
+    \textbf{P}-instance $I_P$, there is a \textbf{Q}-instance
+    $I_Q$ such that every solution $S_{Q}$ to $I_Q$ computes a
+    solution $S_P$ to $I_P$.
   \end{define*}
 
   \begin{observe*}[$\leq_{\text{soc}}$ is reflexive and transitive]
@@ -175,10 +175,11 @@
 
   \begin{center}
     \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
-      \node (I) {I};
-      \node (J) [right of=I] {J};
-      \node (sol-J) [below of=J] {sol J};
-      \node (sol-I) [below of=I] {sol I};
+      \node (I) {$\forall I_P$};
+      %\pause
+      \node (J) [right of=I] {$\exists I_Q$};
+      \node (sol-J) [below of=J] {$\forall S_Q$};
+      \node (sol-I) [below of=I] {$\exists S_P$};
       \draw[->] (I) -- (J);
       \draw[->] (J) -- (sol-J);
       \draw[->] (sol-J) -- node[above]{computes} (sol-I);
