@@ -45,7 +45,7 @@
 \begin{frame}{1-random}
   \begin{define*}
     An effective enumeration of strings
-    $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is \textbf{effectively null} (or a
+    $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is \textbf{effectively-null} (or a
     Martin-Lof test) if for all $n\in\omega$,
     \[\mu\left(\bigcup_{\sigma \in A_n} [\sigma] \right) \leq 2^{-n}.\]
     A \textbf{real} $X\in2^\omega$ avoids this effectively-null set iff
@@ -56,13 +56,13 @@
     $X\in2^\omega$ is \textbf{1-random} iff it avoids every
     effectively-null set.
   \end{define*}
+
+  \begin{thm*}
+    The class 1-randoms has measure 1.
+  \end{thm*}
 \end{frame}
 
 \begin{frame}{Class of 1-randoms has measure 1}
-  \begin{fact*}
-    The class 1-randoms has measure 1.
-  \end{fact*}
-
   \textbf{Pf:} Enumerate all effectively-null sets
   $\mathcal{A}_0,\mathcal{A}_1,\ldots$.
   \[\begin{array}{c|ccccc}
@@ -81,27 +81,29 @@
     \textcolor{blue}{A_{2,3}} \cup \textcolor{blue}{\ldots}\\
     B_1&= \textcolor{red}{A_{0,2}} \cup \textcolor{red}{A_{1,3}} \cup
     \textcolor{red}{A_{2,4}} \cup \textcolor{red}{\ldots}\\
+    B_2&= \textcolor{green}{A_{0,3}} \cup \textcolor{green}{A_{1,4}} \cup
+    \textcolor{green}{A_{2,5}} \cup \textcolor{green}{\ldots}\\
     \vdots&
   \end{align*}
-  Then $X\in2^\omega$ is 1-random iff it avoids every $\mathcal{A}_i$ iff
+  Now $X\in2^\omega$ is 1-random iff it avoids every $\mathcal{A}_i$ iff
   it avoids $\mathcal{B}$. Since $\mathcal{B}$ is effectively-null, the
-  class of reals that avoid it has measure 1. $\square$
+  class of reals that avoid $\mathcal{B}$ has measure 1. $\square$
 \end{frame}
 
 \begin{frame}{WWKL asserts Randomness}
   \begin{notation*}
     $T\subseteq\omega^{<\omega}$ is a \textbf{tree} if it is closed under
-    initial segments. Denote $[T]:= \{X\in2^\omega: (\forall n)\;
-    [X\restriction n \in T]\}$.
+    initial segments.\\
+    Denote $[T]:= \{X\in2^\omega: (\forall n)\; [X\restriction n \in T]\}$.
   \end{notation*}
-
   \begin{thm*}[Weak Weak Konig's Lemma]
     Every binary tree $T\subseteq 2^{<\omega}$ with positive measure i.e.
-    \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n} >0,\]
-    contains a real.
+    \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n}
+    >0\;\;\;\;\;\;\;\;\;\;
+    \text{contains a real.}\]
   \end{thm*}
   \begin{fact}
-    A binary tree $T\subseteq2^{<\omega}$ has positive measure iff
+    Tree $T\subseteq2^{<\omega}$ has positive measure iff
     $[T]\subseteq2^\omega$ is not null.
   \end{fact}
   \begin{coro}
@@ -111,7 +113,7 @@
   \textbf{WWKL asserts randomness.}
 \end{frame}
 
-\begin{frame}{WWKL, WKL, KL}
+\begin{frame}{WKL, KL}
   \begin{thm*}[Weak Konig's Lemma]
     Every binary tree $T\subseteq2^{<\omega}$ with infinite nodes contains
     a real.
@@ -132,18 +134,17 @@
 \end{frame}
 
 \begin{frame}{Homogeneity versus Randomness}
-  \newtheorem*{question*}{Question}
-  \begin{question*}
+  \begin{goal*}
     Which notion is stronger, homogeneity or randomness?
-  \end{question*}
+  \end{goal*}
 
   \vspace{2em}
   Given a class of 1-randoms, is there a $c$-coloring where every
-  $c$-homogeneous set computes some 1-randoms in the class?
+  $c$-homogeneous set computes a 1-random in the class?
 
   \vspace{2em}
   Similarly, given a $c$-coloring, is there a class of 1-randoms where
-  every element computes some $c$-homogeneous set?
+  every element in the class computes a $c$-homogeneous set?
 
   \vspace{2em}
   Since RT asserts homogeneity and WWKL asserts randomness, we are asking
@@ -156,15 +157,17 @@
     with a collection of \textbf{solutions} for each instance.
   \end{define*}
 
+  \vspace{2em}
   \begin{example*}[RT is a problem]
-    Instances are collections of colorings $c:[\omega]^n\rightarrow k$ for
-    every $n,k\in\omega$, and the solutions of each $c$ are the set of
+    Instances are $k$-colorings $c:[\omega]^n\rightarrow k$ for every
+    $n,k\in\omega$, and the solutions of each $c$ are the set of
     $c$-homogeneous reals.
   \end{example*}
 
+  \vspace{2em}
   \begin{example*}[WWKL is a problem]
-    Instances are collections of binary trees with positive measure,
-    and the solutions of each such tree is the set of reals in the tree.
+    Instances are binary trees with positive measure, and the solutions of
+    each such tree is the set of reals in the tree.
   \end{example*}
 \end{frame}
 
