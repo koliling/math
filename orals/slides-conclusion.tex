@@ -1,4 +1,25 @@
-\begin{frame}{There exists a non-null tree with no $\Sigma_1^1$-subset}
+\begin{frame}{Homogeneity does not imply Randomness}
+  \begin{center}
+    \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
+      \node (KL) {KL$\leftrightarrow$WKL};
+      \node (WWKL) [below right of=KL] {WWKL};
+      \node (RT) [below left of=KL] {RT};
+      \draw[->] (KL) -- (RT);
+      \draw[->] (KL) -- (WWKL);
+      \draw [->,red] (RT) -- coordinate (m) (WWKL);
+      \draw[shift={(m)},red](-0.1,-0.1)--(0.1,+0.1);
+    \end{tikzpicture}
+  \end{center}
+
+  \vspace{2em}
+  \begin{main-thm*}[Monin, Patey, 2016]
+    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
+    $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
+    $X$ whose subsets cannot compute any real in $\mathcal{C}$.
+  \end{main-thm*}
+\end{frame}
+
+\begin{frame}{Tree of positive measure with no $\Sigma_1^1$-subset}
   \begin{fact}
     \label{fact:sigma-contains-O-recursive}
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
