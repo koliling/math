@@ -63,15 +63,15 @@
 
 \begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$
 (relativized)}
-  \begin{main-lemma*}[Relativized]
+  \begin{main-lemma*}[\textcolor{red}{Relativized}]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
     $\Phi:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
     trees. Then there is an infinite $X\subseteq Z$ whose subsets cannot
     compute (via $\Phi$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
-    Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
-    $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).
+    \textcolor{red}{Furthermore, we can choose $X$ such that $\mathcal{C}$
+    also contains no $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).}
   \end{main-lemma*}
 
   \vspace{1em}
@@ -82,7 +82,7 @@
 \end{frame}
 
 \begin{frame}{Preserving initial segment}
-  \begin{main-lemma*}[Relativized, Segment-preserving]
+  \begin{main-lemma*}[Relativized, \textcolor{red}{Segment-preserving}]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^{1,Z}$-subset ($\neq\emptyset$),
     $\Phi:2^{\omega}\rightarrow \omega^{<\omega}$ a Turing functional on
@@ -92,8 +92,8 @@
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
     $\Sigma_1^{1,X}$-subset ($\neq\emptyset$).\\
     \vspace{0.5em}
-    Finally, given $s\in\omega$, $X$ can be chosen to preserve
-    $Z\restriction s$.
+    \textcolor{red}{Finally, given $s\in\omega$, $X$ can be chosen to preserve
+    $Z\restriction s$.}
   \end{main-lemma*}
 
   \vspace{1em}
@@ -102,9 +102,9 @@
 \end{frame}
 
 \begin{frame}{Preserving initial segment (cont.)}
-  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_m$. Iterate the
+  List the subsets of $Z\restriction s$ as $d_0,\ldots,d_n$. Iterate the
   relativized lemma across them to get decreasing subsets
-  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_m.\]
+  \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_n.\]
   At stage $i$, lemma is applied with inputs $X_i$, and $\Phi_i$ defined
   by
   \[\Phi_i(Y) =\Phi(Y\cup d_i),\]
@@ -114,10 +114,10 @@
   $\Sigma_1^{1,X_i}$-set ($\neq\emptyset$).
 
   \vspace{0.5em}
-  Choose $X=X_m\cup Z\restriction s$. To see that this $X$ works, first
-  observe that since $X$ almost equals $X_m$, $\mathcal{C}$ will
+  Choose $X=X_n\cup Z\restriction s$. To see that this $X$ works, first
+  observe that since $X$ almost equals $X_n$, $\mathcal{C}$ will
   contain no $\Sigma_1^{1,X}$-set since it contains no
-  $\Sigma_1^{1,X_m}$-set. Fix arbitrary $Y\subseteq X$. Then
+  $\Sigma_1^{1,X_n}$-set. Fix arbitrary $Y\subseteq X$. Then
   $Y\restriction i=d_i$ for some $i$. Stage $i$ ensured that the subsets of
   $Y$ compute no real in $\mathcal{C}$ via $\Phi_i$. Since $Y\supset
   d_i$, the same is ensured via $\Phi$. $\blacksquare$

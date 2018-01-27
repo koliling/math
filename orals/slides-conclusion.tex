@@ -11,7 +11,12 @@
     \end{tikzpicture}
   \end{center}
 
-  \vspace{2em}
+  \begin{define*}
+    $\mathcal{A}\subseteq\omega^\omega$ is $\Sigma_1^1$ iff there is a
+    recursive function $R(f,g)$ such that
+    \[\mathcal{A} =\{f\in\omega^\omega: (\exists g)\; [R(f,g)]\}.\]
+  \end{define*}
+
   \begin{main-thm*}[Monin, Patey, 2016]
     $\mathcal{C}\subseteq\omega^\omega$ compact, contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$). Then there exists infinite set
@@ -25,7 +30,7 @@
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
   \textbf{Proof sketch:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
-  $\Sigma_1^1$-set of $2^\omega$, it can iteratively pick the first branch
+  $\Sigma_1^1$-set of $2^\omega$, $O$ can iteratively pick the first branch
   that has a real, thereby computing the ``left-most'' real of the set.
   $\square$
 
