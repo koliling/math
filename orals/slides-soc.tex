@@ -21,71 +21,80 @@
 \end{frame}
 
 \begin{frame}{Lebesgue measure}
+  \begin{notation*}
+    $[\sigma] :=\{X\in2^\omega: \sigma\prec X\}$.
+  \end{notation*}
+
   \begin{define*}
-    $\mu(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$. The \textbf{outer
-    measure} of $\mathcal{A}\subseteq2^\omega$ is
-    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
-    \mu(\llbracket\sigma_n\rrbracket): \mathcal{A}\subseteq
-    \bigcup_{n\in\omega} \llbracket\sigma_n\rrbracket\right\}.\]
-    Its \textbf{inner measure} is $\mu_*(\mathcal{A}):=
-    1-\mu^*(\bar{\mathcal{A}})$.
+    The \textbf{measure} of $[\sigma]$ is $\mu([\sigma]) =2^{-|\sigma|}$.
   \end{define*}
 
   \begin{define*}
-    $\mathcal{A}\subseteq2^\omega$ is \textbf{measurable} iff
-    $\mu^*(\mathcal{A}) =\mu_*(\mathcal{A})$.  Then we say its
-    \textbf{measure} is $\mu(\mathcal{A}) =\mu^*(\mathcal{A})
-    =\mu_*(\mathcal{A})$. $\mathcal{A}$ is \textbf{null} iff
-    $\mu(\mathcal{A})=0$.
+    The \textbf{outer measure} of $\mathcal{A}\subseteq2^\omega$ is
+    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
+    \mu([\sigma_n]): \mathcal{A}\subseteq
+    \bigcup_{n\in\omega} [\sigma_n]\right\}.\]
   \end{define*}
-  \begin{fact*}[Measurable]
-    $\mathcal{A}\subseteq2^\omega$ is measurable iff it is
-    $G_\delta$ (countable intersection of open sets) modulo a null. E.g.
-    open sets, closed sets are measurable.
-  \end{fact*}
+
+  \begin{define*}
+    $\mathcal{A}\subseteq2^\omega$ is \textbf{null} iff
+    $\mu^*(\mathcal{A})=0$.
+  \end{define*}
 \end{frame}
 
 \begin{frame}{1-random}
+  \begin{define*}
+    An effective enumeration of strings
+    $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is \textbf{effectively null} (or a
+    Martin-Lof test) if for all $n\in\omega$,
+    \[\mu\left(\bigcup_{\sigma \in A_n} [\sigma] \right) \leq 2^{-n}.\]
+    A \textbf{real} $X\in2^\omega$ avoids this effectively-null set iff
+    $X\not\in \bigcup_{\sigma \in A_n} [\sigma]$ for some $n\in\omega$.
+  \end{define*}
+
+  \begin{define*}
+    $X\in2^\omega$ is \textbf{1-random} iff it avoids every
+    effectively-null set.
+  \end{define*}
+\end{frame}
+
+\begin{frame}{Class of 1-randoms has measure 1}
+  \begin{fact*}
+    The class 1-randoms has measure 1.
+  \end{fact*}
+
+  \textbf{Pf:} Enumerate all effectively-null sets
+  $\mathcal{A}_0,\mathcal{A}_1,\ldots$.
+  \[\begin{array}{c|ccccc}
+    \mu &1 &\frac{1}{2} &\frac{1}{4} &\frac{1}{8} &\ldots\\
+    \hline
+    \mathcal{A}_0 &A_{0,0} &\textcolor{blue}{A_{0,1}}
+    &\textcolor{red}{A_{0,2}} &\textcolor{green}{A_{0,3}} &\ldots\\
+    \mathcal{A}_1 &A_{1,0} &A_{1,1} &\textcolor{blue}{A_{1,2}}
+    &\textcolor{red}{A_{1,3}} &\ldots\\
+    \vdots &\ddots &&&&
+  \end{array}\]
+
+  Consider the effectively-null set $\mathcal{B}$ defined by the diagonal:
+  \begin{align*}
+    B_0&= \textcolor{blue}{A_{0,1}} \cup \textcolor{blue}{A_{1,2}} \cup
+    \textcolor{blue}{A_{2,3}} \cup \textcolor{blue}{\ldots}\\
+    B_1&= \textcolor{red}{A_{0,2}} \cup \textcolor{red}{A_{1,3}} \cup
+    \textcolor{red}{A_{2,4}} \cup \textcolor{red}{\ldots}\\
+    \vdots&
+  \end{align*}
+  Then $X\in2^\omega$ is 1-random iff it avoids every $\mathcal{A}_i$ iff
+  it avoids $\mathcal{B}$. Since $\mathcal{B}$ is effectively-null, the
+  class of reals that avoid it has measure 1. $\square$
+\end{frame}
+
+\begin{frame}{WWKL asserts Randomness}
   \begin{notation*}
-    Given a set of initial segments $A\subseteq\omega^{<\omega}$, denote
-    $\llbracket A\rrbracket:= \{X\in2^\omega: (\exists n)\;
-    [X\restriction n \in A]\}$.\\
-    \vspace{0.5em}
     $T\subseteq\omega^{<\omega}$ is a \textbf{tree} if it is closed under
     initial segments. Denote $[T]:= \{X\in2^\omega: (\forall n)\;
     [X\restriction n \in T]\}$.
   \end{notation*}
 
-  \begin{define*}
-    An effective enumeration of recursive sets
-    $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is a \textbf{Martin-Lof test} of
-    randomness if $\mu(\llbracket A_n\rrbracket) \leq 2^{-n}$ for all
-    $n\in\omega$.\\
-    \vspace{0.5em}
-    A \textbf{real} $X\in2^\omega$ passes this test iff $X\not\in
-    \bigcap_{n\in\omega} \llbracket A_n\rrbracket$.
-  \end{define*}
-
-  \begin{define*}
-    $X\in2^\omega$ is \textbf{1-random} iff it passes every Martin-Lof
-    test.
-  \end{define*}
-\end{frame}
-
-\begin{frame}{Set of non 1-randoms is null}
-  \begin{fact*}
-    The set of reals that is not 1-random is null.
-  \end{fact*}
-
-  \vspace{2em}
-  \textbf{Proof sketch:} There are only countably many Turing machines, so
-  there can only be countably many Martin-Lof tests. The set of reals that
-  fail a test is null since the trees in a test get sparse quickly. The
-  union of a countable set of null sets is still null, thus the set of
-  reals that fail some Martin-Lof test is null. $\square$
-\end{frame}
-
-\begin{frame}{WWKL asserts Randomness}
   \begin{thm*}[Weak Weak Konig's Lemma]
     Every binary tree $T\subseteq 2^{<\omega}$ with positive measure i.e.
     \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n} >0,\]
