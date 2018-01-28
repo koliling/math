@@ -40,10 +40,11 @@
     2^\omega$ is compact, has positive measure, and contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$).
   \end{thm}
-  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof randoms
-  relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is compact and
-  has positive measure. Also, $T$ has no non-empty $\Sigma_1^1$-subset from
-  Fact~\ref{fact:sigma-contains-O-recursive}. $\blacksquare$
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms
+  relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ has positive
+  measure, and is compact since it is closed. Also, $T$ has no non-empty
+  $\Sigma_1^1$-subset from Fact~\ref{fact:sigma-contains-O-recursive}.
+  $\blacksquare$
 \end{frame}
 
 \begin{frame}{Homogeneity does not imply Randomness}
@@ -52,18 +53,17 @@
   \end{theorem}
 
   \vspace{1em}
-  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of Martin-Lof
-  randoms relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ is
-  compact, has positive measure, and contains no non-empty
-  $\Sigma_1^1$-subset. Let $c:[\omega]^n\rightarrow k$ be an arbitrary
-  $k$-coloring.
+  \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms relativized
+  to Kleene's $O$. Then $[T]\subset 2^\omega$ is compact, has positive
+  measure, and contains no non-empty $\Sigma_1^1$-subset. Let
+  $c:[\omega]^n\rightarrow k$ be an arbitrary $k$-coloring.
   
   \vspace{1em}
   From main theorem, there is an infinte set $X$ such that none of its
   subsets can compute a real in $[T]$. Relativize the colouring $c$ with
   respect to $X$ to get an infinite subset $Y\subseteq X$ that is
   $c$-homogeneous. Then $Y$ is a $c$-homogeneous set that cannot compute
-  any real in $[T]$, witnessing WWKL $\nleq_{\text{soc}}$ RT.
+  any real in $[T]$. Thus WWKL $\nleq_{\text{soc}}$ RT.
   $\blacksquare$
 \end{frame}
 
