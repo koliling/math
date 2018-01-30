@@ -1,27 +1,28 @@
-\begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (fixed predicate)}
+\begin{frame}{$\Sigma_1^{1}$-immunity basis theorem}
   \begin{lemma*}[$\Sigma_1^{1}$-immunity basis, fixed predicate]
     \begin{align*}
       \text{Given } &\begin{cases}
         \text{Compact } \mathcal{C}\subseteq\omega^\omega \text{,
-        containing no nonempty } \Sigma_1^{1}\text{-set}\\
-        \Sigma_1^{1}\text{-predicate } P(X,Y)\\
-        \Sigma_1^{1}\text{-set } \mathcal{D}_0\neq\emptyset
+        containing no nonempty } \Sigma_1^{1}\text{-set},\\
+        \Sigma_1^{1}\text{-predicate } P(X,Y),\\
+        \Sigma_1^{1}\text{-set } \mathcal{D}_0\neq\emptyset,
       \end{cases}
     \end{align*}
-    there exists a nonempty $\Sigma_1^{1}$-subset
+    then $\mathcal{D}_0$ has a nonempty $\Sigma_1^{1}$-subset
     $\mathcal{D}\subseteq\mathcal{D}_0$ such that for every
     $X\in\mathcal{D}$, $\mathcal{C}$ does not contain the
     $\Sigma_1^{1,X}$-set $\{Y:P(X,Y)\}$.
   \end{lemma*}
 
-  \vspace{1em}
-  \textbf{Pf:} \underline{Case 1}: For every $X\in\mathcal{D}_0$,
+  \vspace{2em}
+  \textbf{Pf:} \textbf{Case 1}: For every $X\in\mathcal{D}_0$,
   $\{Y:P(X,Y)\}\subseteq\mathcal{C}$. Then $\bigcup_{X\in\mathcal{D}_0}
   \{Y:P(X,Y)\}$ will be a $\Sigma_1^{1}$-subset of $\mathcal{C}$,
   $\Rightarrow\Leftarrow$.
+\end{frame}
 
-  \vspace{1em}
-  \underline{Case 2}: For some $X_0\in\mathcal{D}_0$, $\{Y:P(X_0,Y)\}$
+\begin{frame}{$\Sigma_1^{1}$-immunity basis theorem (cont.)}
+  \textbf{Case 2}: For some $X_0\in\mathcal{D}_0$, $\{Y:P(X_0,Y)\}$
   contains a real $Y_0$ outside $\mathcal{C}$. By compactness of
   $\mathcal{C}$, $Y_0$ has an initial segment $\sigma$ outside
   $\mathcal{C}$. This $\Sigma_1^{1}$-subset of $\mathcal{D}_0$ works:

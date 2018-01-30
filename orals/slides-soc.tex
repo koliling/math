@@ -22,23 +22,25 @@
 
 \begin{frame}{Lebesgue measure}
   \begin{notation*}
-    $[\sigma] :=\{X\in2^\omega: \sigma\prec X\}$.
+    $\llbracket\sigma\rrbracket :=\{X\in2^\omega: \sigma\prec X\}$.
   \end{notation*}
 
   \begin{define*}
-    The \textbf{measure} of $[\sigma]$ is $\mu([\sigma]) =2^{-|\sigma|}$.
+    The \textbf{measure} of $\llbracket\sigma\rrbracket$ is
+    $\mu(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$.
   \end{define*}
 
   \begin{define*}
-    The \textbf{outer measure} of $\mathcal{A}\subseteq2^\omega$ is
-    \[\mu^*(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
-    \mu([\sigma_n]): \mathcal{A}\subseteq
-    \bigcup_{n\in\omega} [\sigma_n]\right\}.\]
+    The \textbf{measure} of an open or closed
+    $\mathcal{A}\subseteq2^\omega$ is
+    \[\mu(\mathcal{A}):= \inf\left\{\sum_{n\in\omega}
+    \mu(\llbracket\sigma_n\rrbracket): \mathcal{A}\subseteq
+    \bigcup_{n\in\omega} \llbracket\sigma_n\rrbracket\right\}.\]
   \end{define*}
 
   \begin{define*}
     $\mathcal{A}\subseteq2^\omega$ is \textbf{null} iff
-    $\mu^*(\mathcal{A})=0$.
+    $\mu(\mathcal{A})=0$.
   \end{define*}
 \end{frame}
 
@@ -47,9 +49,11 @@
     An effective enumeration of strings
     $A_0,A_1,\ldots \subseteq 2^{<\omega}$ is \textbf{effectively-null} (or a
     Martin-Lof test) if for all $n\in\omega$,
-    \[\mu\left(\bigcup_{\sigma \in A_n} [\sigma] \right) \leq 2^{-n}.\]
+    \[\mu\left(\bigcup_{\sigma \in A_n} \llbracket\sigma\rrbracket \right)
+    \leq 2^{-n}.\]
     A \textbf{real} $X\in2^\omega$ avoids this effectively-null set iff
-    $X\not\in \bigcup_{\sigma \in A_n} [\sigma]$ for some $n\in\omega$.
+    $X\not\in \bigcup_{\sigma \in A_n} \llbracket\sigma\rrbracket$ for some
+    $n\in\omega$.
   \end{define*}
 
   \begin{define*}
