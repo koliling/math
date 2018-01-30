@@ -48,30 +48,32 @@
   $\Sigma^1_1$-predicates $P_0,P_1,\ldots$ to construct a descending
   sequence of $\Sigma^1_1$-sets
   \[\mathcal{D} =\mathcal{X}_0 \supseteq\mathcal{X}_1 \supseteq\ldots,\]
-  and pick any $X$ in the intersection.
+  then pick any $X$ in the intersection.
 \end{frame}
 
 \begin{frame}{$\Sigma_1^{1}$-immunity (cont.)}
   To ensure nonempty intersection, simultaneously construct
-  $\sigma_0\prec\sigma_1\prec\ldots$ and
-  $\tau_0\prec\tau_1\prec\ldots$ such that
-  \[\tau_s \text{ witnesses } \llbracket\sigma_s\rrbracket
-  \cap\mathcal{X}_s\neq\emptyset.\]
+  $\sigma_0\prec\sigma_1\prec\ldots$ and $\tau_0\prec\tau_1\prec\ldots$
+  such that $\tau_s$ witnesses $\mathcal{X}_s \subseteq
+  \llbracket\sigma_s\rrbracket$, in the sense that $\mathcal{X}_s$ is a
+  $\Sigma^1_1$-set of the form
+  \[\mathcal{X}_s =\{X\succ\sigma_s: (\exists Z\succ\tau_s)\;
+  [R_s(X,Z)]\},\]
+  where $R_s(X,Z)$ is a recursive predicate. Initialize
+  $\mathcal{X}_0=\mathcal{D}$, $\sigma_0=\tau_0=\emptyset$.
 
-  \vspace{1em}
-  \textbf{Stage 0}: Initialize $\mathcal{X}_0=\mathcal{D}$,
-  $\sigma_0=\tau_0=\emptyset$.
-
-  \vspace{1em}
-  \textbf{Stage $s+1$}:
-  At stage $n$, $[f\restriction n]\cap\mathcal{U} \neq\emptyset$, witnessed
-  by an extension of $g\restriction n$. Now the class of reals in
-  $[f\restriction n]$ that lie in $\mathcal{U}$ by a witness extending
-  $g\restriction n$ is a $\Sigma^1_1$-set, so this class intersects
-  $\mathcal{D}_0\cap\ldots\cap\mathcal{D}_{n+1}$. Thus one can choose
-  $f\restriction (n+1) \succ f\restriction n$ in this intersection, and
-  $g\restriction (n+1) \succ g\restriction n$ witnessing $[f\restriction
-  (n+1)]\cap\mathcal{U} \neq\emptyset$. $\blacksquare$
+  \vspace{0.5em}
+  \textbf{Stage $s+1$}: The $\Sigma^1_1$-predicate $P_s(X,Y)$ can be
+  written as $(\exists Z) R_s'(X,Y,Z)$ for some recursive predicate $R_s'$.
+  Apply lemma with $\Sigma^1_1$-set $\mathcal{X}_s$ and
+  $\Sigma^1_1$-predicate 
+  \[P_s' :=(\exists Z\succ\tau_s)\; [R_s'(X,Y,Z) \wedge X\succ\sigma_s],\]
+  to get nonempty $\Sigma^1_1$-subset $\mathcal{X}_{s+1} \subseteq
+  \mathcal{X}_s \subseteq \llbracket\sigma_s\rrbracket$. Pick any
+  $\sigma_{s+1}\succ\sigma_s$ such that $\mathcal{X}_{s+1}\cap
+  \llbracket\sigma_{s+1}\rrbracket \neq\emptyset$, then pick any
+  $\tau_{s+1}\succ\tau_s$ witnessing the nonempty intersection.
+  $\blacksquare$
 \end{frame}
 
 \begin{frame}{$\Sigma_1^{1}$-immunity, relativized}
