@@ -29,7 +29,7 @@
     \label{fact:sigma-contains-O-recursive}
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
-  \textbf{Proof sketch:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
+  \textbf{Pf (sketch):} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
   $\Sigma_1^1$-set of $2^\omega$, $O$ can iteratively pick the first node
   that has a real, thereby computing the ``left-most'' real of the set.
   $\square$
@@ -42,7 +42,7 @@
   \end{thm}
   \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms
   relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ has positive
-  measure, and is closed and therefore compact. Also, $T$ has no non-empty
+  measure, and is closed and therefore compact. Also, $T$ has no nonempty
   $\Sigma_1^1$-subset from Fact~\ref{fact:sigma-contains-O-recursive}.
   $\blacksquare$
 \end{frame}
@@ -55,16 +55,15 @@
   \vspace{1em}
   \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms relativized
   to Kleene's $O$. Then $[T]\subset 2^\omega$ is compact, has positive
-  measure, and contains no non-empty $\Sigma_1^1$-subset. Let
+  measure, and contains no nonempty $\Sigma_1^1$-subset. Let
   $c:[\omega]^n\rightarrow k$ be an arbitrary $k$-coloring.
   
-  \vspace{1em}
-  From main theorem, there is an infinte set $X$ such that none of its
-  subsets can compute a real in $[T]$. Relativize the colouring $c$ with
-  respect to $X$ to get an infinite subset $Y\subseteq X$ that is
-  $c$-homogeneous. Then $Y$ is a $c$-homogeneous set that cannot compute
-  any real in $[T]$. Thus WWKL $\nleq_{\text{soc}}$ RT.
-  $\blacksquare$
+  \vspace{2em}
+  From main theorem, there is an infinte $X$ whose subsets cannot
+  compute any real in $[T]$. Relativize colouring $c$ with respect to $X$
+  to get an infinite subset $Y\subseteq X$ that is $c$-homogeneous. Then
+  $Y$ is a $c$-homogeneous set that cannot compute any real in $[T]$. Thus
+  WWKL $\nleq_{\text{soc}}$ RT.  $\blacksquare$
 \end{frame}
 
 \begin{frame}{Homogeneity ``independent from'' Randomness}
