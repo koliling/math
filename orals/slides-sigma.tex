@@ -1,5 +1,5 @@
 \begin{frame}{Galvin-Prikry}
-  \begin{fact*}[Galvin-Prikry, relativized to $Z$]
+  \begin{fact*}[Galvin-Prikry]
     Given infinite set $Z\subseteq\omega$, node $\sigma\in\omega^{<\omega}$,
     and Turing functional $\Phi:2^\omega\rightarrow \omega^{<\omega}$,
     there exists an infinite subset $X\subseteq Z$ where one of these
@@ -22,14 +22,19 @@
 \begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$}
   \newtheorem*{main-lemma*}{Main Lemma}
   \begin{main-lemma*}[Monin, Patey, 2016]
-    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no nonempty
-    $\Sigma_1^{1,Z}$-subset, $\Phi:2^{\omega}\rightarrow \omega^{<\omega}$
-    Turing functional that converges on initial segments. Then there is an
-    infinite $X\subseteq Z$ whose subsets cannot compute (via $\Phi$) any
-    real in $\mathcal{C}$.
+    \begin{align*}
+      \text{Given } &\begin{cases}
+        \mathcal{C}\subseteq\omega^\omega \text{ compact, contains
+        no nonempty } \Sigma^{1,Z}_1\text{-set},\\
+        \text{Turing functional } \Phi:2^{\omega}\rightarrow
+        \omega^{<\omega},
+      \end{cases}
+    \end{align*}
+    $Z$ contains an infinite subset $X\subseteq Z$ whose subsets cannot
+    compute (via $\Phi$) any real in $\mathcal{C}$.
   \end{main-lemma*}
 
-  \vspace{0.5em}
+  \vspace{3em}
   \textbf{Pf:} \textbf{Case 0:} There is a node outside
   $\mathcal{C}$ with a positive GP-solution $X$. This $X$ works since
   all its subsets compute (via $\Phi$) a node outside $\mathcal{C}$.
@@ -44,9 +49,10 @@
   \begin{align*}
     &\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
     positive GP-solutions}]\}\\
-    =&\{f:(\forall \sigma\prec f)\; (\exists \text{ inf } X\subseteq
-    Z)(\forall \text{ finite } X'\subseteq X)\;
-    [\Phi^{X'}(\sigma)\downarrow]\}
+    =\;&\{f:(\forall \sigma\prec f) (\exists \text{ inf } X\subseteq
+    Z) (\forall \text{ fin } X_0\subset X) (\exists \text{ fin }
+    X_1\subset X)\\
+    &\;\;\;\;\;\;[X_0 \prec X_1 \wedge \Phi^{X_1}(\sigma)\downarrow]\}
   \end{align*}
   is a nonempty $\Sigma_1^{1,Z}$-set contained
   in $\mathcal{C}$, $\Rightarrow\Leftarrow$.
@@ -54,55 +60,75 @@
 
 \begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$
 (cont.)}
-  \textbf{Case 2:} For some $n$, every node in $\mathcal{C}$ of length
-  $n$ has only negative GP-solutions. Note that there are only fintely many
-  such nodes $\sigma_0,\ldots,\sigma_m$ since $\mathcal{C}$ is compact.
-  Iterate GP across them to get decreasing subsets of negative solutions
+  \textbf{Case 2:} For some $n$, every node $\sigma_0,\ldots,\sigma_m$ in
+  $\mathcal{C}$ of length $n$ has only negative GP-solutions. Iterate GP
+  across them to get decreasing subsets of negative solutions
   \[Z=X_0 \supseteq X_1 \supseteq \ldots\supseteq X_m=X,\]
   where $X_{i+1}\subseteq X_i$ is a negative GP-solution under inputs
-  $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP gives no positive
-  solutions for each $\sigma_i$ under $Z$, giving also no positive
+  $X_i$ and $\sigma_i$. $X_{i+1}$ exists since GP gives only negative
+  solutions for each $\sigma_i$ under $Z$, giving also only negative
   solutions under $X_i\subseteq Z$.
-  
-  \vspace{1em}
+
+  \vspace{0.5em}
   Take $X=X_m$. Then every subset of $X$ cannot compute (via $\Phi$) any
   node in $\mathcal{C}$ of length exceeding $n$, and in particular,
   cannot compute any real in $\mathcal{C}$. $\blacksquare$
+
+  \vspace{0.5em}
+  \textbf{Note:} Each $X_{i+1}$ is picked from the $\Sigma^{1,X_i}_1$-set
+  \begin{align*}
+    &\{Y:Y\subseteq X_i \text{ inf } \wedge Y \text{ is a
+    negative GP-solution for } \sigma_i]\}\\
+    =\;&\{Y:Y\subseteq X_i \text{ inf } \wedge (\forall \text{ fin }
+    Y_0\subset Y)\; [\Phi^{Y_0}(\sigma_i)\uparrow]\}.
+  \end{align*}
 \end{frame}
 
 \begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$
 (relativized)}
   \begin{main-lemma*}[\textcolor{red}{Relativized}]
-    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no nonempty
-    $\Sigma_1^{1,Z}$-subset, $\Phi:2^{\omega}\rightarrow \omega^{<\omega}$
-    Turing functional that converges on initial segments. Then there is an
-    infinite $X\subseteq Z$ whose subsets cannot compute (via $\Phi$) any
-    real in $\mathcal{C}$.\\
+    \begin{align*}
+      \text{Given } &\begin{cases}
+        \mathcal{C}\subseteq\omega^\omega \text{ compact, contains
+        no nonempty } \Sigma^{1,Z}_1\text{-set},\\
+        \text{Turing functional } \Phi:2^{\omega}\rightarrow
+        \omega^{<\omega},
+      \end{cases}
+    \end{align*}
+    $Z$ contains an infinite subset $X\subseteq Z$ whose subsets cannot
+    compute (via $\Phi$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
     \textcolor{red}{Furthermore, we can choose $X$ such that $\mathcal{C}$
     also contains no nonempty $\Sigma_1^{1,X}$-subset.}
   \end{main-lemma*}
 
-  \vspace{1em}
-  \textbf{Pf:} In the proof of the non-relativized version, $X$ was chosen
-  from a $\Sigma_1^{1,Z}$-set. The relativized immunity-basis theorem
-  asserts that every such set contains an element $X$ where $\mathcal{C}$
-  contains no $\Sigma_1^{1,X}$-set. $\blacksquare$
+  \textbf{Pf:} In the proof of the non-relativized lemma, $Z=X_0
+  \supseteq \ldots\supseteq X_m=X$, and $X_{i+1}$ is picked from a
+  $\Sigma^{1,X_i}_1$-set. The relativized immunity-basis theorem asserts
+  that every such set contains an element $X_{i+1}$ where $\mathcal{C}$
+  contains no $\Sigma_1^{1,X_{i+1}}$-set, if $\mathcal{C}$ contains no
+  $\Sigma^{1,X_i}_1$-subset. Iterate this theorem across $X_i$'s.
+  $\blacksquare$
 \end{frame}
 
 \begin{frame}{Preserving initial segment}
   \begin{main-lemma*}[Relativized, \textcolor{red}{Segment-preserving}]
-    $\mathcal{C}\subseteq\omega^\omega$ compact, contains no nonempty
-    $\Sigma_1^{1,Z}$-subset, $\Phi:2^{\omega}\rightarrow \omega^{<\omega}$
-    Turing functional that converges on initial segments. Then there is an
-    infinite $X\subseteq Z$ whose subsets cannot compute (via $\Phi$) any
-    real in $\mathcal{C}$.\\
+    \begin{align*}
+      \text{Given } &\begin{cases}
+        \mathcal{C}\subseteq\omega^\omega \text{ compact, contains
+        no nonempty } \Sigma^{1,Z}_1\text{-set},\\
+        \text{Turing functional } \Phi:2^{\omega}\rightarrow
+        \omega^{<\omega},
+      \end{cases}
+    \end{align*}
+    $Z$ contains an infinite subset $X\subseteq Z$ whose subsets cannot
+    compute (via $\Phi$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
     nonempty $\Sigma_1^{1,X}$-subset.\\
     \vspace{0.5em}
-    \textcolor{red}{Finally, given $s\in\omega$, $X$ can be chosen to preserve
-    $Z\restriction s$.}
+    \textcolor{red}{Finally, given $s\in\omega$, $X$ can be chosen to
+    preserve $Z\restriction s$.}
   \end{main-lemma*}
 
   \vspace{1em}
@@ -122,10 +148,10 @@
   nonempty $\Sigma_1^{1,X_i}$-set.
 
   \vspace{1em}
-  Choose $X=X_n\cup Z\restriction s$. Since $X=^*X_n$ and $\mathcal{C}$
-  contains no $\Sigma_1^{1,X_n}$-set, $\mathcal{C}$ contains no
-  $\Sigma_1^{1,X}$-set. Let $Y\subseteq X$ with $Y\restriction i=d_i$.
-  Stage $i$ ensured that the subsets of $Y$ compute no real in
+  Choose $X=X_n\cup Z\restriction s$. Since $X$ almost equals $X_n$ and
+  $\mathcal{C}$ contains no $\Sigma_1^{1,X_n}$-set, $\mathcal{C}$ also
+  contains no $\Sigma_1^{1,X}$-set. Let $Y\subseteq X$ with $Y\restriction
+  i=d_i$. Stage $i$ ensured that the subsets of $Y$ compute no real in
   $\mathcal{C}$ via $\Phi_i$. Since $Y\supset d_i$, the same is ensured via
   $\Phi$. $\blacksquare$
 \end{frame}
