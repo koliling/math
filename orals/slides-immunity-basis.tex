@@ -53,18 +53,17 @@
 
 \begin{frame}{$\Sigma_1^{1}$-immunity (cont.)}
   To ensure nonempty intersection, simultaneously construct
-  $\sigma_0\prec\sigma_1\prec\ldots$ and $\tau_0\prec\tau_1\prec\ldots$
-  such that $\tau_s$ witnesses $\mathcal{X}_s \subseteq
-  \llbracket\sigma_s\rrbracket$, in the sense that $\mathcal{X}_s$ is a
-  $\Sigma^1_1$-set of the form
+  $\emptyset= \sigma_0\prec\sigma_1\prec\ldots$ and $\emptyset=
+  \tau_0\prec\tau_1\prec\ldots$ such that $\tau_s$ witnesses $\mathcal{X}_s
+  \subseteq \llbracket\sigma_s\rrbracket$, in the sense that
+  $\mathcal{X}_s$ is a $\Sigma^1_1$-set of the form
   \[\mathcal{X}_s =\{X\succ\sigma_s: (\exists Z\succ\tau_s)\;
   [R_s(X,Z)]\}\]
   for some recursive $R_s(X,Z)$. Then $X=\bigcup_{s\in\omega} \sigma_s \in
   \bigcap_{s\in\omega} \mathcal{X}_s$ works, and
-  $\bigcup_{s\in\omega} \tau_s$ witnesses the inclusion. Initialize
-  $\mathcal{X}_0=\mathcal{D}$, $\sigma_0=\tau_0=\emptyset$.
+  $\bigcup_{s\in\omega} \tau_s$ witnesses the inclusion.
 
-  \vspace{1em}
+  \vspace{1.5em}
   \textbf{Stage $s+1$}: Write $P_s(X,Y) =(\exists Z)\; R_s'(X,Y,Z)$ where
   $R_s'$ is recursive. Apply lemma with $\Sigma^1_1$-set
   $\mathcal{X}_s$ and $\Sigma^1_1$-predicate 
