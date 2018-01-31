@@ -30,7 +30,7 @@
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
   \textbf{Proof sketch:} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
-  $\Sigma_1^1$-set of $2^\omega$, $O$ can iteratively pick the first branch
+  $\Sigma_1^1$-set of $2^\omega$, $O$ can iteratively pick the first node
   that has a real, thereby computing the ``left-most'' real of the set.
   $\square$
 
@@ -42,7 +42,7 @@
   \end{thm}
   \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms
   relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ has positive
-  measure, and is compact since it is closed. Also, $T$ has no non-empty
+  measure, and is closed and therefore compact. Also, $T$ has no non-empty
   $\Sigma_1^1$-subset from Fact~\ref{fact:sigma-contains-O-recursive}.
   $\blacksquare$
 \end{frame}

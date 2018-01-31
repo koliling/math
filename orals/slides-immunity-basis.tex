@@ -58,21 +58,23 @@
   \llbracket\sigma_s\rrbracket$, in the sense that $\mathcal{X}_s$ is a
   $\Sigma^1_1$-set of the form
   \[\mathcal{X}_s =\{X\succ\sigma_s: (\exists Z\succ\tau_s)\;
-  [R_s(X,Z)]\},\]
-  where $R_s(X,Z)$ is a recursive predicate. Initialize
+  [R_s(X,Z)]\}\]
+  for some recursive $R_s(X,Z)$. Then $X=\bigcup_{s\in\omega} \sigma_s \in
+  \bigcap_{s\in\omega} \mathcal{X}_s$ works, and
+  $\bigcup_{s\in\omega} \tau_s$ witnesses the inclusion. Initialize
   $\mathcal{X}_0=\mathcal{D}$, $\sigma_0=\tau_0=\emptyset$.
 
-  \vspace{0.5em}
-  \textbf{Stage $s+1$}: The $\Sigma^1_1$-predicate $P_s(X,Y)$ can be
-  written as $(\exists Z) R_s'(X,Y,Z)$ for some recursive predicate $R_s'$.
-  Apply lemma with $\Sigma^1_1$-set $\mathcal{X}_s$ and
-  $\Sigma^1_1$-predicate 
-  \[P_s' :=(\exists Z\succ\tau_s)\; [R_s'(X,Y,Z) \wedge X\succ\sigma_s],\]
+  \vspace{1em}
+  \textbf{Stage $s+1$}: Write $P_s(X,Y) =(\exists Z)\; R_s'(X,Y,Z)$ where
+  $R_s'$ is recursive. Apply lemma with $\Sigma^1_1$-set
+  $\mathcal{X}_s$ and $\Sigma^1_1$-predicate 
+  \[P_s'(X,Y) :=(\exists Z\succ\tau_s)\; [R_s'(X,Y,Z) \wedge
+  X\succ\sigma_s],\]
   to get nonempty $\Sigma^1_1$-subset $\mathcal{X}_{s+1} \subseteq
   \mathcal{X}_s \subseteq \llbracket\sigma_s\rrbracket$. Pick any
   $\sigma_{s+1}\succ\sigma_s$ such that $\mathcal{X}_{s+1}\cap
   \llbracket\sigma_{s+1}\rrbracket \neq\emptyset$, then pick any
-  $\tau_{s+1}\succ\tau_s$ witnessing the nonempty intersection.
+  $\tau_{s+1}\succ\tau_s$ witnessing this nonempty intersection.
   $\blacksquare$
 \end{frame}
 
