@@ -47,12 +47,12 @@
   positive GP-solutions. By compactness of $\mathcal{C}$, this set of
   nodes contains a real in $\mathcal{C}$. Then
   \begin{align*}
-    &\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
+    \emptyset\neq\; &\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
     positive GP-solutions}]\}\\
-    =\;&\{f:(\forall \sigma\prec f) (\exists \text{ inf } X\subseteq
-    Z) (\forall \text{ fin } X_0\subset X) (\exists \text{ fin }
-    X_1\subset X)\\
-    &\;\;\;\;\;\;[X_0 \prec X_1 \wedge \Phi^{X_1}(\sigma)\downarrow]\}
+    \subseteq\; &\{f:(\forall \sigma\prec f) (\exists \text{ inf }
+    X\subseteq Z) (\forall \text{ fin } X_0\subset X) (\exists \text{ fin }
+    X_1\subset X)\\ &\;\;\;\;\;\;[X_0 \prec X_1 \wedge
+    \Phi^{X_1}(\sigma)\downarrow]\}
   \end{align*}
   is a nonempty $\Sigma_1^{1,Z}$-set contained
   in $\mathcal{C}$, $\Rightarrow\Leftarrow$.
@@ -104,8 +104,8 @@
 
   \textbf{Pf:} In the proof of the non-relativized lemma, $Z=X_0
   \supseteq \ldots\supseteq X_m=X$, and $X_{i+1}$ is picked from a
-  $\Sigma^{1,X_i}_1$-set. The relativized immunity-basis theorem asserts
-  that every such set contains an element $X_{i+1}$ where $\mathcal{C}$
+  $\Sigma^{1,X_i}_1$-set. The immunity-basis theorem asserts
+  that every such set contains some $X_{i+1}$ such that $\mathcal{C}$
   contains no $\Sigma_1^{1,X_{i+1}}$-set, if $\mathcal{C}$ contains no
   $\Sigma^{1,X_i}_1$-subset. Iterate this theorem across $X_i$'s.
   $\blacksquare$
