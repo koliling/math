@@ -24,27 +24,37 @@
   \end{main-thm*}
 \end{frame}
 
-\begin{frame}{Tree of positive measure with no $\Sigma_1^1$-subset}
+\begin{frame}{Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive}
   \begin{fact}
     \label{fact:sigma-contains-O-recursive}
     Every $\Sigma_1^1$-set of $2^\omega$ contains an $O$-recursive.
   \end{fact}
-  \textbf{Pf (sketch):} Kleene's $O$ is $\Sigma_1^1$-complete, thus given a 
-  $\Sigma_1^1$-set of $2^\omega$, $O$ can iteratively pick the first node
-  that has a real, thereby computing the ``left-most'' real of the set.
-  $\square$
 
-  \vspace{1em}
+  \textbf{Pf (sketch):} Given a nonempty $\Sigma_1^1$-set
+  \[\mathcal{A} =\{f\in2^\omega: (\exists g)\; R(f,g)\},\]
+  observe that for a given $\sigma,\tau\in 2^{<\omega}$, the set \[\{f\succ
+  \sigma: (\exists g\succ\tau)\; R(f,g)\}\] is also $\Sigma^1_1$. Since
+  every $\Sigma^1_1$-set is $O$-recursive, $O$ can enumerate the $\langle
+  \sigma,\tau \rangle$ pairs for which the above set is nonempty.
+  Arbitrarily long pairs exist since $\mathcal{A}$ is nonempty. Thus, $O$
+  can iteratively construct a real $f=\bigcup_{s\in\omega} \sigma_s$ in
+  $\mathcal{A}$, and $g=\bigcup_{s\in\omega} \tau_s$ witnessing
+  $f\in\mathcal{A}$. $\square$
+\end{frame}
+
+\begin{frame}{Tree of positive measure with no $\Sigma_1^1$-subset}
   \begin{thm}
     There is a tree $T\subset2^{<\omega}$ such that $[T]\subset
     2^\omega$ is compact, has positive measure, and contains no
     $\Sigma_1^1$-subset ($\neq\emptyset$).
   \end{thm}
+
+  \vspace{2em}
   \textbf{Pf:} Let $T\subset2^{<\omega}$ be a set of 1-randoms
   relativized to Kleene's $O$. Then $[T]\subset 2^\omega$ has positive
   measure, and is closed and therefore compact. Also, $T$ has no nonempty
-  $\Sigma_1^1$-subset from Fact~\ref{fact:sigma-contains-O-recursive}.
-  $\blacksquare$
+  $\Sigma_1^1$-subset from the previous fact that every $\Sigma^1_1$-set
+  contains an $O$-recursive. $\blacksquare$
 \end{frame}
 
 \begin{frame}{Homogeneity does not imply Randomness}
