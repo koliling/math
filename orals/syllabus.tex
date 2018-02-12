@@ -2,26 +2,40 @@
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{color}
-%\setlength{\parindent}{0mm}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc,calc,arrows,matrix}
 
 \newcommand{\MAYBE}[1]{\textcolor{red}{#1}}
 
 \begin{document}
 \title{Oral Syllabus}
 \author{Li Ling Ko\\ lko@nd.edu}
-\date{\today}
+\date{16 Feb 2018}
 \maketitle
 
 \section{Goal}
-Prove weak weak Konig's Lemma (WWKL) is not strongly omnisciently computably
-(soc) reducible to Ramsey's Theorem (RT).
+Prove randomness (weak weak Konig's Lemma) is independent to homogeneity
+(Ramsey's theorem), under strong omnisciently computable (soc) reducibility.
 
 \section{Outline}
+Under soc-reducibility, the only possible implications are:
+\begin{center}
+  \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
+    \node (KL) {KL$\leftrightarrow$WKL};
+    \node (WWKL) [below right of=KL] {WWKL};
+    \node (RT) [below left of=KL] {RT};
+    \draw[->] (KL) -- (RT);
+    \draw[->] (KL) -- (WWKL);
+  \end{tikzpicture}
+\end{center}
+
+\noindent
+I will present proofs for:
 \begin{itemize}
-  \item $\textbf{WKL} \equiv_{\text{soc}} \textbf{KL}$
-  \item $\textbf{WWKL} \lneq_{\text{soc}} \textbf{KL}$
-  \item $\textbf{RT} \lneq_{\text{soc}} \textbf{WKL}$
-  \item $\textbf{WWKL} \nleq_{\text{soc}} \textbf{RT}$
+  \item $\textbf{KL} \leftrightarrow \textbf{WKL}$
+  \item $\textbf{WKL} \rightarrow \textbf{WWKL}, \textbf{RT}$
+  \item $\textbf{WWKL} \nrightarrow \textbf{RT}$
+  \item $\textbf{RT} \nrightarrow \textbf{WWKL}$
 \end{itemize}
 
 \section{References}
@@ -72,10 +86,9 @@ Prove weak weak Konig's Lemma (WWKL) is not strongly omnisciently computably
 
 \subsection{Degrees} 
 \begin{enumerate}
-  \item Low basis theorem
+  \item Low-basis theorem
   \item Incompleteness
   \item PA degrees
-  \item Minimal degree
   \item Martin-Lof randoms
 \end{enumerate}
 
