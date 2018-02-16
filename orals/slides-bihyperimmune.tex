@@ -4,14 +4,17 @@
     function $f$ such that $f(n)>p_X(n)$ for every $n\in\omega$.
   \end{define}
 
+  \pause
   \begin{define}
     $X$ is \textbf{bi-hyperimmune} if both $X$ and $\bar{X}$ are hyperimmune.
   \end{define}
 
+  \pause
   \begin{thm}
     Bi-hyperimmune sets exist.
   \end{thm}
 
+  \pause
   \vspace{0.5em}
   \textbf{Pf:} Enumerate computable functions $f_0,f_1,\ldots$. At stage
   $s$, let $i$ be the number of elements in $X$ and $\bar{X}$ that has been
@@ -27,12 +30,14 @@
     infinite subset of $X$ is null.
   \end{thm}
 
+  \pause
   \vspace{1em}
   \textbf{Pf:} The idea is, if the class is not null, there are enough
   reals computing subsets of $X$ that one can effectively get them to
   ``vote'' for when new elements of $X$ have appeared, contradicting
   hyperimmunity of $X$.
 
+  \pause
   \vspace{1em}
   It is enough to look at one Turing functional $\Phi$ and show that
   \[\mu(\{A: \Phi^A \subseteq X\; \text{infinite}\}) =0,\]
@@ -40,28 +45,36 @@
 \end{frame}
 
 \begin{frame}{Class of sets computing subsets of hyperimmune is null}
+  \visible<1->{
   Let $\textcolor{blue}{\mathcal{B}} :=\{A: \Phi^A \subseteq X\;
-  \text{infinite}\}$. Assume $\mu(\textcolor{blue}{\mathcal{B}})=4m>0$.\\
+  \text{infinite}\}$. Assume $\mu(\textcolor{blue}{\mathcal{B}})=4m>0$.\\}
+
+  \visible<2->{
   Approximate $\textcolor{blue}{\mathcal{B}}$ by open cover
   $\textcolor{orange}{\mathcal{U}'} \supseteq\textcolor{blue}{\mathcal{B}}$
   so $\mu(\textcolor{orange}{\mathcal{U}'}
-  -\textcolor{blue}{\mathcal{B}})<m$.\\
+  -\textcolor{blue}{\mathcal{B}})<m$.\\}
+
+  \visible<3->{
   Approximate $\textcolor{orange}{\mathcal{U}'}$ by
   $\textcolor{red}{\mathcal{U}} :=\llbracket\sigma_0\rrbracket \cup
   \ldots\cup\llbracket\sigma_n\rrbracket
   \subseteq\textcolor{orange}{\mathcal{U}'}$ so
   $\mu(\textcolor{orange}{\mathcal{U}'} -\textcolor{red}{\mathcal{U}})
-  <m$.\\
+  <m$.\\}
 
+  \visible<4->{
   Observe $\textcolor{red}{\mathcal{U}}$ approximates
   $\textcolor{blue}{\mathcal{B}}$
-  tightly enough that
+  tightly enough that}
+
+  \visible<5->{
   \begin{align*}
     \mu(\{A\in\textcolor{red}{\mathcal{U}}: \Phi^A \subseteq X\;
     \text{infinite}\}) &\geq 3m,\\
     \mu(\{A\in\textcolor{red}{\mathcal{U}}: \Phi^A \not\subseteq X\;
     \text{infinite}\}) &\leq m.
-  \end{align*}
+  \end{align*}}
 
   \begin{center}
     \begin{tikzpicture}
@@ -71,15 +84,19 @@
       \coordinate (u) at (2.7,3);
       \coordinate (up) at (3,3);
 
+      \visible<1->{
       \draw[blue] (b0)--(b1) node[pos=0.5,above] {$4m$};
       \filldraw[draw=blue, fill=blue, opacity=0.5]
-      (r)--(b0)--(b1)--cycle;
+      (r)--(b0)--(b1)--cycle;}
+
+      \visible<2->{
       \draw[orange] (b1)--(up) node[pos=0.5,above] {$<m$};
       \filldraw[fill=orange, opacity=0.2, dotted]
-      (r)--(b0)--(up)--cycle;
+      (r)--(b0)--(up)--cycle;}
 
+      \visible<3->{
       \filldraw[draw=red, fill=red, opacity=0.3, dotted] 
-      (r) to[out=90, in=200] (u) -- (b0) -- cycle; 
+      (r) to[out=90, in=200] (u) -- (b0) -- cycle;}
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -96,6 +113,7 @@
   \[\Phi^{\tau_i}_{|\tau_i|} \in 2^{<\omega}\; \text{with }
   |\Phi^{\tau_i}_{|\tau_i|}|\geq k.\]
 
+  \pause
   \vspace{2em}
   By tight approximation, such nodes exist, and one of them must be an
   initial-segment of a real that computes an infinite subset of $X$. Thus
@@ -108,11 +126,13 @@
     $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL.
   \end{thm}
 
+  \pause
   \vspace{1em}
   \textbf{Pf:} Let $c:\omega\rightarrow\{0,1\}$ be a 2-coloring of the
   graph of a fixed bi-hyperimmune $X$, that is,
   \[c(n)=0 \Leftrightarrow n\in X.\]
-  
+
+  \pause
   From hyperimmunity of $X$ and $\bar{X}$, the class of sets computing an
   infinite subset of $X$ or of $\bar{X}$ is null. Equivalently, the class
   of $c$-homogeneous sets is null. Therefore given arbitrary tree
@@ -124,10 +144,13 @@
   \begin{coro}[RT $\nleq_{\text{soc}}$ WWKL]
     $\text{RT}_2^1$ $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
   \end{coro}
+
+  \pause
   \begin{coro}[WKL $\nleq_{\text{soc}}$ WWKL]
     RT $\leq_{soc}$ WKL, RT $\nleq_{\text{soc}}$ WWKL. $\blacksquare$
   \end{coro}
 
+  \pause
   \vspace{1em}
   \begin{center}
     \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']

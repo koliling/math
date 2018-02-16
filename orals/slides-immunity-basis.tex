@@ -8,6 +8,8 @@
         \Sigma_1^{1}\text{-predicate } P(X,Y),
       \end{cases}
     \end{align*}
+
+    \pause
     $\mathcal{D}$ has a nonempty $\Sigma_1^{1}$-subset
     $\mathcal{X}\subseteq\mathcal{D}$ such that for every
     $X\in\mathcal{X}$, $\mathcal{C}$ does not contain the
@@ -21,6 +23,7 @@
   \[\bigcup_{X\in\mathcal{D}} \{Y:P(X,Y)\}\]
   will be a $\Sigma_1^{1}$-subset of $\mathcal{C}$, $\Rightarrow\Leftarrow$.
 
+  \pause
   \vspace{2em}
   \textbf{Case 2}: For some $X_0\in\mathcal{D}$, $\mathcal{C}$ does not
   contain the $\Sigma_1^{1,X_0}$-set $\{Y:P(X,Y)\}$. Let $Y_0 \in
@@ -43,6 +46,7 @@
     contain any $\Sigma_1^{1,X}$-set.
   \end{thm*}
 
+  \pause
   \vspace{1em}
   \textbf{Pf:} The idea is to iterate the previous lemma across all
   $\Sigma^1_1$-predicates $P_0,P_1,\ldots$ to construct a descending
@@ -63,6 +67,7 @@
   \bigcap_{s\in\omega} \mathcal{X}_s$ works, and
   $\bigcup_{s\in\omega} \tau_s$ witnesses the inclusion.
 
+  \pause
   \vspace{1.5em}
   \textbf{Stage $s+1$}: Write $P_s(X,Y) =(\exists Z)\; R_s'(X,Y,Z)$ where
   $R_s'$ is recursive. Apply previous lemma with $\Sigma^1_1$-set
@@ -91,6 +96,7 @@
     contain any $\Sigma_1^{1,X}$-set.
   \end{coro*}
 
+  \pause
   \vspace{2em}
   \textbf{Pf:} Every step in the previous two proofs can be directly
   relativized.

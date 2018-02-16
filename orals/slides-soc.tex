@@ -3,18 +3,21 @@
     Given $A\subseteq\omega$ and cardinal $\kappa$,
     $[A]^\kappa :=\{B\subseteq A:|B|=\kappa\}$.
   \end{notation*}
+  \pause
 
   \begin{define*}[$c$-homogeneous]
     Given $k$-coloring $c:[\omega]^n\rightarrow k$, $A\subseteq\omega$ is
     \textbf{$c$-homogeneous} if every $n$-tuple over $A$ is given the same
     color by $c$.
   \end{define*}
+  \pause
 
   \begin{thm*}[Ramsey's]
     \textbf{$\text{RT}_k^n$} states that every $k$-coloring
     $c:[\omega]^n\rightarrow k$ has an infinite $c$-homogeneous set.
     \textbf{RT} states $(\forall n)(\forall k)\; \text{RT}_k^n$.
   \end{thm*}
+  \pause
 
   \vspace{0.5em}
   \textbf{RT asserts homogeneity.}
@@ -24,11 +27,13 @@
   \begin{notation*}
     $\llbracket\sigma\rrbracket :=\{X\in2^\omega: \sigma\prec X\}$.
   \end{notation*}
+  \pause
 
   \begin{define*}
     The \textbf{measure} of $\llbracket\sigma\rrbracket$ is
     $\mu(\llbracket\sigma\rrbracket) =2^{-|\sigma|}$.
   \end{define*}
+  \pause
 
   \begin{define*}
     The \textbf{measure} of an open or closed
@@ -37,6 +42,7 @@
     \mu(\llbracket\sigma_n\rrbracket): \mathcal{A}\subseteq
     \bigcup_{n\in\omega} \llbracket\sigma_n\rrbracket\right\}.\]
   \end{define*}
+  \pause
 
   \begin{define*}
     $\mathcal{A}\subseteq2^\omega$ is \textbf{null} iff
@@ -51,15 +57,19 @@
     Martin-Lof test) if for all $n\in\omega$,
     \[\mu\left(\bigcup_{\sigma \in A_n} \llbracket\sigma\rrbracket \right)
     \leq 2^{-n}.\]
+
+    \pause
     A \textbf{real} $X\in2^\omega$ avoids this effectively-null set iff
     $X\not\in \bigcup_{\sigma \in A_n} \llbracket\sigma\rrbracket$ for some
     $n\in\omega$.
   \end{define*}
+  \pause
 
   \begin{define*}
     $X\in2^\omega$ is \textbf{1-random} iff it avoids every
     effectively-null set.
   \end{define*}
+  \pause
 
   \begin{thm*}
     The class 1-randoms has measure 1.
@@ -69,6 +79,7 @@
 \begin{frame}{Class of 1-randoms has measure 1}
   \textbf{Pf:} Enumerate all effectively-null sets
   $\mathcal{A}_0,\mathcal{A}_1,\ldots$.
+  \pause
   \[\begin{array}{c|ccccc}
     \mu &1 &\frac{1}{2} &\frac{1}{4} &\frac{1}{8} &\ldots\\
     \hline
@@ -79,6 +90,7 @@
     \vdots &\ddots &\ddots &\ddots
     &\textcolor{blue}{\ddots} &\textcolor{red}{\ddots}
   \end{array}\]
+  \pause
 
   Consider the effectively-null set $\mathcal{B}$ defined by the diagonals
   above:
@@ -91,6 +103,7 @@
     \textcolor{green}{A_{2,5}} \cup \textcolor{green}{\ldots}\\
     \vdots&
   \end{align*}
+  \pause
   Now $X\in2^\omega$ is 1-random iff it avoids every $\mathcal{A}_i$ iff
   it avoids $\mathcal{B}$. Since $\mathcal{B}$ is effectively-null, the
   class of reals that avoid $\mathcal{B}$ has measure 1. $\square$
@@ -102,20 +115,27 @@
     initial segments.\\
     Denote $[T]:= \{X\in2^\omega: (\forall n)\; [X\restriction n \in T]\}$.
   \end{notation*}
+  \pause
+
   \begin{thm*}[Weak Weak Konig's Lemma]
     Every binary tree $T\subseteq 2^{<\omega}$ with positive measure i.e.
     \[\lim_n \frac{|\{\sigma\in T: |\sigma|=n\}|}{2^n}
     >0\;\;\;\;\;\;\;\;\;\;
     \text{contains a real.}\]
   \end{thm*}
+  \pause
+
   \begin{fact}
     Tree $T\subseteq2^{<\omega}$ has positive measure iff
     $[T]\subseteq2^\omega$ is not null.
   \end{fact}
+  \pause
+
   \begin{coro}
     If a binary tree has positive measure, it contains a 1-random.
   \end{coro}
 
+  \pause
   \textbf{WWKL asserts randomness.}
 \end{frame}
 
@@ -125,15 +145,18 @@
     a real.
   \end{thm*}
 
+  \pause
   \begin{thm*}[Konig's Lemma]
     Every finitely-branching tree $T\subseteq\omega^{<\omega}$ with
     infinite nodes contains a real.
   \end{thm*}
 
+  \pause
   \begin{observe*}[KL $\Rightarrow$ WKL]
     Binary trees are finitely branching. $\blacksquare$
   \end{observe*}
 
+  \pause
   \begin{observe*}[WKL $\Rightarrow$ WWKL]
     Trees with positive measure have infinite nodes. $\blacksquare$
   \end{observe*}
@@ -144,14 +167,17 @@
     Which notion is stronger, homogeneity or randomness?
   \end{goal*}
 
+  \pause
   \vspace{2em}
   Given a class of 1-randoms, is there a $c$-coloring where every
   $c$-homogeneous set computes a 1-random in the class?
 
+  \pause
   \vspace{2em}
   Similarly, given a $c$-coloring, is there a class of 1-randoms where
   every element in the class computes a $c$-homogeneous set?
 
+  \pause
   \vspace{2em}
   Since RT asserts homogeneity and WWKL asserts randomness, we are
   comparing the strengths of RT and WWKL.
@@ -163,6 +189,7 @@
     with a collection of \textbf{solutions} for each instance.
   \end{define*}
 
+  \pause
   \vspace{2em}
   \begin{example*}[RT is a problem]
     Instances are $k$-colorings $c:[\omega]^n\rightarrow k$ for every
@@ -170,6 +197,7 @@
     $c$-homogeneous reals.
   \end{example*}
 
+  \pause
   \vspace{2em}
   \begin{example*}[WWKL is a problem]
     Instances are binary trees with positive measure, and the solutions of
@@ -179,18 +207,21 @@
 
 \begin{frame}{Strongly Omnisciently Computably Reducible
 ($\leq_{\text{soc}}$)}
+  \visible<1->{
   \begin{define*}
     Problem \textbf{P} is \textbf{soc}-reducible to problem \textbf{Q}
     (written \textbf{P} $\leq_{\text{soc}}$ \textbf{Q}) if for every
     \textbf{P}-instance $I_P$, there is a \textbf{Q}-instance
     $I_Q$ such that every solution $S_{Q}$ to $I_Q$ computes a
     solution $S_P$ to $I_P$.
-  \end{define*}
+  \end{define*}}
 
+  \visible<2->{
   \begin{observe*}[$\leq_{\text{soc}}$ is reflexive and transitive]
     From definition. $\blacksquare$
-  \end{observe*}
+  \end{observe*}}
 
+  \visible<1->{
   \begin{center}
     \begin{tikzpicture}[node distance=3cm,auto,thick,>=latex']
       \node (I) {$\forall I_P$};
@@ -202,7 +233,7 @@
       \draw[->] (J) -- (sol-J);
       \draw[->] (sol-J) -- node[above]{computes} (sol-I);
     \end{tikzpicture}
-  \end{center}
+  \end{center}}
 \end{frame}
 
 \begin{frame}{Goal: Homogeneity ``independent from'' Randomness}
@@ -210,11 +241,13 @@
     From definition. $\blacksquare$
   \end{observe*}
 
+  \pause
   \begin{observe*}[KL, RT $\leq_{\text{soc}}$ WKL]
     Pick a solution of the KL/RT problem. Choose WKL instance with only
     one path, and that path encodes the chosen solution. $\blacksquare$
   \end{observe*}
 
+  \pause
   \begin{center}
     \begin{tikzpicture}[node distance=4cm,auto,thick,>=latex']
       \node (KL) {KL$\leftrightarrow$WKL};

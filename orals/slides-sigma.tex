@@ -5,6 +5,7 @@
     there exists an infinite subset $X\subseteq Z$ where one of these
     holds:\\
 
+    \pause
     \vspace{1em}
     \textbf{Positive-solution:} All inf. subsets of $X$ compute (via
     $\Phi$) $\sigma$ \\
@@ -12,6 +13,7 @@
     $\Phi$) $\sigma$
   \end{fact*}
 
+  \pause
   \vspace{1em}
   \textbf{Pf (sketch):} The class of subsets of $Z$ that compute (via
   $\Phi$) $\sigma$ can be coded to form an open set in $2^\omega$, by the
@@ -20,7 +22,6 @@
 \end{frame}
 
 \begin{frame}{Set whose subsets cannot compute reals in $\mathcal{C}$}
-  \newtheorem*{main-lemma*}{Main Lemma}
   \begin{main-lemma*}[Monin, Patey, 2016]
     \begin{align*}
       \text{Given } &\begin{cases}
@@ -30,10 +31,12 @@
         \omega^{<\omega},
       \end{cases}
     \end{align*}
+    \pause
     $Z$ contains an infinite subset $X\subseteq Z$ whose subsets cannot
     compute (via $\Phi$) any real in $\mathcal{C}$.
   \end{main-lemma*}
 
+  \pause
   \vspace{3em}
   \textbf{Pf:} \textbf{Case 0:} There is a node outside
   $\mathcal{C}$ with a positive GP-solution $X$. This $X$ works since
@@ -46,6 +49,8 @@
   GP-solutions, and $\mathcal{C}$ has arbitrarily long nodes with
   positive GP-solutions. By compactness of $\mathcal{C}$, this set of
   nodes contains a real in $\mathcal{C}$. Then
+
+  \pause
   \begin{align*}
     \emptyset\neq\; &\{f:(\forall \sigma\prec f)\; [\sigma\; \text{has
     positive GP-solutions}]\}\\
@@ -69,11 +74,13 @@
   solutions for each $\sigma_i$ under $Z$, giving also only negative
   solutions under $X_i\subseteq Z$.
 
+  \pause
   \vspace{0.5em}
   Take $X=X_m$. Then every subset of $X$ cannot compute (via $\Phi$) any
   node in $\mathcal{C}$ of length exceeding $n$, and in particular,
   cannot compute any real in $\mathcal{C}$. $\blacksquare$
 
+  \pause
   \vspace{0.5em}
   \textbf{Note:} Each $X_{i+1}$ is picked from the $\Sigma^{1,X_i}_1$-set
   \begin{align*}
@@ -98,10 +105,12 @@
     $Z$ contains an infinite subset $X\subseteq Z$ whose subsets cannot
     compute (via $\Phi$) any real in $\mathcal{C}$.\\
     \vspace{0.5em}
+    \pause
     \textcolor{red}{Furthermore, we can choose $X$ such that $\mathcal{C}$
     also contains no nonempty $\Sigma_1^{1,X}$-subset.}
   \end{main-lemma*}
 
+  \pause
   \textbf{Pf:} In the proof of the non-relativized lemma, $Z=X_0
   \supseteq \ldots\supseteq X_m=X$, and $X_{i+1}$ is picked from a
   $\Sigma^{1,X_i}_1$-set. The immunity-basis theorem asserts
@@ -127,10 +136,12 @@
     Furthermore, we can choose $X$ such that $\mathcal{C}$ also contains no
     nonempty $\Sigma_1^{1,X}$-subset.\\
     \vspace{0.5em}
+    \pause
     \textcolor{red}{Finally, given $s\in\omega$, $X$ can be chosen to
     preserve $Z\restriction s$.}
   \end{main-lemma*}
 
+  \pause
   \vspace{1em}
   \textbf{Pf:} The idea is to iterate the relativized lemma across all
   subsets of $Z\restriction s$. Iteration is possible after relativization.
@@ -140,13 +151,15 @@
   List the subsets of $Z\restriction s$ as $d_0,\ldots,d_n$. Iterate the
   relativized lemma across them to get decreasing subsets
   \[Z=X_0 \supseteq X_1 \supseteq X_2 \supseteq\ldots \supseteq X_n.\]
+
+  \pause
   At stage $i$, apply lemma with inputs $X_i$, and $\Phi_i$ defined by
   \[\Phi_i(Y) =\Phi(Y\cup d_i),\]
-
   giving $X_{i+1}\subseteq X_i$ whose subsets cannot compute (via
   $\Phi_i$) reals of $\mathcal{C}$, and where $\mathcal{C}$ contains no
   nonempty $\Sigma_1^{1,X_i}$-set.
 
+  \pause
   \vspace{1em}
   Choose $X=X_n\cup Z\restriction s$. Since $X$ almost equals $X_n$ and
   $\mathcal{C}$ contains no $\Sigma_1^{1,X_n}$-set, $\mathcal{C}$ also
@@ -163,6 +176,7 @@
     $X$ whose subsets cannot compute any real in $\mathcal{C}$.
   \end{main-thm*}
 
+  \pause
   \vspace{1em}
   \textbf{Pf:} The main lemma worked for fixed functional $\Phi$. Iterate
   the lemma across all functionals $\Phi_0,\Phi_1,\ldots$ to construct
