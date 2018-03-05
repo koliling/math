@@ -74,11 +74,39 @@
   \begin{align*}
     \Pi_2\text{-outcome } &\Phi_e^H(x)\uparrow: &(\forall s')(\exists
       s>s')\; [\Phi^{H_s}_{e,s}(x) \neq \Phi^{H_{s'}}_{e,s'}(x)],\\
-    \Sigma_2\text{-outcome } &\Phi_e^H(x)\downarrow: &(\exists s')(\forall
-      s>s')\; [\Phi^{H_s}_{e,s}(x) \downarrow=C(x)].
+    \Sigma_2\text{-outcome } &\Phi_e^H(x)\downarrow \neq C(x): &(\exists
+      s')(\forall s>s')\; [\Phi^{H_s}_{e,s}(x) \downarrow=C(x)].
   \end{align*}
 
-  Fix effective priority of requirements, say $P_0,N_0,P_1,N_1,\ldots$. 
+  Effectively prioritize requirements on tree, say
+  $P_0,N_0,P_1,N_1,\ldots$. A node for $P_e$ has possible outcomes
+  \[\{\infty, \ldots, 2, 1, 0\},\]
+  where $\infty$ means $P_e$ has $\Pi_2$-outcome $|W^{[e]}|=\omega$, and
+  where outcome $n<\omega$ means $P_e$ has $\Sigma_2$-outcome
+  $|W^{[e]}|=n$.\\
+
+  Likewise, a node for $N_e$ has possible outcomes
+  \[\{\uparrow, \downarrow\},\]
+  where $\uparrow$ refers to the $\Pi_2$-outcome where $\Phi_e^H(x)$
+  diverges, while $\downarrow$ refers to the $\Sigma_2$-outcome where
+  $\Phi_e^H(x)$ converges.\\
+
+  Together, the outcomes are
+  \[\Lambda :=\{\infty <\ldots <2<1<0 <\uparrow <\downarrow\},\]
+  ordered such that outcomes on the left (the smaller outcomes) have higher
+  priority than those on the right. The construction will be performed on
+  the tree
+  \[T =\Lambda^{<\omega},\]
+  and each node $\alpha\in T$ has a strategy $\sigma_\alpha$. At stage $s$,
+  we let $\alpha\in \Lambda^s$ be our guess of the outcomes of the first
+  $s$ requirements, and we play strategy $\sigma_\alpha$. Respecting
+  priority of requirements, when playing strategy $\sigma_\alpha$, we must
+  also respect restraints by its initial segments $\alpha'\prec\alpha$.
+  Similarly, respecting the ordering of outcomes, if $\beta<_L\alpha\in
+  \Lambda^n$, then strategy $\sigma_\alpha$ must respect any restraints
+  imposed by $\sigma_\beta$ if $\beta$ was visited in the earlier
+  stages.\\
+
   restraints $r(e,s)$ to protect computation. Some $P_e$'s enumerate
   infinite elements into $A$ and $B$. Need higher priority restraints
   \[r(0,s),\ldots,r(e,s)\]
