@@ -57,9 +57,9 @@ thickness lemma. Thus have positive requirements that tries to enumerate
 elements into $H$:
 \[P_e: H^{[e]} =^* W^{[e]}.\]
 
-For incompleteness, fix a complete c.e. set $C$ (such as $\emptyset'$),
-and construct $H$ to satisfy negative requirements that try to stop
-elements from entering $H$:
+For incompleteness, fix complete c.e. set $C\equiv_T \emptyset'$ that $H$
+is not able to compute. Thus $H$ and $C$ satisfy negative requirements
+that try to stop elements from entering $H$:
 \[N_e: \Phi_e^H \neq C.\]
 
 Observe that this is a $\Pi_2$-construction because the $P_e$'s are
@@ -113,11 +113,12 @@ $f\in\Lambda^\omega$ of the requirements will be exactly the
 ``left-most'' path visited infinitely often, i.e.
 \[f =\liminf_s \alpha_s.\]
 
+\newpage
 \underline{\textbf{Strategy for node $\alpha$ of $P_e$}}
 \begin{enumerate}
   \item Have $x\in W^{[e]}$ not yet in $H^{[e]}$.
-  \item Put $x$ into $H^{[e]}$ if the restraints for nodes shorter and to
-    the left of $\alpha$ are respected.
+  \item Put $x$ into $H^{[e]}$ if the restraints for nodes shorter than and
+    to the left of $\alpha$ are respected.
 \end{enumerate}
 
 \underline{\textbf{Outcome for $\alpha$ of $P_e$}}
@@ -130,7 +131,41 @@ $f\in\Lambda^\omega$ of the requirements will be exactly the
 
 \underline{\textbf{Strategy for node $\alpha$ of $N_e$}}
 \begin{enumerate}
-  \item Let $x$ be the smallest unused witness for $\alpha$.
-  \item Put $x$ into $H^{[e]}$ if the restraints for nodes shorter and to
-    the left of $\alpha$ are respected.
+  \item Let $x$ be the smallest witness at this stage for
+    $\Phi_e^H \neq C$.
+  \item Set restraint to protect the computation up to and including
+    that for $x$.
 \end{enumerate}
+
+\underline{\textbf{Outcome for $\alpha$ of $N_e$}}
+\begin{enumerate}
+  \item If $x$ is a divergent witness, set outcome to $\uparrow$.
+  \item If the use for $\Phi_e^H(x)$ was injured at this stage, set outcome
+    to $\uparrow$.
+  \item Otherwise $\Phi_e^H(x)$ is a convergent witness, so set outcome to
+    $\downarrow$.
+\end{enumerate}
+
+\begin{lemma}
+  The true outcome $f\in\Lambda^\omega$ is $\liminf_s \alpha_s$.
+\end{lemma}
+
+\begin{proof}
+  Induct on initial segment of $f$.
+\end{proof}
+
+\begin{lemma}
+  $P_e$ is satisfied.
+\end{lemma}
+
+\begin{proof}
+  Obviously.
+\end{proof}
+
+\begin{lemma}
+  $N_e$ is satisfied.
+\end{lemma}
+
+\begin{proof}
+  Obviously.
+\end{proof}
