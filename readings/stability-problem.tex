@@ -1,0 +1,66 @@
+\subsection{Stability Problem}
+
+\begin{goal}[Mostowski, 1996]
+  There are many formulae $F$ strongly representing $Z$ (the relation
+  $\text{PROOF}_T(x,y)$) in $T$; Godel's theorem is valid only for one such
+  formulae. It is not immediately obvious why the theorem proved for this
+  formula
+  \[T \not\vdash (\forall x)\; [\neg\text{PROOF}_T(x, \ulcorner
+  0=1\urcorner)]\]
+
+  should have philosophical importance while a similar theorem obtained by
+  a different choice of formula strongly representing $Z$ (could be) simply
+  false.
+\end{goal}
+
+\begin{notation}
+  $T$ is any theory like PA or $Q$.
+\end{notation}
+
+\begin{definition}[CON(T)]
+  This is the formula
+  \[(\exists x)\; [\text{FORM}_T(x) \wedge \neg\text{Pr}_T(x)].\]
+
+  Note that $\text{Pr}_T(x)$ is c.e., and $\text{FORM}_T(x)$ is computable.
+\end{definition}
+
+\begin{definition}[CON'(T)]
+  This is the formula
+  \[(\forall x)\; [\neg\text{PROOF}_T(x, \ulcorner 0=1\urcorner)].\]
+
+  Note that $\text{PROOF}_T$ is computable.
+\end{definition}
+
+\begin{definition}[Strongly Representable]
+  A relation $R$ (on some set $S \subseteq$ universe of $\mathcal{M}$, a
+  model of $T$) is said to be strongly representable with respect to the
+  theory if there is a formula $\phi(\bar{x})$ such that 
+
+  \begin{enumerate}
+    \item $\bar{a}\in R \implies T\vdash \phi(\bar{a})$,
+    \item $\bar{a}\not\in R \implies T\vdash \neg\phi(\bar{a})$.
+  \end{enumerate}
+\end{definition}
+
+\begin{fact}[Strongly Representable]
+  The strongly representable relations are precisely the computable ones
+  (Cooper's chapter on Godel).
+\end{fact}
+
+\begin{definition}[Weakly Representable]
+  A relation $R$ is such that there is a formula $\phi(\bar{x})$ such that
+
+  \begin{enumerate}
+    \item $\bar{a}\in R \implies T\vdash \phi(\bar{a})$,
+    \item $\bar{a}\not\in R \implies T\not\vdash \phi(\bar{a})$.
+  \end{enumerate}
+\end{definition}
+
+\begin{fact}[Weakly Representable]
+  The weakly representable relations are precisely the c.e. relations.
+\end{fact}
+
+\begin{fact}
+  The arithmetic sets are strongly representable over PA.
+\end{fact}
+
