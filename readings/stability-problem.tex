@@ -64,3 +64,84 @@
   The arithmetic sets are strongly representable over PA.
 \end{fact}
 
+\begin{definition}[G2(T)]
+  This is the formula
+  \[T \neg\vdash CON(T).\]
+\end{definition}
+
+\begin{fact}
+  $PA \not\vdash \ulcorner G2(PA)\urcorner$.
+\end{fact}
+
+\begin{fact}
+  $PA + CON(PA) \vdash \ulcorner G2(PA)\urcorner$.
+\end{fact}
+
+\begin{fact}
+  $TA \vdash \ulcorner G2(PA)\urcorner$.
+\end{fact}
+
+\begin{fact}[Godel 1931]
+  For any sentence $W$ such that
+  \[PA+W \vdash \ulcorner G2(PA)\urcorner,\]
+  we have $PA \not\vdash \ulcorner W\urcorner$.
+\end{fact}
+
+\begin{goal}[Conditions $\mathcal{C}$]
+  One must isolate a set of conditions $\mathcal{C}$ (Hilbert-Bernays-Lob
+  permeability conditions) on formulae of $T$ such that every formula of
+  $T$ that can reasonably be taken to express the consistency of $T$
+  satisfies $\mathcal{C}$, and the following definition (GEN-G2) holds:
+\end{goal}
+
+\begin{definition}[GEN-G2]
+  If $T$ is consistent and $CON(T)$ is a formula satisfying conditions
+  $\mathcal{C}$, then $CON(T)$ is not provable in $T$.
+\end{definition}
+
+\begin{goal}[Operator]
+  Can we find an operator satisfying a property like ``$T$ is consistent''?
+  Want set of conditions $\mathcal{C}$ which takes as input $T$, and
+  outputs a sentence like $CON(T)$. Give conditions on the operator.
+\end{goal}
+
+\begin{fact}
+  For any $\phi(x,y)$ that strongly represents the same set as
+  $\text{PROOF}_T(x,y)$,
+  \[T \not\vdash \forall x\; \neg\phi(x, \ulcorner 0=1\urcorner).\]
+\end{fact}
+
+\begin{question}
+  Suppose there exists a TM $\Gamma$ such that $\Gamma(t)$ gives a sentence
+  $\phi^t$ true in $\omega$ iff $T$ is consistent and spits $\Gamma(t)$
+  spit out $\phi^t$ false in $\omega$ otherwise. If there exists such a TM
+  (or OM) spitting out $\phi^t$ true in $\omega$, say $\phi^t$ represents
+  ``$T$ is consistent'', how might one come up with a sentence $W$ which
+
+  \begin{enumerate}
+    \item ``Adequately expresses the consistency of $T$''
+    \item Possible that $P \vdash W$?
+  \end{enumerate}
+
+  If $PA+W \not\vdash G1(PA)$, then Godel's proof of G2 wouldn't hold for
+  this $W$.
+\end{question}
+
+\begin{question}
+  For all sentences $\phi^t$ computably representing ``$T$ is consistent'',
+  is it the case that
+  \begin{enumerate}
+    \item $T+\phi^t \not\vdash G1(T)$?
+    \item Is it every possible that $T \vdash \phi^t$?
+  \end{enumerate}
+\end{question}
+
+\begin{question}
+  Suppose that $T$ is finitely axiomatizable so that $\ulcorner T\urcorner$
+  makes sense. Consider a relation $R(x)$ such that
+  \begin{enumerate}
+    \item $R(x)$ holds if $X=\ulcorner T\urcorner$ such that $T$ is
+      consistent
+    \item $\neg R(x)$ otherwise
+  \end{enumerate}
+\end{question}
